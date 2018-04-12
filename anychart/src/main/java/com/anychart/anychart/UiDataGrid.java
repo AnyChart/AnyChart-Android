@@ -454,6 +454,43 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
     private Fill imageSettings;
+    private DataGridButton getButtons;
+
+    /**
+     * Getter for button settings.
+     */
+    public DataGridButton getButtons() {
+        if (getButtons == null)
+            getButtons = new DataGridButton(jsBase + ".buttons()");
+
+        return getButtons;
+    }
+
+    private String settings;
+
+    /**
+     * Setter for button settings.
+     */
+    public UiDataGrid setButtons(String settings) {
+        if (jsBase == null) {
+            this.settings = settings;
+        } else {
+            this.settings = settings;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".buttons(%s)", wrapQuotes(settings)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".buttons(%s);", wrapQuotes(settings)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private List<DatagridColumn> getColumn = new ArrayList<>();
 
     /**
@@ -466,26 +503,59 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return item;
     }
 
-    private DatagridColumn column;
+    private DatagridColumn settings1;
+    private String settings2;
 
     /**
      * Setter for the first column.
      */
-    public UiDataGrid setColumn(DatagridColumn column) {
+    public UiDataGrid setColumn(DatagridColumn settings1) {
         if (jsBase == null) {
-            this.column = column;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            
+            this.settings1 = settings1;
         } else {
-            this.column = column;
+            this.settings1 = settings1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(column.generateJs());
+            js.append(settings1.generateJs());
             js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".column(%s);",  ((column != null) ? column.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".column(%s);",  ((settings1 != null) ? settings1.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", ((column != null) ? column.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", ((settings1 != null) ? settings1.getJsBase() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the first column.
+     */
+    public UiDataGrid setColumn(String settings2) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            
+            this.settings2 = settings2;
+        } else {
+            this.settings2 = settings2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".column(%s)", wrapQuotes(settings2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", wrapQuotes(settings2)));
                 js.setLength(0);
             }
         }
@@ -493,30 +563,66 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private Number index;
-    private DatagridColumn column1;
+    private DatagridColumn settings3;
+    private String settings4;
 
     /**
      * Setter for the column by index.
      */
-    public UiDataGrid setColumn(Number index, DatagridColumn column1) {
+    public UiDataGrid setColumn(Number index, DatagridColumn settings3) {
         if (jsBase == null) {
             this.index = index;
-            this.column = null;
-            this.column1 = null;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            this.settings4 = null;
             
-            this.column1 = column1;
+            this.settings3 = settings3;
         } else {
             this.index = index;
-            this.column1 = column1;
+            this.settings3 = settings3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(column1.generateJs());
-            js.append(String.format(Locale.US, ".column(%s, %s)", index, ((column1 != null) ? column1.getJsBase() : "null")));
+            js.append(settings3.generateJs());
+            js.append(String.format(Locale.US, ".column(%s, %s)", index, ((settings3 != null) ? settings3.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s);", index, ((column1 != null) ? column1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s);", index, ((settings3 != null) ? settings3.getJsBase() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the column by index.
+     */
+    public UiDataGrid setColumn(Number index, String settings4) {
+        if (jsBase == null) {
+            this.index = index;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            this.settings4 = null;
+            
+            this.settings4 = settings4;
+        } else {
+            this.index = index;
+            this.settings4 = settings4;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".column(%s, %s)", index, wrapQuotes(settings4)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s);", index, wrapQuotes(settings4)));
                 js.setLength(0);
             }
         }
@@ -617,29 +723,43 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private Stroke editStructurePreviewDashStroke;
-    private String editStructurePreviewDashStroke1;
+    private Stroke color1;
+    private String color2;
+    private Number thickness;
+    private String dashpattern;
+    private StrokeLineJoin lineJoin;
+    private StrokeLineCap lineCap;
 
     /**
      * Setter for the structure preview dash stroke in edit mode.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiDataGrid setEditStructurePreviewDashStroke(Stroke editStructurePreviewDashStroke) {
+    public UiDataGrid setEditStructurePreviewDashStroke(Stroke color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
-            this.editStructurePreviewDashStroke = null;
-            this.editStructurePreviewDashStroke1 = null;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
             
-            this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
         } else {
-            this.editStructurePreviewDashStroke = editStructurePreviewDashStroke;
+            this.color1 = color1;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -649,24 +769,66 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     /**
      * Setter for the structure preview dash stroke in edit mode.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiDataGrid setEditStructurePreviewDashStroke(String editStructurePreviewDashStroke1) {
+    public UiDataGrid setEditStructurePreviewDashStroke(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
-            this.editStructurePreviewDashStroke = null;
-            this.editStructurePreviewDashStroke1 = null;
+            this.color = null;
+            this.color1 = null;
+            this.color2 = null;
             
-            this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
         } else {
-            this.editStructurePreviewDashStroke1 = editStructurePreviewDashStroke1;
+            this.color2 = color2;
+            this.thickness = thickness;
+            this.dashpattern = dashpattern;
+            this.lineJoin = lineJoin;
+            this.lineCap = lineCap;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", wrapQuotes(editStructurePreviewDashStroke1)));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", wrapQuotes(editStructurePreviewDashStroke1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String settings5;
+
+    /**
+     * Setter for the structure preview dash stroke in edit mode using an object.
+     */
+    public UiDataGrid setEditStructurePreviewDashStroke(String settings5) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            this.settings4 = null;
+            this.settings5 = null;
+            
+            this.settings5 = settings5;
+        } else {
+            this.settings5 = settings5;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", wrapQuotes(settings5)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s);", wrapQuotes(settings5)));
                 js.setLength(0);
             }
         }
@@ -699,18 +861,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private String color1;
+    private String color3;
     private Number opacity3;
 
     /**
      * Structure preview fill color in edit mode with opacity.
      */
-    public UiDataGrid editStructurePreviewFill(String color1, Number opacity3) {
+    public UiDataGrid editStructurePreviewFill(String color3, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
+            this.color2 = null;
+            this.color3 = null;
             
-            this.color1 = color1;
+            this.color3 = color3;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -718,17 +882,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
             
             this.opacity3 = opacity3;
         } else {
-            this.color1 = color1;
+            this.color3 = color3;
             this.opacity3 = opacity3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s)", wrapQuotes(color1), opacity3));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s)", wrapQuotes(color3), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s);", wrapQuotes(color1), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s);", wrapQuotes(color3), opacity3));
                 js.setLength(0);
             }
         }
@@ -1437,19 +1601,21 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private String color2;
+    private String color4;
     private Number opacity6;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowEvenFill(String color2, Number opacity6) {
+    public UiDataGrid rowEvenFill(String color4, Number opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
             this.color2 = null;
+            this.color3 = null;
+            this.color4 = null;
             
-            this.color2 = color2;
+            this.color4 = color4;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -1460,17 +1626,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
             
             this.opacity6 = opacity6;
         } else {
-            this.color2 = color2;
+            this.color4 = color4;
             this.opacity6 = opacity6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s)", wrapQuotes(color2), opacity6));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s)", wrapQuotes(color4), opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s);", wrapQuotes(color2), opacity6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s);", wrapQuotes(color4), opacity6));
                 js.setLength(0);
             }
         }
@@ -2099,20 +2265,22 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private String color3;
+    private String color5;
     private Number opacity9;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowFill(String color3, Number opacity9) {
+    public UiDataGrid rowFill(String color5, Number opacity9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
             this.color2 = null;
             this.color3 = null;
+            this.color4 = null;
+            this.color5 = null;
             
-            this.color3 = color3;
+            this.color5 = color5;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -2126,17 +2294,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
             
             this.opacity9 = opacity9;
         } else {
-            this.color3 = color3;
+            this.color5 = color5;
             this.opacity9 = opacity9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %s)", wrapQuotes(color3), opacity9));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s)", wrapQuotes(color5), opacity9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s);", wrapQuotes(color3), opacity9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s);", wrapQuotes(color5), opacity9));
                 js.setLength(0);
             }
         }
@@ -2867,21 +3035,23 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private String color4;
+    private String color6;
     private Number opacity12;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowHoverFill(String color4, Number opacity12) {
+    public UiDataGrid rowHoverFill(String color6, Number opacity12) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
             this.color2 = null;
             this.color3 = null;
             this.color4 = null;
+            this.color5 = null;
+            this.color6 = null;
             
-            this.color4 = color4;
+            this.color6 = color6;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -2898,17 +3068,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
             
             this.opacity12 = opacity12;
         } else {
-            this.color4 = color4;
+            this.color6 = color6;
             this.opacity12 = opacity12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s)", wrapQuotes(color4), opacity12));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s)", wrapQuotes(color6), opacity12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s);", wrapQuotes(color4), opacity12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s);", wrapQuotes(color6), opacity12));
                 js.setLength(0);
             }
         }
@@ -3741,13 +3911,13 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private String color5;
+    private String color7;
     private Number opacity15;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowOddFill(String color5, Number opacity15) {
+    public UiDataGrid rowOddFill(String color7, Number opacity15) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3755,8 +3925,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.color3 = null;
             this.color4 = null;
             this.color5 = null;
+            this.color6 = null;
+            this.color7 = null;
             
-            this.color5 = color5;
+            this.color7 = color7;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -3776,17 +3948,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
             
             this.opacity15 = opacity15;
         } else {
-            this.color5 = color5;
+            this.color7 = color7;
             this.opacity15 = opacity15;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s)", wrapQuotes(color5), opacity15));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s)", wrapQuotes(color7), opacity15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s);", wrapQuotes(color5), opacity15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s);", wrapQuotes(color7), opacity15));
                 js.setLength(0);
             }
         }
@@ -4721,13 +4893,13 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private String color6;
+    private String color8;
     private Number opacity18;
 
     /**
      * Fill color in selected mode with opacity. Fill as a string or an object.
      */
-    public UiDataGrid rowSelectedFill(String color6, Number opacity18) {
+    public UiDataGrid rowSelectedFill(String color8, Number opacity18) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4736,8 +4908,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.color4 = null;
             this.color5 = null;
             this.color6 = null;
+            this.color7 = null;
+            this.color8 = null;
             
-            this.color6 = color6;
+            this.color8 = color8;
             this.opacity = null;
             this.opacity1 = null;
             this.opacity2 = null;
@@ -4760,17 +4934,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
             
             this.opacity18 = opacity18;
         } else {
-            this.color6 = color6;
+            this.color8 = color8;
             this.opacity18 = opacity18;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s)", wrapQuotes(color6), opacity18));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s)", wrapQuotes(color8), opacity18));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s);", wrapQuotes(color6), opacity18));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s);", wrapQuotes(color8), opacity18));
                 js.setLength(0);
             }
         }
@@ -5724,6 +5898,13 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
+    private String generateJSgetButtons() {
+        if (getButtons != null) {
+            return getButtons.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetColumn() {
         if (!getColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
@@ -5788,6 +5969,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetButtons());
         jsGetters.append(generateJSgetColumn());
         jsGetters.append(generateJSgetData());
         jsGetters.append(generateJSgetHorizontalScrollBar());

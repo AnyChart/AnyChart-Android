@@ -532,31 +532,105 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
 
-    private Number typeOrUnitOrStart;
-    private String typeOrUnitOrStart1;
-    private StockRangeType typeOrUnitOrStart2;
-    private String typeOrUnitOrStart3;
-    private Interval typeOrUnitOrStart4;
-    private Number endOrCountOrDispatchEvent;
-    private String endOrCountOrDispatchEvent1;
-    private Boolean endOrCountOrDispatchEvent2;
-    private StockRangeAnchor anchorOrDispatchEvent;
-    private String anchorOrDispatchEvent1;
-    private Boolean anchorOrDispatchEvent2;
+    private Number start;
+    private String start1;
+    private Number end;
+    private String end1;
+
+    /**
+     * Setter for the select range using date.<br/>
+Selects passed range and initiates data redraw.
+     */
+    public ChartsStock setSelectRange(Number start, Number end) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s)", start, end));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s)", start, end));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the select range using date.<br/>
+Selects passed range and initiates data redraw.
+     */
+    public ChartsStock setSelectRange(Number start, String end1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s)", start, wrapQuotes(end1)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s)", start, wrapQuotes(end1)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the select range using date.<br/>
+Selects passed range and initiates data redraw.
+     */
+    public ChartsStock setSelectRange(String start1, Number end) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s)", wrapQuotes(start1), end));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s)", wrapQuotes(start1), end));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the select range using date.<br/>
+Selects passed range and initiates data redraw.
+     */
+    public ChartsStock setSelectRange(String start1, String end1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s)", wrapQuotes(start1), wrapQuotes(end1)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s)", wrapQuotes(start1), wrapQuotes(end1)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number start2;
+    private String start3;
+    private Number end2;
+    private String end3;
     private Boolean dispatchEvent;
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using start date and dispatch event.<br/>
+Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(Number start2, Number end2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b)", start2, end2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b)", start2, end2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -564,17 +638,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using start date and dispatch event.<br/>
+Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(Number start2, String end3, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b)", start2, wrapQuotes(end3), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b)", start2, wrapQuotes(end3), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -582,17 +657,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using start date and dispatch event.<br/>
+Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(String start3, Number end2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b)", wrapQuotes(start3), end2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b)", wrapQuotes(start3), end2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -600,17 +676,64 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using start date and dispatch event.<br/>
+Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(String start3, String end3, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b)", wrapQuotes(start3), wrapQuotes(end3), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b)", wrapQuotes(start3), wrapQuotes(end3), dispatchEvent));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private StockRangeType type;
+    private String type1;
+    private Number count;
+    private Boolean dispatchEvent1;
+
+    /**
+     * Setter for the select range using range type.<br/>
+     */
+    public ChartsStock setSelectRange(StockRangeType type, Number count, Boolean dispatchEvent1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b)", ((type != null) ? type.generateJs() : "null"), count, dispatchEvent1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b)", ((type != null) ? type.generateJs() : "null"), count, dispatchEvent1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Interval unit;
+    private String unit1;
+    private Number count1;
+    private StockRangeAnchor anchor;
+    private String anchor1;
+    private Boolean dispatchEvent2;
+
+    /**
+     * Setter for the select range using unit.<br/>
+     */
+    public ChartsStock setSelectRange(Interval unit, StockRangeAnchor anchor, Number count1, Boolean dispatchEvent2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count1, dispatchEvent2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count1, dispatchEvent2));
             js.setLength(0);
         }
         return this;
@@ -618,17 +741,17 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using unit.<br/>
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(Interval unit, String anchor1, Number count1, Boolean dispatchEvent2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count1, dispatchEvent2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count1, dispatchEvent2));
             js.setLength(0);
         }
         return this;
@@ -636,17 +759,17 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using unit.<br/>
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(String unit1, StockRangeAnchor anchor, Number count1, Boolean dispatchEvent2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count1, dispatchEvent2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count1, dispatchEvent2));
             js.setLength(0);
         }
         return this;
@@ -654,539 +777,17 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
 
     /**
-     * Selects passed range and initiates data redraw.
+     * Setter for the select range using unit.<br/>
      */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock setSelectRange(String unit1, String anchor1, Number count1, Boolean dispatchEvent2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(unit1), wrapQuotes(anchor1), count1, dispatchEvent2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Number typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", wrapQuotes(typeOrUnitOrStart1), wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", wrapQuotes(typeOrUnitOrStart1), wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Selects passed range and initiates data redraw.
-     */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(unit1), wrapQuotes(anchor1), count1, dispatchEvent2));
             js.setLength(0);
         }
         return this;

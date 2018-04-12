@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -58,6 +55,106 @@ public class GaugePointersBase extends VisualBase {
             }
         }
         return this;
+    }
+
+    private View getData;
+
+    /**
+     * Getter for pointers data.
+     */
+    public View getData() {
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
+
+        return getData;
+    }
+
+    private List<GaugePointersBase> getData1 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(View data, TextParsingMode csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData1.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData2 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(View data, TextParsingSettings csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData2.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData3 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(Set data, TextParsingMode csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData3.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData4 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(Set data, TextParsingSettings csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData4.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData5 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(String[] data, TextParsingMode csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + arrayToStringWrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData5.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData6 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(String[] data, TextParsingSettings csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + arrayToStringWrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData6.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData7 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(String data, TextParsingMode csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + wrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData7.add(item);
+        return item;
+    }
+
+    private List<GaugePointersBase> getData8 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public GaugePointersBase getData(String data, TextParsingSettings csvSettings) {
+        GaugePointersBase item = new GaugePointersBase(jsBase + ".data(" + wrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData8.add(item);
+        return item;
     }
 
     private Number index1;
@@ -749,6 +846,74 @@ Fill as a string or an object.
         return this;
     }
 
+    private GaugePointersBase getId;
+
+    /**
+     * Getter for the pointer id.
+     */
+    public GaugePointersBase getId() {
+        if (getId == null)
+            getId = new GaugePointersBase(jsBase + ".id()");
+
+        return getId;
+    }
+
+    private String id;
+    private Number id1;
+
+    /**
+     * Setter for the pointer id.
+     */
+    public GaugePointersBase setId(String id) {
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id = id;
+        } else {
+            this.id = id;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the pointer id.
+     */
+    public GaugePointersBase setId(Number id1) {
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id1 = id1;
+        } else {
+            this.id1 = id1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".id(%s)", id1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", id1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
@@ -904,9 +1069,119 @@ Fill as a string or an object.
         return this;
     }
 
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetData1() {
+        if (!getData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData2() {
+        if (!getData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData3() {
+        if (!getData3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData4() {
+        if (!getData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData5() {
+        if (!getData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData6() {
+        if (!getData6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData7() {
+        if (!getData7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData8() {
+        if (!getData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : getData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetId() {
+        if (getId != null) {
+            return getId.generateJs();
         }
         return "";
     }
@@ -918,7 +1193,17 @@ Fill as a string or an object.
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetData());
+        jsGetters.append(generateJSgetData1());
+        jsGetters.append(generateJSgetData2());
+        jsGetters.append(generateJSgetData3());
+        jsGetters.append(generateJSgetData4());
+        jsGetters.append(generateJSgetData5());
+        jsGetters.append(generateJSgetData6());
+        jsGetters.append(generateJSgetData7());
+        jsGetters.append(generateJSgetData8());
         jsGetters.append(generateJSgetHatchFill());
+        jsGetters.append(generateJSgetId());
 
         return jsGetters.toString();
     }

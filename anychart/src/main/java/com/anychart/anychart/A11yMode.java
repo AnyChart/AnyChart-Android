@@ -3,7 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 /**
- * Accessibility mode.
+ * Accessibility modes.
  */
 public enum A11yMode implements JsObject.JsObjectInterface {
     CHART_ELEMENTS("chart-elements"),

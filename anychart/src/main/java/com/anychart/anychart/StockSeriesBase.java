@@ -189,6 +189,74 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
+    private UiLabelsFactory getLabels;
+
+    /**
+     * Getter for chart labels.
+     */
+    public UiLabelsFactory getLabels() {
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
+
+        return getLabels;
+    }
+
+    private String labels;
+    private Boolean labels1;
+
+    /**
+     * Setter for chart labels.<br>
+     */
+    public StockSeriesBase setLabels(String labels) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            
+            this.labels = labels;
+        } else {
+            this.labels = labels;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(labels)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for chart labels.<br>
+     */
+    public StockSeriesBase setLabels(Boolean labels1) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            
+            this.labels1 = labels1;
+        } else {
+            this.labels1 = labels1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".labels(%b)", labels1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private LegendItemSettings getLegendItem;
 
     /**
@@ -297,6 +365,74 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+
+    private String settings;
+    private Boolean settings1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public StockSeriesBase setMaxLabels(String settings) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            
+            this.settings = settings;
+        } else {
+            this.settings = settings;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxLabels(%s);", wrapQuotes(settings)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public StockSeriesBase setMaxLabels(Boolean settings1) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            
+            this.settings1 = settings1;
+        } else {
+            this.settings1 = settings1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".maxLabels(%b)", settings1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxLabels(%b);", settings1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Number maxPointWidth;
     private String maxPointWidth1;
 
@@ -347,6 +483,78 @@ public class StockSeriesBase extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(maxPointWidth1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+
+    private String settings2;
+    private Boolean settings3;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public StockSeriesBase setMinLabels(String settings2) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings2 = settings2;
+        } else {
+            this.settings2 = settings2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minLabels(%s);", wrapQuotes(settings2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public StockSeriesBase setMinLabels(Boolean settings3) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings3 = settings3;
+        } else {
+            this.settings3 = settings3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".minLabels(%b)", settings3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minLabels(%b);", settings3));
                 js.setLength(0);
             }
         }
@@ -775,6 +983,13 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         return "";
     }
 
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetLegendItem() {
         if (getLegendItem != null) {
             return getLegendItem.generateJs();
@@ -785,6 +1000,20 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
         }
         return "";
     }
@@ -826,8 +1055,11 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     
         jsGetters.append(generateJSgetData());
         jsGetters.append(generateJSgetHovered());
+        jsGetters.append(generateJSgetLabels());
         jsGetters.append(generateJSgetLegendItem());
         jsGetters.append(generateJSgetMarkers());
+        jsGetters.append(generateJSgetMaxLabels());
+        jsGetters.append(generateJSgetMinLabels());
         jsGetters.append(generateJSgetNormal());
         jsGetters.append(generateJSgetRendering());
         jsGetters.append(generateJSgetTooltip());

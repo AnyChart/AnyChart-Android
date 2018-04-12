@@ -1,15 +1,13 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
  * DMI indicator class.
+{docs:Stock_Charts/Technical_Indicators/Directional_Movement_Index_(DMI)}Learn more about the DMI indicator.{docs}
  */
 public class DMI extends JsObject {
 

@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -174,25 +169,33 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
-    private Fill fill;
+    private Fill settings;
+    private GradientKey[] settings1;
+    private String[] settings2;
+    private String settings3;
 
     /**
      * Setter for the range fill.
      */
-    public CircularRange setFill(Fill fill) {
+    public CircularRange setFill(Fill settings) {
         if (jsBase == null) {
-            this.fill = fill;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings = settings;
         } else {
-            this.fill = fill;
+            this.settings = settings;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".fill(%s)", ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -215,6 +218,64 @@ Round off the ends of circular ranges to the specified radius.
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(json)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the range fill.
+     */
+    public CircularRange setFill(GradientKey[] settings1) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings1 = settings1;
+        } else {
+            this.settings1 = settings1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fill(%s)", arrayToString(settings1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", arrayToString(settings1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the range fill.
+     */
+    public CircularRange setFill(String[] settings2) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings2 = settings2;
+        } else {
+            this.settings2 = settings2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fill(%s)", arrayToStringWrapQuotes(settings2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(settings2)));
                 js.setLength(0);
             }
         }

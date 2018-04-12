@@ -1319,7 +1319,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
 
     /**
      * Getter for the chart margin.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public Margin getMargin() {
         if (getMargin == null)
@@ -1597,7 +1597,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
 
     /**
      * Getter for the chart padding.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)
@@ -4372,29 +4372,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return getTooltip;
     }
 
-    private String tooltip;
-    private Boolean tooltip1;
+    private String tooltipSettings;
+    private Boolean tooltipSettings1;
 
     /**
      * Setter for the chart tooltip.
      */
-    public Chart setTooltip(String tooltip) {
+    public Chart setTooltip(String tooltipSettings) {
         if (jsBase == null) {
-            this.tooltip = null;
-            this.tooltip1 = null;
+            this.tooltipSettings = null;
+            this.tooltipSettings1 = null;
             
-            this.tooltip = tooltip;
+            this.tooltipSettings = tooltipSettings;
         } else {
-            this.tooltip = tooltip;
+            this.tooltipSettings = tooltipSettings;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltipSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltip)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltipSettings)));
                 js.setLength(0);
             }
         }
@@ -4405,23 +4405,23 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart tooltip.
      */
-    public Chart setTooltip(Boolean tooltip1) {
+    public Chart setTooltip(Boolean tooltipSettings1) {
         if (jsBase == null) {
-            this.tooltip = null;
-            this.tooltip1 = null;
+            this.tooltipSettings = null;
+            this.tooltipSettings1 = null;
             
-            this.tooltip1 = tooltip1;
+            this.tooltipSettings1 = tooltipSettings1;
         } else {
-            this.tooltip1 = tooltip1;
+            this.tooltipSettings1 = tooltipSettings1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
+            js.append(String.format(Locale.US, ".tooltip(%b)", tooltipSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltipSettings1));
                 js.setLength(0);
             }
         }

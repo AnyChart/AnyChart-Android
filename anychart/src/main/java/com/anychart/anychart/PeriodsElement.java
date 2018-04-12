@@ -1,32 +1,23 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
-
 // class
 /**
- * Class implements all the work with consistency states.
-invalidate() and markConsistent() are used to change states.
-isConsistent() and hasInvalidationState() are used to check states.
+ * Periods element settings.
  */
-public class CoreTimeline extends JsObject {
+public class PeriodsElement extends TimelineElement {
 
-    public CoreTimeline() {
+    public PeriodsElement() {
         js.setLength(0);
-        js.append("var coreTimeline").append(++variableIndex).append(" = anychart.core.base();");
-        jsBase = "coreTimeline" + variableIndex;
+        js.append("var periodsElement").append(++variableIndex).append(" = anychart.core.gantt.elements.periodsElement();");
+        jsBase = "periodsElement" + variableIndex;
     }
 
-    protected CoreTimeline(String jsBase) {
+    protected PeriodsElement(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
     }
 
-    protected CoreTimeline(StringBuilder js, String jsBase, boolean isChain) {
+    protected PeriodsElement(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;

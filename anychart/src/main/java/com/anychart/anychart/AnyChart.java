@@ -166,6 +166,10 @@ public class AnyChart {
         return new ChartsStock("anychart.stock");
     }
 
+    public static Sunburst sunburst() {
+        return new Sunburst("anychart.sunburst");
+    }
+
     public static TagCloud tagCloud() {
         return new TagCloud("anychart.tagCloud");
     }

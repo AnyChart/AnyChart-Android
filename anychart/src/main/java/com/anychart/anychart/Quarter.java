@@ -354,7 +354,7 @@ public class Quarter extends UiBackground {
 
     /**
      * Getter for the quarter margin.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public Margin getMargin() {
         if (getMargin == null)
@@ -594,7 +594,7 @@ public class Quarter extends UiBackground {
 
     /**
      * Getter for the quarter padding.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)

@@ -1,15 +1,13 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
- * Series renderer settings class.
+ * Custom drawing series settings.<br/>
+RenderingSettings class is a set of methods for overriding series drawing method.<br/>
+The class allows overriding standard drawing functions.<br/>
+To get a rendering object, use the rendering() method of the series which drawing you want to override.
  */
 public class RenderingSettings extends CoreBase {
 
@@ -79,31 +77,6 @@ public class RenderingSettings extends CoreBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".needsZero(%b);", needsZero));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private ShapeConfig[] shapes;
-
-    /**
-     * Setter for the shapes settings.
-     */
-    public RenderingSettings setShapes(ShapeConfig[] shapes) {
-        if (jsBase == null) {
-            this.shapes = shapes;
-        } else {
-            this.shapes = shapes;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".shapes(%s)", arrayToString(shapes)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shapes(%s);", arrayToString(shapes)));
                 js.setLength(0);
             }
         }

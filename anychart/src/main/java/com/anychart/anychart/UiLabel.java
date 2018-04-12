@@ -438,7 +438,7 @@ public class UiLabel extends CoreText {
 
     /**
      * Setter for label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public UiLabel setOffsetX(Number offsetX) {
@@ -467,7 +467,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public UiLabel setOffsetX(String offsetX1) {
@@ -498,7 +498,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for label offsetY settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public UiLabel setOffsetY(Number offsetY) {
@@ -527,7 +527,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for label offsetY settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public UiLabel setOffsetY(String offsetY1) {

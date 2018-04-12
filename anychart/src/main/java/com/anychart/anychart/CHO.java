@@ -1,15 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
  * CHO indicator class.
+{docs:Stock_Charts/Technical_Indicators/Chaikin_Oscillator_(CHO)}Learn more about the CHO indicator.{docs}
  */
 public class CHO extends JsObject {
 

@@ -36,6 +36,7 @@ public class TableSelectable extends JsObject {
 
     
     private Number key;
+    private String key1;
     private TableSearchMode mode;
     private String mode1;
     private List<TableselectableRowProxy> setSearch = new ArrayList<>();
@@ -45,6 +46,9 @@ public class TableSelectable extends JsObject {
      */
     public TableselectableRowProxy search(Number key, TableSearchMode mode) {
         if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
             this.key = key;
             this.mode = null;
             this.mode1 = null;
@@ -88,6 +92,9 @@ public class TableSelectable extends JsObject {
      */
     public TableselectableRowProxy search(Number key, String mode1) {
         if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
             this.key = key;
             this.mode = null;
             this.mode1 = null;
@@ -117,6 +124,98 @@ public class TableSelectable extends JsObject {
         if (!setSearch1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (TableselectableRowProxy item : setSearch1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TableselectableRowProxy> setSearch2 = new ArrayList<>();
+
+    /**
+     * Searches asked key with asked mode and return an object that allows values fetching.
+     */
+    public TableselectableRowProxy search(String key1, TableSearchMode mode) {
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
+            this.key1 = key1;
+            this.mode = null;
+            this.mode1 = null;
+            
+            this.mode = mode;
+        } else {
+            this.key1 = key1;
+            this.mode = mode;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setSearch2" + ++variableIndex + " = " + jsBase + ".search(%s, %s);", wrapQuotes(key1), ((mode != null) ? mode.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s);", wrapQuotes(key1), ((mode != null) ? mode.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        TableselectableRowProxy item = new TableselectableRowProxy("setSearch2" + variableIndex);
+        setSearch2.add(item);
+        return item;
+    }
+    private String generateJSsetSearch2() {
+        if (!setSearch2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableselectableRowProxy item : setSearch2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<TableselectableRowProxy> setSearch3 = new ArrayList<>();
+
+    /**
+     * Searches asked key with asked mode and return an object that allows values fetching.
+     */
+    public TableselectableRowProxy search(String key1, String mode1) {
+        if (jsBase == null) {
+            this.key = null;
+            this.key1 = null;
+            
+            this.key1 = key1;
+            this.mode = null;
+            this.mode1 = null;
+            
+            this.mode1 = mode1;
+        } else {
+            this.key1 = key1;
+            this.mode1 = mode1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setSearch3" + ++variableIndex + " = " + jsBase + ".search(%s, %s);", wrapQuotes(key1), wrapQuotes(mode1)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s);", wrapQuotes(key1), wrapQuotes(mode1)));
+                js.setLength(0);
+            }
+        }
+        TableselectableRowProxy item = new TableselectableRowProxy("setSearch3" + variableIndex);
+        setSearch3.add(item);
+        return item;
+    }
+    private String generateJSsetSearch3() {
+        if (!setSearch3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableselectableRowProxy item : setSearch3) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -536,6 +635,8 @@ public class TableSelectable extends JsObject {
 
         js.append(generateJSsetSearch());
         js.append(generateJSsetSearch1());
+        js.append(generateJSsetSearch2());
+        js.append(generateJSsetSearch3());
         
 
         String result = js.toString();

@@ -304,7 +304,7 @@ public class UiLabelsFactory extends CoreText {
 
     /**
      * Setter for the labels text formatter.<br/>
-{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+{docs:Common_Settings/Text_Formatters}Learn more about using the format() method.{docs}
      */
     public UiLabelsFactory setFormat(String token) {
         if (jsBase == null) {

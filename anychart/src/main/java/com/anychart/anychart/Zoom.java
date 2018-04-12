@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -38,7 +33,7 @@ public class Zoom extends JsObject {
     private Element decorate;
 
     /**
-     * Decorates the container for the zoom controller.
+     * Adds a Zoom Controller to a specified DOM container.
      */
     public void decorate(Element decorate) {
         if (jsBase == null) {

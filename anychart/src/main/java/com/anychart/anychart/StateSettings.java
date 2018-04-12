@@ -10,8 +10,13 @@ import android.text.TextUtils;
 // class
 /**
  * The StateSettings class contains methods for configuring the states of different charts and their parts.<br/>
-States are used for series, charts, annotations, intersections in Venn Diagram, pointers in Linear Gauge, tasks,
-and milestones in PERT Chart, activities in Resource Chart.<br/> See examples below:
+States are used for {api:anychart.core.SeriesBase}series{api}, {api:anychart.charts}charts{api},
+{api:anychart.core.annotations}annotations{api}, {api:anychart.core.venn.Intersections}intersections{api} in
+{api:anychart.charts.Venn}Venn Diagram{api}, {api:anychart.core.linearGauge.pointers}pointers{api} in
+{api:anychart.charts.LinearGauge}Linear Gauge{api}, {api:anychart.core.pert.Tasks}tasks{api},
+and {api:anychart.core.pert.Milestones}milestones{api} in {api:anychart.charts.Pert}PERT Chart{api},
+{api:anychart.core.resource.Activities}activities{api} in {api:anychart.charts.Resource}Resource Chart{api}.<br/>
+See examples below:
  */
 public class StateSettings extends CoreBase {
 
@@ -37,6 +42,100 @@ public class StateSettings extends CoreBase {
     }
 
     
+    private Boolean adjustOrAdjustByWidth;
+    private Boolean[] adjustOrAdjustByWidth1;
+    private String adjustOrAdjustByWidth2;
+    private Boolean adjustByHeight;
+
+    /**
+     * Setter for the adjusting font size.
+     */
+    public StateSettings setAdjustFontSize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
+        if (jsBase == null) {
+            this.adjustOrAdjustByWidth = null;
+            this.adjustOrAdjustByWidth1 = null;
+            this.adjustOrAdjustByWidth2 = null;
+            
+            this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
+            this.adjustByHeight = adjustByHeight;
+        } else {
+            this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
+            this.adjustByHeight = adjustByHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustOrAdjustByWidth, adjustByHeight));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the adjusting font size.
+     */
+    public StateSettings setAdjustFontSize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
+        if (jsBase == null) {
+            this.adjustOrAdjustByWidth = null;
+            this.adjustOrAdjustByWidth1 = null;
+            this.adjustOrAdjustByWidth2 = null;
+            
+            this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
+            this.adjustByHeight = adjustByHeight;
+        } else {
+            this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
+            this.adjustByHeight = adjustByHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the adjusting font size.
+     */
+    public StateSettings setAdjustFontSize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
+        if (jsBase == null) {
+            this.adjustOrAdjustByWidth = null;
+            this.adjustOrAdjustByWidth1 = null;
+            this.adjustOrAdjustByWidth2 = null;
+            
+            this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
+            this.adjustByHeight = adjustByHeight;
+        } else {
+            this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
+            this.adjustByHeight = adjustByHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private UtilsConnector getConnector;
 
     /**
@@ -3868,6 +3967,62 @@ Double value from 0 to 1.
         return this;
     }
 
+    private String height;
+    private Number height1;
+
+    /**
+     * Setter for the markers height.
+     */
+    public StateSettings setHeight(String height) {
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            
+            this.height = height;
+        } else {
+            this.height = height;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the markers height.
+     */
+    public StateSettings setHeight(Number height1) {
+        if (jsBase == null) {
+            this.height = null;
+            this.height1 = null;
+            
+            this.height1 = height1;
+        } else {
+            this.height1 = height1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".height(%s)", height1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Stroke color10;
     private ColoredFill color11;
     private String color12;
@@ -4567,6 +4722,74 @@ Double value from 0 to 1.
         return this;
     }
 
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+
+    private String settings;
+    private Boolean settings1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public StateSettings setMaxLabels(String settings) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            
+            this.settings = settings;
+        } else {
+            this.settings = settings;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxLabels(%s);", wrapQuotes(settings)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public StateSettings setMaxLabels(Boolean settings1) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            
+            this.settings1 = settings1;
+        } else {
+            this.settings1 = settings1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".maxLabels(%b)", settings1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxLabels(%b);", settings1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Stroke color16;
     private ColoredFill color17;
     private String color18;
@@ -4820,6 +5043,78 @@ Double value from 0 to 1.
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".medianStroke(%s, %s, %s, %s, %s);", wrapQuotes(color18), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+
+    private String settings2;
+    private Boolean settings3;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public StateSettings setMinLabels(String settings2) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings2 = settings2;
+        } else {
+            this.settings2 = settings2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minLabels(%s);", wrapQuotes(settings2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public StateSettings setMinLabels(Boolean settings3) {
+        if (jsBase == null) {
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
+            this.settings3 = null;
+            
+            this.settings3 = settings3;
+        } else {
+            this.settings3 = settings3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".minLabels(%b)", settings3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minLabels(%b);", settings3));
                 js.setLength(0);
             }
         }
@@ -9911,6 +10206,62 @@ Double value from 0 to 1.
         return this;
     }
 
+    private String width;
+    private Number width1;
+
+    /**
+     * Setter for the markers width.
+     */
+    public StateSettings setWidth(String width) {
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            
+            this.width = width;
+        } else {
+            this.width = width;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the markers width.
+     */
+    public StateSettings setWidth(Number width1) {
+        if (jsBase == null) {
+            this.width = null;
+            this.width1 = null;
+            
+            this.width1 = width1;
+        } else {
+            this.width1 = width1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".width(%s)", width1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String generateJSgetConnector() {
         if (getConnector != null) {
             return getConnector.generateJs();
@@ -9970,6 +10321,20 @@ Double value from 0 to 1.
     private String generateJSgetMarkers() {
         if (getMarkers != null) {
             return getMarkers.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
         }
         return "";
     }
@@ -10039,6 +10404,8 @@ Double value from 0 to 1.
         jsGetters.append(generateJSgetLabels());
         jsGetters.append(generateJSgetLowerLabels());
         jsGetters.append(generateJSgetMarkers());
+        jsGetters.append(generateJSgetMaxLabels());
+        jsGetters.append(generateJSgetMinLabels());
         jsGetters.append(generateJSgetNegativeHatchFill());
         jsGetters.append(generateJSgetNormal());
         jsGetters.append(generateJSgetOutlierMarkers());

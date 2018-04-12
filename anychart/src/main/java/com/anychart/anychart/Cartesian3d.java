@@ -201,6 +201,72 @@ public class Cartesian3d extends SeparateChart {
         return "";
     }
 
+    private Number barGroupsPadding;
+    private List<Cartesian> setBarGroupsPadding = new ArrayList<>();
+
+    /**
+     * Setter for the space between bar groups on the ordinal scale by ratio of bars width.<br/>
+See illustration at {@link anychart.charts.Cartesian#barsPadding}.
+     */
+    public Cartesian setBarGroupsPadding(Number barGroupsPadding) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBarGroupsPadding" + ++variableIndex + " = " + jsBase + ".barGroupsPadding(%s);", barGroupsPadding));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".barGroupsPadding(%s)", barGroupsPadding));
+            js.setLength(0);
+        }
+        Cartesian item = new Cartesian("setBarGroupsPadding" + variableIndex);
+        setBarGroupsPadding.add(item);
+        return item;
+    }
+    private String generateJSsetBarGroupsPadding() {
+        if (!setBarGroupsPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian item : setBarGroupsPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Number barsPadding;
+    private List<Cartesian> setBarsPadding = new ArrayList<>();
+
+    /**
+     * Setter for the space between bars on the ordinal scale by ratio of bars width.</br>
+<img src='https://api.anychart.com/si/8.2.0/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
+     */
+    public Cartesian setBarsPadding(Number barsPadding) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setBarsPadding" + ++variableIndex + " = " + jsBase + ".barsPadding(%s);", barsPadding));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".barsPadding(%s)", barsPadding));
+            js.setLength(0);
+        }
+        Cartesian item = new Cartesian("setBarsPadding" + variableIndex);
+        setBarsPadding.add(item);
+        return item;
+    }
+    private String generateJSsetBarsPadding() {
+        if (!setBarsPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian item : setBarsPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<Column3d> setColumn = new ArrayList<>();
 
     /**
@@ -273,6 +339,56 @@ public class Cartesian3d extends SeparateChart {
             return resultJs.toString();
         }
         return "";
+    }
+
+
+    private Crosshair getCrosshair;
+
+    /**
+     * Getter for the crosshair settings.
+     */
+    public Crosshair getCrosshair() {
+        if (getCrosshair == null)
+            getCrosshair = new Crosshair(jsBase + ".crosshair()");
+
+        return getCrosshair;
+    }
+    private String crosshair;
+    private Boolean crosshair1;
+
+    /**
+     * Setter for the crosshair settings.
+     */
+    public Cartesian3d setCrosshair(String crosshair) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the crosshair settings.
+     */
+    public Cartesian3d setCrosshair(Boolean crosshair1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
+            js.setLength(0);
+        }
+        return this;
     }
 
 
@@ -564,6 +680,56 @@ public class Cartesian3d extends SeparateChart {
         return "";
     }
 
+
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+    private String settings;
+    private Boolean settings1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Cartesian3d setMaxLabels(String settings) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Cartesian3d setMaxLabels(Boolean settings1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%b)", settings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", settings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private Number maxPointWidth;
     private String maxPointWidth1;
 
@@ -597,6 +763,56 @@ public class Cartesian3d extends SeparateChart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+    private String settings2;
+    private Boolean settings3;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Cartesian3d setMinLabels(String settings2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Cartesian3d setMinLabels(Boolean settings3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%b)", settings3));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", settings3));
             js.setLength(0);
         }
         return this;
@@ -1581,6 +1797,13 @@ public class Cartesian3d extends SeparateChart {
         return this;
     }
 
+    private String generateJSgetCrosshair() {
+        if (getCrosshair != null) {
+            return getCrosshair.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetData() {
         if (getData != null) {
             return getData.generateJs();
@@ -1598,6 +1821,20 @@ public class Cartesian3d extends SeparateChart {
     private String generateJSgetLabels() {
         if (getLabels != null) {
             return getLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
         }
         return "";
     }
@@ -1751,9 +1988,12 @@ public class Cartesian3d extends SeparateChart {
             js.append(";");
             isChain = false;
         }
+        js.append(generateJSgetCrosshair());
         js.append(generateJSgetData());
         js.append(generateJSgetHovered());
         js.append(generateJSgetLabels());
+        js.append(generateJSgetMaxLabels());
+        js.append(generateJSgetMinLabels());
         js.append(generateJSgetNormal());
         js.append(generateJSgetSelected());
         js.append(generateJSgetXAxis());
@@ -1774,6 +2014,8 @@ public class Cartesian3d extends SeparateChart {
         js.append(generateJSsetArea1());
         js.append(generateJSsetBar());
         js.append(generateJSsetBar1());
+        js.append(generateJSsetBarGroupsPadding());
+        js.append(generateJSsetBarsPadding());
         js.append(generateJSsetColumn());
         js.append(generateJSsetColumn1());
         js.append(generateJSsetLine());

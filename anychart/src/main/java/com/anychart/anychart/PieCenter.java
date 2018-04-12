@@ -1,30 +1,27 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
  * Pie center class.
  */
-public class Center extends CoreBase {
+public class PieCenter extends CoreBase {
 
-    public Center() {
+    public PieCenter() {
         js.setLength(0);
-        js.append("var center").append(++variableIndex).append(" = anychart.core.pie.center();");
-        jsBase = "center" + variableIndex;
+        js.append("var pieCenter").append(++variableIndex).append(" = anychart.core.pie.center();");
+        jsBase = "pieCenter" + variableIndex;
     }
 
-    protected Center(String jsBase) {
+    protected PieCenter(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
     }
 
-    protected Center(StringBuilder js, String jsBase, boolean isChain) {
+    protected PieCenter(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
@@ -54,7 +51,7 @@ public class Center extends CoreBase {
     /**
      * Setter for the center content.
      */
-    public Center setContent(Element contentSettings) {
+    public PieCenter setContent(Element contentSettings) {
         if (jsBase == null) {
             this.contentSettings = null;
             this.contentSettings1 = null;
@@ -83,7 +80,7 @@ public class Center extends CoreBase {
     /**
      * Setter for the center content.
      */
-    public Center setContent(VisualBase contentSettings1) {
+    public PieCenter setContent(VisualBase contentSettings1) {
         if (jsBase == null) {
             this.contentSettings = null;
             this.contentSettings1 = null;
@@ -112,7 +109,7 @@ public class Center extends CoreBase {
     /**
      * Setter for the center content.
      */
-    public Center setContent(String contentSettings2) {
+    public PieCenter setContent(String contentSettings2) {
         if (jsBase == null) {
             this.contentSettings = null;
             this.contentSettings1 = null;
@@ -143,7 +140,7 @@ public class Center extends CoreBase {
      * Setter for fill settings using an array and a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center setFill(Fill fill) {
+    public PieCenter setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = null;
             this.fill1 = null;
@@ -170,7 +167,7 @@ public class Center extends CoreBase {
     /**
      * 
      */
-    public Center setFill(String json) {
+    public PieCenter setFill(String json) {
         if (jsBase == null) {
         } else {
             if (!isChain) {
@@ -194,7 +191,7 @@ public class Center extends CoreBase {
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public Center fill(String color, Number opacity) {
+    public PieCenter fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -228,7 +225,7 @@ public class Center extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
+    public PieCenter fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -269,7 +266,7 @@ public class Center extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
+    public PieCenter fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -310,7 +307,7 @@ public class Center extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
+    public PieCenter fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -351,7 +348,7 @@ public class Center extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
+    public PieCenter fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -392,7 +389,7 @@ public class Center extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
+    public PieCenter fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -433,7 +430,7 @@ public class Center extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(String[] keys1, Number angle, Number opacity1, String mode2) {
+    public PieCenter fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -482,7 +479,7 @@ public class Center extends CoreBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
+    public PieCenter fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -533,7 +530,7 @@ public class Center extends CoreBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Center fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
+    public PieCenter fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

@@ -20,7 +20,7 @@ See also:<br/>
 {@link anychart.graphics#layer}<br/>
 Elements indices (and layers indices within a stage) set Z-order.<br/>
 The "higher" an element is, the greater its index.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.graphics.vector.Layer.png' width='229' height='138'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.graphics.vector.Layer.png' width='229' height='138'/>
  */
 public class Layer extends Element {
 
@@ -84,7 +84,7 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
 Left image shows sequential calls of {@link anychart.graphics.vector.Layer#addChild}<br/>
 Right image does the same, but star is added to 0 index.<br/>
 <code>.addChildAt(star5, 0);</code> (see code of this image in samples).<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
      */
     public Layer addChildAt(Element element1, Number index) {
         if (jsBase == null) {

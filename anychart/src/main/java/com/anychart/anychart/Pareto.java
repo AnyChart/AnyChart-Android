@@ -146,7 +146,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
     /**
      * Setter for space between bars on the ordinal scale by ratio of bars width.</br>
-<img src='https://api.anychart.com/si/8.1.0/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
      */
     public Pareto setBarsPadding(Number barsPadding) {
         if (!isChain) {
@@ -738,6 +738,56 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
+
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+    private String maxLabels;
+    private Boolean maxLabels1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Pareto setMaxLabels(String maxLabels) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(maxLabels)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(maxLabels)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Pareto setMaxLabels(Boolean maxLabels1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private Number maxPointWidth;
     private String maxPointWidth1;
 
@@ -809,6 +859,56 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+    private String minLabels;
+    private Boolean minLabels1;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Pareto setMinLabels(String minLabels) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(minLabels)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(minLabels)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Pareto setMinLabels(Boolean minLabels1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%b)", minLabels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", minLabels1));
             js.setLength(0);
         }
         return this;
@@ -2279,6 +2379,20 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return "";
     }
 
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
@@ -2500,6 +2614,8 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(generateJSgetLineMarker());
         js.append(generateJSgetLineMarker1());
         js.append(generateJSgetMarkerPalette());
+        js.append(generateJSgetMaxLabels());
+        js.append(generateJSgetMinLabels());
         js.append(generateJSgetNormal());
         js.append(generateJSgetPalette());
         js.append(generateJSgetRangeMarker());

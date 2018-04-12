@@ -3,7 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 /**
- * Gantt reserved names of field in data items.
+ * Gantt reserved names of the field in data items.
  */
 public enum GanttDataFields implements JsObject.JsObjectInterface {
     ACTUAL("actual"),

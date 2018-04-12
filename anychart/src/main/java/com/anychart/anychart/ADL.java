@@ -1,15 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
  * Accumulation Distribution Line (ADL) indicator class.
+{docs:Stock_Charts/Technical_Indicators/Accumulation_Distribution_Line_(ADL)}Learn more about the ADL indicator.{docs}
  */
 public class ADL extends JsObject {
 

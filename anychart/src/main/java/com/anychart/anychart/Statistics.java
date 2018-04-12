@@ -55,6 +55,7 @@ public enum Statistics implements JsObject.JsObjectInterface {
     DATA_PLOT_Y_SUM("dataPlotYSum"),
     HIGH("high"),
     INDEX("index"),
+    LEVELS("levels"),
     LOW("low"),
     MAX("max"),
     MIN("min"),

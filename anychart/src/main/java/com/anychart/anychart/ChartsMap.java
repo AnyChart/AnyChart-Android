@@ -544,41 +544,43 @@ public class ChartsMap extends SeparateChart {
         return this;
     }
 
-    private String crs;
-    private MapProjections crs1;
-    private String crs2;
+    private String Projection;
+    private MapProjections Projection1;
+    private String Projection2;
 
     /**
-     * Sets the crs (coordinate system) to map.
+     * Setter for the the crs (coordinate system) to map.
      */
-    public void setCrs(String crs) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsMap setCrs(String Projection) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".crs(%s);", wrapQuotes(crs)));
+        js.append(String.format(Locale.US, ".crs(%s)", wrapQuotes(Projection)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".crs(%s)", wrapQuotes(crs)));
+            onChangeListener.onChange(String.format(Locale.US, ".crs(%s)", wrapQuotes(Projection)));
             js.setLength(0);
         }
+        return this;
     }
 
 
     /**
-     * Sets the crs (coordinate system) to map.
+     * Setter for the the crs (coordinate system) to map.
      */
-    public void setCrs(MapProjections crs1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsMap setCrs(MapProjections Projection1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".crs(%s);", ((crs1 != null) ? crs1.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".crs(%s)", ((Projection1 != null) ? Projection1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".crs(%s)", ((crs1 != null) ? crs1.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".crs(%s)", ((Projection1 != null) ? Projection1.generateJs() : "null")));
             js.setLength(0);
         }
+        return this;
     }
 
 
@@ -710,21 +712,21 @@ Set the transitions to drill down.
     }
 
     private String id2;
-    private String crs3;
+    private String crs;
 
     /**
      * Setter for the crs of the feature.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChartsMap setFeatureCrs(String id2, String crs3) {
+    public ChartsMap setFeatureCrs(String id2, String crs) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".featureCrs(%s, %s)", wrapQuotes(id2), wrapQuotes(crs3)));
+        js.append(String.format(Locale.US, ".featureCrs(%s, %s)", wrapQuotes(id2), wrapQuotes(crs)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".featureCrs(%s, %s)", wrapQuotes(id2), wrapQuotes(crs3)));
+            onChangeListener.onChange(String.format(Locale.US, ".featureCrs(%s, %s)", wrapQuotes(id2), wrapQuotes(crs)));
             js.setLength(0);
         }
         return this;
@@ -779,17 +781,18 @@ Set the transitions to drill down.
     /**
      * Setter for the geo data.
      */
-    public void setGeoData(String data12) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsMap setGeoData(String data12) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var geoData" + ++variableIndex + " = " + jsBase + ".geoData(%s);", wrapQuotes(data12)));
+        js.append(String.format(Locale.US, ".geoData(%s)", wrapQuotes(data12)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".geoData(%s)", wrapQuotes(data12)));
+            onChangeListener.onChange(String.format(Locale.US, ".geoData(%s)", wrapQuotes(data12)));
             js.setLength(0);
         }
+        return this;
     }
 
     private String geoIdField;

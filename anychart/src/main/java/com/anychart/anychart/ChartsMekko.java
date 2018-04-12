@@ -370,66 +370,90 @@ public class ChartsMekko extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<Cartesian> setLabels = new ArrayList<>();
 
     /**
      * Setter for chart data labels.
      */
-    public Cartesian setLabels(String labels) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsMekko setLabels(String labels) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLabels" + ++variableIndex + " = " + jsBase + ".labels(%s);", wrapQuotes(labels)));
+        js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s)", wrapQuotes(labels)));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
             js.setLength(0);
         }
-        Cartesian item = new Cartesian("setLabels" + variableIndex);
-        setLabels.add(item);
-        return item;
-    }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
+        return this;
     }
 
-    private List<Cartesian> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for chart data labels.
      */
-    public Cartesian setLabels(Boolean labels1) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public ChartsMekko setLabels(Boolean labels1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        js.append(String.format(Locale.US, "var setLabels1" + ++variableIndex + " = " + jsBase + ".labels(%b);", labels1));
+        js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b)", labels1));
+            onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
             js.setLength(0);
         }
-        Cartesian item = new Cartesian("setLabels1" + variableIndex);
-        setLabels1.add(item);
-        return item;
+        return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
+
+
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+    private String maxLabels;
+    private Boolean maxLabels1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public ChartsMekko setMaxLabels(String maxLabels) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
         }
-        return "";
+        js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(maxLabels)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(maxLabels)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public ChartsMekko setMaxLabels(Boolean maxLabels1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", maxLabels1));
+            js.setLength(0);
+        }
+        return this;
     }
 
     private List<SeriesMekko> setMekko = new ArrayList<>();
@@ -504,6 +528,56 @@ public class ChartsMekko extends SeparateChart {
             return resultJs.toString();
         }
         return "";
+    }
+
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+    private String minLabels;
+    private Boolean minLabels1;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public ChartsMekko setMinLabels(String minLabels) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(minLabels)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(minLabels)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public ChartsMekko setMinLabels(Boolean minLabels1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%b)", minLabels1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", minLabels1));
+            js.setLength(0);
+        }
+        return this;
     }
 
 
@@ -1104,6 +1178,20 @@ public class ChartsMekko extends SeparateChart {
         return "";
     }
 
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
@@ -1179,6 +1267,8 @@ public class ChartsMekko extends SeparateChart {
         js.append(generateJSgetGetSeriesAt());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetLabels());
+        js.append(generateJSgetMaxLabels());
+        js.append(generateJSgetMinLabels());
         js.append(generateJSgetPalette());
         js.append(generateJSgetXAxis());
         js.append(generateJSgetXAxis1());
@@ -1186,8 +1276,6 @@ public class ChartsMekko extends SeparateChart {
         js.append(generateJSgetYAxis());
         js.append(generateJSgetYAxis1());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetMekko());
         js.append(generateJSsetMekko1());
 

@@ -716,7 +716,7 @@ public class StockScroller extends UiScroller {
     private List<ATR> setAtr = new ArrayList<>();
 
     /**
-     * Creates an Average True Range indicator on the chart.
+     * Creates an Average True Range indicator on the scroller.
      */
     public ATR atr(TableMapping mapping3, Number period2, StockSeriesType seriesType4) {
         if (jsBase == null) {
@@ -774,7 +774,7 @@ public class StockScroller extends UiScroller {
     private List<ATR> setAtr1 = new ArrayList<>();
 
     /**
-     * Creates an Average True Range indicator on the chart.
+     * Creates an Average True Range indicator on the scroller.
      */
     public ATR atr(TableMapping mapping3, Number period2, String seriesType5) {
         if (jsBase == null) {
@@ -2012,7 +2012,7 @@ public class StockScroller extends UiScroller {
     private List<CHO> setCho = new ArrayList<>();
 
     /**
-     * Creates a Chaikin Oscillator indicator on the chart.
+     * Creates a Chaikin Oscillator indicator on the scroller.
      */
     public CHO cho(TableMapping mapping8, Number fastPeriod1, Number slowPeriod1, String maType, StockSeriesType seriesType12) {
         if (jsBase == null) {
@@ -2089,7 +2089,7 @@ public class StockScroller extends UiScroller {
     private List<CHO> setCho1 = new ArrayList<>();
 
     /**
-     * Creates a Chaikin Oscillator indicator on the chart.
+     * Creates a Chaikin Oscillator indicator on the scroller.
      */
     public CHO cho(TableMapping mapping8, Number fastPeriod1, Number slowPeriod1, String maType, String seriesType13) {
         if (jsBase == null) {
@@ -2170,7 +2170,7 @@ public class StockScroller extends UiScroller {
     private List<CMF> setCmf = new ArrayList<>();
 
     /**
-     * Creates a Chaikin Money Flow indicator on the chart.
+     * Creates a Chaikin Money Flow indicator on the scroller.
      */
     public CMF cmf(TableMapping mapping9, Number period7, StockSeriesType seriesType14) {
         if (jsBase == null) {
@@ -2249,7 +2249,7 @@ public class StockScroller extends UiScroller {
     private List<CMF> setCmf1 = new ArrayList<>();
 
     /**
-     * Creates a Chaikin Money Flow indicator on the chart.
+     * Creates a Chaikin Money Flow indicator on the scroller.
      */
     public CMF cmf(TableMapping mapping9, Number period7, String seriesType15) {
         if (jsBase == null) {
@@ -2591,7 +2591,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
@@ -2672,7 +2672,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi1 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
@@ -2753,7 +2753,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi2 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
@@ -2834,7 +2834,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi3 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
@@ -2915,7 +2915,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi4 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
@@ -2996,7 +2996,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi5 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
@@ -3077,7 +3077,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi6 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
@@ -3158,7 +3158,7 @@ public class StockScroller extends UiScroller {
     private List<DMI> setDmi7 = new ArrayList<>();
 
     /**
-     * Creates a Directional Movement Index indicator on the chart.
+     * Creates a Directional Movement Index indicator on the scroller.
      */
     public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
@@ -7973,12 +7973,12 @@ public class StockScroller extends UiScroller {
     private Number period10;
     private StockSeriesType seriesType18;
     private String seriesType19;
-    private List<MMA> setMma = new ArrayList<>();
+    private List<MFI> setMfi = new ArrayList<>();
 
     /**
-     * Creates MMA (Modified Moving Average) indicator on the scroller.
+     * Creates a MFI (Money Flow Index) indicator on the scroller.
      */
-    public MMA mma(TableMapping mapping14, Number period10, StockSeriesType seriesType18) {
+    public MFI mfi(TableMapping mapping14, Number period10, StockSeriesType seriesType18) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -8041,11 +8041,201 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             js.append(mapping14.generateJs());
-            js.append(String.format(Locale.US, "var setMma" + ++variableIndex + " = " + jsBase + ".mma(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
+            js.append(String.format(Locale.US, "var setMfi" + ++variableIndex + " = " + jsBase + ".mfi(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mfi(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        MFI item = new MFI("setMfi" + variableIndex);
+        setMfi.add(item);
+        return item;
+    }
+    private String generateJSsetMfi() {
+        if (!setMfi.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MFI item : setMfi) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MFI> setMfi1 = new ArrayList<>();
+
+    /**
+     * Creates a MFI (Money Flow Index) indicator on the scroller.
+     */
+    public MFI mfi(TableMapping mapping14, Number period10, String seriesType19) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            
+            this.mapping14 = mapping14;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            
+            this.period10 = period10;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            
+            this.seriesType19 = seriesType19;
+        } else {
+            this.mapping14 = mapping14;
+            this.period10 = period10;
+            this.seriesType19 = seriesType19;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping14.generateJs());
+            js.append(String.format(Locale.US, "var setMfi1" + ++variableIndex + " = " + jsBase + ".mfi(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mfi(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
+                js.setLength(0);
+            }
+        }
+        MFI item = new MFI("setMfi1" + variableIndex);
+        setMfi1.add(item);
+        return item;
+    }
+    private String generateJSsetMfi1() {
+        if (!setMfi1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MFI item : setMfi1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private TableMapping mapping15;
+    private Number period11;
+    private StockSeriesType seriesType20;
+    private String seriesType21;
+    private List<MMA> setMma = new ArrayList<>();
+
+    /**
+     * Creates MMA (Modified Moving Average) indicator on the scroller.
+     */
+    public MMA mma(TableMapping mapping15, Number period11, StockSeriesType seriesType20) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            
+            this.mapping15 = mapping15;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            
+            this.period11 = period11;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            
+            this.seriesType20 = seriesType20;
+        } else {
+            this.mapping15 = mapping15;
+            this.period11 = period11;
+            this.seriesType20 = seriesType20;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping15.generateJs());
+            js.append(String.format(Locale.US, "var setMma" + ++variableIndex + " = " + jsBase + ".mma(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8069,7 +8259,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
      */
-    public MMA mma(TableMapping mapping14, Number period10, String seriesType19) {
+    public MMA mma(TableMapping mapping15, Number period11, String seriesType21) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -8086,8 +8276,9 @@ public class StockScroller extends UiScroller {
             this.mapping12 = null;
             this.mapping13 = null;
             this.mapping14 = null;
+            this.mapping15 = null;
             
-            this.mapping14 = mapping14;
+            this.mapping15 = mapping15;
             this.period = null;
             this.period1 = null;
             this.period2 = null;
@@ -8099,8 +8290,9 @@ public class StockScroller extends UiScroller {
             this.period8 = null;
             this.period9 = null;
             this.period10 = null;
+            this.period11 = null;
             
-            this.period10 = period10;
+            this.period11 = period11;
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -8121,22 +8313,24 @@ public class StockScroller extends UiScroller {
             this.seriesType17 = null;
             this.seriesType18 = null;
             this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
             
-            this.seriesType19 = seriesType19;
+            this.seriesType21 = seriesType21;
         } else {
-            this.mapping14 = mapping14;
-            this.period10 = period10;
-            this.seriesType19 = seriesType19;
+            this.mapping15 = mapping15;
+            this.period11 = period11;
+            this.seriesType21 = seriesType21;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping14.generateJs());
-            js.append(String.format(Locale.US, "var setMma1" + ++variableIndex + " = " + jsBase + ".mma(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
+            js.append(mapping15.generateJs());
+            js.append(String.format(Locale.US, "var setMma1" + ++variableIndex + " = " + jsBase + ".mma(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
                 js.setLength(0);
             }
         }
@@ -8148,6 +8342,208 @@ public class StockScroller extends UiScroller {
         if (!setMma1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (MMA item : setMma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private TableMapping mapping16;
+    private Number period12;
+    private StockSeriesType seriesType22;
+    private String seriesType23;
+    private List<Momentum> setMomentum = new ArrayList<>();
+
+    /**
+     * Creates a Momentum indicator on the scroller.
+     */
+    public Momentum momentum(TableMapping mapping16, Number period12, StockSeriesType seriesType22) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            
+            this.mapping16 = mapping16;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            this.period12 = null;
+            
+            this.period12 = period12;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            
+            this.seriesType22 = seriesType22;
+        } else {
+            this.mapping16 = mapping16;
+            this.period12 = period12;
+            this.seriesType22 = seriesType22;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping16.generateJs());
+            js.append(String.format(Locale.US, "var setMomentum" + ++variableIndex + " = " + jsBase + ".momentum(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".momentum(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        Momentum item = new Momentum("setMomentum" + variableIndex);
+        setMomentum.add(item);
+        return item;
+    }
+    private String generateJSsetMomentum() {
+        if (!setMomentum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Momentum item : setMomentum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Momentum> setMomentum1 = new ArrayList<>();
+
+    /**
+     * Creates a Momentum indicator on the scroller.
+     */
+    public Momentum momentum(TableMapping mapping16, Number period12, String seriesType23) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            
+            this.mapping16 = mapping16;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            this.period12 = null;
+            
+            this.period12 = period12;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            
+            this.seriesType23 = seriesType23;
+        } else {
+            this.mapping16 = mapping16;
+            this.period12 = period12;
+            this.seriesType23 = seriesType23;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping16.generateJs());
+            js.append(String.format(Locale.US, "var setMomentum1" + ++variableIndex + " = " + jsBase + ".momentum(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".momentum(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
+                js.setLength(0);
+            }
+        }
+        Momentum item = new Momentum("setMomentum1" + variableIndex);
+        setMomentum1.add(item);
+        return item;
+    }
+    private String generateJSsetMomentum1() {
+        if (!setMomentum1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Momentum item : setMomentum1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -8572,6 +8968,196 @@ public class StockScroller extends UiScroller {
             }
         }
         return this;
+    }
+
+    private TableMapping mapping17;
+    private Number accelerationFactorStart;
+    private Number accelerationFactorIncrement;
+    private Number accelerationFactorMaximum;
+    private StockSeriesType seriesType24;
+    private String seriesType25;
+    private List<PSAR> setPsar = new ArrayList<>();
+
+    /**
+     * Creates a PSAR (Parabolic SAR) indicator on the scroller.
+     */
+    public PSAR psar(TableMapping mapping17, Number accelerationFactorStart, Number accelerationFactorIncrement, Number accelerationFactorMaximum, StockSeriesType seriesType24) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            
+            this.mapping17 = mapping17;
+            this.accelerationFactorStart = accelerationFactorStart;
+            this.accelerationFactorIncrement = accelerationFactorIncrement;
+            this.accelerationFactorMaximum = accelerationFactorMaximum;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            
+            this.seriesType24 = seriesType24;
+        } else {
+            this.mapping17 = mapping17;
+            this.accelerationFactorStart = accelerationFactorStart;
+            this.accelerationFactorIncrement = accelerationFactorIncrement;
+            this.accelerationFactorMaximum = accelerationFactorMaximum;
+            this.seriesType24 = seriesType24;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping17.generateJs());
+            js.append(String.format(Locale.US, "var setPsar" + ++variableIndex + " = " + jsBase + ".psar(%s, %s, %s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), accelerationFactorStart, accelerationFactorIncrement, accelerationFactorMaximum, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".psar(%s, %s, %s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), accelerationFactorStart, accelerationFactorIncrement, accelerationFactorMaximum, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        PSAR item = new PSAR("setPsar" + variableIndex);
+        setPsar.add(item);
+        return item;
+    }
+    private String generateJSsetPsar() {
+        if (!setPsar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PSAR item : setPsar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PSAR> setPsar1 = new ArrayList<>();
+
+    /**
+     * Creates a PSAR (Parabolic SAR) indicator on the scroller.
+     */
+    public PSAR psar(TableMapping mapping17, Number accelerationFactorStart, Number accelerationFactorIncrement, Number accelerationFactorMaximum, String seriesType25) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            
+            this.mapping17 = mapping17;
+            this.accelerationFactorStart = accelerationFactorStart;
+            this.accelerationFactorIncrement = accelerationFactorIncrement;
+            this.accelerationFactorMaximum = accelerationFactorMaximum;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            
+            this.seriesType25 = seriesType25;
+        } else {
+            this.mapping17 = mapping17;
+            this.accelerationFactorStart = accelerationFactorStart;
+            this.accelerationFactorIncrement = accelerationFactorIncrement;
+            this.accelerationFactorMaximum = accelerationFactorMaximum;
+            this.seriesType25 = seriesType25;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping17.generateJs());
+            js.append(String.format(Locale.US, "var setPsar1" + ++variableIndex + " = " + jsBase + ".psar(%s, %s, %s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), accelerationFactorStart, accelerationFactorIncrement, accelerationFactorMaximum, wrapQuotes(seriesType25)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".psar(%s, %s, %s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), accelerationFactorStart, accelerationFactorIncrement, accelerationFactorMaximum, wrapQuotes(seriesType25)));
+                js.setLength(0);
+            }
+        }
+        PSAR item = new PSAR("setPsar1" + variableIndex);
+        setPsar1.add(item);
+        return item;
+    }
+    private String generateJSsetPsar1() {
+        if (!setPsar1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PSAR item : setPsar1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data32;
@@ -9975,16 +10561,16 @@ public class StockScroller extends UiScroller {
         return this;
     }
 
-    private TableMapping mapping15;
-    private Number period11;
-    private StockSeriesType seriesType20;
-    private String seriesType21;
+    private TableMapping mapping18;
+    private Number period13;
+    private StockSeriesType seriesType26;
+    private String seriesType27;
     private List<RoC> setRoc = new ArrayList<>();
 
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
      */
-    public RoC roc(TableMapping mapping15, Number period11, StockSeriesType seriesType20) {
+    public RoC roc(TableMapping mapping18, Number period13, StockSeriesType seriesType26) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10002,8 +10588,11 @@ public class StockScroller extends UiScroller {
             this.mapping13 = null;
             this.mapping14 = null;
             this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
             
-            this.mapping15 = mapping15;
+            this.mapping18 = mapping18;
             this.period = null;
             this.period1 = null;
             this.period2 = null;
@@ -10016,8 +10605,10 @@ public class StockScroller extends UiScroller {
             this.period9 = null;
             this.period10 = null;
             this.period11 = null;
+            this.period12 = null;
+            this.period13 = null;
             
-            this.period11 = period11;
+            this.period13 = period13;
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -10040,22 +10631,28 @@ public class StockScroller extends UiScroller {
             this.seriesType19 = null;
             this.seriesType20 = null;
             this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
             
-            this.seriesType20 = seriesType20;
+            this.seriesType26 = seriesType26;
         } else {
-            this.mapping15 = mapping15;
-            this.period11 = period11;
-            this.seriesType20 = seriesType20;
+            this.mapping18 = mapping18;
+            this.period13 = period13;
+            this.seriesType26 = seriesType26;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping15.generateJs());
-            js.append(String.format(Locale.US, "var setRoc" + ++variableIndex + " = " + jsBase + ".roc(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setRoc" + ++variableIndex + " = " + jsBase + ".roc(%s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), period13, ((seriesType26 != null) ? seriesType26.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), period13, ((seriesType26 != null) ? seriesType26.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10079,106 +10676,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
      */
-    public RoC roc(TableMapping mapping15, Number period11, String seriesType21) {
-        if (jsBase == null) {
-            this.mapping = null;
-            this.mapping1 = null;
-            this.mapping2 = null;
-            this.mapping3 = null;
-            this.mapping4 = null;
-            this.mapping5 = null;
-            this.mapping6 = null;
-            this.mapping7 = null;
-            this.mapping8 = null;
-            this.mapping9 = null;
-            this.mapping10 = null;
-            this.mapping11 = null;
-            this.mapping12 = null;
-            this.mapping13 = null;
-            this.mapping14 = null;
-            this.mapping15 = null;
-            
-            this.mapping15 = mapping15;
-            this.period = null;
-            this.period1 = null;
-            this.period2 = null;
-            this.period3 = null;
-            this.period4 = null;
-            this.period5 = null;
-            this.period6 = null;
-            this.period7 = null;
-            this.period8 = null;
-            this.period9 = null;
-            this.period10 = null;
-            this.period11 = null;
-            
-            this.period11 = period11;
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            
-            this.seriesType21 = seriesType21;
-        } else {
-            this.mapping15 = mapping15;
-            this.period11 = period11;
-            this.seriesType21 = seriesType21;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            js.append(mapping15.generateJs());
-            js.append(String.format(Locale.US, "var setRoc1" + ++variableIndex + " = " + jsBase + ".roc(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
-                js.setLength(0);
-            }
-        }
-        RoC item = new RoC("setRoc1" + variableIndex);
-        setRoc1.add(item);
-        return item;
-    }
-    private String generateJSsetRoc1() {
-        if (!setRoc1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (RoC item : setRoc1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private TableMapping mapping16;
-    private Number period12;
-    private StockSeriesType seriesType22;
-    private String seriesType23;
-    private List<RSI> setRsi = new ArrayList<>();
-
-    /**
-     * Creates RSI (Relative Strength Index) indicator on the scroller.
-     */
-    public RSI rsi(TableMapping mapping16, Number period12, StockSeriesType seriesType22) {
+    public RoC roc(TableMapping mapping18, Number period13, String seriesType27) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10197,8 +10695,10 @@ public class StockScroller extends UiScroller {
             this.mapping14 = null;
             this.mapping15 = null;
             this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
             
-            this.mapping16 = mapping16;
+            this.mapping18 = mapping18;
             this.period = null;
             this.period1 = null;
             this.period2 = null;
@@ -10212,8 +10712,9 @@ public class StockScroller extends UiScroller {
             this.period10 = null;
             this.period11 = null;
             this.period12 = null;
+            this.period13 = null;
             
-            this.period12 = period12;
+            this.period13 = period13;
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -10238,22 +10739,140 @@ public class StockScroller extends UiScroller {
             this.seriesType21 = null;
             this.seriesType22 = null;
             this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
             
-            this.seriesType22 = seriesType22;
+            this.seriesType27 = seriesType27;
         } else {
-            this.mapping16 = mapping16;
-            this.period12 = period12;
-            this.seriesType22 = seriesType22;
+            this.mapping18 = mapping18;
+            this.period13 = period13;
+            this.seriesType27 = seriesType27;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping16.generateJs());
-            js.append(String.format(Locale.US, "var setRsi" + ++variableIndex + " = " + jsBase + ".rsi(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setRoc1" + ++variableIndex + " = " + jsBase + ".roc(%s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), period13, wrapQuotes(seriesType27)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), period13, wrapQuotes(seriesType27)));
+                js.setLength(0);
+            }
+        }
+        RoC item = new RoC("setRoc1" + variableIndex);
+        setRoc1.add(item);
+        return item;
+    }
+    private String generateJSsetRoc1() {
+        if (!setRoc1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RoC item : setRoc1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private TableMapping mapping19;
+    private Number period14;
+    private StockSeriesType seriesType28;
+    private String seriesType29;
+    private List<RSI> setRsi = new ArrayList<>();
+
+    /**
+     * Creates RSI (Relative Strength Index) indicator on the scroller.
+     */
+    public RSI rsi(TableMapping mapping19, Number period14, StockSeriesType seriesType28) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            this.mapping19 = null;
+            
+            this.mapping19 = mapping19;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            this.period12 = null;
+            this.period13 = null;
+            this.period14 = null;
+            
+            this.period14 = period14;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
+            this.seriesType28 = null;
+            this.seriesType29 = null;
+            
+            this.seriesType28 = seriesType28;
+        } else {
+            this.mapping19 = mapping19;
+            this.period14 = period14;
+            this.seriesType28 = seriesType28;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping19.generateJs());
+            js.append(String.format(Locale.US, "var setRsi" + ++variableIndex + " = " + jsBase + ".rsi(%s, %s, %s);", ((mapping19 != null) ? mapping19.getJsBase() : "null"), period14, ((seriesType28 != null) ? seriesType28.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %s);", ((mapping19 != null) ? mapping19.getJsBase() : "null"), period14, ((seriesType28 != null) ? seriesType28.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10277,110 +10896,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
      */
-    public RSI rsi(TableMapping mapping16, Number period12, String seriesType23) {
-        if (jsBase == null) {
-            this.mapping = null;
-            this.mapping1 = null;
-            this.mapping2 = null;
-            this.mapping3 = null;
-            this.mapping4 = null;
-            this.mapping5 = null;
-            this.mapping6 = null;
-            this.mapping7 = null;
-            this.mapping8 = null;
-            this.mapping9 = null;
-            this.mapping10 = null;
-            this.mapping11 = null;
-            this.mapping12 = null;
-            this.mapping13 = null;
-            this.mapping14 = null;
-            this.mapping15 = null;
-            this.mapping16 = null;
-            
-            this.mapping16 = mapping16;
-            this.period = null;
-            this.period1 = null;
-            this.period2 = null;
-            this.period3 = null;
-            this.period4 = null;
-            this.period5 = null;
-            this.period6 = null;
-            this.period7 = null;
-            this.period8 = null;
-            this.period9 = null;
-            this.period10 = null;
-            this.period11 = null;
-            this.period12 = null;
-            
-            this.period12 = period12;
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            
-            this.seriesType23 = seriesType23;
-        } else {
-            this.mapping16 = mapping16;
-            this.period12 = period12;
-            this.seriesType23 = seriesType23;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            js.append(mapping16.generateJs());
-            js.append(String.format(Locale.US, "var setRsi1" + ++variableIndex + " = " + jsBase + ".rsi(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
-                js.setLength(0);
-            }
-        }
-        RSI item = new RSI("setRsi1" + variableIndex);
-        setRsi1.add(item);
-        return item;
-    }
-    private String generateJSsetRsi1() {
-        if (!setRsi1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (RSI item : setRsi1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private TableMapping mapping17;
-    private Number period13;
-    private StockSeriesType seriesType24;
-    private String seriesType25;
-    private List<SMA> setSma = new ArrayList<>();
-
-    /**
-     * Creates SMA (Simple Moving Average) indicator on the scroller.
-     */
-    public SMA sma(TableMapping mapping17, Number period13, StockSeriesType seriesType24) {
+    public RSI rsi(TableMapping mapping19, Number period14, String seriesType29) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10400,8 +10916,10 @@ public class StockScroller extends UiScroller {
             this.mapping15 = null;
             this.mapping16 = null;
             this.mapping17 = null;
+            this.mapping18 = null;
+            this.mapping19 = null;
             
-            this.mapping17 = mapping17;
+            this.mapping19 = mapping19;
             this.period = null;
             this.period1 = null;
             this.period2 = null;
@@ -10416,8 +10934,9 @@ public class StockScroller extends UiScroller {
             this.period11 = null;
             this.period12 = null;
             this.period13 = null;
+            this.period14 = null;
             
-            this.period13 = period13;
+            this.period14 = period14;
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -10444,22 +10963,144 @@ public class StockScroller extends UiScroller {
             this.seriesType23 = null;
             this.seriesType24 = null;
             this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
+            this.seriesType28 = null;
+            this.seriesType29 = null;
             
-            this.seriesType24 = seriesType24;
+            this.seriesType29 = seriesType29;
         } else {
-            this.mapping17 = mapping17;
-            this.period13 = period13;
-            this.seriesType24 = seriesType24;
+            this.mapping19 = mapping19;
+            this.period14 = period14;
+            this.seriesType29 = seriesType29;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping17.generateJs());
-            js.append(String.format(Locale.US, "var setSma" + ++variableIndex + " = " + jsBase + ".sma(%s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
+            js.append(mapping19.generateJs());
+            js.append(String.format(Locale.US, "var setRsi1" + ++variableIndex + " = " + jsBase + ".rsi(%s, %s, %s);", ((mapping19 != null) ? mapping19.getJsBase() : "null"), period14, wrapQuotes(seriesType29)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %s);", ((mapping19 != null) ? mapping19.getJsBase() : "null"), period14, wrapQuotes(seriesType29)));
+                js.setLength(0);
+            }
+        }
+        RSI item = new RSI("setRsi1" + variableIndex);
+        setRsi1.add(item);
+        return item;
+    }
+    private String generateJSsetRsi1() {
+        if (!setRsi1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RSI item : setRsi1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private TableMapping mapping20;
+    private Number period15;
+    private StockSeriesType seriesType30;
+    private String seriesType31;
+    private List<SMA> setSma = new ArrayList<>();
+
+    /**
+     * Creates SMA (Simple Moving Average) indicator on the scroller.
+     */
+    public SMA sma(TableMapping mapping20, Number period15, StockSeriesType seriesType30) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            
+            this.mapping20 = mapping20;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            this.period12 = null;
+            this.period13 = null;
+            this.period14 = null;
+            this.period15 = null;
+            
+            this.period15 = period15;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
+            this.seriesType28 = null;
+            this.seriesType29 = null;
+            this.seriesType30 = null;
+            this.seriesType31 = null;
+            
+            this.seriesType30 = seriesType30;
+        } else {
+            this.mapping20 = mapping20;
+            this.period15 = period15;
+            this.seriesType30 = seriesType30;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping20.generateJs());
+            js.append(String.format(Locale.US, "var setSma" + ++variableIndex + " = " + jsBase + ".sma(%s, %s, %s);", ((mapping20 != null) ? mapping20.getJsBase() : "null"), period15, ((seriesType30 != null) ? seriesType30.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %s);", ((mapping20 != null) ? mapping20.getJsBase() : "null"), period15, ((seriesType30 != null) ? seriesType30.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10483,7 +11124,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
      */
-    public SMA sma(TableMapping mapping17, Number period13, String seriesType25) {
+    public SMA sma(TableMapping mapping20, Number period15, String seriesType31) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10503,8 +11144,11 @@ public class StockScroller extends UiScroller {
             this.mapping15 = null;
             this.mapping16 = null;
             this.mapping17 = null;
+            this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
             
-            this.mapping17 = mapping17;
+            this.mapping20 = mapping20;
             this.period = null;
             this.period1 = null;
             this.period2 = null;
@@ -10519,8 +11163,10 @@ public class StockScroller extends UiScroller {
             this.period11 = null;
             this.period12 = null;
             this.period13 = null;
+            this.period14 = null;
+            this.period15 = null;
             
-            this.period13 = period13;
+            this.period15 = period15;
             this.seriesType = null;
             this.seriesType1 = null;
             this.seriesType2 = null;
@@ -10547,22 +11193,28 @@ public class StockScroller extends UiScroller {
             this.seriesType23 = null;
             this.seriesType24 = null;
             this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
+            this.seriesType28 = null;
+            this.seriesType29 = null;
+            this.seriesType30 = null;
+            this.seriesType31 = null;
             
-            this.seriesType25 = seriesType25;
+            this.seriesType31 = seriesType31;
         } else {
-            this.mapping17 = mapping17;
-            this.period13 = period13;
-            this.seriesType25 = seriesType25;
+            this.mapping20 = mapping20;
+            this.period15 = period15;
+            this.seriesType31 = seriesType31;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping17.generateJs());
-            js.append(String.format(Locale.US, "var setSma1" + ++variableIndex + " = " + jsBase + ".sma(%s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
+            js.append(mapping20.generateJs());
+            js.append(String.format(Locale.US, "var setSma1" + ++variableIndex + " = " + jsBase + ".sma(%s, %s, %s);", ((mapping20 != null) ? mapping20.getJsBase() : "null"), period15, wrapQuotes(seriesType31)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %s);", ((mapping20 != null) ? mapping20.getJsBase() : "null"), period15, wrapQuotes(seriesType31)));
                 js.setLength(0);
             }
         }
@@ -12636,7 +13288,7 @@ public class StockScroller extends UiScroller {
         return "";
     }
 
-    private TableMapping mapping18;
+    private TableMapping mapping21;
     private Number kPeriod1;
     private Number kMAPeriod1;
     private Number dPeriod1;
@@ -12653,7 +13305,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12674,8 +13326,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -12713,7 +13368,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -12725,12 +13380,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12754,7 +13409,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12775,8 +13430,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -12814,7 +13472,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -12826,12 +13484,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic1" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic1" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -12855,7 +13513,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12876,8 +13534,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -12915,7 +13576,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -12927,12 +13588,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic2" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic2" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12956,7 +13617,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12977,8 +13638,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13016,7 +13680,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13028,12 +13692,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic3" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic3" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13057,7 +13721,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13078,8 +13742,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13117,7 +13784,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13129,12 +13796,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic4" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic4" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13158,7 +13825,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13179,8 +13846,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13218,7 +13888,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13230,12 +13900,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic5" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic5" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13259,7 +13929,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13280,8 +13950,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13319,7 +13992,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13331,12 +14004,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic6" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic6" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13360,7 +14033,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13381,8 +14054,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13420,7 +14096,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13432,12 +14108,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic7" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic7" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13461,7 +14137,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13482,8 +14158,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13521,7 +14200,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13533,12 +14212,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic8" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic8" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13562,7 +14241,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13583,8 +14262,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13622,7 +14304,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13634,12 +14316,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic9" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic9" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13663,7 +14345,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13684,8 +14366,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13723,7 +14408,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13735,12 +14420,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic10" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic10" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13764,7 +14449,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13785,8 +14470,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13824,7 +14512,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13836,12 +14524,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic11" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic11" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13865,7 +14553,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13886,8 +14574,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -13925,7 +14616,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -13937,12 +14628,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic12" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic12" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13966,7 +14657,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13987,8 +14678,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -14026,7 +14720,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -14038,12 +14732,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic13" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic13" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -14067,7 +14761,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -14088,8 +14782,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -14127,7 +14824,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType2 = dSeriesType2;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -14139,12 +14836,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic14" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic14" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -14168,7 +14865,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping21, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -14189,8 +14886,11 @@ public class StockScroller extends UiScroller {
             this.mapping16 = null;
             this.mapping17 = null;
             this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
             
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod = null;
             this.kPeriod1 = null;
             
@@ -14228,7 +14928,7 @@ public class StockScroller extends UiScroller {
             
             this.dSeriesType3 = dSeriesType3;
         } else {
-            this.mapping18 = mapping18;
+            this.mapping21 = mapping21;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
@@ -14240,12 +14940,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
-            js.append(mapping18.generateJs());
-            js.append(String.format(Locale.US, "var setStochastic15" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+            js.append(mapping21.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic15" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s);", ((mapping21 != null) ? mapping21.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -14257,6 +14957,248 @@ public class StockScroller extends UiScroller {
         if (!setStochastic15.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Stochastic item : setStochastic15) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private TableMapping mapping22;
+    private Number period16;
+    private StockSeriesType seriesType32;
+    private String seriesType33;
+    private List<WilliamsR> setWilliamsR = new ArrayList<>();
+
+    /**
+     * Creates a Williams %R indicator on the scroller.
+     */
+    public WilliamsR williamsR(TableMapping mapping22, Number period16, StockSeriesType seriesType32) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
+            this.mapping22 = null;
+            
+            this.mapping22 = mapping22;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            this.period12 = null;
+            this.period13 = null;
+            this.period14 = null;
+            this.period15 = null;
+            this.period16 = null;
+            
+            this.period16 = period16;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
+            this.seriesType28 = null;
+            this.seriesType29 = null;
+            this.seriesType30 = null;
+            this.seriesType31 = null;
+            this.seriesType32 = null;
+            this.seriesType33 = null;
+            
+            this.seriesType32 = seriesType32;
+        } else {
+            this.mapping22 = mapping22;
+            this.period16 = period16;
+            this.seriesType32 = seriesType32;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping22.generateJs());
+            js.append(String.format(Locale.US, "var setWilliamsR" + ++variableIndex + " = " + jsBase + ".williamsR(%s, %s, %s);", ((mapping22 != null) ? mapping22.getJsBase() : "null"), period16, ((seriesType32 != null) ? seriesType32.generateJs() : "null")));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".williamsR(%s, %s, %s);", ((mapping22 != null) ? mapping22.getJsBase() : "null"), period16, ((seriesType32 != null) ? seriesType32.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        WilliamsR item = new WilliamsR("setWilliamsR" + variableIndex);
+        setWilliamsR.add(item);
+        return item;
+    }
+    private String generateJSsetWilliamsR() {
+        if (!setWilliamsR.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WilliamsR item : setWilliamsR) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<WilliamsR> setWilliamsR1 = new ArrayList<>();
+
+    /**
+     * Creates a Williams %R indicator on the scroller.
+     */
+    public WilliamsR williamsR(TableMapping mapping22, Number period16, String seriesType33) {
+        if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            this.mapping9 = null;
+            this.mapping10 = null;
+            this.mapping11 = null;
+            this.mapping12 = null;
+            this.mapping13 = null;
+            this.mapping14 = null;
+            this.mapping15 = null;
+            this.mapping16 = null;
+            this.mapping17 = null;
+            this.mapping18 = null;
+            this.mapping19 = null;
+            this.mapping20 = null;
+            this.mapping21 = null;
+            this.mapping22 = null;
+            
+            this.mapping22 = mapping22;
+            this.period = null;
+            this.period1 = null;
+            this.period2 = null;
+            this.period3 = null;
+            this.period4 = null;
+            this.period5 = null;
+            this.period6 = null;
+            this.period7 = null;
+            this.period8 = null;
+            this.period9 = null;
+            this.period10 = null;
+            this.period11 = null;
+            this.period12 = null;
+            this.period13 = null;
+            this.period14 = null;
+            this.period15 = null;
+            this.period16 = null;
+            
+            this.period16 = period16;
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            this.seriesType26 = null;
+            this.seriesType27 = null;
+            this.seriesType28 = null;
+            this.seriesType29 = null;
+            this.seriesType30 = null;
+            this.seriesType31 = null;
+            this.seriesType32 = null;
+            this.seriesType33 = null;
+            
+            this.seriesType33 = seriesType33;
+        } else {
+            this.mapping22 = mapping22;
+            this.period16 = period16;
+            this.seriesType33 = seriesType33;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(mapping22.generateJs());
+            js.append(String.format(Locale.US, "var setWilliamsR1" + ++variableIndex + " = " + jsBase + ".williamsR(%s, %s, %s);", ((mapping22 != null) ? mapping22.getJsBase() : "null"), period16, wrapQuotes(seriesType33)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".williamsR(%s, %s, %s);", ((mapping22 != null) ? mapping22.getJsBase() : "null"), period16, wrapQuotes(seriesType33)));
+                js.setLength(0);
+            }
+        }
+        WilliamsR item = new WilliamsR("setWilliamsR1" + variableIndex);
+        setWilliamsR1.add(item);
+        return item;
+    }
+    private String generateJSsetWilliamsR1() {
+        if (!setWilliamsR1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WilliamsR item : setWilliamsR1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -14626,11 +15568,17 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
         js.append(generateJSsetMarker2());
+        js.append(generateJSsetMfi());
+        js.append(generateJSsetMfi1());
         js.append(generateJSsetMma());
         js.append(generateJSsetMma1());
+        js.append(generateJSsetMomentum());
+        js.append(generateJSsetMomentum1());
         js.append(generateJSsetOhlc());
         js.append(generateJSsetOhlc1());
         js.append(generateJSsetOhlc2());
+        js.append(generateJSsetPsar());
+        js.append(generateJSsetPsar1());
         js.append(generateJSsetRangeArea());
         js.append(generateJSsetRangeArea1());
         js.append(generateJSsetRangeArea2());
@@ -14680,6 +15628,8 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetStochastic13());
         js.append(generateJSsetStochastic14());
         js.append(generateJSsetStochastic15());
+        js.append(generateJSsetWilliamsR());
+        js.append(generateJSsetWilliamsR1());
         
 
         String result = js.toString();

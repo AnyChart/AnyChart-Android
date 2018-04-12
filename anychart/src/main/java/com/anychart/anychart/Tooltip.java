@@ -773,7 +773,7 @@ public class Tooltip extends VisualBase {
 
     /**
      * Setter for function content text for the tooltip.<br/>
-{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+{docs:Common_Settings/Text_Formatters}Learn more about using the format() method.{docs}
      */
     public Tooltip setFormat(String format) {
         if (jsBase == null) {

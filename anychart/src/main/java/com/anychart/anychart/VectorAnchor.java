@@ -4,7 +4,7 @@ import java.util.Locale;
 
 /**
  * The list of positions for an anchor. <br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.enums.Anchor|string.png' width='327' height='179'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.enums.Anchor|string.png' width='327' height='179'/>
  */
 public enum VectorAnchor implements JsObject.JsObjectInterface {
     AUTO("auto"),

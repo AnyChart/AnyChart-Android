@@ -60,6 +60,31 @@ public class StockScatterDateTime extends CoreBase {
         }
     }
 
+    private Number count;
+
+    /**
+     * Setter for the minor ticks count.
+     */
+    public StockScatterDateTime setTicksCount(Number count) {
+        if (jsBase == null) {
+            this.count = count;
+        } else {
+            this.count = count;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".ticksCount(%s)", count));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticksCount(%s);", count));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Number transform;
     private String transform1;
 

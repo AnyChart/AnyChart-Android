@@ -473,6 +473,32 @@ public class UiLegend extends CoreText {
         return this;
     }
 
+    private String itemsFormat;
+
+    /**
+     * Setter for items text formatter.<br/>
+{docs:Stock_Charts/Legend#items}Learn more about using itemsFormat() method.{docs}
+     */
+    public UiLegend setItemsFormat(String itemsFormat) {
+        if (jsBase == null) {
+            this.itemsFormat = itemsFormat;
+        } else {
+            this.itemsFormat = itemsFormat;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".itemsFormat(%s)", wrapQuotes(itemsFormat)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemsFormat(%s);", wrapQuotes(itemsFormat)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private LegendLayout itemsLayout;
     private String itemsLayout1;
 

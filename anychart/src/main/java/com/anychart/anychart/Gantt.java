@@ -270,14 +270,14 @@ The expandTask() method should be used after drawing a chart.
     }
 
 
-    private UiTimeline getGetTimeline;
+    private Timeline getGetTimeline;
 
     /**
      * Getter for the timeline.
      */
-    public UiTimeline getGetTimeline() {
+    public Timeline getGetTimeline() {
         if (getGetTimeline == null)
-            getGetTimeline = new UiTimeline(jsBase + ".getTimeline()");
+            getGetTimeline = new Timeline(jsBase + ".getTimeline()");
 
         return getGetTimeline;
     }

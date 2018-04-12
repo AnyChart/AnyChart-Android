@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -65,7 +60,7 @@ Allows use mouse wheel for scrolling. Press "ctrl" or "shift" and scroll mouse w
 
     /**
      * Setter for the zoom.<br/>
-Allows use mouse wheel for zooming. Press "ctrl" or "shift" and zoom mouse wheel.
+Allows use mouse wheel for zooming.
      */
     public StockInteractivity setZoomOnMouseWheel(Boolean zoomOnMouseWheel) {
         if (jsBase == null) {

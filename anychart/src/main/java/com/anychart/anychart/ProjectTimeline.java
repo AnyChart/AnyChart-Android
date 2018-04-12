@@ -11,7 +11,7 @@ import android.text.TextUtils;
 /**
  * The ProjectTimeline class contains methods for configuring standalones project timeline.
  */
-public class ProjectTimeline extends UiTimeline {
+public class ProjectTimeline extends Timeline {
 
     public ProjectTimeline() {
         js.setLength(0);

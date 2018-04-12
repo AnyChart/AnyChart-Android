@@ -66,7 +66,7 @@ public class LegendItemSettings extends CoreText {
 
     /**
      * Setter for legend item format settings.<br/>
-{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+{docs:Common_Settings/Text_Formatters}Learn more about using the format() method.{docs}
      */
     public LegendItemSettings setFormat(String format) {
         if (jsBase == null) {

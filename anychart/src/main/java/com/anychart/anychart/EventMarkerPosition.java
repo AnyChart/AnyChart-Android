@@ -10,7 +10,7 @@ public enum EventMarkerPosition implements JsObject.JsObjectInterface {
     SERIES("series"),
     SERIES_NEGATIVE("series-negative"),
     SERIES_POSITIVE("series-positive"),
-    SERIES_ZERO("series-zero");
+    ZERO("zero");
 
     private final String value;
 

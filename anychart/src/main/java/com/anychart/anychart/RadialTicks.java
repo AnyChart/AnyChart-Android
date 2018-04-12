@@ -40,7 +40,7 @@ public class RadialTicks extends VisualBase {
 
     /**
      * Setter for ticks length.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
      */
     public RadialTicks setLength(Number length) {
         if (jsBase == null) {
@@ -67,7 +67,7 @@ public class RadialTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {

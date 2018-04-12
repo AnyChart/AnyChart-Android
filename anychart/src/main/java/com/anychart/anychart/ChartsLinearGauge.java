@@ -2,9 +2,10 @@ package com.anychart.anychart;
 
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
 /**
@@ -45,20 +46,48 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
     
-    private Number var_args;
 
     /**
      * Adds pointers to the gauge.
      */
-    public void addPointer(Number var_args) {
+    public void addPointer(List<DataEntry> data) {
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
+        }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
+
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addPointer(%s);", resultData.toString()));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addPointer(%s);", resultData.toString()));
+            js.setLength(0);
+        }
+    }
+    }
+
+
+    /**
+     * 
+     */
+    public void addPointer(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addPointer(%s);", var_args));
 
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addPointer(%s);",  view.getJsBase()));
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addPointer(%s)", var_args));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addPointer(%s);", view.getJsBase()));
             js.setLength(0);
         }
     }
@@ -895,20 +924,20 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
 
-    private ScalesBase getScale;
+    private ScatterBase getScale;
 
     /**
      * Getter for the gauge scale.
      */
-    public ScalesBase getScale() {
+    public ScatterBase getScale() {
         if (getScale == null)
-            getScale = new ScalesBase(jsBase + ".scale()");
+            getScale = new ScatterBase(jsBase + ".scale()");
 
         return getScale;
     }
     private ScaleTypes scale;
     private String scale1;
-    private ScalesBase scale2;
+    private ScatterBase scale2;
     private String scale3;
 
     /**
@@ -950,7 +979,7 @@ public class ChartsLinearGauge extends SeparateChart {
     /**
      * Setter for the gauge scale.
      */
-    public ChartsLinearGauge setScale(ScalesBase scale2) {
+    public ChartsLinearGauge setScale(ScatterBase scale2) {
         if (isChain) {
             js.append(";");
             isChain = false;

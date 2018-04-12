@@ -22,7 +22,7 @@ See also:<br/>
 {@link anychart.graphics.vector.Layer#path}<br/>
 {@link anychart.graphics#path}
  */
-public class Path extends JsObject {
+public class Path extends Shape {
 
     public Path() {
         js.setLength(0);

@@ -13,7 +13,7 @@ import android.text.TextUtils;
 Title can be a part of an other complex element, such as a chart, a legend or an axis,
 as well a self-sufficient element.<br/>
 A title have a orientation, text alignment and a background.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.Title.png' height='287' width='444'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.Title.png' height='287' width='444'/><br/>
 Title occupies the whole part of a container (depending on the orientation by the width or the height).
  */
 public class UiTitle extends CoreText {

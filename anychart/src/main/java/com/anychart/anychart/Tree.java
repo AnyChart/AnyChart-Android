@@ -39,7 +39,7 @@ public class Tree extends CoreBase {
     private List<TreeDataItem> setAddChild = new ArrayList<>();
 
     /**
-     * Adds a new root element and return it.
+     * Adds a new root element and returns it.
      */
     public TreeDataItem addChild(String child) {
         if (jsBase == null) {
@@ -81,7 +81,7 @@ public class Tree extends CoreBase {
     private List<TreeDataItem> setAddChildAt = new ArrayList<>();
 
     /**
-     * Inserts a new root element into a specified position by index and return it.
+     * Inserts a new root element into a specified position by index and returns it.
      */
     public TreeDataItem addChildAt(String child1, Number index) {
         if (jsBase == null) {
@@ -126,7 +126,7 @@ public class Tree extends CoreBase {
     private List<TreeDataItem> setAddChildAt1 = new ArrayList<>();
 
     /**
-     * Inserts a new root element into a specified position by index and return it.
+     * Inserts a new root element into a specified position by index and returns it.
      */
     public TreeDataItem addChildAt(TreeDataItem child2, Number index) {
         if (jsBase == null) {
@@ -171,7 +171,7 @@ public class Tree extends CoreBase {
     private List<TreeDataItem> setAddChildAt2 = new ArrayList<>();
 
     /**
-     * Inserts a new root element into a specified position by index and return it.
+     * Inserts a new root element into a specified position by index and returns it.
      */
     public TreeDataItem addChildAt(TreeviewDataItem child3, Number index) {
         if (jsBase == null) {

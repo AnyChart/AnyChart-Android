@@ -9,22 +9,22 @@ import android.text.TextUtils;
 
 // class
 /**
- * Resource Chart Timeline element.
+ * Single timeline header level.
  */
-public class CoreResourceTimeline extends VisualBaseWithBounds {
+public class LevelWrapper extends CoreBase {
 
-    public CoreResourceTimeline() {
+    public LevelWrapper() {
         js.setLength(0);
-        js.append("var coreResourceTimeline").append(++variableIndex).append(" = anychart.core.resource.timeline();");
-        jsBase = "coreResourceTimeline" + variableIndex;
+        js.append("var levelWrapper").append(++variableIndex).append(" = anychart.core.gantt.TimeLineHeader.levelWrapper();");
+        jsBase = "levelWrapper" + variableIndex;
     }
 
-    protected CoreResourceTimeline(String jsBase) {
+    protected LevelWrapper(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
     }
 
-    protected CoreResourceTimeline(StringBuilder js, String jsBase, boolean isChain) {
+    protected LevelWrapper(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
@@ -35,34 +35,34 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     }
 
     
-    private Boolean adjustOrAdjustByWidth;
-    private Boolean[] adjustOrAdjustByWidth1;
-    private String adjustOrAdjustByWidth2;
-    private Boolean adjustByHeight;
+    private String bothOrByWidth;
+    private Boolean[] bothOrByWidth1;
+    private Boolean bothOrByWidth2;
+    private Boolean byHeight;
 
     /**
-     * Setter for the adjusting font size.
+     * Setter for the adjust font settings.
      */
-    public CoreResourceTimeline setAdjustFontSize(Boolean adjustOrAdjustByWidth, Boolean adjustByHeight) {
+    public LevelWrapper setAdjustFontSize(String bothOrByWidth, Boolean byHeight) {
         if (jsBase == null) {
-            this.adjustOrAdjustByWidth = null;
-            this.adjustOrAdjustByWidth1 = null;
-            this.adjustOrAdjustByWidth2 = null;
+            this.bothOrByWidth = null;
+            this.bothOrByWidth1 = null;
+            this.bothOrByWidth2 = null;
             
-            this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
-            this.adjustByHeight = adjustByHeight;
+            this.bothOrByWidth = bothOrByWidth;
+            this.byHeight = byHeight;
         } else {
-            this.adjustOrAdjustByWidth = adjustOrAdjustByWidth;
-            this.adjustByHeight = adjustByHeight;
+            this.bothOrByWidth = bothOrByWidth;
+            this.byHeight = byHeight;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustOrAdjustByWidth, adjustByHeight));
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", adjustOrAdjustByWidth, adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", wrapQuotes(bothOrByWidth), byHeight));
                 js.setLength(0);
             }
         }
@@ -71,28 +71,28 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the adjusting font size.
+     * Setter for the adjust font settings.
      */
-    public CoreResourceTimeline setAdjustFontSize(Boolean[] adjustOrAdjustByWidth1, Boolean adjustByHeight) {
+    public LevelWrapper setAdjustFontSize(Boolean[] bothOrByWidth1, Boolean byHeight) {
         if (jsBase == null) {
-            this.adjustOrAdjustByWidth = null;
-            this.adjustOrAdjustByWidth1 = null;
-            this.adjustOrAdjustByWidth2 = null;
+            this.bothOrByWidth = null;
+            this.bothOrByWidth1 = null;
+            this.bothOrByWidth2 = null;
             
-            this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
-            this.adjustByHeight = adjustByHeight;
+            this.bothOrByWidth1 = bothOrByWidth1;
+            this.byHeight = byHeight;
         } else {
-            this.adjustOrAdjustByWidth1 = adjustOrAdjustByWidth1;
-            this.adjustByHeight = adjustByHeight;
+            this.bothOrByWidth1 = bothOrByWidth1;
+            this.byHeight = byHeight;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(adjustOrAdjustByWidth1), adjustByHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(bothOrByWidth1), byHeight));
                 js.setLength(0);
             }
         }
@@ -101,99 +101,28 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the adjusting font size.
+     * Setter for the adjust font settings.
      */
-    public CoreResourceTimeline setAdjustFontSize(String adjustOrAdjustByWidth2, Boolean adjustByHeight) {
+    public LevelWrapper setAdjustFontSize(Boolean bothOrByWidth2, Boolean byHeight) {
         if (jsBase == null) {
-            this.adjustOrAdjustByWidth = null;
-            this.adjustOrAdjustByWidth1 = null;
-            this.adjustOrAdjustByWidth2 = null;
+            this.bothOrByWidth = null;
+            this.bothOrByWidth1 = null;
+            this.bothOrByWidth2 = null;
             
-            this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
-            this.adjustByHeight = adjustByHeight;
+            this.bothOrByWidth2 = bothOrByWidth2;
+            this.byHeight = byHeight;
         } else {
-            this.adjustOrAdjustByWidth2 = adjustOrAdjustByWidth2;
-            this.adjustByHeight = adjustByHeight;
+            this.bothOrByWidth2 = bothOrByWidth2;
+            this.byHeight = byHeight;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
+            js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", wrapQuotes(adjustOrAdjustByWidth2), adjustByHeight));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private UiBackground getBackground;
-
-    /**
-     * Getter for the background.
-     */
-    public UiBackground getBackground() {
-        if (getBackground == null)
-            getBackground = new UiBackground(jsBase + ".background()");
-
-        return getBackground;
-    }
-
-    private String background;
-    private String background1;
-    private Boolean background2;
-
-    /**
-     * Setter for the background.
-     */
-    public CoreResourceTimeline setBackground(String background) {
-        if (jsBase == null) {
-            this.background = null;
-            this.background1 = null;
-            this.background2 = null;
-            
-            this.background = background;
-        } else {
-            this.background = background;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(background)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for the background.
-     */
-    public CoreResourceTimeline setBackground(Boolean background2) {
-        if (jsBase == null) {
-            this.background = null;
-            this.background1 = null;
-            this.background2 = null;
-            
-            this.background2 = background2;
-        } else {
-            this.background2 = background2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".background(%b)", background2));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", bothOrByWidth2, byHeight));
                 js.setLength(0);
             }
         }
@@ -203,9 +132,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Boolean disablePointerEvents;
 
     /**
-     * Setter for the pointer events setting.
+     * Setter for the pointer events settings.
      */
-    public CoreResourceTimeline setDisablePointerEvents(Boolean disablePointerEvents) {
+    public LevelWrapper setDisablePointerEvents(Boolean disablePointerEvents) {
         if (jsBase == null) {
             this.disablePointerEvents = disablePointerEvents;
         } else {
@@ -225,155 +154,38 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Boolean drawBottomLine;
-    private List<Grid> setDrawBottomLine = new ArrayList<>();
+    private Boolean state;
+    private List<UiLabelsFactory> setEnabled = new ArrayList<>();
 
     /**
-     * Setter for the bottom line drawing flag.
+     * Setter for the level enabled state.
      */
-    public Grid setDrawBottomLine(Boolean drawBottomLine) {
+    public UiLabelsFactory setEnabled(Boolean state) {
         if (jsBase == null) {
-            this.drawBottomLine = drawBottomLine;
+            this.state = state;
         } else {
-            this.drawBottomLine = drawBottomLine;
+            this.state = state;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setDrawBottomLine" + ++variableIndex + " = " + jsBase + ".drawBottomLine(%b);", drawBottomLine));
+            js.append(String.format(Locale.US, "var setEnabled" + ++variableIndex + " = " + jsBase + ".enabled(%b);", state));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawBottomLine(%b);", drawBottomLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", state));
                 js.setLength(0);
             }
         }
-        Grid item = new Grid("setDrawBottomLine" + variableIndex);
-        setDrawBottomLine.add(item);
+        UiLabelsFactory item = new UiLabelsFactory("setEnabled" + variableIndex);
+        setEnabled.add(item);
         return item;
     }
-    private String generateJSsetDrawBottomLine() {
-        if (!setDrawBottomLine.isEmpty()) {
+    private String generateJSsetEnabled() {
+        if (!setEnabled.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawBottomLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private Boolean drawLeftLine;
-    private List<Grid> setDrawLeftLine = new ArrayList<>();
-
-    /**
-     * Setter for the left line drawing flag.
-     */
-    public Grid setDrawLeftLine(Boolean drawLeftLine) {
-        if (jsBase == null) {
-            this.drawLeftLine = drawLeftLine;
-        } else {
-            this.drawLeftLine = drawLeftLine;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var setDrawLeftLine" + ++variableIndex + " = " + jsBase + ".drawLeftLine(%b);", drawLeftLine));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLeftLine(%b);", drawLeftLine));
-                js.setLength(0);
-            }
-        }
-        Grid item = new Grid("setDrawLeftLine" + variableIndex);
-        setDrawLeftLine.add(item);
-        return item;
-    }
-    private String generateJSsetDrawLeftLine() {
-        if (!setDrawLeftLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawLeftLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private Boolean drawRightLine;
-    private List<Grid> setDrawRightLine = new ArrayList<>();
-
-    /**
-     * Setter for the right line drawing flag.
-     */
-    public Grid setDrawRightLine(Boolean drawRightLine) {
-        if (jsBase == null) {
-            this.drawRightLine = drawRightLine;
-        } else {
-            this.drawRightLine = drawRightLine;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var setDrawRightLine" + ++variableIndex + " = " + jsBase + ".drawRightLine(%b);", drawRightLine));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawRightLine(%b);", drawRightLine));
-                js.setLength(0);
-            }
-        }
-        Grid item = new Grid("setDrawRightLine" + variableIndex);
-        setDrawRightLine.add(item);
-        return item;
-    }
-    private String generateJSsetDrawRightLine() {
-        if (!setDrawRightLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawRightLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private Boolean drawTopLine;
-    private List<Grid> setDrawTopLine = new ArrayList<>();
-
-    /**
-     * Setter for the top line drawing flag.
-     */
-    public Grid setDrawTopLine(Boolean drawTopLine) {
-        if (jsBase == null) {
-            this.drawTopLine = drawTopLine;
-        } else {
-            this.drawTopLine = drawTopLine;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var setDrawTopLine" + ++variableIndex + " = " + jsBase + ".drawTopLine(%b);", drawTopLine));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawTopLine(%b);", drawTopLine));
-                js.setLength(0);
-            }
-        }
-        Grid item = new Grid("setDrawTopLine" + variableIndex);
-        setDrawTopLine.add(item);
-        return item;
-    }
-    private String generateJSsetDrawTopLine() {
-        if (!setDrawTopLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawTopLine) {
+            for (UiLabelsFactory item : setEnabled) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -387,7 +199,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Setter for fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline setFill(Fill fill) {
+    public LevelWrapper setFill(Fill fill) {
         if (jsBase == null) {
             this.fill = fill;
         } else {
@@ -411,7 +223,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * 
      */
-    public CoreResourceTimeline setFill(String json) {
+    public LevelWrapper setFill(String json) {
         if (jsBase == null) {
         } else {
             if (!isChain) {
@@ -435,7 +247,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Fill color with opacity.
      */
-    public CoreResourceTimeline fill(String color, Number opacity) {
+    public LevelWrapper fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -469,7 +281,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
+    public LevelWrapper fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -510,7 +322,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
+    public LevelWrapper fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -551,7 +363,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
+    public LevelWrapper fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -592,7 +404,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
+    public LevelWrapper fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -633,7 +445,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
+    public LevelWrapper fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -674,7 +486,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, String mode2) {
+    public LevelWrapper fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -723,7 +535,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
+    public LevelWrapper fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -774,7 +586,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
+    public LevelWrapper fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -821,25 +633,28 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     }
 
     private Fill imageSettings;
-    private String fontColor;
+    private String color1;
 
     /**
      * Setter for font color settings.
      */
-    public CoreResourceTimeline setFontColor(String fontColor) {
+    public LevelWrapper setFontColor(String color1) {
         if (jsBase == null) {
-            this.fontColor = fontColor;
+            this.color = null;
+            this.color1 = null;
+            
+            this.color1 = color1;
         } else {
-            this.fontColor = fontColor;
+            this.color1 = color1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
+            js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(color1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(fontColor)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color1)));
                 js.setLength(0);
             }
         }
@@ -850,9 +665,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private String fontDecoration1;
 
     /**
-     * Setter for font decoration settings.
+     * Setter for the text font decoration.
      */
-    public CoreResourceTimeline setFontDecoration(Decoration fontDecoration) {
+    public LevelWrapper setFontDecoration(Decoration fontDecoration) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -877,9 +692,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for font decoration settings.
+     * Setter for the text font decoration.
      */
-    public CoreResourceTimeline setFontDecoration(String fontDecoration1) {
+    public LevelWrapper setFontDecoration(String fontDecoration1) {
         if (jsBase == null) {
             this.fontDecoration = null;
             this.fontDecoration1 = null;
@@ -902,79 +717,85 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private String fontFamily;
+    private String family;
 
     /**
-     * Setter for font family settings.
+     * Setter for font family.
      */
-    public CoreResourceTimeline setFontFamily(String fontFamily) {
+    public LevelWrapper setFontFamily(String family) {
         if (jsBase == null) {
-            this.fontFamily = fontFamily;
+            this.family = family;
         } else {
-            this.fontFamily = fontFamily;
+            this.family = family;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
+            js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(family)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(fontFamily)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private Number fontOpacity;
+    private Number opacity3;
 
     /**
-     * Setter for font opacity settings.
+     * Setter for the text font opacity.<br/>
+Double value from 0 to 1.
      */
-    public CoreResourceTimeline setFontOpacity(Number fontOpacity) {
+    public LevelWrapper setFontOpacity(Number opacity3) {
         if (jsBase == null) {
-            this.fontOpacity = fontOpacity;
+            this.opacity = null;
+            this.opacity1 = null;
+            this.opacity2 = null;
+            this.opacity3 = null;
+            
+            this.opacity3 = opacity3;
         } else {
-            this.fontOpacity = fontOpacity;
+            this.opacity3 = opacity3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontOpacity(%s)", fontOpacity));
+            js.append(String.format(Locale.US, ".fontOpacity(%s)", opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%s);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity3));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private Number fontSize;
-    private String fontSize1;
+    private Number size;
+    private String size1;
 
     /**
      * Setter for font size settings.
      */
-    public CoreResourceTimeline setFontSize(Number fontSize) {
+    public LevelWrapper setFontSize(Number size) {
         if (jsBase == null) {
-            this.fontSize = null;
-            this.fontSize1 = null;
+            this.size = null;
+            this.size1 = null;
             
-            this.fontSize = fontSize;
+            this.size = size;
         } else {
-            this.fontSize = fontSize;
+            this.size = size;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize));
+            js.append(String.format(Locale.US, ".fontSize(%s)", size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
                 js.setLength(0);
             }
         }
@@ -985,23 +806,23 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font size settings.
      */
-    public CoreResourceTimeline setFontSize(String fontSize1) {
+    public LevelWrapper setFontSize(String size1) {
         if (jsBase == null) {
-            this.fontSize = null;
-            this.fontSize1 = null;
+            this.size = null;
+            this.size1 = null;
             
-            this.fontSize1 = fontSize1;
+            this.size1 = size1;
         } else {
-            this.fontSize1 = fontSize1;
+            this.size1 = size1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
+            js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(size1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(fontSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size1)));
                 js.setLength(0);
             }
         }
@@ -1014,7 +835,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font style settings.
      */
-    public CoreResourceTimeline setFontStyle(String fontStyle) {
+    public LevelWrapper setFontStyle(String fontStyle) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -1041,7 +862,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font style settings.
      */
-    public CoreResourceTimeline setFontStyle(TextFontStyle fontStyle1) {
+    public LevelWrapper setFontStyle(TextFontStyle fontStyle1) {
         if (jsBase == null) {
             this.fontStyle = null;
             this.fontStyle1 = null;
@@ -1070,7 +891,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font variant settings.
      */
-    public CoreResourceTimeline setFontVariant(String fontVariant) {
+    public LevelWrapper setFontVariant(String fontVariant) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -1097,7 +918,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font variant settings.
      */
-    public CoreResourceTimeline setFontVariant(TextFontVariant fontVariant1) {
+    public LevelWrapper setFontVariant(TextFontVariant fontVariant1) {
         if (jsBase == null) {
             this.fontVariant = null;
             this.fontVariant1 = null;
@@ -1120,29 +941,29 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private String fontWeight;
-    private Number fontWeight1;
+    private String weight;
+    private Number weight1;
 
     /**
      * Setter for font weight settings.
      */
-    public CoreResourceTimeline setFontWeight(String fontWeight) {
+    public LevelWrapper setFontWeight(String weight) {
         if (jsBase == null) {
-            this.fontWeight = null;
-            this.fontWeight1 = null;
+            this.weight = null;
+            this.weight1 = null;
             
-            this.fontWeight = fontWeight;
+            this.weight = weight;
         } else {
-            this.fontWeight = fontWeight;
+            this.weight = weight;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
+            js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(weight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(fontWeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
                 js.setLength(0);
             }
         }
@@ -1153,23 +974,23 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font weight settings.
      */
-    public CoreResourceTimeline setFontWeight(Number fontWeight1) {
+    public LevelWrapper setFontWeight(Number weight1) {
         if (jsBase == null) {
-            this.fontWeight = null;
-            this.fontWeight1 = null;
+            this.weight = null;
+            this.weight1 = null;
             
-            this.fontWeight1 = fontWeight1;
+            this.weight1 = weight1;
         } else {
-            this.fontWeight1 = fontWeight1;
+            this.weight1 = weight1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight1));
+            js.append(String.format(Locale.US, ".fontWeight(%s)", weight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight1));
                 js.setLength(0);
             }
         }
@@ -1180,9 +1001,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
     /**
      * Setter for the function content text.<br/>
-{docs:Common_Settings/Text_Formatters}Learn more about using format() method.{docs}
+{docs:Common_Settings/Text_Formatters}Learn more about using the format() method.{docs}
      */
-    public CoreResourceTimeline setFormat(String format) {
+    public LevelWrapper setFormat(String format) {
         if (jsBase == null) {
             this.format = format;
         } else {
@@ -1208,7 +1029,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the text horizontal align settings.
      */
-    public CoreResourceTimeline setHAlign(String hAlign) {
+    public LevelWrapper setHAlign(String hAlign) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -1235,7 +1056,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the text horizontal align settings.
      */
-    public CoreResourceTimeline setHAlign(TextHAlign hAlign1) {
+    public LevelWrapper setHAlign(TextHAlign hAlign1) {
         if (jsBase == null) {
             this.hAlign = null;
             this.hAlign1 = null;
@@ -1258,54 +1079,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private CoreResourceTimeline getHolidays;
-
-    /**
-     * Getter for holidays.
-     */
-    public CoreResourceTimeline getHolidays() {
-        if (getHolidays == null)
-            getHolidays = new CoreResourceTimeline(jsBase + ".holidays()");
-
-        return getHolidays;
-    }
-
-    private String holidays;
-
-    /**
-     * Setter for holidays settings.
-     */
-    public CoreResourceTimeline setHolidays(String holidays) {
-        if (jsBase == null) {
-            this.holidays = holidays;
-        } else {
-            this.holidays = holidays;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".holidays(%s)", wrapQuotes(holidays)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".holidays(%s);", wrapQuotes(holidays)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private Number letterSpacing;
-    private String letterSpacing1;
 
     /**
-     * Setter for text letter spacing settings.
+     * Setter for letter spacing settings.
      */
-    public CoreResourceTimeline setLetterSpacing(Number letterSpacing) {
+    public LevelWrapper setLetterSpacing(Number letterSpacing) {
         if (jsBase == null) {
-            this.letterSpacing = null;
-            this.letterSpacing1 = null;
-            
             this.letterSpacing = letterSpacing;
         } else {
             this.letterSpacing = letterSpacing;
@@ -1324,65 +1104,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
+    private String lineHeight;
+    private Number lineHeight1;
 
     /**
-     * Setter for text letter spacing settings.
+     * Setter for the text line height.<br/> {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public CoreResourceTimeline setLetterSpacing(String letterSpacing1) {
-        if (jsBase == null) {
-            this.letterSpacing = null;
-            this.letterSpacing1 = null;
-            
-            this.letterSpacing1 = letterSpacing1;
-        } else {
-            this.letterSpacing1 = letterSpacing1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing1)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(letterSpacing1)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private Number levelHeight;
-
-    /**
-     * Setter for the level height.
-     */
-    public CoreResourceTimeline setLevelHeight(Number levelHeight) {
-        if (jsBase == null) {
-            this.levelHeight = levelHeight;
-        } else {
-            this.levelHeight = levelHeight;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".levelHeight(%s)", levelHeight));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".levelHeight(%s);", levelHeight));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private Number lineHeight;
-    private String lineHeight1;
-
-    /**
-     * Setter for text line height settings.
-     */
-    public CoreResourceTimeline setLineHeight(Number lineHeight) {
+    public LevelWrapper setLineHeight(String lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -1395,10 +1123,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
+            js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(lineHeight)));
                 js.setLength(0);
             }
         }
@@ -1407,9 +1135,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for text line height settings.
+     * Setter for the text line height.<br/> {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public CoreResourceTimeline setLineHeight(String lineHeight1) {
+    public LevelWrapper setLineHeight(Number lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -1422,10 +1150,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight1)));
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(lineHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
                 js.setLength(0);
             }
         }
@@ -1436,9 +1164,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private String maxFontSize1;
 
     /**
-     * Setter for the maximum font size.
+     * Setter for the font size for adjust text to.
      */
-    public CoreResourceTimeline setMaxFontSize(Number maxFontSize) {
+    public LevelWrapper setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -1463,9 +1191,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the maximum font size.
+     * Setter for the font size for adjust text to.
      */
-    public CoreResourceTimeline setMaxFontSize(String maxFontSize1) {
+    public LevelWrapper setMaxFontSize(String maxFontSize1) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -1492,9 +1220,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private String minFontSize1;
 
     /**
-     * Setter for the minimum font size.
+     * Setter for minimum font size settings for adjust text from.
      */
-    public CoreResourceTimeline setMinFontSize(Number minFontSize) {
+    public LevelWrapper setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -1519,9 +1247,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the minimum font size.
+     * Setter for minimum font size settings for adjust text from.
      */
-    public CoreResourceTimeline setMinFontSize(String minFontSize1) {
+    public LevelWrapper setMinFontSize(String minFontSize1) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -1544,319 +1272,12 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Overlay getOverlay;
-
-    /**
-     * Getter for the overlay element.
-     */
-    public Overlay getOverlay() {
-        if (getOverlay == null)
-            getOverlay = new Overlay(jsBase + ".overlay()");
-
-        return getOverlay;
-    }
-
-    private String overlay;
-    private Boolean overlay1;
-
-    /**
-     * Setter for the overlay element.
-     */
-    public CoreResourceTimeline setOverlay(String overlay) {
-        if (jsBase == null) {
-            this.overlay = null;
-            this.overlay1 = null;
-            
-            this.overlay = overlay;
-        } else {
-            this.overlay = overlay;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(overlay)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for the overlay element.
-     */
-    public CoreResourceTimeline setOverlay(Boolean overlay1) {
-        if (jsBase == null) {
-            this.overlay = null;
-            this.overlay1 = null;
-            
-            this.overlay1 = overlay1;
-        } else {
-            this.overlay1 = overlay1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%b);", overlay1));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private UtilsPadding getPadding;
-
-    /**
-     * Getter for the padding.
-     */
-    public UtilsPadding getPadding() {
-        if (getPadding == null)
-            getPadding = new UtilsPadding(jsBase + ".padding()");
-
-        return getPadding;
-    }
-
-    private Number[] padding;
-    private String[] padding1;
-    private String padding2;
-
-    /**
-     * Setter for paddings in pixels using a single value.
-     */
-    public CoreResourceTimeline setPadding(Number[] padding) {
-        if (jsBase == null) {
-            this.padding = null;
-            this.padding1 = null;
-            this.padding2 = null;
-            
-            this.padding = padding;
-        } else {
-            this.padding = padding;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for paddings in pixels using a single value.
-     */
-    public CoreResourceTimeline setPadding(String[] padding1) {
-        if (jsBase == null) {
-            this.padding = null;
-            this.padding1 = null;
-            this.padding2 = null;
-            
-            this.padding1 = padding1;
-        } else {
-            this.padding1 = padding1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for paddings in pixels using a single value.
-     */
-    public CoreResourceTimeline setPadding(String padding2) {
-        if (jsBase == null) {
-            this.padding = null;
-            this.padding1 = null;
-            this.padding2 = null;
-            
-            this.padding2 = padding2;
-        } else {
-            this.padding2 = padding2;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private String value;
-    private Number value1;
-    private String value2;
-    private Number value3;
-    private String value4;
-    private Number value5;
-    private String value6;
-    private Number value7;
-
-    /**
-     * Setter for paddings in pixels using several numbers.
-     */
-    public CoreResourceTimeline setPadding(String value, String value2, String value4, String value6) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value = value;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value2 = value2;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value4 = value4;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value6 = value6;
-        } else {
-            this.value = value;
-            this.value2 = value2;
-            this.value4 = value4;
-            this.value6 = value6;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for paddings in pixels using several numbers.
-     */
-    public CoreResourceTimeline setPadding(Number value1, Number value3, Number value5, Number value7) {
-        if (jsBase == null) {
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value1 = value1;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value3 = value3;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value5 = value5;
-            this.value = null;
-            this.value1 = null;
-            this.value2 = null;
-            this.value3 = null;
-            this.value4 = null;
-            this.value5 = null;
-            this.value6 = null;
-            this.value7 = null;
-            
-            this.value7 = value7;
-        } else {
-            this.value1 = value1;
-            this.value3 = value3;
-            this.value5 = value5;
-            this.value7 = value7;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value1, value3, value5, value7));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private Boolean selectable;
 
     /**
-     * Setter for the text selectable option.
+     * Setter for the text selectable.
      */
-    public CoreResourceTimeline setSelectable(Boolean selectable) {
+    public LevelWrapper setSelectable(Boolean selectable) {
         if (jsBase == null) {
             this.selectable = selectable;
         } else {
@@ -1876,32 +1297,30 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Stroke color1;
-    private ColoredFill color2;
-    private String color3;
+    private Stroke settings;
+    private ColoredFill settings1;
+    private String settings2;
     private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
 
     /**
-     * Setter for the stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * Setter for the level stroke.
      */
-    public CoreResourceTimeline setStroke(Stroke color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LevelWrapper setStroke(Stroke settings, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
             
-            this.color1 = color1;
+            this.settings = settings;
             this.thickness = thickness;
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
         } else {
-            this.color1 = color1;
+            this.settings = settings;
             this.thickness = thickness;
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
@@ -1911,10 +1330,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((settings != null) ? settings.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", ((settings != null) ? settings.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1925,7 +1344,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * 
      */
-    public CoreResourceTimeline setStroke(String json) {
+    public LevelWrapper setStroke(String json) {
         if (jsBase == null) {
         } else {
             if (!isChain) {
@@ -1945,23 +1364,21 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * Setter for the level stroke.
      */
-    public CoreResourceTimeline setStroke(ColoredFill color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LevelWrapper setStroke(ColoredFill settings1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
             
-            this.color2 = color2;
+            this.settings1 = settings1;
             this.thickness = thickness;
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
         } else {
-            this.color2 = color2;
+            this.settings1 = settings1;
             this.thickness = thickness;
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
@@ -1971,10 +1388,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((settings1 != null) ? settings1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", ((settings1 != null) ? settings1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1983,23 +1400,21 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * Setter for the level stroke.
      */
-    public CoreResourceTimeline setStroke(String color3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LevelWrapper setStroke(String settings2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
-            this.color = null;
-            this.color1 = null;
-            this.color2 = null;
-            this.color3 = null;
+            this.settings = null;
+            this.settings1 = null;
+            this.settings2 = null;
             
-            this.color3 = color3;
+            this.settings2 = settings2;
             this.thickness = thickness;
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
             this.lineCap = lineCap;
         } else {
-            this.color3 = color3;
+            this.settings2 = settings2;
             this.thickness = thickness;
             this.dashpattern = dashpattern;
             this.lineJoin = lineJoin;
@@ -2009,23 +1424,24 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(settings2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(settings2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String textDirection;
-    private Direction textDirection1;
+    private String settings3;
+    private Direction textDirection;
+    private String textDirection1;
 
     /**
-     * Setter for text direction settings.
+     * Setter for the text direction.
      */
-    public CoreResourceTimeline setTextDirection(String textDirection) {
+    public LevelWrapper setTextDirection(Direction textDirection) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -2038,10 +1454,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection)));
+            js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(textDirection)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", ((textDirection != null) ? textDirection.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2050,9 +1466,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for text direction settings.
+     * Setter for the text direction.
      */
-    public CoreResourceTimeline setTextDirection(Direction textDirection1) {
+    public LevelWrapper setTextDirection(String textDirection1) {
         if (jsBase == null) {
             this.textDirection = null;
             this.textDirection1 = null;
@@ -2065,10 +1481,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", ((textDirection1 != null) ? textDirection1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(textDirection1)));
                 js.setLength(0);
             }
         }
@@ -2078,9 +1494,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Number textIndent;
 
     /**
-     * Setter for text-indent settings.
+     * Setter for the text indent.
      */
-    public CoreResourceTimeline setTextIndent(Number textIndent) {
+    public LevelWrapper setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
@@ -2104,9 +1520,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private String textOverflow1;
 
     /**
-     * Setter for text overflow settings.
+     * Setter for the text overflow settings.
      */
-    public CoreResourceTimeline setTextOverflow(TextOverflow textOverflow) {
+    public LevelWrapper setTextOverflow(TextOverflow textOverflow) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -2131,9 +1547,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for text overflow settings.
+     * Setter for the text overflow settings.
      */
-    public CoreResourceTimeline setTextOverflow(String textOverflow1) {
+    public LevelWrapper setTextOverflow(String textOverflow1) {
         if (jsBase == null) {
             this.textOverflow = null;
             this.textOverflow1 = null;
@@ -2161,7 +1577,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the useHTML flag.
      */
-    public CoreResourceTimeline setUseHtml(Boolean useHtml) {
+    public LevelWrapper setUseHtml(Boolean useHtml) {
         if (jsBase == null) {
             this.useHtml = useHtml;
         } else {
@@ -2181,13 +1597,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private String vAlign;
-    private TextVAlign vAlign1;
+    private TextVAlign vAlign;
+    private String vAlign1;
 
     /**
-     * Setter for text vertical align settings.
+     * Setter for the text vertical align.
      */
-    public CoreResourceTimeline setVAlign(String vAlign) {
+    public LevelWrapper setVAlign(TextVAlign vAlign) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -2200,10 +1616,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign)));
+            js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(vAlign)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", ((vAlign != null) ? vAlign.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2212,9 +1628,9 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for text vertical align settings.
+     * Setter for the text vertical align.
      */
-    public CoreResourceTimeline setVAlign(TextVAlign vAlign1) {
+    public LevelWrapper setVAlign(String vAlign1) {
         if (jsBase == null) {
             this.vAlign = null;
             this.vAlign1 = null;
@@ -2227,10 +1643,10 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", ((vAlign1 != null) ? vAlign1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(vAlign1)));
                 js.setLength(0);
             }
         }
@@ -2243,7 +1659,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the word-break mode.
      */
-    public CoreResourceTimeline setWordBreak(EnumsWordBreak wordBreak) {
+    public LevelWrapper setWordBreak(EnumsWordBreak wordBreak) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -2270,7 +1686,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the word-break mode.
      */
-    public CoreResourceTimeline setWordBreak(String wordBreak1) {
+    public LevelWrapper setWordBreak(String wordBreak1) {
         if (jsBase == null) {
             this.wordBreak = null;
             this.wordBreak1 = null;
@@ -2299,7 +1715,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the word-wrap mode.
      */
-    public CoreResourceTimeline setWordWrap(EnumsWordWrap wordWrap) {
+    public LevelWrapper setWordWrap(EnumsWordWrap wordWrap) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -2326,7 +1742,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for the word-wrap mode.
      */
-    public CoreResourceTimeline setWordWrap(String wordWrap1) {
+    public LevelWrapper setWordWrap(String wordWrap1) {
         if (jsBase == null) {
             this.wordWrap = null;
             this.wordWrap1 = null;
@@ -2349,34 +1765,6 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private String generateJSgetBackground() {
-        if (getBackground != null) {
-            return getBackground.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetHolidays() {
-        if (getHolidays != null) {
-            return getHolidays.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetOverlay() {
-        if (getOverlay != null) {
-            return getOverlay.generateJs();
-        }
-        return "";
-    }
-
-    private String generateJSgetPadding() {
-        if (getPadding != null) {
-            return getPadding.generateJs();
-        }
-        return "";
-    }
-
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -2384,10 +1772,6 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         jsGetters.append(super.generateJsGetters());
 
     
-        jsGetters.append(generateJSgetBackground());
-        jsGetters.append(generateJSgetHolidays());
-        jsGetters.append(generateJSgetOverlay());
-        jsGetters.append(generateJSgetPadding());
 
         return jsGetters.toString();
     }
@@ -2401,10 +1785,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDrawBottomLine());
-        js.append(generateJSsetDrawLeftLine());
-        js.append(generateJSsetDrawRightLine());
-        js.append(generateJSsetDrawTopLine());
+        js.append(generateJSsetEnabled());
         
 
         String result = js.toString();

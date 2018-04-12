@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -58,6 +55,106 @@ public class LineargaugePointersBase extends VisualBase {
             }
         }
         return this;
+    }
+
+    private View getData;
+
+    /**
+     * Getter for pointers data.
+     */
+    public View getData() {
+        if (getData == null)
+            getData = new View(jsBase + ".data()");
+
+        return getData;
+    }
+
+    private List<LineargaugePointersBase> getData1 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(View data, TextParsingMode csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData1.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData2 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(View data, TextParsingSettings csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData2.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData3 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(Set data, TextParsingMode csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData3.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData4 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(Set data, TextParsingSettings csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + ((data != null) ? data.generateJs() : "null") + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData4.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData5 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(String[] data, TextParsingMode csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + arrayToStringWrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData5.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData6 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(String[] data, TextParsingSettings csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + arrayToStringWrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData6.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData7 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(String data, TextParsingMode csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + wrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData7.add(item);
+        return item;
+    }
+
+    private List<LineargaugePointersBase> getData8 = new ArrayList<>();
+
+    /**
+     * Getter for pointers data.
+     */
+    public LineargaugePointersBase getData(String data, TextParsingSettings csvSettings) {
+        LineargaugePointersBase item = new LineargaugePointersBase(jsBase + ".data(" + wrapQuotes(data) + ((csvSettings != null) ? csvSettings.generateJs() : "null") + ")");
+        getData8.add(item);
+        return item;
     }
 
     private Number index;
@@ -797,44 +894,140 @@ public class LineargaugePointersBase extends VisualBase {
         return this;
     }
 
-    private UiLabelsFactory getLabel;
+    private GaugePointersBase getId;
 
     /**
-     * Getter for the pointer label.
+     * Getter for the pointer id.
      */
-    public UiLabelsFactory getLabel() {
-        if (getLabel == null)
-            getLabel = new UiLabelsFactory(jsBase + ".label()");
+    public GaugePointersBase getId() {
+        if (getId == null)
+            getId = new GaugePointersBase(jsBase + ".id()");
 
-        return getLabel;
+        return getId;
     }
 
-    private UiLabelsFactory label;
-    private String label1;
-    private Boolean label2;
+    private String id;
+    private Number id1;
+    private List<GaugePointersBase> setId = new ArrayList<>();
 
     /**
-     * Setter for the pointer label.
+     * Setter for the pointer id.
      */
-    public LineargaugePointersBase setLabel(UiLabelsFactory label) {
+    public GaugePointersBase setId(String id) {
         if (jsBase == null) {
-            this.label = null;
-            this.label1 = null;
-            this.label2 = null;
+            this.id = null;
+            this.id1 = null;
             
-            this.label = label;
+            this.id = id;
         } else {
-            this.label = label;
+            this.id = id;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
-            js.append(label.generateJs());
+            
+            js.append(String.format(Locale.US, "var setId" + ++variableIndex + " = " + jsBase + ".id(%s);", wrapQuotes(id)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
+                js.setLength(0);
+            }
+        }
+        GaugePointersBase item = new GaugePointersBase("setId" + variableIndex);
+        setId.add(item);
+        return item;
+    }
+    private String generateJSsetId() {
+        if (!setId.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : setId) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<GaugePointersBase> setId1 = new ArrayList<>();
+
+    /**
+     * Setter for the pointer id.
+     */
+    public GaugePointersBase setId(Number id1) {
+        if (jsBase == null) {
+            this.id = null;
+            this.id1 = null;
+            
+            this.id1 = id1;
+        } else {
+            this.id1 = id1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setId1" + ++variableIndex + " = " + jsBase + ".id(%s);", id1));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", id1));
+                js.setLength(0);
+            }
+        }
+        GaugePointersBase item = new GaugePointersBase("setId1" + variableIndex);
+        setId1.add(item);
+        return item;
+    }
+    private String generateJSsetId1() {
+        if (!setId1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : setId1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private UiLabelsFactory getLabels;
+
+    /**
+     * Getter for the pointer labels.
+     */
+    public UiLabelsFactory getLabels() {
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
+
+        return getLabels;
+    }
+
+    private UiLabelsFactory labels;
+    private String labels1;
+    private Boolean labels2;
+
+    /**
+     * Setter for the pointer labels.
+     */
+    public LineargaugePointersBase setLabels(UiLabelsFactory labels) {
+        if (jsBase == null) {
+            this.labels = null;
+            this.labels1 = null;
+            this.labels2 = null;
+            
+            this.labels = labels;
+        } else {
+            this.labels = labels;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(labels.generateJs());
             js.append(jsBase);
 
-            js.append(String.format(Locale.US, ".label(%s);",  ((label != null) ? label.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".labels(%s);",  ((labels != null) ? labels.getJsBase() : "null")));
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s);", ((label != null) ? label.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", ((labels != null) ? labels.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -843,26 +1036,26 @@ public class LineargaugePointersBase extends VisualBase {
 
 
     /**
-     * Setter for the pointer label.
+     * Setter for the pointer labels.
      */
-    public LineargaugePointersBase setLabel(String label1) {
+    public LineargaugePointersBase setLabels(String labels1) {
         if (jsBase == null) {
-            this.label = null;
-            this.label1 = null;
-            this.label2 = null;
+            this.labels = null;
+            this.labels1 = null;
+            this.labels2 = null;
             
-            this.label1 = label1;
+            this.labels1 = labels1;
         } else {
-            this.label1 = label1;
+            this.labels1 = labels1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
+            js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(label1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(labels1)));
                 js.setLength(0);
             }
         }
@@ -871,26 +1064,26 @@ public class LineargaugePointersBase extends VisualBase {
 
 
     /**
-     * Setter for the pointer label.
+     * Setter for the pointer labels.
      */
-    public LineargaugePointersBase setLabel(Boolean label2) {
+    public LineargaugePointersBase setLabels(Boolean labels2) {
         if (jsBase == null) {
-            this.label = null;
-            this.label1 = null;
-            this.label2 = null;
+            this.labels = null;
+            this.labels1 = null;
+            this.labels2 = null;
             
-            this.label2 = label2;
+            this.labels2 = labels2;
         } else {
-            this.label2 = label2;
+            this.labels2 = labels2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".label(%b)", label2));
+            js.append(String.format(Locale.US, ".labels(%b)", labels2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b);", label2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels2));
                 js.setLength(0);
             }
         }
@@ -997,12 +1190,16 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private String offset;
+    private Number offset1;
 
     /**
      * Setter for the pointer offset.
      */
     public LineargaugePointersBase setOffset(String offset) {
         if (jsBase == null) {
+            this.offset = null;
+            this.offset1 = null;
+            
             this.offset = offset;
         } else {
             this.offset = offset;
@@ -1015,6 +1212,33 @@ public class LineargaugePointersBase extends VisualBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(offset)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the pointer offset.
+     */
+    public LineargaugePointersBase setOffset(Number offset1) {
+        if (jsBase == null) {
+            this.offset = null;
+            this.offset1 = null;
+            
+            this.offset1 = offset1;
+        } else {
+            this.offset1 = offset1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".offset(%s)", offset1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offset(%s);", offset1));
                 js.setLength(0);
             }
         }
@@ -1305,6 +1529,109 @@ public class LineargaugePointersBase extends VisualBase {
         return this;
     }
 
+    private String generateJSgetData() {
+        if (getData != null) {
+            return getData.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetData1() {
+        if (!getData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData2() {
+        if (!getData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData3() {
+        if (!getData3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData4() {
+        if (!getData4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData5() {
+        if (!getData5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData6() {
+        if (!getData6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData7() {
+        if (!getData7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
+    private String generateJSgetData8() {
+        if (!getData8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LineargaugePointersBase item : getData8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetGetGauge() {
         if (getGetGauge != null) {
             return getGetGauge.generateJs();
@@ -1326,9 +1653,16 @@ public class LineargaugePointersBase extends VisualBase {
         return "";
     }
 
-    private String generateJSgetLabel() {
-        if (getLabel != null) {
-            return getLabel.generateJs();
+    private String generateJSgetId() {
+        if (getId != null) {
+            return getId.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
@@ -1368,10 +1702,20 @@ public class LineargaugePointersBase extends VisualBase {
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetData());
+        jsGetters.append(generateJSgetData1());
+        jsGetters.append(generateJSgetData2());
+        jsGetters.append(generateJSgetData3());
+        jsGetters.append(generateJSgetData4());
+        jsGetters.append(generateJSgetData5());
+        jsGetters.append(generateJSgetData6());
+        jsGetters.append(generateJSgetData7());
+        jsGetters.append(generateJSgetData8());
         jsGetters.append(generateJSgetGetGauge());
         jsGetters.append(generateJSgetHatchFill());
         jsGetters.append(generateJSgetHovered());
-        jsGetters.append(generateJSgetLabel());
+        jsGetters.append(generateJSgetId());
+        jsGetters.append(generateJSgetLabels());
         jsGetters.append(generateJSgetLegendItem());
         jsGetters.append(generateJSgetNormal());
         jsGetters.append(generateJSgetScale());
@@ -1389,6 +1733,8 @@ public class LineargaugePointersBase extends VisualBase {
 
         js.append(generateJsGetters());
 
+        js.append(generateJSsetId());
+        js.append(generateJSsetId1());
         
 
         String result = js.toString();

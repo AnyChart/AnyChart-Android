@@ -47,14 +47,14 @@ public class Pie extends SeparateChart {
 
     
 
-    private Center getCenter;
+    private UiCenter getCenter;
 
     /**
      * Getter for center settings.
      */
-    public Center getCenter() {
+    public UiCenter getCenter() {
         if (getCenter == null)
-            getCenter = new Center(jsBase + ".center()");
+            getCenter = new UiCenter(jsBase + ".center()");
 
         return getCenter;
     }
@@ -530,6 +530,17 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
+
+    private List<PiePoint> getGetPoint = new ArrayList<>();
+
+    /**
+     * Gets wrapped point by index.
+     */
+    public PiePoint getGetPoint(Number index) {
+        PiePoint item = new PiePoint(jsBase + ".getPoint("+ index+")");
+        getGetPoint.add(item);
+        return item;
+    }
     private String group;
 
     /**
@@ -734,20 +745,20 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
-    private Number index;
+    private Number index1;
 
     /**
      * Setter for the hover state on a slice by index.
      */
-    public Pie setHover(Number index) {
+    public Pie setHover(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hover(%s)", index));
+        js.append(String.format(Locale.US, ".hover(%s)", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", index));
+            onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", index1));
             js.setLength(0);
         }
         return this;
@@ -1227,21 +1238,21 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
-    private Number index1;
+    private Number index2;
 
     /**
      * Selects points by index.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Pie#draw} is called.
      */
-    public Pie select(Number index1) {
+    public Pie select(Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".select(%s)", index1));
+        js.append(String.format(Locale.US, ".select(%s)", index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", index2));
             js.setLength(0);
         }
         return this;
@@ -1472,6 +1483,18 @@ Ascending, Descending and No sorting is supported.
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (!getGetPoint.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PiePoint item : getGetPoint) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -1537,6 +1560,7 @@ Ascending, Descending and No sorting is supported.
         }
         js.append(generateJSgetCenter());
         js.append(generateJSgetData());
+        js.append(generateJSgetGetPoint());
         js.append(generateJSgetHatchFill());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHovered());

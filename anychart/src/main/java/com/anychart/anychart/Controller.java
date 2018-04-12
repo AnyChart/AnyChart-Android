@@ -2260,26 +2260,25 @@ public class Controller extends CoreBase {
         return this;
     }
 
-    private Controller getTooltip;
+    private Tooltip getTooltip;
 
     /**
      * Getter for tooltip settings.
      */
-    public Controller getTooltip() {
+    public Tooltip getTooltip() {
         if (getTooltip == null)
-            getTooltip = new Controller(jsBase + ".tooltip()");
+            getTooltip = new Tooltip(jsBase + ".tooltip()");
 
         return getTooltip;
     }
 
     private String tooltip;
     private Boolean tooltip1;
-    private List<Pie> setTooltip = new ArrayList<>();
 
     /**
      * Setter for tooltip settings.
      */
-    public Pie setTooltip(String tooltip) {
+    public Controller setTooltip(String tooltip) {
         if (jsBase == null) {
             this.tooltip = null;
             this.tooltip1 = null;
@@ -2287,40 +2286,26 @@ public class Controller extends CoreBase {
             this.tooltip = tooltip;
         } else {
             this.tooltip = tooltip;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
             
-            js.append(String.format(Locale.US, "var setTooltip" + ++variableIndex + " = " + jsBase + ".tooltip(%s);", wrapQuotes(tooltip)));
-            
+            js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
-        Pie item = new Pie("setTooltip" + variableIndex);
-        setTooltip.add(item);
-        return item;
-    }
-    private String generateJSsetTooltip() {
-        if (!setTooltip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setTooltip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
+        return this;
     }
 
-    private List<Pie> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for tooltip settings.
      */
-    public Pie setTooltip(Boolean tooltip1) {
+    public Controller setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
             this.tooltip = null;
             this.tooltip1 = null;
@@ -2328,32 +2313,19 @@ public class Controller extends CoreBase {
             this.tooltip1 = tooltip1;
         } else {
             this.tooltip1 = tooltip1;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
             }
             
-            js.append(String.format(Locale.US, "var setTooltip1" + ++variableIndex + " = " + jsBase + ".tooltip(%b);", tooltip1));
-            
+            js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
                 js.setLength(0);
             }
         }
-        Pie item = new Pie("setTooltip1" + variableIndex);
-        setTooltip1.add(item);
-        return item;
-    }
-    private String generateJSsetTooltip1() {
-        if (!setTooltip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setTooltip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
+        return this;
     }
 
     private String type;
@@ -2743,8 +2715,6 @@ public class Controller extends CoreBase {
         js.append(generateJsGetters());
 
         js.append(generateJSsetStroke2());
-        js.append(generateJSsetTooltip());
-        js.append(generateJSsetTooltip1());
         
 
         String result = js.toString();

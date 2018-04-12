@@ -8,7 +8,9 @@ import java.util.Locale;
 public enum StockRangeType implements JsObject.JsObjectInterface {
     MAX("max"),
     MTD("mtd"),
+    POINTS("points"),
     QTD("qtd"),
+    RANGE("range"),
     UNIT("unit"),
     YTD("ytd");
 

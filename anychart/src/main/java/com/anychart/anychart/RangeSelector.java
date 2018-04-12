@@ -38,7 +38,7 @@ public class RangeSelector extends JsObject {
     private Element decorate;
 
     /**
-     * Decorates the container for the range selector.
+     * Adds a Range Selector to a specified DOM container.
      */
     public void decorate(Element decorate) {
         if (jsBase == null) {

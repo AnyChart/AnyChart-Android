@@ -1,30 +1,23 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
-
 // class
 /**
- * Class that wraps point of series or chart.
+ * Milestones element settings.
  */
-public class TreeMapPoint extends Point {
+public class MilestonesElement extends TimelineElement {
 
-    public TreeMapPoint() {
+    public MilestonesElement() {
         js.setLength(0);
-        js.append("var treeMapPoint").append(++variableIndex).append(" = anychart.core.treeMapPoint();");
-        jsBase = "treeMapPoint" + variableIndex;
+        js.append("var milestonesElement").append(++variableIndex).append(" = anychart.core.gantt.elements.milestonesElement();");
+        jsBase = "milestonesElement" + variableIndex;
     }
 
-    protected TreeMapPoint(String jsBase) {
+    protected MilestonesElement(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
     }
 
-    protected TreeMapPoint(StringBuilder js, String jsBase, boolean isChain) {
+    protected MilestonesElement(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;

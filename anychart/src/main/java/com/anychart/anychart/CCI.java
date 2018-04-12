@@ -1,15 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
  * Creates Commodity Channel (CCI) indicator class.
+{docs:Stock_Charts/Technical_Indicators/Commodity_Channel_Index_(CCI)}Learn more about the CCI indicator.{docs}
  */
 public class CCI extends JsObject {
 

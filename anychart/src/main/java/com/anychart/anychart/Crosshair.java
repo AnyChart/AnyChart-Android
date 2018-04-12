@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -91,16 +88,15 @@ public class Crosshair extends VisualBase {
         return this;
     }
 
-    private CrosshairLabel getXLabel;
+    private List<CrosshairLabel> getXLabel = new ArrayList<>();
 
     /**
      * Getter for the crosshair X-label settings.
      */
-    public CrosshairLabel getXLabel() {
-        if (getXLabel == null)
-            getXLabel = new CrosshairLabel(jsBase + ".xLabel()");
-
-        return getXLabel;
+    public CrosshairLabel getXLabel(Number index) {
+        CrosshairLabel item = new CrosshairLabel(jsBase + ".xLabel(" + index + ")");
+        getXLabel.add(item);
+        return item;
     }
 
     private String xLabel;
@@ -153,6 +149,71 @@ public class Crosshair extends VisualBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLabel(%b);", xLabel1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Number index;
+    private String xLabel2;
+    private Boolean xLabel3;
+
+    /**
+     * Setter for the crosshair X-label settings by index.
+     */
+    public Crosshair setXLabel(Number index, String xLabel2) {
+        if (jsBase == null) {
+            this.index = index;
+            this.xLabel = null;
+            this.xLabel1 = null;
+            this.xLabel2 = null;
+            this.xLabel3 = null;
+            
+            this.xLabel2 = xLabel2;
+        } else {
+            this.index = index;
+            this.xLabel2 = xLabel2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".xLabel(%s, %s)", index, wrapQuotes(xLabel2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLabel(%s, %s);", index, wrapQuotes(xLabel2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the crosshair X-label settings by index.
+     */
+    public Crosshair setXLabel(Number index, Boolean xLabel3) {
+        if (jsBase == null) {
+            this.index = index;
+            this.xLabel = null;
+            this.xLabel1 = null;
+            this.xLabel2 = null;
+            this.xLabel3 = null;
+            
+            this.xLabel3 = xLabel3;
+        } else {
+            this.index = index;
+            this.xLabel3 = xLabel3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".xLabel(%s, %b)", index, xLabel3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLabel(%s, %b);", index, xLabel3));
                 js.setLength(0);
             }
         }
@@ -235,16 +296,15 @@ public class Crosshair extends VisualBase {
         return this;
     }
 
-    private CrosshairLabel getYLabel;
+    private List<CrosshairLabel> getYLabel = new ArrayList<>();
 
     /**
      * Getter for the crosshair Y-label settings.
      */
-    public CrosshairLabel getYLabel() {
-        if (getYLabel == null)
-            getYLabel = new CrosshairLabel(jsBase + ".yLabel()");
-
-        return getYLabel;
+    public CrosshairLabel getYLabel(Number index) {
+        CrosshairLabel item = new CrosshairLabel(jsBase + ".yLabel(" + index + ")");
+        getYLabel.add(item);
+        return item;
     }
 
     private String yLabel;
@@ -297,6 +357,77 @@ public class Crosshair extends VisualBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".yLabel(%b);", yLabel1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Number index1;
+    private String yLabel2;
+    private Boolean yLabel3;
+
+    /**
+     * Setter for the crosshair Y-label settings by index.
+     */
+    public Crosshair setYLabel(Number index1, String yLabel2) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+            this.yLabel = null;
+            this.yLabel1 = null;
+            this.yLabel2 = null;
+            this.yLabel3 = null;
+            
+            this.yLabel2 = yLabel2;
+        } else {
+            this.index1 = index1;
+            this.yLabel2 = yLabel2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".yLabel(%s, %s)", index1, wrapQuotes(yLabel2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yLabel(%s, %s);", index1, wrapQuotes(yLabel2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the crosshair Y-label settings by index.
+     */
+    public Crosshair setYLabel(Number index1, Boolean yLabel3) {
+        if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
+            this.yLabel = null;
+            this.yLabel1 = null;
+            this.yLabel2 = null;
+            this.yLabel3 = null;
+            
+            this.yLabel3 = yLabel3;
+        } else {
+            this.index1 = index1;
+            this.yLabel3 = yLabel3;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".yLabel(%s, %b)", index1, yLabel3));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yLabel(%s, %b);", index1, yLabel3));
                 js.setLength(0);
             }
         }
@@ -404,18 +535,28 @@ public class Crosshair extends VisualBase {
     }
 
     private String generateJSgetXLabel() {
-        if (getXLabel != null) {
-            return getXLabel.generateJs();
+        if (!getXLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CrosshairLabel item : getXLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
 
+
     private String generateJSgetYLabel() {
-        if (getYLabel != null) {
-            return getYLabel.generateJs();
+        if (!getYLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CrosshairLabel item : getYLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
         }
         return "";
     }
+
 
 
     protected String generateJsGetters() {

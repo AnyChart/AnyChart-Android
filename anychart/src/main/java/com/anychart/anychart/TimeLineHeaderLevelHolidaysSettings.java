@@ -9,22 +9,22 @@ import android.text.TextUtils;
 
 // class
 /**
- * Timeline header. Contains a time levels.
+ * Timeline element.
  */
-public class TimelineHeader extends VisualBaseWithBounds {
+public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
 
-    public TimelineHeader() {
+    public TimeLineHeaderLevelHolidaysSettings() {
         js.setLength(0);
-        js.append("var timelineHeader").append(++variableIndex).append(" = anychart.core.gantt.timelineHeader();");
-        jsBase = "timelineHeader" + variableIndex;
+        js.append("var timeLineHeaderLevelHolidaysSettings").append(++variableIndex).append(" = anychart.core.gantt.timeLineHeaderLevelHolidaysSettings();");
+        jsBase = "timeLineHeaderLevelHolidaysSettings" + variableIndex;
     }
 
-    protected TimelineHeader(String jsBase) {
+    protected TimeLineHeaderLevelHolidaysSettings(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
     }
 
-    protected TimelineHeader(StringBuilder js, String jsBase, boolean isChain) {
+    protected TimeLineHeaderLevelHolidaysSettings(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
@@ -35,26 +35,48 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
     
-    private Fill backgroundFill;
+    private Fill fill;
 
     /**
      * Setter for fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader setBackgroundFill(Fill backgroundFill) {
+    public TimeLineHeaderLevelHolidaysSettings setFill(Fill fill) {
         if (jsBase == null) {
-            this.backgroundFill = backgroundFill;
+            this.fill = fill;
         } else {
-            this.backgroundFill = backgroundFill;
+            this.fill = fill;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s);", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * 
+     */
+    public TimeLineHeaderLevelHolidaysSettings setFill(String json) {
+        if (jsBase == null) {
+        } else {
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(json)));
                 js.setLength(0);
             }
         }
@@ -67,7 +89,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
     /**
      * Fill color with opacity.
      */
-    public TimelineHeader backgroundFill(String color, Number opacity) {
+    public TimeLineHeaderLevelHolidaysSettings fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -79,10 +101,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s)", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -101,7 +123,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
+    public TimeLineHeaderLevelHolidaysSettings fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -127,10 +149,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -142,7 +164,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
+    public TimeLineHeaderLevelHolidaysSettings fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -168,10 +190,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -183,7 +205,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
+    public TimeLineHeaderLevelHolidaysSettings fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -209,10 +231,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -224,7 +246,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
+    public TimeLineHeaderLevelHolidaysSettings fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -250,10 +272,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -265,7 +287,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
+    public TimeLineHeaderLevelHolidaysSettings fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -291,10 +313,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -306,7 +328,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys1, Number angle, Number opacity1, String mode2) {
+    public TimeLineHeaderLevelHolidaysSettings fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -332,10 +354,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -355,7 +377,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
+    public TimeLineHeaderLevelHolidaysSettings fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,10 +413,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -406,7 +428,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
+    public TimeLineHeaderLevelHolidaysSettings fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -442,10 +464,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -453,29 +475,43 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
     private Fill imageSettings;
-    private Stroke levelsSeparationStroke;
-    private String levelsSeparationStroke1;
+    private UtilsPadding getPadding;
 
     /**
-     * Setter for the levels separation stroke.
+     * Getter for the padding.
      */
-    public TimelineHeader setLevelsSeparationStroke(Stroke levelsSeparationStroke) {
+    public UtilsPadding getPadding() {
+        if (getPadding == null)
+            getPadding = new UtilsPadding(jsBase + ".padding()");
+
+        return getPadding;
+    }
+
+    private Number[] padding;
+    private String[] padding1;
+    private String padding2;
+
+    /**
+     * Setter for paddings in pixels using a single value.
+     */
+    public TimeLineHeaderLevelHolidaysSettings setPadding(Number[] padding) {
         if (jsBase == null) {
-            this.levelsSeparationStroke = null;
-            this.levelsSeparationStroke1 = null;
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
             
-            this.levelsSeparationStroke = levelsSeparationStroke;
+            this.padding = padding;
         } else {
-            this.levelsSeparationStroke = levelsSeparationStroke;
+            this.padding = padding;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".levelsSeparationStroke(%s)", ((levelsSeparationStroke != null) ? levelsSeparationStroke.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".levelsSeparationStroke(%s);", ((levelsSeparationStroke != null) ? levelsSeparationStroke.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
@@ -484,76 +520,26 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the levels separation stroke.
+     * Setter for paddings in pixels using a single value.
      */
-    public TimelineHeader setLevelsSeparationStroke(String levelsSeparationStroke1) {
+    public TimeLineHeaderLevelHolidaysSettings setPadding(String[] padding1) {
         if (jsBase == null) {
-            this.levelsSeparationStroke = null;
-            this.levelsSeparationStroke1 = null;
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
             
-            this.levelsSeparationStroke1 = levelsSeparationStroke1;
+            this.padding1 = padding1;
         } else {
-            this.levelsSeparationStroke1 = levelsSeparationStroke1;
+            this.padding1 = padding1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".levelsSeparationStroke(%s)", wrapQuotes(levelsSeparationStroke1)));
+            js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".levelsSeparationStroke(%s);", wrapQuotes(levelsSeparationStroke1)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private List<TimelineHeader> getLowLevel = new ArrayList<>();
-
-    /**
-     * Getter for the low level of header.
-     */
-    public TimelineHeader getLowLevel(String lowLevel) {
-        TimelineHeader item = new TimelineHeader(jsBase + ".lowLevel(" + wrapQuotes(lowLevel) + ")");
-        getLowLevel.add(item);
-        return item;
-    }
-
-    private List<TimelineHeader> getLowLevel1 = new ArrayList<>();
-
-    /**
-     * Getter for the low level of header.
-     */
-    public TimelineHeader getLowLevel(Boolean lowLevel) {
-        TimelineHeader item = new TimelineHeader(jsBase + ".lowLevel(" + lowLevel + ")");
-        getLowLevel1.add(item);
-        return item;
-    }
-
-    private String midLevel;
-    private Boolean midLevel1;
-
-    /**
-     * Setter for the middle level of header.
-     */
-    public TimelineHeader setMidLevel(String midLevel) {
-        if (jsBase == null) {
-            this.midLevel = null;
-            this.midLevel1 = null;
-            
-            this.midLevel = midLevel;
-        } else {
-            this.midLevel = midLevel;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".midLevel(%s)", wrapQuotes(midLevel)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".midLevel(%s);", wrapQuotes(midLevel)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -562,54 +548,100 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the middle level of header.
+     * Setter for paddings in pixels using a single value.
      */
-    public TimelineHeader setMidLevel(Boolean midLevel1) {
+    public TimeLineHeaderLevelHolidaysSettings setPadding(String padding2) {
         if (jsBase == null) {
-            this.midLevel = null;
-            this.midLevel1 = null;
+            this.padding = null;
+            this.padding1 = null;
+            this.padding2 = null;
             
-            this.midLevel1 = midLevel1;
+            this.padding2 = padding2;
         } else {
-            this.midLevel1 = midLevel1;
+            this.padding2 = padding2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".midLevel(%b)", midLevel1));
+            js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".midLevel(%b);", midLevel1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String topLevel;
-    private Boolean topLevel1;
+    private String value;
+    private Number value1;
+    private String value2;
+    private Number value3;
+    private String value4;
+    private Number value5;
+    private String value6;
+    private Number value7;
 
     /**
-     * Setter for top level of header.
+     * Setter for paddings in pixels using several numbers.
      */
-    public TimelineHeader setTopLevel(String topLevel) {
+    public TimeLineHeaderLevelHolidaysSettings setPadding(String value, String value2, String value4, String value6) {
         if (jsBase == null) {
-            this.topLevel = null;
-            this.topLevel1 = null;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
             
-            this.topLevel = topLevel;
+            this.value = value;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value2 = value2;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value4 = value4;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value6 = value6;
         } else {
-            this.topLevel = topLevel;
+            this.value = value;
+            this.value2 = value2;
+            this.value4 = value4;
+            this.value6 = value6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".topLevel(%s)", wrapQuotes(topLevel)));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topLevel(%s);", wrapQuotes(topLevel)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -618,54 +650,76 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for top level of header.
+     * Setter for paddings in pixels using several numbers.
      */
-    public TimelineHeader setTopLevel(Boolean topLevel1) {
+    public TimeLineHeaderLevelHolidaysSettings setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
-            this.topLevel = null;
-            this.topLevel1 = null;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
             
-            this.topLevel1 = topLevel1;
+            this.value1 = value1;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value3 = value3;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value5 = value5;
+            this.value = null;
+            this.value1 = null;
+            this.value2 = null;
+            this.value3 = null;
+            this.value4 = null;
+            this.value5 = null;
+            this.value6 = null;
+            this.value7 = null;
+            
+            this.value7 = value7;
         } else {
-            this.topLevel1 = topLevel1;
+            this.value1 = value1;
+            this.value3 = value3;
+            this.value5 = value5;
+            this.value7 = value7;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".topLevel(%b)", topLevel1));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topLevel(%b);", topLevel1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
         return this;
     }
 
-    private String generateJSgetLowLevel() {
-        if (!getLowLevel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : getLowLevel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
+    private String generateJSgetPadding() {
+        if (getPadding != null) {
+            return getPadding.generateJs();
         }
         return "";
     }
-
-
-    private String generateJSgetLowLevel1() {
-        if (!getLowLevel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : getLowLevel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
 
 
     protected String generateJsGetters() {
@@ -674,8 +728,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         jsGetters.append(super.generateJsGetters());
 
     
-        jsGetters.append(generateJSgetLowLevel());
-        jsGetters.append(generateJSgetLowLevel1());
+        jsGetters.append(generateJSgetPadding());
 
         return jsGetters.toString();
     }

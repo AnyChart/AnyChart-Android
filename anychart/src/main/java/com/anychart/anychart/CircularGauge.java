@@ -45,6 +45,52 @@ public class CircularGauge extends Chart {
 
     
 
+    /**
+     * Adds pointers to the gauge.
+     */
+    public void addPointer(List<DataEntry> data) {
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
+        }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
+
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addPointer(%s);", resultData.toString()));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addPointer(%s);", resultData.toString()));
+            js.setLength(0);
+        }
+    }
+    }
+
+
+    /**
+     * 
+     */
+    public void addPointer(View view) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addPointer(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addPointer(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
+    }
+
+
     private Circular getAxis;
 
     /**
@@ -55,6 +101,17 @@ public class CircularGauge extends Chart {
             getAxis = new Circular(jsBase + ".axis()");
 
         return getAxis;
+    }
+
+    private List<Circular> getAxis1 = new ArrayList<>();
+
+    /**
+     * Getter for default gauge axis settings.
+     */
+    public Circular getAxis(Number index) {
+        Circular item = new Circular(jsBase + ".axis("+ index+")");
+        getAxis1.add(item);
+        return item;
     }
     private String axis;
     private Boolean axis1;
@@ -94,22 +151,22 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Number index;
+    private Number index1;
     private String axis2;
     private Boolean axis3;
 
     /**
      * Setter for the gauge axis by index.
      */
-    public CircularGauge setAxis(String axis2, Number index) {
+    public CircularGauge setAxis(String axis2, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".axis(%s, %s)", wrapQuotes(axis2), index));
+        js.append(String.format(Locale.US, ".axis(%s, %s)", wrapQuotes(axis2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".axis(%s, %s)", wrapQuotes(axis2), index));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%s, %s)", wrapQuotes(axis2), index1));
             js.setLength(0);
         }
         return this;
@@ -119,15 +176,15 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the gauge axis by index.
      */
-    public CircularGauge setAxis(Boolean axis3, Number index) {
+    public CircularGauge setAxis(Boolean axis3, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".axis(%b, %s)", axis3, index));
+        js.append(String.format(Locale.US, ".axis(%b, %s)", axis3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".axis(%b, %s)", axis3, index));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%b, %s)", axis3, index1));
             js.setLength(0);
         }
         return this;
@@ -151,8 +208,8 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the bar pointer.
      */
-    public GaugePointersBar getBar(Number index1) {
-        GaugePointersBar item = new GaugePointersBar(jsBase + ".bar("+ index1+")");
+    public GaugePointersBar getBar(Number index2) {
+        GaugePointersBar item = new GaugePointersBar(jsBase + ".bar("+ index2+")");
         getBar1.add(item);
         return item;
     }
@@ -194,22 +251,22 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Number index2;
+    private Number index3;
     private String bar2;
     private Boolean bar3;
 
     /**
      * Setter for the bar pointer by index.
      */
-    public CircularGauge setBar(String bar2, Number index2) {
+    public CircularGauge setBar(String bar2, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".bar(%s, %s)", wrapQuotes(bar2), index2));
+        js.append(String.format(Locale.US, ".bar(%s, %s)", wrapQuotes(bar2), index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".bar(%s, %s)", wrapQuotes(bar2), index2));
+            onChangeListener.onChange(String.format(Locale.US, ".bar(%s, %s)", wrapQuotes(bar2), index3));
             js.setLength(0);
         }
         return this;
@@ -219,15 +276,15 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the bar pointer by index.
      */
-    public CircularGauge setBar(Boolean bar3, Number index2) {
+    public CircularGauge setBar(Boolean bar3, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".bar(%b, %s)", bar3, index2));
+        js.append(String.format(Locale.US, ".bar(%b, %s)", bar3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".bar(%b, %s)", bar3, index2));
+            onChangeListener.onChange(String.format(Locale.US, ".bar(%b, %s)", bar3, index3));
             js.setLength(0);
         }
         return this;
@@ -376,6 +433,44 @@ public class CircularGauge extends Chart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  view.getJsBase()));
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private CircularGaugePointerType defaultPointerType;
+    private String defaultPointerType1;
+
+    /**
+     * Setter for the gauge pointer type by default.
+     */
+    public CircularGauge setDefaultPointerType(CircularGaugePointerType defaultPointerType) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".defaultPointerType(%s)", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".defaultPointerType(%s)", ((defaultPointerType != null) ? defaultPointerType.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the gauge pointer type by default.
+     */
+    public CircularGauge setDefaultPointerType(String defaultPointerType1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".defaultPointerType(%s)", wrapQuotes(defaultPointerType1)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".defaultPointerType(%s)", wrapQuotes(defaultPointerType1)));
             js.setLength(0);
         }
         return this;
@@ -627,6 +722,102 @@ public class CircularGauge extends Chart {
     }
 
     private Fill imageSettings;
+    private Number id;
+    private String id1;
+    private List<GaugePointersBase> setGetPointer = new ArrayList<>();
+
+    /**
+     * Returns pointer by id.
+     */
+    public GaugePointersBase getPointer(Number id) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setGetPointer" + ++variableIndex + " = " + jsBase + ".getPointer(%s);", id));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPointer(%s)", id));
+            js.setLength(0);
+        }
+        GaugePointersBase item = new GaugePointersBase("setGetPointer" + variableIndex);
+        setGetPointer.add(item);
+        return item;
+    }
+    private String generateJSsetGetPointer() {
+        if (!setGetPointer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : setGetPointer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<GaugePointersBase> setGetPointer1 = new ArrayList<>();
+
+    /**
+     * Returns pointer by id.
+     */
+    public GaugePointersBase getPointer(String id1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setGetPointer1" + ++variableIndex + " = " + jsBase + ".getPointer(%s);", wrapQuotes(id1)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPointer(%s)", wrapQuotes(id1)));
+            js.setLength(0);
+        }
+        GaugePointersBase item = new GaugePointersBase("setGetPointer1" + variableIndex);
+        setGetPointer1.add(item);
+        return item;
+    }
+    private String generateJSsetGetPointer1() {
+        if (!setGetPointer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : setGetPointer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Number index4;
+    private List<GaugePointersBase> setGetPointerAt = new ArrayList<>();
+
+    /**
+     * Returns pointer by index.
+     */
+    public GaugePointersBase getPointerAt(Number index4) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(String.format(Locale.US, "var setGetPointerAt" + ++variableIndex + " = " + jsBase + ".getPointerAt(%s);", index4));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPointerAt(%s)", index4));
+            js.setLength(0);
+        }
+        GaugePointersBase item = new GaugePointersBase("setGetPointerAt" + variableIndex);
+        setGetPointerAt.add(item);
+        return item;
+    }
+    private String generateJSsetGetPointerAt() {
+        if (!setGetPointerAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersBase item : setGetPointerAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private Knob getKnob;
 
@@ -645,8 +836,8 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the knob pointer.
      */
-    public Knob getKnob(Number index3) {
-        Knob item = new Knob(jsBase + ".knob("+ index3+")");
+    public Knob getKnob(Number index5) {
+        Knob item = new Knob(jsBase + ".knob("+ index5+")");
         getKnob1.add(item);
         return item;
     }
@@ -688,22 +879,22 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Number index4;
+    private Number index6;
     private String knob2;
     private Boolean knob3;
 
     /**
      * Setter for the knob pointer by index.
      */
-    public CircularGauge setKnob(String knob2, Number index4) {
+    public CircularGauge setKnob(String knob2, Number index6) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".knob(%s, %s)", wrapQuotes(knob2), index4));
+        js.append(String.format(Locale.US, ".knob(%s, %s)", wrapQuotes(knob2), index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".knob(%s, %s)", wrapQuotes(knob2), index4));
+            onChangeListener.onChange(String.format(Locale.US, ".knob(%s, %s)", wrapQuotes(knob2), index6));
             js.setLength(0);
         }
         return this;
@@ -713,15 +904,15 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the knob pointer by index.
      */
-    public CircularGauge setKnob(Boolean knob3, Number index4) {
+    public CircularGauge setKnob(Boolean knob3, Number index6) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".knob(%b, %s)", knob3, index4));
+        js.append(String.format(Locale.US, ".knob(%b, %s)", knob3, index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".knob(%b, %s)", knob3, index4));
+            onChangeListener.onChange(String.format(Locale.US, ".knob(%b, %s)", knob3, index6));
             js.setLength(0);
         }
         return this;
@@ -745,8 +936,8 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the marker pointer.
      */
-    public GaugePointersMarker getMarker(Number index5) {
-        GaugePointersMarker item = new GaugePointersMarker(jsBase + ".marker("+ index5+")");
+    public GaugePointersMarker getMarker(Number index7) {
+        GaugePointersMarker item = new GaugePointersMarker(jsBase + ".marker("+ index7+")");
         getMarker1.add(item);
         return item;
     }
@@ -788,22 +979,22 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Number index6;
+    private Number index8;
     private String marker2;
     private Boolean marker3;
 
     /**
      * Setter for the marker pointer by index.
      */
-    public CircularGauge setMarker(String marker2, Number index6) {
+    public CircularGauge setMarker(String marker2, Number index8) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".marker(%s, %s)", wrapQuotes(marker2), index6));
+        js.append(String.format(Locale.US, ".marker(%s, %s)", wrapQuotes(marker2), index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".marker(%s, %s)", wrapQuotes(marker2), index6));
+            onChangeListener.onChange(String.format(Locale.US, ".marker(%s, %s)", wrapQuotes(marker2), index8));
             js.setLength(0);
         }
         return this;
@@ -813,15 +1004,15 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the marker pointer by index.
      */
-    public CircularGauge setMarker(Boolean marker3, Number index6) {
+    public CircularGauge setMarker(Boolean marker3, Number index8) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".marker(%b, %s)", marker3, index6));
+        js.append(String.format(Locale.US, ".marker(%b, %s)", marker3, index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".marker(%b, %s)", marker3, index6));
+            onChangeListener.onChange(String.format(Locale.US, ".marker(%b, %s)", marker3, index8));
             js.setLength(0);
         }
         return this;
@@ -845,8 +1036,8 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the needle pointer.
      */
-    public Needle getNeedle(Number index7) {
-        Needle item = new Needle(jsBase + ".needle("+ index7+")");
+    public Needle getNeedle(Number index9) {
+        Needle item = new Needle(jsBase + ".needle("+ index9+")");
         getNeedle1.add(item);
         return item;
     }
@@ -888,22 +1079,22 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Number index8;
+    private Number index10;
     private String needle2;
     private Boolean needle3;
 
     /**
      * Setter for the needle pointer by index.
      */
-    public CircularGauge setNeedle(String needle2, Number index8) {
+    public CircularGauge setNeedle(String needle2, Number index10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".needle(%s, %s)", wrapQuotes(needle2), index8));
+        js.append(String.format(Locale.US, ".needle(%s, %s)", wrapQuotes(needle2), index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".needle(%s, %s)", wrapQuotes(needle2), index8));
+            onChangeListener.onChange(String.format(Locale.US, ".needle(%s, %s)", wrapQuotes(needle2), index10));
             js.setLength(0);
         }
         return this;
@@ -913,15 +1104,15 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the needle pointer by index.
      */
-    public CircularGauge setNeedle(Boolean needle3, Number index8) {
+    public CircularGauge setNeedle(Boolean needle3, Number index10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".needle(%b, %s)", needle3, index8));
+        js.append(String.format(Locale.US, ".needle(%b, %s)", needle3, index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".needle(%b, %s)", needle3, index8));
+            onChangeListener.onChange(String.format(Locale.US, ".needle(%b, %s)", needle3, index10));
             js.setLength(0);
         }
         return this;
@@ -945,8 +1136,8 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the circular range.
      */
-    public CircularRange getRange(Number index9) {
-        CircularRange item = new CircularRange(jsBase + ".range("+ index9+")");
+    public CircularRange getRange(Number index11) {
+        CircularRange item = new CircularRange(jsBase + ".range("+ index11+")");
         getRange1.add(item);
         return item;
     }
@@ -988,22 +1179,22 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Number index10;
+    private Number index12;
     private String range2;
     private Boolean range3;
 
     /**
      * Setter for the circular range settings by index.
      */
-    public CircularGauge setRange(String range2, Number index10) {
+    public CircularGauge setRange(String range2, Number index12) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index10));
+        js.append(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index10));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index12));
             js.setLength(0);
         }
         return this;
@@ -1013,15 +1204,72 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the circular range settings by index.
      */
-    public CircularGauge setRange(Boolean range3, Number index10) {
+    public CircularGauge setRange(Boolean range3, Number index12) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%b, %s)", range3, index10));
+        js.append(String.format(Locale.US, ".range(%b, %s)", range3, index12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%b, %s)", range3, index10));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%b, %s)", range3, index12));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number id2;
+    private String id3;
+
+    /**
+     * Removes pointer by id.
+     */
+    public CircularGauge removePointer(Number id2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".removePointer(%s)", id2));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".removePointer(%s)", id2));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Removes pointer by id.
+     */
+    public CircularGauge removePointer(String id3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".removePointer(%s)", wrapQuotes(id3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".removePointer(%s)", wrapQuotes(id3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number index13;
+
+    /**
+     * Removes pointer by index.
+     */
+    public CircularGauge removePointerAt(Number index13) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".removePointerAt(%s)", index13));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".removePointerAt(%s)", index13));
             js.setLength(0);
         }
         return this;
@@ -1192,6 +1440,18 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+    private String generateJSgetAxis1() {
+        if (!getAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : getAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetBar() {
         if (getBar != null) {
             return getBar.generateJs();
@@ -1309,6 +1569,7 @@ public class CircularGauge extends Chart {
             isChain = false;
         }
         js.append(generateJSgetAxis());
+        js.append(generateJSgetAxis1());
         js.append(generateJSgetBar());
         js.append(generateJSgetBar1());
         js.append(generateJSgetCap());
@@ -1321,6 +1582,9 @@ public class CircularGauge extends Chart {
         js.append(generateJSgetNeedle1());
         js.append(generateJSgetRange());
         js.append(generateJSgetRange1());
+        js.append(generateJSsetGetPointer());
+        js.append(generateJSsetGetPointer1());
+        js.append(generateJSsetGetPointerAt());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

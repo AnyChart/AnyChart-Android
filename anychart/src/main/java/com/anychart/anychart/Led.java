@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -35,14 +30,14 @@ public class Led extends LineargaugePointersBase {
     }
 
     
-    private Led getColorScale;
+    private LinearColor getColorScale;
 
     /**
      * Getter for led color scale.
      */
-    public Led getColorScale() {
+    public LinearColor getColorScale() {
         if (getColorScale == null)
-            getColorScale = new Led(jsBase + ".colorScale()");
+            getColorScale = new LinearColor(jsBase + ".colorScale()");
 
         return getColorScale;
     }

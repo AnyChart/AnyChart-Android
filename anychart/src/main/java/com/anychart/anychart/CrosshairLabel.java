@@ -43,7 +43,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(String bothOrByWidth, Boolean byHeight) {
         if (jsBase == null) {
@@ -74,7 +74,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(Boolean[] bothOrByWidth1, Boolean byHeight) {
         if (jsBase == null) {
@@ -105,7 +105,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(Boolean bothOrByWidth2, Boolean byHeight) {
         if (jsBase == null) {
@@ -458,7 +458,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for crosshair label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public CrosshairLabel setOffsetX(Number offsetX) {
@@ -487,7 +487,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for crosshair label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public CrosshairLabel setOffsetX(String offsetX1) {

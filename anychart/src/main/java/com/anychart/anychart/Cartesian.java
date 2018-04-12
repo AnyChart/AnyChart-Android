@@ -305,7 +305,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
     /**
      * Setter for the space between bars on the ordinal scale by ratio of bars width.</br>
-<img src='https://api.anychart.com/si/8.1.0/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
      */
     public Cartesian setBarsPadding(Number barsPadding) {
         if (!isChain) {
@@ -1508,6 +1508,56 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return this;
     }
 
+
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+    private String settings;
+    private Boolean settings1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Cartesian setMaxLabels(String settings) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Cartesian setMaxLabels(Boolean settings1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%b)", settings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", settings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private Number maxPointWidth;
     private String maxPointWidth1;
 
@@ -1579,6 +1629,56 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+    private String settings2;
+    private Boolean settings3;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Cartesian setMinLabels(String settings2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Cartesian setMinLabels(Boolean settings3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%b)", settings3));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", settings3));
             js.setLength(0);
         }
         return this;
@@ -3188,12 +3288,12 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
 
 
-    private Ordinal getXScale;
+    private ScalesBase getXScale;
 
     /**
      * Getter for the current chart X-scale.
      */
-    public Ordinal getXScale() {
+    public ScalesBase getXScale() {
         if (getXScale == null)
             getXScale = new Ordinal(jsBase + ".xScale()");
 
@@ -3863,6 +3963,20 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
@@ -4084,6 +4198,8 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSgetLineMarker());
         js.append(generateJSgetLineMarker1());
         js.append(generateJSgetMarkerPalette());
+        js.append(generateJSgetMaxLabels());
+        js.append(generateJSgetMinLabels());
         js.append(generateJSgetNormal());
         js.append(generateJSgetPalette());
         js.append(generateJSgetRangeMarker());

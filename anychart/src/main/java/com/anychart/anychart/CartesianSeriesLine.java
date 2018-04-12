@@ -37,6 +37,32 @@ public class CartesianSeriesLine extends CartesianSeriesContinuousBase {
     }
 
     
+    private String settings;
+
+    /**
+     * Setter for series stroke using an object.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public CartesianSeriesLine setStroke(String settings) {
+        if (jsBase == null) {
+            this.settings = settings;
+        } else {
+            this.settings = settings;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(settings)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Stroke color;
     private ColoredFill color1;
     private String color2;
@@ -75,28 +101,6 @@ public class CartesianSeriesLine extends CartesianSeriesContinuousBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * 
-     */
-    public CartesianSeriesLine setStroke(String json) {
-        if (jsBase == null) {
-        } else {
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(json)));
                 js.setLength(0);
             }
         }

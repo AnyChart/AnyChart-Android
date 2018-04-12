@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -15,7 +10,7 @@ public class Overlay extends CoreBase {
 
     public Overlay() {
         js.setLength(0);
-        js.append("var overlay").append(++variableIndex).append(" = anychart.core.ui.overlay();");
+        js.append("var overlay").append(++variableIndex).append(" = anychart.core.gantt.overlay();");
         jsBase = "overlay" + variableIndex;
     }
 

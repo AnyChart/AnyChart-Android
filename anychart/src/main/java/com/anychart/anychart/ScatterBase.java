@@ -36,6 +36,42 @@ public class ScatterBase extends ScalesBase {
     }
 
     
+    private List<ScatterBase> getAlignMaximum = new ArrayList<>();
+
+    /**
+     * Getter for a flag if the maximum should be aligned by major ticks interval.<br/>
+     */
+    public ScatterBase getAlignMaximum(Boolean enabled) {
+        ScatterBase item = new ScatterBase(jsBase + ".alignMaximum(" + enabled + ")");
+        getAlignMaximum.add(item);
+        return item;
+    }
+
+    private Boolean enabled;
+
+    /**
+     * Setter for a flag if the minimum should be aligned by major ticks interval.
+     */
+    public ScatterBase setAlignMinimum(Boolean enabled) {
+        if (jsBase == null) {
+            this.enabled = enabled;
+        } else {
+            this.enabled = enabled;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".alignMinimum(%b)", enabled));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".alignMinimum(%b);", enabled));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Number ratio;
 
     /**
@@ -137,6 +173,18 @@ public class ScatterBase extends ScalesBase {
         return this;
     }
 
+    private String generateJSgetAlignMaximum() {
+        if (!getAlignMaximum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterBase item : getAlignMaximum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -144,6 +192,7 @@ public class ScatterBase extends ScalesBase {
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetAlignMaximum());
 
         return jsGetters.toString();
     }

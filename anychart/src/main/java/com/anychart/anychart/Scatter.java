@@ -872,6 +872,56 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
+
+    private UiLabelsFactory getMaxLabels;
+
+    /**
+     * Getter for maximum labels.
+     */
+    public UiLabelsFactory getMaxLabels() {
+        if (getMaxLabels == null)
+            getMaxLabels = new UiLabelsFactory(jsBase + ".maxLabels()");
+
+        return getMaxLabels;
+    }
+    private String settings;
+    private Boolean settings1;
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Scatter setMaxLabels(String settings) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%s)", wrapQuotes(settings)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for maximum labels.
+     */
+    public Scatter setMaxLabels(Boolean settings1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".maxLabels(%b)", settings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".maxLabels(%b)", settings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private Number minBubbleSize;
     private String minBubbleSize1;
 
@@ -905,6 +955,56 @@ public class Scatter extends SeparateChart {
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", wrapQuotes(minBubbleSize1)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    private UiLabelsFactory getMinLabels;
+
+    /**
+     * Getter for minimum labels.
+     */
+    public UiLabelsFactory getMinLabels() {
+        if (getMinLabels == null)
+            getMinLabels = new UiLabelsFactory(jsBase + ".minLabels()");
+
+        return getMinLabels;
+    }
+    private String settings2;
+    private Boolean settings3;
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Scatter setMinLabels(String settings2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%s)", wrapQuotes(settings2)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for minimum labels.
+     */
+    public Scatter setMinLabels(Boolean settings3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".minLabels(%b)", settings3));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".minLabels(%b)", settings3));
             js.setLength(0);
         }
         return this;
@@ -2215,6 +2315,20 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+    private String generateJSgetMaxLabels() {
+        if (getMaxLabels != null) {
+            return getMaxLabels.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetMinLabels() {
+        if (getMinLabels != null) {
+            return getMinLabels.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetNormal() {
         if (getNormal != null) {
             return getNormal.generateJs();
@@ -2429,6 +2543,8 @@ public class Scatter extends SeparateChart {
         js.append(generateJSgetLineMarker());
         js.append(generateJSgetLineMarker1());
         js.append(generateJSgetMarkerPalette());
+        js.append(generateJSgetMaxLabels());
+        js.append(generateJSgetMinLabels());
         js.append(generateJSgetNormal());
         js.append(generateJSgetPalette());
         js.append(generateJSgetQuarters());

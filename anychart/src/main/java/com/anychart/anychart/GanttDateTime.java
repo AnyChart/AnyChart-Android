@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -35,6 +30,31 @@ public class GanttDateTime extends CoreBase {
     }
 
     
+    private Number ratio;
+
+    /**
+     * Processes reverse transformation of the ratio backward to value.
+     */
+    public void inverseTransform(Number ratio) {
+        if (jsBase == null) {
+            this.ratio = ratio;
+        } else {
+            this.ratio = ratio;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%s);", ratio));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%s);", ratio));
+                js.setLength(0);
+            }
+        }
+    }
+
     private Number maximum;
 
     /**
@@ -179,6 +199,32 @@ public class GanttDateTime extends CoreBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%s);", softMinimum));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private ZoomLevelsSettings settings;
+
+    /**
+     * Setter for zoom levels settings.<br/>
+The method sets the sets of labels by which the heder is built.
+     */
+    public GanttDateTime setZoomLevels(ZoomLevelsSettings settings) {
+        if (jsBase == null) {
+            this.settings = settings;
+        } else {
+            this.settings = settings;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".zoomLevels(%s)", ((settings != null) ? settings.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomLevels(%s);", ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
             }
         }

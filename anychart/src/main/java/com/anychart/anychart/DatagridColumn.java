@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -35,99 +30,6 @@ public class DatagridColumn extends VisualBase {
     }
 
     
-    private EnumsCursor valueCursor;
-    private String valueCursor1;
-
-    /**
-     * Setter for the button cursor.
-     */
-    public DatagridColumn setButtonCursor(EnumsCursor valueCursor) {
-        if (jsBase == null) {
-            this.valueCursor = null;
-            this.valueCursor1 = null;
-            
-            this.valueCursor = valueCursor;
-        } else {
-            this.valueCursor = valueCursor;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".buttonCursor(%s);", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for the button cursor.
-     */
-    public DatagridColumn setButtonCursor(String valueCursor1) {
-        if (jsBase == null) {
-            this.valueCursor = null;
-            this.valueCursor1 = null;
-            
-            this.valueCursor1 = valueCursor1;
-        } else {
-            this.valueCursor1 = valueCursor1;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".buttonCursor(%s);", wrapQuotes(valueCursor1)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
-    private UiLabelsFactory getCellTextSettings;
-
-    /**
-     * Getter for the label factory.
-     */
-    public UiLabelsFactory getCellTextSettings() {
-        if (getCellTextSettings == null)
-            getCellTextSettings = new UiLabelsFactory(jsBase + ".cellTextSettings()");
-
-        return getCellTextSettings;
-    }
-
-    private String cellTextSettings;
-
-    /**
-     * Setter for label factory to decorate cells.
-     */
-    public DatagridColumn setCellTextSettings(String cellTextSettings) {
-        if (jsBase == null) {
-            this.cellTextSettings = cellTextSettings;
-        } else {
-            this.cellTextSettings = cellTextSettings;
-            if (!isChain) {
-                js.append(jsBase);
-                isChain = true;
-            }
-            
-            js.append(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellTextSettings(%s);", wrapQuotes(cellTextSettings)));
-                js.setLength(0);
-            }
-        }
-        return this;
-    }
-
     private Boolean collapseExpandButtons;
 
     /**
@@ -201,6 +103,18 @@ public class DatagridColumn extends VisualBase {
             }
         }
         return this;
+    }
+
+    private UiLabelsFactory getLabels;
+
+    /**
+     * Getter for labels settings of a column.
+     */
+    public UiLabelsFactory getLabels() {
+        if (getLabels == null)
+            getLabels = new UiLabelsFactory(jsBase + ".labels()");
+
+        return getLabels;
     }
 
     private String fieldName;
@@ -393,9 +307,9 @@ public class DatagridColumn extends VisualBase {
         return this;
     }
 
-    private String generateJSgetCellTextSettings() {
-        if (getCellTextSettings != null) {
-            return getCellTextSettings.generateJs();
+    private String generateJSgetLabels() {
+        if (getLabels != null) {
+            return getLabels.generateJs();
         }
         return "";
     }
@@ -414,7 +328,7 @@ public class DatagridColumn extends VisualBase {
         jsGetters.append(super.generateJsGetters());
 
     
-        jsGetters.append(generateJSgetCellTextSettings());
+        jsGetters.append(generateJSgetLabels());
         jsGetters.append(generateJSgetTitle());
 
         return jsGetters.toString();

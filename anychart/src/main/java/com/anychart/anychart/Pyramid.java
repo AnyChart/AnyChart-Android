@@ -474,6 +474,17 @@ public class Pyramid extends SeparateChart {
 
     private Fill imageSettings;
 
+    private List<Point> getGetPoint = new ArrayList<>();
+
+    /**
+     * Gets wrapped point by index.
+     */
+    public Point getGetPoint(Number index) {
+        Point item = new Point(jsBase + ".getPoint("+ index+")");
+        getGetPoint.add(item);
+        return item;
+    }
+
     private PatternFill getHatchFill;
 
     /**
@@ -660,20 +671,20 @@ public class Pyramid extends SeparateChart {
         return this;
     }
 
-    private Number index;
+    private Number index1;
 
     /**
      * Setter for the hover state on a element or all elements.
      */
-    public Pyramid setHover(Number index) {
+    public Pyramid setHover(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hover(%s)", index));
+        js.append(String.format(Locale.US, ".hover(%s)", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", index));
+            onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", index1));
             js.setLength(0);
         }
         return this;
@@ -1145,21 +1156,21 @@ public class Pyramid extends SeparateChart {
         return this;
     }
 
-    private Number index1;
+    private Number index2;
 
     /**
      * Selects points by index.
 <b>Note:</b> Works only after {@link anychart.charts.Pyramid#draw} is called.
      */
-    public Pyramid select(Number index1) {
+    public Pyramid select(Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".select(%s)", index1));
+        js.append(String.format(Locale.US, ".select(%s)", index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", index2));
             js.setLength(0);
         }
         return this;
@@ -1325,6 +1336,18 @@ public class Pyramid extends SeparateChart {
         return "";
     }
 
+    private String generateJSgetGetPoint() {
+        if (!getGetPoint.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Point item : getGetPoint) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
             return getHatchFill.generateJs();
@@ -1396,6 +1419,7 @@ public class Pyramid extends SeparateChart {
             isChain = false;
         }
         js.append(generateJSgetData());
+        js.append(generateJSgetGetPoint());
         js.append(generateJSgetHatchFill());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHovered());

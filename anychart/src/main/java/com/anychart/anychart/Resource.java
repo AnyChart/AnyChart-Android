@@ -769,14 +769,14 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     }
 
 
-    private CoreResourceTimeline getTimeLine;
+    private TimeLineHeader getTimeLine;
 
     /**
      * Getter for the time line.
      */
-    public CoreResourceTimeline getTimeLine() {
+    public TimeLineHeader getTimeLine() {
         if (getTimeLine == null)
-            getTimeLine = new CoreResourceTimeline(jsBase + ".timeLine()");
+            getTimeLine = new TimeLineHeader(jsBase + ".timeLine()");
 
         return getTimeLine;
     }

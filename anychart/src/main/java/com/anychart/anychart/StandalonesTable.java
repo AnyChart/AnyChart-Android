@@ -35,6 +35,141 @@ public class StandalonesTable extends UiTable {
     }
 
     
+    private Layer getContainer;
+
+    /**
+     * Getter for the element's container.
+     */
+    public Layer getContainer() {
+        if (getContainer == null)
+            getContainer = new Layer(jsBase + ".container()");
+
+        return getContainer;
+    }
+
+    private Layer container;
+    private Stage container1;
+    private String container2;
+    private Element container3;
+
+    /**
+     * Setter for the element's container.
+     */
+    public StandalonesTable setContainer(Layer container) {
+        if (jsBase == null) {
+            this.container = null;
+            this.container1 = null;
+            this.container2 = null;
+            this.container3 = null;
+            
+            this.container = container;
+        } else {
+            this.container = container;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(container.generateJs());
+            js.append(jsBase);
+
+            js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container != null) ? container.getJsBase() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the element's container.
+     */
+    public StandalonesTable setContainer(Stage container1) {
+        if (jsBase == null) {
+            this.container = null;
+            this.container1 = null;
+            this.container2 = null;
+            this.container3 = null;
+            
+            this.container1 = container1;
+        } else {
+            this.container1 = container1;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(container1.generateJs());
+            js.append(jsBase);
+
+            js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container1 != null) ? container1.getJsBase() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the element's container.
+     */
+    public StandalonesTable setContainer(String container2) {
+        if (jsBase == null) {
+            this.container = null;
+            this.container1 = null;
+            this.container2 = null;
+            this.container3 = null;
+            
+            this.container2 = container2;
+        } else {
+            this.container2 = container2;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(container2)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the element's container.
+     */
+    public StandalonesTable setContainer(Element container3) {
+        if (jsBase == null) {
+            this.container = null;
+            this.container1 = null;
+            this.container2 = null;
+            this.container3 = null;
+            
+            this.container3 = container3;
+        } else {
+            this.container3 = container3;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            js.append(container3.generateJs());
+            js.append(jsBase);
+
+            js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container3 != null) ? container3.getJsBase() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String csvSettings;
     private String filename;
 
@@ -119,6 +254,13 @@ public class StandalonesTable extends UiTable {
         }
     }
 
+    private String generateJSgetContainer() {
+        if (getContainer != null) {
+            return getContainer.generateJs();
+        }
+        return "";
+    }
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();
@@ -126,6 +268,7 @@ public class StandalonesTable extends UiTable {
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetContainer());
 
         return jsGetters.toString();
     }

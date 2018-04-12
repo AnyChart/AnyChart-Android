@@ -1,15 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
  * Chaikin Money Flow (CMF) indicator class.
+{docs:Stock_Charts/Technical_Indicators/Chaikin_Money_Flow_(CMF)}Learn more about the CMF indicator.{docs}
  */
 public class CMF extends JsObject {
 

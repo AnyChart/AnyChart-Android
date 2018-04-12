@@ -11,20 +11,20 @@ import android.text.TextUtils;
 /**
  * The ResourceTimeline class contains methods for configuring standalones resource timeline.
  */
-public class AnychartResourceTimeline extends UiTimeline {
+public class ResourceTimeline extends Timeline {
 
-    public AnychartResourceTimeline() {
+    public ResourceTimeline() {
         js.setLength(0);
-        js.append("var anychartResourceTimeline").append(++variableIndex).append(" = anychart.standalones.resourceTimeline();");
-        jsBase = "anychartResourceTimeline" + variableIndex;
+        js.append("var resourceTimeline").append(++variableIndex).append(" = anychart.standalones.resourceTimeline();");
+        jsBase = "resourceTimeline" + variableIndex;
     }
 
-    protected AnychartResourceTimeline(String jsBase) {
+    protected ResourceTimeline(String jsBase) {
         js.setLength(0);
         this.jsBase = jsBase;
     }
 
-    protected AnychartResourceTimeline(StringBuilder js, String jsBase, boolean isChain) {
+    protected ResourceTimeline(StringBuilder js, String jsBase, boolean isChain) {
         this.js = js;
         this.jsBase = jsBase;
         this.isChain = isChain;
@@ -40,7 +40,7 @@ public class AnychartResourceTimeline extends UiTimeline {
     /**
      * Setter for the default row height.
      */
-    public AnychartResourceTimeline setDefaultRowHeight(Number defaultRowHeight) {
+    public ResourceTimeline setDefaultRowHeight(Number defaultRowHeight) {
         if (jsBase == null) {
             this.defaultRowHeight = defaultRowHeight;
         } else {
@@ -80,7 +80,7 @@ public class AnychartResourceTimeline extends UiTimeline {
     /**
      * Setter the for palette.
      */
-    public AnychartResourceTimeline setPalette(RangeColors paletteSettings) {
+    public ResourceTimeline setPalette(RangeColors paletteSettings) {
         if (jsBase == null) {
             this.paletteSettings = null;
             this.paletteSettings1 = null;
@@ -110,7 +110,7 @@ public class AnychartResourceTimeline extends UiTimeline {
     /**
      * Setter the for palette.
      */
-    public AnychartResourceTimeline setPalette(DistinctColors paletteSettings1) {
+    public ResourceTimeline setPalette(DistinctColors paletteSettings1) {
         if (jsBase == null) {
             this.paletteSettings = null;
             this.paletteSettings1 = null;
@@ -140,7 +140,7 @@ public class AnychartResourceTimeline extends UiTimeline {
     /**
      * Setter the for palette.
      */
-    public AnychartResourceTimeline setPalette(String paletteSettings2) {
+    public ResourceTimeline setPalette(String paletteSettings2) {
         if (jsBase == null) {
             this.paletteSettings = null;
             this.paletteSettings1 = null;
@@ -169,7 +169,7 @@ public class AnychartResourceTimeline extends UiTimeline {
     /**
      * Setter the for palette.
      */
-    public AnychartResourceTimeline setPalette(String[] paletteSettings3) {
+    public ResourceTimeline setPalette(String[] paletteSettings3) {
         if (jsBase == null) {
             this.paletteSettings = null;
             this.paletteSettings1 = null;

@@ -40,7 +40,7 @@ public class StockTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
@@ -119,7 +119,7 @@ public class StockTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via several parameter.<br/>
-<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
+<img src='https://api.anychart.com/si/8.2.0/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
      */
     public StockTicks setStroke(String color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {

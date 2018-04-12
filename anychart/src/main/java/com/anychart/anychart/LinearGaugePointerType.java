@@ -3,7 +3,7 @@ package com.anychart.anychart;
 import java.util.Locale;
 
 /**
- * List of all linear gauge pointers type.
+ * List of all linear gauge pointers types.
  */
 public enum LinearGaugePointerType implements JsObject.JsObjectInterface {
     BAR("bar"),
