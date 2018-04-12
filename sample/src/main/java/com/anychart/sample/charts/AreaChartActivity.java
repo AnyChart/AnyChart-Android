@@ -40,7 +40,7 @@ public class AreaChartActivity extends AppCompatActivity {
         crosshair.setYStroke((Stroke) null, null, null, null, null)
                 .setXStroke("#fff", 1d, null, null, null)
                 .setZIndex(39d);
-        crosshair.getYLabel().setEnabled(true);
+        crosshair.getYLabel(0).setEnabled(true);
 
         areaChart.getYScale().setStackMode(ScaleStackMode.VALUE);
 
