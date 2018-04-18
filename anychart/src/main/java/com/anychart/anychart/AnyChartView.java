@@ -2,9 +2,6 @@ package com.anychart.anychart;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -13,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.ConsoleMessage;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -20,10 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import com.anychart.anychart.chart.common.CapturePictureListener;
 import com.anychart.anychart.chart.common.ListenersInterface;
-
-import java.lang.ref.WeakReference;
 
 import static com.anychart.anychart.JsObject.isRendered;
 
@@ -39,6 +34,8 @@ public final class AnyChartView extends FrameLayout {
     protected StringBuilder js = new StringBuilder();
 
     private String licenceKey = "";
+    private View progressBar;
+    private String backgroundColor;
 
     public AnyChartView(Context context) {
         super(context);
@@ -129,7 +126,14 @@ public final class AnyChartView extends FrameLayout {
                             "anychart.licenseKey(\"" + licenceKey + "\");" +
                                     "anychart.onDocumentReady(function () {\n" +
                                     resultJs +
-                                    "});", null);
+                                    "});",
+                            new ValueCallback<String>() {
+                                @Override
+                                public void onReceiveValue(String value) {
+                                    if (progressBar != null)
+                                        progressBar.setVisibility(GONE);
+                                }
+                            });
                 } else {
                     webView.loadUrl(
                             "anychart.licenseKey(\"" + licenceKey + "\");" +
@@ -171,6 +175,8 @@ public final class AnyChartView extends FrameLayout {
                 "            height: 100%;\n" +
                 "            margin: 0;\n" +
                 "            padding: 0;\n" +
+                ((backgroundColor != null) ? "background-color: " + backgroundColor + ";" : "") +
+                "            background-color: " + backgroundColor + ";" +
                 "        }\n" +
                 "    </style>\n" +
                 "</head>\n" +
@@ -207,38 +213,11 @@ public final class AnyChartView extends FrameLayout {
         loadHtml();
     }
 
-    public void capturePicture(CapturePictureListener listener) {
-        new CapturePictureAsyncTask(webView, listener).execute();
+    public void setProgressBar(View progressBar) {
+        this.progressBar = progressBar;
     }
 
-    private static class CapturePictureAsyncTask extends AsyncTask<Void, Void, Bitmap> {
-        private WeakReference<WebView> webViewReference;
-        private CapturePictureListener listener;
-
-        CapturePictureAsyncTask(WebView webView, CapturePictureListener listener) {
-            webViewReference = new WeakReference<>(webView);
-            this.listener = listener;
-        }
-
-        @Override
-        protected Bitmap doInBackground(Void... params) {
-            WebView webView = webViewReference.get();
-            if (webView == null) return null;
-            try {
-                Bitmap bitmap = Bitmap.createBitmap(webView.getWidth(), webView.getHeight(), Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bitmap);
-                webView.draw(canvas);
-                return bitmap;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            listener.onDone(bitmap);
-        }
+    public void setBackgroundColor(String color) {
+        this.backgroundColor = color;
     }
-
 }
