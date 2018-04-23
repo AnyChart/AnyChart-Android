@@ -2,6 +2,7 @@ package com.anychart.anychart;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -77,6 +78,9 @@ public final class AnyChartView extends FrameLayout {
     private void init() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.view_anychart, this, true);
+
+        if (progressBar != null)
+            progressBar.setVisibility(VISIBLE);
 
         webView = view.findViewById(R.id.web_view);
         WebSettings webSettings = webView.getSettings();
@@ -176,7 +180,6 @@ public final class AnyChartView extends FrameLayout {
                 "            margin: 0;\n" +
                 "            padding: 0;\n" +
                 ((backgroundColor != null) ? "background-color: " + backgroundColor + ";" : "") +
-                "            background-color: " + backgroundColor + ";" +
                 "        }\n" +
                 "    </style>\n" +
                 "</head>\n" +
@@ -215,9 +218,11 @@ public final class AnyChartView extends FrameLayout {
 
     public void setProgressBar(View progressBar) {
         this.progressBar = progressBar;
+        progressBar.setVisibility(VISIBLE);
     }
 
     public void setBackgroundColor(String color) {
         this.backgroundColor = color;
+        webView.setBackgroundColor(Color.parseColor(color));
     }
 }
