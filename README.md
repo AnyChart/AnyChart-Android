@@ -14,7 +14,7 @@ Add this to the project.clj file, at the end of repositories:
 ```
 Add the dependency:
 ```clojure
-:dependencies [[com.github.AnyChart/AnyChart-Android "0.1.9"]]
+:dependencies [[com.github.AnyChart/AnyChart-Android "0.2.0"]]
 ```
 
 ### SBT
@@ -24,7 +24,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 ```
 Add the dependency:
 ```sbt
-libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.1.9"
+libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.2.0"
 ```
 
 ### Maven
@@ -42,7 +42,7 @@ Add the dependency:
 <dependency>
     <groupId>com.github.AnyChart</groupId>
     <artifactId>AnyChart-Android</artifactId>
-    <version>0.1.9</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -65,7 +65,6 @@ dependencies {
 ```
 
 ### JAR/AAR File
-Download the <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/anychart-library.aar">latest AAR</a>.
 Copy AAR file into the libs folder of the application project.
 
 If you are using **Android Studio**:
