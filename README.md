@@ -14,7 +14,7 @@ Add this to the project.clj file, at the end of repositories:
 ```
 Add the dependency:
 ```clojure
-:dependencies [[com.github.AnyChart/AnyChart-Android "0.2.0"]]
+:dependencies [[com.github.AnyChart/AnyChart-Android "0.2.1"]]
 ```
 
 ### SBT
@@ -24,7 +24,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 ```
 Add the dependency:
 ```sbt
-libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.2.0"
+libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.2.1"
 ```
 
 ### Maven
@@ -42,7 +42,7 @@ Add the dependency:
 <dependency>
     <groupId>com.github.AnyChart</groupId>
     <artifactId>AnyChart-Android</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 
@@ -60,7 +60,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Groovy
 dependencies {
-        compile 'com.github.AnyChart:AnyChart-Android:0.1.9'
+        compile 'com.github.AnyChart:AnyChart-Android:0.2.1'
 }
 ```
 
@@ -122,7 +122,7 @@ allprojects {
 Then add the dependency to the **module build.gradle** and synchronize project with Gradle.
 ```Groovy
 dependencies {
-        compile 'com.github.AnyChart:AnyChart-Android:0.1.9'
+        compile 'com.github.AnyChart:AnyChart-Android:0.2.1'
 }
 ```
 
