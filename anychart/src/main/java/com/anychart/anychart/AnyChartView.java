@@ -31,6 +31,7 @@ public final class AnyChartView extends FrameLayout {
     private boolean isRestored;
 
     private StringBuilder scripts = new StringBuilder();
+    private StringBuilder fonts = new StringBuilder();
 
     protected StringBuilder js = new StringBuilder();
 
@@ -181,6 +182,7 @@ public final class AnyChartView extends FrameLayout {
                 "            padding: 0;\n" +
                 ((backgroundColor != null) ? "background-color: " + backgroundColor + ";" : "") +
                 "        }\n" +
+                fonts.toString() +
                 "    </style>\n" +
                 "</head>\n" +
                 "<body>\n" +
@@ -198,6 +200,13 @@ public final class AnyChartView extends FrameLayout {
         scripts.append("<script src=\"")
                 .append(url)
                 .append("\"></script>\n");
+    }
+
+    public void addFont(String fontFamily, String url) {
+        fonts.append("@font-face {\n")
+                .append("font-family: ").append(fontFamily).append(";\n")
+                .append("src: url(").append(url).append(");\n")
+                .append("}\n");
     }
 
     public void setLicenceKey(String key) {
