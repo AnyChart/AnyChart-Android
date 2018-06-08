@@ -140,9 +140,8 @@ public final class AnyChartView extends FrameLayout {
                                 }
                             });
                 } else {
-                    webView.loadUrl(
-                            "anychart.licenseKey(\"" + licenceKey + "\");" +
-                                    "javascript:anychart.onDocumentReady(function () {\n" +
+                    webView.loadUrl("javascript:anychart.licenseKey(\"" + licenceKey + "\");" +
+                                    "anychart.onDocumentReady(function () {\n" +
                                     resultJs +
                                     "});");
                 }
@@ -193,7 +192,7 @@ public final class AnyChartView extends FrameLayout {
                 "</body>\n" +
                 "</html>";
 
-        webView.loadDataWithBaseURL("", htmlData, "text/HTML", "UTF-8", "");
+        webView.loadDataWithBaseURL("", htmlData, "text/html", "UTF-8", null);
     }
 
     public void addScript(String url) {
