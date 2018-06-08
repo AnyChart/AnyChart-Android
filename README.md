@@ -1,9 +1,9 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://www.anychart.com)
 
 # AnyChart for Android
-[![](https://jitpack.io/v/AnyChart/AnyChart-Android.svg)](https://jitpack.io/#AnyChart/AnyChart-Android) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
+[![](https://jitpack.io/v/AnyChart/AnyChart-Android.svg)](https://jitpack.io/#AnyChart/AnyChart-Android) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
-AnyChart Android Charts is an amazing data visualization library for easily creating interactive charts in Android apps. It runs on API 14+ (Android 4.0) and features dozens of built-in chart types.
+AnyChart Android Charts is an amazing data visualization library for easily creating interactive charts in Android apps. It runs on API 19+ (Android 4.4) and features dozens of built-in chart types.
 
 ## Installation
 
@@ -14,7 +14,7 @@ Add this to the project.clj file, at the end of repositories:
 ```
 Add the dependency:
 ```clojure
-:dependencies [[com.github.AnyChart/AnyChart-Android "0.2.1"]]
+:dependencies [[com.github.AnyChart/AnyChart-Android "0.2.5"]]
 ```
 
 ### SBT
@@ -24,7 +24,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 ```
 Add the dependency:
 ```sbt
-libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.2.1"
+libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.2.5"
 ```
 
 ### Maven
@@ -42,7 +42,7 @@ Add the dependency:
 <dependency>
     <groupId>com.github.AnyChart</groupId>
     <artifactId>AnyChart-Android</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.5</version>
 </dependency>
 ```
 
@@ -60,7 +60,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Groovy
 dependencies {
-        compile 'com.github.AnyChart:AnyChart-Android:0.2.1'
+        compile 'com.github.AnyChart:AnyChart-Android:0.2.5'
 }
 ```
 
@@ -77,7 +77,7 @@ If you are using **Android Studio**:
 ## Getting Stated using Gradle
 You should have already set up the latest <a href="https://developer.android.com/studio/index.html">Android Studio</a>.
 
-Create a new project and select appropriate API level (AnyChart library for Android compatible with API 15+).
+Create a new project and select appropriate API level (AnyChart library for Android compatible with API 19+).
 <table>
     <tr>
         <td>
@@ -122,7 +122,7 @@ allprojects {
 Then add the dependency to the **module build.gradle** and synchronize project with Gradle.
 ```Groovy
 dependencies {
-        compile 'com.github.AnyChart:AnyChart-Android:0.2.1'
+        compile 'com.github.AnyChart:AnyChart-Android:0.2.5'
 }
 ```
 
