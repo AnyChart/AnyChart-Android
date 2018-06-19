@@ -3,7 +3,6 @@ package com.anychart.anychart;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -126,25 +125,18 @@ public final class AnyChartView extends FrameLayout {
                         .append("chart.draw();")
                         .toString();
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    webView.evaluateJavascript(
-                            "anychart.licenseKey(\"" + licenceKey + "\");" +
-                                    "anychart.onDocumentReady(function () {\n" +
-                                    resultJs +
-                                    "});",
-                            new ValueCallback<String>() {
-                                @Override
-                                public void onReceiveValue(String value) {
-                                    if (progressBar != null)
-                                        progressBar.setVisibility(GONE);
-                                }
-                            });
-                } else {
-                    webView.loadUrl("javascript:anychart.licenseKey(\"" + licenceKey + "\");" +
-                                    "anychart.onDocumentReady(function () {\n" +
-                                    resultJs +
-                                    "});");
-                }
+                webView.evaluateJavascript(
+                        "anychart.licenseKey(\"" + licenceKey + "\");" +
+                                "anychart.onDocumentReady(function () {\n" +
+                                resultJs +
+                                "});",
+                        new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String value) {
+                                if (progressBar != null)
+                                    progressBar.setVisibility(GONE);
+                            }
+                        });
 
 //                isRendered = true;
 
@@ -155,11 +147,7 @@ public final class AnyChartView extends FrameLayout {
                         webView.post(new Runnable() {
                             @Override
                             public void run() {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                    webView.evaluateJavascript(jsChange, null);
-                                } else {
-                                    webView.loadUrl("javascript:" + jsChange);
-                                }
+                                webView.evaluateJavascript(jsChange, null);
                             }
                         });
                     }
