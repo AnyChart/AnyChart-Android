@@ -26,6 +26,7 @@ public class ChoroplethMapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chart_common);
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         ChartsMap map = AnyChart.map();
 

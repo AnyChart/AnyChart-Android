@@ -26,7 +26,8 @@ public class TreeMapChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        AnyChartView anyChart = findViewById(R.id.any_chart_view);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         TreeMap treeMap = AnyChart.treeMap();
 
@@ -136,7 +137,7 @@ public class TreeMapChartActivity extends AppCompatActivity {
                         "        });\n" +
                         "    }");
 
-        anyChart.setChart(treeMap);
+        anyChartView.setChart(treeMap);
     }
 
     private class CustomTreeDataEntry extends TreeDataEntry {

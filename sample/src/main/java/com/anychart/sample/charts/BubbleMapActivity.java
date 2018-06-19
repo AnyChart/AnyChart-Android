@@ -29,6 +29,7 @@ public class BubbleMapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chart_common);
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         ChartsMap bubbleMap = AnyChart.bubbleMap();
 

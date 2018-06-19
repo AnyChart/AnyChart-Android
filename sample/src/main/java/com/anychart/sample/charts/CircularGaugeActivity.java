@@ -25,6 +25,7 @@ public class CircularGaugeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chart_common);
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         CircularGauge circularGauge = AnyChart.circular();
         circularGauge.setData(new SingleValueDataSet(new String[] { "23", "34", "67", "93", "56", "100"}));
