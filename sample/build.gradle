@@ -7,7 +7,7 @@ android {
         applicationId "com.anychart.anychart"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 4
+        versionCode 5
         versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

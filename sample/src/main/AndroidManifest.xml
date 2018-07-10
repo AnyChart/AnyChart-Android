@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.anychart.sample">
+    package="com.anychart.sample">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,87 +13,51 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".charts.PieChartActivity">
-        </activity>
-        <activity android:name=".charts.ColumnChartActivity">
-        </activity>
-        <activity android:name=".charts.LineChartActivity">
-        </activity>
-        <activity android:name=".charts.VennDiagramActivity">
-        </activity>
-        <activity android:name=".charts.HeatMapChartActivity">
-        </activity>
-        <activity android:name=".charts.TagCloudActivity">
-        </activity>
-        <activity android:name=".charts.WaterfallChartActivity">
-        </activity>
-        <activity android:name=".charts.TreeMapChartActivity">
-        </activity>
-        <activity android:name=".charts.CircularGaugeActivity">
-        </activity>
-        <activity android:name=".charts.ScatterChartActivity">
-        </activity>
+        <activity android:name=".charts.PieChartActivity"></activity>
+        <activity android:name=".charts.ColumnChartActivity"></activity>
+        <activity android:name=".charts.LineChartActivity"></activity>
+        <activity android:name=".charts.VennDiagramActivity"></activity>
+        <activity android:name=".charts.HeatMapChartActivity"></activity>
+        <activity android:name=".charts.TagCloudActivity"></activity>
+        <activity android:name=".charts.WaterfallChartActivity"></activity>
+        <activity android:name=".charts.TreeMapChartActivity"></activity>
+        <activity android:name=".charts.CircularGaugeActivity"></activity>
+        <activity android:name=".charts.ScatterChartActivity"></activity>
         <activity
             android:name=".charts.ResourceChartActivity"
-            android:configChanges="keyboardHidden|orientation">
-        </activity>
-        <activity android:name=".charts.RadarChartActivity">
-        </activity>
-        <activity android:name=".charts.PolarChartActivity">
-        </activity>
-        <activity android:name=".charts.RangeChartActivity">
-        </activity>
-        <activity android:name=".charts.VerticalChartActivity">
-        </activity>
-        <activity android:name=".charts.FunnelChartActivity">
-        </activity>
-        <activity android:name=".charts.PertChartActivity">
-        </activity>
-        <activity android:name=".charts.GanttChartActivity">
-        </activity>
-        <activity android:name=".charts.CombinedChartActivity">
-        </activity>
-        <activity android:name=".charts.BubbleChartActivity">
-        </activity>
-        <activity android:name=".charts.ParetoChartActivity">
-        </activity>
-        <activity android:name=".charts.PyramidActivity">
-        </activity>
-        <activity android:name=".charts.AreaChartActivity">
-        </activity>
-        <activity android:name=".charts.BarChartActivity">
-        </activity>
-        <activity android:name=".charts.BoxChartActivity">
-        </activity>
-        <activity android:name=".charts.Bar3DChartActivity">
-        </activity>
-        <activity android:name=".charts.MosaicChartActivity">
-        </activity>
-        <activity android:name=".charts.MekkoChartActivity">
-        </activity>
-        <activity android:name=".charts.Column3DChartActivity">
-        </activity>
-        <activity android:name=".charts.Area3DChartActivity">
-        </activity>
-        <activity android:name=".charts.HiloChartActivity">
-        </activity>
-        <activity android:name=".charts.QuadrantChartActivity">
-        </activity>
-        <activity android:name=".charts.OHLCChartActivity">
-        </activity>
-        <activity android:name=".charts.BubbleMapActivity">
-        </activity>
-        <activity android:name=".charts.ChoroplethMapActivity">
-        </activity>
-        <activity android:name=".charts.PointMapActivity">
-        </activity>
-        <activity android:name=".charts.ConnectorMapActivity">
-        </activity>
+            android:configChanges="keyboardHidden|orientation"></activity>
+        <activity android:name=".charts.RadarChartActivity"></activity>
+        <activity android:name=".charts.PolarChartActivity"></activity>
+        <activity android:name=".charts.RangeChartActivity"></activity>
+        <activity android:name=".charts.VerticalChartActivity"></activity>
+        <activity android:name=".charts.FunnelChartActivity"></activity>
+        <activity android:name=".charts.PertChartActivity"></activity>
+        <activity android:name=".charts.GanttChartActivity"></activity>
+        <activity android:name=".charts.CombinedChartActivity"></activity>
+        <activity android:name=".charts.BubbleChartActivity"></activity>
+        <activity android:name=".charts.ParetoChartActivity"></activity>
+        <activity android:name=".charts.PyramidActivity"></activity>
+        <activity android:name=".charts.AreaChartActivity"></activity>
+        <activity android:name=".charts.BarChartActivity"></activity>
+        <activity android:name=".charts.BoxChartActivity"></activity>
+        <activity android:name=".charts.Bar3DChartActivity"></activity>
+        <activity android:name=".charts.MosaicChartActivity"></activity>
+        <activity android:name=".charts.MekkoChartActivity"></activity>
+        <activity android:name=".charts.Column3DChartActivity"></activity>
+        <activity android:name=".charts.Area3DChartActivity"></activity>
+        <activity android:name=".charts.HiloChartActivity"></activity>
+        <activity android:name=".charts.QuadrantChartActivity"></activity>
+        <activity android:name=".charts.OHLCChartActivity"></activity>
+        <activity android:name=".charts.BubbleMapActivity"></activity>
+        <activity android:name=".charts.ChoroplethMapActivity"></activity>
+        <activity android:name=".charts.PointMapActivity"></activity>
+        <activity android:name=".charts.ConnectorMapActivity"></activity>
+        <activity android:name=".charts.SunburstChartActivity"></activity>
     </application>
 
 </manifest>

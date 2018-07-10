@@ -181,19 +181,6 @@ public class ResourceChartActivity extends AppCompatActivity {
         anyChartView.setChart(resource);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-
     private class ResourceDataEntry extends DataEntry {
         ResourceDataEntry(String name, String description, String image, Activity[] activities) {
             setValue("name", name);
