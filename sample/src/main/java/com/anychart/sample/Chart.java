@@ -33,6 +33,7 @@ import com.anychart.sample.charts.RadarChartActivity;
 import com.anychart.sample.charts.RangeChartActivity;
 import com.anychart.sample.charts.ResourceChartActivity;
 import com.anychart.sample.charts.ScatterChartActivity;
+import com.anychart.sample.charts.SunburstChartActivity;
 import com.anychart.sample.charts.TagCloudActivity;
 import com.anychart.sample.charts.TreeMapChartActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
@@ -99,6 +100,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.point_map), PointMapActivity.class));
         chartList.add(new Chart(resources.getString(R.string.connector_map), ConnectorMapActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.sunburst_chart), SunburstChartActivity.class));
 
         return chartList;
     }
