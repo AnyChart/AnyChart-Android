@@ -1186,15 +1186,15 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the circular range settings by index.
      */
-    public CircularGauge setRange(String range2, Number index12) {
+    public CircularGauge setRange(Number index12, String range2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index12));
+        js.append(String.format(Locale.US, ".range(%s, %s)", index12, wrapQuotes(range2)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index12));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %s)", index12, wrapQuotes(range2)));
             js.setLength(0);
         }
         return this;
