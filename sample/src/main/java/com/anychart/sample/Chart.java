@@ -35,6 +35,7 @@ import com.anychart.sample.charts.ResourceChartActivity;
 import com.anychart.sample.charts.ScatterChartActivity;
 import com.anychart.sample.charts.SunburstChartActivity;
 import com.anychart.sample.charts.TagCloudActivity;
+import com.anychart.sample.charts.ThermometerActivity;
 import com.anychart.sample.charts.TreeMapChartActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
 import com.anychart.sample.charts.VerticalChartActivity;
@@ -74,6 +75,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.waterfall_chart), WaterfallChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.tree_map_chart), TreeMapChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.circular_gauge), CircularGaugeActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.thermometer), ThermometerActivity.class));
         chartList.add(new Chart(resources.getString(R.string.scatter_chart), ScatterChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.resource_chart), ResourceChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.radar_chart), RadarChartActivity.class));
@@ -95,12 +97,12 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.hilo_chart), HiloChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.ohlc_chart), OHLCChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.quadrant_chart), QuadrantChartActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.sunburst_chart), SunburstChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.bubble_map), BubbleMapActivity.class));
         chartList.add(new Chart(resources.getString(R.string.choropleth_map), ChoroplethMapActivity.class));
         chartList.add(new Chart(resources.getString(R.string.point_map), PointMapActivity.class));
         chartList.add(new Chart(resources.getString(R.string.connector_map), ConnectorMapActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
-        chartList.add(new Chart(resources.getString(R.string.sunburst_chart), SunburstChartActivity.class));
 
         return chartList;
     }
