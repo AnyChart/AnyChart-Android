@@ -59,7 +59,8 @@
         <activity android:name=".charts.ConnectorMapActivity" />
         <activity android:name=".charts.SunburstChartActivity" />
         <activity android:name=".charts.ThermometerActivity" />
-        <activity android:name=".charts.LinearColorScaleActivity"></activity>
+        <activity android:name=".charts.LinearColorScaleActivity" />
+        <activity android:name=".charts.WindSpeedActivity"></activity>
     </application>
 
 </manifest>

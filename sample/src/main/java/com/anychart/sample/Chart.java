@@ -41,6 +41,7 @@ import com.anychart.sample.charts.TreeMapChartActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
 import com.anychart.sample.charts.VerticalChartActivity;
 import com.anychart.sample.charts.WaterfallChartActivity;
+import com.anychart.sample.charts.WindSpeedActivity;
 
 import java.util.ArrayList;
 
@@ -78,6 +79,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.circular_gauge), CircularGaugeActivity.class));
         chartList.add(new Chart(resources.getString(R.string.thermometer), ThermometerActivity.class));
         chartList.add(new Chart(resources.getString(R.string.linear_color_scale), LinearColorScaleActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.wind_speed), WindSpeedActivity.class));
         chartList.add(new Chart(resources.getString(R.string.scatter_chart), ScatterChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.resource_chart), ResourceChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.radar_chart), RadarChartActivity.class));
