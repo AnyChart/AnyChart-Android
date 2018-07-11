@@ -12,6 +12,7 @@
     <string name="thermometer">Thermometer</string>
     <string name="linear_color_scale">Linear Color Scale</string>
     <string name="wind_speed">Wind Speed</string>
+    <string name="wind_direction">Wind Direction</string>
     <string name="scatter_chart">Scatter Chart</string>
     <string name="resource_chart">Resource Chart</string>
     <string name="radar_chart">Radar Chart</string>

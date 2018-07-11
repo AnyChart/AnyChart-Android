@@ -60,7 +60,8 @@
         <activity android:name=".charts.SunburstChartActivity" />
         <activity android:name=".charts.ThermometerActivity" />
         <activity android:name=".charts.LinearColorScaleActivity" />
-        <activity android:name=".charts.WindSpeedActivity"></activity>
+        <activity android:name=".charts.WindSpeedActivity" />
+        <activity android:name=".charts.WindDirectionActivity"></activity>
     </application>
 
 </manifest>
