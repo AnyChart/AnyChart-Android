@@ -1,6 +1,5 @@
 package com.anychart.sample.charts;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -31,6 +30,8 @@ public class ResourceChartActivity extends AppCompatActivity {
         resource.setZoomLevel(1d)
                 .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
                 .setCurrentStartDate("2016-09-30");
+
+        resource.setResourceListWidth(120);
 
         resource.getCalendar().setAvailabilities(new Availability[] {
                 new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, (Double) null, (Double) null, 18d, true),
