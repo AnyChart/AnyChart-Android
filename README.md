@@ -600,6 +600,60 @@ AnyChart product family includes scores of chart types and we're constantly addi
             </sup>            
         </td>
     </tr>
+    <tr>
+        <td>
+            <h3 align="center">Sunburst Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/sunburstchart.png" width="320px" height="400px" alt="Sunburst Chart - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/SunburstChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Thermometer</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/thermometer.png" width="320px" height="400px" alt="Thermometer - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ThermometerActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Linear Color Scale</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linearcolorscale.png" width="320px" height="400px" alt="Linear Color Scale - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/LinearColorScaleActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">Wind Speed Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/windspeed.png" width="320px" height="400px" alt="Wind Speed - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WindSpeedActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Wind Direction</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/winddirection.png" width="320px" height="400px" alt="Wind Direction - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WindDirectionActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
 </table>  
 
 ## Running Demos
