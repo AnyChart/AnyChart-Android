@@ -58,7 +58,8 @@
         <activity android:name=".charts.PointMapActivity" />
         <activity android:name=".charts.ConnectorMapActivity" />
         <activity android:name=".charts.SunburstChartActivity" />
-        <activity android:name=".charts.ThermometerActivity"></activity>
+        <activity android:name=".charts.ThermometerActivity" />
+        <activity android:name=".charts.LinearColorScaleActivity"></activity>
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@ import com.anychart.sample.charts.FunnelChartActivity;
 import com.anychart.sample.charts.HeatMapChartActivity;
 import com.anychart.sample.charts.HiloChartActivity;
 import com.anychart.sample.charts.LineChartActivity;
+import com.anychart.sample.charts.LinearColorScaleActivity;
 import com.anychart.sample.charts.MekkoChartActivity;
 import com.anychart.sample.charts.MosaicChartActivity;
 import com.anychart.sample.charts.OHLCChartActivity;
@@ -76,6 +77,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.tree_map_chart), TreeMapChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.circular_gauge), CircularGaugeActivity.class));
         chartList.add(new Chart(resources.getString(R.string.thermometer), ThermometerActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.linear_color_scale), LinearColorScaleActivity.class));
         chartList.add(new Chart(resources.getString(R.string.scatter_chart), ScatterChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.resource_chart), ResourceChartActivity.class));
         chartList.add(new Chart(resources.getString(R.string.radar_chart), RadarChartActivity.class));
