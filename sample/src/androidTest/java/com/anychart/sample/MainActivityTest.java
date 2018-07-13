@@ -310,13 +310,75 @@ public class MainActivityTest {
     }
 
     @Test
-    public void scatterChartTest() {
+    public void thermometerTest() {
         ViewInteraction recyclerView = onView(
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
         recyclerView.perform(actionOnItemAtPosition(11, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void linearColorScaleTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(12, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void windSpeedTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(13, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_1l")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void windDirectionTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(14, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_y")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void scatterChartTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(15, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_13")).perform(webClick());
@@ -333,7 +395,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(12, click()));
+        recyclerView.perform(actionOnItemAtPosition(16, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_6")).perform(webClick());
@@ -351,7 +413,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(13, click()));
+        recyclerView.perform(actionOnItemAtPosition(17, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2b")).perform(webClick());
@@ -369,7 +431,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(14, click()));
+        recyclerView.perform(actionOnItemAtPosition(18, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2y")).perform(webClick());
@@ -387,7 +449,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(15, click()));
+        recyclerView.perform(actionOnItemAtPosition(19, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2p")).perform(webClick());
@@ -413,7 +475,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(16, click()));
+        recyclerView.perform(actionOnItemAtPosition(20, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         try {
@@ -445,7 +507,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(17, click()));
+        recyclerView.perform(actionOnItemAtPosition(21, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_h")).perform(webClick());
@@ -465,7 +527,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(18, click()));
+        recyclerView.perform(actionOnItemAtPosition(22, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1c")).perform(webClick());
@@ -496,7 +558,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(19, click()));
+        recyclerView.perform(actionOnItemAtPosition(23, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1u")).perform(webClick());
@@ -513,7 +575,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(20, click()));
+        recyclerView.perform(actionOnItemAtPosition(24, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_circle_2u")).perform(webClick());
@@ -535,7 +597,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(21, click()));
+        recyclerView.perform(actionOnItemAtPosition(25, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2k")).perform(webClick());
@@ -552,7 +614,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(22, click()));
+        recyclerView.perform(actionOnItemAtPosition(26, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_t")).perform(webClick());
@@ -571,7 +633,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(23, click()));
+        recyclerView.perform(actionOnItemAtPosition(27, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_10")).perform(webClick());
@@ -595,7 +657,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(24, click()));
+        recyclerView.perform(actionOnItemAtPosition(28, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1n")).perform(webClick());
@@ -613,7 +675,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(25, click()));
+        recyclerView.perform(actionOnItemAtPosition(29, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2b")).perform(webClick());
@@ -634,7 +696,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(26, click()));
+        recyclerView.perform(actionOnItemAtPosition(30, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1y")).perform(webClick());
@@ -661,7 +723,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(27, click()));
+        recyclerView.perform(actionOnItemAtPosition(31, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_5e")).perform(webClick());
@@ -687,7 +749,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(28, click()));
+        recyclerView.perform(actionOnItemAtPosition(32, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2j")).perform(webClick());
@@ -704,7 +766,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(29, click()));
+        recyclerView.perform(actionOnItemAtPosition(33, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2b")).perform(webClick());
@@ -721,7 +783,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(30, click()));
+        recyclerView.perform(actionOnItemAtPosition(34, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
@@ -736,7 +798,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(31, click()));
+        recyclerView.perform(actionOnItemAtPosition(35, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_j")).perform(webClick());
@@ -754,13 +816,35 @@ public class MainActivityTest {
     }
 
     @Test
+    public void sunburstChartTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(36, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_t")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_9")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_7")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_6")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_5")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_5")).perform(webClick());
+        onWebView().withElement(findElement(Locator.ID, "ac_path_5")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
     public void bubbleMapTest() {
         ViewInteraction recyclerView = onView(
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(32, click()));
+        recyclerView.perform(actionOnItemAtPosition(37, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_circle_19")).perform(webClick());
@@ -787,7 +871,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(33, click()));
+        recyclerView.perform(actionOnItemAtPosition(38, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_h")).perform(webClick());
@@ -808,7 +892,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(34, click()));
+        recyclerView.perform(actionOnItemAtPosition(39, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_23")).perform(webClick());
@@ -830,7 +914,7 @@ public class MainActivityTest {
                         childAtPosition(
                                 withId(android.R.id.content),
                                 0)));
-        recyclerView.perform(actionOnItemAtPosition(35, click()));
+        recyclerView.perform(actionOnItemAtPosition(40, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_7h")).perform(webClick());
