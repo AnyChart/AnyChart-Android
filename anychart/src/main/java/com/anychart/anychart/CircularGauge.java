@@ -432,6 +432,7 @@ public class CircularGauge extends Chart {
         js.append(view.generateJs());
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  view.getJsBase()));
         if (isRendered) {
+            onChangeListener.onChange(view.generateJs());
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", view.getJsBase()));
             js.setLength(0);
         }

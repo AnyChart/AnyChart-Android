@@ -2,10 +2,9 @@ package com.anychart.anychart;
 
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 // chart class
 /**
@@ -278,6 +277,7 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(view.generateJs());
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  view.getJsBase()));
         if (isRendered) {
+            onChangeListener.onChange(view.generateJs());
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", view.getJsBase()));
             js.setLength(0);
         }

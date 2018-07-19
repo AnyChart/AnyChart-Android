@@ -138,7 +138,7 @@ public final class AnyChartView extends FrameLayout {
                             }
                         });
 
-//                isRendered = true;
+                isRendered = true;
 
                 chart.setOnChangeListener(new Chart.OnChange() {
                     @Override
