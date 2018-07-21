@@ -189,6 +189,12 @@ public final class AnyChartView extends FrameLayout {
                 .append("\"></script>\n");
     }
 
+    public void addCss(String url) {
+        scripts.append("<link rel=\"stylesheet\" href=\"")
+                .append(url)
+                .append("\"/>\n");
+    }
+
     public void addFont(String fontFamily, String url) {
         fonts.append("@font-face {\n")
                 .append("font-family: ").append(fontFamily).append(";\n")
