@@ -260,7 +260,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         <td colspan="2">
             <h3 align="center">Heat Map Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/heatmapchart.png" height="42.5%" alt="Heat Map Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/heatmapchart.png" alt="Heat Map Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HeatMapChartActivity.java">Code Snippet</a> /
@@ -304,7 +304,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         <td colspan="2">
             <h3 align="center">Resource Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/resourcechart.png" height="42.5%" alt="Resource Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/resourcechart.png" alt="Resource Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ResourceChartActivity.java">Code Snippet</a> /
@@ -358,7 +358,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         <td colspan="2">
             <h3 align="center">Pert Chart</h3>
             <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pertchart.png" height="42.5%" alt="Pert Chart - AnyChart">
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pertchart.png" alt="Pert Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PertChartActivity.java">Code Snippet</a> /
