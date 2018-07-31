@@ -257,7 +257,29 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td colspan="2">
+        <td>
+            <h3 align="center">Radar Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/radarchart.png" alt="Radar Chart - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Tag Cloud</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/tagcloud.png" alt="Tag Cloud - AnyChart">
+            <sup>
+              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TagCloudActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
             <h3 align="center">Heat Map Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/heatmapchart.png" alt="Heat Map Chart - AnyChart">
@@ -301,23 +323,13 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="3">
             <h3 align="center">Resource Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/resourcechart.png" alt="Resource Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ResourceChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
-            </sup>            
-        </td>
-        <td>
-            <h3 align="center">Radar Chart</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/radarchart.png" alt="Radar Chart - AnyChart">
-            <sup>
-              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
@@ -355,23 +367,13 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="3">
             <h3 align="center">Pert Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pertchart.png" alt="Pert Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PertChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
-            </sup>            
-        </td>
-        <td>
-            <h3 align="center">Tag Cloud</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/tagcloud.png" alt="Tag Cloud - AnyChart">
-            <sup>
-              <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TagCloudActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
