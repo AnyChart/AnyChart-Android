@@ -216,7 +216,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
 <table>
     <tr>
         <td>
-            <h3 align="center">Pie Chart</h3>
+            <h3 align="center">P</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Pie Chart - AnyChart">
             <sup>
@@ -226,7 +226,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             </sup>            
         </td>
         <td>
-            <h3 align="center">Column Chart</h3>
+            <h3 align="center">C</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/columnchart.png" alt="Column Chart - AnyChart">
             <sup>
@@ -236,7 +236,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             </sup>            
         </td>
         <td>
-            <h3 align="center">Line Chart</h3>
+            <h3 align="center">L</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linechart.png" alt="Line Chart - AnyChart">
             <sup>
