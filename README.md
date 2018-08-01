@@ -215,7 +215,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
 
 <table>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Pie Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Pie Chart - AnyChart">
@@ -225,7 +225,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Column Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/columnchart.png" alt="Column Chart - AnyChart">
@@ -235,7 +235,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Line Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linechart.png" alt="Line Chart - AnyChart">
@@ -247,7 +247,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Venn Diagram</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/venndiagram.png" alt="Venn Diagram - AnyChart">
@@ -257,7 +257,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Radar Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/radarchart.png" alt="Radar Chart - AnyChart">
@@ -267,7 +267,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Tag Cloud</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/tagcloud.png" alt="Tag Cloud - AnyChart">
@@ -291,7 +291,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Waterfall Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/waterfallchart.png" alt="Waterfall Chart - AnyChart">
@@ -301,7 +301,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Tree Map Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/treemapchart.png" alt="Tree Map Chart - AnyChart">
@@ -311,7 +311,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Scatter Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/scatterchart.png" alt="Scatter Chart - AnyChart">
@@ -335,7 +335,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Range Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/rangechart.png" alt="Range Chart - AnyChart">
@@ -345,7 +345,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Vertical Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/verticalchart.png" alt="Vertical Chart - AnyChart">
@@ -355,7 +355,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Funnel Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/funnelchart.png" alt="Funnel Chart - AnyChart">
@@ -379,7 +379,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Polar Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/polarchart.png" alt="Polar Chart - AnyChart">
@@ -389,7 +389,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Pyramid Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pyramidchart.png" alt="Pyramid Chart - AnyChart">
@@ -399,7 +399,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Bubble Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bubblechart.png" alt="Bubble Chart - AnyChart">
@@ -411,7 +411,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Area Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/areachart.png" alt="Area Chart - AnyChart">
@@ -421,7 +421,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Bar Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/barchart.png" alt="Bar Chart - AnyChart">
@@ -431,7 +431,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Box Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/boxchart.png" alt="Box Chart - AnyChart">
@@ -443,7 +443,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Mosaic Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/mosaicchart.png" alt="Mosaic Chart - AnyChart">
@@ -453,7 +453,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Mekko Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/mekkochart.png" alt="Mekko Chart - AnyChart">
@@ -463,7 +463,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">3D Bar Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bar3dchart.png" alt="3D Bar Chart - AnyChart">
@@ -475,7 +475,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">3D Column Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/column3dchart.png" alt="3D Column Chart - AnyChart">
@@ -485,7 +485,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">3D Area Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/area3dchart.png" alt="3D Area Chart - AnyChart">
@@ -495,7 +495,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Circular Gauge</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/circulargauge.png" alt="Circular Gauge">
@@ -507,7 +507,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Pareto Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/paretochart.png" alt="Pareto Chart - AnyChart">
@@ -517,7 +517,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Combined Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/combinedchart.png" alt="Combined Chart - AnyChart">
@@ -527,7 +527,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Quadrant Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/quadrantchart.png" alt="Quadrant Chart - AnyChart">
@@ -539,7 +539,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Hilo Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/hilochart.png" alt="Hilo Chart - AnyChart">
@@ -549,7 +549,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">OHLC Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/ohlcchart.png" alt="OHLC Chart - AnyChart">
@@ -559,7 +559,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Bubble Map</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bubblemap.png" alt="Bubble Map - AnyChart">
@@ -571,7 +571,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Choropleth Map</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/choroplethmap.png" alt="Choropleth Map - AnyChart">
@@ -581,7 +581,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Point Map</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pointmap.png" alt="Point Map - AnyChart">
@@ -591,7 +591,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Connector Map</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/connectormap.png" alt="Connector Map - AnyChart">
@@ -603,7 +603,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Sunburst Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/sunburstchart.png" alt="Sunburst Chart - AnyChart">
@@ -613,7 +613,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Thermometer</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/thermometer.png" alt="Thermometer - AnyChart">
@@ -623,7 +623,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Linear Color Scale</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linearcolorscale.png" alt="Linear Color Scale - AnyChart">
@@ -635,7 +635,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
     <tr>
-        <td>
+        <td width="33%">
             <h3 align="center">Wind Speed Chart</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/windspeed.png" alt="Wind Speed - AnyChart">
@@ -645,7 +645,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
-        <td>
+        <td width="33%">
             <h3 align="center">Wind Direction</h3>
             <hr>          
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/winddirection.png" alt="Wind Direction - AnyChart">
