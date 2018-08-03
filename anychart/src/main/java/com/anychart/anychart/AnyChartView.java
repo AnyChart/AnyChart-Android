@@ -112,7 +112,7 @@ public final class AnyChartView extends FrameLayout {
 
             public void onPageFinished(WebView view, String url) {
                 if (chart != null) {
-                    if (!isRendered && !isRestored) {
+                    if (!isRestored) { //!isRendered &&
                         js.append(chart.generateJs());
                     }
                 } else {

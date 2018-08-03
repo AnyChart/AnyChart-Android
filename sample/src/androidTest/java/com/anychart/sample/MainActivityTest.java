@@ -47,12 +47,12 @@ public class MainActivityTest {
         recyclerView.perform(actionOnItemAtPosition(0, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
-        onView(withId(R.id.web_view)).check(matches(isEnabled()));
         onWebView().withElement(findElement(Locator.ID, "ac_path_1p")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1q")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1r")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1s")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1t")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
 
         pressBack();
     }
@@ -67,7 +67,6 @@ public class MainActivityTest {
         recyclerView.perform(actionOnItemAtPosition(1, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
-        onView(withId(R.id.web_view)).check(matches(isEnabled()));
         onWebView().withElement(findElement(Locator.ID, "ac_path_z")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_10")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_11")).perform(webClick());
@@ -77,6 +76,7 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_15")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_16")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_17")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
 
         pressBack();
     }
@@ -91,10 +91,10 @@ public class MainActivityTest {
         recyclerView.perform(actionOnItemAtPosition(2, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
-        onView(withId(R.id.web_view)).check(matches(isEnabled()));
         onWebView().withElement(findElement(Locator.ID, "ac_path_1t")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_20")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1m")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
 
         pressBack();
     }
@@ -109,9 +109,9 @@ public class MainActivityTest {
         recyclerView.perform(actionOnItemAtPosition(3, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
-        onView(withId(R.id.web_view)).check(matches(isEnabled()));
         onWebView().withElement(findElement(Locator.ID, "ac_path_23")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_24")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
 
         pressBack();
     }
