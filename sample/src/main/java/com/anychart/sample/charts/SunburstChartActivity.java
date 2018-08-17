@@ -3,13 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Sunburst;
-import com.anychart.anychart.SunburstCalculationMode;
-import com.anychart.anychart.TextHAlign;
-import com.anychart.anychart.TreeFillingMethod;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Sunburst;
+import com.anychart.enums.SunburstCalculationMode;
+import com.anychart.enums.TreeFillingMethod;
+import com.anychart.graphics.vector.text.HAlign;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -84,19 +84,20 @@ public class SunburstChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("Ember", "ember", "china-frontend", 15));
         data.add(new CustomDataEntry("Meteor", "meteor", "china-frontend", 12));
 
-        sunburst.setData(data, TreeFillingMethod.AS_TABLE);
+        // TODO data
+        sunburst.data(data, TreeFillingMethod.AS_TABLE);
 
-        sunburst.setCalculationMode(SunburstCalculationMode.ORDINAL_FROM_LEAVES);
+        sunburst.calculationMode(SunburstCalculationMode.ORDINAL_FROM_LEAVES);
 
-        sunburst.getLabels().setHAlign(TextHAlign.CENTER);
+        sunburst.labels().hAlign(HAlign.CENTER);
 
-        sunburst.setPalette(new String[] { "#0288d1", "#d4e157", "#ff6e40", "#f8bbd0" });
+        sunburst.palette(new String[] { "#0288d1", "#d4e157", "#ff6e40", "#f8bbd0" });
 
-        sunburst.setFill("function () {" +
+        sunburst.fill("function () {" +
             "return this.parent ? anychart.color.darken(this.parentColor, 0.15) : this.mainColor" +
         "}");
 
-        sunburst.getTooltip().setFormat("Employee: {%leavesSum}");
+        sunburst.tooltip().format("Employee: {%leavesSum}");
 
         anyChartView.setChart(sunburst);
     }

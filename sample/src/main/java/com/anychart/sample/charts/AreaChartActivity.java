@@ -3,20 +3,20 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CartesianSeriesArea;
-import com.anychart.anychart.Crosshair;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.MarkerType;
-import com.anychart.anychart.ScaleStackMode;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.Stroke;
-import com.anychart.anychart.TooltipDisplayMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Area;
+import com.anychart.core.ui.Crosshair;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.ScaleStackMode;
+import com.anychart.enums.TooltipDisplayMode;
+import com.anychart.graphics.vector.Stroke;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -34,18 +34,19 @@ public class AreaChartActivity extends AppCompatActivity {
 
         Cartesian areaChart = AnyChart.area();
 
-        areaChart.setAnimation(true);
+        areaChart.animation(true);
 
-        Crosshair crosshair = areaChart.getCrosshair();
-        crosshair.setEnabled(true);
-        crosshair.setYStroke((Stroke) null, null, null, null, null)
-                .setXStroke("#fff", 1d, null, null, null)
-                .setZIndex(39d);
-        crosshair.getYLabel(0).setEnabled(true);
+        Crosshair crosshair = areaChart.crosshair();
+        crosshair.enabled(true);
+        // TODO yStroke xStroke in crosshair
+        crosshair.yStroke((Stroke) null, null, null, (String) null, (String) null)
+                .xStroke("#fff", 1d, null, (String) null, (String) null)
+                .zIndex(39d);
+        crosshair.yLabel(0).enabled(true);
 
-        areaChart.getYScale().setStackMode(ScaleStackMode.VALUE);
+        areaChart.yScale().stackMode(ScaleStackMode.VALUE);
 
-        areaChart.setTitle("Unaudited Apple Inc. Revenue by Operating Segments");
+        areaChart.title("Unaudited Apple Inc. Revenue by Operating Segments");
 
         List<DataEntry> seriesData = new ArrayList<>();
         seriesData.add(new CustomDataEntry("Q2 2014", 17.982, 10.941, 9.835, 4.047, 2.841));
@@ -57,80 +58,81 @@ public class AreaChartActivity extends AppCompatActivity {
         seriesData.add(new CustomDataEntry("Q4 2015", 21.773, 10.577, 12.518, 3.929, 2.704));
         seriesData.add(new CustomDataEntry("Q1 2016", 29.3, 17.9, 18.4, 4.8, 5.4));
 
-        Set set = new Set(seriesData);
+        Set set = Set.instantiate();
+        set.data(seriesData);
         Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping series3Data = set.mapAs("{ x: 'x', value: 'value3' }");
         Mapping series4Data = set.mapAs("{ x: 'x', value: 'value4' }");
         Mapping series5Data = set.mapAs("{ x: 'x', value: 'value5' }");
 
-        CartesianSeriesArea series1 = areaChart.area(series1Data);
-        series1.setName("Americas");
-        series1.setStroke("#fff", 3d, null, null, null);
-        series1.getHovered().setStroke("#fff", 3d, null, null, null);
-        series1.getHovered().getMarkers().setEnabled(true);
-        series1.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d)
-                .setStroke("#fff", 1.5d, null, null, null);
-        series1.getMarkers().setZIndex(100d);
+        Area series1 = areaChart.area(series1Data);
+        series1.name("Americas");
+        series1.stroke("3 #fff");
+        series1.hovered().stroke("3 #fff");
+        series1.hovered().markers().enabled(true);
+        series1.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d)
+                .stroke("1.5 #fff");
+        series1.markers().zIndex(100d);
 
-        CartesianSeriesArea series2 = areaChart.area(series2Data);
-        series2.setName("Europe");
-        series2.setStroke("#fff", 3d, null, null, null);
-        series2.getHovered().setStroke("#fff", 3d, null, null, null);
-        series2.getHovered().getMarkers().setEnabled(true);
-        series2.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d)
-                .setStroke("#fff", 1.5d, null, null, null);
-        series2.getMarkers().setZIndex(100d);
+        Area series2 = areaChart.area(series2Data);
+        series2.name("Europe");
+        series2.stroke("3 #fff");
+        series2.hovered().stroke("3 #fff");
+        series2.hovered().markers().enabled(true);
+        series2.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d)
+                .stroke("1.5 #fff");
+        series2.markers().zIndex(100d);
 
-        CartesianSeriesArea series3 = areaChart.area(series3Data);
-        series3.setName("Greater China");
-        series3.setStroke("#fff", 3d, null, null, null);
-        series3.getHovered().setStroke("#fff", 3d, null, null, null);
-        series3.getHovered().getMarkers().setEnabled(true);
-        series3.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d)
-                .setStroke("#fff", 1.5d, null, null, null);
-        series3.getMarkers().setZIndex(100d);
+        Area series3 = areaChart.area(series3Data);
+        series3.name("Greater China");
+        series3.stroke("3 #fff");
+        series3.hovered().stroke("3 #fff");
+        series3.hovered().markers().enabled(true);
+        series3.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d)
+                .stroke("1.5 #fff");
+        series3.markers().zIndex(100d);
 
-        CartesianSeriesArea series4 = areaChart.area(series4Data);
-        series4.setName("Japan");
-        series4.setStroke("#fff", 3d, null, null, null);
-        series4.getHovered().setStroke("#fff", 3d, null, null, null);
-        series4.getHovered().getMarkers().setEnabled(true);
-        series4.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d)
-                .setStroke("#fff", 1.5d, null, null, null);
-        series4.getMarkers().setZIndex(100d);
+        Area series4 = areaChart.area(series4Data);
+        series4.name("Japan");
+        series4.stroke("3 #fff");
+        series4.hovered().stroke("3 #fff");
+        series4.hovered().markers().enabled(true);
+        series4.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d)
+                .stroke("1.5 #fff");
+        series4.markers().zIndex(100d);
 
-        CartesianSeriesArea series5 = areaChart.area(series5Data);
-        series5.setName("Rest of Asia Pacific");
-        series5.setStroke("#fff", 3d, null, null, null);
-        series5.getHovered().setStroke("#fff", 3d, null, null, null);
-        series5.getHovered().getMarkers().setEnabled(true);
-        series5.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d)
-                .setStroke("#fff", 1.5d, null, null, null);
-        series5.getMarkers().setZIndex(100d);
+        Area series5 = areaChart.area(series5Data);
+        series5.name("Rest of Asia Pacific");
+        series5.stroke("3 #fff");
+        series5.hovered().stroke("3 #fff");
+        series5.hovered().markers().enabled(true);
+        series5.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d)
+                .stroke("1.5 #fff");
+        series5.markers().zIndex(100d);
 
-        areaChart.getLegend().setEnabled(true);
-        areaChart.getLegend().setFontSize(13d);
-        areaChart.getLegend().setPadding(0d, 0d, 20d, 0d);
+        areaChart.legend().enabled(true);
+        areaChart.legend().fontSize(13d);
+        areaChart.legend().padding(0d, 0d, 20d, 0d);
 
-        areaChart.getXAxis().setTitle(false);
-        areaChart.getYAxis().setTitle("Revenue (in Billons USD)");
+        areaChart.xAxis(0).title(false);
+        areaChart.yAxis(0).title("Revenue (in Billons USD)");
 
-        areaChart.getInteractivity().setHoverMode(HoverMode.BY_X);
-        areaChart.getTooltip()
-                .setValuePrefix("$")
-                .setValuePostfix(" bln.")
-                .setDisplayMode(TooltipDisplayMode.UNION);
+        areaChart.interactivity().hoverMode(HoverMode.BY_X);
+        areaChart.tooltip()
+                .valuePrefix("$")
+                .valuePostfix(" bln.")
+                .displayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(areaChart);
     }

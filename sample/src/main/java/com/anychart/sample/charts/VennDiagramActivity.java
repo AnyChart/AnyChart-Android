@@ -3,11 +3,11 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.NameValueDataEntry;
-import com.anychart.anychart.Venn;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.NameValueDataEntry;
+import com.anychart.charts.Venn;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -38,18 +38,18 @@ public class VennDiagramActivity extends AppCompatActivity {
         data.add(new NameValueDataEntry("D&B", "Traditional\\nSoftware", 5));
         data.add(new NameValueDataEntry("B&C&D", "Unicorn", 5));
 
-        venn.setData(data);
+        venn.data(data);
 
-        venn.setStroke("#FFFFFF", 2d, null, null, null);
+        venn.stroke("2 #FFFFFF");
 
-        venn.getLabels().setFormat("{%Name}");
+        venn.labels().format("{%Name}");
 
-        venn.getIntersections().getHovered().setFill("black", 0.25d);
+        venn.intersections().hovered().fill("black", 0.25d);
 
-        venn.getIntersections().getLabels().setFontWeight("bold");
-        venn.getIntersections().getLabels().setFormat("{%Name}");
+        venn.intersections().labels().fontWeight("bold");
+        venn.intersections().labels().format("{%Name}");
 
-        venn.getTooltip().setTitleFormat("{%Name}");
+        venn.tooltip().titleFormat("{%Name}");
 
         anyChartView.setChart(venn);
     }

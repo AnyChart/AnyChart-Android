@@ -3,22 +3,22 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CoreAxesLinear;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.LabelsOverlapMode;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.ScaleStackMode;
-import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.TooltipDisplayMode;
-import com.anychart.anychart.TooltipPositionMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.axes.Linear;
+import com.anychart.core.cartesian.series.Bar;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.LabelsOverlapMode;
+import com.anychart.enums.Orientation;
+import com.anychart.enums.ScaleStackMode;
+import com.anychart.enums.TooltipDisplayMode;
+import com.anychart.enums.TooltipPositionMode;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -36,40 +36,40 @@ public class BarChartActivity extends AppCompatActivity {
 
         Cartesian barChart = AnyChart.bar();
 
-        barChart.setAnimation(true);
+        barChart.animation(true);
 
-        barChart.setPadding(10d, 20d, 5d, 20d);
+        barChart.padding(10d, 20d, 5d, 20d);
 
-        barChart.getYScale().setStackMode(ScaleStackMode.VALUE);
+        barChart.yScale().stackMode(ScaleStackMode.VALUE);
 
-        barChart.getYAxis().getLabels().setFormat(
+        barChart.yAxis(0).labels().format(
                 "function() {\n" +
                 "    return Math.abs(this.value).toLocaleString();\n" +
                 "  }");
 
-        barChart.getYAxis(0d).setTitle("Revenue in Dollars");
+        barChart.yAxis(0d).title("Revenue in Dollars");
 
-        barChart.getXAxis(0d).setOverlapMode(LabelsOverlapMode.ALLOW_OVERLAP);
+        barChart.xAxis(0d).overlapMode(LabelsOverlapMode.ALLOW_OVERLAP);
 
-        CoreAxesLinear xAxis1 = barChart.getXAxis(1d);
-        xAxis1.setEnabled(true);
-        xAxis1.setOrientation(Orientation.RIGHT);
-        xAxis1.setOverlapMode(LabelsOverlapMode.ALLOW_OVERLAP);
+        Linear xAxis1 = barChart.xAxis(1d);
+        xAxis1.enabled(true);
+        xAxis1.orientation(Orientation.RIGHT);
+        xAxis1.overlapMode(LabelsOverlapMode.ALLOW_OVERLAP);
 
-        barChart.setTitle("Cosmetic Sales by Gender");
+        barChart.title("Cosmetic Sales by Gender");
 
-        barChart.getInteractivity().setHoverMode(HoverMode.BY_X);
+        barChart.interactivity().hoverMode(HoverMode.BY_X);
 
-        barChart.getTooltip()
-                .setTitle(false)
-                .setSeparator(false)
-                .setDisplayMode(TooltipDisplayMode.SEPARATED)
-                .setPositionMode(TooltipPositionMode.POINT)
-                .setUseHtml(true)
-                .setFontSize(12d)
-                .setOffsetX(5d)
-                .setOffsetY(0d)
-                .setFormat(
+        barChart.tooltip()
+                .title(false)
+                .separator(false)
+                .displayMode(TooltipDisplayMode.SEPARATED)
+                .positionMode(TooltipPositionMode.POINT)
+                .useHtml(true)
+                .fontSize(12d)
+                .offsetX(5d)
+                .offsetY(0d)
+                .format(
                         "function() {\n" +
                         "      return '<span style=\"color: #D9D9D9\">$</span>' + Math.abs(this.value).toLocaleString();\n" +
                         "    }");
@@ -97,27 +97,28 @@ public class BarChartActivity extends AppCompatActivity {
         seriesData.add(new CustomDataEntry("Day cream", 5304, -4008));
         seriesData.add(new CustomDataEntry("Vanila cream", 9261, -712));
 
-        Set set = new Set(seriesData);
+        Set set = Set.instantiate();
+        set.data(seriesData);
         Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
 
-        SeriesBar series1 = barChart.bar(series1Data);
-        series1.setName("Females")
-                .setColor("HotPink");
-        series1.getTooltip()
-                .setPosition("right")
-                .setAnchor(EnumsAnchor.LEFT_CENTER);
+        Bar series1 = barChart.bar(series1Data);
+        series1.name("Females")
+                .color("HotPink");
+        series1.tooltip()
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER);
 
-        SeriesBar series2 = barChart.bar(series2Data);
-        series2.setName("Males");
-        series2.getTooltip()
-                .setPosition("left")
-                .setAnchor(EnumsAnchor.RIGHT_CENTER);
+        Bar series2 = barChart.bar(series2Data);
+        series2.name("Males");
+        series2.tooltip()
+                .position("left")
+                .anchor(Anchor.RIGHT_CENTER);
 
-        barChart.getLegend().setEnabled(true);
-        barChart.getLegend().setInverted(true);
-        barChart.getLegend().setFontSize(13d);
-        barChart.getLegend().setPadding(0d, 0d, 20d, 0d);
+        barChart.legend().enabled(true);
+        barChart.legend().inverted(true);
+        barChart.legend().fontSize(13d);
+        barChart.legend().padding(0d, 0d, 20d, 0d);
 
         anyChartView.setChart(barChart);
     }

@@ -3,16 +3,16 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsMap;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.MapSeriesMarker;
-import com.anychart.anychart.MarkerType;
-import com.anychart.anychart.SelectionMode;
-import com.anychart.anychart.SeriesConnector;
-import com.anychart.anychart.SolidFill;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Map;
+import com.anychart.core.map.series.Connector;
+import com.anychart.core.map.series.Marker;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.SelectionMode;
+import com.anychart.graphics.vector.SolidFill;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -28,109 +28,109 @@ public class ConnectorMapActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsMap map = AnyChart.connector();
+        Map map = AnyChart.connector();
 
-        map.getUnboundRegions()
-                .setEnabled(true)
-                .setFill(new SolidFill("#E1E1E1", 1))
-                .setStroke("#D2D2D2", 1, null, null, null);
+        map.unboundRegions()
+                .enabled(true)
+                .fill(new SolidFill("#E1E1E1", 1))
+                .stroke("1 #D2D2D2");
 
-        map.setGeoData("anychart.maps.united_kingdom");
-        map.getInteractivity().setSelectionMode(SelectionMode.NONE);
+        map.geoData("anychart.maps.united_kingdom");
+        map.interactivity().selectionMode(SelectionMode.NONE);
 
-        map.getTitle().setEnabled(true);
-        map.getTitle().setUseHtml(true);
-        map.getTitle().setText("Journey Route: the United Kingdom Roundtrip<br/>" +
+        map.title().enabled(true);
+        map.title().useHtml(true);
+        map.title().text("Journey Route: the United Kingdom Roundtrip<br/>" +
                 "          <span style=\"color:#212121; font-size: 13px;\">Example shows sample of usage a multistage connector.<br/>" +
                 "          All data are fictitious.</span>");
 
-        SeriesConnector connectorSeries = map.connector(getCarData());
-        connectorSeries.setStartSize(0)
-                .getEndSize(0)
-                .setStroke("#64b5f6", 2, null, null, null)
-                .setName("Rent a Car");
-        connectorSeries.setCurvature(0);
-        connectorSeries.setLegendItem("{" +
+        Connector connectorSeries = map.connector(getCarData());
+        connectorSeries.startSize(0)
+                .endSize(0)
+                .stroke("2 #64b5f6")
+                .name("Rent a Car");
+        connectorSeries.curvature(0);
+        connectorSeries.legendItem("{" +
                 "        iconType: 'circle'," +
                 "        fill: '#64b5f6'," +
                 "        iconStroke: '2 #E1E1E1'" +
                 "      }");
-        connectorSeries.getHovered().setStroke("#212121", 1.5, null, null, null);
+        connectorSeries.hovered().stroke("1.5 #212121");
 
-        connectorSeries.getTooltip()
-                .setPadding(8, 13, 10, 13)
-                .setFontSize(12)
-                .setFontColor("#fff")
-                .setFormat("{%full}")
-                .setTitleFormat("{%number}. <span style=\"font-size: 13px; color: #E1E1E1\">{%short}</span>")
-                .setUseHtml(true);
+        connectorSeries.tooltip()
+                .padding(8, 13, 10, 13)
+                .fontSize(12)
+                .fontColor("#fff")
+                .format("{%full}")
+                .titleFormat("{%number}. <span style=\"font-size: 13px; color: #E1E1E1\">{%short}</span>")
+                .useHtml(true);
 
         connectorSeries = map.connector(getShipData());
-        connectorSeries.setStartSize(0)
-                .getEndSize(0)
-                .setStroke("#1976d2", 2, null, null, null)
-                .setName("Ferry");
-        connectorSeries.setCurvature(0);
-        connectorSeries.setLegendItem("{\n" +
+        connectorSeries.startSize(0)
+                .endSize(0)
+                .stroke("2 #1976d2")
+                .name("Ferry");
+        connectorSeries.curvature(0);
+        connectorSeries.legendItem("{\n" +
                 "        iconType: 'circle',\n" +
                 "        fill: '#1976d2',\n" +
                 "        iconStroke: '2 #E1E1E1'\n" +
                 "      }");
-        connectorSeries.getHovered().setStroke("#212121", 1.5, null, null, null);
+        connectorSeries.hovered().stroke("1.5 #212121");
 
-        connectorSeries.getTooltip()
-                .setPadding(8, 13, 10, 13)
-                .setFontSize(12)
-                .setFontColor("#fff")
-                .setFormat("{%full}")
-                .setTitleFormat("{%number}. <span style=\"font-size: 13px; color: #E1E1E1\">{%short}</span>")
-                .setUseHtml(true);
+        connectorSeries.tooltip()
+                .padding(8, 13, 10, 13)
+                .fontSize(12)
+                .fontColor("#fff")
+                .format("{%full}")
+                .titleFormat("{%number}. <span style=\"font-size: 13px; color: #E1E1E1\">{%short}</span>")
+                .useHtml(true);
 
         connectorSeries = map.connector(getAirData());
-        connectorSeries.setStartSize(0)
-                .getEndSize(0)
-                .setStroke("#ef6c00", 2, null, null, null)
-                .setName("Airplane");
-        connectorSeries.setCurvature(0);
-        connectorSeries.setLegendItem("{\n" +
+        connectorSeries.startSize(0)
+                .endSize(0)
+                .stroke("2 #ef6c00")
+                .name("Airplane");
+        connectorSeries.curvature(0);
+        connectorSeries.legendItem("{\n" +
                 "        iconType: 'circle',\n" +
                 "        fill: '#ef6c00',\n" +
                 "        iconStroke: '2 #E1E1E1'\n" +
                 "      }");
-        connectorSeries.getHovered().setStroke("#212121", 1.5, null, null, null);
+        connectorSeries.hovered().stroke("1.5 #212121");
 
-        connectorSeries.getTooltip()
-                .setPadding(8, 13, 10, 13)
-                .setFontSize(12)
-                .setFontColor("#fff")
-                .setFormat("{%full}")
-                .setTitleFormat("{%number}. <span style=\"font-size: 13px; color: #E1E1E1\">{%short}</span>")
-                .setUseHtml(true);
+        connectorSeries.tooltip()
+                .padding(8, 13, 10, 13)
+                .fontSize(12)
+                .fontColor("#fff")
+                .format("{%full}")
+                .titleFormat("{%number}. <span style=\"font-size: 13px; color: #E1E1E1\">{%short}</span>")
+                .useHtml(true);
 
-        map.setLegend(true);
+        map.legend(true);
 
-        MapSeriesMarker citiesSeries = map.marker(getCitiesData());
-        citiesSeries.setType(MarkerType.CIRCLE)
-                .setSize(4)
-                .setFill(new SolidFill("#64b5f6", 1))
-                .setStroke("#E1E1E1", 2, null, null, null)
-                .setTooltip(false);
+        Marker citiesSeries = map.marker(getCitiesData());
+        citiesSeries.type(MarkerType.CIRCLE)
+                .size(4)
+                .fill(new SolidFill("#64b5f6", 1))
+                .stroke("2 #E1E1E1")
+                .tooltip(false);
 //
-        citiesSeries.getHovered()
-                .setSize(4)
-                .setFill(new SolidFill("#64b5f6", 1))
-                .setStroke("#E1E1E1", 2, null, null, null);
+        citiesSeries.hovered()
+                .size(4)
+                .fill(new SolidFill("#64b5f6", 1))
+                .stroke("2 #E1E1E1");
 
-        citiesSeries.getLabels().setEnabled(true);
-        citiesSeries.getLabels().setPosition("center-bottom");
-        citiesSeries.getLabels().setFontColor("#263238");
-        citiesSeries.getLabels()
-                .setOffsetX(5)
-                .setOffsetY(0)
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setFormat("{%name}");
+        citiesSeries.labels().enabled(true);
+        citiesSeries.labels().position("center-bottom");
+        citiesSeries.labels().fontColor("#263238");
+        citiesSeries.labels()
+                .offsetX(5)
+                .offsetY(0)
+                .anchor(Anchor.LEFT_CENTER)
+                .format("{%name}");
 
-        citiesSeries.getLegendItem().setEnabled(false);
+        citiesSeries.legendItem().enabled(false);
 
         anyChartView.addScript("file:///android_asset/united_kingdom.js");
         anyChartView.addScript("file:///android_asset/proj4.js");

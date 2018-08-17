@@ -3,16 +3,16 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsRadar;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAlign;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.MarkerType;
-import com.anychart.anychart.RadarSeriesLine;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Radar;
+import com.anychart.core.radar.series.Line;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Align;
+import com.anychart.enums.MarkerType;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -28,19 +28,19 @@ public class RadarChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsRadar radar = AnyChart.radar();
+        Radar radar = AnyChart.radar();
 
-        radar.setTitle("WoW base stats comparison radar chart: Shaman vs Warrior vs Priest");
+        radar.title("WoW base stats comparison radar chart: Shaman vs Warrior vs Priest");
 
-        radar.getYScale().setMinimum(0d);
-        radar.getYScale().setMinimumGap(0d);
-        radar.getYScale().getTicks().setInterval(50d);
+        radar.yScale().minimum(0d);
+        radar.yScale().minimumGap(0d);
+        radar.yScale().ticks().interval(50d);
 
-        radar.getXAxis().getLabels().setPadding(5d, 5d, 5d, 5d);
+        radar.xAxis().labels().padding(5d, 5d, 5d, 5d);
 
-        radar.getLegend()
-                .setAlign(EnumsAlign.CENTER)
-                .setEnabled(true);
+        radar.legend()
+                .align(Align.CENTER)
+                .enabled(true);
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Strength", 136, 199, 43));
@@ -49,33 +49,34 @@ public class RadarChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("Intellect", 135, 33, 202));
         data.add(new CustomDataEntry("Spirit", 158, 64, 196));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping shamanData = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping warriorData = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping priestData = set.mapAs("{ x: 'x', value: 'value3' }");
 
-        RadarSeriesLine shamanLine = radar.line(shamanData);
-        shamanLine.setName("Shaman");
-        shamanLine.getMarkers().setEnabled(true);
-        shamanLine.getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(3d);
+        Line shamanLine = radar.line(shamanData);
+        shamanLine.name("Shaman");
+        shamanLine.markers()
+                .enabled(true)
+                .type(MarkerType.CIRCLE)
+                .size(3d);
 
-        RadarSeriesLine warriorLine = radar.line(warriorData);
-        warriorLine.setName("Warrior");
-        warriorLine.getMarkers().setEnabled(true);
-        warriorLine.getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(3d);
+        Line warriorLine = radar.line(warriorData);
+        warriorLine.name("Warrior");
+        warriorLine.markers()
+                .enabled(true)
+                .type(MarkerType.CIRCLE)
+                .size(3d);
 
-        RadarSeriesLine priestLine = radar.line(priestData);
-        priestLine.setName("Priest");
-        priestLine.getMarkers().setEnabled(true);
-        priestLine.getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(3d);
+        Line priestLine = radar.line(priestData);
+        priestLine.name("Priest");
+        priestLine.markers()
+                .enabled(true)
+                .type(MarkerType.CIRCLE)
+                .size(3d);
 
-        radar.getTooltip().setFormat("Value: {%Value}");
+        radar.tooltip().format("Value: {%Value}");
 
         anyChartView.setChart(radar);
     }

@@ -3,20 +3,20 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.GradientKey;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.LinearGradientStroke;
-import com.anychart.anychart.MarkerType;
-import com.anychart.anychart.Scatter;
-import com.anychart.anychart.ScatterSeriesLine;
-import com.anychart.anychart.ScatterSeriesMarker;
-import com.anychart.anychart.SolidFill;
-import com.anychart.anychart.TextHAlign;
-import com.anychart.anychart.TooltipDisplayMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Scatter;
+import com.anychart.core.scatter.series.Line;
+import com.anychart.core.scatter.series.Marker;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.TooltipDisplayMode;
+import com.anychart.graphics.vector.GradientKey;
+import com.anychart.graphics.vector.LinearGradientStroke;
+import com.anychart.graphics.vector.SolidFill;
+import com.anychart.graphics.vector.text.HAlign;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -34,49 +34,49 @@ public class ScatterChartActivity extends AppCompatActivity {
 
         Scatter scatter = AnyChart.scatter();
 
-        scatter.setAnimation(true);
+        scatter.animation(true);
 
-        scatter.setTitle("System interruptions");
+        scatter.title("System interruptions");
 
-        scatter.getXScale()
-                .setMinimum(1.5d)
-                .setMaximum(5.5d);
-//        scatter.getXScale().setTick
-        scatter.getYScale()
-                .setMinimum(40d)
-                .setMaximum(100d);
+        scatter.xScale()
+                .minimum(1.5d)
+                .maximum(5.5d);
+//        scatter.xScale().tick
+        scatter.yScale()
+                .minimum(40d)
+                .maximum(100d);
 
-        scatter.getYAxis().setTitle("Waiting time between interruptions (Min)");
-        scatter.getXAxis()
-                .setTitle("Interruption duration (Min)")
-                .setDrawFirstLabel(false)
-                .setDrawLastLabel(false);
+        scatter.yAxis(0).title("Waiting time between interruptions (Min)");
+        scatter.xAxis(0)
+                .title("Interruption duration (Min)")
+                .drawFirstLabel(false)
+                .drawLastLabel(false);
 
-        scatter.getInteractivity()
-                .setHoverMode(HoverMode.BY_SPOT)
-                .setSpotRadius(30d);
+        scatter.interactivity()
+                .hoverMode(HoverMode.BY_SPOT)
+                .spotRadius(30d);
 
-        scatter.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
+        scatter.tooltip().displayMode(TooltipDisplayMode.UNION);
 
-        ScatterSeriesMarker marker = scatter.marker(getMarkerData());
-        marker.setType(MarkerType.TRIANGLE_UP)
-                .setSize(4d);
-        marker.getHovered()
-                .setSize(7d)
-                .setFill(new SolidFill("gold", 1d))
-                .setStroke("anychart.color.darken(gold)", null, null, null, null);
-        marker.getTooltip()
-                .setHAlign(TextHAlign.START)
-                .setFormat("Waiting time: ${%Value} min.\\nDuration: ${%X} min.");
+        Marker marker = scatter.marker(getMarkerData());
+        marker.type(MarkerType.TRIANGLE_UP)
+                .size(4d);
+        marker.hovered()
+                .size(7d)
+                .fill(new SolidFill("gold", 1d))
+                .stroke("anychart.color.darken(gold)");
+        marker.tooltip()
+                .hAlign(HAlign.START)
+                .format("Waiting time: ${%Value} min.\\nDuration: ${%X} min.");
 
-        ScatterSeriesLine scatterSeriesLine = scatter.line(getLineData());
+        Line scatterSeriesLine = scatter.line(getLineData());
 
         GradientKey gradientKey[] = new GradientKey[] {
                 new GradientKey("#abcabc", 0d, 1d),
                 new GradientKey("#cbacba", 40d, 1d)
         };
-        LinearGradientStroke linearGradientStroke = new LinearGradientStroke(gradientKey, true, 0d, null, null, null, 1d, 2d);
-        scatterSeriesLine.setStroke(linearGradientStroke, 3d, null, null, null);
+        LinearGradientStroke linearGradientStroke = new LinearGradientStroke(0d, null, gradientKey, null, null, true, 1d, 2d);
+        scatterSeriesLine.stroke(linearGradientStroke, 3d, null, (String) null, (String) null);
 
         anyChartView.setChart(scatter);
     }

@@ -3,19 +3,18 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CartesianSeriesLine;
-import com.anychart.anychart.CoreAxesLinear;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.ScaleStackMode;
-import com.anychart.anychart.ScalesLinear;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Line;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Orientation;
+import com.anychart.enums.ScaleStackMode;
 import com.anychart.sample.R;
+import com.anychart.scales.Linear;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,23 +31,23 @@ public class CombinedChartActivity extends AppCompatActivity {
 
         Cartesian cartesian = AnyChart.cartesian();
 
-        cartesian.setAnimation(true);
+        cartesian.animation(true);
 
-        cartesian.setTitle("Combination of Stacked Column and Line Chart (Dual Y-Axis)");
+        cartesian.title("Combination of Stacked Column and Line Chart (Dual Y-Axis)");
 
-        cartesian.getYScale().setStackMode(ScaleStackMode.VALUE);
+        cartesian.yScale().stackMode(ScaleStackMode.VALUE);
 
-        ScalesLinear scalesLinear = new ScalesLinear();
-        scalesLinear.setMinimum(0d);
-        scalesLinear.setMaximum(100d);
-        scalesLinear.setTicks("{ interval: 20 }");
+        Linear scalesLinear = Linear.instantiate();
+        scalesLinear.minimum(0d);
+        scalesLinear.maximum(100d);
+        scalesLinear.ticks("{ interval: 20 }");
 
-        CoreAxesLinear extraYAxis = cartesian.getYAxis(1d);
-        extraYAxis.setOrientation(Orientation.RIGHT)
-                .setScale(scalesLinear);
-        extraYAxis.getLabels()
-                .setPadding(0d, 0d, 0d, 5d)
-                .setFormat("{%Value}%");
+        com.anychart.core.axes.Linear extraYAxis = cartesian.yAxis(1d);
+        extraYAxis.orientation(Orientation.RIGHT)
+                .scale(scalesLinear);
+        extraYAxis.labels()
+                .padding(0d, 0d, 0d, 5d)
+                .format("{%Value}%");
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("P1", 96.5, 2040, 1200, 1600));
@@ -64,17 +63,18 @@ public class CombinedChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("P11", 51.3, 813, 1113, 1913));
         data.add(new CustomDataEntry("P12", 59.1, 691, 1091, 1691));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping lineData = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping column1Data = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping column2Data = set.mapAs("{ x: 'x', value: 'value3' }");
         Mapping column3Data = set.mapAs("{ x: 'x', value: 'value4' }");
 
         cartesian.column(column1Data);
-        cartesian.setCrosshair(true);
+        cartesian.crosshair(true);
 
-        CartesianSeriesLine line = cartesian.line(lineData);
-        line.setYScale(scalesLinear);
+        Line line = cartesian.line(lineData);
+        line.yScale(scalesLinear);
 
         cartesian.column(column2Data);
 

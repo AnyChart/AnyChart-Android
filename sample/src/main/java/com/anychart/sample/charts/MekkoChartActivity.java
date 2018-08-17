@@ -3,14 +3,14 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsMekko;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Mekko;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Orientation;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class MekkoChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsMekko mekkoChart = AnyChart.mekko();
+        Mekko mekkoChart = AnyChart.mekko();
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Acer", 2254, 1274, 635, 253));
@@ -34,29 +34,30 @@ public class MekkoChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("HP", 417, 631, 405, 251));
         data.add(new CustomDataEntry("Lenovo", 210, 307, 450, 257));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping series3Data = set.mapAs("{ x: 'x', value: 'value3' }");
         Mapping series4Data = set.mapAs("{ x: 'x', value: 'value4' }");
 
         mekkoChart.mekko(series1Data)
-                .setName("Phone");
+                .name("Phone");
 
         mekkoChart.mekko(series2Data)
-                .setName("Tablet");
+                .name("Tablet");
 
         mekkoChart.mekko(series3Data)
-                .setName("Desktop");
+                .name("Desktop");
 
         mekkoChart.mekko(series4Data)
-                .setName("Laptop");
+                .name("Laptop");
 
-        mekkoChart.getXAxis().setOrientation(Orientation.TOP);
+        mekkoChart.xAxis(0).orientation(Orientation.TOP);
 
-        mekkoChart.getLabels().setFormat("${%Value}k");
+        mekkoChart.labels().format("${%Value}k");
 
-        mekkoChart.getTooltip().setFormat("{%seriesName}: ${%Value}k");
+        mekkoChart.tooltip().format("{%seriesName}: ${%Value}k");
 
         anyChartView.setChart(mekkoChart);
     }

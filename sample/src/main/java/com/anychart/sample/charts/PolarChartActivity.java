@@ -3,19 +3,19 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsPolar;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.PolarSeriesType;
-import com.anychart.anychart.ScaleStackMode;
-import com.anychart.anychart.ScaleTypes;
-import com.anychart.anychart.ScalesLinear;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.TooltipDisplayMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Polar;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.PolarSeriesType;
+import com.anychart.enums.ScaleStackMode;
+import com.anychart.enums.ScaleTypes;
+import com.anychart.enums.TooltipDisplayMode;
 import com.anychart.sample.R;
+import com.anychart.scales.Linear;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class PolarChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsPolar polar = AnyChart.polar();
+        Polar polar = AnyChart.polar();
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Nail polish", 12814, 4376, 4229));
@@ -44,7 +44,8 @@ public class PolarChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("Mascara", 11261, 6134, 18712));
         data.add(new CustomDataEntry("Powder", 10261, 5134, 25712));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping series3Data = set.mapAs("{ x: 'x', value: 'value3' }");
@@ -55,20 +56,20 @@ public class PolarChartActivity extends AppCompatActivity {
 
         polar.column(series3Data);
 
-        polar.setTitle("Company Profit Dynamic in Regions by Year");
+        polar.title("Company Profit Dynamic in Regions by Year");
 
-        polar.setSortPointsByX(true)
-                .setDefaultSeriesType(PolarSeriesType.COLUMN)
-                .setYAxis(false)
-                .setXScale(ScaleTypes.ORDINAL);
+        polar.sortPointsByX(true)
+                .defaultSeriesType(PolarSeriesType.COLUMN)
+                .yAxis(false)
+                .xScale(ScaleTypes.ORDINAL);
 
-        polar.getTitle().getMargin().setBottom(20d);
+        polar.title().margin().bottom(20d);
 
-        ((ScalesLinear) polar.getYScale()).setStackMode(ScaleStackMode.VALUE);
+        ((Linear) polar.yScale(Linear.class)).stackMode(ScaleStackMode.VALUE);
 
-        polar.getTooltip()
-                .setValuePrefix("$")
-                .setDisplayMode(TooltipDisplayMode.UNION);
+        polar.tooltip()
+                .valuePrefix("$")
+                .displayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(polar);
     }

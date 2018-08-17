@@ -3,15 +3,15 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsStock;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.DataTable;
-import com.anychart.anychart.HighLowDataEntry;
-import com.anychart.anychart.Plot;
-import com.anychart.anychart.StockSeriesType;
-import com.anychart.anychart.TableMapping;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.HighLowDataEntry;
+import com.anychart.charts.Stock;
+import com.anychart.core.stock.Plot;
+import com.anychart.data.Table;
+import com.anychart.data.TableMapping;
+import com.anychart.enums.StockSeriesType;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -27,28 +27,28 @@ public class OHLCChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        DataTable table = new DataTable("x");
+        Table table = Table.instantiate("x");
         table.addData(getData());
 
         TableMapping mapping = table.mapAs("{open: 'open', high: 'high', low: 'low', close: 'close'}");
 
-        ChartsStock stock = AnyChart.stock();
+        Stock stock = AnyChart.stock();
 
-        Plot plot = stock.getPlot();
-        plot.setYGrid(true)
-                .setXGrid(true)
-                .setYMinorGrid(true)
-                .setXMinorGrid(true);
+        Plot plot = stock.plot(0);
+        plot.yGrid(true)
+                .xGrid(true)
+                .yMinorGrid(true)
+                .xMinorGrid(true);
 
         plot.ema(table.mapAs("{value: 'close'}"), 20d, StockSeriesType.LINE);
         
         plot.ohlc(mapping)
-                .setName("CSCO")
-                .setLegendItem("{\n" +
+                .name("CSCO")
+                .legendItem("{\n" +
                         "        iconType: 'rising-falling'\n" +
                         "      }");
 
-        stock.getScroller().ohlc(mapping, null, null);
+        stock.scroller().ohlc(mapping);
 
         anyChartView.setChart(stock);
     }

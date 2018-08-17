@@ -3,12 +3,12 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.CircularGauge;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.SingleValueDataSet;
-import com.anychart.anychart.TextHAlign;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.SingleValueDataSet;
+import com.anychart.charts.CircularGauge;
+import com.anychart.enums.Anchor;
+import com.anychart.graphics.vector.text.HAlign;
 import com.anychart.sample.R;
 
 public class WindSpeedActivity extends AppCompatActivity {
@@ -22,65 +22,65 @@ public class WindSpeedActivity extends AppCompatActivity {
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         CircularGauge circularGauge = AnyChart.circular();
-        circularGauge.setFill("#fff")
-                .setStroke(null)
-                .setPadding(0, 0, 0, 0)
-                .setMargin(30, 30, 30, 30);
-        circularGauge.setStartAngle(0)
-                .setSweepAngle(360);
+        circularGauge.fill("#fff")
+                .stroke(null)
+                .padding(0, 0, 0, 0)
+                .margin(30, 30, 30, 30);
+        circularGauge.startAngle(0)
+                .sweepAngle(360);
 
         double currentValue = 13.8D;
-        circularGauge.setData(new SingleValueDataSet(new Double[] { currentValue }));
+        circularGauge.data(new SingleValueDataSet(new Double[] { currentValue }));
 
-        circularGauge.getAxis()
-                .setStartAngle(-150)
-                .setRadius(80)
-                .setSweepAngle(300)
-                .setWidth(3)
-                .setTicks("{ type: 'line', length: 4, position: 'outside' }");
+        circularGauge.axis(0)
+                .startAngle(-150)
+                .radius(80)
+                .sweepAngle(300)
+                .width(3)
+                .ticks("{ type: 'line', length: 4, position: 'outside' }");
 
-        circularGauge.getAxis().getLabels().setPosition("outside");
+        circularGauge.axis(0).labels().position("outside");
 
-        circularGauge.getAxis().getScale()
-                .setMinimum(0)
-                .setMaximum(140);
+        circularGauge.axis(0).scale()
+                .minimum(0)
+                .maximum(140);
 
-        circularGauge.getAxis().getScale()
-                .setTicks("{interval: 10}")
-                .setMinorTicks("{interval: 10}");
+        circularGauge.axis(0).scale()
+                .ticks("{interval: 10}")
+                .minorTicks("{interval: 10}");
 
-        circularGauge.getNeedle().setStroke(null);
-        circularGauge.getNeedle()
-                .setStartRadius("6%")
-                .setEndRadius("38%")
-                .setStartWidth("2%")
-                .setEndWidth(0);
+        circularGauge.needle(0)
+                .stroke(null)
+                .startRadius("6%")
+                .endRadius("38%")
+                .startWidth("2%")
+                .endWidth(0);
 
-        circularGauge.getCap()
-                .setRadius("4%")
-                .setEnabled(true);
-        circularGauge.getCap().setStroke(null);
+        circularGauge.cap()
+                .radius("4%")
+                .enabled(true)
+                .stroke(null);
 
-        circularGauge.getLabel(0)
-                .setText("<span style=\"font-size: 25\">Wind Speed</span>")
-                .setUseHtml(true)
-                .setHAlign(TextHAlign.CENTER);
-        circularGauge.getLabel(0)
-                .setAnchor(EnumsAnchor.CENTER_TOP)
-                .setOffsetY(100)
-                .setPadding(15, 20, 0, 0);
+        circularGauge.label(0)
+                .text("<span style=\"font-size: 25\">Wind Speed</span>")
+                .useHtml(true)
+                .hAlign(HAlign.CENTER);
+        circularGauge.label(0)
+                .anchor(Anchor.CENTER_TOP)
+                .offsetY(100)
+                .padding(15, 20, 0, 0);
 
-        circularGauge.getLabel(1)
-                .setText("<span style=\"font-size: 20\">" + currentValue + "</span>")
-                .setUseHtml(true)
-                .setHAlign(TextHAlign.CENTER);
-        circularGauge.getLabel(1)
-                .setAnchor(EnumsAnchor.CENTER_TOP)
-                .setOffsetY(-100)
-                .setPadding(5, 10, 0, 0)
-                .setBackground("{fill: 'none', stroke: '#c1c1c1', corners: 3, cornerType: 'ROUND'}");
+        circularGauge.label(1)
+                .text("<span style=\"font-size: 20\">" + currentValue + "</span>")
+                .useHtml(true)
+                .hAlign(HAlign.CENTER);
+        circularGauge.label(1)
+                .anchor(Anchor.CENTER_TOP)
+                .offsetY(-100)
+                .padding(5, 10, 0, 0)
+                .background("{fill: 'none', stroke: '#c1c1c1', corners: 3, cornerType: 'ROUND'}");
 
-        circularGauge.setRange(0,
+        circularGauge.range(0,
                 "{\n" +
                 "    from: 0,\n" +
                 "    to: 25,\n" +
@@ -93,7 +93,7 @@ public class WindSpeedActivity extends AppCompatActivity {
                 "    zIndex: 1\n" +
                 "  }");
 
-        circularGauge.setRange(1,
+        circularGauge.range(1,
                 "{\n" +
                 "    from: 80,\n" +
                 "    to: 140,\n" +

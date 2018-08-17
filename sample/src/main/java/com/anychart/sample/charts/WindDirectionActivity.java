@@ -3,12 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.CircularGauge;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.SingleValueDataSet;
-import com.anychart.anychart.TextHAlign;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.SingleValueDataSet;
+import com.anychart.charts.CircularGauge;
+import com.anychart.enums.Anchor;
+import com.anychart.graphics.vector.SolidFill;
+import com.anychart.graphics.vector.text.HAlign;
 import com.anychart.sample.R;
 
 public class WindDirectionActivity extends AppCompatActivity {
@@ -22,63 +23,63 @@ public class WindDirectionActivity extends AppCompatActivity {
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
         CircularGauge circularGauge = AnyChart.circular();
-        circularGauge.setFill("#fff")
-                .setStroke("null")
-                .setPadding(0, 0, 0, 0)
-                .setMargin(30, 30, 30, 30);
-        circularGauge.setStartAngle(0)
-                .setSweepAngle(360);
+        circularGauge.fill("#fff")
+                .stroke("null")
+                .padding(0, 0, 0, 0)
+                .margin(30, 30, 30, 30)
+                .startAngle(0)
+                .sweepAngle(360);
 
-        circularGauge.setData(new SingleValueDataSet(new Double[] { 18.1 }));
+        circularGauge.data(new SingleValueDataSet(new Double[] { 18.1 }));
 
-        circularGauge.getAxis()
-                .setStartAngle(0)
-                .setRadius(80)
-                .setSweepAngle(360)
-                .setWidth(3)
-                .setDrawFirstLabel(false)
-                .setTicks("{ type: 'line', length: 4, position: 'outside' }");
+        circularGauge.axis(0)
+                .startAngle(0)
+                .radius(80)
+                .sweepAngle(360)
+                .width(3)
+                .drawFirstLabel(false)
+                .ticks("{ type: 'line', length: 4, position: 'outside' }");
 
-        circularGauge.getAxis().getLabels()
-                .setPosition("outside")
-                .setUseHtml(true);
-        circularGauge.getAxis().getLabels().setFormat(
+        circularGauge.axis(0).labels()
+                .position("outside")
+                .useHtml(true);
+        circularGauge.axis(0).labels().format(
                 "function () {\n" +
                 "    return this.value + '&deg;'\n" +
                 "  }");
 
-        circularGauge.getAxis().getScale()
-                .setMinimum(0)
-                .setMaximum(360);
-        circularGauge.getAxis().getScale()
-                .setTicks("{interval: 45}")
-                .setMinorTicks("{interval: 10}");
+        circularGauge.axis(0).scale()
+                .minimum(0)
+                .maximum(360);
+        circularGauge.axis(0).scale()
+                .ticks("{interval: 45}")
+                .minorTicks("{interval: 10}");
 
-        circularGauge.getMarker()
-                .setFill("#64b5f6")
-                .setStroke("null");
-        circularGauge.getMarker()
-                .setSize(7)
-                .setRadius(80);
+        circularGauge.marker(0)
+                .fill(new SolidFill("#64b5f6", 1))
+                .stroke("null");
+        circularGauge.marker(0)
+                .size(7)
+                .radius(80);
 
-        circularGauge.getLabel(0)
-                .setText("<span style=\"font-size: 25\">Wind Direction</span>")
-                .setUseHtml(true)
-                .setHAlign(TextHAlign.CENTER);
-        circularGauge.getLabel(0)
-                .setAnchor(EnumsAnchor.CENTER_TOP)
-                .setOffsetY(50)
-                .setPadding(15, 20, 0, 0);
+        circularGauge.label(0)
+                .text("<span style=\"font-size: 25\">Wind Direction</span>")
+                .useHtml(true)
+                .hAlign(HAlign.CENTER);
+        circularGauge.label(0)
+                .anchor(Anchor.CENTER_TOP)
+                .offsetY(50)
+                .padding(15, 20, 0, 0);
 
-        circularGauge.getLabel(1)
-                .setText("<span style=\"font-size: 20\">18.1</span>")
-                .setUseHtml(true)
-                .setHAlign(TextHAlign.CENTER);
-        circularGauge.getLabel(1)
-                .setAnchor(EnumsAnchor.CENTER_TOP)
-                .setOffsetY(-20)
-                .setPadding(5, 10, 0, 0)
-                .setBackground("{fill: 'none', stroke: '#c1c1c1', corners: 3, cornerType: 'ROUND'}");
+        circularGauge.label(1)
+                .text("<span style=\"font-size: 20\">18.1</span>")
+                .useHtml(true)
+                .hAlign(HAlign.CENTER);
+        circularGauge.label(1)
+                .anchor(Anchor.CENTER_TOP)
+                .offsetY(-20)
+                .padding(5, 10, 0, 0)
+                .background("{fill: 'none', stroke: '#c1c1c1', corners: 3, cornerType: 'ROUND'}");
 
         anyChartView.setChart(circularGauge);
     }

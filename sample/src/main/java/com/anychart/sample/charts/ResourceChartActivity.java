@@ -3,14 +3,14 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Availability;
-import com.anychart.anychart.AvailabilityPeriod;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Resource;
-import com.anychart.anychart.TimeTrackingMode;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Resource;
+import com.anychart.enums.AvailabilityPeriod;
+import com.anychart.enums.TimeTrackingMode;
 import com.anychart.sample.R;
+import com.anychart.scales.calendar.Availability;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,17 +27,17 @@ public class ResourceChartActivity extends AppCompatActivity {
 
         Resource resource = AnyChart.resource();
 
-        resource.setZoomLevel(1d)
-                .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
-                .setCurrentStartDate("2016-09-30");
+        resource.zoomLevel(1d)
+                .timeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
+                .currentStartDate("2016-09-30");
 
-        resource.setResourceListWidth(120);
+        resource.resourceListWidth(120);
 
-        resource.getCalendar().setAvailabilities(new Availability[] {
-                new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, (Double) null, (Double) null, 18d, true),
-                new Availability(AvailabilityPeriod.DAY, (Double) null, 14d, (Double) null, (Double) null, 15d, false),
-                new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 5d, (Double) null, 18d, false),
-                new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 6d, (Double) null, 18d, false)
+        resource.calendar().availabilities(new Availability[] {
+                new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, true, (Double) null, (Double) null, 18d),
+                new Availability(AvailabilityPeriod.DAY, (Double) null, 14d, false, (Double) null, (Double) null, 15d),
+                new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, false, 5d, (Double) null, 18d),
+                new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, false, 6d, (Double) null, 18d)
         });
 
         List<DataEntry> data = new ArrayList<>();
@@ -177,7 +177,7 @@ public class ResourceChartActivity extends AppCompatActivity {
                                 "#E06D06")
                 }));
 
-        resource.setData(data);
+        resource.data(data);
 
         anyChartView.setChart(resource);
     }

@@ -3,18 +3,18 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CartesianSeriesJumpLine;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.TooltipDisplayMode;
-import com.anychart.anychart.TooltipPositionMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Bar;
+import com.anychart.core.cartesian.series.JumpLine;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.TooltipDisplayMode;
+import com.anychart.enums.TooltipPositionMode;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class VerticalChartActivity extends AppCompatActivity {
 
         Cartesian vertical = AnyChart.vertical();
 
-        vertical.setAnimation(true)
-                .setTitle("Vertical Combination of Bar and Jump Line Chart");
+        vertical.animation(true)
+                .title("Vertical Combination of Bar and Jump Line Chart");
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Jan", 11.5, 9.3));
@@ -49,35 +49,36 @@ public class VerticalChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("Nov", 16.9, 14.5));
         data.add(new CustomDataEntry("Dec", 17.2, 15.5));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping barData = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping jumpLineData = set.mapAs("{ x: 'x', value: 'jumpLine' }");
 
-        SeriesBar bar = vertical.bar(barData);
-        bar.getLabels().setFormat("${%Value} mln");
+        Bar bar = vertical.bar(barData);
+        bar.labels().format("${%Value} mln");
 
-        CartesianSeriesJumpLine jumpLine = vertical.jumpLine(jumpLineData);
-        jumpLine.setStroke("#60727B", 2d, null, null, null);
-        jumpLine.getLabels().setEnabled(false);
+        JumpLine jumpLine = vertical.jumpLine(jumpLineData);
+        jumpLine.stroke("2 #60727B");
+        jumpLine.labels().enabled(false);
 
-        vertical.getYScale().setMinimum(0d);
+        vertical.yScale().minimum(0d);
 
-        vertical.setLabels(true);
+        vertical.labels(true);
 
-        vertical.getTooltip()
-                .setDisplayMode(TooltipDisplayMode.UNION)
-                .setPositionMode(TooltipPositionMode.POINT)
-                .setUnionFormat(
+        vertical.tooltip()
+                .displayMode(TooltipDisplayMode.UNION)
+                .positionMode(TooltipPositionMode.POINT)
+                .unionFormat(
                         "function() {\n" +
                         "      return 'Plain: $' + this.points[1].value + ' mln' +\n" +
                         "        '\\n' + 'Fact: $' + this.points[0].value + ' mln';\n" +
                         "    }");
 
-        vertical.getInteractivity().setHoverMode(HoverMode.BY_X);
+        vertical.interactivity().hoverMode(HoverMode.BY_X);
 
-        vertical.setXAxis(true);
-        vertical.setYAxis(true);
-        vertical.getYAxis().getLabels().setFormat("${%Value} mln");
+        vertical.xAxis(true);
+        vertical.yAxis(true);
+        vertical.yAxis(0).labels().format("${%Value} mln");
 
         anyChartView.setChart(vertical);
     }

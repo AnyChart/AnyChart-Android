@@ -3,13 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CartesianSeriesRangeColumn;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Set;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.RangeColumn;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class RangeChartActivity extends AppCompatActivity {
 
         Cartesian cartesian = AnyChart.cartesian();
 
-        cartesian.setTitle("Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)");
+        cartesian.title("Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)");
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Jan", 5.8, 7.9, 6.1, 8.9));
@@ -43,29 +43,30 @@ public class RangeChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("Nov", 9.8, 13, 12.9, 10.7));
         data.add(new CustomDataEntry("Dec", 9, 10.1, 8.2, 11.1));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping londonData = set.mapAs("{ x: 'x', high: 'londonHigh', low: 'londonLow' }");
         Mapping edinburgData = set.mapAs("{ x: 'x', high: 'edinburgHigh', low: 'edinburgLow' }");
 
-        CartesianSeriesRangeColumn columnLondon = cartesian.rangeColumn(londonData);
-        columnLondon.setName("London");
+        RangeColumn columnLondon = cartesian.rangeColumn(londonData);
+        columnLondon.name("London");
 
-        CartesianSeriesRangeColumn columnEdinburg = cartesian.rangeColumn(edinburgData);
-        columnEdinburg.setName("Edinburgh");
+        RangeColumn columnEdinburg = cartesian.rangeColumn(edinburgData);
+        columnEdinburg.name("Edinburgh");
 
-        cartesian.setXAxis(true);
-        cartesian.setYAxis(true);
+        cartesian.xAxis(true);
+        cartesian.yAxis(true);
 
-        cartesian.getYScale()
-                .setMinimum(4d)
-                .setMaximum(20d);
+        cartesian.yScale()
+                .minimum(4d)
+                .maximum(20d);
 
-        cartesian.setLegend(true);
+        cartesian.legend(true);
 
-        cartesian.setYGrid(true)
-                .setYMinorGrid(true);
+        cartesian.yGrid(true)
+                .yMinorGrid(true);
 
-        cartesian.getTooltip().setTitleFormat("{%SeriesName} ({%x})");
+        cartesian.tooltip().titleFormat("{%SeriesName} ({%x})");
 
         anyChartView.setChart(cartesian);
     }

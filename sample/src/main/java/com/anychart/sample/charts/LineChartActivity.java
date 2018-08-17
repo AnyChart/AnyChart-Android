@@ -3,18 +3,18 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CartesianSeriesLine;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.MarkerType;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.Stroke;
-import com.anychart.anychart.TooltipPositionMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Line;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.TooltipPositionMode;
+import com.anychart.graphics.vector.Stroke;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -32,21 +32,22 @@ public class LineChartActivity extends AppCompatActivity {
 
         Cartesian cartesian = AnyChart.line();
 
-        cartesian.setAnimation(true);
+        cartesian.animation(true);
 
-        cartesian.setPadding(10d, 20d, 5d, 20d);
+        cartesian.padding(10d, 20d, 5d, 20d);
 
-        cartesian.getCrosshair().setEnabled(true);
-        cartesian.getCrosshair()
-                .setYLabel(true)
-                .setYStroke((Stroke) null, null, null, null, null);
+        cartesian.crosshair().enabled(true);
+        cartesian.crosshair()
+                .yLabel(true)
+                // TODO ystroke
+                .yStroke((Stroke) null, null, null, (String) null, (String) null);
 
-        cartesian.getTooltip().setPositionMode(TooltipPositionMode.POINT);
+        cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
 
-        cartesian.setTitle("Trend of Sales of the Most Popular Products of ACME Corp.");
+        cartesian.title("Trend of Sales of the Most Popular Products of ACME Corp.");
 
-        cartesian.getYAxis().setTitle("Number of Bottles Sold (thousands)");
-        cartesian.getXAxis().getLabels().setPadding(5d, 5d, 5d, 5d);
+        cartesian.yAxis(0).title("Number of Bottles Sold (thousands)");
+        cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
 
         List<DataEntry> seriesData = new ArrayList<>();
         seriesData.add(new CustomDataEntry("1986", 3.6, 2.3, 2.8));
@@ -74,50 +75,51 @@ public class LineChartActivity extends AppCompatActivity {
         seriesData.add(new CustomDataEntry("2008", 15.7, 21.6, 10));
         seriesData.add(new CustomDataEntry("2009", 12.0, 22.5, 8.9));
 
-        Set set = new Set(seriesData);
+        Set set = Set.instantiate();
+        set.data(seriesData);
         Mapping series1Mapping = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Mapping = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping series3Mapping = set.mapAs("{ x: 'x', value: 'value3' }");
 
-        CartesianSeriesLine series1 = cartesian.line(series1Mapping);
-        series1.setName("Brandy");
-        series1.getHovered().getMarkers().setEnabled(true);
-        series1.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d);
-        series1.getTooltip()
-                .setPosition("right")
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetX(5d)
-                .setOffsetY(5d);
+        Line series1 = cartesian.line(series1Mapping);
+        series1.name("Brandy");
+        series1.hovered().markers().enabled(true);
+        series1.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d);
+        series1.tooltip()
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetX(5d)
+                .offsetY(5d);
 
-        CartesianSeriesLine series2 = cartesian.line(series2Mapping);
-        series2.setName("Whiskey");
-        series2.getHovered().getMarkers().setEnabled(true);
-        series2.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d);
-        series2.getTooltip()
-                .setPosition("right")
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetX(5d)
-                .setOffsetY(5d);
+        Line series2 = cartesian.line(series2Mapping);
+        series2.name("Whiskey");
+        series2.hovered().markers().enabled(true);
+        series2.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d);
+        series2.tooltip()
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetX(5d)
+                .offsetY(5d);
 
-        CartesianSeriesLine series3 = cartesian.line(series3Mapping);
-        series3.setName("Tequila");
-        series3.getHovered().getMarkers().setEnabled(true);
-        series3.getHovered().getMarkers()
-                .setType(MarkerType.CIRCLE)
-                .setSize(4d);
-        series3.getTooltip()
-                .setPosition("right")
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetX(5d)
-                .setOffsetY(5d);
+        Line series3 = cartesian.line(series3Mapping);
+        series3.name("Tequila");
+        series3.hovered().markers().enabled(true);
+        series3.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d);
+        series3.tooltip()
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetX(5d)
+                .offsetY(5d);
 
-        cartesian.getLegend().setEnabled(true);
-        cartesian.getLegend().setFontSize(13d);
-        cartesian.getLegend().setPadding(0d, 0d, 10d, 0d);
+        cartesian.legend().enabled(true);
+        cartesian.legend().fontSize(13d);
+        cartesian.legend().padding(0d, 0d, 10d, 0d);
 
         anyChartView.setChart(cartesian);
     }

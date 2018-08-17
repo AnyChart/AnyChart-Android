@@ -3,17 +3,17 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsMap;
-import com.anychart.anychart.Choropleth;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.LinearColor;
-import com.anychart.anychart.SelectionMode;
-import com.anychart.anychart.SidePosition;
-import com.anychart.anychart.TextHAlign;
-import com.anychart.anychart.UiColorRange;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Map;
+import com.anychart.core.map.series.Choropleth;
+import com.anychart.core.ui.ColorRange;
+import com.anychart.enums.SelectionMode;
+import com.anychart.enums.SidePosition;
+import com.anychart.graphics.vector.text.HAlign;
 import com.anychart.sample.R;
+import com.anychart.scales.LinearColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,65 +28,65 @@ public class ChoroplethMapActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsMap map = AnyChart.map();
+        Map map = AnyChart.map();
 
-        map.getTitle().setEnabled(true);
-        map.getTitle().setUseHtml(true);
-        map.getTitle().setHAlign(TextHAlign.CENTER);
-        map.getTitle().setFontFamily("Verdana, Helvetica, Arial, sans-serif");
-        map.getTitle()
-                .setPadding(10, 0, 10, 0)
-                .setText("<span style=\"color:#7c868e; font-size: 18px\"> The States That" +
+        map.title()
+                .enabled(true)
+                .useHtml(true)
+                .hAlign(HAlign.CENTER)
+                .fontFamily("Verdana, Helvetica, Arial, sans-serif")
+                .padding(10, 0, 10, 0)
+                .text("<span style=\"color:#7c868e; font-size: 18px\"> The States That" +
                         "Love Wine The Most.</span> <br>" +
                         "<span style=\"color:#545f69; font-size: 14px\">Litres of wine" +
                         "per person each state consumed in 2013.</span>");
 
-        map.getCredits()
-                .setEnabled(true)
-                .setUrl("https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_by_population_density")
-                .setText("Data source: https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_by_population_density")
-                .setLogoSrc("https://static.anychart.com/images/maps_samples/USA_Map_with_Linear_Scale/favicon.ico");
+        map.credits()
+                .enabled(true)
+                .url("https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_by_population_density")
+                .text("Data source: https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_by_population_density")
+                .logoSrc("https://static.anychart.com/images/maps_samples/USA_Map_with_Linear_Scale/favicon.ico");
 
-        map.setGeoData("anychart.maps.united_states_of_america");
+        map.geoData("anychart.maps.united_states_of_america");
 
-        UiColorRange colorRange = map.getColorRange();
-        colorRange.setEnabled(true);
-        colorRange.setColorLineSize(10)
-                .setStroke("#B9B9B9")
-                .setLabels("{ 'padding': 3 }")
-                .setLabels("{ 'size': 7 }");
-        colorRange.getTicks().setEnabled(true);
-        colorRange.getTicks()
-                .setStroke("#B9B9B9")
-                .setPosition(SidePosition.OUTSIDE)
-                .setLength(10);
-        colorRange.getMinorTicks().setEnabled(true);
-        colorRange.getMinorTicks()
-                .setStroke("#B9B9B9")
-                .setPosition("outside")
-                .setLength(5);
+        ColorRange colorRange = map.colorRange();
+        colorRange.enabled(true)
+                .colorLineSize(10)
+                .stroke("#B9B9B9")
+                .labels("{ 'padding': 3 }")
+                .labels("{ 'size': 7 }");
+        colorRange.ticks()
+                .enabled(true)
+                .stroke("#B9B9B9")
+                .position(SidePosition.OUTSIDE)
+                .length(10);
+        colorRange.minorTicks()
+                .enabled(true)
+                .stroke("#B9B9B9")
+                .position("outside")
+                .length(5);
 
-        map.getInteractivity().setSelectionMode(SelectionMode.NONE);
-        map.setPadding(0, 0, 0, 0);
+        map.interactivity().selectionMode(SelectionMode.NONE);
+        map.padding(0, 0, 0, 0);
 
         Choropleth series = map.choropleth(getData());
-        LinearColor linearColor = new LinearColor();
-        linearColor.setColors(new String[]{ "#c2e9fb", "#81d4fa", "#01579b", "#002746"});
-        series.setColorScale(linearColor);
-        series.getHovered()
-                .setFill("#f48fb1")
-                .setStroke("#f99fb9");
-        series.getSelected()
-                .setFill("#c2185b")
-                .setStroke("#c2185b");
-        series.getLabels().setEnabled(true);
-        series.getLabels().setFontSize(10);
-        series.getLabels().setFontColor("#212121");
-        series.getLabels().setFormat("{%Value}");
+        LinearColor linearColor = LinearColor.instantiate();
+        linearColor.colors(new String[]{ "#c2e9fb", "#81d4fa", "#01579b", "#002746"});
+        series.colorScale(linearColor);
+        series.hovered()
+                .fill("#f48fb1")
+                .stroke("#f99fb9");
+        series.selected()
+                .fill("#c2185b")
+                .stroke("#c2185b");
+        series.labels().enabled(true);
+        series.labels().fontSize(10);
+        series.labels().fontColor("#212121");
+        series.labels().format("{%Value}");
 
-        series.getTooltip()
-                .setUseHtml(true)
-                .setFormat("function() {\n" +
+        series.tooltip()
+                .useHtml(true)
+                .format("function() {\n" +
                         "            return '<span style=\"font-size: 13px\">' + this.value + ' litres per capita</span>';\n" +
                         "          }");
 

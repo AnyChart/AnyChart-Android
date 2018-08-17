@@ -3,12 +3,12 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Box;
-import com.anychart.anychart.BoxDataEntry;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.DataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.BoxDataEntry;
+import com.anychart.DataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Box;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ public class BoxChartActivity extends AppCompatActivity {
 
         Cartesian boxChart = AnyChart.box();
 
-        boxChart.setTitle("Top 10 Jobs Salaries Grades Per Year Calisota, USA");
+        boxChart.title("Top 10 Jobs Salaries Grades Per Year Calisota, USA");
 
-        boxChart.getXAxis().setStaggerMode(true);
+        boxChart.xAxis(0).staggerMode(true);
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomBoxDataEntry("Registered Nurse", 20000, 26000, 27000, 32000, 38000, new Integer[]{50000, 52000}));
@@ -43,7 +43,7 @@ public class BoxChartActivity extends AppCompatActivity {
 
         Box box = boxChart.box(data);
 
-        box.setWhiskerWidth("20%");
+        box.whiskerWidth("20%");
 
         anyChartView.setChart(boxChart);
     }

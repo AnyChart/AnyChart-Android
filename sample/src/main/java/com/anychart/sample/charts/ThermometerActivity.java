@@ -3,16 +3,16 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsLinearGauge;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.Position;
-import com.anychart.anychart.ScalesBase;
-import com.anychart.anychart.ScalesLinear;
-import com.anychart.anychart.SingleValueDataSet;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.SingleValueDataSet;
+import com.anychart.charts.LinearGauge;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.Orientation;
+import com.anychart.enums.Position;
 import com.anychart.sample.R;
+import com.anychart.scales.Base;
+import com.anychart.scales.Linear;
 
 public class ThermometerActivity extends AppCompatActivity {
 
@@ -24,81 +24,82 @@ public class ThermometerActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsLinearGauge linearGauge = AnyChart.linear();
+        LinearGauge linearGauge = AnyChart.linear();
 
-        linearGauge.setData(new SingleValueDataSet(new Integer[] { 2 }));
+        // TODO data
+        linearGauge.data(new SingleValueDataSet(new Integer[] { 2 }));
 
-        linearGauge.getTooltip()
-                .setUseHtml(true)
-                .setFormat(
+        linearGauge.tooltip()
+                .useHtml(true)
+                .format(
                         "function () {\n" +
                         "          return this.value + '&deg;' + 'C' +\n" +
                         "            ' (' + (this.value * 1.8 + 32).toFixed(1) +\n" +
                         "            '&deg;' + 'F' + ')'\n" +
                         "    }");
 
-        linearGauge.getLabel(0).setUseHtml(true);
-        linearGauge.getLabel(0)
-                .setText("C&deg;")
-                .setPosition(Position.LEFT_BOTTOM)
-                .setAnchor(EnumsAnchor.LEFT_BOTTOM)
-                .setOffsetY("20px")
-                .setOffsetX("38%")
-                .setFontColor("black")
-                .setFontSize(17);
+        linearGauge.label(0).useHtml(true);
+        linearGauge.label(0)
+                .text("C&deg;")
+                .position(Position.LEFT_BOTTOM)
+                .anchor(Anchor.LEFT_BOTTOM)
+                .offsetY("20px")
+                .offsetX("38%")
+                .fontColor("black")
+                .fontSize(17);
 
-        linearGauge.getLabel(1).setUseHtml(true);
-        linearGauge.getLabel(1)
-                .setText("F&deg;")
-                .setPosition(Position.RIGHT_BOTTOM)
-                .setAnchor(EnumsAnchor.RIGHT_BOTTOM)
-                .setOffsetY("20px")
-                .setOffsetX("47.5%")
-                .setFontColor("black")
-                .setFontSize(17);
+        linearGauge.label(1)
+                .useHtml(true)
+                .text("F&deg;")
+                .position(Position.RIGHT_BOTTOM)
+                .anchor(Anchor.RIGHT_BOTTOM)
+                .offsetY("20px")
+                .offsetX("47.5%")
+                .fontColor("black")
+                .fontSize(17);
 
-        ScalesBase scale = linearGauge.getScale()
-                .setMinimum(-30)
-                .setMaximum(40);
+        Base scale = linearGauge.scale()
+                .minimum(-30)
+                .maximum(40);
 //                .setTicks
 
-        linearGauge.getAxis().setScale(scale);
-        linearGauge.getAxis()
-                .setOffset("-1%")
-                .setWidth("0.5%");
+        linearGauge.axis(0).scale(scale);
+        linearGauge.axis(0)
+                .offset("-1%")
+                .width("0.5%");
 
-        linearGauge.getAxis().getLabels()
-                .setFormat("{%Value}&deg;")
-                .setUseHtml(true);
+        linearGauge.axis(0).labels()
+                .format("{%Value}&deg;")
+                .useHtml(true);
 
         linearGauge.thermometer(0)
-                .setName("Thermometer")
-                .setId(1);
+                .name("Thermometer")
+                .id(1);
 
-        linearGauge.getAxis(0).setMinorTicks(true);
-        linearGauge.getAxis(0).getLabels()
-                .setFormat(
+        linearGauge.axis(0).minorTicks(true);
+        linearGauge.axis(0).labels()
+                .format(
                         "function () {\n" +
                         "    return '<span style=\"color:black;\">' + this.value + '&deg;</span>'\n" +
                         "  }")
-                .setUseHtml(true);
+                .useHtml(true);
 
-        linearGauge.getAxis(1).setMinorTicks(true);
-        linearGauge.getAxis(1).getLabels()
-                .setFormat(
+        linearGauge.axis(1).minorTicks(true);
+        linearGauge.axis(1).labels()
+                .format(
                         "function () {\n" +
                         "    return '<span style=\"color:black;\">' + this.value + '&deg;</span>'\n" +
                         "  }")
-                .setUseHtml(true);
-        linearGauge.getAxis(1)
-                .setOffset("3.5%")
-                .setOrientation(Orientation.RIGHT);
+                .useHtml(true);
+        linearGauge.axis(1)
+                .offset("3.5%")
+                .orientation(Orientation.RIGHT);
 
-        ScalesLinear linear = new ScalesLinear();
-        linear.setMinimum(-20)
-                .setMaximum(100);
+        Linear linear = Linear.instantiate();
+        linear.minimum(-20)
+                .maximum(100);
 //                .setTicks
-        linearGauge.getAxis(1).setScale(linear);
+        linearGauge.axis(1).scale(linear);
 
         anyChartView.setChart(linearGauge);
     }

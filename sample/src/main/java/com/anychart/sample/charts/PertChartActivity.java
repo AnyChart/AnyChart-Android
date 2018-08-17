@@ -3,15 +3,15 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Milestones;
-import com.anychart.anychart.Pert;
-import com.anychart.anychart.PertDataEntry;
-import com.anychart.anychart.Tasks;
-import com.anychart.anychart.Tooltip;
-import com.anychart.anychart.TreeFillingMethod;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.PertDataEntry;
+import com.anychart.charts.Pert;
+import com.anychart.core.pert.Milestones;
+import com.anychart.core.pert.Tasks;
+import com.anychart.core.ui.Tooltip;
+import com.anychart.enums.TreeFillingMethod;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -44,37 +44,37 @@ public class PertChartActivity extends AppCompatActivity {
         data.add(new CustomPertDataEntry("12", 45, "12", new String[]{"10"}, "Revise & Review"));
         data.add(new CustomPertDataEntry("13", 25, "13", new String[]{"5"}, "Finalize"));
 
-        pert.setData(data, TreeFillingMethod.AS_TABLE);
+        pert.data(data, TreeFillingMethod.AS_TABLE);
 
-        pert.setPadding(50d, 0d, 0d, 50d);
+        pert.padding(50d, 0d, 0d, 50d);
 
-        pert.getTitle().setEnabled(true);
-        pert.getTitle().setUseHtml(true);
-        pert.getTitle()
-                .setPadding(new Double[]{ 0d, 50d, 35d, 0d })
-                .setText("Airplane Design Process with PERT Chart");
+        pert.title().enabled(true);
+        pert.title().useHtml(true);
+        pert.title()
+                .padding(new Double[]{ 0d, 50d, 35d, 0d })
+                .text("Airplane Design Process with PERT Chart");
 
-        Tasks tasks = pert.getTasks();
-        tasks.getUpperLabels().setFormat(
+        Tasks tasks = pert.tasks();
+        tasks.upperLabels().format(
                 "function() {\n" +
                 "    return this.item.get('fullName');\n" +
                 "  }");
 
-        tasks.getLowerLabels().setFormat("{%duration} days");
+        tasks.lowerLabels().format("{%duration} days");
 
-        Tooltip tooltip = tasks.getTooltip();
-        tooltip.setSeparator(true)
-                .setTitleFormat(
+        Tooltip tooltip = tasks.tooltip();
+        tooltip.separator(true)
+                .titleFormat(
                         "function() {\n" +
                         "      return this.item.get('fullName');\n" +
                         "    }");
-        tooltip.getTitle().setUseHtml(true);
+        tooltip.title().useHtml(true);
 
-        Milestones milestones = pert.getMilestones();
-        milestones.setColor("#2C81D5")
-                .setSize("6.5%");
-        milestones.getHovered().setFill("#2C81D5", 0.75d);
-        milestones.getTooltip().setFormat("" +
+        Milestones milestones = pert.milestones();
+        milestones.color("#2C81D5")
+                .size("6.5%");
+        milestones.hovered().fill("#2C81D5", 0.75d);
+        milestones.tooltip().format("" +
                 "function() {\n" +
                 "  var result = '';\n" +
                 "  var i = 0;\n" +
@@ -95,12 +95,12 @@ public class PertChartActivity extends AppCompatActivity {
                 "  return result;\n" +
                 "}");
 
-        Milestones critMilestones = pert.getCriticalPath().getMilestones();
-        critMilestones.getLabels().setFormat(
+        Milestones critMilestones = pert.criticalPath().milestones();
+        critMilestones.labels().format(
                 "function() {\n" +
                 "    return this['creator'] ? this['creator'].get('name') : this['isStart'] ? 'Start' : 'Finish';\n" +
                 "  }");
-        critMilestones.setColor("#E24B26");
+        critMilestones.color("#E24B26");
 
 
 

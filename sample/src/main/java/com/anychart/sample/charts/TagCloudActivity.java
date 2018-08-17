@@ -3,13 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.CategoryValueDataEntry;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.OrdinalColor;
-import com.anychart.anychart.TagCloud;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.CategoryValueDataEntry;
+import com.anychart.DataEntry;
+import com.anychart.charts.TagCloud;
 import com.anychart.sample.R;
+import com.anychart.scales.OrdinalColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,17 +26,17 @@ public class TagCloudActivity extends AppCompatActivity {
 
         TagCloud tagCloud = AnyChart.tagCloud();
 
-        tagCloud.setTitle("World Population");
+        tagCloud.title("World Population");
 
-        OrdinalColor ordinalColor = new OrdinalColor();
-        ordinalColor.setColors(new String[] {
+        OrdinalColor ordinalColor = OrdinalColor.instantiate();
+        ordinalColor.colors(new String[] {
                 "#26959f", "#f18126", "#3b8ad8", "#60727b", "#e24b26"
         });
-        tagCloud.setColorScale(ordinalColor);
-        tagCloud.setAngles(new Double[] {-90d, 0d, 90d});
+        tagCloud.colorScale(ordinalColor);
+        tagCloud.angles(new Double[] {-90d, 0d, 90d});
 
-        tagCloud.getColorRange().setEnabled(true);
-        tagCloud.getColorRange().setColorLineSize(15d);
+        tagCloud.colorRange().enabled(true);
+        tagCloud.colorRange().colorLineSize(15d);
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CategoryValueDataEntry("China", "asia", 1383220000));
@@ -140,7 +140,7 @@ public class TagCloudActivity extends AppCompatActivity {
         data.add(new CategoryValueDataEntry("Switzerland", "europe", 8417700));
         data.add(new CategoryValueDataEntry("Papua New Guinea", "australia", 8151300));
 
-        tagCloud.setData(data);
+        tagCloud.data(data);
 
         anyChartView.setChart(tagCloud);
     }

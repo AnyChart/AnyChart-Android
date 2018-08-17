@@ -2,18 +2,17 @@ package com.anychart.sample.charts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAlign;
-import com.anychart.anychart.LegendLayout;
-import com.anychart.anychart.Pie;
-import com.anychart.anychart.ValueDataEntry;
-import com.anychart.anychart.chart.common.Event;
-import com.anychart.anychart.chart.common.ListenersInterface;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.chart.common.Event;
+import com.anychart.chart.common.ListenersInterface;
+import com.anychart.charts.Pie;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -45,21 +44,21 @@ public class PieChartActivity extends AppCompatActivity {
         data.add(new ValueDataEntry("Grapes", 1486621));
         data.add(new ValueDataEntry("Oranges", 1200000));
 
-        pie.setData(data);
+        pie.data(data);
 
-        pie.setTitle("Fruits imported in 2015 (in kg)");
+        pie.title("Fruits imported in 2015 (in kg)");
 
-        pie.getLabels().setPosition("outside");
+        pie.labels().position("outside");
 
-        pie.getLegend().getTitle().setEnabled(true);
-        pie.getLegend().getTitle()
-                .setText("Retail channels")
-                .setPadding(0d, 0d, 10d, 0d);
+        pie.legend().title().enabled(true);
+        pie.legend().title()
+                .text("Retail channels")
+                .padding(0d, 0d, 10d, 0d);
 
-        pie.getLegend()
-                .setPosition("center-bottom")
-                .setItemsLayout(LegendLayout.HORIZONTAL)
-                .setAlign(EnumsAlign.CENTER);
+        pie.legend()
+                .position("center-bottom")
+                .itemsLayout(LegendLayout.HORIZONTAL)
+                .align(Align.CENTER);
 
         anyChartView.setChart(pie);
     }

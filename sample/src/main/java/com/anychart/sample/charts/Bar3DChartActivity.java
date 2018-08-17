@@ -3,16 +3,16 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian3d;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.TooltipPositionMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian3d;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.TooltipPositionMode;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -30,63 +30,64 @@ public class Bar3DChartActivity extends AppCompatActivity {
 
         Cartesian3d bar3d = AnyChart.bar3d();
 
-        bar3d.setAnimation(true);
+        bar3d.animation(true);
 
-        bar3d.setPadding(10d, 40d, 5d, 20d);
+        bar3d.padding(10d, 40d, 5d, 20d);
 
-        bar3d.setTitle("Top 3 Products with Region Sales Data");
+        bar3d.title("Top 3 Products with Region Sales Data");
 
-        bar3d.getYScale().setMinimum(0d);
+        bar3d.yScale().minimum(0d);
 
-        bar3d.getXAxis().getLabels()
-                .setRotation(-90d)
-                .setPadding(0d, 0d, 20d, 0d);
+        bar3d.xAxis(0).labels()
+                .rotation(-90d)
+                .padding(0d, 0d, 20d, 0d);
 
-        bar3d.getYAxis().getLabels().setFormat("${%Value}{groupsSeparator: }");
+        bar3d.yAxis(0).labels().format("${%Value}{groupsSeparator: }");
 
-        bar3d.getYAxis().setTitle("Revenue in Dollars");
+        bar3d.yAxis(0).title("Revenue in Dollars");
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Nail polish", 6229, 4376, 4054, 2381));
         data.add(new CustomDataEntry("Eyebrow pencil", 9332, 8987, 5067, 1401));
         data.add(new CustomDataEntry("Lipstick", 9256, 7376, 5054, 981));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping bar1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping bar2Data = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping bar3Data = set.mapAs("{ x: 'x', value: 'value3' }");
         Mapping bar4Data = set.mapAs("{ x: 'x', value: 'value4' }");
 
         bar3d.bar(bar1Data)
-                .setName("Florida");
+                .name("Florida");
 
         bar3d.bar(bar2Data)
-                .setName("Texas");
+                .name("Texas");
 
         bar3d.bar(bar3Data)
-                .setName("Arizona");
+                .name("Arizona");
 
         bar3d.bar(bar4Data)
-                .setName("Nevada");
+                .name("Nevada");
 
-        bar3d.getLegend().setEnabled(true);
-        bar3d.getLegend().setFontSize(13d);
-        bar3d.getLegend().setPadding(0d, 0d, 20d, 0d);
+        bar3d.legend().enabled(true);
+        bar3d.legend().fontSize(13d);
+        bar3d.legend().padding(0d, 0d, 20d, 0d);
 
-        bar3d.getInteractivity().setHoverMode(HoverMode.SINGLE);
+        bar3d.interactivity().hoverMode(HoverMode.SINGLE);
 
-        bar3d.getTooltip()
-                .setPositionMode(TooltipPositionMode.POINT)
-                .setPosition("right")
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetX(5d)
-                .setOffsetY(0d)
-                .setFormat("${%Value}");
+        bar3d.tooltip()
+                .positionMode(TooltipPositionMode.POINT)
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetX(5d)
+                .offsetY(0d)
+                .format("${%Value}");
 
-        bar3d.setZAspect("10%")
-                .setZPadding(20d)
-                .setZAngle(45d)
-                .setZDistribution(true);
+        bar3d.zAspect("10%")
+                .zPadding(20d)
+                .zAngle(45d)
+                .zDistribution(true);
 
         anyChartView.setChart(bar3d);
     }

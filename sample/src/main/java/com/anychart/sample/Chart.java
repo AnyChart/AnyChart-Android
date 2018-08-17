@@ -38,6 +38,7 @@ import com.anychart.sample.charts.SunburstChartActivity;
 import com.anychart.sample.charts.TagCloudActivity;
 import com.anychart.sample.charts.ThermometerActivity;
 import com.anychart.sample.charts.TreeMapChartActivity;
+import com.anychart.sample.charts.TwoPiesOneColumnActivity;
 import com.anychart.sample.charts.VennDiagramActivity;
 import com.anychart.sample.charts.VerticalChartActivity;
 import com.anychart.sample.charts.WaterfallChartActivity;
@@ -108,6 +109,7 @@ public class Chart {
         chartList.add(new Chart(resources.getString(R.string.choropleth_map), ChoroplethMapActivity.class));
         chartList.add(new Chart(resources.getString(R.string.point_map), PointMapActivity.class));
         chartList.add(new Chart(resources.getString(R.string.connector_map), ConnectorMapActivity.class));
+        chartList.add(new Chart(resources.getString(R.string.two_pies_one_column), TwoPiesOneColumnActivity.class));
 //        chartList.add(new Chart(resources.getString(R.string.gantt_chart), GanttChartActivity.class));
 
         return chartList;

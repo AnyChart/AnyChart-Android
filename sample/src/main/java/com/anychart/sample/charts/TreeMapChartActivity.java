@@ -3,17 +3,17 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAlign;
-import com.anychart.anychart.LegendLayout;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.SelectionMode;
-import com.anychart.anychart.TreeDataEntry;
-import com.anychart.anychart.TreeFillingMethod;
-import com.anychart.anychart.TreeMap;
-import com.anychart.anychart.UiTitle;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.TreeDataEntry;
+import com.anychart.charts.TreeMap;
+import com.anychart.core.ui.Title;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
+import com.anychart.enums.Orientation;
+import com.anychart.enums.SelectionMode;
+import com.anychart.enums.TreeFillingMethod;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -64,73 +64,57 @@ public class TreeMapChartActivity extends AppCompatActivity {
         data.add(new CustomTreeDataEntry("Pork", "Meat", "Pork", 43000));
         data.add(new CustomTreeDataEntry("Veal", "Meat", "Veal", 38000));
 
-        treeMap.setData(data, TreeFillingMethod.AS_TABLE);
+        treeMap.data(data, TreeFillingMethod.AS_TABLE);
 
-        UiTitle title = treeMap.getTitle();
-        title.setEnabled(true);
-        title.setUseHtml(true);
-        title.setPadding(0d, 0d, 20d, 0d);
-        title.setText("Top ACME Products by Revenue<br/>' +\n" +
+        Title title = treeMap.title();
+        title.enabled(true);
+        title.useHtml(true);
+        title.padding(0d, 0d, 20d, 0d);
+        title.text("Top ACME Products by Revenue<br/>' +\n" +
                 "      '<span style=\"color:#212121; font-size: 13px;\">(average sales during the year, in $)</span>");
 
-        treeMap.getColorScale().setRanges(
-                "[{\n" +
-                "      less: 25000\n" +
-                "    },\n" +
-                "    {\n" +
-                "      from: 25000,\n" +
-                "      to: 30000\n" +
-                "    },\n" +
-                "    {\n" +
-                "      from: 30000,\n" +
-                "      to: 40000\n" +
-                "    },\n" +
-                "    {\n" +
-                "      from: 40000,\n" +
-                "      to: 50000\n" +
-                "    },\n" +
-                "    {\n" +
-                "      from: 50000,\n" +
-                "      to: 100000\n" +
-                "    },\n" +
-                "    {\n" +
-                "      greater: 100000\n" +
-                "    }\n" +
-                "  ]");
+        treeMap.colorScale().ranges(new String[]{
+                "{ less: 25000 }",
+                "{ from: 25000, to: 30000 }",
+                "{ from: 30000, to: 40000 }",
+                "{ from: 40000, to: 50000 }",
+                "{ from: 50000, to: 100000 }",
+                "{ greater: 100000 }"
+        });
 
-        treeMap.getColorScale().setColors(new String[]{
+        treeMap.colorScale().colors(new String[]{
                 "#ffee58", "#fbc02d", "#f57f17", "#c0ca33", "#689f38", "#2e7d32"
         });
 
-        treeMap.setPadding(10d, 10d, 10d, 20d);
-        treeMap.setMaxDepth(2d);
-        treeMap.getHovered().setFill("#bdbdbd", 1d);
-        treeMap.setSelectionMode(SelectionMode.NONE);
+        treeMap.padding(10d, 10d, 10d, 20d);
+        treeMap.maxDepth(2d);
+        treeMap.hovered().fill("#bdbdbd", 1d);
+        treeMap.selectionMode(SelectionMode.NONE);
 
-        treeMap.getLegend().setEnabled(true);
-        treeMap.getLegend()
-                .setPadding(0d, 0d, 0d, 20d)
-                .setPosition(Orientation.RIGHT)
-                .setAlign(EnumsAlign.TOP)
-                .setItemsLayout(LegendLayout.VERTICAL);
+        treeMap.legend().enabled(true);
+        treeMap.legend()
+                .padding(0d, 0d, 0d, 20d)
+                .position(Orientation.RIGHT)
+                .align(Align.TOP)
+                .itemsLayout(LegendLayout.VERTICAL);
 
-        treeMap.getLabels().setUseHtml(true);
-        treeMap.getLabels().setFontColor("#212121");
-        treeMap.getLabels().setFontSize(12d);
-        treeMap.getLabels().setFormat(
+        treeMap.labels().useHtml(true);
+        treeMap.labels().fontColor("#212121");
+        treeMap.labels().fontSize(12d);
+        treeMap.labels().format(
                 "function() {\n" +
                 "      return this.getData('product');\n" +
                 "    }");
 
-        treeMap.getHeaders().setFormat(
+        treeMap.headers().format(
                 "function() {\n" +
                 "    return this.getData('product');\n" +
                 "  }");
 
-        treeMap.getTooltip()
-                .setUseHtml(true)
-                .setTitleFormat("{%product}")
-                .setFormat("function() {\n" +
+        treeMap.tooltip()
+                .useHtml(true)
+                .titleFormat("{%product}")
+                .format("function() {\n" +
                         "      return '<span style=\"color: #bfbfbf\">Revenue: </span>$' +\n" +
                         "        anychart.format.number(this.value, {\n" +
                         "          groupsSeparator: ' '\n" +

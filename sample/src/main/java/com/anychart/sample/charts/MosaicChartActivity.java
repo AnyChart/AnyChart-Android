@@ -3,15 +3,15 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsMekko;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.TooltipDisplayMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Mekko;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Orientation;
+import com.anychart.enums.TooltipDisplayMode;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -27,9 +27,9 @@ public class MosaicChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsMekko mosaic = AnyChart.mosaic();
+        Mekko mosaic = AnyChart.mosaic();
 
-        mosaic.setTitle("Skills and Self-ID Top Factors");
+        mosaic.title("Skills and Self-ID Top Factors");
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomDataEntry("Data Businessperson", 50, 15, 10, 5, 25));
@@ -37,7 +37,8 @@ public class MosaicChartActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("Data Developer", 17, 25, 16, 27, 15));
         data.add(new CustomDataEntry("Data Researcher", 12, 12, 17, 5, 51));
 
-        Set set = new Set(data);
+        Set set = Set.instantiate();
+        set.data(data);
         Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
         Mapping series3Data = set.mapAs("{ x: 'x', value: 'value3' }");
@@ -45,22 +46,22 @@ public class MosaicChartActivity extends AppCompatActivity {
         Mapping series5Data = set.mapAs("{ x: 'x', value: 'value5' }");
 
         mosaic.mekko(series1Data)
-                .setName("Business");
+                .name("Business");
 
         mosaic.mekko(series2Data)
-                .setName("ML/Big Data");
+                .name("ML/Big Data");
 
         mosaic.mekko(series3Data)
-                .setName("Math/OR");
+                .name("Math/OR");
 
         mosaic.mekko(series4Data)
-                .setName("Programming");
+                .name("Programming");
 
         mosaic.mekko(series5Data)
-                .setName("Statistics");
+                .name("Statistics");
 
-        mosaic.getXAxis().setOrientation(Orientation.TOP);
-        mosaic.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
+        mosaic.xAxis(0).orientation(Orientation.TOP);
+        mosaic.tooltip().displayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(mosaic);
     }

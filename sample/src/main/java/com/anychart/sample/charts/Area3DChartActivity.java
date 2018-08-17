@@ -3,19 +3,19 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Area3d;
-import com.anychart.anychart.Cartesian3d;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.HatchFillType;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.Mapping;
-import com.anychart.anychart.Position;
-import com.anychart.anychart.Set;
-import com.anychart.anychart.TooltipPositionMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian3d;
+import com.anychart.core.cartesian.series.Area3d;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.Position;
+import com.anychart.enums.TooltipPositionMode;
+import com.anychart.graphics.vector.hatchfill.HatchFillType;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -33,19 +33,19 @@ public class Area3DChartActivity extends AppCompatActivity {
 
         Cartesian3d area3d = AnyChart.area3d();
 
-        area3d.getXAxis().getLabels().setFormat("${%Value}");
+        area3d.xAxis(0).labels().format("${%Value}");
 
-        area3d.setAnimation(true);
+        area3d.animation(true);
 
-        area3d.getYAxis().setTitle("The Share Price");
-        area3d.getXAxis().setTitle("Year/Month/Day");
-        area3d.getXAxis().getLabels().setPadding(5d, 5d, 0d, 5d);
+        area3d.yAxis(0).title("The Share Price");
+        area3d.xAxis(0).title("Year/Month/Day");
+        area3d.xAxis(0).labels().padding(5d, 5d, 0d, 5d);
 
-        area3d.setTitle("The cost of ACME\\'s shares<br/>' +\n" +
+        area3d.title("The cost of ACME\\'s shares<br/>' +\n" +
                 "    '<span style=\"color:#212121; font-size: 13px;\">Statistics was collected from site N during September</span>");
 
-        area3d.getTitle().setUseHtml(true);
-        area3d.getTitle().setPadding(0d, 0d, 20d, 0d);
+        area3d.title().useHtml(true);
+        area3d.title().padding(0d, 0d, 20d, 0d);
 
         List<DataEntry> seriesData = new ArrayList<>();
         seriesData.add(new CustomDataEntry("1986", 162, 42));
@@ -69,29 +69,30 @@ public class Area3DChartActivity extends AppCompatActivity {
         seriesData.add(new CustomDataEntry("2004", 169, 59));
         seriesData.add(new CustomDataEntry("2005", 184, 44));
 
-        Set set = new Set(seriesData);
+        Set set = Set.instantiate();
+        set.data(seriesData);
         Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
         Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
 
         Area3d series1 = area3d.area(series1Data);
-        series1.setName("ACME Share Price");
-        series1.getHovered().setMarkers(false);
-        series1.setHatchFill("diagonal", "#000", 0.6d, 10d);
+        series1.name("ACME Share Price");
+        series1.hovered().markers(false);
+        series1.hatchFill("diagonal", "#000", 0.6d, 10d);
 
         Area3d series2 = area3d.area(series2Data);
-        series2.setName("The Competitor\\'s Share Price");
-        series2.getHovered().setMarkers(false);
-        series2.setHatchFill(HatchFillType.DIAGONAL_BRICK, "#000", 0.6d, 10d);
+        series2.name("The Competitor\\'s Share Price");
+        series2.hovered().markers(false);
+        series2.hatchFill(HatchFillType.DIAGONAL_BRICK, "#000", 0.6d, 10d);
 
-        area3d.getTooltip()
-                .setPosition(Position.CENTER_TOP)
-                .setPositionMode(TooltipPositionMode.POINT)
-                .setAnchor(EnumsAnchor.LEFT_BOTTOM)
-                .setOffsetX(5d)
-                .setOffsetY(5d);
+        area3d.tooltip()
+                .position(Position.CENTER_TOP)
+                .positionMode(TooltipPositionMode.POINT)
+                .anchor(Anchor.LEFT_BOTTOM)
+                .offsetX(5d)
+                .offsetY(5d);
 
-        area3d.getInteractivity().setHoverMode(HoverMode.BY_X);
-        area3d.setZAspect("100%");
+        area3d.interactivity().hoverMode(HoverMode.BY_X);
+        area3d.zAspect("100%");
 
         anyChartView.setChart(area3d);
     }

@@ -3,15 +3,15 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsStock;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.DataTable;
-import com.anychart.anychart.HighLowDataEntry;
-import com.anychart.anychart.Plot;
-import com.anychart.anychart.StockSeriesHilo;
-import com.anychart.anychart.TableMapping;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.HighLowDataEntry;
+import com.anychart.charts.Stock;
+import com.anychart.core.stock.Plot;
+import com.anychart.core.stock.series.Hilo;
+import com.anychart.data.Table;
+import com.anychart.data.TableMapping;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -27,22 +27,22 @@ public class HiloChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsStock stock = AnyChart.stock();
+        Stock stock = AnyChart.stock();
 
-        Plot plot = stock.getPlot();
+        Plot plot = stock.plot(0);
 
-        plot.setYGrid(true)
-                .setYMinorGrid(true);
+        plot.yGrid(true)
+                .yMinorGrid(true);
 
-        DataTable table = new DataTable("x");
+        Table table = Table.instantiate("x");
         table.addData(getData());
         TableMapping mapping = table.mapAs("{'high': 'high', 'low': 'low'}");
 
-        StockSeriesHilo hilo = plot.hilo(mapping);
-        hilo.setName("Temperature");
+        Hilo hilo = plot.hilo(mapping);
+        hilo.name("Temperature");
 
-        hilo.getTooltip().setFormat("Max: {%High}&deg;<br/>Min: {%Low}&deg;");
-        stock.getTooltip().setUseHtml(true);
+        hilo.tooltip().format("Max: {%High}&deg;<br/>Min: {%Low}&deg;");
+        stock.tooltip().useHtml(true);
 
         anyChartView.setChart(stock);
     }

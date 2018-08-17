@@ -3,16 +3,16 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.Cartesian;
-import com.anychart.anychart.CartesianSeriesColumn;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.Position;
-import com.anychart.anychart.ValueDataEntry;
-import com.anychart.anychart.TooltipPositionMode;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Column;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.Position;
+import com.anychart.enums.TooltipPositionMode;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -41,28 +41,28 @@ public class ColumnChartActivity extends AppCompatActivity {
         data.add(new ValueDataEntry("Eyeliner", 213210));
         data.add(new ValueDataEntry("Eyeshadows", 249980));
 
-        CartesianSeriesColumn column = cartesian.column(data);
+        Column column = cartesian.column(data);
 
-        column.getTooltip()
-                .setTitleFormat("{%X}")
-                .setPosition(Position.CENTER_BOTTOM)
-                .setAnchor(EnumsAnchor.CENTER_BOTTOM)
-                .setOffsetX(0d)
-                .setOffsetY(5d)
-                .setFormat("${%Value}{groupsSeparator: }");
+        column.tooltip()
+                .titleFormat("{%X}")
+                .position(Position.CENTER_BOTTOM)
+                .anchor(Anchor.CENTER_BOTTOM)
+                .offsetX(0d)
+                .offsetY(5d)
+                .format("${%Value}{groupsSeparator: }");
 
-        cartesian.setAnimation(true);
-        cartesian.setTitle("Top 10 Cosmetic Products by Revenue");
+        cartesian.animation(true);
+        cartesian.title("Top 10 Cosmetic Products by Revenue");
 
-        cartesian.getYScale().setMinimum(0d);
+        cartesian.yScale().minimum(0d);
 
-        cartesian.getYAxis().getLabels().setFormat("${%Value}{groupsSeparator: }");
+        cartesian.yAxis(0).labels().format("${%Value}{groupsSeparator: }");
 
-        cartesian.getTooltip().setPositionMode(TooltipPositionMode.POINT);
-        cartesian.getInteractivity().setHoverMode(HoverMode.BY_X);
+        cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
+        cartesian.interactivity().hoverMode(HoverMode.BY_X);
 
-        cartesian.getXAxis().setTitle("Product");
-        cartesian.getYAxis().setTitle("Revenue");
+        cartesian.xAxis(0).title("Product");
+        cartesian.yAxis(0).title("Revenue");
 
         anyChartView.setChart(cartesian);
     }

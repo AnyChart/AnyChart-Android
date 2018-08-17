@@ -3,11 +3,11 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsWaterfall;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Waterfall;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -23,15 +23,15 @@ public class WaterfallChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsWaterfall waterfall = AnyChart.waterfall();
+        Waterfall waterfall = AnyChart.waterfall();
 
-        waterfall.setTitle("ACME corp. Revenue Flow 2017");
+        waterfall.title("ACME corp. Revenue Flow 2017");
 
-        waterfall.getYScale().setMinimum(0d);
+        waterfall.yScale().minimum(0d);
 
-        waterfall.getYAxis().getLabels().setFormat("${%Value}{scale:(1000000)(1)|(mln)}");
-        waterfall.getLabels().setEnabled(true);
-        waterfall.getLabels().setFormat(
+        waterfall.yAxis(0).labels().format("${%Value}{scale:(1000000)(1)|(mln)}");
+        waterfall.labels().enabled(true);
+        waterfall.labels().format(
                 "function() {\n" +
                 "      if (this['isTotal']) {\n" +
                 "        return anychart.format.number(this.absolute, {\n" +
@@ -63,7 +63,7 @@ public class WaterfallChartActivity extends AppCompatActivity {
         end.setValue("isTotal", true);
         data.add(end);
 
-        waterfall.setData(data);
+        waterfall.data(data);
 
         anyChartView.setChart(waterfall);
     }

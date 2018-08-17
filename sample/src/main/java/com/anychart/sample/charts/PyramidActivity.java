@@ -3,14 +3,14 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAlign;
-import com.anychart.anychart.LegendLayout;
-import com.anychart.anychart.Pyramid;
-import com.anychart.anychart.ValueDataEntry;
-import com.anychart.anychart.UiLegend;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Pyramid;
+import com.anychart.core.ui.Legend;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -34,15 +34,15 @@ public class PyramidActivity extends AppCompatActivity {
         data.add(new ValueDataEntry("Advertising leaflets", 1486621));
         data.add(new ValueDataEntry("Before advertising started", 1386622));
 
-        pyramid.setData(data);
+        pyramid.data(data);
 
-        UiLegend legend = pyramid.getLegend();
-        legend.setEnabled(true);
-        legend.setPosition("outside-right");
-        legend.setItemsLayout(LegendLayout.VERTICAL);
-        legend.setAlign(EnumsAlign.TOP);
+        Legend legend = pyramid.legend();
+        legend.enabled(true);
+        legend.position("outside-right");
+        legend.itemsLayout(LegendLayout.VERTICAL);
+        legend.align(Align.TOP);
 
-        pyramid.setLabels(false);
+        pyramid.labels(false);
 
         anyChartView.setChart(pyramid);
     }

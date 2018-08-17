@@ -3,17 +3,17 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsLinearGauge;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.Layout;
-import com.anychart.anychart.MarkerType;
-import com.anychart.anychart.OrdinalColor;
-import com.anychart.anychart.Orientation;
-import com.anychart.anychart.Position;
-import com.anychart.anychart.SingleValueDataSet;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.SingleValueDataSet;
+import com.anychart.charts.LinearGauge;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.Layout;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.Orientation;
+import com.anychart.enums.Position;
 import com.anychart.sample.R;
+import com.anychart.scales.OrdinalColor;
 
 public class LinearColorScaleActivity extends AppCompatActivity {
 
@@ -25,93 +25,72 @@ public class LinearColorScaleActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsLinearGauge linearGauge = AnyChart.linear();
+        LinearGauge linearGauge = AnyChart.linear();
 
-        linearGauge.setData(new SingleValueDataSet(new Double[] { 5.3D }));
+        linearGauge.data(new SingleValueDataSet(new Double[] { 5.3D }));
 
-        linearGauge.setLayout(Layout.HORIZONTAL);
+        linearGauge.layout(Layout.HORIZONTAL);
 
-        linearGauge.getLabel(0)
-                .setPosition(Position.LEFT_CENTER)
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetY("-50px")
-                .setOffsetX("50px")
-                .setFontColor("black")
-                .setFontSize(17);
-        linearGauge.getLabel(0).setText("Total Rainfall");
+        linearGauge.label(0)
+                .position(Position.LEFT_CENTER)
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetY("-50px")
+                .offsetX("50px")
+                .fontColor("black")
+                .fontSize(17);
+        linearGauge.label(0).text("Total Rainfall");
 
-        linearGauge.getLabel(1)
-                .setPosition(Position.LEFT_CENTER)
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetY("40px")
-                .setOffsetX("50px")
-                .setFontColor("#777777")
-                .setFontSize(17);
-        linearGauge.getLabel(1).setText("Drought Hazard");
+        linearGauge.label(1)
+                .position(Position.LEFT_CENTER)
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetY("40px")
+                .offsetX("50px")
+                .fontColor("#777777")
+                .fontSize(17);
+        linearGauge.label(1).text("Drought Hazard");
 
-        linearGauge.getLabel(2)
-                .setPosition(Position.RIGHT_CENTER)
-                .setAnchor(EnumsAnchor.RIGHT_CENTER)
-                .setOffsetY("40px")
-                .setOffsetX("50px")
-                .setFontColor("#777777")
-                .setFontSize(17);
-        linearGauge.getLabel(2).setText("Flood Hazard");
+        linearGauge.label(2)
+                .position(Position.RIGHT_CENTER)
+                .anchor(Anchor.RIGHT_CENTER)
+                .offsetY("40px")
+                .offsetX("50px")
+                .fontColor("#777777")
+                .fontSize(17);
+        linearGauge.label(2).text("Flood Hazard");
 
-        OrdinalColor scaleBarColorScale = new OrdinalColor();
-        scaleBarColorScale.setRanges(
-                "[\n" +
-                "      {\n" +
-                "        from: 0,\n" +
-                "        to: 2,\n" +
-                "        color: ['red 0.5']\n" +
-                "      },\n" +
-                "      {\n" +
-                "        from: 2,\n" +
-                "        to: 3,\n" +
-                "        color: ['yellow 0.5']\n" +
-                "      },\n" +
-                "      {\n" +
-                "        from: 3,\n" +
-                "        to: 7,\n" +
-                "        color: ['green 0.5']\n" +
-                "      },\n" +
-                "      {\n" +
-                "        from: 7,\n" +
-                "        to: 8,\n" +
-                "        color: ['yellow 0.5']\n" +
-                "      },\n" +
-                "      {\n" +
-                "        from: 8,\n" +
-                "        to: 10,\n" +
-                "        color: ['red 0.5']\n" +
-                "      }\n" +
-                "    ]");
+        OrdinalColor scaleBarColorScale = OrdinalColor.instantiate();
+        scaleBarColorScale.ranges(new String[]{
+                "{ from: 0, to: 2, color: ['red 0.5'] }",
+                "{ from: 2, to: 3, color: ['yellow 0.5'] }",
+                "{ from: 3, to: 7, color: ['green 0.5'] }",
+                "{ from: 7, to: 8, color: ['yellow 0.5'] }",
+                "{ from: 8, to: 10, color: ['red 0.5'] }"
+        });
 
-        linearGauge.getScaleBar(0)
-                .setWidth("5%")
-                .setColorScale(scaleBarColorScale);
+        linearGauge.scaleBar(0)
+                .width("5%")
+                .colorScale(scaleBarColorScale);
 
         linearGauge.marker(0)
-                .setType(MarkerType.TRIANGLE_DOWN)
-                .setColor("red")
-                .setOffset("-3.5%")
-                .setZIndex(10);
+                .type(MarkerType.TRIANGLE_DOWN)
+                .color("red")
+                .offset("-3.5%")
+                .zIndex(10);
 
-        linearGauge.getScale()
-                .setMinimum(0)
-                .setMaximum(10);
-//        linearGauge.getScale().setTicks
+        linearGauge.scale()
+                .minimum(0)
+                .maximum(10);
+//        linearGauge.scale().ticks
 
-        linearGauge.getAxis()
-                .setMinorTicks(false)
-                .setWidth("1%");
-        linearGauge.getAxis()
-                .setOffset("-1.5%")
-                .setOrientation(Orientation.TOP)
-                .setLabels("top");
+        linearGauge.axis(0)
+                .minorTicks(false)
+                .width("1%");
+        linearGauge.axis(0)
+                .offset("-1.5%")
+                .orientation(Orientation.TOP)
+                .labels("top");
 
-        linearGauge.setPadding(0, 30, 0, 30);
+        linearGauge.padding(0, 30, 0, 30);
 
         anyChartView.setChart(linearGauge);
     }

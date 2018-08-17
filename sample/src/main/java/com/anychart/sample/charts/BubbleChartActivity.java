@@ -3,11 +3,11 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.BubbleDataEntry;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Scatter;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.BubbleDataEntry;
+import com.anychart.DataEntry;
+import com.anychart.charts.Scatter;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -25,35 +25,35 @@ public class BubbleChartActivity extends AppCompatActivity {
 
         Scatter bubble = AnyChart.bubble();
 
-        bubble.setAnimation(true);
+        bubble.animation(true);
 
-        bubble.getTitle().setEnabled(true);
-        bubble.getTitle().setUseHtml(true);
-        bubble.getTitle()
-                .setPadding(0d, 0d, 10d, 0d)
-                .setText("Best sportsmen training data ' +\n" +
+        bubble.title().enabled(true);
+        bubble.title().useHtml(true);
+        bubble.title()
+                .padding(0d, 0d, 10d, 0d)
+                .text("Best sportsmen training data ' +\n" +
                         "        '<br/><span  style=\"color:#929292; font-size: 12px;\">' +\n" +
                         "        '(bubble size means duration, each bubble represents one training)</span>");
 
-        bubble.setPadding(20d, 20d, 10d, 20d);
+        bubble.padding(20d, 20d, 10d, 20d);
 
-        bubble.setYGrid(true)
-                .setXGrid(true)
-                .setXMinorGrid(true)
-                .setYMinorGrid(true);
+        bubble.yGrid(true)
+                .xGrid(true)
+                .xMinorGrid(true)
+                .yMinorGrid(true);
 
-        bubble.setMinBubbleSize(5d)
-                .setMaxBubbleSize(40d);
+        bubble.minBubbleSize(5d)
+                .maxBubbleSize(40d);
 
-        bubble.getXAxis()
-                .setTitle("Average pulse during training")
-                .setMinorTicks(true);
-        bubble.getYAxis()
-                .setTitle("Average power")
-                .setMinorTicks(true);
+        bubble.xAxis(0)
+                .title("Average pulse during training")
+                .minorTicks(true);
+        bubble.yAxis(0)
+                .title("Average power")
+                .minorTicks(true);
 
-        bubble.getLegend().setEnabled(true);
-        bubble.getLabels().setPadding(0d, 0d, 10d, 0d);
+        bubble.legend().enabled(true);
+        bubble.labels().padding(0d, 0d, 10d, 0d);
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new CustomBubbleDataEntry(1, 184, 113, "10/13/2014", 120));
@@ -67,7 +67,7 @@ public class BubbleChartActivity extends AppCompatActivity {
         data.add(new CustomBubbleDataEntry(1, 173, 127, "01/14/2015", 89));
 
         bubble.bubble(data)
-                .setName("Christopher Sanchez");
+                .name("Christopher Sanchez");
 
         data.clear();
         data.add(new CustomBubbleDataEntry(2, 165, 145, "10/22/2014", 95));
@@ -81,7 +81,7 @@ public class BubbleChartActivity extends AppCompatActivity {
         data.add(new CustomBubbleDataEntry(2, 161, 131, "01/07/2015", 121));
 
         bubble.bubble(data)
-                .setName("Judy Evans");
+                .name("Judy Evans");
 
         data.clear();
         data.add(new CustomBubbleDataEntry(3, 145, 141, "09/15/2014", 95));
@@ -94,7 +94,7 @@ public class BubbleChartActivity extends AppCompatActivity {
         data.add(new CustomBubbleDataEntry(3, 181, 121, "06/02/2014", 54));
 
         bubble.bubble(data)
-                .setName("Walter Burke");
+                .name("Walter Burke");
 
         data.clear();
         data.add(new CustomBubbleDataEntry(4, 169, 84, "05/16/2014", 46));
@@ -107,12 +107,12 @@ public class BubbleChartActivity extends AppCompatActivity {
         data.add(new CustomBubbleDataEntry(4, 174, 89, "02/09/2015", 90));
 
         bubble.bubble(data)
-                .setName("Daniel Williamson");
+                .name("Daniel Williamson");
 
-        bubble.getTooltip()
-                .setUseHtml(true)
-                .setFontColor("#fff")
-                .setFormat("function() {\n" +
+        bubble.tooltip()
+                .useHtml(true)
+                .fontColor("#fff")
+                .format("function() {\n" +
                         "        return this.getData('data') + '<br/>' +\n" +
                         "          'Power: <span style=\"color: #d2d2d2; font-size: 12px\">' +\n" +
                         "          this.getData('value') + '</span></strong><br/>' +\n" +

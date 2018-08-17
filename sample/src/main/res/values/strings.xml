@@ -42,4 +42,5 @@
     <string name="point_map">Point Map</string>
     <string name="connector_map">Connector Map</string>
     <string name="sunburst_chart">Sunburst Chart</string>
+    <string name="two_pies_one_column">Two pies one column</string>
 </resources>

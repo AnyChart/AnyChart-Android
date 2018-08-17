@@ -3,15 +3,15 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.CartesianSeriesBase;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.Pareto;
-import com.anychart.anychart.StrokeLineCap;
-import com.anychart.anychart.StrokeLineJoin;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.ValueDataEntry;
+import com.anychart.charts.Pareto;
+import com.anychart.core.cartesian.series.Base;
+import com.anychart.enums.Anchor;
+import com.anychart.graphics.vector.StrokeLineCap;
+import com.anychart.graphics.vector.StrokeLineJoin;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -42,34 +42,34 @@ public class ParetoChartActivity extends AppCompatActivity {
         data.add(new ValueDataEntry("Not atmosphere", 35));
         data.add(new ValueDataEntry("Food is to salty", 35));
 
-        pareto.setData(data);
+        pareto.data(data);
 
-        pareto.setTitle("Pareto Chart of Restaurant Complaints");
+        pareto.title("Pareto Chart of Restaurant Complaints");
 
-        pareto.getYAxis(0d).setTitle("Defect frequency");
+        pareto.yAxis(0d).title("Defect frequency");
 
-        pareto.getYAxis(1d).setTitle("Cumulative Percentage");
+        pareto.yAxis(1d).title("Cumulative Percentage");
 
-        pareto.setAnimation(true);
+        pareto.animation(true);
 
-        pareto.getLineMarker()
-                .setValue(80d)
-                .setAxis(pareto.getYAxis(1d))
-                .setStroke("#A5B3B3", 1d, "5 2", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
+        pareto.lineMarker(0)
+                .value(80d)
+                .axis(pareto.yAxis(1d))
+                .stroke("#A5B3B3", 1d, "5 2", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
 
-        pareto.getGetSeries(0d).getTooltip().setFormat("Value: {%Value}");
+        pareto.getSeries(0d).tooltip().format("Value: {%Value}");
 
-        CartesianSeriesBase line = pareto.getGetSeries(1d);
-        line.setSeriesType("spline")
-                .setMarkers(true);
-        line.getLabels().setEnabled(true);
-        line.getLabels()
-                .setAnchor(EnumsAnchor.RIGHT_BOTTOM)
-                .setFormat("{%CF}%");
-        line.getTooltip().setFormat("Cumulative Frequency: {%CF}% \\n Relative Frequency: {%RF}%");
+        Base line = pareto.getSeries(1d);
+        line.seriesType("spline")
+                .markers(true);
+        line.labels().enabled(true);
+        line.labels()
+                .anchor(Anchor.RIGHT_BOTTOM)
+                .format("{%CF}%");
+        line.tooltip().format("Cumulative Frequency: {%CF}% \\n Relative Frequency: {%RF}%");
 
-        pareto.getCrosshair().setEnabled(true);
-        pareto.getCrosshair().setXLabel(true);
+        pareto.crosshair().enabled(true);
+        pareto.crosshair().xLabel(true);
 
         anyChartView.setChart(pareto);
     }

@@ -3,14 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.EnumsAnchor;
-import com.anychart.anychart.Position;
-import com.anychart.anychart.Scatter;
-import com.anychart.anychart.ScatterSeriesMarker;
-import com.anychart.anychart.UiLabel;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Scatter;
+import com.anychart.core.scatter.series.Marker;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.Position;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class QuadrantChartActivity extends AppCompatActivity {
 
         Scatter quadrant = AnyChart.quadrant();
 
-        quadrant.setPadding(35d, 35d, 35d, 35d);
+        quadrant.padding(35d, 35d, 35d, 35d);
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new QuadrantDataEntry(65, 60, "Tableau"));
@@ -46,18 +45,20 @@ public class QuadrantChartActivity extends AppCompatActivity {
         data.add(new QuadrantDataEntry(35, 26.5, "Sisense", new Label[]{ new Label("rightBottom") }));
         data.add(new QuadrantDataEntry(30, 16, "Yellowfin", new Label[]{ new Label("right") }));
 
-        ScatterSeriesMarker marker = quadrant.marker(data);
-        marker.getLabels().setEnabled(true);
-        marker.getLabels().setFontFamily("Arial")
-                .setFontColor("#546e7a");
-        marker.getLabels().setPosition("right")
-                .setAnchor(EnumsAnchor.LEFT_CENTER)
-                .setOffsetX(5d)
-                .setOffsetY(0d)
-                .setFormat("{%Name}");
-        marker.setTooltip(false);
+        Marker marker = quadrant.marker(data);
+        marker.labels()
+                .enabled(true)
+                .fontFamily("Arial")
+                .fontColor("#546e7a");
+        marker.labels()
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetX(5d)
+                .offsetY(0d)
+                .format("{%Name}");
+        marker.tooltip(false);
 
-        quadrant.setQuarters(
+        quadrant.quarters(
                 "{\n" +
                 "      rightTop: {\n" +
                 "        title: {\n" +
@@ -89,23 +90,23 @@ public class QuadrantChartActivity extends AppCompatActivity {
                 "      }\n" +
                 "    }");
 
-        UiLabel label = quadrant.getQuarters().getLeftBottom().getLabel(0d);
-        label.setEnabled(true);
-        label.setUseHtml(true);
-        label.setPosition(Position.LEFT_BOTTOM);
-        label.setAnchor(EnumsAnchor.LEFT_CENTER);
+        com.anychart.core.ui.Label label = quadrant.quarters().leftBottom().label(0d);
+        label.enabled(true);
+        label.useHtml(true);
+        label.position(Position.LEFT_BOTTOM);
+        label.anchor(Anchor.LEFT_CENTER);
 
-        label.setOffsetX(-20d);
-        label.setText("Power to Perform &#8594;");
-        label.setRotation(-90d);
+        label.offsetX(-20d);
+        label.text("Power to Perform &#8594;");
+        label.rotation(-90d);
 
-        label = quadrant.getQuarters().getLeftBottom().getLabel(1d);
-        label.setEnabled(true);
-        label.setUseHtml(true);
-        label.setPosition(Position.LEFT_BOTTOM);
-        label.setAnchor(EnumsAnchor.LEFT_CENTER);
-        label.setOffsetY(20d);
-        label.setText("Entirety of Representation &#8594;");
+        label = quadrant.quarters().leftBottom().label(1d);
+        label.enabled(true);
+        label.useHtml(true);
+        label.position(Position.LEFT_BOTTOM);
+        label.anchor(Anchor.LEFT_CENTER);
+        label.offsetY(20d);
+        label.text("Entirety of Representation &#8594;");
 
         anyChartView.setChart(quadrant);
     }

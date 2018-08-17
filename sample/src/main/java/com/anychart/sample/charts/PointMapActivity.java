@@ -3,12 +3,13 @@ package com.anychart.sample.charts;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.ChartsMap;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.MapSeriesMarker;
-import com.anychart.anychart.SelectionMode;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.DataEntry;
+import com.anychart.charts.Map;
+import com.anychart.core.map.series.Marker;
+import com.anychart.enums.SelectionMode;
+import com.anychart.graphics.vector.SolidFill;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -24,44 +25,44 @@ public class PointMapActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
 
-        ChartsMap map = AnyChart.map();
+        Map map = AnyChart.map();
 
-        map.getCredits().setEnabled(true);
-        map.getCredits()
-                .setUrl("https://opendata.socrata.com/dataset/Airport-Codes-mapped-to-Latitude-Longitude-in-the-/rxrh-4cxm")
-                .setText("Data source: https://opendata.socrata.com")
-                .setLogoSrc("https://opendata.socrata.com/stylesheets/images/common/favicon.ico");
+        map.credits().enabled(true);
+        map.credits()
+                .url("https://opendata.socrata.com/dataset/Airport-Codes-mapped-to-Latitude-Longitude-in-the-/rxrh-4cxm")
+                .text("Data source: https://opendata.socrata.com")
+                .logoSrc("https://opendata.socrata.com/stylesheets/images/common/favicon.ico");
 
-        map.getUnboundRegions()
-                .setEnabled(true)
-                .setFill("#E1E1E1")
-                .setStroke("#D2D2D2");
+        map.unboundRegions()
+                .enabled(true)
+                .fill(new SolidFill("#E1E1E1", 1))
+                .stroke("#D2D2D2");
 
-        map.setGeoData("anychart.maps.united_states_of_america");
+        map.geoData("anychart.maps.united_states_of_america");
 
-        map.getTitle().setEnabled(true);
-        map.getTitle().setUseHtml(true);
-        map.getTitle()
-                .setPadding(0, 0, 10, 0)
-                .setText("Airports in the United States<br/><span style=\"color:#929292; font-size: 12px;\">" +
-                "According to opendata.socrata.com<br/>Cities and names were collected from Wikipedia.org</span>");
+        map.title()
+                .enabled(true)
+                .useHtml(true)
+                .padding(0, 0, 10, 0)
+                .text("Airports in the United States<br/><span style=\"color:#929292; font-size: 12px;\">" +
+                        "According to opendata.socrata.com<br/>Cities and names were collected from Wikipedia.org</span>");
 
-        MapSeriesMarker series = map.marker(getData());
-        series.getTooltip()
-                .setUseHtml(true)
-                .setPadding(8, 13, 10, 13)
-                .setTitle(false)
-                .setSeparator(false)
-                .setFontSize(14)
-                .setFormat("function() {\n" +
+        Marker series = map.marker(getData());
+        series.tooltip()
+                .useHtml(true)
+                .padding(8, 13, 10, 13)
+                .title(false)
+                .separator(false)
+                .fontSize(14)
+                .format("function() {\n" +
                         "            return '<span>' + this.getData('name') + '</span><br/>' +\n" +
                         "              '<span style=\"font-size: 12px; color: #E1E1E1\">City: ' +\n" +
                         "              this.getData('city') + '</span>';\n" +
                         "          }");
 
-        series.setSize(5)
-                .setLabels(false);
-        series.setStroke("#E1E1E1", 2, null, null, null)
+        series.size(5)
+                .labels(false);
+        series.stroke("2 #E1E1E1")
                 .fill("#1976d2", 1);
         series.selectionMode(SelectionMode.NONE);
 
