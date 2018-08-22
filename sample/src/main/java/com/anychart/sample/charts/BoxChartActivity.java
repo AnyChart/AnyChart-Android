@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.BoxDataEntry;
-import com.anychart.DataEntry;
+import com.anychart.chart.common.dataentry.BoxDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.charts.Cartesian;
 import com.anychart.core.cartesian.series.Box;
 import com.anychart.sample.R;

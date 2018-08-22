@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.SingleValueDataSet;
+import com.anychart.chart.common.dataentry.SingleValueDataSet;
 import com.anychart.charts.CircularGauge;
 import com.anychart.core.axes.Circular;
 import com.anychart.core.gauge.pointers.Bar;

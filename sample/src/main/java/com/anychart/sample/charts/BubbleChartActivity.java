@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.BubbleDataEntry;
-import com.anychart.DataEntry;
+import com.anychart.chart.common.dataentry.BubbleDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.charts.Scatter;
 import com.anychart.sample.R;
 

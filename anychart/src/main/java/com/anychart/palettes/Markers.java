@@ -1,0 +1,107 @@
+package com.anychart.palettes;
+
+import com.anychart.APIlib;
+import com.anychart.chart.common.listener.ListenersInterface;
+import com.anychart.core.Base;
+
+import java.util.Locale;
+
+// class
+/**
+ * Marker palette class.
+ */
+public class Markers extends Base {
+
+    protected Markers() {
+
+    }
+
+    public static Markers instantiate() {
+        return new Markers("new anychart.palettes.markers()");
+    }
+
+    
+
+    public Markers(String jsChart) {
+        jsBase = "markers" + ++variableIndex;
+        APIlib.getInstance().addJSLine(jsBase + " = " + jsChart + ";");
+    }
+
+    public String getJsBase() {
+        return jsBase;
+    }
+
+    
+    /**
+     * Getter for type palette markers from list by index.
+     */
+    public void itemAt(Number index) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemAt(%s);", index));
+    }
+    /**
+     * Setter for type palette markers from list by index.
+     */
+    public com.anychart.palettes.Markers itemAt(Number index, String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, wrapQuotes(type)));
+
+        return this;
+    }
+    /**
+     * Getter for markers list of palette.
+     */
+    public void items() {
+        APIlib.getInstance().addJSLine(jsBase + ".items();");
+    }
+    /**
+     * Setter for markers list of palette.
+     */
+    public com.anychart.palettes.Markers items(String[] value, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(value), wrapQuotes(var_args)));
+
+        return this;
+    }
+    /**
+     * Setter for markers list of palette.
+     */
+    public com.anychart.palettes.Markers items(String value, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(value), wrapQuotes(var_args)));
+
+        return this;
+    }
+    /**
+     * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
+     */
+    public void removeAllListeners(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type)));
+    }
+    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+        StringBuilder js = new StringBuilder();
+
+        js.append(jsBase).append(".listen('pointClick', function(e) {");
+
+        if (listener.getFields() != null) {
+            js.append("var result = ");
+            for (String field : listener.getFields()) {
+                js.append(String.format(Locale.US, "'%1$s' + ':' + e.point.get('%1$s') + ',' +", field));
+            }
+            js.setLength(js.length() - 8);
+            js.append(";");
+
+            js.append("android.onClick(result);");
+        } else {
+            js.append("android.onClick(null);");
+        }
+        js.append("});");
+
+        ListenersInterface.getInstance().setOnClickListener(listener);
+
+        APIlib.getInstance().addJSLine(js.toString());
+    }
+    /**
+     * Removes an event listener which was added with listen() by the key returned by listen() or listenOnce().
+     */
+    public void unlistenByKey(String key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
+    }
+
+}

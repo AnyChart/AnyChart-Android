@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.charts.Resource;
 import com.anychart.enums.AvailabilityPeriod;
 import com.anychart.enums.TimeTrackingMode;

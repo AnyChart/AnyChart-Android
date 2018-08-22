@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
-import com.anychart.HeatDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.HeatDataEntry;
 import com.anychart.charts.HeatMap;
 import com.anychart.enums.SelectionMode;
 import com.anychart.graphics.vector.SolidFill;

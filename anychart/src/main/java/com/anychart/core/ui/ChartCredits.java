@@ -1,0 +1,158 @@
+package com.anychart.core.ui;
+
+import com.anychart.APIlib;
+import com.anychart.chart.common.listener.ListenersInterface;
+import com.anychart.core.Base;
+
+import java.util.Locale;
+
+// class
+/**
+ * Define class Credits.<br/>
+<b>Note:</b> Use {@link anychart.ui#credits} method to create instance of this class.<br/>
+<b>Note:</b> You can't customize credits without <u>a license key</u>. See <a href="https://www.anychart.com/buy/">AnyChart Licensing</a> to learn more.
+ */
+public class ChartCredits extends Base {
+
+    protected ChartCredits() {
+
+    }
+
+    public static ChartCredits instantiate() {
+        return new ChartCredits("new anychart.core.ui.chartCredits()");
+    }
+
+    
+
+    public ChartCredits(String jsChart) {
+        jsBase = "chartCredits" + ++variableIndex;
+        APIlib.getInstance().addJSLine(jsBase + " = " + jsChart + ";");
+    }
+
+    public String getJsBase() {
+        return jsBase;
+    }
+
+    
+    /**
+     * Getter for credits alt.
+     */
+    public void alt() {
+        APIlib.getInstance().addJSLine(jsBase + ".alt();");
+    }
+    /**
+     * Setter for credits alt.
+     */
+    public com.anychart.core.ui.ChartCredits alt(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".alt(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
+     * Getter for the credits state.
+     */
+    public void enabled() {
+        APIlib.getInstance().addJSLine(jsBase + ".enabled();");
+    }
+    /**
+     * Setter for the credits state.
+     */
+    public com.anychart.core.ui.ChartCredits enabled(Boolean value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+
+        return this;
+    }
+    /**
+     * Getter for the image alternative text.
+     */
+    public void imgAlt() {
+        APIlib.getInstance().addJSLine(jsBase + ".imgAlt();");
+    }
+    /**
+     * Setter for the image alternative text.
+     */
+    public com.anychart.core.ui.ChartCredits imgAlt(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".imgAlt(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
+     * Getter for credits logo source value.
+     */
+    public void logoSrc() {
+        APIlib.getInstance().addJSLine(jsBase + ".logoSrc();");
+    }
+    /**
+     * Setter for credits logo source value.<br/>
+<b>Note:</b> You can't customize credits without <u>a license key</u>. See <a href="https://www.anychart.com/buy/">AnyChart Licensing</a> to learn more.
+     */
+    public com.anychart.core.ui.ChartCredits logoSrc(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logoSrc(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
+     * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
+     */
+    public void removeAllListeners(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type)));
+    }
+    /**
+     * Getter for credits text value.
+     */
+    public void text() {
+        APIlib.getInstance().addJSLine(jsBase + ".text();");
+    }
+    /**
+     * Setter for credits text value.
+     */
+    public com.anychart.core.ui.ChartCredits text(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+        StringBuilder js = new StringBuilder();
+
+        js.append(jsBase).append(".listen('pointClick', function(e) {");
+
+        if (listener.getFields() != null) {
+            js.append("var result = ");
+            for (String field : listener.getFields()) {
+                js.append(String.format(Locale.US, "'%1$s' + ':' + e.point.get('%1$s') + ',' +", field));
+            }
+            js.setLength(js.length() - 8);
+            js.append(";");
+
+            js.append("android.onClick(result);");
+        } else {
+            js.append("android.onClick(null);");
+        }
+        js.append("});");
+
+        ListenersInterface.getInstance().setOnClickListener(listener);
+
+        APIlib.getInstance().addJSLine(js.toString());
+    }
+    /**
+     * Removes an event listener which was added with listen() by the key returned by listen() or listenOnce().
+     */
+    public void unlistenByKey(String key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
+    }
+    /**
+     * Getter for credits url.
+     */
+    public void url() {
+        APIlib.getInstance().addJSLine(jsBase + ".url();");
+    }
+    /**
+     * Setter for credits url.
+     */
+    public com.anychart.core.ui.ChartCredits url(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".url(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+
+}

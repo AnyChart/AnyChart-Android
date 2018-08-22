@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
-import com.anychart.HighLowDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.HighLowDataEntry;
 import com.anychart.charts.Stock;
 import com.anychart.core.stock.Plot;
 import com.anychart.core.stock.series.Hilo;

@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
-import com.anychart.ValueDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Scatter;
 import com.anychart.core.scatter.series.Line;
 import com.anychart.core.scatter.series.Marker;

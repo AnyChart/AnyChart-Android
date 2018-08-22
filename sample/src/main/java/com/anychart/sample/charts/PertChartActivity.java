@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
-import com.anychart.PertDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.PertDataEntry;
 import com.anychart.charts.Pert;
 import com.anychart.core.pert.Milestones;
 import com.anychart.core.pert.Tasks;

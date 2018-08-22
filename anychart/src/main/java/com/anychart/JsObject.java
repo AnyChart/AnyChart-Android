@@ -2,6 +2,8 @@ package com.anychart;
 
 import android.text.TextUtils;
 
+import com.anychart.chart.common.dataentry.DataEntry;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,9 +15,9 @@ import java.util.List;
 
 public abstract class JsObject {
 
-    public interface JsObjectInterface {
-        String getJsBase();
-    }
+//    public interface JsObjectInterface {
+//        String getJsBase();
+//    }
 
     protected StringBuilder js = new StringBuilder();
 
@@ -31,11 +33,11 @@ public abstract class JsObject {
 
     protected String jsBase;
 
-    protected boolean isChain = false;
+//    protected boolean isChain = false;
 
-    protected static OnChange onChangeListener;
+//    protected static OnChange onChangeListener;
 
-    protected static boolean isRendered = false;
+//    protected static boolean isRendered = false;
 
     protected JsObject() {
 
@@ -45,19 +47,19 @@ public abstract class JsObject {
         this.jsBase = jsBase;
     }
 
-    interface OnChange {
-        void onChange(String jsChange);
-    }
+//    interface OnChange {
+//        void onChange(String jsChange);
+//    }
 
-    protected void setOnChangeListener(OnChange listener) {
-        onChangeListener = listener;
+//    protected void setOnChangeListener(OnChange listener) {
+//        onChangeListener = listener;
+//
+////        isRendered = true;
+//    }
 
-//        isRendered = true;
-    }
-
-    protected String generateJsGetters() {
-        return "";
-    }
+//    protected String generateJsGetters() {
+//        return "";
+//    }
 
     protected static String wrapQuotes(String value) {
         if (TextUtils.isEmpty(value)) {
@@ -125,26 +127,26 @@ public abstract class JsObject {
         return result.toString();
     }
 
-    protected static String arrayToString(JsObjectInterface[] jsObjects) {
-        if (jsObjects == null) {
-            return "";
-        }
-
-        StringBuilder result = new StringBuilder();
-
-        result.append("[");
-
-        for (int i = 0; i < jsObjects.length; i++) {
-            result.append(jsObjects[i].getJsBase());
-            if (i != jsObjects.length - 1) {
-                result.append(", ");
-            }
-        }
-
-        result.append("]");
-
-        return result.toString();
-    }
+//    protected static String arrayToString(JsObjectInterface[] jsObjects) {
+//        if (jsObjects == null) {
+//            return "";
+//        }
+//
+//        StringBuilder result = new StringBuilder();
+//
+//        result.append("[");
+//
+//        for (int i = 0; i < jsObjects.length; i++) {
+//            result.append(jsObjects[i].getJsBase());
+//            if (i != jsObjects.length - 1) {
+//                result.append(", ");
+//            }
+//        }
+//
+//        result.append("]");
+//
+//        return result.toString();
+//    }
 
     protected static String arrayToString(Object[] jsObjects) {
         if (jsObjects == null) {

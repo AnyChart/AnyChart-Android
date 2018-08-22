@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.SingleValueDataSet;
+import com.anychart.chart.common.dataentry.SingleValueDataSet;
 import com.anychart.charts.LinearGauge;
 import com.anychart.enums.Anchor;
 import com.anychart.enums.Orientation;

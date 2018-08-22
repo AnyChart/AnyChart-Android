@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
-import com.anychart.TreeDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.TreeDataEntry;
 import com.anychart.charts.TreeMap;
 import com.anychart.core.ui.Title;
 import com.anychart.enums.Align;

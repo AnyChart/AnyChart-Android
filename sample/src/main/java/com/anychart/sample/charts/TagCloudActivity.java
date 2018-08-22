@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.CategoryValueDataEntry;
-import com.anychart.DataEntry;
+import com.anychart.chart.common.dataentry.CategoryValueDataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.charts.TagCloud;
 import com.anychart.sample.R;
 import com.anychart.scales.OrdinalColor;

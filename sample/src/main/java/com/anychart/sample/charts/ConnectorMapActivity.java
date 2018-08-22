@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
-import com.anychart.DataEntry;
+import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.charts.Map;
 import com.anychart.core.map.series.Connector;
 import com.anychart.core.map.series.Marker;

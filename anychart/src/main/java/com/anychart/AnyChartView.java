@@ -20,7 +20,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import com.anychart.chart.common.ListenersInterface;
+import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.Chart;
 
 public final class AnyChartView extends FrameLayout {
