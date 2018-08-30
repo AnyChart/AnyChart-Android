@@ -1,7 +1,6 @@
 package com.anychart.core.grids;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.VisualBase;
 
 import java.util.Locale;
@@ -413,7 +412,7 @@ Whether it is a minor grid or not.
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -432,7 +431,7 @@ Whether it is a minor grid or not.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

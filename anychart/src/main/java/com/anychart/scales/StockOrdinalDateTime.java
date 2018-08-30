@@ -1,7 +1,6 @@
 package com.anychart.scales;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.Locale;
 
@@ -91,7 +90,7 @@ public class StockOrdinalDateTime extends StockScatterDateTime {
     public void transform(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".transform(%s);", wrapQuotes(value)));
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -110,7 +109,7 @@ public class StockOrdinalDateTime extends StockScatterDateTime {
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

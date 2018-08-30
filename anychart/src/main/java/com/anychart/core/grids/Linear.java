@@ -1,7 +1,6 @@
 package com.anychart.core.grids;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.VisualBase;
 
 import java.util.Locale;
@@ -331,7 +330,7 @@ Layout is define by {@link anychart.core.grids.Linear#layout} method.
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -350,7 +349,7 @@ Layout is define by {@link anychart.core.grids.Linear#layout} method.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

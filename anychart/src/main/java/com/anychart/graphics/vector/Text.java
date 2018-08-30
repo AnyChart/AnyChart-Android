@@ -1,7 +1,6 @@
 package com.anychart.graphics.vector;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.Locale;
 
@@ -795,7 +794,7 @@ The text-indent property specifies the indentation of the first line in a text-b
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -814,7 +813,7 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

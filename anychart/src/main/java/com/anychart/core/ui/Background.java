@@ -1,7 +1,6 @@
 package com.anychart.core.ui;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.VisualBaseWithBounds;
 
 import java.util.Arrays;
@@ -1168,7 +1167,7 @@ e.g. "red 0.5".
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -1187,7 +1186,7 @@ e.g. "red 0.5".
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

@@ -1,7 +1,6 @@
 package com.anychart.graphics.vector;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.Locale;
 
@@ -759,7 +758,7 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -778,7 +777,7 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

@@ -2,7 +2,6 @@ package com.anychart.standalones;
 
 import com.anychart.APIlib;
 import com.anychart.JsObject;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -921,7 +920,7 @@ As a getter falls back to stage bounds.
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -940,7 +939,7 @@ As a getter falls back to stage bounds.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

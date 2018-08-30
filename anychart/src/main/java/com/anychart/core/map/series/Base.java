@@ -2,7 +2,6 @@ package com.anychart.core.map.series;
 
 import com.anychart.APIlib;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.SeriesBase;
 
 import java.util.Arrays;
@@ -1081,7 +1080,7 @@ To select multiple points, press "ctrl" and click on them.
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -1100,7 +1099,7 @@ To select multiple points, press "ctrl" and click on them.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

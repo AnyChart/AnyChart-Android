@@ -1,7 +1,6 @@
 package com.anychart.core.series;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.VisualBaseWithBounds;
 
 import java.util.Locale;
@@ -636,7 +635,7 @@ public class Base extends VisualBaseWithBounds {
     public void transformY(String value, Number subRangeRatio) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".transformY(%s, %s);", wrapQuotes(value), subRangeRatio));
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -655,7 +654,7 @@ public class Base extends VisualBaseWithBounds {
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

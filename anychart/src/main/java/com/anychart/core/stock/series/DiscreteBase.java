@@ -2,7 +2,6 @@ package com.anychart.core.stock.series;
 
 import com.anychart.APIlib;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.List;
 import java.util.Locale;
@@ -525,7 +524,7 @@ public class DiscreteBase extends Base {
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -544,7 +543,7 @@ public class DiscreteBase extends Base {
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

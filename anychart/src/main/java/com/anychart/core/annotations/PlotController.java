@@ -1,7 +1,6 @@
 package com.anychart.core.annotations;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.VisualBase;
 
 import java.util.Locale;
@@ -277,7 +276,7 @@ public class PlotController extends VisualBase {
     public com.anychart.core.annotations.Triangle triangle(String config) {
         return new com.anychart.core.annotations.Triangle(String.format(Locale.US, jsBase + ".triangle(%s)", wrapQuotes(config)));
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -296,7 +295,7 @@ public class PlotController extends VisualBase {
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

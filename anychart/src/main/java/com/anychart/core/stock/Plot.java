@@ -1,11 +1,8 @@
 package com.anychart.core.stock;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.VisualBaseWithBounds;
 
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -81,8 +78,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * 
      */
-    public com.anychart.core.stock.series.Area area(List<DataEntry> data) {
-        return new com.anychart.core.stock.series.Area(String.format(Locale.US, jsBase + ".area(%s)", arrayToString(data)));
+    public com.anychart.core.stock.series.Area area(com.anychart.data.Table data) {
+        return new com.anychart.core.stock.series.Area(String.format(Locale.US, jsBase + ".area(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**
      * Creates Aroon indicator on the plot.
@@ -1513,7 +1510,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -1532,7 +1529,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }
@@ -1835,7 +1832,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * 
      */
-    public com.anychart.core.stock.series.Area area(com.anychart.data.View data) {
+    public com.anychart.core.stock.series.Area area(com.anychart.data.TableMapping data) {
         return new com.anychart.core.stock.series.Area(String.format(Locale.US, jsBase + ".area(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**

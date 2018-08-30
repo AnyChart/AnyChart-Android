@@ -2,10 +2,7 @@ package com.anychart.core.stock;
 
 import com.anychart.APIlib;
 import com.anychart.JsObject;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.listener.ListenersInterface;
 
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -96,8 +93,8 @@ public class Scroller extends JsObject {
     /**
      * 
      */
-    public com.anychart.core.stock.scrollerseries.Area area(List<DataEntry> data) {
-        return new com.anychart.core.stock.scrollerseries.Area(String.format(Locale.US, jsBase + ".area(%s)", arrayToString(data)));
+    public com.anychart.core.stock.scrollerseries.Area area(com.anychart.data.Table data) {
+        return new com.anychart.core.stock.scrollerseries.Area(String.format(Locale.US, jsBase + ".area(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**
      * Creates Aroon indicator on the scroller.
@@ -1344,7 +1341,7 @@ public class Scroller extends JsObject {
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -1363,7 +1360,7 @@ public class Scroller extends JsObject {
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }
@@ -1454,7 +1451,7 @@ public class Scroller extends JsObject {
     /**
      * 
      */
-    public com.anychart.core.stock.scrollerseries.Area area(com.anychart.data.View data) {
+    public com.anychart.core.stock.scrollerseries.Area area(com.anychart.data.TableMapping data) {
         return new com.anychart.core.stock.scrollerseries.Area(String.format(Locale.US, jsBase + ".area(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**

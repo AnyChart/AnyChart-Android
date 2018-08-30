@@ -1,7 +1,6 @@
 package com.anychart.scales;
 
 import com.anychart.APIlib;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.Locale;
 
@@ -181,7 +180,7 @@ call of this method if needed.
     public void transform(String value, Number subRangeRatio) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".transform(%s, %s);", wrapQuotes(value), subRangeRatio));
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -200,7 +199,7 @@ call of this method if needed.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

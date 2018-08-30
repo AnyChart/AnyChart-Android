@@ -2,7 +2,6 @@ package com.anychart.charts;
 
 import com.anychart.APIlib;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.Chart;
 
 import java.util.Arrays;
@@ -2796,7 +2795,7 @@ Fill as a string or an object.
 
         return this;
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -2815,7 +2814,7 @@ Fill as a string or an object.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }

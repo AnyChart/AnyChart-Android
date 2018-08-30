@@ -2,7 +2,6 @@ package com.anychart.core.cartesian.series;
 
 import com.anychart.APIlib;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.listener.ListenersInterface;
 
 import java.util.Arrays;
 import java.util.List;
@@ -903,7 +902,7 @@ To select multiple points, press "ctrl" and click on them.
     public void transformY(String value, Number subRangeRatio) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".transformY(%s, %s);", wrapQuotes(value), subRangeRatio));
     }
-    public void setOnClickListener(ListenersInterface.OnClickListener listener) {
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
         js.append(jsBase).append(".listen('pointClick', function(e) {");
@@ -922,7 +921,7 @@ To select multiple points, press "ctrl" and click on them.
         }
         js.append("});");
 
-        ListenersInterface.getInstance().setOnClickListener(listener);
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
 
         APIlib.getInstance().addJSLine(js.toString());
     }
