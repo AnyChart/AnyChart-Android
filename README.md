@@ -169,6 +169,8 @@ data.add(new ValueDataEntry("John", 10000));
 data.add(new ValueDataEntry("Jake", 12000));
 data.add(new ValueDataEntry("Peter", 18000));
 
+pie.setData(data);
+
 AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
 anyChartView.setChart(pie);
 ```
