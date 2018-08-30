@@ -62,7 +62,7 @@
         <activity android:name=".charts.LinearColorScaleActivity" />
         <activity android:name=".charts.WindSpeedActivity" />
         <activity android:name=".charts.WindDirectionActivity" />
-        <activity android:name=".charts.TwoPiesOneColumnActivity"></activity>
+        <activity android:name=".charts.TwoPiesOneColumnActivity" />
     </application>
 
 </manifest>

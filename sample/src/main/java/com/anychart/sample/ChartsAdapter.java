@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder> {
@@ -38,10 +39,12 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
     }
 
     private List<Chart> chartList;
+    private List<Chart> copyChartList;
     private Context context;
 
     ChartsAdapter(Context context, List<Chart> chartList) {
         this.chartList = chartList;
+        copyChartList = new ArrayList<>(chartList);
         this.context = context;
     }
 
@@ -68,5 +71,20 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return chartList.size();
+    }
+
+    public void filter(String text) {
+        chartList.clear();
+        if (text.isEmpty()){
+            chartList.addAll(copyChartList);
+        } else{
+            text = text.toLowerCase();
+            for (Chart chart: copyChartList){
+                if (chart.getName().toLowerCase().contains(text)) {
+                    chartList.add(chart);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }
