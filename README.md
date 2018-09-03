@@ -7,45 +7,6 @@ AnyChart Android Charts is an amazing data visualization library for easily crea
 
 ## Installation
 
-### Leiningen
-Add this to the project.clj file, at the end of repositories:
-```clojure
-:repositories [["jitpack" "https://jitpack.io"]]
-```
-Add the dependency:
-```clojure
-:dependencies [[com.github.AnyChart/AnyChart-Android "0.3.0"]]
-```
-
-### SBT
-Add this to the build.sbt, at the end of resolvers:
-```sbt
-resolvers += "jitpack" at "https://jitpack.io"
-```
-Add the dependency:
-```sbt
-libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.3.0"
-```
-
-### Maven
-Add the JitPack repository to the build file: 
-```xml
-<repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-</repositories>
-```
-Add the dependency:
-```xml
-<dependency>
-    <groupId>com.github.AnyChart</groupId>
-    <artifactId>AnyChart-Android</artifactId>
-    <version>0.3.0</version>
-</dependency>
-```
-
 ### Gradle
 Add this to the root build.gradle at the end of repositories (**WARNING:** Make sure you add this under **allprojects** not under buildscript):
 ```groovy
@@ -60,7 +21,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Groovy
 dependencies {
-        implementation 'com.github.AnyChart:AnyChart-Android:0.3.0'
+        implementation 'com.github.AnyChart:AnyChart-Android:1.0.1'
 }
 ```
 
@@ -73,144 +34,6 @@ If you are using **Android Studio**:
 3. Choose "Import .JAR or .AAR Package".
 4. Find the AAR file.
 5. In the app's module click on the dependencies tab and add the new module as a dependency.
-
-## Getting Stated using Gradle
-You should have already set up the latest <a href="https://developer.android.com/studio/index.html">Android Studio</a>.
-
-Create a new project and select appropriate API level (AnyChart library for Android compatible with API 19+).
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Create new project</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_1.png" alt="Create new project">
-        </td>
-        <td>
-            <h3 align="center">Select API level</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_2.png" alt="Select API level">
-        </td>
-    </tr>
-</table>
-
-Add an empty Activity and put in layout and Activity name.
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Add Activity</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_6.png" alt="Create new project">
-        </td>
-        <td>
-            <h3 align="center">Customize Activity</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_7.png" alt="Select API level">
-        </td>
-    </tr>
-</table>
-
-Add the repository to the **project build.gradle** at the end of repositories (**WARNING:** Make sure you add it under **allprojects**, not under the buildscript). 
-```groovy
-allprojects {
-        repositories {
-                ...
-                maven { url 'https://jitpack.io' }
-        }
-}
-```
-
-Then add the dependency to the **module build.gradle** and synchronize project with Gradle.
-```Groovy
-dependencies {
-        implementation 'com.github.AnyChart:AnyChart-Android:0.3.0'
-}
-```
-
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Add the repository</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_3.png" alt="Add repository in your root build.gradle">
-        </td>
-        <td>
-            <h3 align="center">Add the dependency and sync the project</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_4.png" alt="Add the dependency in your project build.gradle and sync project">
-        </td>
-    </tr>
-</table>
-
-Add AnyChart view to the Activity layout.
-```xml
-<com.anychart.anychart.AnyChartView
-        android:id="@+id/any_chart_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-```
-
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Add a view to a layout</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_8.png" alt="Add repository in your root build.gradle">
-        </td>
-    </tr>
-</table>
-
-Add Java code to the Activity. For example, if you want to create pie chart:
-```java
-Pie pie = AnyChart.pie();
-
-List<DataEntry> data = new ArrayList<>();
-data.add(new ValueDataEntry("John", 10000));
-data.add(new ValueDataEntry("Jake", 12000));
-data.add(new ValueDataEntry("Peter", 18000));
-
-pie.setData(data);
-
-AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-anyChartView.setChart(pie);
-```
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Add Java code</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_9.png" alt="Add repository to the root build.gradle">
-        </td>
-    </tr>
-</table>
-
-Make sure you have these package imports at the top of your Activity file.
-```java
-import com.anychart.anychart.AnyChart;
-import com.anychart.anychart.AnyChartView;
-import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.Pie;
-import com.anychart.anychart.ValueDataEntry;
-
-import java.util.ArrayList;
-import java.util.List;
-```
-
-Build and run your app.
-<table>
-    <tr>
-        <td valign="top">
-            <h3 align="center">Build and run</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_10.png" alt="Build and run">
-        </td>
-        <td>
-            <h3 align="center">Running App</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/create_project_5.png" alt="Running app">
-        </td>
-    </tr>
-</table>
 
 ## Chart Types
 AnyChart product family includes scores of chart types and we're constantly adding new ones.
@@ -659,44 +482,6 @@ AnyChart product family includes scores of chart types and we're constantly addi
         </td>
     </tr>
 </table>  
-
-## Running Demos
-Clone or download the project.
-
-Open Android Studio and import the project.
-
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Import Project</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_1.png" alt="Import project">
-        </td>
-    </tr>
-</table>
-
-Run the project.
-
-<table>
-    <tr>
-        <td>
-            <h3 align="center">Run Project</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_2.png" alt="Run project">
-        </td>
-        <td>
-            <h3 align="center">Select Chart</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_3.png" alt="Select Chart">
-        </td>
-        <td>
-            <h3 align="center">Running App</h3>
-            <hr>          
-            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/running_demos_4.png" alt="Running App">
-        </td>
-    </tr>
-</table>
-
 
 ## Contacts
 * Web: [www.anychart.com](https://www.anychart.com)
