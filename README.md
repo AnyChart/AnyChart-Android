@@ -5,6 +5,8 @@
 
 AnyChart Android Charts is an amazing data visualization library for easily creating interactive charts in Android apps. It runs on API 19+ (Android 4.4) and features dozens of built-in chart types.
 
+Check out <a href="https://github.com/AnyChart/AnyChart-Android/wiki/Getting-started">getting started</a>.
+
 ## Installation
 
 ### Gradle
