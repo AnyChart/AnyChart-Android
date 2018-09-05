@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 public class DataEntry {
 
@@ -36,6 +37,14 @@ public class DataEntry {
 
     public void setValue(String key, DataEntry[] values) {
         hashMap.put(key, values);
+    }
+
+    public Object getValue(String key) {
+        return hashMap.get(key);
+    }
+
+    public Set<String> keySet() {
+        return hashMap.keySet();
     }
 
     public String generateJs() {
