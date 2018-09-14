@@ -1,9 +1,16 @@
 package com.anychart.scales;
 
 import com.anychart.APIlib;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.JsObject;
+import com.anychart.scales.Base;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -171,24 +178,10 @@ call of this method if needed.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
     }
     /**
-     * Getter for the scale input domain.
+     * 
      */
-    public void values() {
-        APIlib.getInstance().addJSLine(jsBase + ".values();");
-    }
-    /**
-     * Setter for the scale input domain.
-     */
-    public com.anychart.scales.Ordinal values(String[] values, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".values(%s, %s);", arrayToStringWrapQuotes(values), wrapQuotes(var_args)));
-
-        return this;
-    }
-    /**
-     * Setter for the scale input domain.
-     */
-    public com.anychart.scales.Ordinal values(String values, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".values(%s, %s);", wrapQuotes(values), wrapQuotes(var_args)));
+    public com.anychart.scales.Ordinal values(String[] values) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".values(%s);", arrayToStringWrapQuotes(values)));
 
         return this;
     }
@@ -203,6 +196,14 @@ call of this method if needed.
      */
     public com.anychart.scales.Ordinal weights(Number[] value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".weights(%s);", Arrays.toString(value)));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.scales.Ordinal values(String values) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".values(%s);", wrapQuotes(values)));
 
         return this;
     }

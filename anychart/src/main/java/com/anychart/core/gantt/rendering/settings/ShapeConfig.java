@@ -1,9 +1,11 @@
 package com.anychart.core.gantt.rendering.settings;
 
 import com.anychart.JsObject;
+
 import com.anychart.enums.ShapeType;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

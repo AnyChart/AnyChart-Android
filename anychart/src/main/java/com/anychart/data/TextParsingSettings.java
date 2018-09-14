@@ -1,9 +1,11 @@
 package com.anychart.data;
 
 import com.anychart.JsObject;
+
 import com.anychart.enums.TextParsingMode;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

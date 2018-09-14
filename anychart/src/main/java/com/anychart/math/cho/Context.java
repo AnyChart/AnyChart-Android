@@ -2,6 +2,11 @@ package com.anychart.math.cho;
 
 import com.anychart.JsObject;
 
+import com.anychart.enums.MovingAverageType;
+
+import java.util.Locale;
+import java.util.Arrays;
+
 // typedef
 /**
  * Type definition for the context.

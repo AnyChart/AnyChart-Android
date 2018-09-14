@@ -2,8 +2,10 @@ package com.anychart.math;
 
 import com.anychart.JsObject;
 
-import java.util.Arrays;
+import com.anychart.math.CoordinateObject;
+
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

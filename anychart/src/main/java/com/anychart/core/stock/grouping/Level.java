@@ -1,9 +1,11 @@
 package com.anychart.core.stock.grouping;
 
 import com.anychart.JsObject;
+
 import com.anychart.enums.Interval;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

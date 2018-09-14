@@ -2,7 +2,10 @@ package com.anychart.graphics.vector;
 
 import com.anychart.JsObject;
 
+import com.anychart.graphics.vector.ImageFillMode;
+
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

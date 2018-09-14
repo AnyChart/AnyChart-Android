@@ -245,6 +245,14 @@ public final class AnyChartView extends FrameLayout {
         webView.getSettings().setDisplayZoomControls(!value);
     }
 
+    public void clear() {
+        webView.loadUrl("about:blank");
+        isRendered = false;
+        if (progressBar != null) {
+            progressBar.setVisibility(VISIBLE);
+        }
+    }
+
     public void setChart(Chart chart) {
         js.setLength(0);
         isRestored = false;

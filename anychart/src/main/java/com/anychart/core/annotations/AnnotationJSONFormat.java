@@ -1,15 +1,17 @@
 package com.anychart.core.annotations;
 
 import com.anychart.JsObject;
-import com.anychart.core.StateSettings;
+
 import com.anychart.enums.Anchor;
-import com.anychart.enums.MarkerType;
 import com.anychart.graphics.vector.AnyColor;
 import com.anychart.graphics.vector.Fill;
-import com.anychart.graphics.vector.PatternFill;
 import com.anychart.graphics.vector.Stroke;
+import com.anychart.graphics.vector.PatternFill;
+import com.anychart.core.StateSettings;
+import com.anychart.enums.MarkerType;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

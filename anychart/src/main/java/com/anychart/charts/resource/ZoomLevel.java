@@ -1,9 +1,12 @@
 package com.anychart.charts.resource;
 
 import com.anychart.JsObject;
+
+import com.anychart.core.gantt.timelineheader.LevelWrapper;
 import com.anychart.enums.Interval;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

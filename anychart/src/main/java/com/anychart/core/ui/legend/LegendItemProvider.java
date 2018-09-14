@@ -1,13 +1,15 @@
 package com.anychart.core.ui.legend;
 
 import com.anychart.JsObject;
+
 import com.anychart.graphics.vector.Fill;
-import com.anychart.graphics.vector.HatchFill;
-import com.anychart.graphics.vector.PatternFill;
-import com.anychart.graphics.vector.Stroke;
 import com.anychart.graphics.vector.hatchfill.HatchFillType;
+import com.anychart.graphics.vector.PatternFill;
+import com.anychart.graphics.vector.HatchFill;
+import com.anychart.graphics.vector.Stroke;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

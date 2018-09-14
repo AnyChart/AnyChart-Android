@@ -2,7 +2,9 @@ package com.anychart.core.lineargauge.scalebar;
 
 import com.anychart.JsObject;
 
+
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

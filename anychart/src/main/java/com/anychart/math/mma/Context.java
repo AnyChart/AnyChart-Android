@@ -2,6 +2,11 @@ package com.anychart.math.mma;
 
 import com.anychart.JsObject;
 
+import com.anychart.math.CycledQueue;
+
+import java.util.Locale;
+import java.util.Arrays;
+
 // typedef
 /**
  * Type definition for the context.

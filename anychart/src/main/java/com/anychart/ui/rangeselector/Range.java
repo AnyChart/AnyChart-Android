@@ -1,11 +1,13 @@
 package com.anychart.ui.rangeselector;
 
 import com.anychart.JsObject;
-import com.anychart.enums.Interval;
+
 import com.anychart.enums.StockRangeAnchor;
 import com.anychart.enums.StockRangeType;
+import com.anychart.enums.Interval;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 // typedef
 /**

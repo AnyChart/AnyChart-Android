@@ -1,9 +1,16 @@
 package com.anychart.palettes;
 
 import com.anychart.APIlib;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.JsObject;
 import com.anychart.core.Base;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
