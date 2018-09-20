@@ -23,7 +23,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Groovy
 dependencies {
-        implementation 'com.github.AnyChart:AnyChart-Android:1.0.2'
+        implementation 'com.github.AnyChart:AnyChart-Android:1.0.3'
 }
 ```
 
@@ -48,8 +48,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/piechart.png" alt="Pie Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PieChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PieChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -58,8 +57,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/columnchart.png" alt="Column Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ColumnChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ColumnChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -68,8 +66,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linechart.png" alt="Line Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/LineChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/LineChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -80,8 +77,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/venndiagram.png" alt="Venn Diagram - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/VennDiagramActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/VennDiagramActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -90,8 +86,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/radarchart.png" alt="Radar Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -100,8 +95,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/tagcloud.png" alt="Tag Cloud - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TagCloudActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TagCloudActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -112,8 +106,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/heatmapchart.png" alt="Heat Map Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HeatMapChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HeatMapChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -124,8 +117,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/waterfallchart.png" alt="Waterfall Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WaterfallChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WaterfallChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -134,8 +126,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/treemapchart.png" alt="Tree Map Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TreeMapChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/TreeMapChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -144,8 +135,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/scatterchart.png" alt="Scatter Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ScatterChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ScatterChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -156,8 +146,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/resourcechart.png" alt="Resource Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ResourceChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ResourceChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -168,8 +157,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/rangechart.png" alt="Range Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RangeChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RangeChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -178,8 +166,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/verticalchart.png" alt="Vertical Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -188,8 +175,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/funnelchart.png" alt="Funnel Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/FunnelChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/FunnelChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -200,8 +186,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pertchart.png" alt="Pert Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PertChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PertChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -212,8 +197,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/polarchart.png" alt="Polar Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PolarChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PolarChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -222,8 +206,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pyramidchart.png" alt="Pyramid Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PyramidChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PyramidChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -232,8 +215,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bubblechart.png" alt="Bubble Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BubbleChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BubbleChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -244,8 +226,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/areachart.png" alt="Area Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/AreaChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/AreaChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -254,8 +235,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/barchart.png" alt="Bar Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BarChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BarChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -264,8 +244,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/boxchart.png" alt="Box Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BoxChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BoxChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -276,8 +255,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/mosaicchart.png" alt="Mosaic Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/MosaicChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/MosaicChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -286,8 +264,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/mekkochart.png" alt="Mekko Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/MekkoChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/MekkoChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -296,8 +273,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bar3dchart.png" alt="3D Bar Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Bar3DChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Bar3DChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -308,8 +284,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/column3dchart.png" alt="3D Column Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Column3DChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Column3DChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -318,8 +293,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/area3dchart.png" alt="3D Area Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Area3DChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/Area3DChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -328,8 +302,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/circulargauge.png" alt="Circular Gauge">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/CircularGaugeActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/CircularGaugeActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -340,8 +313,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/paretochart.png" alt="Pareto Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ParetoChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ParetoChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -350,8 +322,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/combinedchart.png" alt="Combined Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/CombinedChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/CombinedChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -360,8 +331,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/quadrantchart.png" alt="Quadrant Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/QuadrantChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/QuadrantChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -372,8 +342,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/hilochart.png" alt="Hilo Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HiloChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HiloChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -382,8 +351,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/ohlcchart.png" alt="OHLC Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/OHLCChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/OHLCChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -392,8 +360,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/bubblemap.png" alt="Bubble Map - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BubbleMapActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/BubbleMapActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -404,8 +371,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/choroplethmap.png" alt="Choropleth Map - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ChoroplethMapActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ChoroplethMapActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -414,8 +380,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/pointmap.png" alt="Point Map - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PointMapActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/PointMapActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -424,8 +389,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/connectormap.png" alt="Connector Map - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ConnectorMapActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ConnectorMapActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -436,8 +400,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/sunburstchart.png" alt="Sunburst Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/SunburstChartActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/SunburstChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -446,8 +409,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/thermometer.png" alt="Thermometer - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ThermometerActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/ThermometerActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -456,8 +418,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/linearcolorscale.png" alt="Linear Color Scale - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/LinearColorScaleActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/LinearColorScaleActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
@@ -468,8 +429,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/windspeed.png" alt="Wind Speed - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WindSpeedActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WindSpeedActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
@@ -478,8 +438,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/winddirection.png" alt="Wind Direction - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WindDirectionActivity.java">Code Snippet</a> /
-              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/WindDirectionActivity.java">Code Snippet</a>
             </sup>            
         </td>
     </tr>
