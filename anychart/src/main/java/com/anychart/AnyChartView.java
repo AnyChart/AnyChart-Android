@@ -29,7 +29,12 @@ public final class AnyChartView extends FrameLayout {
         void onJsLineAdd(String jsLine);
     }
 
-    private JsListener listener;
+    public interface OnRenderedListener {
+        void onRendered();
+    }
+
+    private JsListener jsListener;
+    private OnRenderedListener onRenderedListener;
 
     private WebView webView;
     private Chart chart;
@@ -167,6 +172,8 @@ public final class AnyChartView extends FrameLayout {
                         new ValueCallback<String>() {
                             @Override
                             public void onReceiveValue(String value) {
+                                if (onRenderedListener != null)
+                                    onRenderedListener.onRendered();
                                 if (progressBar != null)
                                     progressBar.setVisibility(GONE);
                             }
@@ -271,11 +278,18 @@ public final class AnyChartView extends FrameLayout {
     }
 
     public void setJsListener(JsListener listener) {
-        this.listener = listener;
+        this.jsListener = listener;
     }
 
     public JsListener getJsListener() {
-        return listener;
+        return jsListener;
     }
 
+    public OnRenderedListener getOnRenderedListener() {
+        return onRenderedListener;
+    }
+
+    public void setOnRenderedListener(OnRenderedListener onRenderedListener) {
+        this.onRenderedListener = onRenderedListener;
+    }
 }
