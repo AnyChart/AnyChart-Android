@@ -48,8 +48,8 @@ public class Animation extends Base {
      * Setter for animation duration in milliseconds.
 See sample at {@link anychart.core.Chart#animation}.
      */
-    public com.anychart.core.utils.Animation duration(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".duration(%s);", value));
+    public com.anychart.core.utils.Animation duration(Number duration) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".duration(%s);", duration));
 
         return this;
     }
@@ -63,8 +63,8 @@ See sample at {@link anychart.core.Chart#animation}.
      * Setter for the animation enabled state.<br/>
 See sample at {@link anychart.core.Chart#animation}.
      */
-    public com.anychart.core.utils.Animation enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.utils.Animation enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }

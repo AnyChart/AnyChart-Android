@@ -47,8 +47,8 @@ public class Thumbs extends JsObject {
      * Setter for the auto hide.
 Whether the thumbs should be hidden on scroller mouse out event.
      */
-    public com.anychart.core.ui.scroller.Thumbs autoHide(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoHide(%s);", value));
+    public com.anychart.core.ui.scroller.Thumbs autoHide(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoHide(%s);", enabled));
 
         return this;
     }
@@ -62,8 +62,8 @@ Whether the thumbs should be hidden on scroller mouse out event.
      * Setter for the thumbs state.
 Whether the thumbs should be drawn.
      */
-    public com.anychart.core.ui.scroller.Thumbs enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.scroller.Thumbs enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -74,11 +74,29 @@ Whether the thumbs should be drawn.
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for thumbs fill settings using an array or a string.
+     * Setter for thumbs fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for thumbs fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.scroller.Thumbs fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for thumbs fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.scroller.Thumbs fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -171,8 +189,8 @@ Whether the thumbs should be drawn.
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.ui.scroller.Thumbs hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.scroller.Thumbs hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -185,8 +203,8 @@ Whether the thumbs should be drawn.
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.ui.scroller.Thumbs normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.scroller.Thumbs normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -200,8 +218,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -209,8 +227,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -218,8 +236,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -227,8 +245,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -236,8 +254,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -245,8 +263,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -254,8 +272,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -263,8 +281,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -272,8 +290,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.scroller.Thumbs stroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -281,8 +299,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs stroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -290,8 +308,8 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.scroller.Thumbs stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -299,16 +317,24 @@ Whether the thumbs should be drawn.
      * Setter for thumbs stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.scroller.Thumbs stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.ui.scroller.Thumbs stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.ui.scroller.Thumbs stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.scroller.Thumbs fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

@@ -46,8 +46,8 @@ public class Scroller extends JsObject {
     /**
      * Setter for the mode of the range changing. If the range changing is allowed.
      */
-    public com.anychart.standalones.Scroller allowRangeChange(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowRangeChange(%s);", value));
+    public com.anychart.standalones.Scroller allowRangeChange(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowRangeChange(%s);", enabled));
 
         return this;
     }
@@ -60,22 +60,30 @@ public class Scroller extends JsObject {
     /**
      * Setter for scroller auto hide mode.
      */
-    public com.anychart.standalones.Scroller autoHide(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoHide(%s);", value));
+    public com.anychart.standalones.Scroller autoHide(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoHide(%s);", enabled));
 
         return this;
     }
     /**
      * Getter for the scroller container.
      */
-    public void container() {
-        APIlib.getInstance().addJSLine(jsBase + ".container();");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
      * Setter for the scroller container.
      */
-    public com.anychart.standalones.Scroller container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the scroller container.
+     */
+    public com.anychart.standalones.Scroller container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
@@ -96,23 +104,23 @@ public class Scroller extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.Scroller enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.Scroller enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
     /**
-     * Getter for the ending ratio.
+     * Getter for the end ratio.
      */
     public void endRatio() {
         APIlib.getInstance().addJSLine(jsBase + ".endRatio();");
     }
     /**
-     * Setter for the ending ratio.<br/>
+     * Setter for the end ratio.<br/>
 <b>Note</b>: It is always greater than the startRatio.
      */
-    public com.anychart.standalones.Scroller endRatio(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endRatio(%s);", value));
+    public com.anychart.standalones.Scroller endRatio(Number ratio) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endRatio(%s);", ratio));
 
         return this;
     }
@@ -123,11 +131,29 @@ public class Scroller extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for scroller fill settings using an array or a string.
+     * Setter for scroller fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.standalones.Scroller fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Scroller fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.standalones.Scroller fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.standalones.Scroller fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -226,16 +252,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller height.
      */
-    public com.anychart.standalones.Scroller height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.standalones.Scroller height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for the scroller height.
      */
-    public com.anychart.standalones.Scroller height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -248,16 +274,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller maximum height.
      */
-    public com.anychart.standalones.Scroller maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.standalones.Scroller maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the scroller maximum height.
      */
-    public com.anychart.standalones.Scroller maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -270,16 +296,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller minimum height.
      */
-    public com.anychart.standalones.Scroller minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.standalones.Scroller minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the scroller minimum height.
      */
-    public com.anychart.standalones.Scroller minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -292,16 +318,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller orientation.
      */
-    public com.anychart.standalones.Scroller orientation(com.anychart.enums.Orientation value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Scroller orientation(com.anychart.enums.Orientation orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation != null) ? orientation.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the scroller orientation.
      */
-    public com.anychart.standalones.Scroller orientation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller orientation(String orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation)));
 
         return this;
     }
@@ -315,8 +341,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -324,8 +350,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -333,8 +359,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -342,8 +368,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -351,8 +377,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -360,8 +386,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -369,8 +395,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -378,8 +404,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -387,8 +413,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.standalones.Scroller outlineStroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -396,8 +422,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Scroller outlineStroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -405,8 +431,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.standalones.Scroller outlineStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -414,8 +440,16 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.Scroller outlineStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Scroller outlineStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for outline stroke using an object.
+     */
+    public com.anychart.standalones.Scroller outlineStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -429,16 +463,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.Scroller parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Scroller parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.Scroller parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -478,8 +512,26 @@ As a getter falls back to stage bounds.
      * Setter for scroller fill settings in selected mode using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.standalones.Scroller selectedFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Scroller selectedFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings in selected mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.standalones.Scroller selectedFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings in selected mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.standalones.Scroller selectedFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -595,16 +647,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the thumbs settings.
      */
-    public com.anychart.standalones.Scroller thumbs(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", value));
+    public com.anychart.standalones.Scroller thumbs(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the thumbs settings.
      */
-    public com.anychart.standalones.Scroller thumbs(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Scroller thumbs(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -646,8 +698,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.Scroller zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.standalones.Scroller zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.standalones.Scroller fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

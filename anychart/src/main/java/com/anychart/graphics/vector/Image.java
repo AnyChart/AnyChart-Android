@@ -44,7 +44,7 @@ public class Image extends Element {
 
     
     /**
-     * Getter for the current align.
+     * Getter for the align.
      */
     public void align() {
         APIlib.getInstance().addJSLine(jsBase + ".align();");
@@ -52,8 +52,8 @@ public class Image extends Element {
     /**
      * Setter for the align.
      */
-    public com.anychart.graphics.vector.Image align(com.anychart.graphics.vector.image.Align value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Image align(com.anychart.graphics.vector.image.Align align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -167,7 +167,7 @@ Removes it from the parent layer, sets links to null, removes it from DOM.
     }
     /**
      * Returns DOM element if element is rendered.<br/>
-In case of Stage in Suspended state or unbound element – null is returned.
+In case of Stage in Suspended state or unbound element - null is returned.
      */
     public void domElement() {
         APIlib.getInstance().addJSLine(jsBase + ".domElement();");
@@ -195,7 +195,7 @@ In case of Stage in Suspended state or unbound element – null is returned.
         return this;
     }
     /**
-     * Getter for the current fitting mode.
+     * Getter for the fitting mode.
      */
     public void fittingMode() {
         APIlib.getInstance().addJSLine(jsBase + ".fittingMode();");
@@ -203,16 +203,16 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Setter for the fitting mode.
      */
-    public com.anychart.graphics.vector.Image fittingMode(com.anychart.graphics.vector.image.Fitting value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Image fittingMode(com.anychart.graphics.vector.image.Fitting mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the fitting mode.
      */
-    public com.anychart.graphics.vector.Image fittingMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Image fittingMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -302,7 +302,7 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
         APIlib.getInstance().addJSLine(jsBase + ".hasParent();");
     }
     /**
-     * Getter for the current image height.
+     * Getter for the image height.
      */
     public void height() {
         APIlib.getInstance().addJSLine(jsBase + ".height();");
@@ -310,8 +310,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Setter for the image height.
      */
-    public com.anychart.graphics.vector.Image height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.graphics.vector.Image height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -324,22 +324,10 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets the element identifier.
      */
-    public com.anychart.graphics.vector.Image id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Image id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
-    }
-    /**
-     * Adds an event listener.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
     }
     /**
      * Returns the parent layer.
@@ -350,16 +338,16 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Image parent(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Image parent(com.anychart.graphics.vector.Layer parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Image parent(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Image parent(com.anychart.graphics.vector.Stage parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
@@ -466,7 +454,7 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
         return this;
     }
     /**
-     * Getter for the current image source.
+     * Getter for the image source.
      */
     public void src() {
         APIlib.getInstance().addJSLine(jsBase + ".src();");
@@ -475,8 +463,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
      * Setter for the image source.<br/>
 Set null value for non-display image.
      */
-    public com.anychart.graphics.vector.Image src(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".src(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Image src(String url) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".src(%s);", wrapQuotes(url)));
 
         return this;
     }
@@ -540,7 +528,7 @@ Set null value for non-display image.
         return this;
     }
     /**
-     * Getter for the current image width.
+     * Getter for the image width.
      */
     public void width() {
         APIlib.getInstance().addJSLine(jsBase + ".width();");
@@ -548,13 +536,13 @@ Set null value for non-display image.
     /**
      * Setter for the image width.
      */
-    public com.anychart.graphics.vector.Image width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.graphics.vector.Image width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
-     * Getter for the current X coordinate.
+     * Getter for the X coordinate.
      */
     public void x() {
         APIlib.getInstance().addJSLine(jsBase + ".x();");
@@ -562,13 +550,13 @@ Set null value for non-display image.
     /**
      * Setter for X coordinate.
      */
-    public com.anychart.graphics.vector.Image x(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".x(%s);", value));
+    public com.anychart.graphics.vector.Image x(Number xCoord) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".x(%s);", xCoord));
 
         return this;
     }
     /**
-     * Getter for the current Y coordinate.
+     * Getter for the Y coordinate.
      */
     public void y() {
         APIlib.getInstance().addJSLine(jsBase + ".y();");
@@ -576,8 +564,8 @@ Set null value for non-display image.
     /**
      * Setter for the Y coordinate.
      */
-    public com.anychart.graphics.vector.Image y(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".y(%s);", value));
+    public com.anychart.graphics.vector.Image y(Number yCoord) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".y(%s);", yCoord));
 
         return this;
     }

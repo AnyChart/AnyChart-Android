@@ -70,8 +70,8 @@ public class GanttToolbar extends JsObject {
     /**
      * Setter for the print paper sizes.
      */
-    public com.anychart.ui.GanttToolbar printPaperSizes(com.anychart.graphics.vector.PaperSize[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".printPaperSizes(%s);", arrayToString(value)));
+    public com.anychart.ui.GanttToolbar printPaperSizes(com.anychart.graphics.vector.PaperSize[] paperSizeList) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".printPaperSizes(%s);", arrayToString(paperSizeList)));
 
         return this;
     }
@@ -84,8 +84,8 @@ public class GanttToolbar extends JsObject {
     /**
      * Setter for the toolbar target.
      */
-    public com.anychart.ui.GanttToolbar target(com.anychart.core.Chart value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".target(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.ui.GanttToolbar target(com.anychart.core.Chart target) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".target(%s);", (target != null) ? target.getJsBase() : null));
 
         return this;
     }

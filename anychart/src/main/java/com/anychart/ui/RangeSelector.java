@@ -83,8 +83,8 @@ Removes it from parent layer, nulls links, removes from DOM.
     /**
      * Setter fot the label text.
      */
-    public com.anychart.ui.RangeSelector zoomLabelText(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomLabelText(%s);", wrapQuotes(value)));
+    public com.anychart.ui.RangeSelector zoomLabelText(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomLabelText(%s);", wrapQuotes(text)));
 
         return this;
     }

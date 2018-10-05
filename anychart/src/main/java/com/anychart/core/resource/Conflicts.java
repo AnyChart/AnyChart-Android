@@ -47,8 +47,8 @@ public class Conflicts extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.resource.Conflicts enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.resource.Conflicts enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -59,11 +59,29 @@ public class Conflicts extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.resource.Conflicts fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.Conflicts fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.resource.Conflicts fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.resource.Conflicts fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -157,8 +175,8 @@ public class Conflicts extends VisualBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.resource.Conflicts hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.resource.Conflicts hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -166,26 +184,26 @@ public class Conflicts extends VisualBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.resource.Conflicts hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.resource.Conflicts hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.resource.Conflicts hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.resource.Conflicts hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.resource.Conflicts hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.resource.Conflicts hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -198,8 +216,8 @@ public class Conflicts extends VisualBase {
     /**
      * Setter for height settings.
      */
-    public com.anychart.core.resource.Conflicts height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.resource.Conflicts height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -212,16 +230,16 @@ public class Conflicts extends VisualBase {
     /**
      * Setter for labels settings.
      */
-    public com.anychart.core.resource.Conflicts labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.Conflicts labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for labels settings.
      */
-    public com.anychart.core.resource.Conflicts labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.resource.Conflicts labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -248,15 +266,6 @@ public class Conflicts extends VisualBase {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the stroke using function.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.resource.Conflicts stroke(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(fillFunction)));
-
-        return this;
     }
     /**
      * Setter for the stroke.
@@ -366,6 +375,14 @@ public class Conflicts extends VisualBase {
 
         return this;
     }
+    /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.resource.Conflicts stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
@@ -404,8 +421,89 @@ public class Conflicts extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.resource.Conflicts zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.resource.Conflicts zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.resource.Conflicts container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.resource.Conflicts container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.resource.Conflicts container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.Conflicts parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.Conflicts parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.Conflicts parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.Conflicts parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.resource.Conflicts fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

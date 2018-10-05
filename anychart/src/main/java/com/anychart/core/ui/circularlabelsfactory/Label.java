@@ -85,14 +85,14 @@ public class Label extends JsObject {
     /**
      * Setter for the label anchor settings.
      */
-    public void anchor(com.anychart.enums.Anchor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (value != null) ? value.getJsBase() : null));
+    public void anchor(com.anychart.enums.Anchor anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.getJsBase() : null));
     }
     /**
      * Setter for the label anchor settings.
      */
-    public void anchor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(value)));
+    public void anchor(String anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor)));
     }
     /**
      * Getter for the label rotation.
@@ -104,8 +104,8 @@ public class Label extends JsObject {
      * Setter for the label rotation.<br/>
 Auto rotates a label around an anchor.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label autoRotate(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRotate(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label autoRotate(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRotate(%s);", enabled));
 
         return this;
     }
@@ -118,16 +118,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for label background settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for label background settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
@@ -140,8 +140,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the pointer events.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -154,8 +154,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -169,8 +169,8 @@ Auto rotates a label around an anchor.
      * Setter for the text font color.<br/>
 {@link https://www.w3schools.com/html/html_colors.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -205,8 +205,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the font family.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -219,8 +219,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -233,16 +233,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text font size.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the text font size.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -255,16 +255,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -300,8 +300,8 @@ Auto rotates a label around an anchor.
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
@@ -309,8 +309,8 @@ Auto rotates a label around an anchor.
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -329,16 +329,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.circularlabelsfactory.Label hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -351,16 +351,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the label height.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for the label height.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -374,8 +374,8 @@ Auto rotates a label around an anchor.
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -383,8 +383,8 @@ Auto rotates a label around an anchor.
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -398,8 +398,8 @@ Auto rotates a label around an anchor.
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -407,8 +407,8 @@ Auto rotates a label around an anchor.
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -421,16 +421,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label maxFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label maxFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label maxFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label maxFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -443,16 +443,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label minFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label minFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label minFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label minFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -465,16 +465,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for label offsetX settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label offsetX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label offsetX(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", offset));
 
         return this;
     }
     /**
      * Setter for label offsetX settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label offsetX(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label offsetX(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -487,16 +487,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for label offsetY settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label offsetY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label offsetY(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", offset));
 
         return this;
     }
     /**
      * Setter for label offsetY settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label offsetY(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label offsetY(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -509,32 +509,32 @@ Auto rotates a label around an anchor.
     /**
      * Setter for label padding in pixels using a single value.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for label padding in pixels using a single value.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for label padding in pixels using a single value.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for label padding in pixels using a single value.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label padding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label padding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", padding));
 
         return this;
     }
@@ -675,8 +675,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the label position settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -689,8 +689,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the position formatter.
      */
-    public void positionFormatter(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionFormatter(%s);", wrapQuotes(value)));
+    public void positionFormatter(String formatter) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionFormatter(%s);", wrapQuotes(formatter)));
     }
     /**
      * Prints all elements on related stage.
@@ -719,8 +719,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the rotate a label around an anchor.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label rotation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label rotation(Number angle) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", angle));
 
         return this;
     }
@@ -733,8 +733,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -747,16 +747,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.circularlabelsfactory.Label textDirection(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label textDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -769,8 +769,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text indent.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -811,24 +811,24 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label textSettings(String name, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label textSettings(String name, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label textSettings(String name, Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.core.ui.circularlabelsfactory.Label textSettings(String name, Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label textSettings(String name, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.core.ui.circularlabelsfactory.Label textSettings(String name, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
@@ -870,8 +870,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for flag useHTML.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -884,16 +884,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.circularlabelsfactory.Label vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -906,16 +906,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the label width.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the label width.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -928,16 +928,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.circularlabelsfactory.Label wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -950,16 +950,16 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.circularlabelsfactory.Label wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.circularlabelsfactory.Label wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -972,8 +972,8 @@ Auto rotates a label around an anchor.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.ui.circularlabelsfactory.Label zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.ui.circularlabelsfactory.Label zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -1002,6 +1002,79 @@ Auto rotates a label around an anchor.
      */
     public com.anychart.math.Rect measureWithText(String text) {
         return new com.anychart.math.Rect(String.format(Locale.US, jsBase + ".measureWithText(%s)", wrapQuotes(text)));
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.circularlabelsfactory.Label parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
 
 }

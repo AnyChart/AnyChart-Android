@@ -48,8 +48,8 @@ public class GeoTicks extends Base {
      * Setter for ticks count value.
 <b>Note:</b> Final number of ticks can be greater (one more tick can be added).
      */
-    public com.anychart.scales.GeoTicks count(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", value));
+    public com.anychart.scales.GeoTicks count(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", count));
 
         return this;
     }
@@ -80,8 +80,8 @@ Each tick is a value in terms of data, to make a tick on.<br/>
     /**
      * Setter for ticks interval value.
      */
-    public com.anychart.scales.GeoTicks interval(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interval(%s);", value));
+    public com.anychart.scales.GeoTicks interval(Number interval) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interval(%s);", interval));
 
         return this;
     }

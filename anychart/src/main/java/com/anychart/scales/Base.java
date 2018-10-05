@@ -59,8 +59,8 @@ public class Base extends JsObject {
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.Base inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.Base inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }

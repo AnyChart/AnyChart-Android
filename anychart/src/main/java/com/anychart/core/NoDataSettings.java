@@ -48,16 +48,16 @@ public class NoDataSettings extends Base {
     /**
      * Setter for no data label.
      */
-    public com.anychart.core.NoDataSettings label(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(value)));
+    public com.anychart.core.NoDataSettings label(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for no data label.
      */
-    public com.anychart.core.NoDataSettings label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.core.NoDataSettings label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }

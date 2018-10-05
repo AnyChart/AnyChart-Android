@@ -47,24 +47,24 @@ public class Linear extends JsObject {
     /**
      * Setter for the axis container.
      */
-    public com.anychart.standalones.axes.Linear container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis container.
      */
-    public com.anychart.standalones.axes.Linear container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis container.
      */
-    public com.anychart.standalones.axes.Linear container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -85,8 +85,8 @@ public class Linear extends JsObject {
     /**
      * Setter for the first label drawing flag.
      */
-    public com.anychart.standalones.axes.Linear drawFirstLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", value));
+    public com.anychart.standalones.axes.Linear drawFirstLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", enabled));
 
         return this;
     }
@@ -99,8 +99,8 @@ public class Linear extends JsObject {
     /**
      * Setter for the last label drawing flag.
      */
-    public com.anychart.standalones.axes.Linear drawLastLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", value));
+    public com.anychart.standalones.axes.Linear drawLastLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", enabled));
 
         return this;
     }
@@ -113,8 +113,8 @@ public class Linear extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.axes.Linear enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.axes.Linear enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -145,16 +145,16 @@ public class Linear extends JsObject {
     /**
      * Setter for axis labels.
      */
-    public com.anychart.standalones.axes.Linear labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis labels.
      */
-    public com.anychart.standalones.axes.Linear labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.standalones.axes.Linear labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -167,16 +167,16 @@ public class Linear extends JsObject {
     /**
      * Setter for axis minor labels.
      */
-    public com.anychart.standalones.axes.Linear minorLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear minorLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis minor labels.
      */
-    public com.anychart.standalones.axes.Linear minorLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", value));
+    public com.anychart.standalones.axes.Linear minorLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", settings));
 
         return this;
     }
@@ -189,16 +189,16 @@ public class Linear extends JsObject {
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.standalones.axes.Linear minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.standalones.axes.Linear minorTicks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", value));
+    public com.anychart.standalones.axes.Linear minorTicks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", settings));
 
         return this;
     }
@@ -211,16 +211,16 @@ public class Linear extends JsObject {
     /**
      * Setter for the axis orientation.
      */
-    public com.anychart.standalones.axes.Linear orientation(com.anychart.enums.Orientation value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear orientation(com.anychart.enums.Orientation orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation != null) ? orientation.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis orientation.
      */
-    public com.anychart.standalones.axes.Linear orientation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear orientation(String orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation)));
 
         return this;
     }
@@ -233,16 +233,16 @@ public class Linear extends JsObject {
     /**
      * Setter for labels overlap mode.
      */
-    public com.anychart.standalones.axes.Linear overlapMode(com.anychart.enums.LabelsOverlapMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear overlapMode(com.anychart.enums.LabelsOverlapMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for labels overlap mode.
      */
-    public com.anychart.standalones.axes.Linear overlapMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear overlapMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -255,24 +255,24 @@ public class Linear extends JsObject {
     /**
      * Setter for the axis paddings in pixels using a single value.
      */
-    public com.anychart.standalones.axes.Linear padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.standalones.axes.Linear padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the axis paddings in pixels using a single value.
      */
-    public com.anychart.standalones.axes.Linear padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the axis paddings in pixels using a single value.
      */
-    public com.anychart.standalones.axes.Linear padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -413,16 +413,16 @@ public class Linear extends JsObject {
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.axes.Linear parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.axes.Linear parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -461,24 +461,24 @@ public class Linear extends JsObject {
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.axes.Linear scale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear scale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.axes.Linear scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.axes.Linear scale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Linear scale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -492,8 +492,8 @@ public class Linear extends JsObject {
      * Setter for stagger lines.<br/>
 <b>Note:</b> pass <b>null</b> to enable autocalculation.
      */
-    public com.anychart.standalones.axes.Linear staggerLines(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerLines(%s);", value));
+    public com.anychart.standalones.axes.Linear staggerLines(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerLines(%s);", count));
 
         return this;
     }
@@ -506,8 +506,8 @@ public class Linear extends JsObject {
     /**
      * Setter for maximum stagger lines in autocalculation mode (if {@link anychart.core.axes.Linear#staggerLines} passed null).
      */
-    public com.anychart.standalones.axes.Linear staggerMaxLines(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMaxLines(%s);", value));
+    public com.anychart.standalones.axes.Linear staggerMaxLines(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMaxLines(%s);", count));
 
         return this;
     }
@@ -520,8 +520,8 @@ public class Linear extends JsObject {
     /**
      * Setter for the stagger mode state.
      */
-    public com.anychart.standalones.axes.Linear staggerMode(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMode(%s);", value));
+    public com.anychart.standalones.axes.Linear staggerMode(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMode(%s);", enabled));
 
         return this;
     }
@@ -640,6 +640,14 @@ public class Linear extends JsObject {
         return this;
     }
     /**
+     * Setter for axis stroke settings using an object.
+     */
+    public com.anychart.standalones.axes.Linear stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for axis ticks.
      */
     public com.anychart.core.axes.Ticks ticks() {
@@ -648,16 +656,16 @@ public class Linear extends JsObject {
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.standalones.axes.Linear ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.standalones.axes.Linear ticks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", value));
+    public com.anychart.standalones.axes.Linear ticks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", settings));
 
         return this;
     }
@@ -670,16 +678,16 @@ public class Linear extends JsObject {
     /**
      * Setter for the axis title.
      */
-    public com.anychart.standalones.axes.Linear title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.standalones.axes.Linear title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the axis title.
      */
-    public com.anychart.standalones.axes.Linear title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -721,16 +729,16 @@ public class Linear extends JsObject {
     /**
      * Setter for the axis width.
      */
-    public com.anychart.standalones.axes.Linear width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.standalones.axes.Linear width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the axis width.
      */
-    public com.anychart.standalones.axes.Linear width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -743,16 +751,8 @@ public class Linear extends JsObject {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.axes.Linear zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.standalones.axes.Linear stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Linear zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }

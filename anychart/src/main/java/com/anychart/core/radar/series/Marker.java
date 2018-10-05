@@ -40,6 +40,28 @@ public class Marker extends Base {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.SeriesA11y a11y() {
+        return new com.anychart.core.utils.SeriesA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.core.radar.series.Marker a11y(Boolean value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.core.radar.series.Marker a11y(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
      * Getter for element bottom bound settings.
      */
     public void bottom() {
@@ -48,16 +70,16 @@ public class Marker extends Base {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.radar.series.Marker bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.radar.series.Marker bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.radar.series.Marker bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -70,24 +92,24 @@ public class Marker extends Base {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.radar.series.Marker bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.radar.series.Marker bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.radar.series.Marker bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -229,8 +251,46 @@ public class Marker extends Base {
      * Setter for the series color.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.radar.series.Marker color(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker color(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
+
+        return this;
+    }
+    /**
+     * Getter for the color scale.
+     */
+    public com.anychart.scales.LinearColor colorScale() {
+        return new com.anychart.scales.LinearColor(jsBase + ".colorScale()");
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.radar.series.Marker colorScale(com.anychart.scales.LinearColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.radar.series.Marker colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.radar.series.Marker colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.radar.series.Marker colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -249,8 +309,8 @@ public class Marker extends Base {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.radar.series.Marker enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.radar.series.Marker enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -273,19 +333,29 @@ public class Marker extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.radar.series.Marker fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.radar.series.Marker fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.radar.series.Marker fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.radar.series.Marker fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -389,13 +459,13 @@ Fill as a string or an object.
         return new com.anychart.core.SeriesPoint(String.format(Locale.US, jsBase + ".getPoint(%s)", index));
     }
     /**
-     * Getter for the statistics value by key.
+     * Gets the statistics value by key.
      */
     public void getStat(com.anychart.enums.Statistics key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
     }
     /**
-     * Getter for the statistics value by key.
+     * Gets the statistics value by key.
      */
     public void getStat(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
@@ -410,8 +480,8 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.radar.series.Marker hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.radar.series.Marker hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -419,26 +489,44 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.radar.series.Marker hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.radar.series.Marker hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.radar.series.Marker hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.radar.series.Marker hatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.radar.series.Marker hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.radar.series.Marker hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.radar.series.Marker hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.radar.series.Marker hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -451,16 +539,16 @@ Fill as a string or an object.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.radar.series.Marker height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.radar.series.Marker height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.radar.series.Marker height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -497,8 +585,8 @@ Fill as a string or an object.
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.radar.series.Marker hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -511,16 +599,16 @@ Fill as a string or an object.
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.radar.series.Marker id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.radar.series.Marker id(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", value));
+    public com.anychart.core.radar.series.Marker id(Number id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", id));
 
         return this;
     }
@@ -563,16 +651,16 @@ Fill as a string or an object.
     /**
      * Setter for series data labels.
      */
-    public com.anychart.core.radar.series.Marker labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series data labels.
      */
-    public com.anychart.core.radar.series.Marker labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.radar.series.Marker labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -585,16 +673,16 @@ Fill as a string or an object.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.radar.series.Marker left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.radar.series.Marker left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.radar.series.Marker left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -607,8 +695,8 @@ Fill as a string or an object.
     /**
      * Setter for legend item settings of series.
      */
-    public com.anychart.core.radar.series.Marker legendItem(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker legendItem(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -621,16 +709,16 @@ Fill as a string or an object.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.radar.series.Marker maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.radar.series.Marker maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.radar.series.Marker maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -665,16 +753,16 @@ Fill as a string or an object.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.radar.series.Marker maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.radar.series.Marker maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.radar.series.Marker maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -701,16 +789,16 @@ Fill as a string or an object.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.radar.series.Marker minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.radar.series.Marker minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.radar.series.Marker minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -745,16 +833,16 @@ Fill as a string or an object.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.radar.series.Marker minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.radar.series.Marker minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.radar.series.Marker minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -768,8 +856,8 @@ Fill as a string or an object.
      * Setter for the series name. <br/>
 Basically, name of series is used in Legend displaying, but it can be used in tooltips as well.
      */
-    public com.anychart.core.radar.series.Marker name(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker name(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(name)));
 
         return this;
     }
@@ -782,8 +870,8 @@ Basically, name of series is used in Legend displaying, but it can be used in to
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.radar.series.Marker normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -814,16 +902,16 @@ Basically, name of series is used in Legend displaying, but it can be used in to
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.radar.series.Marker right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.radar.series.Marker right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.radar.series.Marker right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -852,8 +940,8 @@ Basically, name of series is used in Legend displaying, but it can be used in to
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.radar.series.Marker selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -865,7 +953,7 @@ Basically, name of series is used in Legend displaying, but it can be used in to
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.radar.series.Marker selectionMode(com.anychart.enums.SelectionMode value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
@@ -874,7 +962,7 @@ To select multiple points, press "ctrl" and click on them.
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.radar.series.Marker selectionMode(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
@@ -890,8 +978,8 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the marker size.
      */
-    public com.anychart.core.radar.series.Marker size(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", value));
+    public com.anychart.core.radar.series.Marker size(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", size));
 
         return this;
     }
@@ -900,14 +988,6 @@ To select multiple points, press "ctrl" and click on them.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the series stroke by function.
-     */
-    public com.anychart.core.radar.series.Marker stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for stroke settings.
@@ -1018,6 +1098,14 @@ To select multiple points, press "ctrl" and click on them.
         return this;
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.radar.series.Marker stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the series data tooltip.
      */
     public com.anychart.core.ui.Tooltip tooltip() {
@@ -1026,16 +1114,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series data tooltip.
      */
-    public com.anychart.core.radar.series.Marker tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series data tooltip.
      */
-    public com.anychart.core.radar.series.Marker tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.core.radar.series.Marker tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -1048,16 +1136,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.radar.series.Marker top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.radar.series.Marker top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.radar.series.Marker top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1159,16 +1247,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.radar.series.Marker width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.radar.series.Marker width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.radar.series.Marker width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1181,24 +1269,24 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.radar.series.Marker xScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker xScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.radar.series.Marker xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.radar.series.Marker xScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker xScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1211,24 +1299,24 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.radar.series.Marker yScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker yScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.radar.series.Marker yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.radar.series.Marker yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.radar.series.Marker yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1241,30 +1329,8 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.radar.series.Marker zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
-
-        return this;
-    }
-    /**
-     * Getter for the accessibility setting.
-     */
-    public com.anychart.core.utils.SeriesA11y a11y() {
-        return new com.anychart.core.utils.SeriesA11y(jsBase + ".a11y()");
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.core.radar.series.Marker a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.core.radar.series.Marker a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+    public com.anychart.core.radar.series.Marker zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -1287,6 +1353,79 @@ To select multiple points, press "ctrl" and click on them.
      */
     public com.anychart.core.radar.series.Marker markers(Boolean value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", value));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.radar.series.Marker container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.radar.series.Marker container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.radar.series.Marker container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.radar.series.Marker parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.radar.series.Marker parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.radar.series.Marker parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.radar.series.Marker parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -1343,6 +1482,14 @@ To select multiple points, press "ctrl" and click on them.
             e.printStackTrace();
         }
         return instance;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.radar.series.Marker fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

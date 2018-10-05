@@ -47,16 +47,16 @@ public class ImageSettings extends SettingsWithMargin {
     /**
      * Setter for the image align.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings align(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings align(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for the image align.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings align(com.anychart.graphics.vector.image.Align value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.ImageSettings align(com.anychart.graphics.vector.image.Align align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -70,8 +70,8 @@ public class ImageSettings extends SettingsWithMargin {
      * Setter for the border radius of an image in item.
 Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_border-radius.asp}
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings borderRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".borderRadius(%s);", value));
+    public com.anychart.core.resource.resourcelist.ImageSettings borderRadius(Number borders) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".borderRadius(%s);", borders));
 
         return this;
     }
@@ -79,8 +79,8 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
      * Setter for the border radius of an image in item.
 Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_border-radius.asp}
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings borderRadius(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".borderRadius(%s);", Arrays.toString(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings borderRadius(Number[] borders) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".borderRadius(%s);", Arrays.toString(borders)));
 
         return this;
     }
@@ -93,16 +93,16 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
     /**
      * Setter for the fitting mode.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings fittingMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings fittingMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
     /**
      * Setter for the fitting mode.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings fittingMode(com.anychart.graphics.vector.image.Fitting value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.ImageSettings fittingMode(com.anychart.graphics.vector.image.Fitting mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fittingMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
@@ -115,24 +115,24 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -273,8 +273,8 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
     /**
      * Setter for the image opacity.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings opacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".opacity(%s);", value));
+    public com.anychart.core.resource.resourcelist.ImageSettings opacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".opacity(%s);", opacity));
 
         return this;
     }
@@ -287,16 +287,16 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
     /**
      * Setter for the image size in item.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings size(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.ImageSettings size(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the image size in item.
      */
-    public com.anychart.core.resource.resourcelist.ImageSettings size(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", value));
+    public com.anychart.core.resource.resourcelist.ImageSettings size(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", size));
 
         return this;
     }

@@ -57,8 +57,8 @@ public class MapInteractivity extends Interactivity {
      * Setter for the copy formatter function.<br/>
 {docs:Common_Settings/Text_Formatters}Learn more about using copyFormat() method.{docs}
      */
-    public com.anychart.core.utils.MapInteractivity copyFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".copyFormat(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.MapInteractivity copyFormat(String formatFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".copyFormat(%s);", wrapQuotes(formatFunction)));
 
         return this;
     }
@@ -72,8 +72,8 @@ public class MapInteractivity extends Interactivity {
      * Allows to use drag for map.
 <b>Note:</b> Works only with {@link anychart.charts.Map#zoom}
      */
-    public com.anychart.core.utils.MapInteractivity drag(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drag(%s);", value));
+    public com.anychart.core.utils.MapInteractivity drag(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drag(%s);", enabled));
 
         return this;
     }
@@ -86,16 +86,16 @@ public class MapInteractivity extends Interactivity {
     /**
      * Setter for the hover mode.
      */
-    public com.anychart.core.utils.MapInteractivity hoverMode(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.MapInteractivity hoverMode(com.anychart.enums.HoverMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the hover mode.
      */
-    public com.anychart.core.utils.MapInteractivity hoverMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.MapInteractivity hoverMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -108,8 +108,8 @@ public class MapInteractivity extends Interactivity {
     /**
      * Allows to use the keyboard to zoom and move.
      */
-    public com.anychart.core.utils.MapInteractivity keyboardZoomAndMove(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%s);", value));
+    public com.anychart.core.utils.MapInteractivity keyboardZoomAndMove(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%s);", enabled));
 
         return this;
     }
@@ -136,8 +136,8 @@ public class MapInteractivity extends Interactivity {
     /**
      * Setter for the multi-select on click.
      */
-    public com.anychart.core.utils.MapInteractivity multiSelectOnClick(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".multiSelectOnClick(%s);", value));
+    public com.anychart.core.utils.MapInteractivity multiSelectOnClick(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".multiSelectOnClick(%s);", enabled));
 
         return this;
     }
@@ -156,16 +156,16 @@ public class MapInteractivity extends Interactivity {
     /**
      * Setter for the selection mode.
      */
-    public com.anychart.core.utils.MapInteractivity selectionMode(com.anychart.enums.SelectionMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.MapInteractivity selectionMode(com.anychart.enums.SelectionMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the selection mode.
      */
-    public com.anychart.core.utils.MapInteractivity selectionMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.MapInteractivity selectionMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -180,8 +180,8 @@ public class MapInteractivity extends Interactivity {
 Size of the area under cursor in pixels for radius hovering.
 <b>Note:</b> Works only with "by-spot" value in the {@link anychart.core.utils.Interactivity#hoverMode} method.
      */
-    public com.anychart.core.utils.MapInteractivity spotRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".spotRadius(%s);", value));
+    public com.anychart.core.utils.MapInteractivity spotRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".spotRadius(%s);", radius));
 
         return this;
     }
@@ -224,8 +224,8 @@ Size of the area under cursor in pixels for radius hovering.
      * Setter for the unselectOnClickOutOfPoint.<br/>
 If the value is <b>true<b/>, disables select all points when clicking outside the chart point.
      */
-    public com.anychart.core.utils.MapInteractivity unselectOnClickOutOfPoint(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%s);", value));
+    public com.anychart.core.utils.MapInteractivity unselectOnClickOutOfPoint(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%s);", enabled));
 
         return this;
     }
@@ -238,8 +238,8 @@ If the value is <b>true<b/>, disables select all points when clicking outside th
     /**
      * Enables double click zoom.
      */
-    public com.anychart.core.utils.MapInteractivity zoomOnDoubleClick(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%s);", value));
+    public com.anychart.core.utils.MapInteractivity zoomOnDoubleClick(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%s);", enabled));
 
         return this;
     }
@@ -252,8 +252,8 @@ If the value is <b>true<b/>, disables select all points when clicking outside th
     /**
      * Allows use the mouse wheel to zoom.
      */
-    public com.anychart.core.utils.MapInteractivity zoomOnMouseWheel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%s);", value));
+    public com.anychart.core.utils.MapInteractivity zoomOnMouseWheel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%s);", enabled));
 
         return this;
     }

@@ -64,8 +64,8 @@ Whether to the allow fractional values in ticks.<br/>
      * Setter for ticks base value.
 <b>Note:</b> it is a number that is guaranteed to set a tick if the number is located between minimum and maximum values of the scale.
      */
-    public com.anychart.scales.ScatterTicks base(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".base(%s);", value));
+    public com.anychart.scales.ScatterTicks base(Number baseValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".base(%s);", baseValue));
 
         return this;
     }
@@ -79,8 +79,8 @@ Whether to the allow fractional values in ticks.<br/>
      * Setter for ticks count value.
 <b>Note:</b> Final number of ticks can be greater (one more tick can be added).
      */
-    public com.anychart.scales.ScatterTicks count(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", value));
+    public com.anychart.scales.ScatterTicks count(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", count));
 
         return this;
     }
@@ -116,26 +116,26 @@ Whether to the allow fractional values in ticks.<br/>
         return this;
     }
     /**
-     * Getter for the current ticks mode.
+     * Getter for the ticks mode.
      */
     public void mode() {
         APIlib.getInstance().addJSLine(jsBase + ".mode();");
     }
     /**
-     * Setter for ticks mode.
+     * Setter for the ticks mode.
 <b>Note:</b> Use only with logarithmic scales.
      */
-    public com.anychart.scales.ScatterTicks mode(com.anychart.enums.ScatterTicksMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.ScatterTicks mode(com.anychart.enums.ScatterTicksMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for ticks mode.
+     * Setter for the ticks mode.
 <b>Note:</b> Use only with logarithmic scales.
      */
-    public com.anychart.scales.ScatterTicks mode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(value)));
+    public com.anychart.scales.ScatterTicks mode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(mode)));
 
         return this;
     }

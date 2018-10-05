@@ -39,6 +39,28 @@ public class TreeMap extends SeparateChart {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.ChartA11y a11y() {
+        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.TreeMap a11y(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.TreeMap a11y(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for animation settings.
      */
     public com.anychart.core.utils.Animation animation() {
@@ -47,16 +69,16 @@ public class TreeMap extends SeparateChart {
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.TreeMap animation(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", value));
+    public com.anychart.charts.TreeMap animation(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", settings));
 
         return this;
     }
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.TreeMap animation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap animation(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -79,8 +101,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the autoRedraw flag.<br/>
 Flag whether to automatically call chart.draw() on any changes or not.
      */
-    public com.anychart.charts.TreeMap autoRedraw(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", value));
+    public com.anychart.charts.TreeMap autoRedraw(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", enabled));
 
         return this;
     }
@@ -93,8 +115,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart background.
      */
-    public com.anychart.charts.TreeMap background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -107,16 +129,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.TreeMap bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.charts.TreeMap bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.TreeMap bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -129,24 +151,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.TreeMap bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.TreeMap bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.TreeMap bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -287,7 +309,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
-     * Getter for the current color range.
+     * Getter for the color range.
      */
     public com.anychart.core.ui.ColorRange colorRange() {
         return new com.anychart.core.ui.ColorRange(jsBase + ".colorRange()");
@@ -295,8 +317,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the color range.
      */
-    public com.anychart.charts.TreeMap colorRange(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorRange(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap colorRange(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorRange(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -309,26 +331,26 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the color scale.
      */
-    public com.anychart.scales.LinearColor colorScale(com.anychart.scales.OrdinalColor value) {
-        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.LinearColor colorScale(com.anychart.scales.OrdinalColor settings) {
+        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.scales.LinearColor colorScale(com.anychart.scales.LinearColor value) {
-        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.LinearColor colorScale(com.anychart.scales.LinearColor settings) {
+        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.scales.LinearColor colorScale(String value) {
-        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", wrapQuotes(value)));
+    public com.anychart.scales.LinearColor colorScale(String settings) {
+        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", wrapQuotes(settings)));
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.scales.LinearColor colorScale(com.anychart.enums.ScaleTypes value) {
-        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.LinearColor colorScale(com.anychart.enums.ScaleTypes settings) {
+        return new com.anychart.scales.LinearColor(String.format(Locale.US, jsBase + ".colorScale(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Getter for the element's container.
@@ -339,24 +361,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.TreeMap container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.TreeMap container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.TreeMap container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -437,8 +459,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.charts.TreeMap enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.charts.TreeMap enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -451,31 +473,41 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the export charts.
      */
-    public com.anychart.charts.TreeMap exports(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current fill color.
+     * Getter for the fill color.
      */
     public void fill() {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Sets fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.TreeMap fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Sets fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.TreeMap fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.charts.TreeMap fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.TreeMap fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -560,6 +592,20 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
+     * Getter for the fullscreen mode.
+     */
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.charts.TreeMap fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
+
+        return this;
+    }
+    /**
      * Returns crumbs from the root to the current level.
      */
     public void getDrilldownPath() {
@@ -579,7 +625,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalToLocal(%s, %s);", xCoord, yCoord));
     }
     /**
-     * Getter for current hatch fill settings.
+     * Getter for hatch fill settings.
      */
     public com.anychart.graphics.vector.PatternFill hatchFill() {
         return new com.anychart.graphics.vector.PatternFill(jsBase + ".hatchFill()");
@@ -587,45 +633,57 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the hatch fill settings.
      */
-    public com.anychart.charts.TreeMap hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.TreeMap hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
      * Setter for the hatch fill settings.
      */
-    public com.anychart.charts.TreeMap hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.TreeMap hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for the hatch fill settings.
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.TreeMap hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.charts.TreeMap hatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for the hatch fill settings.
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.TreeMap hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.TreeMap hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the hatch fill settings.
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.TreeMap hatchFill(Boolean patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", patternFillOrType, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.TreeMap hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the current point header labels.
+     * Setter for hatch fill using boolean.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.charts.TreeMap hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
+
+        return this;
+    }
+    /**
+     * Getter for the point header labels.
      */
     public com.anychart.core.ui.LabelsFactory headers() {
         return new com.anychart.core.ui.LabelsFactory(jsBase + ".headers()");
@@ -633,21 +691,21 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the point header labels.
      */
-    public com.anychart.charts.TreeMap headers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap headers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the point header labels.
      */
-    public com.anychart.charts.TreeMap headers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", value));
+    public com.anychart.charts.TreeMap headers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current headers display mode.
+     * Getter for the headers display mode.
      */
     public void headersDisplayMode() {
         APIlib.getInstance().addJSLine(jsBase + ".headersDisplayMode();");
@@ -655,16 +713,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the headers display mode.
      */
-    public com.anychart.charts.TreeMap headersDisplayMode(com.anychart.enums.LabelsDisplayMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headersDisplayMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap headersDisplayMode(com.anychart.enums.LabelsDisplayMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headersDisplayMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the headers display mode.
      */
-    public com.anychart.charts.TreeMap headersDisplayMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headersDisplayMode(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap headersDisplayMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headersDisplayMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -677,21 +735,21 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.TreeMap height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.charts.TreeMap height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.TreeMap height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
-     * Getter for the current additional segmentation of treeMap points.
+     * Getter for the additional segmentation of treeMap points.
      */
     public void hintDepth() {
         APIlib.getInstance().addJSLine(jsBase + ".hintDepth();");
@@ -699,22 +757,22 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the additional segmentation of treeMap points.
      */
-    public com.anychart.charts.TreeMap hintDepth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hintDepth(%s);", value));
+    public com.anychart.charts.TreeMap hintDepth(Number hintDepth) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hintDepth(%s);", hintDepth));
 
         return this;
     }
     /**
-     * Getter for the current hint opacity.
+     * Getter for the hint opacity.
      */
     public void hintOpacity() {
         APIlib.getInstance().addJSLine(jsBase + ".hintOpacity();");
     }
     /**
-     * Setter for current hint opacity.
+     * Setter for the hint opacity.
      */
-    public com.anychart.charts.TreeMap hintOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hintOpacity(%s);", value));
+    public com.anychart.charts.TreeMap hintOpacity(Number hintOpacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hintOpacity(%s);", hintOpacity));
 
         return this;
     }
@@ -727,8 +785,22 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.charts.TreeMap hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for chart id.
+     */
+    public void id() {
+        APIlib.getInstance().addJSLine(jsBase + ".id();");
+    }
+    /**
+     * Setter for chart id.
+     */
+    public com.anychart.charts.TreeMap id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -747,18 +819,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.charts.TreeMap interactivity(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap interactivity(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.charts.TreeMap interactivity(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap interactivity(com.anychart.enums.HoverMode settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
+    }
+    /**
+     * Whether the fullscreen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for the chart label.
@@ -775,45 +853,45 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.TreeMap label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.charts.TreeMap label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.TreeMap label(String index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), value));
+    public com.anychart.charts.TreeMap label(String index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.TreeMap label(String index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.charts.TreeMap label(String index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.TreeMap label(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, value));
+    public com.anychart.charts.TreeMap label(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.TreeMap label(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.TreeMap label(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current point labels.
+     * Getter for the point labels.
      */
     public com.anychart.core.ui.LabelsFactory labels() {
         return new com.anychart.core.ui.LabelsFactory(jsBase + ".labels()");
@@ -821,16 +899,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the point labels.
      */
-    public com.anychart.charts.TreeMap labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the point labels.
      */
-    public com.anychart.charts.TreeMap labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.charts.TreeMap labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -843,16 +921,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the labels display mode.
      */
-    public com.anychart.charts.TreeMap labelsDisplayMode(com.anychart.enums.LabelsDisplayMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap labelsDisplayMode(com.anychart.enums.LabelsDisplayMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the labels display mode.
      */
-    public com.anychart.charts.TreeMap labelsDisplayMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap labelsDisplayMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -865,16 +943,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.TreeMap left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.charts.TreeMap left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.TreeMap left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -887,16 +965,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.charts.TreeMap legend(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap legend(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.charts.TreeMap legend(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", value));
+    public com.anychart.charts.TreeMap legend(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", settings));
 
         return this;
     }
@@ -909,7 +987,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
     }
     /**
      * Getter for the chart margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -917,24 +995,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.TreeMap margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.charts.TreeMap margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.TreeMap margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.TreeMap margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.TreeMap margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -1067,29 +1145,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
-     * Getter for the current point markers.
+     * Getter for point markers.
      */
     public com.anychart.core.ui.MarkersFactory markers() {
         return new com.anychart.core.ui.MarkersFactory(jsBase + ".markers()");
     }
     /**
-     * Setter for the point markers.
+     * Setter for point markers.
      */
-    public com.anychart.charts.TreeMap markers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap markers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Setter for the point markers.
+     * Setter for point markers.
      */
-    public com.anychart.charts.TreeMap markers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", value));
+    public com.anychart.charts.TreeMap markers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current maximal drawing depth.
+     * Getter for the maximal drawing depth.
      */
     public void maxDepth() {
         APIlib.getInstance().addJSLine(jsBase + ".maxDepth();");
@@ -1097,8 +1175,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximal drawing depth.
      */
-    public com.anychart.charts.TreeMap maxDepth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxDepth(%s);", value));
+    public com.anychart.charts.TreeMap maxDepth(Number maxDepth) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxDepth(%s);", maxDepth));
 
         return this;
     }
@@ -1111,16 +1189,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum headers height.
      */
-    public com.anychart.charts.TreeMap maxHeadersHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeadersHeight(%s);", value));
+    public com.anychart.charts.TreeMap maxHeadersHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeadersHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum headers height.
      */
-    public com.anychart.charts.TreeMap maxHeadersHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeadersHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap maxHeadersHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeadersHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1133,16 +1211,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.TreeMap maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.charts.TreeMap maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.TreeMap maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1155,16 +1233,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.TreeMap maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.charts.TreeMap maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.TreeMap maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1177,16 +1255,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.TreeMap minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.charts.TreeMap minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.TreeMap minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1199,16 +1277,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.TreeMap minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.charts.TreeMap minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.TreeMap minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1222,8 +1300,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for noData settings.<br/>
 {docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
      */
-    public com.anychart.charts.TreeMap noData(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap noData(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1236,14 +1314,14 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.charts.TreeMap normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -1251,24 +1329,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.TreeMap padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.charts.TreeMap padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.TreeMap padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.TreeMap padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.TreeMap padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1427,16 +1505,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.TreeMap right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.charts.TreeMap right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.TreeMap right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1495,11 +1573,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(jsBase + ".selectMarqueeFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.TreeMap selectMarqueeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap selectMarqueeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.TreeMap selectMarqueeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.TreeMap selectMarqueeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1706,13 +1802,13 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.charts.TreeMap selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current selection mode.
+     * Getter for the selection mode.
      */
     public void selectionMode() {
         APIlib.getInstance().addJSLine(jsBase + ".selectionMode();");
@@ -1734,7 +1830,31 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
-     * Getter for the current sort settings.
+     * Opens Facebook sharing dialog.
+     */
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
+    }
+    /**
+     * Opens LinkedIn sharing dialog.
+     */
+    public void shareWithLinkedIn(String captionOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Pinterest sharing dialog.
+     */
+    public void shareWithPinterest(String linkOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Twitter sharing dialog.
+     */
+    public void shareWithTwitter() {
+        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
+    }
+    /**
+     * Getter for the sort settings.
      */
     public void sort() {
         APIlib.getInstance().addJSLine(jsBase + ".sort();");
@@ -1743,8 +1863,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the sort settings.<br/>
 Ascending, Descending and No sorting is supported.
      */
-    public com.anychart.charts.TreeMap sort(com.anychart.enums.Sort value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.TreeMap sort(com.anychart.enums.Sort type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -1752,8 +1872,8 @@ Ascending, Descending and No sorting is supported.
      * Setter for the sort settings.<br/>
 Ascending, Descending and No sorting is supported.
      */
-    public com.anychart.charts.TreeMap sort(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap sort(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -1767,19 +1887,10 @@ Ascending, Descending and No sorting is supported.
         return this;
     }
     /**
-     * Getter for the current stroke.
+     * Getter for the stroke.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the stroke using function.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.charts.TreeMap stroke(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(fillFunction)));
-
-        return this;
     }
     /**
      * Setter for the stroke.
@@ -1890,6 +2001,14 @@ Ascending, Descending and No sorting is supported.
         return this;
     }
     /**
+     * Setter for stroke settings using an object.
+     */
+    public com.anychart.charts.TreeMap stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the chart title.
      */
     public com.anychart.core.ui.Title title() {
@@ -1898,16 +2017,16 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.TreeMap title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.charts.TreeMap title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.TreeMap title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1944,16 +2063,16 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.TreeMap tooltip(String tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltipSettings)));
+    public com.anychart.charts.TreeMap tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.TreeMap tooltip(Boolean tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltipSettings));
+    public com.anychart.charts.TreeMap tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -1966,16 +2085,16 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.TreeMap top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.charts.TreeMap top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.TreeMap top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -2017,16 +2136,16 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.TreeMap width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.charts.TreeMap width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.TreeMap width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -2039,30 +2158,8 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.charts.TreeMap zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
-
-        return this;
-    }
-    /**
-     * Getter for the accessibility setting.
-     */
-    public com.anychart.core.utils.ChartA11y a11y() {
-        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.TreeMap a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.TreeMap a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -2075,54 +2172,18 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.TreeMap contextMenu(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(value)));
+    public com.anychart.charts.TreeMap contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.TreeMap contextMenu(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", value));
+    public com.anychart.charts.TreeMap contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
 
         return this;
-    }
-    /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality));
     }
     /**
      * Getter for the selected points.
@@ -2141,30 +2202,6 @@ Ascending, Descending and No sorting is supported.
      */
     public void getStat(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
     }
     /**
      * Saves chart config as JSON document.
@@ -2191,90 +2228,6 @@ Ascending, Descending and No sorting is supported.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".saveAsXml(%s);", wrapQuotes(filename)));
     }
     /**
-     * Shares a chart as a JPG file and returns a link to the shared image.
-     */
-    public void shareAsJpg(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Opens Facebook sharing dialog.
-     */
-    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
-    }
-    /**
-     * Opens LinkedIn sharing dialog.
-     */
-    public void shareWithLinkedIn(String captionOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Pinterest sharing dialog.
-     */
-    public void shareWithPinterest(String linkOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Twitter sharing dialog.
-     */
-    public void shareWithTwitter() {
-        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
-    }
-    /**
      * Creates and returns the chart represented as an invisible HTML table.
      */
     public void toA11yTable(String title, Boolean asString) {
@@ -2285,6 +2238,49 @@ Ascending, Descending and No sorting is supported.
      */
     public void toHtmlTable(String title, Boolean asString) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %s);", wrapQuotes(title), asString));
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.TreeMap parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.TreeMap parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.TreeMap parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.TreeMap parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 
@@ -2303,6 +2299,14 @@ Ascending, Descending and No sorting is supported.
      */
     public com.anychart.data.Tree data(List<DataEntry> data, String fillMethod) {
         return new com.anychart.data.Tree(String.format(Locale.US, jsBase + ".data(%s, %s)", arrayToString(data), wrapQuotes(fillMethod)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.charts.TreeMap fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

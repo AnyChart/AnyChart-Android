@@ -77,8 +77,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the allowLeaveChart tooltip mode.
      */
-    public com.anychart.core.ui.Tooltip allowLeaveChart(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowLeaveChart(%s);", value));
+    public com.anychart.core.ui.Tooltip allowLeaveChart(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowLeaveChart(%s);", enabled));
 
         return this;
     }
@@ -91,8 +91,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the allowLeaveScreen tooltip mode.
      */
-    public com.anychart.core.ui.Tooltip allowLeaveScreen(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowLeaveScreen(%s);", value));
+    public com.anychart.core.ui.Tooltip allowLeaveScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowLeaveScreen(%s);", enabled));
 
         return this;
     }
@@ -105,8 +105,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the allowLeaveStage tooltip mode.
      */
-    public com.anychart.core.ui.Tooltip allowLeaveStage(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowLeaveStage(%s);", value));
+    public com.anychart.core.ui.Tooltip allowLeaveStage(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowLeaveStage(%s);", enabled));
 
         return this;
     }
@@ -119,16 +119,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip anchor.
      */
-    public com.anychart.core.ui.Tooltip anchor(com.anychart.enums.Anchor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip anchor(com.anychart.enums.Anchor anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the tooltip anchor.
      */
-    public com.anychart.core.ui.Tooltip anchor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip anchor(String anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor)));
 
         return this;
     }
@@ -141,16 +141,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for tooltip background settings.
      */
-    public com.anychart.core.ui.Tooltip background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.ui.Tooltip background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
     /**
      * Setter for tooltip background settings.
      */
-    public com.anychart.core.ui.Tooltip background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -163,8 +163,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the pointer events setting.
      */
-    public com.anychart.core.ui.Tooltip disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.ui.Tooltip disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -201,8 +201,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.ui.Tooltip enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.Tooltip enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -215,8 +215,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font color settings.
      */
-    public com.anychart.core.ui.Tooltip fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -251,8 +251,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font family settings.
      */
-    public com.anychart.core.ui.Tooltip fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -265,8 +265,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font opacity settings.
      */
-    public com.anychart.core.ui.Tooltip fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.ui.Tooltip fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -279,16 +279,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.ui.Tooltip fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.ui.Tooltip fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.ui.Tooltip fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -301,16 +301,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.ui.Tooltip fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.ui.Tooltip fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
@@ -345,16 +345,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.ui.Tooltip fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.ui.Tooltip fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.ui.Tooltip fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -368,8 +368,8 @@ public class Tooltip extends VisualBase {
      * Setter for function content text for the tooltip.<br/>
 {docs:Common_Settings/Text_Formatters}Learn more about using the format() method.{docs}
      */
-    public com.anychart.core.ui.Tooltip format(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip format(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -382,16 +382,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the text horizontal align settings.
      */
-    public com.anychart.core.ui.Tooltip hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for the text horizontal align settings.
      */
-    public com.anychart.core.ui.Tooltip hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -404,16 +404,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip height.
      */
-    public com.anychart.core.ui.Tooltip height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the tooltip height.
      */
-    public com.anychart.core.ui.Tooltip height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.ui.Tooltip height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -426,8 +426,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the delay in milliseconds before a tooltip becomes hidden.
      */
-    public com.anychart.core.ui.Tooltip hideDelay(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hideDelay(%s);", value));
+    public com.anychart.core.ui.Tooltip hideDelay(Number delay) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hideDelay(%s);", delay));
 
         return this;
     }
@@ -440,8 +440,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for text letter spacing settings.
      */
-    public com.anychart.core.ui.Tooltip letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.ui.Tooltip letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -454,16 +454,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for text line height settings.
      */
-    public com.anychart.core.ui.Tooltip lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.ui.Tooltip lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for text line height settings.
      */
-    public com.anychart.core.ui.Tooltip lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -476,16 +476,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public com.anychart.core.ui.Tooltip maxFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", value));
+    public com.anychart.core.ui.Tooltip maxFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public com.anychart.core.ui.Tooltip maxFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip maxFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -498,16 +498,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.ui.Tooltip minFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", value));
+    public com.anychart.core.ui.Tooltip minFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.ui.Tooltip minFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip minFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -520,8 +520,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for union tooltip offsetX.
      */
-    public com.anychart.core.ui.Tooltip offsetX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", value));
+    public com.anychart.core.ui.Tooltip offsetX(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", offset));
 
         return this;
     }
@@ -534,8 +534,81 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip offset by Y.
      */
-    public com.anychart.core.ui.Tooltip offsetY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", value));
+    public com.anychart.core.ui.Tooltip offsetY(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", offset));
+
+        return this;
+    }
+    /**
+     * Getter for the onBeforeContentChange handler.
+     */
+    public void onBeforeContentChange() {
+        APIlib.getInstance().addJSLine(jsBase + ".onBeforeContentChange();");
+    }
+    /**
+     * Getter for the onBeforeTitleChange handler.
+     */
+    public void onBeforeTitleChange() {
+        APIlib.getInstance().addJSLine(jsBase + ".onBeforeTitleChange();");
+    }
+    /**
+     * Getter for the onContentChanged handler.
+     */
+    public void onContentChanged() {
+        APIlib.getInstance().addJSLine(jsBase + ".onContentChanged();");
+    }
+    /**
+     * Setter for the onContentChanged handler.<br/>
+Enable HTML-mode for the tooltip with {api:anychart.core.ui.Tooltip#useHtml}tooltip.useHtml(true){api} to work with onContentChanged().<br/>
+<br/>
+The method informs that the content has been changed.<br/>
+The onContentChanged() method is called only if the {api:anychart.core.ui.Tooltip#onBeforeContentChange}onBeforeContentChange(){api} method returns <b>true</b>.<br/>
+<br/>
+See the structure of HTML-tooltip elements in the {api:anychart.core.ui.Tooltip#useHtml}useHtml() method{api}.
+     */
+    public com.anychart.core.ui.Tooltip onContentChanged(String handler) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".onContentChanged(%s);", wrapQuotes(handler)));
+
+        return this;
+    }
+    /**
+     * Getter for the onDomReady handler.
+     */
+    public void onDomReady() {
+        APIlib.getInstance().addJSLine(jsBase + ".onDomReady();");
+    }
+    /**
+     * Setter for the onDomReady handler.<br/>
+Enable HTML-mode for the tooltip with {api:anychart.core.ui.Tooltip#useHtml}tooltip.useHtml(true){api} to work with onDomReady().<br/>
+<br/>
+The handler set from the onDomReady() method is called once when all elements of the HTML-tooltip have been created.<br/>
+The handler set from the onDomReady() method is called for each tooltip on the chart. Setting the onDomReady() handler to a chart calls a handler for each
+tooltip on the chart (for example, several tooltips for separated mode).<br/>
+<br/>
+See the structure of HTML-tooltip elements in the {api:anychart.core.ui.Tooltip#useHtml}useHtml() method{api}.
+     */
+    public com.anychart.core.ui.Tooltip onDomReady(String handler) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".onDomReady(%s);", wrapQuotes(handler)));
+
+        return this;
+    }
+    /**
+     * Getter for the onTitleChanged handler.
+     */
+    public void onTitleChanged() {
+        APIlib.getInstance().addJSLine(jsBase + ".onTitleChanged();");
+    }
+    /**
+     * Setter for the onTitleChanged handler.<br/>
+Enable HTML-mode for the tooltip with {api:anychart.core.ui.Tooltip#useHtml}tooltip.useHtml(true){api} to work with onTitleChanged().<br/>
+<br/>
+The method informs that the title has been changed.<br/>
+The onTitleChanged() method is called only if the {api:anychart.core.ui.Tooltip#onBeforeTitleChange}onBeforeTitleChange(){api} method returns <b>true</b>.<br/>
+<br/>
+See the structure of HTML-tooltip elements in the {api:anychart.core.ui.Tooltip#useHtml}useHtml() method{api}.
+     */
+    public com.anychart.core.ui.Tooltip onTitleChanged(String handler) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".onTitleChanged(%s);", wrapQuotes(handler)));
 
         return this;
     }
@@ -548,24 +621,24 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip padding in pixels by one value.
      */
-    public com.anychart.core.ui.Tooltip padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.core.ui.Tooltip padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the tooltip padding in pixels by one value.
      */
-    public com.anychart.core.ui.Tooltip padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the tooltip padding in pixels by one value.
      */
-    public com.anychart.core.ui.Tooltip padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -707,8 +780,8 @@ public class Tooltip extends VisualBase {
      * Setter for the union tooltip position.<br/>
 <b>Note:</b> Do not works with position mode <b>FLOAT</b>.
      */
-    public com.anychart.core.ui.Tooltip position(com.anychart.enums.Position value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip position(com.anychart.enums.Position position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.getJsBase() : null));
 
         return this;
     }
@@ -716,8 +789,8 @@ public class Tooltip extends VisualBase {
      * Setter for the union tooltip position.<br/>
 <b>Note:</b> Do not works with position mode <b>FLOAT</b>.
      */
-    public com.anychart.core.ui.Tooltip position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -730,16 +803,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for all tooltips position mode.
      */
-    public com.anychart.core.ui.Tooltip positionMode(com.anychart.enums.TooltipPositionMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip positionMode(com.anychart.enums.TooltipPositionMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for all tooltips position mode.
      */
-    public com.anychart.core.ui.Tooltip positionMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip positionMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -770,8 +843,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the text selectable option.
      */
-    public com.anychart.core.ui.Tooltip selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.ui.Tooltip selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -784,16 +857,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the union tooltip separator.
      */
-    public com.anychart.core.ui.Tooltip separator(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".separator(%s);", value));
+    public com.anychart.core.ui.Tooltip separator(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".separator(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the union tooltip separator.
      */
-    public com.anychart.core.ui.Tooltip separator(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".separator(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip separator(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".separator(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -828,8 +901,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for text-indent settings.
      */
-    public com.anychart.core.ui.Tooltip textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.ui.Tooltip textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -864,8 +937,8 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the full text appearance settings.
      */
-    public com.anychart.core.ui.Tooltip textSettings(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip textSettings(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -902,16 +975,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for union tooltip title visual settings.
      */
-    public com.anychart.core.ui.Tooltip title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.core.ui.Tooltip title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for union tooltip title visual settings.
      */
-    public com.anychart.core.ui.Tooltip title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -925,8 +998,8 @@ public class Tooltip extends VisualBase {
      * Setter for the function to format title.<br/>
 <b>Note:</b> Use {@link anychart.core.ui.Tooltip#title} method to set title visual settings.
      */
-    public com.anychart.core.ui.Tooltip titleFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip titleFormat(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -940,8 +1013,8 @@ public class Tooltip extends VisualBase {
      * Setter for the function content text for union tooltip.<br/>
 {docs:Common_Settings/Text_Formatters}Learn more about using unionFormat() method.{docs}
      */
-    public com.anychart.core.ui.Tooltip unionFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unionFormat(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip unionFormat(String unionFormat) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unionFormat(%s);", wrapQuotes(unionFormat)));
 
         return this;
     }
@@ -981,10 +1054,22 @@ public class Tooltip extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".useHtml();");
     }
     /**
-     * Setter for the useHTML flag.
+     * Setter for the HTML tooltip mode.
+{docs:Common_Settings/Tooltip#html}Learn more about HTML tooltip{docs}<br/>
+When the HTML tooltip mode is set to <b>true</b> AnyChart Component installs default tooltip CSS classes.
+Override the CSS class of the tooltip to customize the tooltip visually. {docs:Common_Settings/Tooltip#css_classes}Learn more about CSS Classes{docs}
+HTML-tooltip has the following DOM structure:
+<pre>&lt;div class=&quot;anychart-tooltip&quot;&gt; // The basic HTML-element. The parent DIV of the entire element.
+     &lt;div class=&quot;anychart-tooltip-title&quot;&gt;&lt;/div&gt; // The title element.
+     &lt;hr noshade=&quot;true&quot; class=&quot;anychart-tooltip-separator&quot;&gt; // The tooltip separator element.
+     &lt;div&gt;&lt;/div&gt; // The content element.
+&lt;/div&gt; </pre>
+<br/>
+The HTML text obtained from {api:anychart.core.ui.Tooltip#format}tooltip.format(){api} is rendered to the contentElement.<br/>
+The HTML text obtained from {api:anychart.core.ui.Tooltip#titleFormat}tooltip.titleFormat(){api} is rendered to the tltleElement.
      */
-    public com.anychart.core.ui.Tooltip useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.ui.Tooltip useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -997,16 +1082,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.ui.Tooltip vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.ui.Tooltip vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -1047,16 +1132,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip width.
      */
-    public com.anychart.core.ui.Tooltip width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for the tooltip width.
      */
-    public com.anychart.core.ui.Tooltip width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.ui.Tooltip width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
@@ -1069,16 +1154,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.ui.Tooltip wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.ui.Tooltip wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1091,16 +1176,16 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.ui.Tooltip wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Tooltip wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.ui.Tooltip wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Tooltip wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1113,8 +1198,81 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.ui.Tooltip zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.ui.Tooltip zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.Tooltip container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.Tooltip container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.Tooltip container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Tooltip parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Tooltip parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Tooltip parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Tooltip parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

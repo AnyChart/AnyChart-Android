@@ -47,8 +47,8 @@ public class Outline extends Base {
     /**
      * Setter for the outline enabled state.
      */
-    public com.anychart.core.ui.Outline enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.Outline enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -68,11 +68,20 @@ public class Outline extends Base {
         return this;
     }
     /**
-     * Setter for the fill using a function.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Outline fill(String function) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(function)));
+    public com.anychart.core.ui.Outline fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Outline fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -165,16 +174,16 @@ public class Outline extends Base {
     /**
      * Setter for the outline offset.
      */
-    public com.anychart.core.ui.Outline offset(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Outline offset(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(offset)));
 
         return this;
     }
     /**
      * Setter for the outline offset.
      */
-    public com.anychart.core.ui.Outline offset(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", value));
+    public com.anychart.core.ui.Outline offset(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", offset));
 
         return this;
     }
@@ -183,12 +192,6 @@ public class Outline extends Base {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the stroke by function.
-     */
-    public com.anychart.core.map.series.Base stroke(String strokeFunction) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s)", wrapQuotes(strokeFunction)));
     }
     /**
      * Setter for stroke settings.
@@ -222,34 +225,6 @@ public class Outline extends Base {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.map.series.Base stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
-    }
-    /**
-     * Setter for stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.map.series.Base stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
-    }
-    /**
-     * Setter for stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.map.series.Base stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
-    }
-    /**
-     * Setter for stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.map.series.Base stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
-    }
-    /**
-     * Setter for stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
     public com.anychart.core.map.series.Base stroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
     }
@@ -275,6 +250,14 @@ public class Outline extends Base {
         return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.ui.Outline stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the outline width.
      */
     public void width() {
@@ -283,16 +266,16 @@ public class Outline extends Base {
     /**
      * Setter for the outline width.
      */
-    public com.anychart.core.ui.Outline width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Outline width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for the outline width.
      */
-    public com.anychart.core.ui.Outline width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.ui.Outline width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
@@ -330,6 +313,14 @@ public class Outline extends Base {
      */
     public void unlistenByKey(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.ui.Outline fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

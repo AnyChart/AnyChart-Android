@@ -40,6 +40,28 @@ public class LinearGauge extends SeparateChart {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.ChartA11y a11y() {
+        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.LinearGauge a11y(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.LinearGauge a11y(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Adds pointers to the gauge.
      */
     public void addPointer(Number var_args) {
@@ -72,16 +94,16 @@ public class LinearGauge extends SeparateChart {
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.LinearGauge animation(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", value));
+    public com.anychart.charts.LinearGauge animation(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", settings));
 
         return this;
     }
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.LinearGauge animation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge animation(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -104,8 +126,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the autoRedraw flag.<br/>
 Flag whether to automatically call chart.draw() on any changes or not.
      */
-    public com.anychart.charts.LinearGauge autoRedraw(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", value));
+    public com.anychart.charts.LinearGauge autoRedraw(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", enabled));
 
         return this;
     }
@@ -118,32 +140,32 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the gauge axis.
      */
-    public com.anychart.charts.LinearGauge axis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge axis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the gauge axis.
      */
-    public com.anychart.charts.LinearGauge axis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", value));
+    public com.anychart.charts.LinearGauge axis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart axis by index.
      */
-    public com.anychart.charts.LinearGauge axis(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge axis(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart axis by index.
      */
-    public com.anychart.charts.LinearGauge axis(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s, %s);", index, value));
+    public com.anychart.charts.LinearGauge axis(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s, %s);", index, settings));
 
         return this;
     }
@@ -156,8 +178,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart background.
      */
-    public com.anychart.charts.LinearGauge background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -176,16 +198,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.LinearGauge bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.charts.LinearGauge bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.LinearGauge bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -198,24 +220,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.LinearGauge bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.LinearGauge bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.LinearGauge bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -364,24 +386,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.LinearGauge container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.LinearGauge container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.LinearGauge container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -394,16 +416,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.LinearGauge contextMenu(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.LinearGauge contextMenu(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", value));
+    public com.anychart.charts.LinearGauge contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
 
         return this;
     }
@@ -446,16 +468,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the linear gauge pointer type by default.
      */
-    public com.anychart.charts.LinearGauge defaultPointerType(com.anychart.enums.LinearGaugePointerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultPointerType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge defaultPointerType(com.anychart.enums.LinearGaugePointerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultPointerType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the linear gauge pointer type by default.
      */
-    public com.anychart.charts.LinearGauge defaultPointerType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultPointerType(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge defaultPointerType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultPointerType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -482,8 +504,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.charts.LinearGauge enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.charts.LinearGauge enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -496,8 +518,22 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the export charts.
      */
-    public com.anychart.charts.LinearGauge exports(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for the fullscreen mode.
+     */
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.charts.LinearGauge fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
 
         return this;
     }
@@ -550,6 +586,12 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
     }
     /**
+     * Returns chart type.
+     */
+    public void getType() {
+        APIlib.getInstance().addJSLine(jsBase + ".getType();");
+    }
+    /**
      * Getter for the global offset of a linear gauge.
      */
     public void globalOffset() {
@@ -558,16 +600,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the global offset of a linear gauge.
      */
-    public com.anychart.charts.LinearGauge globalOffset(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalOffset(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge globalOffset(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalOffset(%s);", wrapQuotes(offset)));
 
         return this;
     }
     /**
      * Setter for the global offset of a linear gauge.
      */
-    public com.anychart.charts.LinearGauge globalOffset(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalOffset(%s);", value));
+    public com.anychart.charts.LinearGauge globalOffset(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalOffset(%s);", offset));
 
         return this;
     }
@@ -587,24 +629,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the gauge hatch fill palette settings.
      */
-    public com.anychart.charts.LinearGauge hatchFillPalette(com.anychart.graphics.vector.hatchfill.HatchFillType[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(value)));
+    public com.anychart.charts.LinearGauge hatchFillPalette(com.anychart.graphics.vector.hatchfill.HatchFillType[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(settings)));
 
         return this;
     }
     /**
      * Setter for the gauge hatch fill palette settings.
      */
-    public com.anychart.charts.LinearGauge hatchFillPalette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge hatchFillPalette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the gauge hatch fill palette settings.
      */
-    public com.anychart.charts.LinearGauge hatchFillPalette(com.anychart.palettes.HatchFills value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge hatchFillPalette(com.anychart.palettes.HatchFills settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -617,16 +659,30 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.LinearGauge height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.charts.LinearGauge height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.LinearGauge height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
+
+        return this;
+    }
+    /**
+     * Getter for chart id.
+     */
+    public void id() {
+        APIlib.getInstance().addJSLine(jsBase + ".id();");
+    }
+    /**
+     * Setter for chart id.
+     */
+    public com.anychart.charts.LinearGauge id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -645,18 +701,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.charts.LinearGauge interactivity(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge interactivity(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.charts.LinearGauge interactivity(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge interactivity(com.anychart.enums.HoverMode settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
+    }
+    /**
+     * Whether the fullscreen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for the vertical layout.
@@ -687,40 +749,40 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.LinearGauge label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.charts.LinearGauge label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.LinearGauge label(String index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), value));
+    public com.anychart.charts.LinearGauge label(String index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.LinearGauge label(String index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge label(String index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.LinearGauge label(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, value));
+    public com.anychart.charts.LinearGauge label(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.LinearGauge label(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge label(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
@@ -733,16 +795,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the gauge layout.
      */
-    public com.anychart.charts.LinearGauge layout(com.anychart.enums.Layout value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge layout(com.anychart.enums.Layout layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the gauge layout.
      */
-    public com.anychart.charts.LinearGauge layout(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge layout(String layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(layout)));
 
         return this;
     }
@@ -761,16 +823,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.LinearGauge left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.charts.LinearGauge left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.LinearGauge left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -783,16 +845,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.charts.LinearGauge legend(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge legend(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.charts.LinearGauge legend(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", value));
+    public com.anychart.charts.LinearGauge legend(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", settings));
 
         return this;
     }
@@ -805,7 +867,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
     }
     /**
      * Getter for the chart margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -813,24 +875,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.LinearGauge margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.charts.LinearGauge margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.LinearGauge margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.LinearGauge margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.LinearGauge margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -977,32 +1039,32 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the gauge markers palette settings.
      */
-    public com.anychart.charts.LinearGauge markerPalette(com.anychart.palettes.Markers value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge markerPalette(com.anychart.palettes.Markers settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the gauge markers palette settings.
      */
-    public com.anychart.charts.LinearGauge markerPalette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge markerPalette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the gauge markers palette settings.
      */
-    public com.anychart.charts.LinearGauge markerPalette(com.anychart.enums.MarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge markerPalette(com.anychart.enums.MarkerType settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the gauge markers palette settings.
      */
-    public com.anychart.charts.LinearGauge markerPalette(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.LinearGauge markerPalette(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -1015,16 +1077,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.LinearGauge maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.charts.LinearGauge maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.LinearGauge maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1037,16 +1099,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.LinearGauge maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.charts.LinearGauge maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.LinearGauge maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1059,16 +1121,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.LinearGauge minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.charts.LinearGauge minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.LinearGauge minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1081,16 +1143,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.LinearGauge minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.charts.LinearGauge minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.LinearGauge minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1104,14 +1166,14 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for noData settings.<br/>
 {docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
      */
-    public com.anychart.charts.LinearGauge noData(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge noData(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -1119,24 +1181,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.LinearGauge padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.charts.LinearGauge padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.LinearGauge padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.LinearGauge padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.LinearGauge padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1277,32 +1339,32 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the gauge palette.
      */
-    public com.anychart.charts.LinearGauge palette(com.anychart.palettes.RangeColors value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge palette(com.anychart.palettes.RangeColors settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the gauge palette.
      */
-    public com.anychart.charts.LinearGauge palette(com.anychart.palettes.DistinctColors value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge palette(com.anychart.palettes.DistinctColors settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the gauge palette.
      */
-    public com.anychart.charts.LinearGauge palette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge palette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the gauge palette.
      */
-    public com.anychart.charts.LinearGauge palette(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.LinearGauge palette(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -1371,16 +1433,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.LinearGauge right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.charts.LinearGauge right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.LinearGauge right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1465,24 +1527,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the gauge scale.
      */
-    public com.anychart.charts.LinearGauge scale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge scale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the gauge scale.
      */
-    public com.anychart.charts.LinearGauge scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the gauge scale.
      */
-    public com.anychart.charts.LinearGauge scale(com.anychart.scales.ScatterBase value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge scale(com.anychart.scales.ScatterBase settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1495,32 +1557,32 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the scale bar.
      */
-    public com.anychart.charts.LinearGauge scaleBar(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge scaleBar(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the scale bar.
      */
-    public com.anychart.charts.LinearGauge scaleBar(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s);", value));
+    public com.anychart.charts.LinearGauge scaleBar(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the scale bar by index.
      */
-    public com.anychart.charts.LinearGauge scaleBar(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge scaleBar(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the scale bar by index.
      */
-    public com.anychart.charts.LinearGauge scaleBar(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s, %s);", index, value));
+    public com.anychart.charts.LinearGauge scaleBar(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleBar(%s, %s);", index, settings));
 
         return this;
     }
@@ -1531,11 +1593,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(jsBase + ".selectMarqueeFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.LinearGauge selectMarqueeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.LinearGauge selectMarqueeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.LinearGauge selectMarqueeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.LinearGauge selectMarqueeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1734,6 +1814,30 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
+     * Opens Facebook sharing dialog.
+     */
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
+    }
+    /**
+     * Opens LinkedIn sharing dialog.
+     */
+    public void shareWithLinkedIn(String captionOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Pinterest sharing dialog.
+     */
+    public void shareWithPinterest(String linkOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Twitter sharing dialog.
+     */
+    public void shareWithTwitter() {
+        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
+    }
+    /**
      * Starts select marquee drawing.
 <b>Note:</b> Works only after {@link anychart.core.Chart#draw} is called.
      */
@@ -1763,16 +1867,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.LinearGauge title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.charts.LinearGauge title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.LinearGauge title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1809,16 +1913,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.LinearGauge top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.charts.LinearGauge top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.LinearGauge top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1860,16 +1964,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.LinearGauge width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.charts.LinearGauge width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.LinearGauge width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.charts.LinearGauge width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1882,176 +1986,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.charts.LinearGauge zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.charts.LinearGauge zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
-    }
-    /**
-     * Getter for the accessibility setting.
-     */
-    public com.anychart.core.utils.ChartA11y a11y() {
-        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.LinearGauge a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.LinearGauge a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
-
-        return this;
-    }
-    /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Shares a chart as a JPG file and returns a link to the shared image.
-     */
-    public void shareAsJpg(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Opens Facebook sharing dialog.
-     */
-    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
-    }
-    /**
-     * Opens LinkedIn sharing dialog.
-     */
-    public void shareWithLinkedIn(String captionOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Pinterest sharing dialog.
-     */
-    public void shareWithPinterest(String linkOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Twitter sharing dialog.
-     */
-    public void shareWithTwitter() {
-        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
     }
     /**
      * Creates and returns the chart represented as an invisible HTML table.
@@ -2074,16 +2012,59 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.LinearGauge tooltip(String tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltipSettings)));
+    public com.anychart.charts.LinearGauge tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.LinearGauge tooltip(Boolean tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltipSettings));
+    public com.anychart.charts.LinearGauge tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.LinearGauge parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.LinearGauge parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.LinearGauge parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.LinearGauge parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

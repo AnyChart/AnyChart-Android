@@ -47,8 +47,8 @@ public class Text extends VisualBase {
     /**
      * Setter for the pointer events.
      */
-    public com.anychart.core.Text disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.Text disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class Text extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.Text enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.Text enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -76,8 +76,8 @@ public class Text extends VisualBase {
      * Setter for the text font color.<br/>
 {@link https://www.w3schools.com/html/html_colors.asp}
      */
-    public com.anychart.core.Text fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -112,8 +112,8 @@ public class Text extends VisualBase {
     /**
      * Setter for the font family.
      */
-    public com.anychart.core.Text fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -126,8 +126,8 @@ public class Text extends VisualBase {
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public com.anychart.core.Text fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.Text fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -140,16 +140,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the text font size.
      */
-    public com.anychart.core.Text fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the text font size.
      */
-    public com.anychart.core.Text fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.Text fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -162,16 +162,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.Text fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.Text fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.Text fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -207,8 +207,8 @@ public class Text extends VisualBase {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.Text fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
@@ -216,8 +216,8 @@ public class Text extends VisualBase {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.Text fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.Text fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -230,16 +230,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.Text hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.Text hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.Text hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -253,8 +253,8 @@ public class Text extends VisualBase {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.Text letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -262,8 +262,8 @@ public class Text extends VisualBase {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.Text letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.Text letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -277,8 +277,8 @@ public class Text extends VisualBase {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.core.Text lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -286,8 +286,8 @@ public class Text extends VisualBase {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.core.Text lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.Text lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -318,8 +318,8 @@ public class Text extends VisualBase {
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.core.Text selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.Text selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -332,16 +332,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.Text textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.Text textDirection(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.Text textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text textDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -354,8 +354,8 @@ public class Text extends VisualBase {
     /**
      * Setter for the text indent.
      */
-    public com.anychart.core.Text textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.Text textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -396,24 +396,24 @@ public class Text extends VisualBase {
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.Text textSettings(String name, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(value)));
+    public com.anychart.core.Text textSettings(String name, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.Text textSettings(String name, Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.core.Text textSettings(String name, Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.Text textSettings(String name, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.core.Text textSettings(String name, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
@@ -455,8 +455,8 @@ public class Text extends VisualBase {
     /**
      * Setter for flag useHTML.
      */
-    public com.anychart.core.Text useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.Text useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -469,16 +469,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.Text vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.Text vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.Text vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -491,16 +491,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.Text wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.Text wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.Text wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -513,16 +513,16 @@ public class Text extends VisualBase {
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.Text wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.Text wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.Text wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.Text wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -535,8 +535,81 @@ public class Text extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.Text zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.Text zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.Text container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.Text container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.Text container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.Text parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.Text parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.Text parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.Text parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

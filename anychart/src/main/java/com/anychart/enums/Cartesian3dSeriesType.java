@@ -9,7 +9,9 @@ public enum Cartesian3dSeriesType {
 
     AREA("area"),
     BAR("bar"),
-    COLUMN("column");
+    COLUMN("column"),
+    LINE("line"),
+    LINE_2D("line-2d");
 
     private final String value;
 

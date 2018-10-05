@@ -76,16 +76,16 @@ public class Label extends JsObject {
     /**
      * Setter for label anchor settings.
      */
-    public com.anychart.standalones.Label anchor(com.anychart.enums.Anchor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label anchor(com.anychart.enums.Anchor anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for label anchor settings.
      */
-    public com.anychart.standalones.Label anchor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label anchor(String anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor)));
 
         return this;
     }
@@ -98,30 +98,38 @@ public class Label extends JsObject {
     /**
      * Setter for label background settings.
      */
-    public com.anychart.standalones.Label background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for label background settings.
      */
-    public com.anychart.standalones.Label background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.standalones.Label background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
     /**
      * Getter for the label container.
      */
-    public void container() {
-        APIlib.getInstance().addJSLine(jsBase + ".container();");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
      * Setter for the label container.
      */
-    public com.anychart.standalones.Label container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the label container.
+     */
+    public com.anychart.standalones.Label container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
@@ -134,8 +142,8 @@ public class Label extends JsObject {
     /**
      * Setter for the pointer events.
      */
-    public com.anychart.standalones.Label disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.standalones.Label disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -156,8 +164,8 @@ public class Label extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.Label enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.Label enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -171,8 +179,8 @@ public class Label extends JsObject {
      * Setter for the text font color.<br/>
 {@link https://www.w3schools.com/html/html_colors.asp}
      */
-    public com.anychart.standalones.Label fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -207,8 +215,8 @@ public class Label extends JsObject {
     /**
      * Setter for the font family.
      */
-    public com.anychart.standalones.Label fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -221,8 +229,8 @@ public class Label extends JsObject {
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public com.anychart.standalones.Label fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.standalones.Label fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -235,16 +243,16 @@ public class Label extends JsObject {
     /**
      * Setter for the text font size.
      */
-    public com.anychart.standalones.Label fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the text font size.
      */
-    public com.anychart.standalones.Label fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.standalones.Label fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -257,16 +265,16 @@ public class Label extends JsObject {
     /**
      * Setter for the text font style.
      */
-    public com.anychart.standalones.Label fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.standalones.Label fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -302,8 +310,8 @@ public class Label extends JsObject {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.standalones.Label fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
@@ -311,8 +319,8 @@ public class Label extends JsObject {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.standalones.Label fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.standalones.Label fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -325,16 +333,16 @@ public class Label extends JsObject {
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.standalones.Label hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.standalones.Label hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -347,16 +355,16 @@ public class Label extends JsObject {
     /**
      * Setter for the label height.
      */
-    public com.anychart.standalones.Label height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.standalones.Label height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for the label height.
      */
-    public com.anychart.standalones.Label height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -370,8 +378,8 @@ public class Label extends JsObject {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.standalones.Label letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -379,8 +387,8 @@ public class Label extends JsObject {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.standalones.Label letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.standalones.Label letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -394,8 +402,8 @@ public class Label extends JsObject {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.standalones.Label lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -403,8 +411,8 @@ public class Label extends JsObject {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.standalones.Label lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.standalones.Label lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -417,16 +425,16 @@ public class Label extends JsObject {
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public com.anychart.standalones.Label maxFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", value));
+    public com.anychart.standalones.Label maxFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public com.anychart.standalones.Label maxFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label maxFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -439,16 +447,16 @@ public class Label extends JsObject {
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.standalones.Label minFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", value));
+    public com.anychart.standalones.Label minFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.standalones.Label minFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label minFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -460,21 +468,21 @@ public class Label extends JsObject {
     }
     /**
      * Setter for label offsetX settings.<br/>
-<img src='/si/8.2.1/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='/si/8.4.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public com.anychart.standalones.Label offsetX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", value));
+    public com.anychart.standalones.Label offsetX(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", offset));
 
         return this;
     }
     /**
      * Setter for label offsetX settings.<br/>
-<img src='/si/8.2.1/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='/si/8.4.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public com.anychart.standalones.Label offsetX(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label offsetX(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -486,21 +494,21 @@ Arrows show offsets layout.
     }
     /**
      * Setter for label offsetY settings.<br/>
-<img src='/si/8.2.1/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='/si/8.4.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public com.anychart.standalones.Label offsetY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", value));
+    public com.anychart.standalones.Label offsetY(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", offset));
 
         return this;
     }
     /**
      * Setter for label offsetY settings.<br/>
-<img src='/si/8.2.1/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='/si/8.4.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public com.anychart.standalones.Label offsetY(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label offsetY(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -513,24 +521,24 @@ Arrows show offsets layout.
     /**
      * Setter for the label padding in pixels by one value.
      */
-    public com.anychart.standalones.Label padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.standalones.Label padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the label padding in pixels by one value.
      */
-    public com.anychart.standalones.Label padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.standalones.Label padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the label padding in pixels by one value.
      */
-    public com.anychart.standalones.Label padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -672,16 +680,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.Label parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.Label parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -702,16 +710,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for label position settings.
      */
-    public com.anychart.standalones.Label position(com.anychart.enums.Position value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label position(com.anychart.enums.Position position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for label position settings.
      */
-    public com.anychart.standalones.Label position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -742,8 +750,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the label rotation.
      */
-    public com.anychart.standalones.Label rotation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", value));
+    public com.anychart.standalones.Label rotation(Number rotation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", rotation));
 
         return this;
     }
@@ -756,8 +764,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.standalones.Label selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.standalones.Label selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -770,8 +778,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for text content for a label.
      */
-    public com.anychart.standalones.Label text(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label text(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -784,16 +792,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text direction.
      */
-    public com.anychart.standalones.Label textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label textDirection(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text direction.
      */
-    public com.anychart.standalones.Label textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label textDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -806,8 +814,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text indent.
      */
-    public com.anychart.standalones.Label textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.standalones.Label textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -848,24 +856,24 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.standalones.Label textSettings(String name, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(value)));
+    public com.anychart.standalones.Label textSettings(String name, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.standalones.Label textSettings(String name, Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.standalones.Label textSettings(String name, Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.standalones.Label textSettings(String name, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.standalones.Label textSettings(String name, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
@@ -907,8 +915,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for flag useHTML.
      */
-    public com.anychart.standalones.Label useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.standalones.Label useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -921,16 +929,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.standalones.Label vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.standalones.Label vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -943,16 +951,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the label width.
      */
-    public com.anychart.standalones.Label width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.standalones.Label width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the label width.
      */
-    public com.anychart.standalones.Label width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -965,16 +973,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.standalones.Label wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.standalones.Label wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -987,16 +995,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.standalones.Label wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Label wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.standalones.Label wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Label wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1009,8 +1017,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.Label zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.standalones.Label zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }

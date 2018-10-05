@@ -42,8 +42,8 @@ public class LinearColor extends ScatterBase {
     /**
      * Converts color to value. Returns number ratio by its color.
      */
-    public void colorToValue(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(value)));
+    public void colorToValue(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(color)));
     }
     /**
      * Getter for the linear gradient for the linear color scale.
@@ -129,8 +129,8 @@ public class LinearColor extends ScatterBase {
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.LinearColor inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.LinearColor inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -143,8 +143,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum.
      */
-    public com.anychart.scales.LinearColor maximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", value));
+    public com.anychart.scales.LinearColor maximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
 
         return this;
     }
@@ -157,8 +157,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum.
      */
-    public com.anychart.scales.LinearColor minimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", value));
+    public com.anychart.scales.LinearColor minimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
 
         return this;
     }
@@ -171,16 +171,16 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the  set of scale minor ticks in terms of data values.
      */
-    public com.anychart.scales.LinearColor minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.LinearColor minorTicks(String ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(ticks)));
 
         return this;
     }
     /**
      * Setter for the  set of scale minor ticks in terms of data values.
      */
-    public com.anychart.scales.LinearColor minorTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.LinearColor minorTicks(String[] ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(ticks)));
 
         return this;
     }
@@ -208,16 +208,16 @@ call of this method if needed.
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.LinearColor ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.LinearColor ticks(String ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
 
         return this;
     }
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.LinearColor ticks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.LinearColor ticks(String[] ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks)));
 
         return this;
     }
@@ -300,8 +300,8 @@ call of this method if needed.
     /**
      * Setter for the maximum ticks count.<br/>
      */
-    public com.anychart.scales.LinearColor maxTicksCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", value));
+    public com.anychart.scales.LinearColor maxTicksCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", count));
 
         return this;
     }

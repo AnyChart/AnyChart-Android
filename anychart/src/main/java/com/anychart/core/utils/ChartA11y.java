@@ -47,8 +47,8 @@ public class ChartA11y extends A11y {
     /**
      * Setter for the accessibility enabled state.
      */
-    public com.anychart.core.utils.ChartA11y enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.utils.ChartA11y enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -61,16 +61,16 @@ public class ChartA11y extends A11y {
     /**
      * Setter for the accessibility mode.
      */
-    public com.anychart.core.utils.ChartA11y mode(com.anychart.enums.A11yMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.ChartA11y mode(com.anychart.enums.A11yMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the accessibility mode.
      */
-    public com.anychart.core.utils.ChartA11y mode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.ChartA11y mode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -84,8 +84,8 @@ public class ChartA11y extends A11y {
      * Setter for the function to format title.<br/>
 {docs:Common_Settings/Text_Formatters}Learn more about using titleFormat() method.{docs}
      */
-    public com.anychart.core.utils.ChartA11y titleFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.ChartA11y titleFormat(String formatSettings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(formatSettings)));
 
         return this;
     }

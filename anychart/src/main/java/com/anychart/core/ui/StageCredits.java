@@ -48,8 +48,8 @@ public class StageCredits extends JsObject {
     /**
      * Setter for credits alternative text.
      */
-    public com.anychart.core.ui.StageCredits alt(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".alt(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.StageCredits alt(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".alt(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -62,8 +62,8 @@ public class StageCredits extends JsObject {
     /**
      * Setter for the stage credits state.
      */
-    public com.anychart.core.ui.StageCredits enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.StageCredits enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -76,8 +76,8 @@ public class StageCredits extends JsObject {
     /**
      * Setter for the image alternative text.
      */
-    public com.anychart.core.ui.StageCredits imgAlt(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".imgAlt(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.StageCredits imgAlt(String alt) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".imgAlt(%s);", wrapQuotes(alt)));
 
         return this;
     }
@@ -91,8 +91,8 @@ public class StageCredits extends JsObject {
      * Setter for credits logo source.<br/>
 <b>Note:</b> <b>Note:</b> You can't customize credits without <u>a license key</u>. See <a href="https://www.anychart.com/buy/">AnyChart Licensing</a> to learn more.
      */
-    public com.anychart.core.ui.StageCredits logoSrc(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logoSrc(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.StageCredits logoSrc(String logoSrc) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logoSrc(%s);", wrapQuotes(logoSrc)));
 
         return this;
     }
@@ -105,22 +105,22 @@ public class StageCredits extends JsObject {
     /**
      * Setter for credits text value.
      */
-    public com.anychart.core.ui.StageCredits text(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.StageCredits text(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
 
         return this;
     }
     /**
-     * Getter for credits url address.
+     * Getter for credits URL address.
      */
     public void url() {
         APIlib.getInstance().addJSLine(jsBase + ".url();");
     }
     /**
-     * Setter for credits url.
+     * Setter for credits URL.
      */
-    public com.anychart.core.ui.StageCredits url(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".url(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.StageCredits url(String url) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".url(%s);", wrapQuotes(url)));
 
         return this;
     }

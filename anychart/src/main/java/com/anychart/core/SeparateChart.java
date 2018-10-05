@@ -47,16 +47,16 @@ public class SeparateChart extends Chart {
     /**
      * Setter for the accessibility setting.
      */
-    public com.anychart.core.SeparateChart a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
+    public com.anychart.core.SeparateChart a11y(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the accessibility setting.
      */
-    public com.anychart.core.SeparateChart a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart a11y(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -69,16 +69,16 @@ public class SeparateChart extends Chart {
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.core.SeparateChart animation(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", value));
+    public com.anychart.core.SeparateChart animation(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", settings));
 
         return this;
     }
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.core.SeparateChart animation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart animation(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -101,8 +101,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the autoRedraw flag.<br/>
 Flag whether to automatically call chart.draw() on any changes or not.
      */
-    public com.anychart.core.SeparateChart autoRedraw(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", value));
+    public com.anychart.core.SeparateChart autoRedraw(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", enabled));
 
         return this;
     }
@@ -115,8 +115,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart background.
      */
-    public com.anychart.core.SeparateChart background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -129,16 +129,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.SeparateChart bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.SeparateChart bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.SeparateChart bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -151,24 +151,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.SeparateChart bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.SeparateChart bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.SeparateChart bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -317,24 +317,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element's container.
      */
-    public com.anychart.core.SeparateChart container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.core.SeparateChart container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.core.SeparateChart container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -347,16 +347,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the context menu.
      */
-    public com.anychart.core.SeparateChart contextMenu(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the context menu.
      */
-    public com.anychart.core.SeparateChart contextMenu(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", value));
+    public com.anychart.core.SeparateChart contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
 
         return this;
     }
@@ -385,6 +385,12 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
+     * Disposes charts.
+     */
+    public void dispose() {
+        APIlib.getInstance().addJSLine(jsBase + ".dispose();");
+    }
+    /**
      * Starts the rendering of the chart into the container.
      */
     public com.anychart.core.SeparateChart draw(Boolean async) {
@@ -401,8 +407,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.SeparateChart enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.SeparateChart enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -415,52 +421,30 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the export charts.
      */
-    public com.anychart.core.SeparateChart exports(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Returns JPG as base64 string.
+     * Getter for the fullscreen mode.
      */
-    public void getJpgBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
     }
     /**
-     * Returns PDF as base64 string.
+     * Setter for the fullscreen mode.
      */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
+    public com.anychart.core.SeparateChart fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
+
+        return this;
     }
     /**
      * Returns pixel bounds of the element due to parent bounds and self bounds settings.
      */
     public com.anychart.math.Rect getPixelBounds() {
         return new com.anychart.math.Rect(jsBase + ".getPixelBounds()");
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality));
     }
     /**
      * Getter for the selected points.
@@ -481,30 +465,6 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
     }
     /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
-    }
-    /**
      * Converts the global coordinates to local coordinates.
 <b>Note:</b> Works only after {@link anychart.core.Chart#draw} is called.
      */
@@ -520,16 +480,30 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.SeparateChart height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.SeparateChart height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.SeparateChart height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
+
+        return this;
+    }
+    /**
+     * Getter for chart id.
+     */
+    public void id() {
+        APIlib.getInstance().addJSLine(jsBase + ".id();");
+    }
+    /**
+     * Setter for chart id.
+     */
+    public com.anychart.core.SeparateChart id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -548,18 +522,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.core.SeparateChart interactivity(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart interactivity(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.core.SeparateChart interactivity(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart interactivity(com.anychart.enums.HoverMode settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
+    }
+    /**
+     * Whether the fullscreen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for the chart label.
@@ -576,40 +556,40 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart label.
      */
-    public com.anychart.core.SeparateChart label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.core.SeparateChart label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.core.SeparateChart label(String index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), value));
+    public com.anychart.core.SeparateChart label(String index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.core.SeparateChart label(String index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.core.SeparateChart label(String index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.core.SeparateChart label(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, value));
+    public com.anychart.core.SeparateChart label(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.core.SeparateChart label(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.core.SeparateChart label(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
@@ -622,16 +602,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.SeparateChart left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.SeparateChart left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.SeparateChart left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -644,16 +624,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.core.SeparateChart legend(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart legend(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.core.SeparateChart legend(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", value));
+    public com.anychart.core.SeparateChart legend(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", settings));
 
         return this;
     }
@@ -666,7 +646,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
     }
     /**
      * Getter for the chart margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -674,24 +654,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.core.SeparateChart margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.core.SeparateChart margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.core.SeparateChart margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.SeparateChart margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.core.SeparateChart margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -832,16 +812,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.SeparateChart maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.SeparateChart maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.SeparateChart maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -854,16 +834,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.SeparateChart maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.SeparateChart maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.SeparateChart maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -876,16 +856,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.SeparateChart minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.SeparateChart minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.SeparateChart minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -898,16 +878,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.SeparateChart minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.SeparateChart minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.SeparateChart minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -921,14 +901,14 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for noData settings.<br/>
 {docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
      */
-    public com.anychart.core.SeparateChart noData(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart noData(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -936,24 +916,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.core.SeparateChart padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.core.SeparateChart padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.core.SeparateChart padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.SeparateChart padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.core.SeparateChart padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1112,16 +1092,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.SeparateChart right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.SeparateChart right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.SeparateChart right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1204,11 +1184,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(jsBase + ".selectMarqueeFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.SeparateChart selectMarqueeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeparateChart selectMarqueeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.SeparateChart selectMarqueeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.SeparateChart selectMarqueeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1407,66 +1405,6 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
-     * Shares a chart as a JPG file and returns a link to the shared image.
-     */
-    public void shareAsJpg(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
      * Opens Facebook sharing dialog.
      */
     public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
@@ -1499,16 +1437,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart title.
      */
-    public com.anychart.core.SeparateChart title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.core.SeparateChart title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart title.
      */
-    public com.anychart.core.SeparateChart title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1557,16 +1495,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.core.SeparateChart tooltip(String tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltipSettings)));
+    public com.anychart.core.SeparateChart tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.core.SeparateChart tooltip(Boolean tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltipSettings));
+    public com.anychart.core.SeparateChart tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -1579,16 +1517,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.SeparateChart top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.SeparateChart top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.SeparateChart top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1630,16 +1568,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.SeparateChart width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.SeparateChart width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.SeparateChart width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeparateChart width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1652,16 +1590,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.SeparateChart zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.SeparateChart zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
-    }
-    /**
-     * Disposes charts.
-     */
-    public void dispose() {
-        APIlib.getInstance().addJSLine(jsBase + ".dispose();");
     }
     /**
      * Starts select marquee drawing.
@@ -1669,6 +1601,49 @@ Flag whether to automatically call chart.draw() on any changes or not.
      */
     public com.anychart.core.SeparateChart startSelectMarquee(Boolean repeat) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startSelectMarquee(%s);", repeat));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeparateChart parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeparateChart parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeparateChart parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeparateChart parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

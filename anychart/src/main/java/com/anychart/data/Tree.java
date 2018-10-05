@@ -79,8 +79,8 @@ public class Tree extends Base {
     /**
      * Starts or stops tree CRUD events dispatching.
      */
-    public com.anychart.data.Tree dispatchEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dispatchEvents(%s);", value));
+    public com.anychart.data.Tree dispatchEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dispatchEvents(%s);", enabled));
 
         return this;
     }

@@ -46,8 +46,8 @@ public class Preloader extends JsObject {
     /**
      * Setter for the visibility of the preloader.
      */
-    public com.anychart.ui.Preloader visible(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".visible(%s);", value));
+    public com.anychart.ui.Preloader visible(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".visible(%s);", enabled));
 
         return this;
     }

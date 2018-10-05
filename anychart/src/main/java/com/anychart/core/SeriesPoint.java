@@ -103,8 +103,8 @@ public class SeriesPoint extends Point {
     /**
      * Setter for the hover point state.
      */
-    public com.anychart.core.SeriesPoint hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.SeriesPoint hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }
@@ -117,8 +117,8 @@ public class SeriesPoint extends Point {
     /**
      * Setter for the select series point state.
      */
-    public com.anychart.core.SeriesPoint selected(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", value));
+    public com.anychart.core.SeriesPoint selected(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", enabled));
 
         return this;
     }

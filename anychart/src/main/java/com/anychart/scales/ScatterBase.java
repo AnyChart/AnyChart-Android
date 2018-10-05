@@ -14,7 +14,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * The ScatterBase class contains methods for configuring all scatter scales (Linear, Logarithmic and DateTime).<br/>
+ * The ScatterBase class contains methods for configuring all scatter scales ({api:anychart.scales.Linear}Linear{api}, {api:anychart.scales.Logarithmic}Logarithmic{api} and {api:anychart.scales.DateTime}DateTime{api}).<br/>
 Doesn't declare any ticks, so different scales can declare their own.
  */
 public class ScatterBase extends Base {
@@ -99,8 +99,8 @@ public class ScatterBase extends Base {
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.ScatterBase inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.ScatterBase inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -113,8 +113,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the maximum ticks count.<br/>
      */
-    public com.anychart.scales.ScatterBase maxTicksCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", value));
+    public com.anychart.scales.ScatterBase maxTicksCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", count));
 
         return this;
     }
@@ -127,8 +127,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum.
      */
-    public com.anychart.scales.ScatterBase maximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", value));
+    public com.anychart.scales.ScatterBase maximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
 
         return this;
     }
@@ -141,8 +141,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum.
      */
-    public com.anychart.scales.ScatterBase minimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", value));
+    public com.anychart.scales.ScatterBase minimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
 
         return this;
     }

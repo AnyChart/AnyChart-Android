@@ -75,16 +75,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.SeriesBase bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.SeriesBase bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.SeriesBase bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -97,24 +97,24 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.SeriesBase bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeriesBase bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.SeriesBase bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeriesBase bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.SeriesBase bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.SeriesBase bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -255,8 +255,46 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the series color.
      */
-    public com.anychart.core.SeriesBase color(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase color(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
+
+        return this;
+    }
+    /**
+     * Getter for the color scale.
+     */
+    public com.anychart.scales.LinearColor colorScale() {
+        return new com.anychart.scales.LinearColor(jsBase + ".colorScale()");
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.SeriesBase colorScale(com.anychart.scales.LinearColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.SeriesBase colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.SeriesBase colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.SeriesBase colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -275,8 +313,8 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.SeriesBase enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.SeriesBase enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -293,13 +331,13 @@ public class SeriesBase extends VisualBaseWithBounds {
         return new com.anychart.core.SeriesPoint(String.format(Locale.US, jsBase + ".getPoint(%s)", index));
     }
     /**
-     * Getter for the statistics value by key.
+     * Gets the statistics value by key.
      */
     public void getStat(com.anychart.enums.Statistics key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
     }
     /**
-     * Getter for the statistics value by key.
+     * Gets the statistics value by key.
      */
     public void getStat(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
@@ -313,16 +351,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.SeriesBase height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.SeriesBase height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.SeriesBase height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -373,16 +411,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.SeriesBase id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.SeriesBase id(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", value));
+    public com.anychart.core.SeriesBase id(Number id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", id));
 
         return this;
     }
@@ -395,16 +433,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the series data labels.
      */
-    public com.anychart.core.SeriesBase labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series data labels.
      */
-    public com.anychart.core.SeriesBase labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.SeriesBase labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -417,16 +455,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.SeriesBase left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.SeriesBase left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.SeriesBase left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -439,8 +477,8 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for legend item settings for series.
      */
-    public com.anychart.core.SeriesBase legendItem(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase legendItem(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -475,16 +513,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.SeriesBase maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.SeriesBase maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.SeriesBase maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -497,16 +535,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.SeriesBase maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.SeriesBase maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.SeriesBase maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -533,16 +571,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.SeriesBase minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.SeriesBase minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.SeriesBase minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -555,16 +593,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.SeriesBase minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.SeriesBase minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.SeriesBase minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -577,8 +615,8 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the series name.
      */
-    public com.anychart.core.SeriesBase name(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase name(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(name)));
 
         return this;
     }
@@ -623,16 +661,16 @@ public class SeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.SeriesBase right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.SeriesBase right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.SeriesBase right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -674,7 +712,7 @@ public class SeriesBase extends VisualBaseWithBounds {
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.SeriesBase selectionMode(com.anychart.enums.SelectionMode value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
@@ -683,7 +721,7 @@ To select multiple points, press "ctrl" and click on them.
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.SeriesBase selectionMode(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
@@ -699,16 +737,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series data tooltip.
      */
-    public com.anychart.core.SeriesBase tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series data tooltip.
      */
-    public com.anychart.core.SeriesBase tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.core.SeriesBase tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -721,16 +759,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.SeriesBase top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.SeriesBase top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.SeriesBase top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -812,16 +850,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.SeriesBase width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.SeriesBase width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.SeriesBase width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.SeriesBase width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -834,8 +872,81 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.SeriesBase zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.SeriesBase zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.SeriesBase container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.SeriesBase container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.SeriesBase container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeriesBase parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeriesBase parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeriesBase parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.SeriesBase parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

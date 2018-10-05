@@ -47,16 +47,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for tags background.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for tags background.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
@@ -69,8 +69,8 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font color.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -83,16 +83,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the text font decoration.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontDecoration(com.anychart.graphics.vector.text.Decoration value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontDecoration(com.anychart.graphics.vector.text.Decoration type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font decoration.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontDecoration(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontDecoration(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -105,8 +105,8 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font family.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontFamily(String fontFamily) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(fontFamily)));
 
         return this;
     }
@@ -119,8 +119,8 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font opacity.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -133,16 +133,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the text font size text.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the text font size text.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -155,16 +155,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font style.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the font style.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -177,16 +177,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font variant.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontVariant(com.anychart.graphics.vector.text.FontVariant value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontVariant(com.anychart.graphics.vector.text.FontVariant type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the font variant.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontVariant(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontVariant(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -199,16 +199,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font weight.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for the font weight.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -221,16 +221,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font horizontal align.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the font horizontal align.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -243,16 +243,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the letter spacing.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
     /**
      * Setter for the letter spacing.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -265,16 +265,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font line height.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the font line height.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -287,24 +287,24 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -445,24 +445,24 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for padding in pixels by one value.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for padding in pixels by one value.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for padding in pixels by one value.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -603,8 +603,8 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -617,16 +617,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings textDirection(com.anychart.graphics.vector.text.Direction type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings textDirection(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -639,8 +639,8 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for text indent settings.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -675,8 +675,8 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the useHTML flag.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.resource.resourcelist.TagsSettings useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -689,16 +689,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the font vertical align.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the font vertical align.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -711,16 +711,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -733,16 +733,16 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.resourcelist.TagsSettings wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.resource.resourcelist.TagsSettings wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.TagsSettings wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }

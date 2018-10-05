@@ -45,7 +45,7 @@ public class Clip extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".dispose();");
     }
     /**
-     * Getter for the current shape of the clip.
+     * Getter for the shape of the clip.
      */
     public com.anychart.graphics.vector.Shape shape() {
         return new com.anychart.graphics.vector.Shape(jsBase + ".shape()");

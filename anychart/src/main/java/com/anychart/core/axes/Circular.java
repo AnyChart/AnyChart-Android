@@ -72,8 +72,8 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the first label drawing flag.
      */
-    public com.anychart.core.axes.Circular drawFirstLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", value));
+    public com.anychart.core.axes.Circular drawFirstLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", enabled));
 
         return this;
     }
@@ -86,8 +86,8 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the last label drawing flag.
      */
-    public com.anychart.core.axes.Circular drawLastLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", value));
+    public com.anychart.core.axes.Circular drawLastLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", enabled));
 
         return this;
     }
@@ -100,8 +100,8 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axes.Circular enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axes.Circular enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -112,20 +112,29 @@ Round off the ends of axes to the specified radius.
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for axis fill settings using an array or a string.
+     * Setter for axis fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axes.Circular fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.Circular fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for axis fill settings using an array or a string.
+     * Setter for axis fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axes.Circular fill(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Circular fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for axis fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.axes.Circular fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -218,16 +227,16 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for labels.
      */
-    public com.anychart.core.axes.Circular labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Circular labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for labels.
      */
-    public com.anychart.core.axes.Circular labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.axes.Circular labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -240,16 +249,16 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for minor labels.
      */
-    public com.anychart.core.axes.Circular minorLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Circular minorLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for minor labels.
      */
-    public com.anychart.core.axes.Circular minorLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", value));
+    public com.anychart.core.axes.Circular minorLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", settings));
 
         return this;
     }
@@ -262,16 +271,16 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.core.axes.Circular minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Circular minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.core.axes.Circular minorTicks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", value));
+    public com.anychart.core.axes.Circular minorTicks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", settings));
 
         return this;
     }
@@ -354,24 +363,24 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.core.axes.Circular scale(com.anychart.enums.GaugeScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.Circular scale(com.anychart.enums.GaugeScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.core.axes.Circular scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Circular scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.core.axes.Circular scale(com.anychart.scales.Linear value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.Circular scale(com.anychart.scales.Linear settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -428,16 +437,16 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for circular ticks.
      */
-    public com.anychart.core.axes.Circular ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Circular ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for circular ticks.
      */
-    public com.anychart.core.axes.Circular ticks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", value));
+    public com.anychart.core.axes.Circular ticks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", settings));
 
         return this;
     }
@@ -501,8 +510,89 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axes.Circular zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axes.Circular zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.Circular container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.Circular container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.Circular container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Circular parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Circular parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Circular parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Circular parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.axes.Circular fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

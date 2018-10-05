@@ -83,6 +83,30 @@ public class Plot extends VisualBaseWithBounds {
         return this;
     }
     /**
+     * Creates an Awesome Oscillator indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, (maType != null) ? maType.getJsBase() : null, (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, com.anychart.enums.MovingAverageType maType, String seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(seriesType)));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, String maType, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, wrapQuotes(maType), (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, String maType, String seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, wrapQuotes(maType), wrapQuotes(seriesType)));
+    }
+    /**
      * 
      */
     public com.anychart.core.stock.series.Area area(com.anychart.data.Table data) {
@@ -125,7 +149,7 @@ public class Plot extends VisualBaseWithBounds {
         return new com.anychart.core.stock.indicators.ATR(String.format(Locale.US, jsBase + ".atr(%s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(seriesType)));
     }
     /**
-     * Getter for the current plot background.
+     * Getter for the plot background.
      */
     public com.anychart.core.ui.Background background() {
         return new com.anychart.core.ui.Background(jsBase + ".background()");
@@ -133,66 +157,81 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Setter for the plot background.
      */
-    public com.anychart.core.stock.Plot background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot background.
      */
-    public com.anychart.core.stock.Plot background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.stock.Plot background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Getter for the baseline.
+     */
+    public void baseline() {
+        APIlib.getInstance().addJSLine(jsBase + ".baseline();");
+    }
+    /**
+     * Setter for the baseline.<br/>
+The baseline is the line relative to which the series  with the negative or positive value is drawn and painted over.
+     */
+    public com.anychart.core.stock.Plot baseline(Number value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baseline(%s);", value));
 
         return this;
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType), (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType), wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, String upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, String lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType), (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, String lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType), wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, String upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates %B indicator on the plot.
@@ -227,16 +266,16 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.stock.Plot bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.stock.Plot bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.stock.Plot bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -249,24 +288,24 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.stock.Plot bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Plot bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.stock.Plot bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Plot bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.stock.Plot bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Plot bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -456,8 +495,8 @@ public class Plot extends VisualBaseWithBounds {
      * Setter for crosshair settings.<br/>
 The plot crosshair settings have a higher priority than the chart crosshair settings.
      */
-    public com.anychart.core.stock.Plot crosshair(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot crosshair(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -465,8 +504,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Setter for crosshair settings.<br/>
 The plot crosshair settings have a higher priority than the chart crosshair settings.
      */
-    public com.anychart.core.stock.Plot crosshair(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", value));
+    public com.anychart.core.stock.Plot crosshair(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Getter for the data area settings.
+     */
+    public com.anychart.core.ui.DataArea dataArea() {
+        return new com.anychart.core.ui.DataArea(jsBase + ".dataArea()");
+    }
+    /**
+     * Setter for the data area settings.<br/>
+The data area is drawn along the data bounds.
+     */
+    public com.anychart.core.stock.Plot dataArea(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dataArea(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the data area settings.<br/>
+The data area is drawn along the data bounds.
+     */
+    public com.anychart.core.stock.Plot dataArea(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dataArea(%s);", settings));
 
         return this;
     }
@@ -479,16 +542,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the stock plot defaultSeriesType.
      */
-    public com.anychart.core.stock.Plot defaultSeriesType(com.anychart.enums.StockSeriesType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Plot defaultSeriesType(com.anychart.enums.StockSeriesType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the stock plot defaultSeriesType.
      */
-    public com.anychart.core.stock.Plot defaultSeriesType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot defaultSeriesType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -561,8 +624,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.stock.Plot enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.stock.Plot enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -619,7 +682,31 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         APIlib.getInstance().addJSLine(jsBase + ".getSeriesCount();");
     }
     /**
-     * Getter for the current hatch fill palette settings.
+     * Getter for a statistical value by the key.
+     */
+    public void getStat(com.anychart.enums.Statistics key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
+    }
+    /**
+     * Getter for a statistical value by the key.
+     */
+    public void getStat(String key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
+    }
+    /**
+     * Creates a Heikin-Ashi indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.HA ha(com.anychart.data.TableMapping mapping, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.HA(String.format(Locale.US, jsBase + ".ha(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Heikin-Ashi indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.HA ha(com.anychart.data.TableMapping mapping, String seriesType) {
+        return new com.anychart.core.stock.indicators.HA(String.format(Locale.US, jsBase + ".ha(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, wrapQuotes(seriesType)));
+    }
+    /**
+     * Getter for the hatch fill palette settings.
      */
     public com.anychart.palettes.HatchFills hatchFillPalette() {
         return new com.anychart.palettes.HatchFills(jsBase + ".hatchFillPalette()");
@@ -651,16 +738,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.stock.Plot height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.stock.Plot height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.stock.Plot height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -863,6 +950,30 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return new com.anychart.core.stock.indicators.KDJ(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType), wrapQuotes(dMAType), kMultiplier, dMultiplier, wrapQuotes(kSeriesType), wrapQuotes(dSeriesType), wrapQuotes(jSeriesType)));
     }
     /**
+     * Creates a Keltner Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, com.anychart.enums.MovingAverageType maType, Number multiplier, com.anychart.enums.StockSeriesType maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, (maType != null) ? maType.getJsBase() : null, multiplier, (maSeries != null) ? maSeries.getJsBase() : null));
+    }
+    /**
+     * Creates a Keltner Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, com.anychart.enums.MovingAverageType maType, Number multiplier, String maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, (maType != null) ? maType.getJsBase() : null, multiplier, wrapQuotes(maSeries)));
+    }
+    /**
+     * Creates a Keltner Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, String maType, Number multiplier, com.anychart.enums.StockSeriesType maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, wrapQuotes(maType), multiplier, (maSeries != null) ? maSeries.getJsBase() : null));
+    }
+    /**
+     * Creates a Keltner Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, String maType, Number multiplier, String maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, wrapQuotes(maType), multiplier, wrapQuotes(maSeries)));
+    }
+    /**
      * Getter for element left bound settings.
      */
     public void left() {
@@ -871,16 +982,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.stock.Plot left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.stock.Plot left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.stock.Plot left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -903,6 +1014,44 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      */
     public com.anychart.core.stock.Plot legend(Boolean value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", value));
+
+        return this;
+    }
+    /**
+     * Getter for the plot line marker.
+     */
+    public com.anychart.core.axismarkers.Line lineMarker(Number index) {
+        return new com.anychart.core.axismarkers.Line(String.format(Locale.US, jsBase + ".lineMarker(%s)", index));
+    }
+    /**
+     * Setter for the plot line marker.
+     */
+    public com.anychart.core.stock.Plot lineMarker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the plot line marker.
+     */
+    public com.anychart.core.stock.Plot lineMarker(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the plot line marker settings by index.
+     */
+    public com.anychart.core.stock.Plot lineMarker(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the plot line marker settings by index.
+     */
+    public com.anychart.core.stock.Plot lineMarker(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, settings));
 
         return this;
     }
@@ -1001,16 +1150,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.stock.Plot maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.stock.Plot maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.stock.Plot maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1045,16 +1194,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.stock.Plot maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.stock.Plot maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.stock.Plot maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1079,16 +1228,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.stock.Plot minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.stock.Plot minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.stock.Plot minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1123,16 +1272,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.stock.Plot minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.stock.Plot minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.stock.Plot minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1176,13 +1325,25 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
     /**
+     * Creates an On Balance Volume indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.OBV obv(com.anychart.data.TableMapping mapping, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.OBV(String.format(Locale.US, jsBase + ".obv(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates an On Balance Volume indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.OBV obv(com.anychart.data.TableMapping mapping, String seriesType) {
+        return new com.anychart.core.stock.indicators.OBV(String.format(Locale.US, jsBase + ".obv(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, wrapQuotes(seriesType)));
+    }
+    /**
      * 
      */
     public com.anychart.core.stock.series.OHLC ohlc(com.anychart.data.Table data) {
         return new com.anychart.core.stock.series.OHLC(String.format(Locale.US, jsBase + ".ohlc(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**
-     * Getter for the current series colors palette.
+     * Getter for the series colors palette.
      */
     public com.anychart.palettes.RangeColors palette() {
         return new com.anychart.palettes.RangeColors(jsBase + ".palette()");
@@ -1240,6 +1401,30 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(value)));
 
         return this;
+    }
+    /**
+     * Creates a Price Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, com.anychart.enums.StockSeriesType middleSeriesType, com.anychart.enums.StockSeriesType rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, (rangeSeriesType != null) ? rangeSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Price Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, com.anychart.enums.StockSeriesType middleSeriesType, String rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, wrapQuotes(rangeSeriesType)));
+    }
+    /**
+     * Creates a Price Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, String middleSeriesType, com.anychart.enums.StockSeriesType rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(middleSeriesType), (rangeSeriesType != null) ? rangeSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Price Channels indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, String middleSeriesType, String rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(middleSeriesType), wrapQuotes(rangeSeriesType)));
     }
     /**
      * Getter for the stock price indicator.
@@ -1304,6 +1489,44 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return new com.anychart.core.stock.indicators.PSAR(String.format(Locale.US, jsBase + ".psar(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, accelerationFactorStart, accelerationFactorIncrement, accelerationFactorMaximum, wrapQuotes(seriesType)));
     }
     /**
+     * Getter for the plot range marker.
+     */
+    public com.anychart.core.axismarkers.Range rangeMarker(Number index) {
+        return new com.anychart.core.axismarkers.Range(String.format(Locale.US, jsBase + ".rangeMarker(%s)", index));
+    }
+    /**
+     * Setter for the plot range marker.
+     */
+    public com.anychart.core.stock.Plot rangeMarker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the plot range marker.
+     */
+    public com.anychart.core.stock.Plot rangeMarker(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the plot range marker settings by index.
+     */
+    public com.anychart.core.stock.Plot rangeMarker(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index, wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the plot range marker settings by index.
+     */
+    public com.anychart.core.stock.Plot rangeMarker(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index, settings));
+
+        return this;
+    }
+    /**
      * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
      */
     public void removeAllListeners(String type) {
@@ -1350,16 +1573,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.stock.Plot right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.stock.Plot right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.stock.Plot right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1496,6 +1719,66 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return new com.anychart.core.stock.indicators.Stochastic(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType), wrapQuotes(dMAType), wrapQuotes(kSeriesType), wrapQuotes(dSeriesType)));
     }
     /**
+     * Getter for the plot text marker.
+     */
+    public com.anychart.core.axismarkers.Text textMarker(Number index) {
+        return new com.anychart.core.axismarkers.Text(String.format(Locale.US, jsBase + ".textMarker(%s)", index));
+    }
+    /**
+     * Setter for the plot text marker.
+     */
+    public com.anychart.core.stock.Plot textMarker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the plot text marker.
+     */
+    public com.anychart.core.stock.Plot textMarker(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the plot text marker settings by index.
+     */
+    public com.anychart.core.stock.Plot textMarker(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index, wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the plot text marker settings by index.
+     */
+    public com.anychart.core.stock.Plot textMarker(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index, settings));
+
+        return this;
+    }
+    /**
+     * Getter for the plot title.
+     */
+    public com.anychart.core.ui.Title title() {
+        return new com.anychart.core.ui.Title(jsBase + ".title()");
+    }
+    /**
+     * Setter for the plot title.
+     */
+    public com.anychart.core.stock.Plot title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the plot title.
+     */
+    public com.anychart.core.stock.Plot title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for element top bound settings.
      */
     public void top() {
@@ -1504,18 +1787,42 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.stock.Plot top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.stock.Plot top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.stock.Plot top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
+    }
+    /**
+     * Creates a TRIX indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, String trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, wrapQuotes(trixSeriesType), (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, String trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, wrapQuotes(trixSeriesType), wrapQuotes(signalSeriesType)));
     }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
@@ -1547,6 +1854,54 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
     }
     /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.StockSeriesType volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.StockSeriesType volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, wrapQuotes(maSeriesType)));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, String volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(volumeSeriesType), (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, String volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(volumeSeriesType), wrapQuotes(maSeriesType)));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, com.anychart.enums.StockSeriesType volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, com.anychart.enums.StockSeriesType volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, wrapQuotes(maSeriesType)));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, String volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), wrapQuotes(volumeSeriesType), (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the plot.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, String volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), wrapQuotes(volumeSeriesType), wrapQuotes(maSeriesType)));
+    }
+    /**
      * Getter for element width settings.
      */
     public void width() {
@@ -1555,16 +1910,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.stock.Plot width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.stock.Plot width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.stock.Plot width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1581,7 +1936,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return new com.anychart.core.stock.indicators.WilliamsR(String.format(Locale.US, jsBase + ".williamsR(%s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(seriesType)));
     }
     /**
-     * Getter for the current X-axis.
+     * Getter for the X-axis.
      */
     public com.anychart.core.axes.StockDateTime xAxis() {
         return new com.anychart.core.axes.StockDateTime(jsBase + ".xAxis()");
@@ -1589,16 +1944,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the X-axis.
      */
-    public com.anychart.core.stock.Plot xAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot xAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the X-axis.
      */
-    public com.anychart.core.stock.Plot xAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", value));
+    public com.anychart.core.stock.Plot xAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", settings));
 
         return this;
     }
@@ -1611,32 +1966,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by X-scale.
      */
-    public com.anychart.core.stock.Plot xGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot xGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by X-scale.
      */
-    public com.anychart.core.stock.Plot xGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", value));
+    public com.anychart.core.stock.Plot xGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot xGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.core.stock.Plot xGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot xGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, value));
+    public com.anychart.core.stock.Plot xGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, settings));
 
         return this;
     }
@@ -1649,37 +2004,37 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by X-scale.
      */
-    public com.anychart.core.stock.Plot xMinorGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot xMinorGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by X-scale.
      */
-    public com.anychart.core.stock.Plot xMinorGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", value));
+    public com.anychart.core.stock.Plot xMinorGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot xMinorGrid(Number indexOrValue, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", indexOrValue, wrapQuotes(value)));
+    public com.anychart.core.stock.Plot xMinorGrid(Number indexOrValue, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", indexOrValue, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot xMinorGrid(Number indexOrValue, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", indexOrValue, value));
+    public com.anychart.core.stock.Plot xMinorGrid(Number indexOrValue, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", indexOrValue, settings));
 
         return this;
     }
     /**
-     * Getter for the current plot Y-axis.
+     * Getter for the plot Y-axis.
      */
     public com.anychart.core.axes.Linear yAxis(Number index) {
         return new com.anychart.core.axes.Linear(String.format(Locale.US, jsBase + ".yAxis(%s)", index));
@@ -1687,32 +2042,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot Y-axis.
      */
-    public com.anychart.core.stock.Plot yAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot Y-axis.
      */
-    public com.anychart.core.stock.Plot yAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", value));
+    public com.anychart.core.stock.Plot yAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the Y-axis by index.
      */
-    public com.anychart.core.stock.Plot yAxis(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yAxis(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the Y-axis by index.
      */
-    public com.anychart.core.stock.Plot yAxis(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, value));
+    public com.anychart.core.stock.Plot yAxis(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, settings));
 
         return this;
     }
@@ -1725,32 +2080,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by Y-scale.
      */
-    public com.anychart.core.stock.Plot yGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by Y-scale.
      */
-    public com.anychart.core.stock.Plot yGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", value));
+    public com.anychart.core.stock.Plot yGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot yGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot yGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, value));
+    public com.anychart.core.stock.Plot yGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, settings));
 
         return this;
     }
@@ -1763,32 +2118,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by Y-scale.
      */
-    public com.anychart.core.stock.Plot yMinorGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yMinorGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by Y-scale.
      */
-    public com.anychart.core.stock.Plot yMinorGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", value));
+    public com.anychart.core.stock.Plot yMinorGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot yMinorGrid(Number indexOrValue, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", indexOrValue, wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yMinorGrid(Number indexOrValue, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", indexOrValue, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot grid by index.
      */
-    public com.anychart.core.stock.Plot yMinorGrid(Number indexOrValue, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", indexOrValue, value));
+    public com.anychart.core.stock.Plot yMinorGrid(Number indexOrValue, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", indexOrValue, settings));
 
         return this;
     }
@@ -1801,24 +2156,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot Y-scale.
      */
-    public com.anychart.core.stock.Plot yScale(com.anychart.enums.ScatterScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Plot yScale(com.anychart.enums.ScatterScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the plot Y-scale.
      */
-    public com.anychart.core.stock.Plot yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Plot yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the plot Y-scale.
      */
-    public com.anychart.core.stock.Plot yScale(com.anychart.scales.ScatterBase value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Plot yScale(com.anychart.scales.ScatterBase settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1831,8 +2186,81 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.stock.Plot zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.stock.Plot zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.Plot container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.Plot container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.Plot container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Plot parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Plot parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Plot parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Plot parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

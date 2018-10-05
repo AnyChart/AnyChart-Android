@@ -86,8 +86,8 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
     /**
      * Setter for the stage rendering mode.
      */
-    public com.anychart.graphics.vector.Stage asyncMode(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".asyncMode(%s);", value));
+    public com.anychart.graphics.vector.Stage asyncMode(Boolean async) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".asyncMode(%s);", async));
 
         return this;
     }
@@ -113,8 +113,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
 Works only after render() is invoked.<br/>
 Read more at: {@link anychart.graphics.vector.Element#clip}.
      */
-    public com.anychart.graphics.vector.Stage clip(com.anychart.graphics.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".clip(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Stage clip(com.anychart.graphics.math.Rect rect) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".clip(%s);", (rect != null) ? rect.getJsBase() : null));
 
         return this;
     }
@@ -158,8 +158,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
      * Setter for stage credits.
 {docs:Quick_Start/Credits}Learn more about credits settings.{docs}
      */
-    public com.anychart.graphics.vector.Stage credits(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Stage credits(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -167,8 +167,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
      * Setter for stage credits.
 {docs:Quick_Start/Credits}Learn more about credits settings.{docs}
      */
-    public com.anychart.graphics.vector.Stage credits(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", value));
+    public com.anychart.graphics.vector.Stage credits(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", settings));
 
         return this;
     }
@@ -194,8 +194,8 @@ Read more at {@link anychart.graphics.vector.primitives#cross}
     /**
      * Setter for the element desc value.
      */
-    public com.anychart.graphics.vector.Stage desc(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".desc(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Stage desc(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".desc(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -243,11 +243,16 @@ Read more at: {@link anychart.graphics.vector.Ellipse}
         return new com.anychart.graphics.vector.Ellipse(String.format(Locale.US, jsBase + ".ellipse(%s, %s, %s, %s)", cx, cy, rx, ry));
     }
     /**
-     * Applies function to all children.<br/>
-Similar to {@link anychart.graphics.vector.Layer#forEachChild}
+     * Getter for the fullscreen mode.
      */
-    public com.anychart.graphics.vector.Stage forEachChild(String callback) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".forEachChild(%s);", wrapQuotes(callback)));
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.graphics.vector.Stage fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
 
         return this;
     }
@@ -277,42 +282,6 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
         APIlib.getInstance().addJSLine(jsBase + ".getDomWrapper();");
     }
     /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccess, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccess, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), width, height, quality));
-    }
-    /**
      * Returns rotation angle in degrees.<br/>
 Read more at: {@link anychart.graphics.vector.Element#getRotationAngle}.
      */
@@ -326,30 +295,6 @@ Read more at: {@link anychart.graphics.vector.Element#getRotationAngle}.
         APIlib.getInstance().addJSLine(jsBase + ".getStage();");
 
         return this;
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
     }
     /**
      * Returns current transformation matrix: [
@@ -401,24 +346,24 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
         return new com.anychart.graphics.vector.HatchFill(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s)", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
     }
     /**
-     * Gets the current stage height.
+     * Getter for the stage height.
      */
     public void height() {
         APIlib.getInstance().addJSLine(jsBase + ".height();");
     }
     /**
-     * Sets a stage height.
+     * Setter for a stage height.
      */
-    public com.anychart.graphics.vector.Stage height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Stage height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
-     * Sets a stage height.
+     * Setter for a stage height.
      */
-    public com.anychart.graphics.vector.Stage height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.graphics.vector.Stage height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -432,8 +377,8 @@ If it was not set, than it will be generated.
     /**
      * Setter for a stage identifier. Instantly applied to the DOM.
      */
-    public com.anychart.graphics.vector.Stage id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Stage id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -451,6 +396,12 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
      */
     public void indexOfChild(com.anychart.graphics.vector.Element element) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".indexOfChild(%s);", (element != null) ? element.getJsBase() : null));
+    }
+    /**
+     * Whether the context menu available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Indicates if stage is in rendering process.
@@ -473,30 +424,6 @@ You must delete them yourself after you finish using them.
         return new com.anychart.graphics.vector.Layer(jsBase + ".layer()");
     }
     /**
-     * Adds an event listener to a stage.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener to a stage.
-     */
-    public void listen(com.anychart.graphics.vector.stage.EventType type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(com.anychart.graphics.vector.stage.EventType type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
      * Getter for max delay.
      */
     public void maxResizeDelay() {
@@ -505,8 +432,8 @@ You must delete them yourself after you finish using them.
     /**
      * Setter for max delay.
      */
-    public com.anychart.graphics.vector.Stage maxResizeDelay(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxResizeDelay(%s);", value));
+    public com.anychart.graphics.vector.Stage maxResizeDelay(Number delay) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxResizeDelay(%s);", delay));
 
         return this;
     }
@@ -683,35 +610,35 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
     }
     /**
      * Saves the current stage as JPG Image.<br/>
-For export to image JPG use {@link anychart#server}.
+For export to image JPG use {@link anychart.graphics#server}.
      */
     public void saveAsJpg(Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %s, %s, %s, %s);", width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
     }
     /**
      * Saves the current stage as PDF Document.<br/>
-For export to PDF file use {@link anychart#server}.
+For export to PDF file use {@link anychart.graphics#server}.
      */
     public void saveAsPdf(String paperSize, Boolean landscape, Number x, Number y, String filename) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %s, %s, %s, %s);", wrapQuotes(paperSize), landscape, x, y, wrapQuotes(filename)));
     }
     /**
      * Saves the current stage as PNG Image.<br/>
-For export to image PNG use {@link anychart#server}.
+For export to image PNG use {@link anychart.graphics#server}.
      */
     public void saveAsPng(Number width, Number height, Number quality, String filename) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".saveAsPng(%s, %s, %s, %s);", width, height, quality, wrapQuotes(filename)));
     }
     /**
      * Saves the stage as SVG Image.<br/>
-For export to SVG use {@link anychart#server}.
+For export to SVG use {@link anychart.graphics#server}.
      */
     public void saveAsSvg(String paperSize, Boolean landscape, String filename) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %s, %s);", wrapQuotes(paperSize), landscape, wrapQuotes(filename)));
     }
     /**
      * Saves the stage as SVG Image using width and height.<br/>
-For export to SVG use {@link anychart#server}.
+For export to SVG use {@link anychart.graphics#server}.
      */
     public void saveAsSvg(Number width, Number height) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %s);", width, height));
@@ -787,66 +714,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".setTransformationMatrix(%s, %s, %s, %s, %s, %s);", m00, m10, m01, m11, m02, m12));
 
         return this;
-    }
-    /**
-     * Share a stage as a JPG and return link to shared image.
-     */
-    public void shareAsJpg(String onSuccess, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a PDF and return link to shared image.
-     */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a PDF and return link to shared image.
-     */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a PDF and return link to shared image.
-     */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a PDF and return link to shared image.
-     */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a stage as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccess, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a SVG and return link to shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a SVG and return link to shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a SVG and return link to shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Share a stage as a SVG and return link to shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
     }
     /**
      * Draws multi-pointed star.<br/>
@@ -925,8 +792,8 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
     /**
      * Setter for the element title value.
      */
-    public com.anychart.graphics.vector.Stage title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Stage title(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -1004,7 +871,8 @@ Read more at {@link anychart.graphics.vector.primitives#triangleUp}
         APIlib.getInstance().addJSLine(js.toString());
     }
     /**
-     * Removes an event listener which was added with {@link anychart.graphics.vector.Stage#listen} by the key returned by {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce}.
+     * Removes an event listener which was added with {@link anychart.graphics.vector.Stage#listen} by the key returned by
+{@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce}.
      */
     public void unlistenByKey(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
@@ -1031,24 +899,24 @@ Read more at {@link anychart.graphics.vector.primitives#vLine}
         return this;
     }
     /**
-     * Gets the current stage width.
+     * Getter for the stage width.
      */
     public void width() {
         APIlib.getInstance().addJSLine(jsBase + ".width();");
     }
     /**
-     * Sets a stage width.
+     * Setter for a stage width.
      */
-    public com.anychart.graphics.vector.Stage width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Stage width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
-     * Sets a stage width.
+     * Setter for a stage width.
      */
-    public com.anychart.graphics.vector.Stage width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.graphics.vector.Stage width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }

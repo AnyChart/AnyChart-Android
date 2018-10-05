@@ -47,8 +47,8 @@ public class Map extends VisualBase {
     /**
      * Setter for the first line drawing.
      */
-    public com.anychart.core.grids.Map drawFirstLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLine(%s);", value));
+    public com.anychart.core.grids.Map drawFirstLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLine(%s);", enabled));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class Map extends VisualBase {
     /**
      * Setter for the last line drawing.
      */
-    public com.anychart.core.grids.Map drawLastLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLine(%s);", value));
+    public com.anychart.core.grids.Map drawLastLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLine(%s);", enabled));
 
         return this;
     }
@@ -75,8 +75,8 @@ public class Map extends VisualBase {
     /**
      * Setter for the grid enabled state.
      */
-    public com.anychart.core.grids.Map enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.grids.Map enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -87,19 +87,29 @@ public class Map extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.grids.Map fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.grids.Map fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.grids.Map fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.grids.Map fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -298,6 +308,14 @@ public class Map extends VisualBase {
         return this;
     }
     /**
+     * Setter for grid stroke using an object.
+     */
+    public com.anychart.core.grids.Map minorStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the colors palette.
      */
     public com.anychart.palettes.RangeColors palette() {
@@ -306,32 +324,32 @@ public class Map extends VisualBase {
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(com.anychart.palettes.RangeColors value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map palette(com.anychart.palettes.RangeColors settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(com.anychart.palettes.DistinctColors value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map palette(com.anychart.palettes.DistinctColors settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.Map palette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.grids.Map palette(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -467,6 +485,14 @@ public class Map extends VisualBase {
 
         return this;
     }
+    /**
+     * Setter for the grid stroke using an object.
+     */
+    public com.anychart.core.grids.Map stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
@@ -505,16 +531,89 @@ public class Map extends VisualBase {
     /**
      * Setter for the grid zIndex.
      */
-    public com.anychart.core.grids.Map zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.grids.Map zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.grids.Map container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.grids.Map container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.grids.Map container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Map parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Map parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Map parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Map parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.grids.Map stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.Map fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

@@ -48,24 +48,24 @@ public class Quarter extends Background {
     /**
      * Setter for bottom stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter bottomStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter bottomStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bottom stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter bottomStroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter bottomStroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bottom stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter bottomStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter bottomStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -142,16 +142,16 @@ public class Quarter extends Background {
     /**
      * Setter for the corner type.
      */
-    public com.anychart.core.utils.Quarter cornerType(com.anychart.enums.BackgroundCornersType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter cornerType(com.anychart.enums.BackgroundCornersType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the corner type.
      */
-    public com.anychart.core.utils.Quarter cornerType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter cornerType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -164,24 +164,24 @@ public class Quarter extends Background {
     /**
      * Setter for the corner radius by one value.
      */
-    public com.anychart.core.utils.Quarter corners(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", value));
+    public com.anychart.core.utils.Quarter corners(Number corners) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", corners));
 
         return this;
     }
     /**
      * Setter for the corner radius by one value.
      */
-    public com.anychart.core.utils.Quarter corners(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter corners(String corners) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", wrapQuotes(corners)));
 
         return this;
     }
     /**
      * Setter for the corner radius by one value.
      */
-    public com.anychart.core.utils.Quarter corners(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", Arrays.toString(value)));
+    public com.anychart.core.utils.Quarter corners(Number[] corners) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", Arrays.toString(corners)));
 
         return this;
     }
@@ -314,13 +314,27 @@ public class Quarter extends Background {
         return this;
     }
     /**
+     * Getter for the pointer events settings.
+     */
+    public void disablePointerEvents() {
+        APIlib.getInstance().addJSLine(jsBase + ".disablePointerEvents();");
+    }
+    /**
+     * Setter for the pointer events settings.
+     */
+    public com.anychart.core.utils.Quarter disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
+
+        return this;
+    }
+    /**
      * Getter for the background fill.
      */
     public void fill() {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an object or a string.<br/>
+     * Setter for fill settings using an object, an array or a string.<br/>
 Accepts:
 <ul>
 <li>{@link anychart.graphics.vector.LinearGradientFill}</li>
@@ -331,8 +345,42 @@ Accepts:
 or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
 e.g. "red 0.5".
      */
-    public com.anychart.core.utils.Quarter fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an object, an array or a string.<br/>
+Accepts:
+<ul>
+<li>{@link anychart.graphics.vector.LinearGradientFill}</li>
+<li>{@link anychart.graphics.vector.RadialGradientFill}</li>
+<li>{@link anychart.graphics.vector.Fill}</li>
+<li>{@link anychart.graphics.vector.ImageFill}</li>
+</ul>
+or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
+e.g. "red 0.5".
+     */
+    public com.anychart.core.utils.Quarter fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an object, an array or a string.<br/>
+Accepts:
+<ul>
+<li>{@link anychart.graphics.vector.LinearGradientFill}</li>
+<li>{@link anychart.graphics.vector.RadialGradientFill}</li>
+<li>{@link anychart.graphics.vector.Fill}</li>
+<li>{@link anychart.graphics.vector.ImageFill}</li>
+</ul>
+or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
+e.g. "red 0.5".
+     */
+    public com.anychart.core.utils.Quarter fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -423,32 +471,32 @@ e.g. "red 0.5".
     /**
      * Setter for quarter label.
      */
-    public com.anychart.core.Chart label(Boolean value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s)", value));
+    public com.anychart.core.Chart label(Boolean settings) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s)", settings));
     }
     /**
      * Setter for quarter label.
      */
-    public com.anychart.core.Chart label(String index, Boolean value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), value));
+    public com.anychart.core.Chart label(String index, Boolean settings) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), settings));
     }
     /**
      * Setter for quarter label.
      */
-    public com.anychart.core.Chart label(String index, String value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.core.Chart label(String index, String settings) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(settings)));
     }
     /**
      * Setter for quarter label.
      */
-    public com.anychart.core.Chart label(Number index, Boolean value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", index, value));
+    public com.anychart.core.Chart label(Number index, Boolean settings) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", index, settings));
     }
     /**
      * Setter for quarter label.
      */
-    public com.anychart.core.Chart label(Number index, String value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", index, wrapQuotes(value)));
+    public com.anychart.core.Chart label(Number index, String settings) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".label(%s, %s)", index, wrapQuotes(settings)));
     }
     /**
      * Getter for the left stroke.
@@ -459,16 +507,16 @@ e.g. "red 0.5".
     /**
      * Setter for left stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter leftStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter leftStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for left stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter leftStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter leftStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -538,7 +586,7 @@ e.g. "red 0.5".
     }
     /**
      * Getter for the quarter margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -546,24 +594,24 @@ e.g. "red 0.5".
     /**
      * Setter for the quarter margin in pixels using a single complex object.
      */
-    public com.anychart.core.utils.Quarter margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.core.utils.Quarter margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the quarter margin in pixels using a single complex object.
      */
-    public com.anychart.core.utils.Quarter margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.utils.Quarter margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the quarter margin in pixels using a single complex object.
      */
-    public com.anychart.core.utils.Quarter margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -697,7 +745,7 @@ e.g. "red 0.5".
     }
     /**
      * Getter for the quarter padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -705,20 +753,20 @@ e.g. "red 0.5".
     /**
      * Setter for the quarter paddings in pixels using a single value.
      */
-    public com.anychart.core.Chart padding(Number[] value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(value)));
+    public com.anychart.core.Chart padding(Number[] padding) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding)));
     }
     /**
      * Setter for the quarter paddings in pixels using a single value.
      */
-    public com.anychart.core.Chart padding(String[] value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.Chart padding(String[] padding) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(padding)));
     }
     /**
      * Setter for the quarter paddings in pixels using a single value.
      */
-    public com.anychart.core.Chart padding(String value) {
-        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(value)));
+    public com.anychart.core.Chart padding(String padding) {
+        return new com.anychart.core.Chart(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(padding)));
     }
     /**
      * Setter for the quarter paddings in pixels using several numbers.
@@ -825,24 +873,24 @@ e.g. "red 0.5".
     /**
      * Setter for right stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter rightStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter rightStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for right stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter rightStroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter rightStroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for right stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter rightStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter rightStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -919,88 +967,88 @@ e.g. "red 0.5".
     /**
      * Setter for stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter stroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(color)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Quarter stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Quarter stroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Quarter stroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Quarter stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.core.utils.Quarter stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Quarter stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -1013,16 +1061,16 @@ e.g. "red 0.5".
     /**
      * Setter for the title.
      */
-    public com.anychart.core.utils.Quarter title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.core.utils.Quarter title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the title.
      */
-    public com.anychart.core.utils.Quarter title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1035,24 +1083,24 @@ e.g. "red 0.5".
     /**
      * Setter for top stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter topStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter topStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for top stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter topStroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter topStroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for top stroke settings using one parameter.
      */
-    public com.anychart.core.utils.Quarter topStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter topStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -1129,16 +1177,16 @@ e.g. "red 0.5".
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.utils.Quarter bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.utils.Quarter bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.utils.Quarter bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -1151,24 +1199,24 @@ e.g. "red 0.5".
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.utils.Quarter bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.utils.Quarter bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.utils.Quarter bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Quarter bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -1309,8 +1357,8 @@ e.g. "red 0.5".
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.utils.Quarter enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.utils.Quarter enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -1329,16 +1377,16 @@ e.g. "red 0.5".
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.utils.Quarter height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.utils.Quarter height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.utils.Quarter height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1351,16 +1399,16 @@ e.g. "red 0.5".
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.utils.Quarter left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.utils.Quarter left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.utils.Quarter left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -1373,16 +1421,16 @@ e.g. "red 0.5".
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.utils.Quarter maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.utils.Quarter maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.utils.Quarter maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1395,16 +1443,16 @@ e.g. "red 0.5".
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.utils.Quarter maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.utils.Quarter maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.utils.Quarter maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1417,16 +1465,16 @@ e.g. "red 0.5".
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.utils.Quarter minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.utils.Quarter minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.utils.Quarter minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1439,16 +1487,16 @@ e.g. "red 0.5".
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.utils.Quarter minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.utils.Quarter minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.utils.Quarter minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1479,16 +1527,16 @@ e.g. "red 0.5".
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.utils.Quarter right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.utils.Quarter right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.utils.Quarter right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1501,16 +1549,16 @@ e.g. "red 0.5".
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.utils.Quarter top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.utils.Quarter top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.utils.Quarter top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1552,16 +1600,16 @@ e.g. "red 0.5".
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.utils.Quarter width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.utils.Quarter width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.utils.Quarter width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Quarter width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1574,8 +1622,89 @@ e.g. "red 0.5".
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.utils.Quarter zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.utils.Quarter zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.utils.Quarter container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.utils.Quarter container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.utils.Quarter container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.utils.Quarter parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.utils.Quarter parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.utils.Quarter parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.utils.Quarter parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.utils.Quarter fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

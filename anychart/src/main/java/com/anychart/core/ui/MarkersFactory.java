@@ -55,16 +55,16 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for anchor settings of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory anchor(com.anychart.enums.Anchor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.MarkersFactory anchor(com.anychart.enums.Anchor anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for anchor settings of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory anchor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory anchor(String anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor)));
 
         return this;
     }
@@ -85,8 +85,8 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.ui.MarkersFactory enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.MarkersFactory enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -97,20 +97,29 @@ public class MarkersFactory extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings of all markers.
+     * Setter for fill settings of all markers using an array, an object and a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.MarkersFactory fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.MarkersFactory fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings of all markers.
+     * Setter for fill settings of all markers using an array, an object and a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.MarkersFactory fill(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings of all markers using an array, an object and a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.MarkersFactory fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -203,16 +212,16 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for the offset by X of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory offsetX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", value));
+    public com.anychart.core.ui.MarkersFactory offsetX(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", offset));
 
         return this;
     }
     /**
      * Setter for the offset by X of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory offsetX(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory offsetX(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -225,16 +234,16 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for the offset by Y of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory offsetY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", value));
+    public com.anychart.core.ui.MarkersFactory offsetY(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", offset));
 
         return this;
     }
     /**
      * Setter for the offset by Y of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory offsetY(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory offsetY(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -247,8 +256,8 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for position settings of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -257,14 +266,6 @@ public class MarkersFactory extends VisualBase {
      */
     public void positionFormatter() {
         APIlib.getInstance().addJSLine(jsBase + ".positionFormatter();");
-    }
-    /**
-     * Setter for the position formatter function of all markers.
-     */
-    public com.anychart.core.ui.MarkersFactory positionFormatter(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionFormatter(%s);", wrapQuotes(value)));
-
-        return this;
     }
     /**
      * Prints all elements on related stage.
@@ -294,8 +295,8 @@ public class MarkersFactory extends VisualBase {
      * Setter for the rotation angle around an anchor.
 ({@link anychart.graphics.vector.Element}).
      */
-    public com.anychart.core.ui.MarkersFactory rotation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", value));
+    public com.anychart.core.ui.MarkersFactory rotation(Number rotation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", rotation));
 
         return this;
     }
@@ -308,8 +309,8 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for the size of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory size(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", value));
+    public com.anychart.core.ui.MarkersFactory size(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", size));
 
         return this;
     }
@@ -323,8 +324,8 @@ public class MarkersFactory extends VisualBase {
      * Setter for stroke settings of all markers.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.MarkersFactory stroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.MarkersFactory stroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -332,8 +333,8 @@ public class MarkersFactory extends VisualBase {
      * Setter for stroke settings of all markers.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.MarkersFactory stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory stroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -454,16 +455,16 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for type settings of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory type(com.anychart.enums.MarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.MarkersFactory type(com.anychart.enums.MarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for type settings of all markers.
      */
-    public com.anychart.core.ui.MarkersFactory type(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.MarkersFactory type(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -505,8 +506,89 @@ public class MarkersFactory extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.ui.MarkersFactory zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.ui.MarkersFactory zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.MarkersFactory container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.MarkersFactory container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.MarkersFactory container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.MarkersFactory parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.MarkersFactory parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.MarkersFactory parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.MarkersFactory parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.ui.MarkersFactory fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

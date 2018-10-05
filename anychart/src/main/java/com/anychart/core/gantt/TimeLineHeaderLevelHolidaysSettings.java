@@ -47,8 +47,8 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -62,8 +62,26 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
      * Setter for fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -156,8 +174,8 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * 
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings format(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings format(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -170,24 +188,24 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -375,8 +393,8 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -389,16 +407,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -411,24 +429,24 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -575,16 +593,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -597,16 +615,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -619,16 +637,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -641,16 +659,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -663,16 +681,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -685,16 +703,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -707,16 +725,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -729,16 +747,16 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -751,16 +769,97 @@ public class TimeLineHeaderLevelHolidaysSettings extends VisualBaseWithBounds {
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.gantt.TimeLineHeaderLevelHolidaysSettings fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

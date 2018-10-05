@@ -27,6 +27,7 @@ public enum Statistics {
     CATEGORY_Y_RANGE_PERCENT_OF_TOTAL("categoryYRangePercentOfTotal"),
     CATEGORY_Y_RANGE_SUM("categoryYRangeSum"),
     CATEGORY_Y_SUM("categoryYSum"),
+    CHART_ELEMENTS("chartElements"),
     CLOSE("close"),
     COUNT("count"),
     DATA_PLOT_BUBBLE_MAX_SIZE("dataPlotBubbleMaxSize"),

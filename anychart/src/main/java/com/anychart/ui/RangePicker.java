@@ -65,8 +65,8 @@ Removes it from parent layer, nulls links, removes from DOM.
     /**
      * Setter for the text for 'from'-label.
      */
-    public com.anychart.ui.RangePicker fromLabelText(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fromLabelText(%s);", wrapQuotes(value)));
+    public com.anychart.ui.RangePicker fromLabelText(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fromLabelText(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -97,8 +97,8 @@ Removes it from parent layer, nulls links, removes from DOM.
     /**
      * Setter for the text for 'to'-label.
      */
-    public com.anychart.ui.RangePicker toLabelText(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toLabelText(%s);", wrapQuotes(value)));
+    public com.anychart.ui.RangePicker toLabelText(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toLabelText(%s);", wrapQuotes(text)));
 
         return this;
     }

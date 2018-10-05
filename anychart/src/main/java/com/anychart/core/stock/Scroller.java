@@ -79,8 +79,8 @@ public class Scroller extends JsObject {
     /**
      * Setter for the mode of the range changing. If the range changing is allowed.
      */
-    public com.anychart.core.stock.Scroller allowRangeChange(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowRangeChange(%s);", value));
+    public com.anychart.core.stock.Scroller allowRangeChange(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".allowRangeChange(%s);", enabled));
 
         return this;
     }
@@ -95,6 +95,30 @@ public class Scroller extends JsObject {
      */
     public com.anychart.core.stock.indicators.AMA ama(com.anychart.data.TableMapping mapping, Number period, Number fastPeriod, Number slowPeriod, String seriesType) {
         return new com.anychart.core.stock.indicators.AMA(String.format(Locale.US, jsBase + ".ama(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, fastPeriod, slowPeriod, wrapQuotes(seriesType)));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, (maType != null) ? maType.getJsBase() : null, (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, com.anychart.enums.MovingAverageType maType, String seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(seriesType)));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, String maType, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, wrapQuotes(maType), (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates an Awesome Oscillator indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.AO ao(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, String maType, String seriesType) {
+        return new com.anychart.core.stock.indicators.AO(String.format(Locale.US, jsBase + ".ao(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, fastPeriod, slowPeriod, wrapQuotes(maType), wrapQuotes(seriesType)));
     }
     /**
      * 
@@ -147,58 +171,58 @@ public class Scroller extends JsObject {
     /**
      * Setter for scroller auto hide mode.
      */
-    public com.anychart.core.stock.Scroller autoHide(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoHide(%s);", value));
+    public com.anychart.core.stock.Scroller autoHide(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoHide(%s);", enabled));
 
         return this;
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType), (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType), wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, com.anychart.enums.StockSeriesType middleSeriesType, String upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null, wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, com.anychart.enums.StockSeriesType upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), (upperSeriesType != null) ? upperSeriesType.getJsBase() : null, wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, String lowerSeriesType, com.anychart.enums.StockSeriesType middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType), (middleSeriesType != null) ? middleSeriesType.getJsBase() : null));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, String upperSeriesType, com.anychart.enums.StockSeriesType lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), wrapQuotes(upperSeriesType), (lowerSeriesType != null) ? lowerSeriesType.getJsBase() : null));
     }
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String upperSeriesType, String lowerSeriesType, String middleSeriesType) {
-        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType), wrapQuotes(middleSeriesType)));
+    public com.anychart.core.stock.indicators.BBands bbands(com.anychart.data.TableMapping mapping, Number period, Number deviation, String middleSeriesType, String upperSeriesType, String lowerSeriesType) {
+        return new com.anychart.core.stock.indicators.BBands(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, deviation, wrapQuotes(middleSeriesType), wrapQuotes(upperSeriesType), wrapQuotes(lowerSeriesType)));
     }
     /**
      * Creates %B indicator on the scroller.
@@ -271,8 +295,8 @@ public class Scroller extends JsObject {
      * Setter for the stock scroller default series type.<br/>
 <b>Note</b>: We recommend to use the line and area types for the scroller series.
      */
-    public com.anychart.core.stock.Scroller defaultSeriesType(com.anychart.enums.StockSeriesType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Scroller defaultSeriesType(com.anychart.enums.StockSeriesType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -280,8 +304,8 @@ public class Scroller extends JsObject {
      * Setter for the stock scroller default series type.<br/>
 <b>Note</b>: We recommend to use the line and area types for the scroller series.
      */
-    public com.anychart.core.stock.Scroller defaultSeriesType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller defaultSeriesType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -354,8 +378,8 @@ public class Scroller extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.stock.Scroller enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.stock.Scroller enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -366,11 +390,29 @@ public class Scroller extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for scroller fill settings using an array or a string.
+     * Setter for scroller fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.Scroller fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Scroller fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.Scroller fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.Scroller fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -479,6 +521,18 @@ public class Scroller extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".getSeriesCount();");
     }
     /**
+     * Creates a Heikin-Ashi indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.HA ha(com.anychart.data.TableMapping mapping, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.HA(String.format(Locale.US, jsBase + ".ha(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Heikin-Ashi indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.HA ha(com.anychart.data.TableMapping mapping, String seriesType) {
+        return new com.anychart.core.stock.indicators.HA(String.format(Locale.US, jsBase + ".ha(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, wrapQuotes(seriesType)));
+    }
+    /**
      * Getter for hatch fill palette settings.
      */
     public com.anychart.palettes.HatchFills hatchFillPalette() {
@@ -517,16 +571,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller height.
      */
-    public com.anychart.core.stock.Scroller height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.stock.Scroller height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for the scroller height.
      */
-    public com.anychart.core.stock.Scroller height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -729,6 +783,30 @@ public class Scroller extends JsObject {
         return new com.anychart.core.stock.indicators.KDJ(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType), wrapQuotes(dMAType), kMultiplier, dMultiplier, wrapQuotes(kSeriesType), wrapQuotes(dSeriesType), wrapQuotes(jSeriesType)));
     }
     /**
+     * Creates a Keltner Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, com.anychart.enums.MovingAverageType maType, Number multiplier, com.anychart.enums.StockSeriesType maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, (maType != null) ? maType.getJsBase() : null, multiplier, (maSeries != null) ? maSeries.getJsBase() : null));
+    }
+    /**
+     * Creates a Keltner Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, com.anychart.enums.MovingAverageType maType, Number multiplier, String maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, (maType != null) ? maType.getJsBase() : null, multiplier, wrapQuotes(maSeries)));
+    }
+    /**
+     * Creates a Keltner Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, String maType, Number multiplier, com.anychart.enums.StockSeriesType maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, wrapQuotes(maType), multiplier, (maSeries != null) ? maSeries.getJsBase() : null));
+    }
+    /**
+     * Creates a Keltner Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.KeltnerChannels keltnerChannels(com.anychart.data.TableMapping mapping, Number maPeriod, Number atrPeriod, String maType, Number multiplier, String maSeries) {
+        return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, wrapQuotes(maType), multiplier, wrapQuotes(maSeries)));
+    }
+    /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
     public com.anychart.core.stock.indicators.MACD macd(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, Number signalPeriod, com.anychart.enums.StockSeriesType macdSeriesType, com.anychart.enums.StockSeriesType signalSeriesType, com.anychart.enums.StockSeriesType histogramSeriesType) {
@@ -785,16 +863,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller maximum height.
      */
-    public com.anychart.core.stock.Scroller maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.stock.Scroller maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the scroller maximum height.
      */
-    public com.anychart.core.stock.Scroller maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -819,16 +897,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller minimum height.
      */
-    public com.anychart.core.stock.Scroller minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.stock.Scroller minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the scroller minimum height.
      */
-    public com.anychart.core.stock.Scroller minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -857,6 +935,18 @@ public class Scroller extends JsObject {
         return new com.anychart.core.stock.indicators.Momentum(String.format(Locale.US, jsBase + ".momentum(%s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(seriesType)));
     }
     /**
+     * Creates an On Balance Volume indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.OBV obv(com.anychart.data.TableMapping mapping, com.anychart.enums.StockSeriesType seriesType) {
+        return new com.anychart.core.stock.indicators.OBV(String.format(Locale.US, jsBase + ".obv(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, (seriesType != null) ? seriesType.getJsBase() : null));
+    }
+    /**
+     * Creates an On Balance Volume indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.OBV obv(com.anychart.data.TableMapping mapping, String seriesType) {
+        return new com.anychart.core.stock.indicators.OBV(String.format(Locale.US, jsBase + ".obv(%s, %s)", (mapping != null) ? mapping.getJsBase() : null, wrapQuotes(seriesType)));
+    }
+    /**
      * 
      */
     public com.anychart.core.stock.scrollerseries.OHLC ohlc(com.anychart.data.Table data) {
@@ -871,16 +961,16 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller orientation.
      */
-    public com.anychart.core.stock.Scroller orientation(com.anychart.enums.Orientation value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Scroller orientation(com.anychart.enums.Orientation orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation != null) ? orientation.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the scroller orientation.
      */
-    public com.anychart.core.stock.Scroller orientation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller orientation(String orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation)));
 
         return this;
     }
@@ -894,8 +984,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -903,8 +993,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -912,8 +1002,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -921,8 +1011,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -930,8 +1020,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -939,8 +1029,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -948,8 +1038,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -957,8 +1047,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.stock.Scroller outlineStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -966,8 +1056,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.stock.Scroller outlineStroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -975,8 +1065,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.stock.Scroller outlineStroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -984,8 +1074,8 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.stock.Scroller outlineStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -993,8 +1083,16 @@ public class Scroller extends JsObject {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.stock.Scroller outlineStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.stock.Scroller outlineStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for outline stroke using an object.
+     */
+    public com.anychart.core.stock.Scroller outlineStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlineStroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1035,6 +1133,30 @@ public class Scroller extends JsObject {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(value)));
 
         return this;
+    }
+    /**
+     * Creates a Price Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, com.anychart.enums.StockSeriesType middleSeriesType, com.anychart.enums.StockSeriesType rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, (rangeSeriesType != null) ? rangeSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Price Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, com.anychart.enums.StockSeriesType middleSeriesType, String rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, (middleSeriesType != null) ? middleSeriesType.getJsBase() : null, wrapQuotes(rangeSeriesType)));
+    }
+    /**
+     * Creates a Price Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, String middleSeriesType, com.anychart.enums.StockSeriesType rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(middleSeriesType), (rangeSeriesType != null) ? rangeSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Price Channels indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.PriceChannels priceChannels(com.anychart.data.TableMapping mapping, Number period, String middleSeriesType, String rangeSeriesType) {
+        return new com.anychart.core.stock.indicators.PriceChannels(String.format(Locale.US, jsBase + ".priceChannels(%s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(middleSeriesType), wrapQuotes(rangeSeriesType)));
     }
     /**
      * Prints all elements on related stage.
@@ -1132,8 +1254,26 @@ public class Scroller extends JsObject {
      * Setter for scroller fill settings in selected mode using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.Scroller selectedFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Scroller selectedFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings in selected mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.Scroller selectedFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for scroller fill settings in selected mode using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.Scroller selectedFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1334,18 +1474,114 @@ public class Scroller extends JsObject {
     /**
      * Setter for the thumbs settings.
      */
-    public com.anychart.core.stock.Scroller thumbs(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", value));
+    public com.anychart.core.stock.Scroller thumbs(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the thumbs settings.
      */
-    public com.anychart.core.stock.Scroller thumbs(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller thumbs(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".thumbs(%s);", wrapQuotes(settings)));
 
         return this;
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, String trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, wrapQuotes(trixSeriesType), (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.MovingAverageType signalMaType, String trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, (signalMaType != null) ? signalMaType.getJsBase() : null, wrapQuotes(trixSeriesType), wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, String signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(signalMaType), (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, String signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(signalMaType), (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, String signalMaType, String trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(signalMaType), wrapQuotes(trixSeriesType), (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, com.anychart.enums.MovingAverageType maType, String signalMaType, String trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(signalMaType), wrapQuotes(trixSeriesType), wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, com.anychart.enums.MovingAverageType signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), (signalMaType != null) ? signalMaType.getJsBase() : null, (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, com.anychart.enums.MovingAverageType signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), (signalMaType != null) ? signalMaType.getJsBase() : null, (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, com.anychart.enums.MovingAverageType signalMaType, String trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), (signalMaType != null) ? signalMaType.getJsBase() : null, wrapQuotes(trixSeriesType), (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, com.anychart.enums.MovingAverageType signalMaType, String trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), (signalMaType != null) ? signalMaType.getJsBase() : null, wrapQuotes(trixSeriesType), wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, String signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), wrapQuotes(signalMaType), (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, String signalMaType, com.anychart.enums.StockSeriesType trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), wrapQuotes(signalMaType), (trixSeriesType != null) ? trixSeriesType.getJsBase() : null, wrapQuotes(signalSeriesType)));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, String signalMaType, String trixSeriesType, com.anychart.enums.StockSeriesType signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), wrapQuotes(signalMaType), wrapQuotes(trixSeriesType), (signalSeriesType != null) ? signalSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a TRIX indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.TRIX trix(com.anychart.data.TableMapping mapping, Number period, Number signalPeriod, String maType, String signalMaType, String trixSeriesType, String signalSeriesType) {
+        return new com.anychart.core.stock.indicators.TRIX(String.format(Locale.US, jsBase + ".trix(%s, %s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, signalPeriod, wrapQuotes(maType), wrapQuotes(signalMaType), wrapQuotes(trixSeriesType), wrapQuotes(signalSeriesType)));
     }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
@@ -1377,6 +1613,54 @@ public class Scroller extends JsObject {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
     }
     /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.StockSeriesType volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, com.anychart.enums.StockSeriesType volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, wrapQuotes(maSeriesType)));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, String volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(volumeSeriesType), (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, com.anychart.enums.MovingAverageType maType, String volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, (maType != null) ? maType.getJsBase() : null, wrapQuotes(volumeSeriesType), wrapQuotes(maSeriesType)));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, com.anychart.enums.StockSeriesType volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, com.anychart.enums.StockSeriesType volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), (volumeSeriesType != null) ? volumeSeriesType.getJsBase() : null, wrapQuotes(maSeriesType)));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, String volumeSeriesType, com.anychart.enums.StockSeriesType maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), wrapQuotes(volumeSeriesType), (maSeriesType != null) ? maSeriesType.getJsBase() : null));
+    }
+    /**
+     * Creates a Volume + MA indicator on the scroller.
+     */
+    public com.anychart.core.stock.indicators.VolumeMA volumeMa(com.anychart.data.TableMapping mapping, Number maPeriod, String maType, String volumeSeriesType, String maSeriesType) {
+        return new com.anychart.core.stock.indicators.VolumeMA(String.format(Locale.US, jsBase + ".volumeMa(%s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, wrapQuotes(maType), wrapQuotes(volumeSeriesType), wrapQuotes(maSeriesType)));
+    }
+    /**
      * Creates a Williams %R indicator on the scroller.
      */
     public com.anychart.core.stock.indicators.WilliamsR williamsR(com.anychart.data.TableMapping mapping, Number period, com.anychart.enums.StockSeriesType seriesType) {
@@ -1389,7 +1673,7 @@ public class Scroller extends JsObject {
         return new com.anychart.core.stock.indicators.WilliamsR(String.format(Locale.US, jsBase + ".williamsR(%s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, period, wrapQuotes(seriesType)));
     }
     /**
-     * Getter for the current scroller X-axis.
+     * Getter for the scroller X-axis.
      */
     public com.anychart.core.axes.StockDateTime xAxis() {
         return new com.anychart.core.axes.StockDateTime(jsBase + ".xAxis()");
@@ -1397,21 +1681,21 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller X-axis.
      */
-    public com.anychart.core.stock.Scroller xAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller xAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the scroller X-axis.
      */
-    public com.anychart.core.stock.Scroller xAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", value));
+    public com.anychart.core.stock.Scroller xAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current scroller Y-scale.
+     * Getter for the scroller Y-scale.
      */
     public com.anychart.scales.ScatterBase yScale() {
         return new com.anychart.scales.ScatterBase(jsBase + ".yScale()");
@@ -1419,24 +1703,24 @@ public class Scroller extends JsObject {
     /**
      * Setter for the scroller Y-scale.
      */
-    public com.anychart.core.stock.Scroller yScale(com.anychart.enums.ScatterScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Scroller yScale(com.anychart.enums.ScatterScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the scroller Y-scale.
      */
-    public com.anychart.core.stock.Scroller yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.Scroller yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the scroller Y-scale.
      */
-    public com.anychart.core.stock.Scroller yScale(com.anychart.scales.ScatterBase value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Scroller yScale(com.anychart.scales.ScatterBase settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1449,8 +1733,81 @@ public class Scroller extends JsObject {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.stock.Scroller zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.stock.Scroller zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.Scroller container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.Scroller container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.Scroller container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Scroller parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Scroller parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Scroller parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.Scroller parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -1489,6 +1846,14 @@ public class Scroller extends JsObject {
             e.printStackTrace();
         }
         return instance;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.stock.Scroller fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

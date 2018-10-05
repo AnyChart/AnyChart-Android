@@ -3,7 +3,7 @@ package com.anychart.graphics.vector;
 import com.anychart.JsObject;
 
 import com.anychart.graphics.vector.GradientKey;
-import com.anychart.graphics.math.Rect;
+import com.anychart.graphics.vector.Rect;
 
 import java.util.Locale;
 import java.util.Arrays;

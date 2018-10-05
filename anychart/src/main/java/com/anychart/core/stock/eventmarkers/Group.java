@@ -78,8 +78,8 @@ public class Group extends VisualBase {
     /**
      * Setter for the connector length.
      */
-    public com.anychart.core.stock.eventmarkers.Group connector(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group connector(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -98,16 +98,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the direction.
      */
-    public com.anychart.core.stock.eventmarkers.Group direction(com.anychart.enums.EventMarkerDirection value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group direction(com.anychart.enums.EventMarkerDirection direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the direction.
      */
-    public com.anychart.core.stock.eventmarkers.Group direction(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group direction(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -120,8 +120,8 @@ public class Group extends VisualBase {
     /**
      * Setter for the pointer events setting.
      */
-    public com.anychart.core.stock.eventmarkers.Group disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -134,8 +134,8 @@ public class Group extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.stock.eventmarkers.Group enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -149,8 +149,8 @@ public class Group extends VisualBase {
      * Setter for the fieldName.<br/>
 <b>Note</b>: Sets a series field name for all {@link anychart.core.stock.eventMarkers.Group#position} values with exception of "axis" value.
      */
-    public com.anychart.core.stock.eventmarkers.Group fieldName(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fieldName(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fieldName(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fieldName(%s);", wrapQuotes(name)));
 
         return this;
     }
@@ -161,19 +161,29 @@ public class Group extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.eventmarkers.Group fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.eventmarkers.Group fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.stock.eventmarkers.Group fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.eventmarkers.Group fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -266,8 +276,8 @@ public class Group extends VisualBase {
     /**
      * Setter for font color settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -280,16 +290,16 @@ public class Group extends VisualBase {
     /**
      * Setter for font decoration settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontDecoration(com.anychart.graphics.vector.text.Decoration value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group fontDecoration(com.anychart.graphics.vector.text.Decoration type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for font decoration settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontDecoration(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontDecoration(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -302,8 +312,8 @@ public class Group extends VisualBase {
     /**
      * Setter for font family settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -316,8 +326,8 @@ public class Group extends VisualBase {
     /**
      * Setter for font opacity settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -330,16 +340,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the font padding.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontPadding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group fontPadding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", padding));
 
         return this;
     }
     /**
      * Setter for the font padding.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontPadding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontPadding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -352,16 +362,16 @@ public class Group extends VisualBase {
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -374,16 +384,16 @@ public class Group extends VisualBase {
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
@@ -418,16 +428,16 @@ public class Group extends VisualBase {
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -440,8 +450,8 @@ public class Group extends VisualBase {
     /**
      * Setter for function content text for the tooltip.<br/>
      */
-    public com.anychart.core.stock.eventmarkers.Group format(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group format(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -461,16 +471,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the horizontal align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for the horizontal align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -483,16 +493,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the markers height.
      */
-    public com.anychart.core.stock.eventmarkers.Group height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the markers height.
      */
-    public com.anychart.core.stock.eventmarkers.Group height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -507,8 +517,8 @@ public class Group extends VisualBase {
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -521,8 +531,8 @@ public class Group extends VisualBase {
     /**
      * Setter for text letter spacing settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -535,16 +545,16 @@ public class Group extends VisualBase {
     /**
      * Setter for line height settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for line height settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -557,16 +567,16 @@ public class Group extends VisualBase {
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Group maxFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group maxFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Group maxFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group maxFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -579,16 +589,16 @@ public class Group extends VisualBase {
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Group minFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group minFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Group minFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group minFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -603,8 +613,8 @@ public class Group extends VisualBase {
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -617,16 +627,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the position.
      */
-    public com.anychart.core.stock.eventmarkers.Group position(com.anychart.enums.EventMarkerPosition value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group position(com.anychart.enums.EventMarkerPosition position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the position.
      */
-    public com.anychart.core.stock.eventmarkers.Group position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -657,8 +667,8 @@ public class Group extends VisualBase {
     /**
      * Setter for the text selectable option.
      */
-    public com.anychart.core.stock.eventmarkers.Group selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -673,8 +683,8 @@ public class Group extends VisualBase {
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -688,8 +698,22 @@ public class Group extends VisualBase {
      * Setter for the seriesId.<br/>
 <b>Note</b>: Sets a series by id for all {@link anychart.core.stock.eventMarkers.Group#position} values with exception of "axis" value.
      */
-    public com.anychart.core.stock.eventmarkers.Group seriesId(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesId(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group seriesId(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesId(%s);", wrapQuotes(id)));
+
+        return this;
+    }
+    /**
+     * Getter for sticking event markers to left value.
+     */
+    public void stickToLeft() {
+        APIlib.getInstance().addJSLine(jsBase + ".stickToLeft();");
+    }
+    /**
+     * Setter for sticking event markers to left value.
+     */
+    public com.anychart.core.stock.eventmarkers.Group stickToLeft(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stickToLeft(%s);", enabled));
 
         return this;
     }
@@ -698,12 +722,6 @@ public class Group extends VisualBase {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for series stroke by function.
-     */
-    public com.anychart.core.map.series.Base stroke(String strokeFunction) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s)", wrapQuotes(strokeFunction)));
     }
     /**
      * Setter for series stroke settings.
@@ -762,6 +780,14 @@ public class Group extends VisualBase {
         return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.stock.eventmarkers.Group stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the text direction settings.
      */
     public void textDirection() {
@@ -770,16 +796,16 @@ public class Group extends VisualBase {
     /**
      * Setter for text direction settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group textDirection(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
      * Setter for text direction settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group textDirection(com.anychart.graphics.vector.text.Direction type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -792,8 +818,8 @@ public class Group extends VisualBase {
     /**
      * Setter for text-indent settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -830,14 +856,14 @@ public class Group extends VisualBase {
     /**
      * Setter for tooltip settings.
      */
-    public com.anychart.charts.Pie tooltip(String value) {
-        return new com.anychart.charts.Pie(String.format(Locale.US, jsBase + ".tooltip(%s)", wrapQuotes(value)));
+    public com.anychart.charts.Pie tooltip(String settings) {
+        return new com.anychart.charts.Pie(String.format(Locale.US, jsBase + ".tooltip(%s)", wrapQuotes(settings)));
     }
     /**
      * Setter for tooltip settings.
      */
-    public com.anychart.charts.Pie tooltip(Boolean value) {
-        return new com.anychart.charts.Pie(String.format(Locale.US, jsBase + ".tooltip(%s)", value));
+    public com.anychart.charts.Pie tooltip(Boolean settings) {
+        return new com.anychart.charts.Pie(String.format(Locale.US, jsBase + ".tooltip(%s)", settings));
     }
     /**
      * Getter for the marker type.
@@ -848,16 +874,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.stock.eventmarkers.Group type(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group type(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.stock.eventmarkers.Group type(com.anychart.enums.EventMarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group type(com.anychart.enums.EventMarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -899,8 +925,8 @@ public class Group extends VisualBase {
     /**
      * Setter for the useHTML flag.
      */
-    public com.anychart.core.stock.eventmarkers.Group useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -913,16 +939,16 @@ public class Group extends VisualBase {
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Group vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -935,16 +961,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the markers width.
      */
-    public com.anychart.core.stock.eventmarkers.Group width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for the markers width.
      */
-    public com.anychart.core.stock.eventmarkers.Group width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
@@ -957,16 +983,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.stock.eventmarkers.Group wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.stock.eventmarkers.Group wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -979,16 +1005,16 @@ public class Group extends VisualBase {
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.stock.eventmarkers.Group wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Group wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.stock.eventmarkers.Group wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Group wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1001,8 +1027,81 @@ public class Group extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.stock.eventmarkers.Group zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Group zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.eventmarkers.Group container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.eventmarkers.Group container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.eventmarkers.Group container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.eventmarkers.Group parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.eventmarkers.Group parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.eventmarkers.Group parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.eventmarkers.Group parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -1027,6 +1126,14 @@ public class Group extends VisualBase {
      */
     public com.anychart.core.stock.eventmarkers.Group data(List<DataEntry> data, String fillMethod) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".data(%s, %s);", arrayToString(data), wrapQuotes(fillMethod)));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.stock.eventmarkers.Group fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

@@ -46,16 +46,16 @@ public class Text extends JsObject {
     /**
      * Setter for the text marker align.
      */
-    public com.anychart.core.axismarkers.Text align(com.anychart.enums.Align value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text align(com.anychart.enums.Align align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text marker align.
      */
-    public com.anychart.core.axismarkers.Text align(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text align(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -68,16 +68,16 @@ public class Text extends JsObject {
     /**
      * Setter for the text marker anchor settings.
      */
-    public com.anychart.core.axismarkers.Text anchor(com.anychart.enums.Anchor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text anchor(com.anychart.enums.Anchor anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text marker anchor settings.
      */
-    public com.anychart.core.axismarkers.Text anchor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text anchor(String anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor)));
 
         return this;
     }
@@ -90,8 +90,30 @@ public class Text extends JsObject {
     /**
      * Setter for the text marker axis.
      */
-    public com.anychart.core.axismarkers.Line axis(com.anychart.core.axes.Linear value) {
-        return new com.anychart.core.axismarkers.Line(String.format(Locale.US, jsBase + ".axis(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Line axis(com.anychart.core.axes.Linear axis) {
+        return new com.anychart.core.axismarkers.Line(String.format(Locale.US, jsBase + ".axis(%s)", (axis != null) ? axis.getJsBase() : null));
+    }
+    /**
+     * Getter for the background.
+     */
+    public com.anychart.core.ui.Background background() {
+        return new com.anychart.core.ui.Background(jsBase + ".background()");
+    }
+    /**
+     * Setter for the background.
+     */
+    public com.anychart.core.axismarkers.Text background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the background.
+     */
+    public com.anychart.core.axismarkers.Text background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
+
+        return this;
     }
     /**
      * Getter for the pointer events.
@@ -102,8 +124,8 @@ public class Text extends JsObject {
     /**
      * Setter for the pointer events.
      */
-    public com.anychart.core.axismarkers.Text disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.axismarkers.Text disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -116,8 +138,8 @@ public class Text extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axismarkers.Text enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axismarkers.Text enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -131,8 +153,8 @@ public class Text extends JsObject {
      * Setter for the text font color.<br/>
 {@link https://www.w3schools.com/html/html_colors.asp}
      */
-    public com.anychart.core.axismarkers.Text fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -167,8 +189,8 @@ public class Text extends JsObject {
     /**
      * Setter for the font family.
      */
-    public com.anychart.core.axismarkers.Text fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -181,8 +203,8 @@ public class Text extends JsObject {
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public com.anychart.core.axismarkers.Text fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.axismarkers.Text fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -195,16 +217,16 @@ public class Text extends JsObject {
     /**
      * Setter for the text font size.
      */
-    public com.anychart.core.axismarkers.Text fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the text font size.
      */
-    public com.anychart.core.axismarkers.Text fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.axismarkers.Text fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -217,16 +239,16 @@ public class Text extends JsObject {
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.axismarkers.Text fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.axismarkers.Text fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -262,8 +284,8 @@ public class Text extends JsObject {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.axismarkers.Text fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
@@ -271,8 +293,8 @@ public class Text extends JsObject {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.axismarkers.Text fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.axismarkers.Text fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -285,16 +307,16 @@ public class Text extends JsObject {
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.axismarkers.Text hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.axismarkers.Text hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -307,16 +329,16 @@ public class Text extends JsObject {
     /**
      * Setter for the text marker height.
      */
-    public com.anychart.core.axismarkers.Text height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.axismarkers.Text height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for the text marker height.
      */
-    public com.anychart.core.axismarkers.Text height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -336,16 +358,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for text marker layout.
      */
-    public com.anychart.core.axismarkers.Text layout(com.anychart.enums.Layout value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text layout(com.anychart.enums.Layout layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for text marker layout.
      */
-    public com.anychart.core.axismarkers.Text layout(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text layout(String layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(layout)));
 
         return this;
     }
@@ -359,8 +381,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.axismarkers.Text letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -368,8 +390,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.axismarkers.Text letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.axismarkers.Text letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -383,8 +405,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.core.axismarkers.Text lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -392,8 +414,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.core.axismarkers.Text lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.axismarkers.Text lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -406,16 +428,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text marker offset by x.
      */
-    public com.anychart.core.axismarkers.Text offsetX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", value));
+    public com.anychart.core.axismarkers.Text offsetX(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", offset));
 
         return this;
     }
     /**
      * Setter for the text marker offset by x.
      */
-    public com.anychart.core.axismarkers.Text offsetX(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text offsetX(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -428,16 +450,174 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text marker offset by y.
      */
-    public com.anychart.core.axismarkers.Text offsetY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", value));
+    public com.anychart.core.axismarkers.Text offsetY(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", offset));
 
         return this;
     }
     /**
      * Setter for the text marker offset by y.
      */
-    public com.anychart.core.axismarkers.Text offsetY(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text offsetY(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offset)));
+
+        return this;
+    }
+    /**
+     * Getter for the text marker padding.
+     */
+    public com.anychart.core.utils.Padding padding() {
+        return new com.anychart.core.utils.Padding(jsBase + ".padding()");
+    }
+    /**
+     * Setter for the text marker padding in pixels by one value.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels by one value.
+     */
+    public com.anychart.core.axismarkers.Text padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels by one value.
+     */
+    public com.anychart.core.axismarkers.Text padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, String value2, String value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), wrapQuotes(value2), wrapQuotes(value3), wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, String value2, String value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), wrapQuotes(value2), wrapQuotes(value3), value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, String value2, Number value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), wrapQuotes(value2), value3, wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, String value2, Number value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), wrapQuotes(value2), value3, value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, Number value2, String value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), value2, wrapQuotes(value3), wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, Number value2, String value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), value2, wrapQuotes(value3), value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, Number value2, Number value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), value2, value3, wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(String value1, Number value2, Number value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value1), value2, value3, value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, String value2, String value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, wrapQuotes(value2), wrapQuotes(value3), wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, String value2, String value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, wrapQuotes(value2), wrapQuotes(value3), value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, String value2, Number value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, wrapQuotes(value2), value3, wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, String value2, Number value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, wrapQuotes(value2), value3, value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, Number value2, String value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value2, wrapQuotes(value3), wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, Number value2, String value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value2, wrapQuotes(value3), value4));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, Number value2, Number value3, String value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value2, value3, wrapQuotes(value4)));
+
+        return this;
+    }
+    /**
+     * Setter for the text marker padding in pixels using several numbers.
+     */
+    public com.anychart.core.axismarkers.Text padding(Number value1, Number value2, Number value3, Number value4) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value2, value3, value4));
 
         return this;
     }
@@ -468,8 +648,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text marker rotation.
      */
-    public com.anychart.core.axismarkers.Text rotation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", value));
+    public com.anychart.core.axismarkers.Text rotation(Number rotation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", rotation));
 
         return this;
     }
@@ -482,24 +662,50 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text marker scale.
      */
-    public com.anychart.core.axismarkers.Text scale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text scale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text marker scale.
      */
-    public com.anychart.core.axismarkers.Text scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text marker scale.
      */
-    public com.anychart.core.axismarkers.Text scale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text scale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Getter for the scale range mode.
+     */
+    public void scaleRangeMode() {
+        APIlib.getInstance().addJSLine(jsBase + ".scaleRangeMode();");
+    }
+    /**
+     * Setter for the scale range mode.<br/>
+Whether to consider the text marker value in the scale calculation or not.
+The 'consider' mode consideres the marker value in the scale.
+     */
+    public com.anychart.core.axismarkers.Text scaleRangeMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleRangeMode(%s);", wrapQuotes(mode)));
+
+        return this;
+    }
+    /**
+     * Setter for the scale range mode.<br/>
+Whether to consider the text marker value in the scale calculation or not.
+The 'consider' mode consideres the marker value in the scale.
+     */
+    public com.anychart.core.axismarkers.Text scaleRangeMode(com.anychart.enums.ScaleRangeMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleRangeMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
@@ -512,8 +718,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.core.axismarkers.Text selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.axismarkers.Text selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -526,8 +732,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text marker text settings.
      */
-    public com.anychart.core.axismarkers.Text text(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text text(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -540,16 +746,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.axismarkers.Text textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text textDirection(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text direction.
      */
-    public com.anychart.core.axismarkers.Text textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text textDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -562,8 +768,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text indent.
      */
-    public com.anychart.core.axismarkers.Text textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.axismarkers.Text textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -604,24 +810,24 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.axismarkers.Text textSettings(String name, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text textSettings(String name, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.axismarkers.Text textSettings(String name, Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.core.axismarkers.Text textSettings(String name, Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.core.axismarkers.Text textSettings(String name, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.core.axismarkers.Text textSettings(String name, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
@@ -663,8 +869,8 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for flag useHTML.
      */
-    public com.anychart.core.axismarkers.Text useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.axismarkers.Text useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -677,16 +883,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.axismarkers.Text vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.axismarkers.Text vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -713,16 +919,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the text marker width.
      */
-    public com.anychart.core.axismarkers.Text width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.axismarkers.Text width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the text marker width.
      */
-    public com.anychart.core.axismarkers.Text width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -735,16 +941,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.axismarkers.Text wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.axismarkers.Text wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -757,16 +963,16 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.axismarkers.Text wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Text wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.axismarkers.Text wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Text wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -779,8 +985,81 @@ Layout is define by {@link anychart.core.axisMarkers.Text#layout} method.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axismarkers.Text zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axismarkers.Text zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.Text container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.Text container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.Text container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Text parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Text parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Text parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Text parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

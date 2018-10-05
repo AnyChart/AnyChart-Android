@@ -105,8 +105,8 @@ public class DateTime extends ScatterBase {
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.DateTime inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.DateTime inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -119,8 +119,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum.
      */
-    public com.anychart.scales.DateTime maximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", value));
+    public com.anychart.scales.DateTime maximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
 
         return this;
     }
@@ -133,8 +133,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum gap.
      */
-    public com.anychart.scales.DateTime maximumGap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumGap(%s);", value));
+    public com.anychart.scales.DateTime maximumGap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumGap(%s);", gap));
 
         return this;
     }
@@ -147,8 +147,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum.
      */
-    public com.anychart.scales.DateTime minimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", value));
+    public com.anychart.scales.DateTime minimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
 
         return this;
     }
@@ -161,8 +161,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum gap.
      */
-    public com.anychart.scales.DateTime minimumGap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumGap(%s);", value));
+    public com.anychart.scales.DateTime minimumGap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumGap(%s);", gap));
 
         return this;
     }
@@ -175,16 +175,16 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.DateTime minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.DateTime minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.DateTime minorTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.DateTime minorTicks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -203,8 +203,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the soft maximum.
      */
-    public com.anychart.scales.DateTime softMaximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMaximum(%s);", value));
+    public com.anychart.scales.DateTime softMaximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMaximum(%s);", maximum));
 
         return this;
     }
@@ -217,8 +217,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for soft minimum.
      */
-    public com.anychart.scales.DateTime softMinimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMinimum(%s);", value));
+    public com.anychart.scales.DateTime softMinimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMinimum(%s);", minimum));
 
         return this;
     }
@@ -240,16 +240,16 @@ call of this method if needed.
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.DateTime ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.DateTime ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.DateTime ticks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.DateTime ticks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -298,8 +298,8 @@ call of this method if needed.
     /**
      * Setter for the maximum ticks count.<br/>
      */
-    public com.anychart.scales.DateTime maxTicksCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", value));
+    public com.anychart.scales.DateTime maxTicksCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", count));
 
         return this;
     }

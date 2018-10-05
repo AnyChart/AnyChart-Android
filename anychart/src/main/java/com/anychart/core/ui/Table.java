@@ -150,16 +150,16 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.ui.Table bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.ui.Table bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.ui.Table bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -172,24 +172,24 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.ui.Table bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.ui.Table bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.ui.Table bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -324,15 +324,15 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Getter for cell border settings.
      */
-    public void cellBorder() {
-        APIlib.getInstance().addJSLine(jsBase + ".cellBorder();");
+    public com.anychart.core.ui.table.Border cellBorder() {
+        return new com.anychart.core.ui.table.Border(jsBase + ".cellBorder()");
     }
     /**
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke colorSettings, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (colorSettings != null) ? colorSettings.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -340,8 +340,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke colorSettings, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (colorSettings != null) ? colorSettings.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -349,8 +349,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke colorSettings, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (colorSettings != null) ? colorSettings.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -358,8 +358,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.Stroke colorSettings, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (colorSettings != null) ? colorSettings.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -367,8 +367,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Table cellBorder(String colorSettings, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(colorSettings), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -376,8 +376,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Table cellBorder(String colorSettings, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(colorSettings), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -385,8 +385,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Table cellBorder(String colorSettings, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(colorSettings), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -394,44 +394,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.ui.Table cellBorder(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * Setter for cell border settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.ui.Table cellBorder(String strokeOrFill, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
-
-        return this;
-    }
-    /**
-     * Setter for cell border settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.ui.Table cellBorder(String strokeOrFill, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * Setter for cell border settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.ui.Table cellBorder(String strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
-
-        return this;
-    }
-    /**
-     * Setter for cell border settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.ui.Table cellBorder(String strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Table cellBorder(String colorSettings, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(colorSettings), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -442,11 +406,29 @@ public class Table extends VisualBaseWithBounds {
         APIlib.getInstance().addJSLine(jsBase + ".cellFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Table cellFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table cellFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Table cellFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Table cellFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -539,24 +521,24 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public com.anychart.core.ui.Table cellPadding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(value)));
+    public com.anychart.core.ui.Table cellPadding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public com.anychart.core.ui.Table cellPadding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.ui.Table cellPadding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public com.anychart.core.ui.Table cellPadding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table cellPadding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -697,8 +679,8 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for table columns count.
      */
-    public com.anychart.core.ui.Table colsCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsCount(%s);", value));
+    public com.anychart.core.ui.Table colsCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsCount(%s);", count));
 
         return this;
     }
@@ -711,16 +693,16 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for the column width maximum.
      */
-    public com.anychart.core.ui.Table colsMaxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table colsMaxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for the column width maximum.
      */
-    public com.anychart.core.ui.Table colsMaxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", value));
+    public com.anychart.core.ui.Table colsMaxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", width));
 
         return this;
     }
@@ -733,16 +715,16 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for column width minimum.
      */
-    public com.anychart.core.ui.Table colsMinWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table colsMinWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for column width minimum.
      */
-    public com.anychart.core.ui.Table colsMinWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", value));
+    public com.anychart.core.ui.Table colsMinWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", width));
 
         return this;
     }
@@ -755,16 +737,16 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for the column width.
      */
-    public com.anychart.core.ui.Table colsWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table colsWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for the column width.
      */
-    public com.anychart.core.ui.Table colsWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsWidth(%s);", value));
+    public com.anychart.core.ui.Table colsWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colsWidth(%s);", width));
 
         return this;
     }
@@ -800,6 +782,28 @@ public class Table extends VisualBaseWithBounds {
         return this;
     }
     /**
+     * Getter for the context menu.
+     */
+    public com.anychart.ui.ContextMenu contextMenu() {
+        return new com.anychart.ui.ContextMenu(jsBase + ".contextMenu()");
+    }
+    /**
+     * Setter for the context menu.
+     */
+    public com.anychart.core.ui.Table contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the context menu.
+     */
+    public com.anychart.core.ui.Table contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
+
+        return this;
+    }
+    /**
      * Getter for the state of disablePointerEvents option.
      */
     public void disablePointerEvents() {
@@ -808,8 +812,8 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for the text disablePointerEvents option.
      */
-    public com.anychart.core.ui.Table disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.ui.Table disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -830,8 +834,22 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.ui.Table enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.Table enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
+
+        return this;
+    }
+    /**
+     * Getter for the export table.
+     */
+    public com.anychart.core.utils.Exports exports() {
+        return new com.anychart.core.utils.Exports(jsBase + ".exports()");
+    }
+    /**
+     * Setter for the export table.
+     */
+    public com.anychart.core.ui.Table exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -845,8 +863,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for the text font color.
 {@link https://www.w3schools.com/html/html_colors.asp}
      */
-    public com.anychart.core.ui.Table fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -881,8 +899,8 @@ public class Table extends VisualBaseWithBounds {
     /**
      * Setter for font family.
      */
-    public com.anychart.core.ui.Table fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -896,8 +914,8 @@ public class Table extends VisualBaseWithBounds {
      * Setter for the text font opacity.
 Double value from 0 to 1.
      */
-    public com.anychart.core.ui.Table fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.ui.Table fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -910,16 +928,16 @@ Double value from 0 to 1.
     /**
      * Setter for text font size.
      */
-    public com.anychart.core.ui.Table fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for text font size.
      */
-    public com.anychart.core.ui.Table fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.ui.Table fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -932,16 +950,16 @@ Double value from 0 to 1.
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.ui.Table fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.ui.Table fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -977,8 +995,8 @@ Double value from 0 to 1.
      * Setter for the text font weight.
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.ui.Table fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
@@ -986,8 +1004,22 @@ Double value from 0 to 1.
      * Setter for the text font weight.
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.ui.Table fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.ui.Table fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
+
+        return this;
+    }
+    /**
+     * Getter for the fullscreen mode.
+     */
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.core.ui.Table fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
 
         return this;
     }
@@ -1004,76 +1036,16 @@ Double value from 0 to 1.
         return new com.anychart.core.ui.table.Column(String.format(Locale.US, jsBase + ".getCol(%s)", col));
     }
     /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccess, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccess, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
      * Returns pixel bounds of the element due to parent bounds and self bounds settings.
      */
     public com.anychart.math.Rect getPixelBounds() {
         return new com.anychart.math.Rect(jsBase + ".getPixelBounds()");
     }
     /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccess, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), width, height, quality));
-    }
-    /**
      * Returns row instance by its number.
      */
     public com.anychart.core.ui.table.Row getRow(Number row) {
         return new com.anychart.core.ui.table.Row(String.format(Locale.US, jsBase + ".getRow(%s)", row));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccess, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
     }
     /**
      * Getter for the text horizontal align.
@@ -1084,16 +1056,16 @@ Double value from 0 to 1.
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.ui.Table hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.core.ui.Table hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -1106,18 +1078,24 @@ Double value from 0 to 1.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.ui.Table height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.ui.Table height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.ui.Table height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
+    }
+    /**
+     * Whether the full screen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for element left bound settings.
@@ -1128,16 +1106,16 @@ Double value from 0 to 1.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.ui.Table left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.ui.Table left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.ui.Table left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -1151,8 +1129,8 @@ Double value from 0 to 1.
      * Setter for the text letter spacing.
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.ui.Table letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -1160,8 +1138,8 @@ Double value from 0 to 1.
      * Setter for the text letter spacing.
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.ui.Table letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.ui.Table letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -1174,16 +1152,16 @@ Double value from 0 to 1.
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.ui.Table lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.core.ui.Table lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.ui.Table lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -1196,16 +1174,16 @@ Double value from 0 to 1.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.ui.Table maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.ui.Table maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.ui.Table maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1218,16 +1196,16 @@ Double value from 0 to 1.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.ui.Table maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.ui.Table maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.ui.Table maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1240,16 +1218,16 @@ Double value from 0 to 1.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.ui.Table minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.ui.Table minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.ui.Table minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1262,16 +1240,16 @@ Double value from 0 to 1.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.ui.Table minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.ui.Table minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.ui.Table minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1302,16 +1280,16 @@ Double value from 0 to 1.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.ui.Table right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.ui.Table right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.ui.Table right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1322,11 +1300,29 @@ Double value from 0 to 1.
         APIlib.getInstance().addJSLine(jsBase + ".rowEvenFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Table rowEvenFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table rowEvenFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Table rowEvenFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Table rowEvenFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1420,8 +1416,26 @@ Double value from 0 to 1.
      * Setter for fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Table rowOddFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table rowOddFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Table rowOddFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Table rowOddFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1514,30 +1528,30 @@ Double value from 0 to 1.
     /**
      * Setter for table rows count.
      */
-    public com.anychart.core.ui.Table rowsCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsCount(%s);", value));
+    public com.anychart.core.ui.Table rowsCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsCount(%s);", count));
 
         return this;
     }
     /**
-     * Getter for row height.
+     * Getter for rows height.
      */
     public void rowsHeight() {
         APIlib.getInstance().addJSLine(jsBase + ".rowsHeight();");
     }
     /**
-     * Setter for row height.
+     * Setter for rows height.
      */
-    public com.anychart.core.ui.Table rowsHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table rowsHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
-     * Setter for row height.
+     * Setter for rows height.
      */
-    public com.anychart.core.ui.Table rowsHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsHeight(%s);", value));
+    public com.anychart.core.ui.Table rowsHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsHeight(%s);", height));
 
         return this;
     }
@@ -1550,16 +1564,16 @@ Double value from 0 to 1.
     /**
      * Setter for the row height maximum.
      */
-    public com.anychart.core.ui.Table rowsMaxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table rowsMaxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the row height maximum.
      */
-    public com.anychart.core.ui.Table rowsMaxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", value));
+    public com.anychart.core.ui.Table rowsMaxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", height));
 
         return this;
     }
@@ -1572,16 +1586,16 @@ Double value from 0 to 1.
     /**
      * Setter for the row height minimum.
      */
-    public com.anychart.core.ui.Table rowsMinHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table rowsMinHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the row height minimum.
      */
-    public com.anychart.core.ui.Table rowsMinHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", value));
+    public com.anychart.core.ui.Table rowsMinHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", height));
 
         return this;
     }
@@ -1624,70 +1638,34 @@ Double value from 0 to 1.
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.core.ui.Table selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.ui.Table selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
     /**
-     * Shares a table as a JPG file and returns a link to the shared image.
+     * Opens Facebook sharing dialog.
      */
-    public void shareAsJpg(String onSuccess, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
     }
     /**
-     * Shares a table as a PDF file and returns a link to the shared image.
+     * Opens LinkedIn sharing dialog.
      */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
+    public void shareWithLinkedIn(String captionOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
     }
     /**
-     * Shares a table as a PDF file and returns a link to the shared image.
+     * Opens Pinterest sharing dialog.
      */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
+    public void shareWithPinterest(String linkOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
     }
     /**
-     * Shares a table as a PDF file and returns a link to the shared image.
+     * Opens Twitter sharing dialog.
      */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a table as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a table as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccess, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a table as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a table as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a table as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a table as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccess, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccess), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
+    public void shareWithTwitter() {
+        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
     }
     /**
      * Getter for the text direction.
@@ -1720,8 +1698,8 @@ Double value from 0 to 1.
     /**
      * Setter for the text indent.
      */
-    public com.anychart.core.ui.Table textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.ui.Table textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -1768,16 +1746,16 @@ Double value from 0 to 1.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.ui.Table top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.ui.Table top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.ui.Table top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1819,8 +1797,8 @@ Double value from 0 to 1.
     /**
      * Setter for flag useHtml.
      */
-    public com.anychart.core.ui.Table useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.ui.Table useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -1833,16 +1811,16 @@ Double value from 0 to 1.
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.ui.Table vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.core.ui.Table vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -1855,16 +1833,16 @@ Double value from 0 to 1.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.ui.Table width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.ui.Table width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.ui.Table width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1877,16 +1855,16 @@ Double value from 0 to 1.
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.ui.Table wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.ui.Table wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1899,16 +1877,16 @@ Double value from 0 to 1.
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.ui.Table wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Table wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.ui.Table wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.Table wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1921,8 +1899,81 @@ Double value from 0 to 1.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.ui.Table zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.ui.Table zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.Table container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.Table container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.Table container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Table parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Table parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Table parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.Table parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

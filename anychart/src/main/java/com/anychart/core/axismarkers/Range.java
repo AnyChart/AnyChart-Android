@@ -47,8 +47,8 @@ public class Range extends VisualBase {
     /**
      * Setter for the range marker axis.
      */
-    public com.anychart.core.axismarkers.Line axis(com.anychart.core.axes.Linear value) {
-        return new com.anychart.core.axismarkers.Line(String.format(Locale.US, jsBase + ".axis(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Line axis(com.anychart.core.axes.Linear axis) {
+        return new com.anychart.core.axismarkers.Line(String.format(Locale.US, jsBase + ".axis(%s)", (axis != null) ? axis.getJsBase() : null));
     }
     /**
      * Getter for the element state (enabled or disabled).
@@ -59,8 +59,8 @@ public class Range extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axismarkers.Range enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axismarkers.Range enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -71,11 +71,29 @@ public class Range extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axismarkers.Range fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Range fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.axismarkers.Range fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.axismarkers.Range fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -168,8 +186,8 @@ public class Range extends VisualBase {
     /**
      * Setter for the starting range marker value.
      */
-    public com.anychart.core.axismarkers.Range from(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", value));
+    public com.anychart.core.axismarkers.Range from(Number fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", fromValue));
 
         return this;
     }
@@ -189,16 +207,16 @@ Layout is define by {@link anychart.core.axisMarkers.Range#layout} method.
     /**
      * Setter for the range marker layout.
      */
-    public com.anychart.core.axismarkers.Range layout(com.anychart.enums.Layout value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Range layout(com.anychart.enums.Layout layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the range marker layout.
      */
-    public com.anychart.core.axismarkers.Range layout(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Range layout(String layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(layout)));
 
         return this;
     }
@@ -229,24 +247,50 @@ Layout is define by {@link anychart.core.axisMarkers.Range#layout} method.
     /**
      * Setter for the range marker scale.
      */
-    public com.anychart.core.axismarkers.Range scale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Range scale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the range marker scale.
      */
-    public com.anychart.core.axismarkers.Range scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.Range scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the range marker scale.
      */
-    public com.anychart.core.axismarkers.Range scale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.Range scale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Getter for the scale range mode.
+     */
+    public void scaleRangeMode() {
+        APIlib.getInstance().addJSLine(jsBase + ".scaleRangeMode();");
+    }
+    /**
+     * Setter for the scale range mode.<br/>
+Whether to consider the range marker value in the scale calculation or not.
+The 'consider' mode consideres the marker value in the scale.
+     */
+    public com.anychart.core.axismarkers.Range scaleRangeMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleRangeMode(%s);", wrapQuotes(mode)));
+
+        return this;
+    }
+    /**
+     * Setter for the scale range mode.<br/>
+Whether to consider the range marker value in the scale calculation or not.
+The 'consider' mode consideres the marker value in the scale.
+     */
+    public com.anychart.core.axismarkers.Range scaleRangeMode(com.anychart.enums.ScaleRangeMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleRangeMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
@@ -259,8 +303,8 @@ Layout is define by {@link anychart.core.axisMarkers.Range#layout} method.
     /**
      * Setter for the ending range marker value.
      */
-    public com.anychart.core.axismarkers.Range to(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", value));
+    public com.anychart.core.axismarkers.Range to(Number toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", toValue));
 
         return this;
     }
@@ -302,8 +346,89 @@ Layout is define by {@link anychart.core.axisMarkers.Range#layout} method.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axismarkers.Range zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axismarkers.Range zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.Range container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.Range container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.Range container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Range parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Range parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Range parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.Range parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.axismarkers.Range fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

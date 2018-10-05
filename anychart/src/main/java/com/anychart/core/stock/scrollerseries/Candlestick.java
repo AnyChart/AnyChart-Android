@@ -62,16 +62,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -84,24 +84,24 @@ public class Candlestick extends OHLC {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -234,6 +234,44 @@ public class Candlestick extends OHLC {
         return this;
     }
     /**
+     * Getter for the color scale.
+     */
+    public com.anychart.scales.LinearColor colorScale() {
+        return new com.anychart.scales.LinearColor(jsBase + ".colorScale()");
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick colorScale(com.anychart.scales.LinearColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
      * 
      */
     public com.anychart.data.TableMapping data(List<DataEntry> data) {
@@ -248,8 +286,8 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -260,19 +298,29 @@ public class Candlestick extends OHLC {
         APIlib.getInstance().addJSLine(jsBase + ".fallingFill();");
     }
     /**
-     * Setter for the falling fill settings using an object or a string.
+     * Setter for the falling fill settings using an object, an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingFill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the falling fill settings using function.
+     * Setter for the falling fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingFill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the falling fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -357,7 +405,7 @@ public class Candlestick extends OHLC {
         return this;
     }
     /**
-     * Getter for the falling hatch fill settings.
+     * Getter for falling hatch fill settings.
      */
     public com.anychart.graphics.vector.PatternFill fallingHatchFill() {
         return new com.anychart.graphics.vector.PatternFill(jsBase + ".fallingHatchFill()");
@@ -366,8 +414,8 @@ public class Candlestick extends OHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(com.anychart.graphics.vector.PatternFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -375,40 +423,49 @@ public class Candlestick extends OHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(com.anychart.graphics.vector.HatchFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for falling hatch fill settings.
+     * Setter for falling hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(String fallingHatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", wrapQuotes(fallingHatchFillFunction)));
+
+        return this;
+    }
+    /**
+     * Setter for falling hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for falling hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for falling hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(String patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrTypeOrState), wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", enabled));
 
         return this;
     }
     /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
-
-        return this;
-    }
-    /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public com.anychart.core.stock.scrollerseries.Candlestick fallingHatchFill(Boolean patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s);", patternFillOrTypeOrState, wrapQuotes(color), thickness, size));
-
-        return this;
-    }
-    /**
-     * Getter for the current falling stroke settings.
+     * Getter for falling stroke settings.
      */
     public void fallingStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".fallingStroke();");
@@ -522,6 +579,14 @@ public class Candlestick extends OHLC {
         return this;
     }
     /**
+     * Setter for falling stroke using an object.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick fallingStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Returns pixel bounds of the element due to parent bounds and self bounds settings.
      */
     public com.anychart.math.Rect getPixelBounds() {
@@ -536,16 +601,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -558,16 +623,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for chart labels.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart labels.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -580,16 +645,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -602,16 +667,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -642,16 +707,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the maximum point width.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick maxPointWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick maxPointWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum point width.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick maxPointWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick maxPointWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -664,16 +729,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -686,16 +751,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -730,16 +795,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the minimum point length.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick minPointLength(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick minPointLength(Number length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", length));
 
         return this;
     }
     /**
      * Setter for the minimum point length.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick minPointLength(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick minPointLength(String length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", wrapQuotes(length)));
 
         return this;
     }
@@ -752,16 +817,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -774,13 +839,13 @@ public class Candlestick extends OHLC {
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for current point width settings.
+     * Getter for point width settings.
      */
     public void pointWidth() {
         APIlib.getInstance().addJSLine(jsBase + ".pointWidth();");
@@ -788,16 +853,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the point width settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick pointWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick pointWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the point width settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick pointWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick pointWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -828,8 +893,8 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the series rendering settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick rendering(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick rendering(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -842,16 +907,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -862,19 +927,29 @@ public class Candlestick extends OHLC {
         APIlib.getInstance().addJSLine(jsBase + ".risingFill();");
     }
     /**
-     * Setter for the rising fill settings using an object or a string.
+     * Setter for the rising fill settings using an object, an array or a string.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick risingFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingFill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the rising fill settings using function.
+     * Setter for the rising fill settings using an object, an array or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingFill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.stock.scrollerseries.Candlestick risingFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the rising fill settings using an object, an array or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick risingFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -959,7 +1034,7 @@ public class Candlestick extends OHLC {
         return this;
     }
     /**
-     * Getter for the rising hatch fill settings.
+     * Getter for rising hatch fill settings.
      */
     public com.anychart.graphics.vector.PatternFill risingHatchFill() {
         return new com.anychart.graphics.vector.PatternFill(jsBase + ".risingHatchFill()");
@@ -968,8 +1043,8 @@ public class Candlestick extends OHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(com.anychart.graphics.vector.PatternFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -977,40 +1052,49 @@ public class Candlestick extends OHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(com.anychart.graphics.vector.HatchFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for rising hatch fill settings.
+     * Setter for rising hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(String risingHatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", wrapQuotes(risingHatchFillFunction)));
+
+        return this;
+    }
+    /**
+     * Setter for rising hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for rising hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(String patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrTypeOrState), wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", enabled));
 
         return this;
     }
     /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
-
-        return this;
-    }
-    /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
-     */
-    public com.anychart.core.stock.scrollerseries.Candlestick risingHatchFill(Boolean patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s);", patternFillOrTypeOrState, wrapQuotes(color), thickness, size));
-
-        return this;
-    }
-    /**
-     * Getter for the current rising stroke settings.
+     * Getter for rising stroke settings.
      */
     public void risingStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".risingStroke();");
@@ -1124,6 +1208,14 @@ public class Candlestick extends OHLC {
         return this;
     }
     /**
+     * Setter for rising stroke using an object.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick risingStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for selected state settings.
      */
     public com.anychart.core.StateSettings selected() {
@@ -1132,8 +1224,8 @@ public class Candlestick extends OHLC {
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1146,8 +1238,8 @@ public class Candlestick extends OHLC {
     /**
      * Setter for switching of the series type.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick seriesType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick seriesType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -1160,16 +1252,16 @@ public class Candlestick extends OHLC {
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1211,21 +1303,21 @@ public class Candlestick extends OHLC {
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
-     * Getter for the current Y-scale.
+     * Getter for the Y-scale.
      */
     public com.anychart.scales.ScatterBase yScale() {
         return new com.anychart.scales.ScatterBase(jsBase + ".yScale()");
@@ -1233,24 +1325,24 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the Y-scale.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick yScale(com.anychart.scales.ScatterBase value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick yScale(com.anychart.scales.ScatterBase settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the Y-scale.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.scrollerseries.Candlestick yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the Y-scale.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Candlestick yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1263,8 +1355,8 @@ public class Candlestick extends OHLC {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.stock.scrollerseries.Candlestick zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.stock.scrollerseries.Candlestick zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -1273,6 +1365,79 @@ public class Candlestick extends OHLC {
      */
     public void getIndex() {
         APIlib.getInstance().addJSLine(jsBase + ".getIndex();");
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.stock.scrollerseries.Candlestick parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 

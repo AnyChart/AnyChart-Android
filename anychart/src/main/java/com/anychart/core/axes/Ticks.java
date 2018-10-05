@@ -48,8 +48,8 @@ public class Ticks extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axes.Ticks enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axes.Ticks enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -61,10 +61,10 @@ public class Ticks extends VisualBase {
     }
     /**
      * Setter for ticks length.<br/>
-<img src='/si/8.2.1/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
+<img src='/si/8.4.0/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
      */
-    public com.anychart.core.axes.Ticks length(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", value));
+    public com.anychart.core.axes.Ticks length(Number length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", length));
 
         return this;
     }
@@ -77,20 +77,20 @@ public class Ticks extends VisualBase {
     /**
      * Setter for ticks position.<br/>
 You can set ticks inside of a chart area or outside its position.<br/>
-<img src='/si/8.2.1/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+<img src='/si/8.4.0/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
      */
-    public com.anychart.core.axes.Ticks position(com.anychart.enums.SidePosition value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.Ticks position(com.anychart.enums.SidePosition position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for ticks position.<br/>
 You can set ticks inside of a chart area or outside its position.<br/>
-<img src='/si/8.2.1/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+<img src='/si/8.4.0/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
      */
-    public com.anychart.core.axes.Ticks position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.Ticks position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -120,10 +120,10 @@ You can set ticks inside of a chart area or outside its position.<br/>
     }
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='/si/8.2.1/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
+<img src='/si/8.4.0/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
      */
-    public com.anychart.core.axes.Ticks stroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.Ticks stroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -219,6 +219,14 @@ The following options are acceptable:
 
         return this;
     }
+    /**
+     * Setter for stroke settings using an object.
+     */
+    public com.anychart.core.axes.Ticks stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
@@ -257,16 +265,81 @@ The following options are acceptable:
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axes.Ticks zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axes.Ticks zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
-     * 
+     * Getter for the container.
      */
-    public com.anychart.core.axes.Ticks stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.Ticks container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.Ticks container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.Ticks container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Ticks parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Ticks parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Ticks parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.Ticks parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

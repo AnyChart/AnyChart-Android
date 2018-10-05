@@ -105,8 +105,8 @@ public class Logarithmic extends Linear {
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.Logarithmic inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.Logarithmic inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -120,8 +120,8 @@ instead of bottom-to-top and left-to-right.
      * Setter for the logarithmic base value.<br/>
 <b>Note:</b> Affects tick values auto calculation.
      */
-    public com.anychart.scales.Logarithmic logBase(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logBase(%s);", value));
+    public com.anychart.scales.Logarithmic logBase(Number baseValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logBase(%s);", baseValue));
 
         return this;
     }
@@ -134,8 +134,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum.
      */
-    public com.anychart.scales.Logarithmic maximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", value));
+    public com.anychart.scales.Logarithmic maximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
 
         return this;
     }
@@ -148,8 +148,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum gap.
      */
-    public com.anychart.scales.Logarithmic maximumGap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumGap(%s);", value));
+    public com.anychart.scales.Logarithmic maximumGap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumGap(%s);", gap));
 
         return this;
     }
@@ -162,8 +162,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum.
      */
-    public com.anychart.scales.Logarithmic minimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", value));
+    public com.anychart.scales.Logarithmic minimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
 
         return this;
     }
@@ -176,8 +176,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum gap.
      */
-    public com.anychart.scales.Logarithmic minimumGap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumGap(%s);", value));
+    public com.anychart.scales.Logarithmic minimumGap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumGap(%s);", gap));
 
         return this;
     }
@@ -190,16 +190,16 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for set of scale minor ticks in terms of data values.
      */
-    public com.anychart.scales.Logarithmic minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Logarithmic minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for set of scale minor ticks in terms of data values.
      */
-    public com.anychart.scales.Logarithmic minorTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Logarithmic minorTicks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -218,8 +218,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the soft maximum.
      */
-    public com.anychart.scales.Logarithmic softMaximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMaximum(%s);", value));
+    public com.anychart.scales.Logarithmic softMaximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMaximum(%s);", maximum));
 
         return this;
     }
@@ -232,8 +232,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the soft minimum.
      */
-    public com.anychart.scales.Logarithmic softMinimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMinimum(%s);", value));
+    public com.anychart.scales.Logarithmic softMinimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMinimum(%s);", minimum));
 
         return this;
     }
@@ -246,16 +246,16 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the stacking direction.
      */
-    public com.anychart.scales.Logarithmic stackDirection(com.anychart.enums.ScaleStackDirection value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stackDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.Logarithmic stackDirection(com.anychart.enums.ScaleStackDirection direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stackDirection(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the stacking direction.
      */
-    public com.anychart.scales.Logarithmic stackDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stackDirection(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Logarithmic stackDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stackDirection(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -300,8 +300,8 @@ call of this method if needed.
      * Setter for stick to zero.
 Flag to stick to zero value on auto calc if gaps lead to zero crossing.
      */
-    public com.anychart.scales.Logarithmic stickToZero(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stickToZero(%s);", value));
+    public com.anychart.scales.Logarithmic stickToZero(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stickToZero(%s);", enabled));
 
         return this;
     }
@@ -314,16 +314,16 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
     /**
      * Setter for set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.Logarithmic ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Logarithmic ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.Logarithmic ticks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Logarithmic ticks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -372,24 +372,24 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
     /**
      * Setter for the date which should be used as a changes zero for series.
      */
-    public com.anychart.scales.Logarithmic compareWith(com.anychart.enums.ScaleCompareWithMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".compareWith(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.Logarithmic compareWith(com.anychart.enums.ScaleCompareWithMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".compareWith(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the date which should be used as a changes zero for series.
      */
-    public com.anychart.scales.Logarithmic compareWith(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".compareWith(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Logarithmic compareWith(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".compareWith(%s);", wrapQuotes(mode)));
 
         return this;
     }
     /**
      * Setter for the date which should be used as a changes zero for series.
      */
-    public com.anychart.scales.Logarithmic compareWith(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".compareWith(%s);", value));
+    public com.anychart.scales.Logarithmic compareWith(Number mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".compareWith(%s);", mode));
 
         return this;
     }
@@ -402,16 +402,16 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
     /**
      * Setter for the scale changes mode.
      */
-    public com.anychart.scales.Logarithmic comparisonMode(com.anychart.enums.ScaleComparisonMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".comparisonMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.Logarithmic comparisonMode(com.anychart.enums.ScaleComparisonMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".comparisonMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the scale changes mode.
      */
-    public com.anychart.scales.Logarithmic comparisonMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".comparisonMode(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Logarithmic comparisonMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".comparisonMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -424,8 +424,8 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
     /**
      * Setter for the maximum ticks count.<br/>
      */
-    public com.anychart.scales.Logarithmic maxTicksCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", value));
+    public com.anychart.scales.Logarithmic maxTicksCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", count));
 
         return this;
     }

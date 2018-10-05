@@ -47,32 +47,32 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the color scale.
      */
-    public com.anychart.core.lineargauge.ScaleBar colorScale(com.anychart.scales.LinearColor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.ScaleBar colorScale(com.anychart.scales.LinearColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.core.lineargauge.ScaleBar colorScale(com.anychart.scales.OrdinalColor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.ScaleBar colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.core.lineargauge.ScaleBar colorScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.ScaleBar colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.core.lineargauge.ScaleBar colorScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.ScaleBar colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -83,11 +83,29 @@ public class ScaleBar extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.lineargauge.ScaleBar fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.ScaleBar fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.lineargauge.ScaleBar fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.lineargauge.ScaleBar fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -180,16 +198,16 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the starting range value.
      */
-    public com.anychart.core.lineargauge.ScaleBar from(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.ScaleBar from(String fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", wrapQuotes(fromValue)));
 
         return this;
     }
     /**
      * Setter for the starting range value.
      */
-    public com.anychart.core.lineargauge.ScaleBar from(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", value));
+    public com.anychart.core.lineargauge.ScaleBar from(Number fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", fromValue));
 
         return this;
     }
@@ -202,8 +220,8 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for scale bar offset.
      */
-    public com.anychart.core.lineargauge.ScaleBar offset(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.ScaleBar offset(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -216,8 +234,8 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for points.
      */
-    public com.anychart.core.lineargauge.ScaleBar points(com.anychart.core.lineargauge.scalebar.ControlPoint[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".points(%s);", arrayToString(value)));
+    public com.anychart.core.lineargauge.ScaleBar points(com.anychart.core.lineargauge.scalebar.ControlPoint[] pointsList) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".points(%s);", arrayToString(pointsList)));
 
         return this;
     }
@@ -230,8 +248,8 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the scale bar scale.
      */
-    public com.anychart.scales.Base scale(com.anychart.scales.Base value) {
-        return new com.anychart.scales.Base(String.format(Locale.US, jsBase + ".scale(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.Base scale(com.anychart.scales.Base scale) {
+        return new com.anychart.scales.Base(String.format(Locale.US, jsBase + ".scale(%s)", (scale != null) ? scale.getJsBase() : null));
     }
     /**
      * Getter for stroke settings.
@@ -348,6 +366,14 @@ public class ScaleBar extends VisualBase {
         return this;
     }
     /**
+     * Setter for the grid stroke using an object.
+     */
+    public com.anychart.core.lineargauge.ScaleBar stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the ending range value.
      */
     public void to() {
@@ -356,16 +382,16 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the ending range value.
      */
-    public com.anychart.core.lineargauge.ScaleBar to(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.ScaleBar to(String toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", wrapQuotes(toValue)));
 
         return this;
     }
     /**
      * Setter for the ending range value.
      */
-    public com.anychart.core.lineargauge.ScaleBar to(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", value));
+    public com.anychart.core.lineargauge.ScaleBar to(Number toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", toValue));
 
         return this;
     }
@@ -378,8 +404,38 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the scale bar width.
      */
-    public com.anychart.core.lineargauge.ScaleBar width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.ScaleBar width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.lineargauge.ScaleBar container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.lineargauge.ScaleBar container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.lineargauge.ScaleBar container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -392,8 +448,51 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.lineargauge.ScaleBar enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.lineargauge.ScaleBar enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.ScaleBar parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.ScaleBar parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.ScaleBar parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.ScaleBar parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -453,16 +552,16 @@ public class ScaleBar extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.lineargauge.ScaleBar zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.lineargauge.ScaleBar zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.lineargauge.ScaleBar stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.ScaleBar fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

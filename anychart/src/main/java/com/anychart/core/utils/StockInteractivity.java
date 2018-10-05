@@ -47,8 +47,8 @@ public class StockInteractivity extends Interactivity {
     /**
      * Setter for the multi-select on click.
      */
-    public com.anychart.core.utils.StockInteractivity multiSelectOnClick(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".multiSelectOnClick(%s);", value));
+    public com.anychart.core.utils.StockInteractivity multiSelectOnClick(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".multiSelectOnClick(%s);", enabled));
 
         return this;
     }
@@ -68,8 +68,8 @@ public class StockInteractivity extends Interactivity {
      * Setter for the scrolling.<br/>
 Allows use mouse wheel for scrolling. Press "ctrl" or "shift" and scroll mouse wheel.
      */
-    public com.anychart.core.utils.StockInteractivity scrollOnMouseWheel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scrollOnMouseWheel(%s);", value));
+    public com.anychart.core.utils.StockInteractivity scrollOnMouseWheel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scrollOnMouseWheel(%s);", enabled));
 
         return this;
     }
@@ -112,8 +112,8 @@ Allows use mouse wheel for scrolling. Press "ctrl" or "shift" and scroll mouse w
      * Setter for the unselectOnClickOutOfPoint.<br/>
 If the value is <b>true<b/>, disables select all points when clicking outside the chart point.
      */
-    public com.anychart.core.utils.StockInteractivity unselectOnClickOutOfPoint(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%s);", value));
+    public com.anychart.core.utils.StockInteractivity unselectOnClickOutOfPoint(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%s);", enabled));
 
         return this;
     }
@@ -127,8 +127,8 @@ If the value is <b>true<b/>, disables select all points when clicking outside th
      * Setter for the zoom.<br/>
 Allows use mouse wheel for zooming.
      */
-    public com.anychart.core.utils.StockInteractivity zoomOnMouseWheel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%s);", value));
+    public com.anychart.core.utils.StockInteractivity zoomOnMouseWheel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%s);", enabled));
 
         return this;
     }
@@ -149,16 +149,16 @@ Allows use mouse wheel for zooming.
     /**
      * Setter for the hover mode.
      */
-    public com.anychart.core.utils.StockInteractivity hoverMode(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.StockInteractivity hoverMode(com.anychart.enums.HoverMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the hover mode.
      */
-    public com.anychart.core.utils.StockInteractivity hoverMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.StockInteractivity hoverMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -171,16 +171,16 @@ Allows use mouse wheel for zooming.
     /**
      * Setter for the selection mode.
      */
-    public com.anychart.core.utils.StockInteractivity selectionMode(com.anychart.enums.SelectionMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.StockInteractivity selectionMode(com.anychart.enums.SelectionMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the selection mode.
      */
-    public com.anychart.core.utils.StockInteractivity selectionMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.StockInteractivity selectionMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -195,8 +195,8 @@ Allows use mouse wheel for zooming.
 Size of the area under cursor in pixels for radius hovering.
 <b>Note:</b> Works only with "by-spot" value in the {@link anychart.core.utils.Interactivity#hoverMode} method.
      */
-    public com.anychart.core.utils.StockInteractivity spotRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".spotRadius(%s);", value));
+    public com.anychart.core.utils.StockInteractivity spotRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".spotRadius(%s);", radius));
 
         return this;
     }

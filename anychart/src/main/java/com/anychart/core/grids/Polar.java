@@ -47,16 +47,16 @@ public class Polar extends VisualBase {
     /**
      * Setter for the polar grid axis.
      */
-    public com.anychart.core.grids.Polar axis(com.anychart.core.axes.Polar value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar axis(com.anychart.core.axes.Polar axis) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", (axis != null) ? axis.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the polar grid axis.
      */
-    public com.anychart.core.grids.Polar axis(com.anychart.core.axes.Radial value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar axis(com.anychart.core.axes.Radial axis) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".axis(%s);", (axis != null) ? axis.getJsBase() : null));
 
         return this;
     }
@@ -69,8 +69,8 @@ public class Polar extends VisualBase {
     /**
      * Setter for the first line drawing flag.
      */
-    public com.anychart.core.grids.Polar drawLastLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLine(%s);", value));
+    public com.anychart.core.grids.Polar drawLastLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLine(%s);", enabled));
 
         return this;
     }
@@ -83,8 +83,8 @@ public class Polar extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.grids.Polar enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.grids.Polar enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -95,19 +95,31 @@ public class Polar extends VisualBase {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.grids.Polar fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.grids.Map fill(String fillFunction) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".fill(%s)", wrapQuotes(fillFunction)));
+    public com.anychart.core.grids.Polar fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.grids.Polar fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
+
+        return this;
     }
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -198,8 +210,8 @@ public class Polar extends VisualBase {
     /**
      * Setter for the minor grid state flag.
      */
-    public com.anychart.core.grids.Polar isMinor(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isMinor(%s);", value));
+    public com.anychart.core.grids.Polar isMinor(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isMinor(%s);", enabled));
 
         return this;
     }
@@ -218,26 +230,26 @@ public class Polar extends VisualBase {
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(com.anychart.palettes.RangeColors value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map palette(com.anychart.palettes.RangeColors settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(com.anychart.palettes.DistinctColors value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map palette(com.anychart.palettes.DistinctColors settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(String value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(value)));
+    public com.anychart.core.grids.Map palette(String settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(settings)));
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(String[] value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.grids.Map palette(String[] settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(settings)));
     }
     /**
      * Prints all elements on related stage.
@@ -267,8 +279,8 @@ public class Polar extends VisualBase {
      * Setter for the grid stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -276,8 +288,8 @@ public class Polar extends VisualBase {
      * Setter for the grid stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -285,8 +297,8 @@ public class Polar extends VisualBase {
      * Setter for the grid stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -294,8 +306,8 @@ public class Polar extends VisualBase {
      * Setter for the grid stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.grids.Polar stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -303,8 +315,8 @@ public class Polar extends VisualBase {
      * Setter for the grid stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.grids.Polar stroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.grids.Polar stroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -312,8 +324,16 @@ public class Polar extends VisualBase {
      * Setter for the grid stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.grids.Polar stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.grids.Polar stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the grid stroke using an object.
+     */
+    public com.anychart.core.grids.Polar stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -355,24 +375,24 @@ public class Polar extends VisualBase {
     /**
      * Setter for the grid X-scale.
      */
-    public com.anychart.core.grids.Polar xScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar xScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the grid X-scale.
      */
-    public com.anychart.core.grids.Polar xScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar xScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the grid X-scale.
      */
-    public com.anychart.core.grids.Polar xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.Polar xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -385,24 +405,24 @@ public class Polar extends VisualBase {
     /**
      * 
      */
-    public com.anychart.core.grids.Polar yScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar yScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.grids.Polar yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Polar yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.grids.Polar yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.Polar yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -415,8 +435,81 @@ public class Polar extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.grids.Polar zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.grids.Polar zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.grids.Polar container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.grids.Polar container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.grids.Polar container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Polar parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Polar parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Polar parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.grids.Polar parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -459,8 +552,8 @@ public class Polar extends VisualBase {
     /**
      * 
      */
-    public com.anychart.core.grids.Polar stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.Polar fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

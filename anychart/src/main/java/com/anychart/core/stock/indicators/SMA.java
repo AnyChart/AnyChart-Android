@@ -47,19 +47,19 @@ public class SMA extends JsObject {
     /**
      * Setter for the period.
      */
-    public com.anychart.core.stock.indicators.SMA period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.SMA period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator SMA series.
+     * Getter for the indicator SMA series instance.
      */
     public com.anychart.core.stock.series.Base series() {
         return new com.anychart.core.stock.series.Base(jsBase + ".series()");
     }
     /**
-     * Setter for the indicator SMA series.
+     * Setter for the indicator SMA series type.
      */
     public com.anychart.core.stock.indicators.SMA series(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.getJsBase() : null));
@@ -67,7 +67,7 @@ public class SMA extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator SMA series.
+     * Setter for the indicator SMA series type.
      */
     public com.anychart.core.stock.indicators.SMA series(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", wrapQuotes(type)));

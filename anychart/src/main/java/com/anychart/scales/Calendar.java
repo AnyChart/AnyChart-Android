@@ -48,8 +48,8 @@ public class Calendar extends Base {
     /**
      * Setter for the availabilities for the calendar.
      */
-    public com.anychart.scales.Calendar availabilities(com.anychart.scales.calendar.Availability[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".availabilities(%s);", arrayToString(value)));
+    public com.anychart.scales.Calendar availabilities(com.anychart.scales.calendar.Availability[] availabilities) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".availabilities(%s);", arrayToString(availabilities)));
 
         return this;
     }
@@ -80,8 +80,8 @@ public class Calendar extends Base {
     /**
      * Setter for the timezone offset for the output availabilities.
      */
-    public com.anychart.scales.Calendar timezoneOffset(Number var_value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timezoneOffset(%s);", var_value));
+    public com.anychart.scales.Calendar timezoneOffset(Number var_offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timezoneOffset(%s);", var_offset));
 
         return this;
     }
@@ -123,8 +123,8 @@ public class Calendar extends Base {
     /**
      * Setter for the regular weekend days.
      */
-    public com.anychart.scales.Calendar weekendRange(Number[] var_value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".weekendRange(%s);", Arrays.toString(var_value)));
+    public com.anychart.scales.Calendar weekendRange(Number[] var_range) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".weekendRange(%s);", Arrays.toString(var_range)));
 
         return this;
     }

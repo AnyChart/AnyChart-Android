@@ -89,8 +89,8 @@ public class Column extends VisualBase {
     /**
      * Setter for expanding or collapse buttons.
      */
-    public com.anychart.core.ui.datagrid.Column collapseExpandButtons(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".collapseExpandButtons(%s);", value));
+    public com.anychart.core.ui.datagrid.Column collapseExpandButtons(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".collapseExpandButtons(%s);", enabled));
 
         return this;
     }
@@ -103,8 +103,8 @@ public class Column extends VisualBase {
     /**
      * Setter for the column default width.
      */
-    public com.anychart.core.ui.datagrid.Column defaultWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultWidth(%s);", value));
+    public com.anychart.core.ui.datagrid.Column defaultWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultWidth(%s);", width));
 
         return this;
     }
@@ -117,8 +117,8 @@ public class Column extends VisualBase {
     /**
      * Setter for the multiplier to choose a left padding.
      */
-    public com.anychart.core.ui.datagrid.Column depthPaddingMultiplier(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".depthPaddingMultiplier(%s);", value));
+    public com.anychart.core.ui.datagrid.Column depthPaddingMultiplier(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".depthPaddingMultiplier(%s);", padding));
 
         return this;
     }
@@ -139,8 +139,8 @@ public class Column extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.ui.datagrid.Column enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.datagrid.Column enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -199,16 +199,16 @@ public class Column extends VisualBase {
     /**
      * Setter for the column title.
      */
-    public com.anychart.core.ui.datagrid.Column title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.core.ui.datagrid.Column title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the column title.
      */
-    public com.anychart.core.ui.datagrid.Column title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.datagrid.Column title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -250,16 +250,16 @@ public class Column extends VisualBase {
     /**
      * Setter for the column width.
      */
-    public com.anychart.core.ui.datagrid.Column width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.ui.datagrid.Column width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the column width.
      */
-    public com.anychart.core.ui.datagrid.Column width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.datagrid.Column width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -272,8 +272,81 @@ public class Column extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.ui.datagrid.Column zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.ui.datagrid.Column zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.datagrid.Column container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.datagrid.Column container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.ui.datagrid.Column container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.datagrid.Column parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.datagrid.Column parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.datagrid.Column parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.ui.datagrid.Column parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

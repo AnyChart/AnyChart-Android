@@ -40,6 +40,28 @@ public class HeatMap extends SeparateChart {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.ChartA11y a11y() {
+        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.HeatMap a11y(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.HeatMap a11y(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for animation settings.
      */
     public com.anychart.core.utils.Animation animation() {
@@ -48,16 +70,16 @@ public class HeatMap extends SeparateChart {
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.HeatMap animation(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", value));
+    public com.anychart.charts.HeatMap animation(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", settings));
 
         return this;
     }
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.HeatMap animation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap animation(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -80,8 +102,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the autoRedraw flag.<br/>
 Flag whether to automatically call chart.draw() on any changes or not.
      */
-    public com.anychart.charts.HeatMap autoRedraw(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", value));
+    public com.anychart.charts.HeatMap autoRedraw(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", enabled));
 
         return this;
     }
@@ -94,8 +116,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart background.
      */
-    public com.anychart.charts.HeatMap background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -108,16 +130,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.HeatMap bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.charts.HeatMap bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.HeatMap bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -130,24 +152,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.HeatMap bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.HeatMap bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.HeatMap bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -288,7 +310,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
-     * Getter for the current color scale.
+     * Getter for the color scale.
      */
     public com.anychart.scales.OrdinalColor colorScale() {
         return new com.anychart.scales.OrdinalColor(jsBase + ".colorScale()");
@@ -296,24 +318,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the color scale.
      */
-    public com.anychart.charts.HeatMap colorScale(com.anychart.scales.OrdinalColor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.charts.HeatMap colorScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the color scale.
      */
-    public com.anychart.charts.HeatMap colorScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -326,24 +348,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.HeatMap container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.HeatMap container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.HeatMap container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -356,16 +378,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.HeatMap contextMenu(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.HeatMap contextMenu(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", value));
+    public com.anychart.charts.HeatMap contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
 
         return this;
     }
@@ -400,6 +422,30 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return new com.anychart.data.View(String.format(Locale.US, jsBase + ".data(%s)", arrayToString(data)));
     }
     /**
+     * Getter for the data area settings.
+     */
+    public com.anychart.core.ui.DataArea dataArea() {
+        return new com.anychart.core.ui.DataArea(jsBase + ".dataArea()");
+    }
+    /**
+     * Setter for the data area settings.<br/>
+The data area is drawn along the data bounds.
+     */
+    public com.anychart.charts.HeatMap dataArea(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dataArea(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the data area settings.<br/>
+The data area is drawn along the data bounds.
+     */
+    public com.anychart.charts.HeatMap dataArea(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dataArea(%s);", settings));
+
+        return this;
+    }
+    /**
      * Disposes charts.
      */
     public void dispose() {
@@ -422,8 +468,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.charts.HeatMap enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.charts.HeatMap enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -436,36 +482,46 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the export charts.
      */
-    public com.anychart.charts.HeatMap exports(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current fill color.
+     * Getter for the fill color.
      */
     public void fill() {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Sets fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.HeatMap fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Sets fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.HeatMap fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.charts.HeatMap fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Fill color with opacity. Fill as a string or an object.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.HeatMap fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
+
+        return this;
+    }
+    /**
+     * Fill color with opacity.
      */
     public com.anychart.charts.HeatMap fill(String color, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s, %s);", wrapQuotes(color), opacity));
@@ -545,6 +601,20 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
+     * Getter for the fullscreen mode.
+     */
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.charts.HeatMap fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
+
+        return this;
+    }
+    /**
      * Returns pixel bounds of the element due to parent bounds and self bounds settings.
      */
     public com.anychart.math.Rect getPixelBounds() {
@@ -570,7 +640,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalToLocal(%s, %s);", xCoord, yCoord));
     }
     /**
-     * Getter for the current hatch fill settings.
+     * Getter for the hatch fill settings.
      */
     public com.anychart.graphics.vector.PatternFill hatchFill() {
         return new com.anychart.graphics.vector.PatternFill(jsBase + ".hatchFill()");
@@ -578,40 +648,52 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the hatch fill settings.
      */
-    public com.anychart.charts.HeatMap hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.HeatMap hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
      * Setter for the hatch fill settings.
      */
-    public com.anychart.charts.HeatMap hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.HeatMap hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for the hatch fill settings.
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.HeatMap hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.charts.HeatMap hatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for the hatch fill settings.
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.HeatMap hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.HeatMap hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the hatch fill settings.
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.HeatMap hatchFill(Boolean patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", patternFillOrType, wrapQuotes(color), thickness, size));
+    public com.anychart.charts.HeatMap hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill using boolean.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.charts.HeatMap hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -624,16 +706,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.HeatMap height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.charts.HeatMap height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.HeatMap height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -664,8 +746,22 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.charts.HeatMap hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for chart id.
+     */
+    public void id() {
+        APIlib.getInstance().addJSLine(jsBase + ".id();");
+    }
+    /**
+     * Setter for chart id.
+     */
+    public com.anychart.charts.HeatMap id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -684,18 +780,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.charts.HeatMap interactivity(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap interactivity(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for interactivity settings for the chart.
      */
-    public com.anychart.charts.HeatMap interactivity(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap interactivity(com.anychart.enums.HoverMode settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
+    }
+    /**
+     * Whether the fullscreen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for the chart label.
@@ -712,45 +814,45 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.HeatMap label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.charts.HeatMap label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.HeatMap label(String index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), value));
+    public com.anychart.charts.HeatMap label(String index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.HeatMap label(String index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.charts.HeatMap label(String index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.HeatMap label(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, value));
+    public com.anychart.charts.HeatMap label(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.HeatMap label(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.HeatMap label(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current chart data labels.
+     * Getter for the chart data labels.
      */
     public com.anychart.core.ui.LabelsFactory labels() {
         return new com.anychart.core.ui.LabelsFactory(jsBase + ".labels()");
@@ -758,21 +860,21 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart data labels.
      */
-    public com.anychart.charts.HeatMap labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart data labels.
      */
-    public com.anychart.charts.HeatMap labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.charts.HeatMap labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current labels display mode.
+     * Getter for the labels display mode.
      */
     public void labelsDisplayMode() {
         APIlib.getInstance().addJSLine(jsBase + ".labelsDisplayMode();");
@@ -780,16 +882,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the labels display mode.
      */
-    public com.anychart.charts.HeatMap labelsDisplayMode(com.anychart.enums.LabelsDisplayMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap labelsDisplayMode(com.anychart.enums.LabelsDisplayMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the labels display mode.
      */
-    public com.anychart.charts.HeatMap labelsDisplayMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap labelsDisplayMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labelsDisplayMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -802,16 +904,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.HeatMap left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.charts.HeatMap left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.HeatMap left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -824,16 +926,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.charts.HeatMap legend(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap legend(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart legend settings.
      */
-    public com.anychart.charts.HeatMap legend(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", value));
+    public com.anychart.charts.HeatMap legend(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", settings));
 
         return this;
     }
@@ -846,7 +948,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
     }
     /**
      * Getter for the chart margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -854,24 +956,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.HeatMap margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.charts.HeatMap margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.HeatMap margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.HeatMap margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.HeatMap margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -1004,7 +1106,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
-     * Getter for the current data markers.
+     * Getter for the data markers.
      */
     public com.anychart.core.ui.MarkersFactory markers() {
         return new com.anychart.core.ui.MarkersFactory(jsBase + ".markers()");
@@ -1012,16 +1114,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for data markers.
      */
-    public com.anychart.charts.HeatMap markers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap markers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for data markers.
      */
-    public com.anychart.charts.HeatMap markers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", value));
+    public com.anychart.charts.HeatMap markers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", settings));
 
         return this;
     }
@@ -1034,16 +1136,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.HeatMap maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.charts.HeatMap maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.HeatMap maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1056,16 +1158,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.HeatMap maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.charts.HeatMap maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.HeatMap maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1078,16 +1180,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.HeatMap minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.charts.HeatMap minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.HeatMap minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1100,16 +1202,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.HeatMap minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.charts.HeatMap minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.HeatMap minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1123,8 +1225,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for noData settings.<br/>
 {docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
      */
-    public com.anychart.charts.HeatMap noData(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap noData(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1137,14 +1239,14 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.charts.HeatMap normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -1152,24 +1254,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.HeatMap padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.charts.HeatMap padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.HeatMap padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.HeatMap padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.HeatMap padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1328,16 +1430,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.HeatMap right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.charts.HeatMap right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.HeatMap right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1417,17 +1519,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Selects point by index.
 <b>Note:</b> Works only after {@link anychart.charts.HeatMap#draw} is called.
      */
-    public com.anychart.charts.HeatMap select(Number indexOrIndexes) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".select(%s);", indexOrIndexes));
-
-        return this;
-    }
-    /**
-     * Selects point by index.
-<b>Note:</b> Works only after {@link anychart.charts.HeatMap#draw} is called.
-     */
-    public com.anychart.charts.HeatMap select(Number[] indexOrIndexes) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".select(%s);", Arrays.toString(indexOrIndexes)));
+    public com.anychart.charts.HeatMap select(Number index) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".select(%s);", index));
 
         return this;
     }
@@ -1438,11 +1531,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(jsBase + ".selectMarqueeFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.HeatMap selectMarqueeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap selectMarqueeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.HeatMap selectMarqueeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.HeatMap selectMarqueeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1649,10 +1760,34 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.charts.HeatMap selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
+    }
+    /**
+     * Opens Facebook sharing dialog.
+     */
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
+    }
+    /**
+     * Opens LinkedIn sharing dialog.
+     */
+    public void shareWithLinkedIn(String captionOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Pinterest sharing dialog.
+     */
+    public void shareWithPinterest(String linkOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Twitter sharing dialog.
+     */
+    public void shareWithTwitter() {
+        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
     }
     /**
      * Starts select marquee drawing.
@@ -1668,15 +1803,6 @@ Flag whether to automatically call chart.draw() on any changes or not.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the stroke using function.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.charts.HeatMap stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
-
-        return this;
     }
     /**
      * Setter for the stroke settings.
@@ -1787,6 +1913,14 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return this;
     }
     /**
+     * Setter for stroke settings using an object.
+     */
+    public com.anychart.charts.HeatMap stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the chart title.
      */
     public com.anychart.core.ui.Title title() {
@@ -1795,16 +1929,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.HeatMap title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.charts.HeatMap title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.HeatMap title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1841,16 +1975,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.HeatMap tooltip(String tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltipSettings)));
+    public com.anychart.charts.HeatMap tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.HeatMap tooltip(Boolean tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltipSettings));
+    public com.anychart.charts.HeatMap tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -1863,16 +1997,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.HeatMap top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.charts.HeatMap top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.HeatMap top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
+
+        return this;
+    }
+    /**
+     * Removes hover from all chart points.
+     */
+    public com.anychart.charts.HeatMap unhover() {
+        APIlib.getInstance().addJSLine(jsBase + ".unhover();");
 
         return this;
     }
@@ -1906,6 +2048,18 @@ Flag whether to automatically call chart.draw() on any changes or not.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
     }
     /**
+     * Deselects all points or points by index.
+     */
+    public void unselect(Number indexOrIndexes) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselect(%s);", indexOrIndexes));
+    }
+    /**
+     * Deselects all points or points by index.
+     */
+    public void unselect(Number[] indexOrIndexes) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselect(%s);", Arrays.toString(indexOrIndexes)));
+    }
+    /**
      * Getter for element width settings.
      */
     public void width() {
@@ -1914,21 +2068,21 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.HeatMap width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.charts.HeatMap width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.HeatMap width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
-     * Getter for the current chart X-axis.
+     * Getter for the chart X-axis.
      */
     public com.anychart.core.axes.Linear xAxis(Number index) {
         return new com.anychart.core.axes.Linear(String.format(Locale.US, jsBase + ".xAxis(%s)", index));
@@ -1936,32 +2090,32 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart X-axis.
      */
-    public com.anychart.charts.HeatMap xAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart X-axis.
      */
-    public com.anychart.charts.HeatMap xAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", value));
+    public com.anychart.charts.HeatMap xAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart X-axis by index.
      */
-    public com.anychart.charts.HeatMap xAxis(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xAxis(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart X-axis by index.
      */
-    public com.anychart.charts.HeatMap xAxis(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, value));
+    public com.anychart.charts.HeatMap xAxis(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, settings));
 
         return this;
     }
@@ -1974,37 +2128,37 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart grid by X-scale.
      */
-    public com.anychart.charts.HeatMap xGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart grid by X-scale.
      */
-    public com.anychart.charts.HeatMap xGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", value));
+    public com.anychart.charts.HeatMap xGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart grid by index.
      */
-    public com.anychart.charts.HeatMap xGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart grid by index.
      */
-    public com.anychart.charts.HeatMap xGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, value));
+    public com.anychart.charts.HeatMap xGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, settings));
 
         return this;
     }
     /**
-     * Getter for the current chart X scale.
+     * Getter for the chart X scale.
      */
     public com.anychart.scales.Ordinal xScale() {
         return new com.anychart.scales.Ordinal(jsBase + ".xScale()");
@@ -2012,29 +2166,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart X scale.
      */
-    public com.anychart.charts.HeatMap xScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap xScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart X scale.
      */
-    public com.anychart.charts.HeatMap xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart X scale.
      */
-    public com.anychart.charts.HeatMap xScale(com.anychart.scales.Ordinal value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap xScale(com.anychart.scales.Ordinal settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the current X scroller.
+     * Getter for the X scroller.
      */
     public com.anychart.core.ui.ChartScroller xScroller() {
         return new com.anychart.core.ui.ChartScroller(jsBase + ".xScroller()");
@@ -2042,16 +2196,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the X scroller.
      */
-    public com.anychart.charts.HeatMap xScroller(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xScroller(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the X scroller.
      */
-    public com.anychart.charts.HeatMap xScroller(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", value));
+    public com.anychart.charts.HeatMap xScroller(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", settings));
 
         return this;
     }
@@ -2064,29 +2218,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for X Zoom settings.
      */
-    public com.anychart.charts.HeatMap xZoom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", value));
+    public com.anychart.charts.HeatMap xZoom(Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for X Zoom settings.
      */
-    public com.anychart.charts.HeatMap xZoom(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", value));
+    public com.anychart.charts.HeatMap xZoom(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for X Zoom settings.
      */
-    public com.anychart.charts.HeatMap xZoom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap xZoom(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current chart Y-axis.
+     * Getter for the chart Y-axis.
      */
     public com.anychart.core.axes.Linear yAxis(Number index) {
         return new com.anychart.core.axes.Linear(String.format(Locale.US, jsBase + ".yAxis(%s)", index));
@@ -2094,75 +2248,75 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart Y-axis.
      */
-    public com.anychart.charts.HeatMap yAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart Y-axis.
      */
-    public com.anychart.charts.HeatMap yAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", value));
+    public com.anychart.charts.HeatMap yAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart Y-axis by index.
      */
-    public com.anychart.charts.HeatMap yAxis(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yAxis(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart Y-axis by index.
      */
-    public com.anychart.charts.HeatMap yAxis(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, value));
+    public com.anychart.charts.HeatMap yAxis(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, settings));
 
         return this;
     }
     /**
-     * Getter for the chart grid by X-scale.
+     * Getter for the chart grid by Y-scale.
      */
     public com.anychart.core.grids.Linear yGrid(Number index) {
         return new com.anychart.core.grids.Linear(String.format(Locale.US, jsBase + ".yGrid(%s)", index));
     }
     /**
-     * Setter for the chart grid by X-scale.
+     * Setter for the chart grid by Y-scale.
      */
-    public com.anychart.charts.HeatMap yGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Setter for the chart grid by X-scale.
+     * Setter for the chart grid by Y-scale.
      */
-    public com.anychart.charts.HeatMap yGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the chart grid by index.
-     */
-    public com.anychart.charts.HeatMap yGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart grid by index.
      */
-    public com.anychart.charts.HeatMap yGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, value));
+    public com.anychart.charts.HeatMap yGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current chart Y scale.
+     * Setter for the chart grid by index.
+     */
+    public com.anychart.charts.HeatMap yGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, settings));
+
+        return this;
+    }
+    /**
+     * Getter for the chart Y scale.
      */
     public com.anychart.scales.Ordinal yScale() {
         return new com.anychart.scales.Ordinal(jsBase + ".yScale()");
@@ -2170,29 +2324,29 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart Y scale.
      */
-    public com.anychart.charts.HeatMap yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart Y scale.
      */
-    public com.anychart.charts.HeatMap yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart Y scale.
      */
-    public com.anychart.charts.HeatMap yScale(com.anychart.scales.Ordinal value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.HeatMap yScale(com.anychart.scales.Ordinal settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the current Y scroller.
+     * Getter for the Y scroller.
      */
     public com.anychart.core.ui.ChartScroller yScroller() {
         return new com.anychart.core.ui.ChartScroller(jsBase + ".yScroller()");
@@ -2200,16 +2354,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the Y scroller.
      */
-    public com.anychart.charts.HeatMap yScroller(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScroller(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yScroller(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScroller(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the Y scroller.
      */
-    public com.anychart.charts.HeatMap yScroller(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScroller(%s);", value));
+    public com.anychart.charts.HeatMap yScroller(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScroller(%s);", settings));
 
         return this;
     }
@@ -2222,24 +2376,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for Y Zoom settings.
      */
-    public com.anychart.charts.HeatMap yZoom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yZoom(%s);", value));
+    public com.anychart.charts.HeatMap yZoom(Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yZoom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for Y Zoom settings.
      */
-    public com.anychart.charts.HeatMap yZoom(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yZoom(%s);", value));
+    public com.anychart.charts.HeatMap yZoom(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yZoom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for Y Zoom settings.
      */
-    public com.anychart.charts.HeatMap yZoom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yZoom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.HeatMap yZoom(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yZoom(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -2252,182 +2406,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.charts.HeatMap zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.charts.HeatMap zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
-    }
-    /**
-     * Getter for the accessibility setting.
-     */
-    public com.anychart.core.utils.ChartA11y a11y() {
-        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.HeatMap a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.HeatMap a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
-
-        return this;
-    }
-    /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality));
     }
     /**
      * Getter for the selected points.
      */
     public void getSelectedPoints() {
         APIlib.getInstance().addJSLine(jsBase + ".getSelectedPoints();");
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Shares a chart as a JPG file and returns a link to the shared image.
-     */
-    public void shareAsJpg(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Opens Facebook sharing dialog.
-     */
-    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
-    }
-    /**
-     * Opens LinkedIn sharing dialog.
-     */
-    public void shareWithLinkedIn(String captionOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Pinterest sharing dialog.
-     */
-    public void shareWithPinterest(String linkOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Twitter sharing dialog.
-     */
-    public void shareWithTwitter() {
-        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
     }
     /**
      * Creates and returns the chart represented as an invisible HTML table.
@@ -2440,6 +2428,49 @@ Flag whether to automatically call chart.draw() on any changes or not.
      */
     public void toHtmlTable(String title, Boolean asString) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %s);", wrapQuotes(title), asString));
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.HeatMap parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.HeatMap parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.HeatMap parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.HeatMap parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 
@@ -2494,6 +2525,14 @@ Flag whether to automatically call chart.draw() on any changes or not.
             e.printStackTrace();
         }
         return instance;
+    }
+    /**
+     * 
+     */
+    public com.anychart.charts.HeatMap fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

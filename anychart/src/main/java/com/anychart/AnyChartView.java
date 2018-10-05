@@ -114,7 +114,6 @@ public final class AnyChartView extends FrameLayout {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 webView.setEnabled(false);
-                Log.wtf("TEST", consoleMessage.message());
                 return true;
             }
         });
@@ -155,8 +154,6 @@ public final class AnyChartView extends FrameLayout {
                 } else {
                     throw new NullPointerException();
                 }
-
-                Log.wtf("TEST", js.toString());
 
                 String resultJs = (isRestored)
                         ? js.toString()

@@ -38,6 +38,14 @@ public class MarkersFactory extends JsObject {
 
     
     /**
+     * Adds new marker and adds it to a set taking positionProvider into account.
+     */
+    public com.anychart.standalones.MarkersFactory add(String positionProvider, Number index) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".add(%s, %s);", wrapQuotes(positionProvider), index));
+
+        return this;
+    }
+    /**
      * Getter for anchor settings of all markers.
      */
     public void anchor() {
@@ -46,16 +54,54 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for anchor settings of all markers.
      */
-    public com.anychart.standalones.MarkersFactory anchor(com.anychart.enums.Anchor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.MarkersFactory anchor(com.anychart.enums.Anchor anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", (anchor != null) ? anchor.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for anchor settings of all markers.
      */
-    public com.anychart.standalones.MarkersFactory anchor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory anchor(String anchor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor)));
+
+        return this;
+    }
+    /**
+     * Clears an array of markers.
+     */
+    public com.anychart.standalones.MarkersFactory clear(Number index) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".clear(%s);", index));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.standalones.MarkersFactory container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.standalones.MarkersFactory container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.standalones.MarkersFactory container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -68,6 +114,14 @@ public class MarkersFactory extends JsObject {
         return this;
     }
     /**
+     * Markers drawing.
+     */
+    public com.anychart.standalones.MarkersFactory draw() {
+        APIlib.getInstance().addJSLine(jsBase + ".draw();");
+
+        return this;
+    }
+    /**
      * Getter for the element state.
      */
     public void enabled() {
@@ -76,8 +130,8 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.MarkersFactory enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.MarkersFactory enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -88,20 +142,29 @@ public class MarkersFactory extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings of all markers.
+     * Setter for fill settings of all markers using an array, an object and a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.standalones.MarkersFactory fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.MarkersFactory fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings of all markers.
+     * Setter for fill settings of all markers using an array, an object and a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.standalones.MarkersFactory fill(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings of all markers using an array, an object and a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.standalones.MarkersFactory fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -186,6 +249,12 @@ public class MarkersFactory extends JsObject {
         return this;
     }
     /**
+     * Calculates bounds for the current marker.
+     */
+    public com.anychart.math.Rect measure(String positionProvider) {
+        return new com.anychart.math.Rect(String.format(Locale.US, jsBase + ".measure(%s)", wrapQuotes(positionProvider)));
+    }
+    /**
      * Getter for the offset by X of all markers.
      */
     public void offsetX() {
@@ -194,16 +263,16 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for the offset by X of all markers.
      */
-    public com.anychart.standalones.MarkersFactory offsetX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", value));
+    public com.anychart.standalones.MarkersFactory offsetX(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", offset));
 
         return this;
     }
     /**
      * Setter for the offset by X of all markers.
      */
-    public com.anychart.standalones.MarkersFactory offsetX(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory offsetX(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offset)));
 
         return this;
     }
@@ -216,16 +285,59 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for the offset by Y of all markers.
      */
-    public com.anychart.standalones.MarkersFactory offsetY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", value));
+    public com.anychart.standalones.MarkersFactory offsetY(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", offset));
 
         return this;
     }
     /**
      * Setter for the offset by Y of all markers.
      */
-    public com.anychart.standalones.MarkersFactory offsetY(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory offsetY(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offset)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.standalones.MarkersFactory parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.standalones.MarkersFactory parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.standalones.MarkersFactory parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.standalones.MarkersFactory parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -238,8 +350,8 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for position settings of all markers.
      */
-    public com.anychart.standalones.MarkersFactory position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -248,14 +360,6 @@ public class MarkersFactory extends JsObject {
      */
     public void positionFormatter() {
         APIlib.getInstance().addJSLine(jsBase + ".positionFormatter();");
-    }
-    /**
-     * Setter for the position formatter function of all markers.
-     */
-    public com.anychart.standalones.MarkersFactory positionFormatter(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionFormatter(%s);", wrapQuotes(value)));
-
-        return this;
     }
     /**
      * Prints all elements on related stage.
@@ -285,8 +389,8 @@ public class MarkersFactory extends JsObject {
      * Setter for the rotation angle around an anchor.
 ({@link anychart.graphics.vector.Element}).
      */
-    public com.anychart.standalones.MarkersFactory rotation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", value));
+    public com.anychart.standalones.MarkersFactory rotation(Number rotation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rotation(%s);", rotation));
 
         return this;
     }
@@ -299,8 +403,8 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for the size of all markers.
      */
-    public com.anychart.standalones.MarkersFactory size(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", value));
+    public com.anychart.standalones.MarkersFactory size(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", size));
 
         return this;
     }
@@ -314,8 +418,8 @@ public class MarkersFactory extends JsObject {
      * Setter for stroke settings of all markers.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.MarkersFactory stroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.MarkersFactory stroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -323,8 +427,8 @@ public class MarkersFactory extends JsObject {
      * Setter for stroke settings of all markers.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.standalones.MarkersFactory stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory stroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -445,16 +549,16 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for type settings of all markers.
      */
-    public com.anychart.standalones.MarkersFactory type(com.anychart.enums.MarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.MarkersFactory type(com.anychart.enums.MarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for type settings of all markers.
      */
-    public com.anychart.standalones.MarkersFactory type(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.MarkersFactory type(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -496,8 +600,16 @@ public class MarkersFactory extends JsObject {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.MarkersFactory zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.standalones.MarkersFactory zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.standalones.MarkersFactory fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

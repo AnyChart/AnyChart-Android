@@ -3,7 +3,7 @@ package com.anychart.enums;
 import java.util.Locale;
 
 /**
- * Ticks <a href="anychart.core.axes.Ticks#position">position</a> (inside ot outside).
+ * {api:anychart.core.axes.Ticks#position}Ticks{api} and {api:anychart.core.ui.LabelsFactory#position}labels{api} position.
  */
 public enum SidePosition {
 

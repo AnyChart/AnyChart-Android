@@ -80,14 +80,8 @@ public class Traverser extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".nodeYieldCondition();");
     }
     /**
-     * Setter for function that decides if data item must be returned while passage.
-     */
-    public void nodeYieldCondition(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".nodeYieldCondition(%s);", wrapQuotes(value)));
-    }
-    /**
      * Resets traverser to its zero state (before the first child).<br/>
-<img src='/si/8.2.1/anychart.data.Traverser.reset.png' height='296' width='372'/>
+<img src='/si/8.4.0/anychart.data.Traverser.reset.png' height='296' width='372'/>
      */
     public com.anychart.data.Traverser reset() {
         APIlib.getInstance().addJSLine(jsBase + ".reset();");
@@ -113,12 +107,6 @@ public class Traverser extends JsObject {
      */
     public void traverseChildrenCondition() {
         APIlib.getInstance().addJSLine(jsBase + ".traverseChildrenCondition();");
-    }
-    /**
-     * Setter for the function that decides if we go through data item's children while passage.
-     */
-    public void traverseChildrenCondition(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".traverseChildrenCondition(%s);", wrapQuotes(value)));
     }
 
 }

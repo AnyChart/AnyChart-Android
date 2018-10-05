@@ -39,6 +39,28 @@ public class Resource extends Chart {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.ChartA11y a11y() {
+        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.Resource a11y(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.Resource a11y(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the activities settings.
      */
     public com.anychart.core.resource.Activities activities() {
@@ -47,8 +69,8 @@ public class Resource extends Chart {
     /**
      * Setter for the activities settings.
      */
-    public com.anychart.charts.Resource activities(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".activities(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource activities(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".activities(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -61,16 +83,16 @@ public class Resource extends Chart {
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.Resource animation(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", value));
+    public com.anychart.charts.Resource animation(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", settings));
 
         return this;
     }
     /**
      * Setter for animation settings by one value.
      */
-    public com.anychart.charts.Resource animation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource animation(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -93,8 +115,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the autoRedraw flag.<br/>
 Flag whether to automatically call chart.draw() on any changes or not.
      */
-    public com.anychart.charts.Resource autoRedraw(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", value));
+    public com.anychart.charts.Resource autoRedraw(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", enabled));
 
         return this;
     }
@@ -107,8 +129,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart background.
      */
-    public com.anychart.charts.Resource background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -121,16 +143,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.Resource bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.charts.Resource bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.charts.Resource bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -143,24 +165,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.Resource bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.Resource bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.charts.Resource bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -301,8 +323,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for calendar.
      */
-    public com.anychart.charts.Resource calendar(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".calendar(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource calendar(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".calendar(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -323,24 +345,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public com.anychart.charts.Resource cellPadding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(value)));
+    public com.anychart.charts.Resource cellPadding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public com.anychart.charts.Resource cellPadding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Resource cellPadding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public com.anychart.charts.Resource cellPadding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource cellPadding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -481,8 +503,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the conflicts settings.
      */
-    public com.anychart.charts.Resource conflicts(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".conflicts(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource conflicts(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".conflicts(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -495,24 +517,24 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.Resource container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.Resource container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the element's container.
      */
-    public com.anychart.charts.Resource container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -525,16 +547,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.Resource contextMenu(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.Resource contextMenu(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", value));
+    public com.anychart.charts.Resource contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
 
         return this;
     }
@@ -571,16 +593,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the current start date.
      */
-    public com.anychart.charts.Resource currentStartDate(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".currentStartDate(%s);", value));
+    public com.anychart.charts.Resource currentStartDate(Number date) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".currentStartDate(%s);", date));
 
         return this;
     }
     /**
      * Setter for the current start date.
      */
-    public com.anychart.charts.Resource currentStartDate(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".currentStartDate(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource currentStartDate(String date) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".currentStartDate(%s);", wrapQuotes(date)));
 
         return this;
     }
@@ -600,8 +622,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for default minutes per day.
 <b>Note:</b> Use method when number of minutes per day isn't specified in the data.
      */
-    public com.anychart.charts.Resource defaultMinutesPerDay(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultMinutesPerDay(%s);", value));
+    public com.anychart.charts.Resource defaultMinutesPerDay(Number minutes) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultMinutesPerDay(%s);", minutes));
 
         return this;
     }
@@ -628,8 +650,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.charts.Resource enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.charts.Resource enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -642,8 +664,22 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the export charts.
      */
-    public com.anychart.charts.Resource exports(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for the fullscreen mode.
+     */
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.charts.Resource fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
 
         return this;
     }
@@ -658,6 +694,12 @@ Flag whether to automatically call chart.draw() on any changes or not.
      */
     public void getSelectedPoints() {
         APIlib.getInstance().addJSLine(jsBase + ".getSelectedPoints();");
+    }
+    /**
+     * Returns chart type.
+     */
+    public void getType() {
+        APIlib.getInstance().addJSLine(jsBase + ".getType();");
     }
     /**
      * Converts the global coordinates to local coordinates.
@@ -675,16 +717,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the grid.
      */
-    public com.anychart.charts.Resource grid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource grid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the grid.
      */
-    public com.anychart.charts.Resource grid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s);", value));
+    public com.anychart.charts.Resource grid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s);", settings));
 
         return this;
     }
@@ -697,16 +739,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.Resource height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.charts.Resource height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.charts.Resource height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -719,16 +761,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the horizontal scrollbar.
      */
-    public com.anychart.charts.Resource horizontalScrollBar(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontalScrollBar(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource horizontalScrollBar(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontalScrollBar(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the horizontal scrollbar.
      */
-    public com.anychart.charts.Resource horizontalScrollBar(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontalScrollBar(%s);", value));
+    public com.anychart.charts.Resource horizontalScrollBar(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontalScrollBar(%s);", settings));
 
         return this;
     }
@@ -750,10 +792,30 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
     /**
+     * Getter for chart id.
+     */
+    public void id() {
+        APIlib.getInstance().addJSLine(jsBase + ".id();");
+    }
+    /**
+     * Setter for chart id.
+     */
+    public com.anychart.charts.Resource id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
+
+        return this;
+    }
+    /**
      * Gets marquee process running value.
      */
     public void inMarquee() {
         APIlib.getInstance().addJSLine(jsBase + ".inMarquee();");
+    }
+    /**
+     * Whether the fullscreen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for the chart label.
@@ -770,40 +832,40 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.Resource label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.charts.Resource label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.Resource label(String index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), value));
+    public com.anychart.charts.Resource label(String index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.Resource label(String index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.charts.Resource label(String index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.Resource label(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, value));
+    public com.anychart.charts.Resource label(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, settings));
 
         return this;
     }
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.Resource label(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Resource label(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
@@ -816,16 +878,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.Resource left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.charts.Resource left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.charts.Resource left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -845,14 +907,14 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the logo.
      */
-    public com.anychart.charts.Resource logo(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logo(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource logo(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logo(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for the chart margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -860,24 +922,24 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.Resource margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.charts.Resource margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.Resource margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Resource margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.Resource margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -1018,16 +1080,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.Resource maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.charts.Resource maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.charts.Resource maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1040,16 +1102,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.Resource maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.charts.Resource maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.charts.Resource maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1062,16 +1124,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.Resource minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.charts.Resource minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.charts.Resource minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1084,8 +1146,8 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the minimal row height.
      */
-    public com.anychart.charts.Resource minRowHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minRowHeight(%s);", value));
+    public com.anychart.charts.Resource minRowHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minRowHeight(%s);", height));
 
         return this;
     }
@@ -1098,16 +1160,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.Resource minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.charts.Resource minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.charts.Resource minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1121,8 +1183,8 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
      * Setter for noData settings.<br/>
 {docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
      */
-    public com.anychart.charts.Resource noData(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource noData(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1135,22 +1197,22 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the overlay element.
      */
-    public com.anychart.charts.Resource overlay(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource overlay(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the overlay element.
      */
-    public com.anychart.charts.Resource overlay(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", value));
+    public com.anychart.charts.Resource overlay(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", settings));
 
         return this;
     }
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -1158,24 +1220,24 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.Resource padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.charts.Resource padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.Resource padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Resource padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.Resource padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1316,8 +1378,8 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for hours row height in pixels.
      */
-    public com.anychart.charts.Resource pixPerHour(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pixPerHour(%s);", value));
+    public com.anychart.charts.Resource pixPerHour(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pixPerHour(%s);", height));
 
         return this;
     }
@@ -1340,6 +1402,28 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".removeAllListeners(%s);", wrapQuotes(type)));
     }
     /**
+     * Getter for the resource list element.
+     */
+    public com.anychart.core.resource.ResourceList resourceList() {
+        return new com.anychart.core.resource.ResourceList(jsBase + ".resourceList()");
+    }
+    /**
+     * Setter for the resource list element.
+     */
+    public com.anychart.charts.Resource resourceList(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".resourceList(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the resource list element.
+     */
+    public com.anychart.charts.Resource resourceList(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".resourceList(%s);", settings));
+
+        return this;
+    }
+    /**
      * Getter for the resource list width.
      */
     public void resourceListWidth() {
@@ -1348,16 +1432,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the resource list width.
      */
-    public com.anychart.charts.Resource resourceListWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".resourceListWidth(%s);", value));
+    public com.anychart.charts.Resource resourceListWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".resourceListWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the resource list width.
      */
-    public com.anychart.charts.Resource resourceListWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".resourceListWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource resourceListWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".resourceListWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1370,16 +1454,16 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.Resource right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.charts.Resource right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.charts.Resource right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1471,11 +1555,29 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         APIlib.getInstance().addJSLine(jsBase + ".selectMarqueeFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.Resource selectMarqueeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource selectMarqueeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.Resource selectMarqueeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.Resource selectMarqueeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1674,6 +1776,30 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
     /**
+     * Opens Facebook sharing dialog.
+     */
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
+    }
+    /**
+     * Opens LinkedIn sharing dialog.
+     */
+    public void shareWithLinkedIn(String captionOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Pinterest sharing dialog.
+     */
+    public void shareWithPinterest(String linkOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Twitter sharing dialog.
+     */
+    public void shareWithTwitter() {
+        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
+    }
+    /**
      * Getter for the splitter stroke.
      */
     public void splitterStroke() {
@@ -1793,16 +1919,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the time line.
      */
-    public com.anychart.charts.Resource timeLine(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLine(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource timeLine(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLine(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the time line.
      */
-    public com.anychart.charts.Resource timeLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLine(%s);", value));
+    public com.anychart.charts.Resource timeLine(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLine(%s);", settings));
 
         return this;
     }
@@ -1815,16 +1941,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the time line height.
      */
-    public com.anychart.charts.Resource timeLineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLineHeight(%s);", value));
+    public com.anychart.charts.Resource timeLineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLineHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the time line height.
      */
-    public com.anychart.charts.Resource timeLineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource timeLineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeLineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1837,16 +1963,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the time tracking mode.
      */
-    public com.anychart.charts.Resource timeTrackingMode(com.anychart.enums.TimeTrackingMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeTrackingMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Resource timeTrackingMode(com.anychart.enums.TimeTrackingMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeTrackingMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the time tracking mode.
      */
-    public com.anychart.charts.Resource timeTrackingMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeTrackingMode(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource timeTrackingMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".timeTrackingMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1859,16 +1985,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.Resource title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.charts.Resource title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.Resource title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1905,16 +2031,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.Resource tooltip(String tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltipSettings)));
+    public com.anychart.charts.Resource tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.Resource tooltip(Boolean tooltipSettings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", tooltipSettings));
+    public com.anychart.charts.Resource tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -1927,16 +2053,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.Resource top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.charts.Resource top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.charts.Resource top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -2006,16 +2132,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the vertical scrollbar.
      */
-    public com.anychart.charts.Resource verticalScrollBar(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticalScrollBar(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource verticalScrollBar(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticalScrollBar(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the vertical scrollbar.
      */
-    public com.anychart.charts.Resource verticalScrollBar(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticalScrollBar(%s);", value));
+    public com.anychart.charts.Resource verticalScrollBar(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticalScrollBar(%s);", settings));
 
         return this;
     }
@@ -2028,16 +2154,16 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.Resource width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.charts.Resource width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.charts.Resource width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -2050,8 +2176,8 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the X scale.
      */
-    public com.anychart.charts.Resource xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Resource xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -2064,8 +2190,8 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.charts.Resource zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.charts.Resource zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -2103,68 +2229,10 @@ Zooms chart to the level denoted by the passed index or identifier.
     /**
      * Setter for zoom levels set.
      */
-    public com.anychart.charts.Resource zoomLevels(com.anychart.charts.resource.ZoomLevel[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomLevels(%s);", arrayToString(value)));
+    public com.anychart.charts.Resource zoomLevels(com.anychart.charts.resource.ZoomLevel[] levelsSettings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zoomLevels(%s);", arrayToString(levelsSettings)));
 
         return this;
-    }
-    /**
-     * Getter for the accessibility setting.
-     */
-    public com.anychart.core.utils.ChartA11y a11y() {
-        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.Resource a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.Resource a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
-
-        return this;
-    }
-    /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality));
     }
     /**
      * Getter for a statistical value by the key.
@@ -2179,114 +2247,6 @@ Zooms chart to the level denoted by the passed index or identifier.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
     }
     /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Shares a chart as a JPG file and returns a link to the shared image.
-     */
-    public void shareAsJpg(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Opens Facebook sharing dialog.
-     */
-    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
-    }
-    /**
-     * Opens LinkedIn sharing dialog.
-     */
-    public void shareWithLinkedIn(String captionOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Pinterest sharing dialog.
-     */
-    public void shareWithPinterest(String linkOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Twitter sharing dialog.
-     */
-    public void shareWithTwitter() {
-        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
-    }
-    /**
      * Creates and returns the chart represented as an invisible HTML table.
      */
     public void toA11yTable(String title, Boolean asString) {
@@ -2297,6 +2257,49 @@ Zooms chart to the level denoted by the passed index or identifier.
      */
     public void toHtmlTable(String title, Boolean asString) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %s);", wrapQuotes(title), asString));
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Resource parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Resource parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Resource parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Resource parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 

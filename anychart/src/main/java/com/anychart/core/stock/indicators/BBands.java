@@ -46,19 +46,19 @@ public class BBands extends JsObject {
     /**
      * Setter for the deviation.
      */
-    public com.anychart.core.stock.indicators.BBands deviation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".deviation(%s);", value));
+    public com.anychart.core.stock.indicators.BBands deviation(Number deviation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".deviation(%s);", deviation));
 
         return this;
     }
     /**
-     * Getter for the indicator Lower Series.
+     * Getter for the indicator Lower Series instance.
      */
     public com.anychart.core.stock.series.Base lowerSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".lowerSeries()");
     }
     /**
-     * Setter for the indicator Lower Series.
+     * Setter for the indicator Lower Series type.
      */
     public com.anychart.core.stock.indicators.BBands lowerSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -66,7 +66,7 @@ public class BBands extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator Lower Series.
+     * Setter for the indicator Lower Series type.
      */
     public com.anychart.core.stock.indicators.BBands lowerSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerSeries(%s);", wrapQuotes(type)));
@@ -74,13 +74,13 @@ public class BBands extends JsObject {
         return this;
     }
     /**
-     * Getter for the indicator Middle Series.
+     * Getter for the indicator Middle Series instance.
      */
     public com.anychart.core.stock.series.Base middleSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".middleSeries()");
     }
     /**
-     * Setter for the indicator Middle Series.
+     * Setter for the indicator Middle Series type.
      */
     public com.anychart.core.stock.indicators.BBands middleSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -88,7 +88,7 @@ public class BBands extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator Middle Series.
+     * Setter for the indicator Middle Series type.
      */
     public com.anychart.core.stock.indicators.BBands middleSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleSeries(%s);", wrapQuotes(type)));
@@ -104,19 +104,41 @@ public class BBands extends JsObject {
     /**
      * Setter for the period.
      */
-    public com.anychart.core.stock.indicators.BBands period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.BBands period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator Upper Series.
+     * Getter for the indicator Range Series instance.
+     */
+    public com.anychart.core.stock.series.Base rangeSeries() {
+        return new com.anychart.core.stock.series.Base(jsBase + ".rangeSeries()");
+    }
+    /**
+     * Setter for the indicator Range Series type.
+     */
+    public com.anychart.core.stock.indicators.BBands rangeSeries(com.anychart.enums.StockSeriesType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeSeries(%s);", (type != null) ? type.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the indicator Range Series type.
+     */
+    public com.anychart.core.stock.indicators.BBands rangeSeries(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeSeries(%s);", wrapQuotes(type)));
+
+        return this;
+    }
+    /**
+     * Getter for the indicator Upper Series instance.
      */
     public com.anychart.core.stock.series.Base upperSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".upperSeries()");
     }
     /**
-     * Setter for the indicator Upper Series.
+     * Setter for the indicator Upper Series type.
      */
     public com.anychart.core.stock.indicators.BBands upperSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -124,7 +146,7 @@ public class BBands extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator Upper Series.
+     * Setter for the indicator Upper Series type.
      */
     public com.anychart.core.stock.indicators.BBands upperSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperSeries(%s);", wrapQuotes(type)));

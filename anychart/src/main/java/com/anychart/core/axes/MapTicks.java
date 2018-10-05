@@ -47,8 +47,8 @@ public class MapTicks extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axes.MapTicks enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axes.MapTicks enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -61,16 +61,16 @@ public class MapTicks extends VisualBase {
     /**
      * Setter for ticks length.
      */
-    public com.anychart.core.axes.MapTicks length(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", value));
+    public com.anychart.core.axes.MapTicks length(Number length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", length));
 
         return this;
     }
     /**
      * Setter for ticks length.
      */
-    public com.anychart.core.axes.MapTicks length(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapTicks length(String length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", wrapQuotes(length)));
 
         return this;
     }
@@ -184,6 +184,14 @@ public class MapTicks extends VisualBase {
 
         return this;
     }
+    /**
+     * Setter for ticks stroke settings using an object.
+     */
+    public com.anychart.core.axes.MapTicks stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
@@ -222,16 +230,81 @@ public class MapTicks extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axes.MapTicks zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axes.MapTicks zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
-     * 
+     * Getter for the container.
      */
-    public com.anychart.core.axes.MapTicks stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.MapTicks container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.MapTicks container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.MapTicks container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapTicks parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapTicks parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapTicks parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapTicks parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

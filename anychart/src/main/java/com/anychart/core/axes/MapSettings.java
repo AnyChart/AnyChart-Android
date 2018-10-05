@@ -47,16 +47,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the bottom axis.
      */
-    public com.anychart.core.axes.MapSettings bottom(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.axes.MapSettings bottom(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the bottom axis.
      */
-    public com.anychart.core.axes.MapSettings bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings bottom(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -69,8 +69,8 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the first label drawing flag.
      */
-    public com.anychart.core.axes.MapSettings drawFirstLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", value));
+    public com.anychart.core.axes.MapSettings drawFirstLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", enabled));
 
         return this;
     }
@@ -83,8 +83,8 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the last label drawing flag.
      */
-    public com.anychart.core.axes.MapSettings drawLastLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", value));
+    public com.anychart.core.axes.MapSettings drawLastLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", enabled));
 
         return this;
     }
@@ -97,8 +97,8 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the axis enabled state.
      */
-    public com.anychart.core.axes.MapSettings enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axes.MapSettings enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -111,16 +111,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for axis labels.
      */
-    public com.anychart.core.axes.MapSettings labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis labels.
      */
-    public com.anychart.core.axes.MapSettings labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.axes.MapSettings labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -133,16 +133,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the left axis.
      */
-    public com.anychart.core.axes.MapSettings left(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.axes.MapSettings left(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the left axis.
      */
-    public com.anychart.core.axes.MapSettings left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings left(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -155,16 +155,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for axis minor labels.
      */
-    public com.anychart.core.axes.MapSettings minorLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings minorLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis minor labels.
      */
-    public com.anychart.core.axes.MapSettings minorLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", value));
+    public com.anychart.core.axes.MapSettings minorLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", settings));
 
         return this;
     }
@@ -177,16 +177,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.core.axes.MapSettings minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.core.axes.MapSettings minorTicks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", value));
+    public com.anychart.core.axes.MapSettings minorTicks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", settings));
 
         return this;
     }
@@ -199,16 +199,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for labels overlap mode.
      */
-    public com.anychart.core.axes.MapSettings overlapMode(com.anychart.enums.LabelsOverlapMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.MapSettings overlapMode(com.anychart.enums.LabelsOverlapMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for labels overlap mode.
      */
-    public com.anychart.core.axes.MapSettings overlapMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings overlapMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -239,16 +239,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the right axis.
      */
-    public com.anychart.core.axes.MapSettings right(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.axes.MapSettings right(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the right axis.
      */
-    public com.anychart.core.axes.MapSettings right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings right(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -367,6 +367,14 @@ public class MapSettings extends VisualBase {
         return this;
     }
     /**
+     * Setter for axis stroke settings using an object.
+     */
+    public com.anychart.core.axes.MapSettings stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for axis ticks.
      */
     public com.anychart.core.axes.MapTicks ticks() {
@@ -375,16 +383,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.core.axes.MapSettings ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.core.axes.MapSettings ticks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", value));
+    public com.anychart.core.axes.MapSettings ticks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", settings));
 
         return this;
     }
@@ -397,16 +405,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the axis title.
      */
-    public com.anychart.core.axes.MapSettings title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.core.axes.MapSettings title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the axis title.
      */
-    public com.anychart.core.axes.MapSettings title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -419,16 +427,16 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the top axis.
      */
-    public com.anychart.core.axes.MapSettings top(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.axes.MapSettings top(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the top axis.
      */
-    public com.anychart.core.axes.MapSettings top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.MapSettings top(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -470,16 +478,81 @@ public class MapSettings extends VisualBase {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axes.MapSettings zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axes.MapSettings zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
-     * 
+     * Getter for the container.
      */
-    public com.anychart.core.axes.MapSettings stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.MapSettings container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.MapSettings container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.MapSettings container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapSettings parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapSettings parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapSettings parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.MapSettings parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

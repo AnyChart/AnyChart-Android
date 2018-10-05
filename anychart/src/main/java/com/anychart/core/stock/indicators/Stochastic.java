@@ -47,16 +47,16 @@ public class Stochastic extends JsObject {
     /**
      * Setter for the %D smoothing type.
      */
-    public com.anychart.core.stock.indicators.Stochastic dMAType(com.anychart.enums.MovingAverageType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.indicators.Stochastic dMAType(com.anychart.enums.MovingAverageType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the %D smoothing type.
      */
-    public com.anychart.core.stock.indicators.Stochastic dMAType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.indicators.Stochastic dMAType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -69,19 +69,19 @@ public class Stochastic extends JsObject {
     /**
      * Setter for the %D Period.
      */
-    public com.anychart.core.stock.indicators.Stochastic dPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.Stochastic dPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dPeriod(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator %D Series.
+     * Getter for the indicator %D Series instance.
      */
     public com.anychart.core.stock.series.Base dSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".dSeries()");
     }
     /**
-     * Setter for the indicator %D Series.
+     * Setter for the indicator %D Series type.
      */
     public com.anychart.core.stock.indicators.Stochastic dSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -89,7 +89,7 @@ public class Stochastic extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator %D Series.
+     * Setter for the indicator %D Series type.
      */
     public com.anychart.core.stock.indicators.Stochastic dSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dSeries(%s);", wrapQuotes(type)));
@@ -105,8 +105,8 @@ public class Stochastic extends JsObject {
     /**
      * Setter for the %K smoothing period.
      */
-    public com.anychart.core.stock.indicators.Stochastic kMAPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.Stochastic kMAPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAPeriod(%s);", period));
 
         return this;
     }
@@ -119,16 +119,16 @@ public class Stochastic extends JsObject {
     /**
      * Setter for the %K smoothing type.
      */
-    public com.anychart.core.stock.indicators.Stochastic kMAType(com.anychart.enums.MovingAverageType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.indicators.Stochastic kMAType(com.anychart.enums.MovingAverageType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the %K smoothing type.
      */
-    public com.anychart.core.stock.indicators.Stochastic kMAType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.indicators.Stochastic kMAType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -141,19 +141,19 @@ public class Stochastic extends JsObject {
     /**
      * Setter for the %K Period.
      */
-    public com.anychart.core.stock.indicators.Stochastic kPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.Stochastic kPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kPeriod(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator %K Series.
+     * Getter for the indicator %K Series instance.
      */
     public com.anychart.core.stock.series.Base kSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".kSeries()");
     }
     /**
-     * Setter for the indicator %K Series.
+     * Setter for the indicator %K Series type.
      */
     public com.anychart.core.stock.indicators.Stochastic kSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -161,7 +161,7 @@ public class Stochastic extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator %K Series.
+     * Setter for the indicator %K Series type.
      */
     public com.anychart.core.stock.indicators.Stochastic kSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kSeries(%s);", wrapQuotes(type)));

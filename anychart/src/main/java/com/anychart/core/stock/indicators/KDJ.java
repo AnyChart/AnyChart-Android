@@ -47,16 +47,16 @@ public class KDJ extends JsObject {
     /**
      * Setter for the %D smoothing type.
      */
-    public com.anychart.core.stock.indicators.KDJ dMAType(com.anychart.enums.MovingAverageType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.indicators.KDJ dMAType(com.anychart.enums.MovingAverageType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the %D smoothing type.
      */
-    public com.anychart.core.stock.indicators.KDJ dMAType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.indicators.KDJ dMAType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMAType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -69,8 +69,8 @@ public class KDJ extends JsObject {
     /**
      * Setter for the %D multiplier.
      */
-    public com.anychart.core.stock.indicators.KDJ dMultiplier(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMultiplier(%s);", value));
+    public com.anychart.core.stock.indicators.KDJ dMultiplier(Number multiplier) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dMultiplier(%s);", multiplier));
 
         return this;
     }
@@ -83,19 +83,19 @@ public class KDJ extends JsObject {
     /**
      * Setter for the %D Period.
      */
-    public com.anychart.core.stock.indicators.KDJ dPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.KDJ dPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dPeriod(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator %D Series.
+     * Getter for the indicator %D Series instance.
      */
     public com.anychart.core.stock.series.Base dSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".dSeries()");
     }
     /**
-     * Setter for the indicator %D Series.
+     * Setter for the indicator %D Series type.
      */
     public com.anychart.core.stock.indicators.KDJ dSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -103,7 +103,7 @@ public class KDJ extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator %D Series.
+     * Setter for the indicator %D Series type.
      */
     public com.anychart.core.stock.indicators.KDJ dSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dSeries(%s);", wrapQuotes(type)));
@@ -111,13 +111,13 @@ public class KDJ extends JsObject {
         return this;
     }
     /**
-     * Getter for the indicator %J Series.
+     * Getter for the indicator %J Series instance.
      */
     public com.anychart.core.stock.series.Base jSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".jSeries()");
     }
     /**
-     * Setter for the indicator %J Series.
+     * Setter for the indicator %J Series type.
      */
     public com.anychart.core.stock.indicators.KDJ jSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".jSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -125,7 +125,7 @@ public class KDJ extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator %J Series.
+     * Setter for the indicator %J Series type.
      */
     public com.anychart.core.stock.indicators.KDJ jSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".jSeries(%s);", wrapQuotes(type)));
@@ -141,8 +141,8 @@ public class KDJ extends JsObject {
     /**
      * Getter and setter for the %K smoothing period.
      */
-    public com.anychart.core.stock.indicators.KDJ kMAPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.KDJ kMAPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAPeriod(%s);", period));
 
         return this;
     }
@@ -155,16 +155,16 @@ public class KDJ extends JsObject {
     /**
      * Setter for the %K smoothing type.
      */
-    public com.anychart.core.stock.indicators.KDJ kMAType(com.anychart.enums.MovingAverageType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.indicators.KDJ kMAType(com.anychart.enums.MovingAverageType period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", (period != null) ? period.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the %K smoothing type.
      */
-    public com.anychart.core.stock.indicators.KDJ kMAType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.indicators.KDJ kMAType(String period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMAType(%s);", wrapQuotes(period)));
 
         return this;
     }
@@ -177,8 +177,8 @@ public class KDJ extends JsObject {
     /**
      * Setter for the %K multiplier.
      */
-    public com.anychart.core.stock.indicators.KDJ kMultiplier(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMultiplier(%s);", value));
+    public com.anychart.core.stock.indicators.KDJ kMultiplier(Number multiplier) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kMultiplier(%s);", multiplier));
 
         return this;
     }
@@ -191,19 +191,19 @@ public class KDJ extends JsObject {
     /**
      * Setter for the %K Period.
      */
-    public com.anychart.core.stock.indicators.KDJ kPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.KDJ kPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kPeriod(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator %K Series.
+     * Getter for the indicator %K Series instance.
      */
     public com.anychart.core.stock.series.Base kSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".kSeries()");
     }
     /**
-     * Setter for the indicator %K Series.
+     * Setter for the indicator %K Series type.
      */
     public com.anychart.core.stock.indicators.KDJ kSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -211,7 +211,7 @@ public class KDJ extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator %K Series.
+     * Setter for the indicator %K Series type.
      */
     public com.anychart.core.stock.indicators.KDJ kSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".kSeries(%s);", wrapQuotes(type)));

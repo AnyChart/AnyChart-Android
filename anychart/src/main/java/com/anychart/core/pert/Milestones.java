@@ -46,8 +46,8 @@ public class Milestones extends JsObject {
     /**
      * Setter for the milestones color.
      */
-    public com.anychart.core.pert.Milestones color(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones color(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -58,20 +58,29 @@ public class Milestones extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for milestones fill settings using an array or a string.
+     * Setter for milestones fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.pert.Milestones fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.pert.Milestones fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the fill using function.
+     * Setter for milestones fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.pert.Milestones fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.pert.Milestones fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for milestones fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.pert.Milestones fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -164,8 +173,8 @@ public class Milestones extends JsObject {
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.pert.Milestones hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -178,16 +187,16 @@ public class Milestones extends JsObject {
     /**
      * Setter for milestones data labels.
      */
-    public com.anychart.core.pert.Milestones labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for milestones data labels.
      */
-    public com.anychart.core.pert.Milestones labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.pert.Milestones labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -200,8 +209,8 @@ public class Milestones extends JsObject {
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.pert.Milestones normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -214,8 +223,8 @@ public class Milestones extends JsObject {
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.pert.Milestones selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -228,16 +237,16 @@ public class Milestones extends JsObject {
     /**
      * Setter for milestones shape.
      */
-    public com.anychart.core.pert.Milestones shape(com.anychart.enums.MilestoneShape value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shape(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.pert.Milestones shape(com.anychart.enums.MilestoneShape shape) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shape(%s);", (shape != null) ? shape.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for milestones shape.
      */
-    public com.anychart.core.pert.Milestones shape(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shape(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones shape(String shape) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shape(%s);", wrapQuotes(shape)));
 
         return this;
     }
@@ -250,16 +259,16 @@ public class Milestones extends JsObject {
     /**
      * Setter for milestones size.
      */
-    public com.anychart.core.pert.Milestones size(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", value));
+    public com.anychart.core.pert.Milestones size(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", size));
 
         return this;
     }
     /**
      * Setter for milestones size.
      */
-    public com.anychart.core.pert.Milestones size(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones size(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -268,14 +277,6 @@ public class Milestones extends JsObject {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for tasks stroke by function.
-     */
-    public com.anychart.core.pert.Milestones stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for milestones stroke.
@@ -386,6 +387,14 @@ public class Milestones extends JsObject {
         return this;
     }
     /**
+     * Setter for milestones stroke using an object.
+     */
+    public com.anychart.core.pert.Milestones stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for milestones data tooltip.
      */
     public com.anychart.core.ui.Tooltip tooltip() {
@@ -394,16 +403,24 @@ public class Milestones extends JsObject {
     /**
      * Setter for milestones data tooltip.
      */
-    public com.anychart.core.pert.Milestones tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Milestones tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for milestones data tooltip.
      */
-    public com.anychart.core.pert.Milestones tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.core.pert.Milestones tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.pert.Milestones fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

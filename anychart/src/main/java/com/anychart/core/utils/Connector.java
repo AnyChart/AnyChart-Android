@@ -47,16 +47,16 @@ public class Connector extends Base {
     /**
      * Setter for the connector length.
      */
-    public com.anychart.core.utils.Connector length(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", value));
+    public com.anychart.core.utils.Connector length(Number length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", length));
 
         return this;
     }
     /**
      * Setter for the connector length.
      */
-    public com.anychart.core.utils.Connector length(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Connector length(String length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", wrapQuotes(length)));
 
         return this;
     }
@@ -65,12 +65,6 @@ public class Connector extends Base {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for series stroke by function.
-     */
-    public com.anychart.core.map.series.Base stroke(String strokeFunction) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s)", wrapQuotes(strokeFunction)));
     }
     /**
      * Setter for series stroke settings.
@@ -141,6 +135,14 @@ public class Connector extends Base {
      */
     public com.anychart.core.utils.Connector stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.utils.Connector stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
 
         return this;
     }

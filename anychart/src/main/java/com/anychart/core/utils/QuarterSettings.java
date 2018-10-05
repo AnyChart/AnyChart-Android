@@ -47,8 +47,8 @@ public class QuarterSettings extends Base {
     /**
      * Setter for left-bottom quarter.
      */
-    public com.anychart.core.utils.QuarterSettings leftBottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftBottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.QuarterSettings leftBottom(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftBottom(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class QuarterSettings extends Base {
     /**
      * Setter for left-top quarter.
      */
-    public com.anychart.core.utils.QuarterSettings leftTop(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftTop(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.QuarterSettings leftTop(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftTop(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -75,8 +75,8 @@ public class QuarterSettings extends Base {
     /**
      * Setter for right-bottom quarter.
      */
-    public com.anychart.core.utils.QuarterSettings rightBottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightBottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.QuarterSettings rightBottom(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightBottom(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -89,8 +89,8 @@ public class QuarterSettings extends Base {
     /**
      * Setter for right-top quarter.
      */
-    public com.anychart.core.utils.QuarterSettings rightTop(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightTop(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.QuarterSettings rightTop(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightTop(%s);", wrapQuotes(settings)));
 
         return this;
     }

@@ -42,8 +42,8 @@ public class OrdinalColor extends Base {
     /**
      * Returns value for passed color. Value is a middle of its range.
      */
-    public void colorToValue(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(value)));
+    public void colorToValue(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(color)));
     }
     /**
      * Getter for the linear gradient for linear color scale.
@@ -54,8 +54,8 @@ public class OrdinalColor extends Base {
     /**
      * Setter for the linear gradient for linear color scale.
      */
-    public com.anychart.scales.OrdinalColor colors(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colors(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.OrdinalColor colors(String[] colors) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colors(%s);", arrayToStringWrapQuotes(colors)));
 
         return this;
     }
@@ -104,8 +104,8 @@ public class OrdinalColor extends Base {
     /**
      * Setter for the scale inversion.
      */
-    public com.anychart.scales.OrdinalColor inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.OrdinalColor inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -118,16 +118,16 @@ public class OrdinalColor extends Base {
     /**
      * Setter for scale names for data set.
      */
-    public com.anychart.scales.OrdinalColor names(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.OrdinalColor names(String[] names) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(names)));
 
         return this;
     }
     /**
      * Setter for scale names for data set.
      */
-    public com.anychart.scales.OrdinalColor names(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(value)));
+    public com.anychart.scales.OrdinalColor names(String names) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(names)));
 
         return this;
     }
@@ -140,8 +140,8 @@ public class OrdinalColor extends Base {
     /**
      * Setter for the scale ranges.
      */
-    public com.anychart.scales.OrdinalColor ranges(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ranges(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.OrdinalColor ranges(String[] ranges) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ranges(%s);", arrayToStringWrapQuotes(ranges)));
 
         return this;
     }
@@ -169,16 +169,16 @@ call of this method if needed.
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.OrdinalColor ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.OrdinalColor ticks(String ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
 
         return this;
     }
     /**
      * Setter for the set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.OrdinalColor ticks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.OrdinalColor ticks(String[] ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks)));
 
         return this;
     }

@@ -85,8 +85,8 @@ Round off the ends of circular ranges to the specified radius.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axismarkers.CircularRange enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axismarkers.CircularRange enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -119,34 +119,29 @@ Round off the ends of circular ranges to the specified radius.
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for the range fill.
+     * Setter for range fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axismarkers.CircularRange fill(com.anychart.graphics.vector.Fill settings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (settings != null) ? settings.getJsBase() : null));
+    public com.anychart.core.axismarkers.CircularRange fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the range fill.
+     * Setter for range fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axismarkers.CircularRange fill(com.anychart.graphics.vector.GradientKey settings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (settings != null) ? settings.getJsBase() : null));
+    public com.anychart.core.axismarkers.CircularRange fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the range fill.
+     * Setter for range fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axismarkers.CircularRange fill(String[] settings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(settings)));
-
-        return this;
-    }
-    /**
-     * Setter for the range fill.
-     */
-    public com.anychart.core.axismarkers.CircularRange fill(String settings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(settings)));
+    public com.anychart.core.axismarkers.CircularRange fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -159,8 +154,8 @@ Round off the ends of circular ranges to the specified radius.
     /**
      * Setter for the starting range value.
      */
-    public com.anychart.core.axismarkers.CircularRange from(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", value));
+    public com.anychart.core.axismarkers.CircularRange from(Number fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", fromValue));
 
         return this;
     }
@@ -173,16 +168,16 @@ Round off the ends of circular ranges to the specified radius.
     /**
      * Setter for the range position.
      */
-    public com.anychart.core.axismarkers.CircularRange position(com.anychart.enums.GaugeSidePosition value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.CircularRange position(com.anychart.enums.GaugeSidePosition positionType) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (positionType != null) ? positionType.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the range position.
      */
-    public com.anychart.core.axismarkers.CircularRange position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.CircularRange position(String positionType) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(positionType)));
 
         return this;
     }
@@ -257,8 +252,8 @@ Round off the ends of circular ranges to the specified radius.
     /**
      * Setter for the ending range value.
      */
-    public com.anychart.core.axismarkers.CircularRange to(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", value));
+    public com.anychart.core.axismarkers.CircularRange to(Number toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", toValue));
 
         return this;
     }
@@ -300,8 +295,89 @@ Round off the ends of circular ranges to the specified radius.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axismarkers.CircularRange zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axismarkers.CircularRange zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.CircularRange container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.CircularRange container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.CircularRange container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.CircularRange parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.CircularRange parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.CircularRange parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.CircularRange parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.axismarkers.CircularRange fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

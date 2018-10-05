@@ -47,8 +47,8 @@ public class Overlay extends Base {
     /**
      * Setter for the name of DIV class.
      */
-    public com.anychart.core.gantt.Overlay className(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".className(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.Overlay className(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".className(%s);", wrapQuotes(name)));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class Overlay extends Base {
     /**
      * Setter for the enabled state.
      */
-    public com.anychart.core.gantt.Overlay enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.gantt.Overlay enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -81,8 +81,8 @@ public class Overlay extends Base {
     /**
      * Setter for the DIV identifier.
      */
-    public com.anychart.core.gantt.Overlay id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.Overlay id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }

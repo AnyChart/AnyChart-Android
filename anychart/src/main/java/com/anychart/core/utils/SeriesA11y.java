@@ -47,8 +47,8 @@ public class SeriesA11y extends A11y {
     /**
      * Setter for the accessibility enabled state.
      */
-    public com.anychart.core.utils.SeriesA11y enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.utils.SeriesA11y enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -62,8 +62,8 @@ public class SeriesA11y extends A11y {
      * Setter for the function to format title.<br/>
 {docs:Common_Settings/Text_Formatters}Learn more about using titleFormat() method.{docs}
      */
-    public com.anychart.core.utils.SeriesA11y titleFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.SeriesA11y titleFormat(String formatSettings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(formatSettings)));
 
         return this;
     }

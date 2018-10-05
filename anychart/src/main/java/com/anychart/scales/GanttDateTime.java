@@ -65,8 +65,8 @@ public class GanttDateTime extends Base {
     /**
      * Setter for the scale maximum.
      */
-    public com.anychart.scales.GanttDateTime maximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", value));
+    public com.anychart.scales.GanttDateTime maximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
 
         return this;
     }
@@ -79,8 +79,8 @@ public class GanttDateTime extends Base {
     /**
      * Setter for the maximum gap.
      */
-    public com.anychart.scales.GanttDateTime maximumGap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumGap(%s);", value));
+    public com.anychart.scales.GanttDateTime maximumGap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumGap(%s);", gap));
 
         return this;
     }
@@ -93,8 +93,8 @@ public class GanttDateTime extends Base {
     /**
      * Setter for the scale minimum.
      */
-    public com.anychart.scales.GanttDateTime minimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", value));
+    public com.anychart.scales.GanttDateTime minimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
 
         return this;
     }
@@ -107,8 +107,8 @@ public class GanttDateTime extends Base {
     /**
      * Setter for the minimum gap.
      */
-    public com.anychart.scales.GanttDateTime minimumGap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumGap(%s);", value));
+    public com.anychart.scales.GanttDateTime minimumGap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumGap(%s);", gap));
 
         return this;
     }
@@ -127,8 +127,8 @@ public class GanttDateTime extends Base {
     /**
      * Setter for the scale soft maximum.
      */
-    public com.anychart.scales.GanttDateTime softMaximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMaximum(%s);", value));
+    public com.anychart.scales.GanttDateTime softMaximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMaximum(%s);", maximum));
 
         return this;
     }
@@ -141,8 +141,8 @@ public class GanttDateTime extends Base {
     /**
      * Setter for the scale soft minimum.
      */
-    public com.anychart.scales.GanttDateTime softMinimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMinimum(%s);", value));
+    public com.anychart.scales.GanttDateTime softMinimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".softMinimum(%s);", minimum));
 
         return this;
     }

@@ -4,7 +4,7 @@ import java.util.Locale;
 
 /**
  * Anchor enum. Defines 9 items.<br/>
-<img src="/si/8.2.1/anychart.enums.Anchor.png" width="327" height="179"/>
+<img src="/si/8.4.0/anychart.enums.Anchor.png" width="330" height="180"/>
  */
 public enum Anchor {
 

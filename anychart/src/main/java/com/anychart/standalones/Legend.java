@@ -46,16 +46,16 @@ public class Legend extends JsObject {
     /**
      * Setter for legend align settings.
      */
-    public com.anychart.standalones.Legend align(com.anychart.enums.Align value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend align(com.anychart.enums.Align align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for legend align settings.
      */
-    public com.anychart.standalones.Legend align(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend align(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -68,30 +68,38 @@ public class Legend extends JsObject {
     /**
      * Setter for the legend background.
      */
-    public com.anychart.standalones.Legend background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the legend background.
      */
-    public com.anychart.standalones.Legend background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.standalones.Legend background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
     /**
      * Getter for the legend container.
      */
-    public void container() {
-        APIlib.getInstance().addJSLine(jsBase + ".container();");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
      * Setter for the legend container.
      */
-    public com.anychart.standalones.Legend container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the legend container.
+     */
+    public com.anychart.standalones.Legend container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
@@ -104,8 +112,8 @@ public class Legend extends JsObject {
     /**
      * Setter for the pointer events.
      */
-    public com.anychart.standalones.Legend disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.standalones.Legend disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -126,8 +134,8 @@ public class Legend extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.Legend enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.Legend enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -141,8 +149,8 @@ public class Legend extends JsObject {
      * Setter for the text font color.<br/>
 {@link https://www.w3schools.com/html/html_colors.asp}
      */
-    public com.anychart.standalones.Legend fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -177,8 +185,8 @@ public class Legend extends JsObject {
     /**
      * Setter for the font family.
      */
-    public com.anychart.standalones.Legend fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -191,8 +199,8 @@ public class Legend extends JsObject {
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public com.anychart.standalones.Legend fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.standalones.Legend fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -205,16 +213,16 @@ public class Legend extends JsObject {
     /**
      * Setter for the text font size.
      */
-    public com.anychart.standalones.Legend fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for the text font size.
      */
-    public com.anychart.standalones.Legend fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.standalones.Legend fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
@@ -227,16 +235,16 @@ public class Legend extends JsObject {
     /**
      * Setter for the text font style.
      */
-    public com.anychart.standalones.Legend fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.standalones.Legend fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -272,8 +280,8 @@ public class Legend extends JsObject {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.standalones.Legend fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
@@ -281,8 +289,8 @@ public class Legend extends JsObject {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.standalones.Legend fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.standalones.Legend fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -301,16 +309,16 @@ public class Legend extends JsObject {
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.standalones.Legend hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text horizontal align.
      */
-    public com.anychart.standalones.Legend hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -323,16 +331,16 @@ public class Legend extends JsObject {
     /**
      * Setter for the legend height.
      */
-    public com.anychart.standalones.Legend height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.standalones.Legend height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for the legend height.
      */
-    public com.anychart.standalones.Legend height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -345,16 +353,16 @@ public class Legend extends JsObject {
     /**
      * Setter for hover cursor settings.
      */
-    public com.anychart.standalones.Legend hoverCursor(com.anychart.enums.Cursor value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverCursor(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend hoverCursor(com.anychart.enums.Cursor cursorTypr) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverCursor(%s);", (cursorTypr != null) ? cursorTypr.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for hover cursor settings.
      */
-    public com.anychart.standalones.Legend hoverCursor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverCursor(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend hoverCursor(String cursorTypr) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverCursor(%s);", wrapQuotes(cursorTypr)));
 
         return this;
     }
@@ -367,16 +375,16 @@ public class Legend extends JsObject {
     /**
      * Setter for the icon size.
      */
-    public com.anychart.standalones.Legend iconSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconSize(%s);", value));
+    public com.anychart.standalones.Legend iconSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for the icon size.
      */
-    public com.anychart.standalones.Legend iconSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconSize(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend iconSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -389,16 +397,16 @@ public class Legend extends JsObject {
     /**
      * Setter for spacing between icon and text in a legend item.
      */
-    public com.anychart.standalones.Legend iconTextSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconTextSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend iconTextSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconTextSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
     /**
      * Setter for spacing between icon and text in a legend item.
      */
-    public com.anychart.standalones.Legend iconTextSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconTextSpacing(%s);", value));
+    public com.anychart.standalones.Legend iconTextSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".iconTextSpacing(%s);", spacing));
 
         return this;
     }
@@ -411,8 +419,8 @@ public class Legend extends JsObject {
     /**
      * Setter for inverted settings.
      */
-    public com.anychart.standalones.Legend inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.standalones.Legend inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -425,8 +433,8 @@ public class Legend extends JsObject {
     /**
      * Setter for custom items.
      */
-    public com.anychart.standalones.Legend items(com.anychart.core.ui.legend.LegendItemProvider[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(value)));
+    public com.anychart.standalones.Legend items(com.anychart.core.ui.legend.LegendItemProvider[] itemsList) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(itemsList)));
 
         return this;
     }
@@ -440,8 +448,8 @@ public class Legend extends JsObject {
      * Setter for items text formatter.<br/>
 {docs:Stock_Charts/Legend#items}Learn more about using itemsFormat() method.{docs}
      */
-    public com.anychart.standalones.Legend itemsFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsFormat(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend itemsFormat(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsFormat(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -454,8 +462,8 @@ public class Legend extends JsObject {
     /**
      * Setter for items formatter.
      */
-    public com.anychart.standalones.Legend itemsFormatter(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsFormatter(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend itemsFormatter(com.anychart.core.ui.legend.LegendItemProvider[] formatterFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsFormatter(%s);", arrayToString(formatterFunction)));
 
         return this;
     }
@@ -468,16 +476,16 @@ public class Legend extends JsObject {
     /**
      * Setter for items layout.
      */
-    public com.anychart.standalones.Legend itemsLayout(com.anychart.enums.LegendLayout value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsLayout(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend itemsLayout(com.anychart.enums.LegendLayout layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsLayout(%s);", (layout != null) ? layout.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for items layout.
      */
-    public com.anychart.standalones.Legend itemsLayout(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsLayout(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend itemsLayout(String layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsLayout(%s);", wrapQuotes(layout)));
 
         return this;
     }
@@ -490,16 +498,16 @@ public class Legend extends JsObject {
     /**
      * Setter for items source.
      */
-    public com.anychart.standalones.Legend itemsSource(com.anychart.core.SeparateChart value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSource(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend itemsSource(com.anychart.core.SeparateChart source) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSource(%s);", (source != null) ? source.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for items source.
      */
-    public com.anychart.standalones.Legend itemsSource(com.anychart.core.SeparateChart[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSource(%s);", arrayToString(value)));
+    public com.anychart.standalones.Legend itemsSource(com.anychart.core.SeparateChart[] source) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSource(%s);", arrayToString(source)));
 
         return this;
     }
@@ -512,16 +520,16 @@ public class Legend extends JsObject {
     /**
      * Setter for items source mode.
      */
-    public com.anychart.standalones.Legend itemsSourceMode(com.anychart.enums.LegendItemsSourceMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSourceMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend itemsSourceMode(com.anychart.enums.LegendItemsSourceMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSourceMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for items source mode.
      */
-    public com.anychart.standalones.Legend itemsSourceMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSourceMode(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend itemsSourceMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSourceMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -534,16 +542,16 @@ public class Legend extends JsObject {
     /**
      * Setter for items spacing settings.
      */
-    public com.anychart.standalones.Legend itemsSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend itemsSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
     /**
      * Setter for items spacing settings.
      */
-    public com.anychart.standalones.Legend itemsSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSpacing(%s);", value));
+    public com.anychart.standalones.Legend itemsSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsSpacing(%s);", spacing));
 
         return this;
     }
@@ -557,8 +565,8 @@ public class Legend extends JsObject {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.standalones.Legend letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -566,8 +574,8 @@ public class Legend extends JsObject {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public com.anychart.standalones.Legend letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.standalones.Legend letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -581,8 +589,8 @@ public class Legend extends JsObject {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.standalones.Legend lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -590,8 +598,8 @@ public class Legend extends JsObject {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public com.anychart.standalones.Legend lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.standalones.Legend lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
@@ -604,32 +612,32 @@ public class Legend extends JsObject {
     /**
      * Setter for the legend margin in pixels using a single value.
      */
-    public com.anychart.standalones.Legend margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.standalones.Legend margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the legend margin in pixels using a single value.
      */
-    public com.anychart.standalones.Legend margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.standalones.Legend margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the legend margin in pixels using a single value.
      */
-    public com.anychart.standalones.Legend margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the legend margin in pixels using a single value.
      */
-    public com.anychart.standalones.Legend margin(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", value));
+    public com.anychart.standalones.Legend margin(Number margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", margin));
 
         return this;
     }
@@ -770,32 +778,32 @@ public class Legend extends JsObject {
     /**
      * Setter for the legend padding in pixels using a single value.
      */
-    public com.anychart.standalones.Legend padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.standalones.Legend padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the legend padding in pixels using a single value.
      */
-    public com.anychart.standalones.Legend padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.standalones.Legend padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the legend padding in pixels using a single value.
      */
-    public com.anychart.standalones.Legend padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the legend padding in pixels using a single value.
      */
-    public com.anychart.standalones.Legend padding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", value));
+    public com.anychart.standalones.Legend padding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", padding));
 
         return this;
     }
@@ -936,16 +944,16 @@ public class Legend extends JsObject {
     /**
      * Setter for paginator settings.
      */
-    public com.anychart.standalones.Legend paginator(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".paginator(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend paginator(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".paginator(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for paginator settings.
      */
-    public com.anychart.standalones.Legend paginator(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".paginator(%s);", value));
+    public com.anychart.standalones.Legend paginator(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".paginator(%s);", settings));
 
         return this;
     }
@@ -959,16 +967,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.Legend parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.Legend parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -989,16 +997,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for legend position setting.
      */
-    public com.anychart.standalones.Legend position(com.anychart.enums.Orientation value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend position(com.anychart.enums.Orientation position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for legend position setting.
      */
-    public com.anychart.standalones.Legend position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -1029,8 +1037,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text selectable.
      */
-    public com.anychart.standalones.Legend selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.standalones.Legend selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -1043,16 +1051,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text direction.
      */
-    public com.anychart.standalones.Legend textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend textDirection(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text direction.
      */
-    public com.anychart.standalones.Legend textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend textDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -1065,8 +1073,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text indent.
      */
-    public com.anychart.standalones.Legend textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.standalones.Legend textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -1107,24 +1115,24 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.standalones.Legend textSettings(String name, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(value)));
+    public com.anychart.standalones.Legend textSettings(String name, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.standalones.Legend textSettings(String name, Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.standalones.Legend textSettings(String name, Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
     /**
      * Setter for the text appearance settings.
      */
-    public com.anychart.standalones.Legend textSettings(String name, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), value));
+    public com.anychart.standalones.Legend textSettings(String name, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textSettings(%s, %s);", wrapQuotes(name), settings));
 
         return this;
     }
@@ -1137,16 +1145,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the legend title.
      */
-    public com.anychart.standalones.Legend title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.standalones.Legend title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the legend title.
      */
-    public com.anychart.standalones.Legend title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1161,8 +1169,8 @@ As a getter falls back to stage bounds.
 If set, formats title. Currently supported in Stock only.
 {docs:Common_Settings/Text_Formatters}Learn more about using titleFormat() method.{docs}
      */
-    public com.anychart.standalones.Legend titleFormat(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend titleFormat(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -1175,16 +1183,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for title separator settings.
      */
-    public com.anychart.standalones.Legend titleSeparator(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleSeparator(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend titleSeparator(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleSeparator(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for title separator settings.
      */
-    public com.anychart.standalones.Legend titleSeparator(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleSeparator(%s);", value));
+    public com.anychart.standalones.Legend titleSeparator(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".titleSeparator(%s);", settings));
 
         return this;
     }
@@ -1197,16 +1205,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for legend tooltip.
      */
-    public com.anychart.standalones.Legend tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for legend tooltip.
      */
-    public com.anychart.standalones.Legend tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.standalones.Legend tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -1248,8 +1256,8 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for flag useHTML.
      */
-    public com.anychart.standalones.Legend useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.standalones.Legend useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -1262,16 +1270,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.standalones.Legend vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text vertical align.
      */
-    public com.anychart.standalones.Legend vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -1284,16 +1292,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the legend width.
      */
-    public com.anychart.standalones.Legend width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.standalones.Legend width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the legend width.
      */
-    public com.anychart.standalones.Legend width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1306,16 +1314,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.standalones.Legend wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.standalones.Legend wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1328,16 +1336,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.standalones.Legend wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.standalones.Legend wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1350,8 +1358,8 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.Legend zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.standalones.Legend zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -1364,8 +1372,8 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Allows to use drag for legend.
      */
-    public com.anychart.standalones.Legend drag(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drag(%s);", value));
+    public com.anychart.standalones.Legend drag(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drag(%s);", enabled));
 
         return this;
     }
@@ -1384,16 +1392,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.standalones.Legend maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.standalones.Legend maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.standalones.Legend maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1406,16 +1414,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.standalones.Legend maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.standalones.Legend maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.standalones.Legend maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1428,16 +1436,16 @@ If set, formats title. Currently supported in Stock only.
     /**
      * Setter for the position mode.
      */
-    public com.anychart.standalones.Legend positionMode(com.anychart.enums.LegendPositionMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Legend positionMode(com.anychart.enums.LegendPositionMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the position mode.
      */
-    public com.anychart.standalones.Legend positionMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Legend positionMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".positionMode(%s);", wrapQuotes(mode)));
 
         return this;
     }

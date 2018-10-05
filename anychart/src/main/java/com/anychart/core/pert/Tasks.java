@@ -46,8 +46,8 @@ public class Tasks extends JsObject {
     /**
      * Setter for tasks color.
      */
-    public com.anychart.core.pert.Tasks color(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks color(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -58,20 +58,13 @@ public class Tasks extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".dummyFill();");
     }
     /**
-     * Setter for the dummy fill using function.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public com.anychart.core.pert.Tasks dummyFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyFill(%s);", wrapQuotes(fillFunction)));
-
-        return this;
-    }
-    /**
      * Setter for dummy fill settings using a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings dummyFill(com.anychart.graphics.vector.Fill value) {
-        return new com.anychart.core.StateSettings(String.format(Locale.US, jsBase + ".dummyFill(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.pert.Tasks dummyFill(com.anychart.graphics.vector.Fill value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
     }
     /**
      * Dummy fill color with opacity.
@@ -158,14 +151,6 @@ public class Tasks extends JsObject {
      */
     public void dummyStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".dummyStroke();");
-    }
-    /**
-     * Setter for tasks dummy stroke by function.
-     */
-    public com.anychart.core.pert.Tasks dummyStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for tasks dummy stroke.
@@ -276,26 +261,27 @@ public class Tasks extends JsObject {
         return this;
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.pert.Tasks dummyStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the fill color.
      */
     public void fill() {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for the fill using function.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public com.anychart.core.pert.Tasks fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
-
-        return this;
-    }
-    /**
      * Setter for fill settings using a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings fill(com.anychart.graphics.vector.Fill value) {
-        return new com.anychart.core.StateSettings(String.format(Locale.US, jsBase + ".fill(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.pert.Tasks fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
     }
     /**
      * Fill color with opacity.
@@ -380,14 +366,16 @@ public class Tasks extends JsObject {
     /**
      * Getter for hovered state settings.
      */
-    public com.anychart.core.StateSettings hovered() {
-        return new com.anychart.core.StateSettings(jsBase + ".hovered()");
+    public com.anychart.core.pert.Tasks hovered() {
+        APIlib.getInstance().addJSLine(jsBase + ".hovered();");
+
+        return this;
     }
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.pert.Tasks hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -400,44 +388,48 @@ public class Tasks extends JsObject {
     /**
      * Setter for the lower labels settings.
      */
-    public com.anychart.core.pert.Tasks lowerLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks lowerLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the lower labels settings.
      */
-    public com.anychart.core.pert.Tasks lowerLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", value));
+    public com.anychart.core.pert.Tasks lowerLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", settings));
 
         return this;
     }
     /**
      * Getter for normal state settings.
      */
-    public com.anychart.core.StateSettings normal() {
-        return new com.anychart.core.StateSettings(jsBase + ".normal()");
+    public com.anychart.core.pert.Tasks normal() {
+        APIlib.getInstance().addJSLine(jsBase + ".normal();");
+
+        return this;
     }
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.pert.Tasks normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for selected state settings.
      */
-    public com.anychart.core.StateSettings selected() {
-        return new com.anychart.core.StateSettings(jsBase + ".selected()");
+    public com.anychart.core.pert.Tasks selected() {
+        APIlib.getInstance().addJSLine(jsBase + ".selected();");
+
+        return this;
     }
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.pert.Tasks selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -446,14 +438,6 @@ public class Tasks extends JsObject {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for tasks stroke by function.
-     */
-    public com.anychart.core.pert.Tasks stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for tasks stroke settings.
@@ -564,6 +548,14 @@ public class Tasks extends JsObject {
         return this;
     }
     /**
+     * Setter for tasks stroke using an object.
+     */
+    public com.anychart.core.pert.Tasks stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for tasks data tooltip.
      */
     public com.anychart.core.ui.Tooltip tooltip() {
@@ -572,16 +564,16 @@ public class Tasks extends JsObject {
     /**
      * Setter for tasks data tooltip.
      */
-    public com.anychart.core.pert.Tasks tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for tasks data tooltip.
      */
-    public com.anychart.core.pert.Tasks tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.core.pert.Tasks tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -594,16 +586,24 @@ public class Tasks extends JsObject {
     /**
      * Setter for the upper labels settings.
      */
-    public com.anychart.core.pert.Tasks upperLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.Tasks upperLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the upper labels settings.
      */
-    public com.anychart.core.pert.Tasks upperLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", value));
+    public com.anychart.core.pert.Tasks upperLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", settings));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.pert.Tasks fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

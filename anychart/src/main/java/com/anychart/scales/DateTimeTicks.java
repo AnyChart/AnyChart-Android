@@ -47,8 +47,8 @@ public class DateTimeTicks extends Base {
     /**
      * Setter for ticks count value.
      */
-    public com.anychart.scales.DateTimeTicks count(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", value));
+    public com.anychart.scales.DateTimeTicks count(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", count));
 
         return this;
     }
@@ -81,8 +81,8 @@ public class DateTimeTicks extends Base {
     /**
      * Setter for ticks interval value by a string representing date part or ISO 8601 interval string..
      */
-    public com.anychart.scales.DateTimeTicks interval(String isodate) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interval(%s);", wrapQuotes(isodate)));
+    public com.anychart.scales.DateTimeTicks interval(String isoDate) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interval(%s);", wrapQuotes(isoDate)));
 
         return this;
     }

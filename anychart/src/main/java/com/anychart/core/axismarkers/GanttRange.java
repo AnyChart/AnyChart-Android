@@ -47,8 +47,8 @@ public class GanttRange extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axismarkers.GanttRange enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axismarkers.GanttRange enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -62,8 +62,8 @@ public class GanttRange extends VisualBase {
      * Setter for fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.axismarkers.GanttRange fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.GanttRange fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -156,24 +156,24 @@ public class GanttRange extends VisualBase {
     /**
      * Setter for the starting marker value.
      */
-    public com.anychart.core.axismarkers.GanttRange from(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", value));
+    public com.anychart.core.axismarkers.GanttRange from(Number fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", fromValue));
 
         return this;
     }
     /**
      * Setter for the starting marker value.
      */
-    public com.anychart.core.axismarkers.GanttRange from(com.anychart.enums.GanttDateTimeMarkers value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.GanttRange from(com.anychart.enums.GanttDateTimeMarkers fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", (fromValue != null) ? fromValue.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the starting marker value.
      */
-    public com.anychart.core.axismarkers.GanttRange from(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.GanttRange from(String fromValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".from(%s);", wrapQuotes(fromValue)));
 
         return this;
     }
@@ -193,19 +193,19 @@ Layout is defined by {@link anychart.core.axisMarkers.GanttLine#layout} method.
     }
     /**
      * Setter for the Gantt chart range marker layout.
-<b>Note:</b> The layout method will not work here, only "vertical" layout are available in Gantt Chart.
+<b>Note:</b> The layout method will not work here, only 'vertical' layout are available in Gantt Chart.
      */
-    public com.anychart.core.axismarkers.GanttRange layout(com.anychart.enums.Layout value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.GanttRange layout(com.anychart.enums.Layout layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", (layout != null) ? layout.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the Gantt chart range marker layout.
-<b>Note:</b> The layout method will not work here, only "vertical" layout are available in Gantt Chart.
+<b>Note:</b> The layout method will not work here, only 'vertical' layout are available in Gantt Chart.
      */
-    public com.anychart.core.axismarkers.GanttRange layout(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.GanttRange layout(String layout) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(layout)));
 
         return this;
     }
@@ -238,8 +238,8 @@ Layout is defined by {@link anychart.core.axisMarkers.GanttLine#layout} method.
 <b>Note:</b> The scale method will not work here, only "dateTime" scale are available in Gantt Chart.
 {docs:Gantt_Chart/Timeline#special_features}Learn more about scale.{docs}
      */
-    public com.anychart.core.axismarkers.GanttRange scale(com.anychart.scales.GanttDateTime value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.GanttRange scale(com.anychart.scales.GanttDateTime scale) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.getJsBase() : null));
 
         return this;
     }
@@ -252,24 +252,24 @@ Layout is defined by {@link anychart.core.axisMarkers.GanttLine#layout} method.
     /**
      * Setter for the ending marker value.
      */
-    public com.anychart.core.axismarkers.GanttRange to(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", value));
+    public com.anychart.core.axismarkers.GanttRange to(Number toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", toValue));
 
         return this;
     }
     /**
      * Setter for the ending marker value.
      */
-    public com.anychart.core.axismarkers.GanttRange to(com.anychart.enums.GanttDateTimeMarkers value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axismarkers.GanttRange to(com.anychart.enums.GanttDateTimeMarkers toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", (toValue != null) ? toValue.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the ending marker value.
      */
-    public com.anychart.core.axismarkers.GanttRange to(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", wrapQuotes(value)));
+    public com.anychart.core.axismarkers.GanttRange to(String toValue) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".to(%s);", wrapQuotes(toValue)));
 
         return this;
     }
@@ -311,8 +311,89 @@ Layout is defined by {@link anychart.core.axisMarkers.GanttLine#layout} method.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axismarkers.GanttRange zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axismarkers.GanttRange zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.GanttRange container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.GanttRange container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axismarkers.GanttRange container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.GanttRange parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.GanttRange parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.GanttRange parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axismarkers.GanttRange parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.axismarkers.GanttRange fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

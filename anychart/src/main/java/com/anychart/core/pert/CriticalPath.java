@@ -47,8 +47,8 @@ public class CriticalPath extends Base {
     /**
      * Setter for milestones settings.
      */
-    public com.anychart.core.pert.CriticalPath milestones(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestones(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.CriticalPath milestones(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestones(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -67,8 +67,8 @@ public class CriticalPath extends Base {
     /**
      * Setter for tasks settings object.
      */
-    public com.anychart.core.pert.CriticalPath tasks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tasks(%s);", wrapQuotes(value)));
+    public com.anychart.core.pert.CriticalPath tasks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tasks(%s);", wrapQuotes(settings)));
 
         return this;
     }

@@ -52,8 +52,8 @@ public class Exports extends JsObject {
     /**
      * Setter and getter for the file name for exported files.
      */
-    public void filename(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".filename(%s);", wrapQuotes(value)));
+    public void filename(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".filename(%s);", wrapQuotes(name)));
     }
     /**
      * Getter for dimensions for exported images and PDFs.

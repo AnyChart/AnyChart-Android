@@ -97,8 +97,8 @@ public class PiePoint extends Point {
     /**
      * Setter for hover point state.
      */
-    public com.anychart.core.PiePoint hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.PiePoint hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }
@@ -111,8 +111,8 @@ public class PiePoint extends Point {
     /**
      * Setter for the select point state.
      */
-    public com.anychart.core.PiePoint selected(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", value));
+    public com.anychart.core.PiePoint selected(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", enabled));
 
         return this;
     }

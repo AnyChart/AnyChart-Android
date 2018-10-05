@@ -41,6 +41,28 @@ public class Spline extends ContinuousBase {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.SeriesA11y a11y() {
+        return new com.anychart.core.utils.SeriesA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.core.cartesian.series.Spline a11y(Boolean value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.core.cartesian.series.Spline a11y(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
      * Getter for element bottom bound settings.
      */
     public void bottom() {
@@ -49,16 +71,16 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.cartesian.series.Spline bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.cartesian.series.Spline bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.cartesian.series.Spline bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -71,24 +93,24 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.cartesian.series.Spline bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.cartesian.series.Spline bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.cartesian.series.Spline bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -257,6 +279,44 @@ public class Spline extends ContinuousBase {
         return this;
     }
     /**
+     * Getter for the color scale.
+     */
+    public com.anychart.scales.LinearColor colorScale() {
+        return new com.anychart.scales.LinearColor(jsBase + ".colorScale()");
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.Spline colorScale(com.anychart.scales.LinearColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.Spline colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.Spline colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.Spline colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
      * Getter for connect missing points settings.
      */
     public void connectMissingPoints() {
@@ -265,8 +325,8 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for connect missing points settings.
      */
-    public com.anychart.core.cartesian.series.Spline connectMissingPoints(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectMissingPoints(%s);", value));
+    public com.anychart.core.cartesian.series.Spline connectMissingPoints(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectMissingPoints(%s);", enabled));
 
         return this;
     }
@@ -285,8 +345,8 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.cartesian.series.Spline enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.cartesian.series.Spline enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -299,24 +359,24 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for the series error.
      */
-    public com.anychart.core.cartesian.series.Spline error(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline error(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series error.
      */
-    public com.anychart.core.cartesian.series.Spline error(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", value));
+    public com.anychart.core.cartesian.series.Spline error(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the series error.
      */
-    public com.anychart.core.cartesian.series.Spline error(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", value));
+    public com.anychart.core.cartesian.series.Spline error(Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", settings));
 
         return this;
     }
@@ -358,6 +418,18 @@ public class Spline extends ContinuousBase {
         return new com.anychart.core.SeriesPoint(String.format(Locale.US, jsBase + ".getPoint(%s)", index));
     }
     /**
+     * Gets the statistics value by key.
+     */
+    public void getStat(com.anychart.enums.Statistics key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
+    }
+    /**
+     * Gets the statistics value by key.
+     */
+    public void getStat(String key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
+    }
+    /**
      * Getter for element height settings.
      */
     public void height() {
@@ -366,16 +438,16 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.cartesian.series.Spline height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.cartesian.series.Spline height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.cartesian.series.Spline height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -412,8 +484,8 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.cartesian.series.Spline hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -426,16 +498,16 @@ public class Spline extends ContinuousBase {
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.cartesian.series.Spline id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.cartesian.series.Spline id(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", value));
+    public com.anychart.core.cartesian.series.Spline id(Number id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", id));
 
         return this;
     }
@@ -467,8 +539,8 @@ public class Spline extends ContinuousBase {
      * Setter for the series layout direction.
 Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Learn more about Vertical chart.{docs}
      */
-    public com.anychart.core.cartesian.series.Spline isVertical(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isVertical(%s);", value));
+    public com.anychart.core.cartesian.series.Spline isVertical(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isVertical(%s);", enabled));
 
         return this;
     }
@@ -485,7 +557,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes)));
     }
     /**
-     * Getter for current series data labels.
+     * Getter for series data labels.
      */
     public com.anychart.core.ui.LabelsFactory labels() {
         return new com.anychart.core.ui.LabelsFactory(jsBase + ".labels()");
@@ -493,16 +565,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for series data labels.
      */
-    public com.anychart.core.cartesian.series.Spline labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series data labels.
      */
-    public com.anychart.core.cartesian.series.Spline labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.cartesian.series.Spline labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -515,16 +587,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.cartesian.series.Spline left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.cartesian.series.Spline left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.cartesian.series.Spline left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -551,16 +623,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for series data markers.
      */
-    public com.anychart.core.cartesian.series.Spline markers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline markers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series data markers.
      */
-    public com.anychart.core.cartesian.series.Spline markers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", value));
+    public com.anychart.core.cartesian.series.Spline markers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", settings));
 
         return this;
     }
@@ -573,16 +645,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.cartesian.series.Spline maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.cartesian.series.Spline maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.cartesian.series.Spline maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -617,16 +689,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.cartesian.series.Spline maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.cartesian.series.Spline maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.cartesian.series.Spline maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -653,16 +725,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.cartesian.series.Spline minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.cartesian.series.Spline minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.cartesian.series.Spline minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -697,16 +769,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.cartesian.series.Spline minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.cartesian.series.Spline minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.cartesian.series.Spline minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -733,8 +805,8 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.cartesian.series.Spline normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -765,8 +837,8 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for the series rendering settings.
      */
-    public com.anychart.core.cartesian.series.Spline rendering(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline rendering(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -779,16 +851,16 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.cartesian.series.Spline right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.cartesian.series.Spline right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.cartesian.series.Spline right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -817,8 +889,8 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.cartesian.series.Spline selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -830,7 +902,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.cartesian.series.Spline selectionMode(com.anychart.enums.SelectionMode value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
@@ -839,7 +911,7 @@ To select multiple points, press "ctrl" and click on them.
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.cartesian.series.Spline selectionMode(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
@@ -855,8 +927,8 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for switching of the series type.
      */
-    public com.anychart.core.cartesian.series.Spline seriesType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline seriesType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -865,14 +937,6 @@ To select multiple points, press "ctrl" and click on them.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the series stroke by function.
-     */
-    public com.anychart.core.cartesian.series.Spline stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for stroke settings.
@@ -983,6 +1047,14 @@ To select multiple points, press "ctrl" and click on them.
         return this;
     }
     /**
+     * Setter for stroke settings using an object.
+     */
+    public com.anychart.core.cartesian.series.Spline stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * 
      */
     public com.anychart.core.ui.Tooltip tooltip() {
@@ -1013,16 +1085,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.cartesian.series.Spline top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.cartesian.series.Spline top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.cartesian.series.Spline top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1110,16 +1182,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.cartesian.series.Spline width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.cartesian.series.Spline width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.cartesian.series.Spline width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1146,24 +1218,24 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.cartesian.series.Spline xScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline xScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.cartesian.series.Spline xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.cartesian.series.Spline xScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline xScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1176,24 +1248,24 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.cartesian.series.Spline yScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline yScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.cartesian.series.Spline yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.cartesian.series.Spline yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1206,44 +1278,83 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.cartesian.series.Spline zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.cartesian.series.Spline zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
-     * Getter for the accessibility setting.
+     * Getter for the container.
      */
-    public com.anychart.core.utils.SeriesA11y a11y() {
-        return new com.anychart.core.utils.SeriesA11y(jsBase + ".a11y()");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
-     * Setter for the accessibility setting.
+     * Setter for the container.
      */
-    public com.anychart.core.cartesian.series.Spline a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
+    public com.anychart.core.cartesian.series.Spline container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the accessibility setting.
+     * Setter for the container.
      */
-    public com.anychart.core.cartesian.series.Spline a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.Spline container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the statistics value by key.
+     * Setter for the container.
      */
-    public void getStat(com.anychart.enums.Statistics key) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Spline container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
     }
     /**
-     * Getter for the statistics value by key.
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
      */
-    public void getStat(String key) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.Spline parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.Spline parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.Spline parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.Spline parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 

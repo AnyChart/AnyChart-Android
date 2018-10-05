@@ -76,7 +76,7 @@ public class View extends Base {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".get(%s, %s);", rowIndex, wrapQuotes(fieldName)));
     }
     /**
-     * Returns parent data set.
+     * Returns parent data sets.
      */
     public void getDataSets() {
         APIlib.getInstance().addJSLine(jsBase + ".getDataSets();");
@@ -137,16 +137,16 @@ Learn how it works at {@link anychart.data.Iterator#meta}.
     /**
      * Creates a derived view that ensures sorting by a passed field.
      */
-    public com.anychart.data.View sort(String fieldName, String comparator) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), wrapQuotes(comparator)));
+    public com.anychart.data.View sort(String fieldName, com.anychart.enums.Sort order) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), (order != null) ? order.getJsBase() : null));
 
         return this;
     }
     /**
      * Creates a derived view that ensures sorting by a passed field.
      */
-    public com.anychart.data.View sort(String fieldName, com.anychart.enums.Sort order) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), (order != null) ? order.getJsBase() : null));
+    public com.anychart.data.View sort(String fieldName, String order) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), wrapQuotes(order)));
 
         return this;
     }

@@ -46,16 +46,16 @@ public class Background extends JsObject {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.standalones.Background bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.standalones.Background bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.standalones.Background bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -68,24 +68,24 @@ public class Background extends JsObject {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.standalones.Background bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.standalones.Background bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.standalones.Background bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -220,14 +220,22 @@ public class Background extends JsObject {
     /**
      * Getter for the background container.
      */
-    public void container() {
-        APIlib.getInstance().addJSLine(jsBase + ".container();");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
      * Setter for the background container.
      */
-    public com.anychart.standalones.Background container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the background container.
+     */
+    public com.anychart.standalones.Background container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
@@ -240,16 +248,16 @@ public class Background extends JsObject {
     /**
      * Setter for the corner type.
      */
-    public com.anychart.standalones.Background cornerType(com.anychart.enums.BackgroundCornersType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background cornerType(com.anychart.enums.BackgroundCornersType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the corner type.
      */
-    public com.anychart.standalones.Background cornerType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background cornerType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".cornerType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -262,24 +270,24 @@ public class Background extends JsObject {
     /**
      * Setter for the corner radius by one value.
      */
-    public com.anychart.standalones.Background corners(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", value));
+    public com.anychart.standalones.Background corners(Number corners) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", corners));
 
         return this;
     }
     /**
      * Setter for the corner radius by one value.
      */
-    public com.anychart.standalones.Background corners(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background corners(String corners) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", wrapQuotes(corners)));
 
         return this;
     }
     /**
      * Setter for the corner radius by one value.
      */
-    public com.anychart.standalones.Background corners(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", Arrays.toString(value)));
+    public com.anychart.standalones.Background corners(Number[] corners) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".corners(%s);", Arrays.toString(corners)));
 
         return this;
     }
@@ -428,8 +436,8 @@ public class Background extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.Background enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.Background enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -440,7 +448,7 @@ public class Background extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an object or a string.<br/>
+     * Setter for fill settings using an object, an array or a string.<br/>
 Accepts:
 <ul>
 <li>{@link anychart.graphics.vector.LinearGradientFill}</li>
@@ -451,8 +459,42 @@ Accepts:
 or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
 e.g. "red 0.5".
      */
-    public com.anychart.standalones.Background fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an object, an array or a string.<br/>
+Accepts:
+<ul>
+<li>{@link anychart.graphics.vector.LinearGradientFill}</li>
+<li>{@link anychart.graphics.vector.RadialGradientFill}</li>
+<li>{@link anychart.graphics.vector.Fill}</li>
+<li>{@link anychart.graphics.vector.ImageFill}</li>
+</ul>
+or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
+e.g. "red 0.5".
+     */
+    public com.anychart.standalones.Background fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an object, an array or a string.<br/>
+Accepts:
+<ul>
+<li>{@link anychart.graphics.vector.LinearGradientFill}</li>
+<li>{@link anychart.graphics.vector.RadialGradientFill}</li>
+<li>{@link anychart.graphics.vector.Fill}</li>
+<li>{@link anychart.graphics.vector.ImageFill}</li>
+</ul>
+or a color as a string, along with opacity, if needed, format is "<b>Color Opacity</b>",
+e.g. "red 0.5".
+     */
+    public com.anychart.standalones.Background fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -543,16 +585,16 @@ e.g. "red 0.5".
     /**
      * Setter for element height setting.
      */
-    public com.anychart.standalones.Background height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.standalones.Background height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.standalones.Background height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -565,16 +607,16 @@ e.g. "red 0.5".
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.standalones.Background left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.standalones.Background left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.standalones.Background left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -587,16 +629,16 @@ e.g. "red 0.5".
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.standalones.Background maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.standalones.Background maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.standalones.Background maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -609,16 +651,16 @@ e.g. "red 0.5".
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.standalones.Background maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.standalones.Background maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.standalones.Background maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -631,16 +673,16 @@ e.g. "red 0.5".
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.standalones.Background minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.standalones.Background minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.standalones.Background minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -653,16 +695,16 @@ e.g. "red 0.5".
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.standalones.Background minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.standalones.Background minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.standalones.Background minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -676,16 +718,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for parent bounds using single value.
      */
-    public com.anychart.standalones.Background parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for parent bounds using single value.
      */
-    public com.anychart.standalones.Background parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -724,16 +766,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.standalones.Background right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.standalones.Background right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.standalones.Background right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -746,88 +788,88 @@ As a getter falls back to stage bounds.
     /**
      * Setter for stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background stroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(color)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Background stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.standalones.Background stroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Background stroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.standalones.Background stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
      * Setter for stroke settings.
      */
-    public com.anychart.standalones.Background stroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.standalones.Background stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -840,16 +882,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.standalones.Background top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.standalones.Background top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.standalones.Background top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -891,16 +933,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.standalones.Background width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.standalones.Background width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.standalones.Background width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -913,8 +955,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.Background zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.standalones.Background zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -927,24 +969,24 @@ As a getter falls back to stage bounds.
     /**
      * Setter for bottom stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background bottomStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background bottomStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bottom stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background bottomStroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background bottomStroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bottom stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background bottomStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background bottomStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -1021,16 +1063,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for left stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background leftStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background leftStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for left stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background leftStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background leftStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".leftStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -1107,24 +1149,24 @@ As a getter falls back to stage bounds.
     /**
      * Setter for right stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background rightStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background rightStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for right stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background rightStroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background rightStroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for right stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background rightStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background rightStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rightStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -1201,24 +1243,24 @@ As a getter falls back to stage bounds.
     /**
      * Setter for top stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background topStroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background topStroke(com.anychart.graphics.vector.Stroke color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for top stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background topStroke(com.anychart.graphics.vector.ColoredFill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.Background topStroke(com.anychart.graphics.vector.ColoredFill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for top stroke settings using one parameter.
      */
-    public com.anychart.standalones.Background topStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.Background topStroke(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -1283,6 +1325,14 @@ As a getter falls back to stage bounds.
      */
     public com.anychart.standalones.Background topStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.standalones.Background fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

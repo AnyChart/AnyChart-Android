@@ -39,13 +39,13 @@ public class Aroon extends JsObject {
 
     
     /**
-     * Getter for the indicator Down Series.
+     * Getter for the indicator Down Series instance.
      */
     public com.anychart.core.stock.series.Base downSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".downSeries()");
     }
     /**
-     * Setter for the indicator Down Series.
+     * Setter for the indicator Down Series type.
      */
     public com.anychart.core.stock.indicators.Aroon downSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".downSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -53,7 +53,7 @@ public class Aroon extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator Down Series.
+     * Setter for the indicator Down Series type.
      */
     public com.anychart.core.stock.indicators.Aroon downSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".downSeries(%s);", wrapQuotes(type)));
@@ -69,19 +69,41 @@ public class Aroon extends JsObject {
     /**
      * Setter for the indicator period.
      */
-    public com.anychart.core.stock.indicators.Aroon period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.Aroon period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator Up Series.
+     * Getter for the indicator Range Series instance.
+     */
+    public com.anychart.core.stock.series.Base rangeSeries() {
+        return new com.anychart.core.stock.series.Base(jsBase + ".rangeSeries()");
+    }
+    /**
+     * Setter for the indicator Range Series type.
+     */
+    public com.anychart.core.stock.indicators.Aroon rangeSeries(com.anychart.enums.StockSeriesType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeSeries(%s);", (type != null) ? type.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the indicator Range Series type.
+     */
+    public com.anychart.core.stock.indicators.Aroon rangeSeries(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeSeries(%s);", wrapQuotes(type)));
+
+        return this;
+    }
+    /**
+     * Getter for the indicator Up Series instance.
      */
     public com.anychart.core.stock.series.Base upSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".upSeries()");
     }
     /**
-     * Setter for the indicator Up Series.
+     * Setter for the indicator Up Series type.
      */
     public com.anychart.core.stock.indicators.Aroon upSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -89,7 +111,7 @@ public class Aroon extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator Up Series.
+     * Setter for the indicator Up Series type.
      */
     public com.anychart.core.stock.indicators.Aroon upSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upSeries(%s);", wrapQuotes(type)));

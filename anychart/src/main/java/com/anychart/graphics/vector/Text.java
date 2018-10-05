@@ -98,8 +98,8 @@ public class Text extends Element {
     /**
      * Setter for the text color.
      */
-    public com.anychart.graphics.vector.Text color(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text color(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -118,7 +118,7 @@ public class Text extends Element {
         return this;
     }
     /**
-     * Getter for the current text decoration.
+     * Getter for the text decoration.
      */
     public void decoration() {
         APIlib.getInstance().addJSLine(jsBase + ".decoration();");
@@ -154,7 +154,7 @@ public class Text extends Element {
         return this;
     }
     /**
-     * Getter for the current text direction.
+     * Getter for the text direction.
      */
     public void direction() {
         APIlib.getInstance().addJSLine(jsBase + ".direction();");
@@ -162,16 +162,16 @@ public class Text extends Element {
     /**
      * Setter for text direction.
      */
-    public com.anychart.graphics.vector.Text direction(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text direction(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for text direction.
      */
-    public com.anychart.graphics.vector.Text direction(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text direction(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -213,7 +213,7 @@ Removes it from the parent layer, sets links to null, removes it from DOM.
     }
     /**
      * Returns DOM element if element is rendered.<br/>
-In case of Stage in Suspended state or unbound element – null is returned.
+In case of Stage in Suspended state or unbound element - null is returned.
      */
     public void domElement() {
         APIlib.getInstance().addJSLine(jsBase + ".domElement();");
@@ -241,7 +241,7 @@ In case of Stage in Suspended state or unbound element – null is returned.
         return this;
     }
     /**
-     * Getter for the current font family of text.
+     * Getter for the font family of text.
      */
     public void fontFamily() {
         APIlib.getInstance().addJSLine(jsBase + ".fontFamily();");
@@ -249,13 +249,13 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Setter for font family of text.
      */
-    public com.anychart.graphics.vector.Text fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
     /**
-     * Getter for the current font size of text.
+     * Getter for the font size of text.
      */
     public void fontSize() {
         APIlib.getInstance().addJSLine(jsBase + ".fontSize();");
@@ -263,21 +263,21 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Setter for font size of text.
      */
-    public com.anychart.graphics.vector.Text fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
      * Setter for font size of text.
      */
-    public com.anychart.graphics.vector.Text fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.graphics.vector.Text fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
     /**
-     * Getter for the current font style of text.
+     * Getter for the font style of text.
      */
     public void fontStyle() {
         APIlib.getInstance().addJSLine(jsBase + ".fontStyle();");
@@ -285,21 +285,21 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Setter for font style of text.
      */
-    public com.anychart.graphics.vector.Text fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for font style of text.
      */
-    public com.anychart.graphics.vector.Text fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
     /**
-     * Getter for the current font variant of text.
+     * Getter for the font variant of text.
      */
     public void fontVariant() {
         APIlib.getInstance().addJSLine(jsBase + ".fontVariant();");
@@ -321,7 +321,7 @@ In case of Stage in Suspended state or unbound element – null is returned.
         return this;
     }
     /**
-     * Getter for the current font weight of text.
+     * Getter for the font weight of text.
      */
     public void fontWeight() {
         APIlib.getInstance().addJSLine(jsBase + ".fontWeight();");
@@ -329,16 +329,16 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Setter for font weight of text.
      */
-    public com.anychart.graphics.vector.Text fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for font weight of text.
      */
-    public com.anychart.graphics.vector.Text fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.graphics.vector.Text fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -422,7 +422,7 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
         APIlib.getInstance().addJSLine(jsBase + ".getY();");
     }
     /**
-     * Getter for the current horizontal align of text.
+     * Getter for the horizontal align of text.
      */
     public void hAlign() {
         APIlib.getInstance().addJSLine(jsBase + ".hAlign();");
@@ -430,16 +430,16 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Setter for horizontal align of text.
      */
-    public com.anychart.graphics.vector.Text hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for horizontal align of text.
      */
-    public com.anychart.graphics.vector.Text hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -459,21 +459,21 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets a height.
      */
-    public com.anychart.graphics.vector.Text height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.graphics.vector.Text height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Sets a height.
      */
-    public com.anychart.graphics.vector.Text height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
-     * Getter for the current HTML format.
+     * Getter for the HTML format.
      */
     public void htmlText() {
         APIlib.getInstance().addJSLine(jsBase + ".htmlText();");
@@ -495,13 +495,13 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets the element identifier.
      */
-    public com.anychart.graphics.vector.Text id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
     /**
-     * Getter for the current letter spacing of text.
+     * Getter for the letter spacing of text.
      */
     public void letterSpacing() {
         APIlib.getInstance().addJSLine(jsBase + ".letterSpacing();");
@@ -509,21 +509,21 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Setter for letter spacing of text.
      */
-    public com.anychart.graphics.vector.Text letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
     /**
      * Setter for letter spacing of text.
      */
-    public com.anychart.graphics.vector.Text letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.graphics.vector.Text letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
     /**
-     * Getter for the current line height of text.
+     * Getter for the line height of text.
      */
     public void lineHeight() {
         APIlib.getInstance().addJSLine(jsBase + ".lineHeight();");
@@ -531,33 +531,21 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets line height, either as ratio or in pixels.
      */
-    public com.anychart.graphics.vector.Text lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Sets line height, either as ratio or in pixels.
      */
-    public com.anychart.graphics.vector.Text lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.graphics.vector.Text lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
     /**
-     * Adds an event listener.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Getter for the current text opacity.
+     * Getter for the text opacity.
      */
     public void opacity() {
         APIlib.getInstance().addJSLine(jsBase + ".opacity();");
@@ -565,8 +553,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Setter for text opacity.
      */
-    public com.anychart.graphics.vector.Text opacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".opacity(%s);", value));
+    public com.anychart.graphics.vector.Text opacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".opacity(%s);", opacity));
 
         return this;
     }
@@ -579,16 +567,16 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Text parent(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text parent(com.anychart.graphics.vector.Layer parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Text parent(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text parent(com.anychart.graphics.vector.Stage parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
@@ -601,8 +589,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Setter for the path element.
      */
-    public com.anychart.graphics.vector.Text path(com.anychart.graphics.vector.Path value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".path(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text path(com.anychart.graphics.vector.Path path) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".path(%s);", (path != null) ? path.getJsBase() : null));
 
         return this;
     }
@@ -669,7 +657,7 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
         return this;
     }
     /**
-     * Getter for the current text selectable property.
+     * Getter for the text selectable property.
      */
     public void selectable() {
         APIlib.getInstance().addJSLine(jsBase + ".selectable();");
@@ -678,8 +666,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
      * Setter for the text selectable property.<br/>
 Defines whether text can be selected. If <b>false</b> - no selection.
      */
-    public com.anychart.graphics.vector.Text selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.graphics.vector.Text selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -730,7 +718,7 @@ Defines whether text can be selected. If <b>false</b> - no selection.
         APIlib.getInstance().addJSLine(jsBase + ".style();");
     }
     /**
-     * Getter for the current text.
+     * Getter for the text.
      */
     public void text() {
         APIlib.getInstance().addJSLine(jsBase + ".text();");
@@ -738,13 +726,13 @@ Defines whether text can be selected. If <b>false</b> - no selection.
     /**
      * Setter for the text.
      */
-    public com.anychart.graphics.vector.Text text(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text text(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
 
         return this;
     }
     /**
-     * Getter for the current text indent.
+     * Getter for the text indent.
      */
     public void textIndent() {
         APIlib.getInstance().addJSLine(jsBase + ".textIndent();");
@@ -753,8 +741,8 @@ Defines whether text can be selected. If <b>false</b> - no selection.
      * Setter for text indent.<br/>
 The text-indent property specifies the indentation of the first line in a text-block.
      */
-    public com.anychart.graphics.vector.Text textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.graphics.vector.Text textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -826,7 +814,7 @@ The text-indent property specifies the indentation of the first line in a text-b
         APIlib.getInstance().addJSLine(js.toString());
     }
     /**
-     * Getter for the current vertical align of text.
+     * Getter for the vertical align of text.
      */
     public void vAlign() {
         APIlib.getInstance().addJSLine(jsBase + ".vAlign();");
@@ -834,16 +822,16 @@ The text-indent property specifies the indentation of the first line in a text-b
     /**
      * Setter for vertical align of text.
      */
-    public com.anychart.graphics.vector.Text vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Text vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for vertical align of text.
      */
-    public com.anychart.graphics.vector.Text vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -871,16 +859,16 @@ The text-indent property specifies the indentation of the first line in a text-b
     /**
      * Sets a width.
      */
-    public com.anychart.graphics.vector.Text width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.graphics.vector.Text width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Sets a width.
      */
-    public com.anychart.graphics.vector.Text width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Text width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -928,7 +916,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
     }
     /**
-     * Getter for the current X coordinate of text.
+     * Getter for the X coordinate of text.
      */
     public void x() {
         APIlib.getInstance().addJSLine(jsBase + ".x();");
@@ -936,8 +924,8 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
     /**
      * Setter for X coordinate of text.
      */
-    public com.anychart.graphics.vector.Text x(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".x(%s);", value));
+    public com.anychart.graphics.vector.Text x(Number xCoord) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".x(%s);", xCoord));
 
         return this;
     }
@@ -950,8 +938,8 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
     /**
      * Setter for Y coordinate of text.
      */
-    public com.anychart.graphics.vector.Text y(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".y(%s);", value));
+    public com.anychart.graphics.vector.Text y(Number yCoord) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".y(%s);", yCoord));
 
         return this;
     }

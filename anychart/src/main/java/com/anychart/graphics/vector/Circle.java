@@ -17,7 +17,7 @@ import android.text.TextUtils;
  * Circle Class. Inherited from Ellipse.<br>
 <b>Do not invoke constructor directly.</b> Use {@link anychart.graphics.vector.Stage#circle} or
 {@link anychart.graphics.vector.Layer#circle} methods, if you want to create an instance of primitive bound to a stage or a layer.
-<br/> In case you need an unbound primitive – use {@link anychart.graphics#circle}.<br/>
+<br/> In case you need an unbound primitive - use {@link anychart.graphics#circle}.<br/>
 See also:<br/>
 {@link anychart.graphics.vector.Stage#circle},<br/>
 {@link anychart.graphics.vector.Layer#circle},<br/>
@@ -68,44 +68,44 @@ public class Circle extends Ellipse {
         return this;
     }
     /**
-     * Gets the current center coordinates.
+     * Getter for the center coordinates.
      */
-    public void center() {
-        APIlib.getInstance().addJSLine(jsBase + ".center();");
+    public com.anychart.graphics.math.Coordinate center() {
+        return new com.anychart.graphics.math.Coordinate(jsBase + ".center()");
     }
     /**
-     * Sets center coordinates.
+     * Setter for the center coordinates.
      */
-    public com.anychart.graphics.vector.Circle center(com.anychart.math.Coordinate value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".center(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Circle center(com.anychart.graphics.math.Coordinate center) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".center(%s);", (center != null) ? center.getJsBase() : null));
 
         return this;
     }
     /**
-     * Gets the current center X.
+     * Getter for the center X.
      */
     public void centerX() {
         APIlib.getInstance().addJSLine(jsBase + ".centerX();");
     }
     /**
-     * Sets a center X.
+     * Getter for the center X.
      */
-    public com.anychart.graphics.vector.Circle centerX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".centerX(%s);", value));
+    public com.anychart.graphics.vector.Circle centerX(Number centerX) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".centerX(%s);", centerX));
 
         return this;
     }
     /**
-     * Gets the current center Y.
+     * Getter for the center Y.
      */
     public void centerY() {
         APIlib.getInstance().addJSLine(jsBase + ".centerY();");
     }
     /**
-     * Sets a center Y.
+     * Getter for the center Y.
      */
-    public com.anychart.graphics.vector.Circle centerY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".centerY(%s);", value));
+    public com.anychart.graphics.vector.Circle centerY(Number centerY) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".centerY(%s);", centerY));
 
         return this;
     }
@@ -197,7 +197,7 @@ Removes it from the parent layer, sets links to null, removes it from DOM.
     }
     /**
      * Returns DOM element if element is rendered.<br/>
-In case of Stage in Suspended state or unbound element – null is returned.
+In case of Stage in Suspended state or unbound element - null is returned.
      */
     public void domElement() {
         APIlib.getInstance().addJSLine(jsBase + ".domElement();");
@@ -233,8 +233,8 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Sets a fill as an object or a string.<br/>
      */
-    public com.anychart.graphics.vector.Circle fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Circle fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -404,22 +404,10 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets the element identifier.
      */
-    public com.anychart.graphics.vector.Circle id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Circle id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
-    }
-    /**
-     * Adds an event listener.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
     }
     /**
      * Returns the parent layer.
@@ -430,16 +418,16 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Circle parent(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Circle parent(com.anychart.graphics.vector.Layer parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Circle parent(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Circle parent(com.anychart.graphics.vector.Stage parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
@@ -452,33 +440,33 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Setter for the circle radius.
      */
-    public com.anychart.graphics.vector.Circle radius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".radius(%s);", value));
+    public com.anychart.graphics.vector.Circle radius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".radius(%s);", radius));
 
         return this;
     }
     /**
-     * Gets the current X radius.
+     * Getter for the X radius.
      */
     public void radiusX() {
         APIlib.getInstance().addJSLine(jsBase + ".radiusX();");
     }
     /**
-     * Sets a X radius.
+     * Setter for the X radius.
      */
-    public com.anychart.graphics.vector.Circle radiusX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".radiusX(%s);", value));
+    public com.anychart.graphics.vector.Circle radiusX(Number radiusX) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".radiusX(%s);", radiusX));
 
         return this;
     }
     /**
-     * Gets the current Y radius.
+     * Getter for the Y radius.
      */
     public void radiusY() {
         APIlib.getInstance().addJSLine(jsBase + ".radiusY();");
     }
     /**
-     * Sets a Y radius.
+     * Setter for the Y radius.
      */
     public com.anychart.graphics.vector.Circle radiusY(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".radiusY(%s);", value));
@@ -556,7 +544,7 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
         return this;
     }
     /**
-     * Sets radius.
+     * Sets the radius.
      */
     public com.anychart.graphics.vector.Circle setRadius(Number rx, Number ry) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".setRadius(%s, %s);", rx, ry));
@@ -604,20 +592,26 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets a stroke using one parameter.
      */
-    public void stroke(com.anychart.graphics.vector.Stroke value) {
+    public com.anychart.graphics.vector.Circle stroke(com.anychart.graphics.vector.Stroke value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
     }
     /**
      * Sets a stroke using one parameter.
      */
-    public void stroke(com.anychart.graphics.vector.ColoredFill value) {
+    public com.anychart.graphics.vector.Circle stroke(com.anychart.graphics.vector.ColoredFill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
     }
     /**
      * Sets a stroke using one parameter.
      */
-    public void stroke(String value) {
+    public com.anychart.graphics.vector.Circle stroke(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+
+        return this;
     }
     /**
      * Sets stroke settings using several parameter.
@@ -724,8 +718,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets a stroke thickness.
      */
-    public com.anychart.graphics.vector.Circle strokeThickness(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".strokeThickness(%s);", value));
+    public com.anychart.graphics.vector.Circle strokeThickness(Number thickness) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".strokeThickness(%s);", thickness));
 
         return this;
     }
@@ -807,6 +801,14 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
      */
     public void unlistenByKey(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.graphics.vector.Circle fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

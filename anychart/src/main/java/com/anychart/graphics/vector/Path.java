@@ -165,7 +165,7 @@ with clockwise and counterclock drawing option.
     }
     /**
      * Adds specified points to the path, drawing sequentially a cubic Bezier curve from the current point to the next.<br/>
-Each curve is defined by 3 points (6 coordinates) – two control points and an endpoint.
+Each curve is defined by 3 points (6 coordinates) - two control points and an endpoint.
      */
     public com.anychart.graphics.vector.Path curveTo(Number control1X, Number control1Y, Number control2X, Number control2Y, Number endX, Number endY, Number var_args) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".curveTo(%s, %s, %s, %s, %s, %s, %s);", control1X, control1Y, control2X, control2Y, endX, endY, var_args));
@@ -224,7 +224,7 @@ Removes it from the parent layer, sets links to null, removes it from DOM.
     }
     /**
      * Returns DOM element if element is rendered.<br/>
-In case of Stage in Suspended state or unbound element – null is returned.
+In case of Stage in Suspended state or unbound element - null is returned.
      */
     public void domElement() {
         APIlib.getInstance().addJSLine(jsBase + ".domElement();");
@@ -260,8 +260,8 @@ In case of Stage in Suspended state or unbound element – null is returned.
     /**
      * Sets a fill as an object or a string.<br/>
      */
-    public com.anychart.graphics.vector.Path fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Path fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -377,8 +377,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Returns the last coordinates added to the path.
      */
-    public void getCurrentPoint() {
-        APIlib.getInstance().addJSLine(jsBase + ".getCurrentPoint();");
+    public com.anychart.graphics.math.Coordinate getCurrentPoint() {
+        return new com.anychart.graphics.math.Coordinate(jsBase + ".getCurrentPoint()");
     }
     /**
      * Returns the height.
@@ -443,8 +443,8 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
     /**
      * Sets the element identifier.
      */
-    public com.anychart.graphics.vector.Path id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Path id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -455,18 +455,6 @@ See illustrations at {@link anychart.graphics.vector.Element#getAbsoluteWidth}
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineTo(%s, %s, %s);", x, y, var_args));
 
         return this;
-    }
-    /**
-     * Adds an event listener.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
     }
     /**
      * Moves path cursor position to a specified coordinate.</br>
@@ -486,22 +474,22 @@ Remember that if you call the <b>moveTo</b> method a few times in a row, only th
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Path parent(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Path parent(com.anychart.graphics.vector.Layer parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.Path parent(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.Path parent(com.anychart.graphics.vector.Stage parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
     /**
      * Adds specified points to the path, drawing sequentially a quadratic Bezier curve from the current point to the next.
-Each curve is defined by 2 points (4 coordinates) – a control point and an endpoint.
+Each curve is defined by 2 points (4 coordinates) - a control point and an endpoint.
      */
     public com.anychart.graphics.vector.Path quadraticCurveTo(Number controlX, Number controlY, Number endX, Number endY, Number var_args) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".quadraticCurveTo(%s, %s, %s, %s, %s);", controlX, controlY, endX, endY, var_args));
@@ -619,20 +607,26 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
     /**
      * Sets a stroke using one parameter.
      */
-    public void stroke(com.anychart.graphics.vector.Stroke value) {
+    public com.anychart.graphics.vector.Path stroke(com.anychart.graphics.vector.Stroke value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
     }
     /**
      * Sets a stroke using one parameter.
      */
-    public void stroke(com.anychart.graphics.vector.ColoredFill value) {
+    public com.anychart.graphics.vector.Path stroke(com.anychart.graphics.vector.ColoredFill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
     }
     /**
      * Sets a stroke using one parameter.
      */
-    public void stroke(String value) {
+    public com.anychart.graphics.vector.Path stroke(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+
+        return this;
     }
     /**
      * Sets stroke settings using several parameter.
@@ -739,8 +733,8 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
     /**
      * Sets a stroke thickness.
      */
-    public com.anychart.graphics.vector.Path strokeThickness(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".strokeThickness(%s);", value));
+    public com.anychart.graphics.vector.Path strokeThickness(Number thickness) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".strokeThickness(%s);", thickness));
 
         return this;
     }
@@ -822,6 +816,14 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
      */
     public void unlistenByKey(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.graphics.vector.Path fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

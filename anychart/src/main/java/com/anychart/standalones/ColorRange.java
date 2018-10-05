@@ -46,16 +46,16 @@ public class ColorRange extends JsObject {
     /**
      * Setter for color range align settings.
      */
-    public com.anychart.standalones.ColorRange align(com.anychart.enums.Align value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange align(com.anychart.enums.Align align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color range align settings.
      */
-    public com.anychart.standalones.ColorRange align(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange align(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -68,22 +68,30 @@ public class ColorRange extends JsObject {
     /**
      * Setter for the color line size.
      */
-    public com.anychart.standalones.ColorRange colorLineSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorLineSize(%s);", value));
+    public com.anychart.standalones.ColorRange colorLineSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorLineSize(%s);", size));
 
         return this;
     }
     /**
      * Getter for the color range container.
      */
-    public void container() {
-        APIlib.getInstance().addJSLine(jsBase + ".container();");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
      * Setter for the color range container.
      */
-    public com.anychart.standalones.ColorRange container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color range container.
+     */
+    public com.anychart.standalones.ColorRange container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
@@ -104,8 +112,8 @@ public class ColorRange extends JsObject {
     /**
      * Setter for the first label drawing flag.
      */
-    public com.anychart.standalones.ColorRange drawFirstLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", value));
+    public com.anychart.standalones.ColorRange drawFirstLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLabel(%s);", enabled));
 
         return this;
     }
@@ -118,8 +126,8 @@ public class ColorRange extends JsObject {
     /**
      * Setter for the last label drawing flag.
      */
-    public com.anychart.standalones.ColorRange drawLastLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", value));
+    public com.anychart.standalones.ColorRange drawLastLabel(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLabel(%s);", enabled));
 
         return this;
     }
@@ -132,8 +140,8 @@ public class ColorRange extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.ColorRange enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.ColorRange enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -158,16 +166,16 @@ public class ColorRange extends JsObject {
     /**
      * Setter for axis labels.
      */
-    public com.anychart.standalones.ColorRange labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis labels.
      */
-    public com.anychart.standalones.ColorRange labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.standalones.ColorRange labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -178,18 +186,18 @@ public class ColorRange extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".length();");
     }
     /**
-     * Setter for the current color range line length.
+     * Setter for the color range line length.
      */
-    public com.anychart.standalones.ColorRange length(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange length(String length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", wrapQuotes(length)));
 
         return this;
     }
     /**
-     * Setter for the current color range line length.
+     * Setter for the color range line length.
      */
-    public com.anychart.standalones.ColorRange length(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", value));
+    public com.anychart.standalones.ColorRange length(Number length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".length(%s);", length));
 
         return this;
     }
@@ -202,16 +210,16 @@ public class ColorRange extends JsObject {
     /**
      * Getter for the color range marker.
      */
-    public com.anychart.standalones.ColorRange marker(com.anychart.core.ui.markersfactory.Marker value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".marker(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange marker(com.anychart.core.ui.markersfactory.Marker settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".marker(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Getter for the color range marker.
      */
-    public com.anychart.standalones.ColorRange marker(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange marker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -224,16 +232,16 @@ public class ColorRange extends JsObject {
     /**
      * Setter for axis minor labels.
      */
-    public com.anychart.standalones.ColorRange minorLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange minorLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis minor labels.
      */
-    public com.anychart.standalones.ColorRange minorLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", value));
+    public com.anychart.standalones.ColorRange minorLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", settings));
 
         return this;
     }
@@ -246,16 +254,16 @@ public class ColorRange extends JsObject {
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.standalones.ColorRange minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for minor axis ticks.
      */
-    public com.anychart.standalones.ColorRange minorTicks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", value));
+    public com.anychart.standalones.ColorRange minorTicks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", settings));
 
         return this;
     }
@@ -268,16 +276,16 @@ public class ColorRange extends JsObject {
     /**
      * Setter for the axis orientation.
      */
-    public com.anychart.standalones.ColorRange orientation(com.anychart.enums.Orientation value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange orientation(com.anychart.enums.Orientation orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", (orientation != null) ? orientation.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis orientation.
      */
-    public com.anychart.standalones.ColorRange orientation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange orientation(String orientation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation)));
 
         return this;
     }
@@ -290,16 +298,16 @@ public class ColorRange extends JsObject {
     /**
      * Setter for labels overlap mode.
      */
-    public com.anychart.standalones.ColorRange overlapMode(com.anychart.enums.LabelsOverlapMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange overlapMode(com.anychart.enums.LabelsOverlapMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for labels overlap mode.
      */
-    public com.anychart.standalones.ColorRange overlapMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange overlapMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -312,24 +320,24 @@ public class ColorRange extends JsObject {
     /**
      * Setter for paddings in pixels using a single value.<br/>
      */
-    public com.anychart.standalones.ColorRange padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.standalones.ColorRange padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for paddings in pixels using a single value.<br/>
      */
-    public com.anychart.standalones.ColorRange padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.standalones.ColorRange padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for paddings in pixels using a single value.<br/>
      */
-    public com.anychart.standalones.ColorRange padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -471,16 +479,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.ColorRange parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.ColorRange parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -519,24 +527,24 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.ColorRange scale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange scale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.ColorRange scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.ColorRange scale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.ColorRange scale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -550,8 +558,8 @@ As a getter falls back to stage bounds.
      * Setter for stagger lines.<br/>
 <b>Note:</b> pass <b>null</b> to enable autocalculation.
      */
-    public com.anychart.standalones.ColorRange staggerLines(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerLines(%s);", value));
+    public com.anychart.standalones.ColorRange staggerLines(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerLines(%s);", count));
 
         return this;
     }
@@ -564,8 +572,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for maximum stagger lines in autocalculation mode (if {@link anychart.core.axes.Linear#staggerLines} passed null).
      */
-    public com.anychart.standalones.ColorRange staggerMaxLines(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMaxLines(%s);", value));
+    public com.anychart.standalones.ColorRange staggerMaxLines(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMaxLines(%s);", count));
 
         return this;
     }
@@ -578,8 +586,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the stagger mode state.
      */
-    public com.anychart.standalones.ColorRange staggerMode(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMode(%s);", value));
+    public com.anychart.standalones.ColorRange staggerMode(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".staggerMode(%s);", enabled));
 
         return this;
     }
@@ -698,6 +706,14 @@ As a getter falls back to stage bounds.
         return this;
     }
     /**
+     * Setter for axis stroke settings using an object.
+     */
+    public com.anychart.standalones.ColorRange stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for axis ticks.
      */
     public com.anychart.core.axes.Ticks ticks() {
@@ -706,16 +722,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.standalones.ColorRange ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.standalones.ColorRange ticks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", value));
+    public com.anychart.standalones.ColorRange ticks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", settings));
 
         return this;
     }
@@ -728,16 +744,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the axis title.
      */
-    public com.anychart.standalones.ColorRange title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.standalones.ColorRange title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the axis title.
      */
-    public com.anychart.standalones.ColorRange title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -779,16 +795,16 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the axis width.
      */
-    public com.anychart.standalones.ColorRange width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.standalones.ColorRange width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for the axis width.
      */
-    public com.anychart.standalones.ColorRange width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.ColorRange width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -801,8 +817,8 @@ As a getter falls back to stage bounds.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.ColorRange zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.standalones.ColorRange zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
@@ -811,14 +827,6 @@ As a getter falls back to stage bounds.
      */
     public com.anychart.math.Rect getPixelBounds() {
         return new com.anychart.math.Rect(jsBase + ".getPixelBounds()");
-    }
-    /**
-     * 
-     */
-    public com.anychart.standalones.ColorRange stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
-
-        return this;
     }
 
 }

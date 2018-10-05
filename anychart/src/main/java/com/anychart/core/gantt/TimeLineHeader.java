@@ -77,16 +77,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the background.
      */
-    public com.anychart.core.gantt.TimeLineHeader background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the background.
      */
-    public com.anychart.core.gantt.TimeLineHeader background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
@@ -99,16 +99,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -121,24 +121,24 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.gantt.TimeLineHeader bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.gantt.TimeLineHeader bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.gantt.TimeLineHeader bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -279,8 +279,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the pointer events setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -293,8 +293,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the bottom line drawing flag.
      */
-    public com.anychart.core.resource.Grid drawBottomLine(Boolean value) {
-        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawBottomLine(%s)", value));
+    public com.anychart.core.resource.Grid drawBottomLine(Boolean enabled) {
+        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawBottomLine(%s)", enabled));
     }
     /**
      * Getter for the left line drawing flag.
@@ -305,8 +305,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the left line drawing flag.
      */
-    public com.anychart.core.resource.Grid drawLeftLine(Boolean value) {
-        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawLeftLine(%s)", value));
+    public com.anychart.core.resource.Grid drawLeftLine(Boolean enabled) {
+        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawLeftLine(%s)", enabled));
     }
     /**
      * Getter for the right line drawing flag.
@@ -317,8 +317,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the right line drawing flag.
      */
-    public com.anychart.core.resource.Grid drawRightLine(Boolean value) {
-        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawRightLine(%s)", value));
+    public com.anychart.core.resource.Grid drawRightLine(Boolean enabled) {
+        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawRightLine(%s)", enabled));
     }
     /**
      * Getter for the top line drawing flag.
@@ -329,8 +329,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the top line drawing flag.
      */
-    public com.anychart.core.resource.Grid drawTopLine(Boolean value) {
-        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawTopLine(%s)", value));
+    public com.anychart.core.resource.Grid drawTopLine(Boolean enabled) {
+        return new com.anychart.core.resource.Grid(String.format(Locale.US, jsBase + ".drawTopLine(%s)", enabled));
     }
     /**
      * Getter for the element state (enabled or disabled).
@@ -341,8 +341,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.gantt.TimeLineHeader enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -356,8 +356,26 @@ public class TimeLineHeader extends VisualBaseWithBounds {
      * Setter for fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gantt.TimeLineHeader fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gantt.TimeLineHeader fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gantt.TimeLineHeader fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -450,8 +468,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font color settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -464,16 +482,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font decoration settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontDecoration(com.anychart.graphics.vector.text.Decoration value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader fontDecoration(com.anychart.graphics.vector.text.Decoration type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for font decoration settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontDecoration(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontDecoration(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -486,8 +504,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font family settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontFamily(String fontFamily) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(fontFamily)));
 
         return this;
     }
@@ -500,8 +518,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font opacity settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -514,16 +532,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -536,16 +554,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
@@ -558,16 +576,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font variant settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontVariant(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontVariant(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
      * Setter for font variant settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontVariant(com.anychart.graphics.vector.text.FontVariant value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader fontVariant(com.anychart.graphics.vector.text.FontVariant type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontVariant(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -580,16 +598,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -603,8 +621,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
      * Setter for the function content text.<br/>
 {docs:Common_Settings/Text_Formatters}Learn more about using the format() method.{docs}
      */
-    public com.anychart.core.gantt.TimeLineHeader format(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader format(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -623,16 +641,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the text horizontal align settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for the text horizontal align settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -645,16 +663,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -667,8 +685,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for holidays settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader holidays(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".holidays(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader holidays(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".holidays(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -681,16 +699,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -703,16 +721,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for text letter spacing settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
     /**
      * Setter for text letter spacing settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader letterSpacing(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
 
         return this;
     }
@@ -763,8 +781,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the level height.
      */
-    public com.anychart.core.gantt.TimeLineHeader levelHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".levelHeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader levelHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".levelHeight(%s);", height));
 
         return this;
     }
@@ -777,16 +795,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for text line height settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader lineHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for text line height settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader lineHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -799,16 +817,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the maximum font size.
      */
-    public com.anychart.core.gantt.TimeLineHeader maxFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader maxFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for the maximum font size.
      */
-    public com.anychart.core.gantt.TimeLineHeader maxFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader maxFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -821,16 +839,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.gantt.TimeLineHeader maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.gantt.TimeLineHeader maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -843,16 +861,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.gantt.TimeLineHeader maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.gantt.TimeLineHeader maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -865,16 +883,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the minimum font size.
      */
-    public com.anychart.core.gantt.TimeLineHeader minFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader minFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for the minimum font size.
      */
-    public com.anychart.core.gantt.TimeLineHeader minFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader minFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -887,16 +905,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.gantt.TimeLineHeader minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.gantt.TimeLineHeader minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -909,16 +927,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.gantt.TimeLineHeader minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.gantt.TimeLineHeader minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -931,16 +949,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the overlay element.
      */
-    public com.anychart.core.gantt.TimeLineHeader overlay(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader overlay(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the overlay element.
      */
-    public com.anychart.core.gantt.TimeLineHeader overlay(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader overlay(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", settings));
 
         return this;
     }
@@ -953,24 +971,24 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public com.anychart.core.gantt.TimeLineHeader padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.core.gantt.TimeLineHeader padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public com.anychart.core.gantt.TimeLineHeader padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public com.anychart.core.gantt.TimeLineHeader padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1129,16 +1147,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1151,8 +1169,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the text selectable option.
      */
-    public com.anychart.core.gantt.TimeLineHeader selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -1271,6 +1289,14 @@ public class TimeLineHeader extends VisualBaseWithBounds {
         return this;
     }
     /**
+     * Setter for stroke settings using an object.
+     */
+    public com.anychart.core.gantt.TimeLineHeader stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the text direction settings.
      */
     public void textDirection() {
@@ -1279,16 +1305,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for text direction settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader textDirection(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader textDirection(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
      * Setter for text direction settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader textDirection(com.anychart.graphics.vector.text.Direction value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader textDirection(com.anychart.graphics.vector.text.Direction type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -1301,8 +1327,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for text-indent settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -1337,16 +1363,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1388,8 +1414,8 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the useHTML flag.
      */
-    public com.anychart.core.gantt.TimeLineHeader useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -1402,16 +1428,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.gantt.TimeLineHeader vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -1424,16 +1450,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.gantt.TimeLineHeader width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1446,16 +1472,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.gantt.TimeLineHeader wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader wordBreak(com.anychart.enums.WordBreak type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.gantt.TimeLineHeader wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader wordBreak(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -1468,16 +1494,16 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.gantt.TimeLineHeader wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gantt.TimeLineHeader wordWrap(com.anychart.enums.WordWrap type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.gantt.TimeLineHeader wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader wordWrap(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -1490,16 +1516,89 @@ public class TimeLineHeader extends VisualBaseWithBounds {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.gantt.TimeLineHeader zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.gantt.TimeLineHeader zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gantt.TimeLineHeader container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gantt.TimeLineHeader container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gantt.TimeLineHeader container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeader parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeader parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeader parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gantt.TimeLineHeader parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.gantt.TimeLineHeader stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.gantt.TimeLineHeader fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

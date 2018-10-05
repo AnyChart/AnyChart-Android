@@ -93,72 +93,72 @@ public class HatchFills extends Base {
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.HatchFill value, com.anychart.graphics.vector.HatchFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.HatchFill hatchFill, com.anychart.graphics.vector.HatchFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.HatchFill value, com.anychart.graphics.vector.hatchfill.HatchFillType var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.HatchFill hatchFill, com.anychart.graphics.vector.hatchfill.HatchFillType var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.HatchFill value, com.anychart.graphics.vector.PatternFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.HatchFill hatchFill, com.anychart.graphics.vector.PatternFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.hatchfill.HatchFillType value, com.anychart.graphics.vector.HatchFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.hatchfill.HatchFillType hatchFill, com.anychart.graphics.vector.HatchFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.hatchfill.HatchFillType value, com.anychart.graphics.vector.hatchfill.HatchFillType var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.hatchfill.HatchFillType hatchFill, com.anychart.graphics.vector.hatchfill.HatchFillType var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.hatchfill.HatchFillType value, com.anychart.graphics.vector.PatternFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.hatchfill.HatchFillType hatchFill, com.anychart.graphics.vector.PatternFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.PatternFill value, com.anychart.graphics.vector.HatchFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.PatternFill hatchFill, com.anychart.graphics.vector.HatchFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.PatternFill value, com.anychart.graphics.vector.hatchfill.HatchFillType var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.PatternFill hatchFill, com.anychart.graphics.vector.hatchfill.HatchFillType var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for HatchFills list of palette.
      */
-    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.PatternFill value, com.anychart.graphics.vector.PatternFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.HatchFills items(com.anychart.graphics.vector.PatternFill hatchFill, com.anychart.graphics.vector.PatternFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (hatchFill != null) ? hatchFill.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }

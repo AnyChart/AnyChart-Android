@@ -56,7 +56,7 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
 Left image shows sequential calls of {@link anychart.graphics.vector.Layer#addChild}<br/>
 Right image does the same, but star is added to 0 index.<br/>
 <code>.addChildAt(star5, 0);</code> (see code of this image in samples).<br/>
-<img src='/si/8.2.1/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
+<img src='/si/8.4.0/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
      */
     public com.anychart.graphics.vector.PatternFill addChildAt(com.anychart.graphics.vector.Element element, Number index) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", (element != null) ? element.getJsBase() : null, index));
@@ -203,7 +203,7 @@ Removes it from the parent layer, sets links to null, removes it from DOM.
     }
     /**
      * Returns DOM element if element is rendered.<br/>
-In case of Stage in Suspended state or unbound element – null is returned.
+In case of Stage in Suspended state or unbound element - null is returned.
      */
     public void domElement() {
         APIlib.getInstance().addJSLine(jsBase + ".domElement();");
@@ -245,14 +245,6 @@ Read more at {@link anychart.graphics.vector.Ellipse}
      */
     public com.anychart.graphics.vector.Ellipse ellipse(Number cx, Number cy, Number rx, Number ry) {
         return new com.anychart.graphics.vector.Ellipse(String.format(Locale.US, jsBase + ".ellipse(%s, %s, %s, %s)", cx, cy, rx, ry));
-    }
-    /**
-     * Applies function to all elements in a layer.
-     */
-    public com.anychart.graphics.vector.PatternFill forEachChild(String callback) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".forEachChild(%s);", wrapQuotes(callback)));
-
-        return this;
     }
     /**
      * Gets element bounds in absolute coordinates (root element coordinate system).
@@ -369,8 +361,8 @@ Read more at {@link anychart.graphics.vector.primitives#hLine}
     /**
      * Sets the element identifier.
      */
-    public com.anychart.graphics.vector.PatternFill id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.PatternFill id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -399,18 +391,6 @@ You have to take care of used objects yourself.
         return this;
     }
     /**
-     * Adds an event listener.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listenOnce(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
-    }
-    /**
      * Returns the number of children.
      */
     public void numChildren() {
@@ -427,16 +407,16 @@ You have to take care of used objects yourself.
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.PatternFill parent(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.PatternFill parent(com.anychart.graphics.vector.Layer parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }
     /**
      * Adds element to the given layer.
      */
-    public com.anychart.graphics.vector.PatternFill parent(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.graphics.vector.PatternFill parent(com.anychart.graphics.vector.Stage parent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parent(%s);", (parent != null) ? parent.getJsBase() : null));
 
         return this;
     }

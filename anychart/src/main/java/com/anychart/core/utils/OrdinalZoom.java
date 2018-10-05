@@ -46,8 +46,8 @@ public class OrdinalZoom extends JsObject {
     /**
      * Whether to zoom on moving of the scroller or only on mouseUp.
      */
-    public com.anychart.core.utils.OrdinalZoom continuous(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".continuous(%s);", value));
+    public com.anychart.core.utils.OrdinalZoom continuous(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".continuous(%s);", enabled));
 
         return this;
     }

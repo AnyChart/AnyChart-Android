@@ -55,8 +55,8 @@ public class Geo extends Base {
     /**
      * Setter for the gap settings.
      */
-    public com.anychart.scales.Geo gap(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".gap(%s);", value));
+    public com.anychart.scales.Geo gap(Number gap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".gap(%s);", gap));
 
         return this;
     }
@@ -77,8 +77,8 @@ public class Geo extends Base {
 Use the maxTicksCount() method for interval-mode ticks calculation.<br/>
 If the number of ticks is greater than set in maxTicksCount(), the scale calculates from 4 to 6 ticks.
      */
-    public com.anychart.scales.Geo maxTicksCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", value));
+    public com.anychart.scales.Geo maxTicksCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", count));
 
         return this;
     }
@@ -91,8 +91,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the maximum X.
      */
-    public com.anychart.scales.Geo maximumX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumX(%s);", value));
+    public com.anychart.scales.Geo maximumX(Number maximumX) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumX(%s);", maximumX));
 
         return this;
     }
@@ -105,8 +105,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the maximum Y.
      */
-    public com.anychart.scales.Geo maximumY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumY(%s);", value));
+    public com.anychart.scales.Geo maximumY(Number maximumY) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximumY(%s);", maximumY));
 
         return this;
     }
@@ -119,8 +119,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the minimum X.
      */
-    public com.anychart.scales.Geo minimumX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumX(%s);", value));
+    public com.anychart.scales.Geo minimumX(Number minimumX) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumX(%s);", minimumX));
 
         return this;
     }
@@ -133,8 +133,8 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the minimum Y.
      */
-    public com.anychart.scales.Geo minimumY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumY(%s);", value));
+    public com.anychart.scales.Geo minimumY(Number minimumY) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimumY(%s);", minimumY));
 
         return this;
     }
@@ -204,16 +204,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the set of scale x minor ticks.
      */
-    public com.anychart.scales.Geo xMinorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Geo xMinorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the set of scale x minor ticks.
      */
-    public com.anychart.scales.Geo xMinorTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Geo xMinorTicks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorTicks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -226,16 +226,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the set of scale x ticks.
      */
-    public com.anychart.scales.Geo xTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Geo xTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the set of scale x ticks.
      */
-    public com.anychart.scales.Geo xTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Geo xTicks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xTicks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -248,16 +248,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the set of scale y minor ticks.
      */
-    public com.anychart.scales.Geo yMinorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Geo yMinorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the set of scale y minor ticks.
      */
-    public com.anychart.scales.Geo yMinorTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Geo yMinorTicks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorTicks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -270,16 +270,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
     /**
      * Setter for the set of scale y ticks.
      */
-    public com.anychart.scales.Geo yTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yTicks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Geo yTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the set of scale y ticks.
      */
-    public com.anychart.scales.Geo yTicks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yTicks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Geo yTicks(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yTicks(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }

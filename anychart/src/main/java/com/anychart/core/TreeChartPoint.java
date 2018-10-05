@@ -77,8 +77,8 @@ public class TreeChartPoint extends Point {
     /**
      * Setter for the hover point state.
      */
-    public com.anychart.core.TreeChartPoint hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.TreeChartPoint hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }

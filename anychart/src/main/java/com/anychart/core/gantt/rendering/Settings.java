@@ -18,7 +18,7 @@ import android.text.TextUtils;
 Two main methods in rendering settings are {api: anychart.core.gantt.rendering.Settings#drawer}drawer{api}
 and {api:anychart.core.gantt.rendering.Settings#shapes}shapes{api}. The drawer method sets the drawing function.<br/>
 The shapes method returns the map of shapes used for drawing. Also, shapes are used in the context of the drawing function (drawer()).<br/>
-{api: anychart.core.gantt.rendering.Settings.ShapeConfig}ShapeConfig{api} is the configurations of shapes that are set
+{api:anychart.core.gantt.rendering.Settings.ShapeConfig}ShapeConfig{api} is the configurations of shapes that are set
 in the array using the shapes() method.
  */
 public class Settings extends Base {

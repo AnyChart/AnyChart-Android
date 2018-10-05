@@ -47,6 +47,22 @@ public class Markers extends Base {
     /**
      * Setter for type palette markers from list by index.
      */
+    public com.anychart.palettes.Markers itemAt(Number index, com.anychart.enums.MarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, (type != null) ? type.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for type palette markers from list by index.
+     */
+    public com.anychart.palettes.Markers itemAt(Number index, com.anychart.enums.BulletMarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, (type != null) ? type.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for type palette markers from list by index.
+     */
     public com.anychart.palettes.Markers itemAt(Number index, String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, wrapQuotes(type)));
 
@@ -61,16 +77,32 @@ public class Markers extends Base {
     /**
      * Setter for markers list of palette.
      */
-    public com.anychart.palettes.Markers items(String[] value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(value), wrapQuotes(var_args)));
+    public com.anychart.palettes.Markers items(String[] type, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(type), wrapQuotes(var_args)));
 
         return this;
     }
     /**
      * Setter for markers list of palette.
      */
-    public com.anychart.palettes.Markers items(String value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(value), wrapQuotes(var_args)));
+    public com.anychart.palettes.Markers items(String type, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(type), wrapQuotes(var_args)));
+
+        return this;
+    }
+    /**
+     * Setter for markers list of palette.
+     */
+    public com.anychart.palettes.Markers items(com.anychart.enums.MarkerType type, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(var_args)));
+
+        return this;
+    }
+    /**
+     * Setter for markers list of palette.
+     */
+    public com.anychart.palettes.Markers items(com.anychart.enums.BulletMarkerType type, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(var_args)));
 
         return this;
     }

@@ -70,6 +70,14 @@ public class Crossing extends Base {
         return this;
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.utils.Crossing stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
      */
     public void removeAllListeners(String type) {
@@ -103,14 +111,6 @@ public class Crossing extends Base {
      */
     public void unlistenByKey(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.utils.Crossing stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
-
-        return this;
     }
 
 }

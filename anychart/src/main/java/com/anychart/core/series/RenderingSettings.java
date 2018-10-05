@@ -64,8 +64,8 @@ public class RenderingSettings extends Base {
     /**
      * Setter for points width.
      */
-    public com.anychart.core.series.RenderingSettings needsWidth(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".needsWidth(%s);", value));
+    public com.anychart.core.series.RenderingSettings needsWidth(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".needsWidth(%s);", enabled));
 
         return this;
     }
@@ -78,8 +78,8 @@ public class RenderingSettings extends Base {
     /**
      * Setter for zero value.
      */
-    public com.anychart.core.series.RenderingSettings needsZero(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".needsZero(%s);", value));
+    public com.anychart.core.series.RenderingSettings needsZero(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".needsZero(%s);", enabled));
 
         return this;
     }

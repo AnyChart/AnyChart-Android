@@ -47,16 +47,16 @@ public class StockDateTime extends VisualBase {
     /**
      * Setter for axis background settings.
      */
-    public com.anychart.core.axes.StockDateTime background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.StockDateTime background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis background settings.
      */
-    public com.anychart.core.axes.StockDateTime background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.axes.StockDateTime background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
@@ -69,8 +69,8 @@ public class StockDateTime extends VisualBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.axes.StockDateTime enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.axes.StockDateTime enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -83,8 +83,8 @@ public class StockDateTime extends VisualBase {
     /**
      * Setter for the axis height.
      */
-    public com.anychart.core.axes.StockDateTime height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.axes.StockDateTime height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -97,16 +97,16 @@ public class StockDateTime extends VisualBase {
     /**
      * Setter for axis labels settings.
      */
-    public com.anychart.core.axes.StockDateTime labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.StockDateTime labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis labels settings.
      */
-    public com.anychart.core.axes.StockDateTime labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.axes.StockDateTime labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -119,38 +119,38 @@ public class StockDateTime extends VisualBase {
     /**
      * Setter for minor labels settings.
      */
-    public com.anychart.core.axes.StockDateTime minorLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.StockDateTime minorLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for minor labels settings.
      */
-    public com.anychart.core.axes.StockDateTime minorLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", value));
+    public com.anychart.core.axes.StockDateTime minorLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorLabels(%s);", settings));
 
         return this;
     }
     /**
      * Getter for minor ticks.
      */
-    public com.anychart.core.axes.StockTicks minorTicks() {
-        return new com.anychart.core.axes.StockTicks(jsBase + ".minorTicks()");
+    public com.anychart.core.axes.Ticks minorTicks() {
+        return new com.anychart.core.axes.Ticks(jsBase + ".minorTicks()");
     }
     /**
      * Setter for the minor ticks.
      */
-    public com.anychart.core.axes.StockDateTime minorTicks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.StockDateTime minorTicks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the minor ticks.
      */
-    public com.anychart.core.axes.StockDateTime minorTicks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", value));
+    public com.anychart.core.axes.StockDateTime minorTicks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorTicks(%s);", settings));
 
         return this;
     }
@@ -164,8 +164,8 @@ public class StockDateTime extends VisualBase {
      * Setter for labels overlap mode.
 Whether to allow labels to overlap.
      */
-    public com.anychart.core.axes.StockDateTime overlapMode(com.anychart.enums.StockLabelsOverlapMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.axes.StockDateTime overlapMode(com.anychart.enums.StockLabelsOverlapMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
@@ -173,8 +173,8 @@ Whether to allow labels to overlap.
      * Setter for labels overlap mode.
 Whether to allow labels to overlap.
      */
-    public com.anychart.core.axes.StockDateTime overlapMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.StockDateTime overlapMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -206,30 +206,30 @@ Whether to allow labels to overlap.
      * Setter for the drawing helper label.
 Whether to draw helper label (leftmost hanging label).
      */
-    public com.anychart.core.axes.StockDateTime showHelperLabel(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".showHelperLabel(%s);", value));
+    public com.anychart.core.axes.StockDateTime showHelperLabel(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".showHelperLabel(%s);", settings));
 
         return this;
     }
     /**
      * Getter for axis ticks.
      */
-    public com.anychart.core.axes.StockTicks ticks() {
-        return new com.anychart.core.axes.StockTicks(jsBase + ".ticks()");
+    public com.anychart.core.axes.Ticks ticks() {
+        return new com.anychart.core.axes.Ticks(jsBase + ".ticks()");
     }
     /**
      * Getter for axis ticks.
      */
-    public com.anychart.core.axes.StockDateTime ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.core.axes.StockDateTime ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Getter for axis ticks.
      */
-    public com.anychart.core.axes.StockDateTime ticks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", value));
+    public com.anychart.core.axes.StockDateTime ticks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", settings));
 
         return this;
     }
@@ -271,8 +271,81 @@ Whether to draw helper label (leftmost hanging label).
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.axes.StockDateTime zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.axes.StockDateTime zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.StockDateTime container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.StockDateTime container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.axes.StockDateTime container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.StockDateTime parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.StockDateTime parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.StockDateTime parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.axes.StockDateTime parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

@@ -61,16 +61,16 @@ public class Knob extends Base {
     /**
      * Setter for the bottom radius.
      */
-    public com.anychart.core.gauge.pointers.Knob bottomRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomRadius(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob bottomRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomRadius(%s);", radius));
 
         return this;
     }
     /**
      * Setter for the bottom radius.
      */
-    public com.anychart.core.gauge.pointers.Knob bottomRadius(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomRadius(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Knob bottomRadius(String radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomRadius(%s);", wrapQuotes(radius)));
 
         return this;
     }
@@ -83,8 +83,8 @@ public class Knob extends Base {
     /**
      * Setter for the bottom ratio.
      */
-    public com.anychart.core.gauge.pointers.Knob bottomRatio(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomRatio(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob bottomRatio(Number ratio) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottomRatio(%s);", ratio));
 
         return this;
     }
@@ -117,8 +117,8 @@ public class Knob extends Base {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.gauge.pointers.Knob enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -132,8 +132,26 @@ public class Knob extends Base {
      * Sets pointer fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gauge.pointers.Knob fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gauge.pointers.Knob fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Sets pointer fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gauge.pointers.Knob fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Sets pointer fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gauge.pointers.Knob fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -228,8 +246,8 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.gauge.pointers.Knob hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Knob hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -237,35 +255,35 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.gauge.pointers.Knob hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Knob hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gauge.pointers.Knob hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Knob hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gauge.pointers.Knob hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Knob hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.gauge.pointers.Knob hatchFill(Boolean patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", patternFillOrType, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Knob hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -316,14 +334,6 @@ Fill as a string or an object.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the pointer stroke by function.
-     */
-    public com.anychart.core.gauge.pointers.Knob stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for stroke settings.
@@ -434,6 +444,14 @@ Fill as a string or an object.
         return this;
     }
     /**
+     * Setter for the stroke using an object.
+     */
+    public com.anychart.core.gauge.pointers.Knob stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the top radius.
      */
     public void topRadius() {
@@ -442,16 +460,16 @@ Fill as a string or an object.
     /**
      * Setter for the top radius.
      */
-    public com.anychart.core.gauge.pointers.Knob topRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topRadius(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob topRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topRadius(%s);", radius));
 
         return this;
     }
     /**
      * Setter for the top radius.
      */
-    public com.anychart.core.gauge.pointers.Knob topRadius(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topRadius(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Knob topRadius(String radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topRadius(%s);", wrapQuotes(radius)));
 
         return this;
     }
@@ -464,8 +482,8 @@ Fill as a string or an object.
     /**
      * Setter for the top ratio.
      */
-    public com.anychart.core.gauge.pointers.Knob topRatio(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topRatio(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob topRatio(Number ratio) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".topRatio(%s);", ratio));
 
         return this;
     }
@@ -507,8 +525,8 @@ Fill as a string or an object.
     /**
      * Setter for vertices count.
      */
-    public com.anychart.core.gauge.pointers.Knob verticesCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticesCount(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob verticesCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticesCount(%s);", count));
 
         return this;
     }
@@ -521,8 +539,8 @@ Fill as a string or an object.
     /**
      * Setter for vertices curvature.
      */
-    public com.anychart.core.gauge.pointers.Knob verticesCurvature(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticesCurvature(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob verticesCurvature(Number curvature) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".verticesCurvature(%s);", curvature));
 
         return this;
     }
@@ -535,8 +553,81 @@ Fill as a string or an object.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.gauge.pointers.Knob zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.gauge.pointers.Knob zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gauge.pointers.Knob container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gauge.pointers.Knob container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gauge.pointers.Knob container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Knob parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Knob parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Knob parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Knob parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -557,6 +648,14 @@ Fill as a string or an object.
      */
     public com.anychart.data.View data(List<DataEntry> data, String fillMethod) {
         return new com.anychart.data.View(String.format(Locale.US, jsBase + ".data(%s, %s)", arrayToString(data), wrapQuotes(fillMethod)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.gauge.pointers.Knob fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

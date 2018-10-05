@@ -47,8 +47,8 @@ public class Marker extends Base {
     /**
      * Setter for the pointer color.
      */
-    public com.anychart.core.lineargauge.pointers.Marker color(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker color(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -81,8 +81,8 @@ public class Marker extends Base {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.lineargauge.pointers.Marker enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.lineargauge.pointers.Marker enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -93,11 +93,29 @@ public class Marker extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.lineargauge.pointers.Marker fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.pointers.Marker fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.lineargauge.pointers.Marker fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.lineargauge.pointers.Marker fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -196,40 +214,52 @@ public class Marker extends Base {
     /**
      * Setter for hatch fill settings.
      */
-    public com.anychart.core.lineargauge.pointers.Marker hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.lineargauge.pointers.Marker hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
      * Setter for hatch fill settings.
      */
-    public com.anychart.core.lineargauge.pointers.Marker hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.lineargauge.pointers.Marker hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.lineargauge.pointers.Marker hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.lineargauge.pointers.Marker hatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.lineargauge.pointers.Marker hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.lineargauge.pointers.Marker hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.lineargauge.pointers.Marker hatchFill(Boolean patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", patternFillOrType, wrapQuotes(color), thickness, size));
+    public com.anychart.core.lineargauge.pointers.Marker hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill using boolean.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.lineargauge.pointers.Marker hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -250,8 +280,8 @@ public class Marker extends Base {
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.lineargauge.pointers.Marker hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -282,24 +312,24 @@ public class Marker extends Base {
     /**
      * Setter for the pointer labels.
      */
-    public com.anychart.core.lineargauge.pointers.Marker labels(com.anychart.core.ui.LabelsFactory value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.pointers.Marker labels(com.anychart.core.ui.LabelsFactory settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the pointer labels.
      */
-    public com.anychart.core.lineargauge.pointers.Marker labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the pointer labels.
      */
-    public com.anychart.core.lineargauge.pointers.Marker labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.lineargauge.pointers.Marker labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -312,8 +342,8 @@ public class Marker extends Base {
     /**
      * Setter for the legend item settings.
      */
-    public com.anychart.core.lineargauge.pointers.Marker legendItem(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker legendItem(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -326,8 +356,8 @@ public class Marker extends Base {
     /**
      * Setter for the pointer name.
      */
-    public com.anychart.core.lineargauge.pointers.Marker name(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker name(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(name)));
 
         return this;
     }
@@ -340,8 +370,8 @@ public class Marker extends Base {
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.lineargauge.pointers.Marker normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -354,16 +384,16 @@ public class Marker extends Base {
     /**
      * Setter for the pointer offset.
      */
-    public com.anychart.core.lineargauge.pointers.Marker offset(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker offset(String offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", wrapQuotes(offset)));
 
         return this;
     }
     /**
      * Setter for the pointer offset.
      */
-    public com.anychart.core.lineargauge.pointers.Marker offset(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", value));
+    public com.anychart.core.lineargauge.pointers.Marker offset(Number offset) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".offset(%s);", offset));
 
         return this;
     }
@@ -394,8 +424,8 @@ public class Marker extends Base {
     /**
      * Setter for the pointer scale.
      */
-    public com.anychart.core.lineargauge.pointers.Marker scale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.pointers.Marker scale(com.anychart.scales.Base scale) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (scale != null) ? scale.getJsBase() : null));
 
         return this;
     }
@@ -408,8 +438,8 @@ public class Marker extends Base {
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.lineargauge.pointers.Marker selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -420,25 +450,7 @@ public class Marker extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
     }
     /**
-     * Setter for the pointer stroke using function.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.Stroke value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * Setter for the pointer stroke using function.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.lineargauge.pointers.Marker stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
-
-        return this;
-    }
-    /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
@@ -447,7 +459,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -456,7 +468,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
@@ -465,7 +477,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -474,7 +486,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
@@ -483,7 +495,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -492,7 +504,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
@@ -501,7 +513,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -510,7 +522,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
@@ -519,7 +531,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -528,7 +540,7 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
@@ -537,11 +549,19 @@ public class Marker extends Base {
         return this;
     }
     /**
-     * Setter for the  pointer stroke using several parameters.
+     * Setter for the pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.lineargauge.pointers.Marker stroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the pointer stroke using an object.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -554,16 +574,16 @@ public class Marker extends Base {
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.lineargauge.pointers.Marker type(com.anychart.enums.MarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.lineargauge.pointers.Marker type(com.anychart.enums.MarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.lineargauge.pointers.Marker type(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker type(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -621,8 +641,8 @@ public class Marker extends Base {
     /**
      * Setter for the pointer width.
      */
-    public com.anychart.core.lineargauge.pointers.Marker width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.lineargauge.pointers.Marker width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -635,8 +655,81 @@ public class Marker extends Base {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.lineargauge.pointers.Marker zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.lineargauge.pointers.Marker zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.lineargauge.pointers.Marker parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -657,6 +750,14 @@ public class Marker extends Base {
      */
     public com.anychart.data.View data(List<DataEntry> data, String fillMethod) {
         return new com.anychart.data.View(String.format(Locale.US, jsBase + ".data(%s, %s)", arrayToString(data), wrapQuotes(fillMethod)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.lineargauge.pointers.Marker fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

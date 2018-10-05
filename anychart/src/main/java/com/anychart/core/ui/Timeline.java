@@ -44,11 +44,29 @@ public class Timeline extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".backgroundFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Timeline backgroundFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".backgroundFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Timeline backgroundFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".backgroundFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline backgroundFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".backgroundFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline backgroundFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".backgroundFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -231,14 +249,6 @@ public class Timeline extends JsObject {
      */
     public com.anychart.core.ui.Timeline baseFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baseFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline baseFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baseFill(%s);", wrapQuotes(fillFunction)));
 
         return this;
     }
@@ -441,14 +451,6 @@ public class Timeline extends JsObject {
     /**
      * 
      */
-    public com.anychart.core.ui.Timeline baseStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baseStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
-     * 
-     */
     public void baselineAbove() {
         APIlib.getInstance().addJSLine(jsBase + ".baselineAbove();");
     }
@@ -559,14 +561,6 @@ public class Timeline extends JsObject {
      */
     public com.anychart.core.ui.Timeline baselineFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baselineFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline baselineFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baselineFill(%s);", wrapQuotes(fillFunction)));
 
         return this;
     }
@@ -767,14 +761,6 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline baselineStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baselineStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
      * Getter for baselines.
      */
     public com.anychart.core.gantt.elements.BaselinesElement baselines() {
@@ -819,14 +805,6 @@ public class Timeline extends JsObject {
     /**
      * 
      */
-    public com.anychart.core.ui.Timeline connectorFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorFill(%s);", wrapQuotes(fillFunction)));
-
-        return this;
-    }
-    /**
-     * 
-     */
     public com.anychart.core.ui.Timeline connectorFill(com.anychart.graphics.vector.Fill value, Number cx, Number cy, com.anychart.graphics.math.Rect opacityOrMode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorFill(%s, %s, %s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, cx, cy, (opacityOrMode != null) ? opacityOrMode.getJsBase() : null, opacity, fx, fy));
 
@@ -849,116 +827,104 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the connector preview stroke.
+     * 
      */
     public void connectorPreviewStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".connectorPreviewStroke();");
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
     /**
-     * Setter for the connector preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline connectorPreviewStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.ui.Timeline connectorPreviewStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -1067,8 +1033,8 @@ public class Timeline extends JsObject {
     /**
      * 
      */
-    public com.anychart.core.ui.Timeline connectorStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorStroke(%s);", wrapQuotes(strokeFunction)));
+    public com.anychart.core.ui.Timeline connectorStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectorStroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1081,20 +1047,43 @@ public class Timeline extends JsObject {
     /**
      * Setter for connectors.
      */
-    public com.anychart.core.ui.Timeline connectors(String setting) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectors(%s);", wrapQuotes(setting)));
+    public com.anychart.core.ui.Timeline connectors(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectors(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the edit connector thumb fill.
+     * Getter for live edit settings.
+     */
+    public com.anychart.core.gantt.edit.StructureEdit edit() {
+        return new com.anychart.core.gantt.edit.StructureEdit(jsBase + ".edit()");
+    }
+    /**
+     * Setter for live edit settings.
+{docs:Gantt_Chart/Live_Edit_UI_and_API}Learn more about Live editing.{docs}
+     */
+    public com.anychart.core.ui.Timeline edit(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".edit(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for live edit settings.
+{docs:Gantt_Chart/Live_Edit_UI_and_API}Learn more about Live editing.{docs}
+     */
+    public com.anychart.core.ui.Timeline edit(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".edit(%s);", settings));
+
+        return this;
+    }
+    /**
+     * 
      */
     public void editConnectorThumbFill() {
         APIlib.getInstance().addJSLine(jsBase + ".editConnectorThumbFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s);", (value != null) ? value.getJsBase() : null));
@@ -1102,7 +1091,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Fill color with opacity. Fill as a string or an object.
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(String color, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s);", wrapQuotes(color), opacity));
@@ -1110,8 +1099,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
@@ -1119,8 +1107,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1128,8 +1115,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
@@ -1137,8 +1123,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(String[] keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, mode, opacity));
@@ -1146,8 +1131,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1155,8 +1139,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(String[] keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
@@ -1164,8 +1147,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1173,8 +1155,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1182,14 +1163,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit connector thumb stroke.
+     * 
      */
     public void editConnectorThumbStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".editConnectorThumbStroke();");
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1197,8 +1177,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1206,8 +1185,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1215,8 +1193,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1224,8 +1201,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1233,8 +1209,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1242,8 +1217,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1251,8 +1225,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1260,8 +1233,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1269,8 +1241,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1278,8 +1249,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1287,8 +1257,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit connector thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editConnectorThumbStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1296,13 +1265,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the finish edit connector control horizontal offset.
+     * 
      */
     public void editFinishConnectorMarkerHorizontalOffset() {
         APIlib.getInstance().addJSLine(jsBase + ".editFinishConnectorMarkerHorizontalOffset();");
     }
     /**
-     * Setter for the finish edit connector control horizontal offset.
+     * 
      */
     public com.anychart.core.ui.Timeline editFinishConnectorMarkerHorizontalOffset(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerHorizontalOffset(%s);", value));
@@ -1310,13 +1279,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the finish edit connector control size.
+     * 
      */
     public void editFinishConnectorMarkerSize() {
         APIlib.getInstance().addJSLine(jsBase + ".editFinishConnectorMarkerSize();");
     }
     /**
-     * Setter for the finish edit connector control size.
+     * 
      */
     public com.anychart.core.ui.Timeline editFinishConnectorMarkerSize(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerSize(%s);", value));
@@ -1324,13 +1293,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the finish edit connector control type.
+     * 
      */
     public void editFinishConnectorMarkerType() {
         APIlib.getInstance().addJSLine(jsBase + ".editFinishConnectorMarkerType();");
     }
     /**
-     * Setter for the finish edit connector control type.
+     * 
      */
     public com.anychart.core.ui.Timeline editFinishConnectorMarkerType(com.anychart.enums.MarkerType value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", (value != null) ? value.getJsBase() : null));
@@ -1338,7 +1307,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the finish edit connector control type.
+     * 
      */
     public com.anychart.core.ui.Timeline editFinishConnectorMarkerType(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s);", wrapQuotes(value)));
@@ -1346,13 +1315,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the finish edit connector control vertical offset.
+     * 
      */
     public void editFinishConnectorMarkerVerticalOffset() {
         APIlib.getInstance().addJSLine(jsBase + ".editFinishConnectorMarkerVerticalOffset();");
     }
     /**
-     * Setter for the finish edit connector control vertical offset.
+     * 
      */
     public com.anychart.core.ui.Timeline editFinishConnectorMarkerVerticalOffset(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerVerticalOffset(%s);", value));
@@ -1360,14 +1329,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit interval thumb fill.
+     * 
      */
     public void editIntervalThumbFill() {
         APIlib.getInstance().addJSLine(jsBase + ".editIntervalThumbFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s);", (value != null) ? value.getJsBase() : null));
@@ -1375,7 +1343,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Fill color with opacity. Fill as a string or an object.
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(String color, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s);", wrapQuotes(color), opacity));
@@ -1383,8 +1351,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
@@ -1392,8 +1359,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1401,8 +1367,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
@@ -1410,8 +1375,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(String[] keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, mode, opacity));
@@ -1419,8 +1383,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1428,8 +1391,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(String[] keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
@@ -1437,8 +1399,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1446,8 +1407,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1455,14 +1415,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit interval thumb stroke.
+     * 
      */
     public void editIntervalThumbStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".editIntervalThumbStroke();");
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1470,8 +1429,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1479,8 +1437,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1488,8 +1445,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1497,8 +1453,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1506,8 +1461,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1515,8 +1469,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1524,8 +1477,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1533,8 +1485,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1542,8 +1493,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1551,8 +1501,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1560,8 +1509,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit interval thumb stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalThumbStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1569,13 +1517,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the interval edit control width.
+     * 
      */
     public void editIntervalWidth() {
         APIlib.getInstance().addJSLine(jsBase + ".editIntervalWidth();");
     }
     /**
-     * Setter for the interval edit control width.
+     * 
      */
     public com.anychart.core.ui.Timeline editIntervalWidth(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editIntervalWidth(%s);", value));
@@ -1583,22 +1531,21 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit preview fill.
+     * 
      */
     public void editPreviewFill() {
         APIlib.getInstance().addJSLine(jsBase + ".editPreviewFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
-    public com.anychart.core.ui.Timeline editPreviewFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Timeline editPreviewFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Fill color with opacity. Fill as a string or an object.
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(String color, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s);", wrapQuotes(color), opacity));
@@ -1606,8 +1553,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
@@ -1615,8 +1561,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1624,8 +1569,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
@@ -1633,8 +1577,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(String[] keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, mode, opacity));
@@ -1642,8 +1585,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1651,8 +1593,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(String[] keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
@@ -1660,8 +1601,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1669,8 +1609,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1678,14 +1617,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit preview stroke.
+     * 
      */
     public void editPreviewStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".editPreviewStroke();");
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1693,8 +1631,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1702,8 +1639,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1711,8 +1647,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1720,8 +1655,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1729,8 +1663,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1738,8 +1671,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1747,8 +1679,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1756,8 +1687,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1765,8 +1695,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1774,8 +1703,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1783,8 +1711,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit preview stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editPreviewStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1792,14 +1719,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit progress fill.
+     * 
      */
     public void editProgressFill() {
         APIlib.getInstance().addJSLine(jsBase + ".editProgressFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s);", (value != null) ? value.getJsBase() : null));
@@ -1807,7 +1733,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Fill color with opacity. Fill as a string or an object.
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(String color, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s);", wrapQuotes(color), opacity));
@@ -1815,8 +1741,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
@@ -1824,8 +1749,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1833,8 +1757,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
@@ -1842,8 +1765,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(String[] keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, mode, opacity));
@@ -1851,8 +1773,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -1860,8 +1781,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(String[] keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
@@ -1869,8 +1789,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1878,8 +1797,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -1887,14 +1805,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the edit progress stroke.
+     * 
      */
     public void editProgressStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".editProgressStroke();");
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1902,8 +1819,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1911,8 +1827,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1920,8 +1835,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1929,8 +1843,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1938,8 +1851,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1947,8 +1859,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1956,8 +1867,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1965,8 +1875,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -1974,8 +1883,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -1983,8 +1891,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -1992,8 +1899,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the edit progress stroke.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editProgressStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2001,13 +1907,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the start edit connector control horizontal offset.
+     * 
      */
     public void editStartConnectorMarkerHorizontalOffset() {
         APIlib.getInstance().addJSLine(jsBase + ".editStartConnectorMarkerHorizontalOffset();");
     }
     /**
-     * Setter for the start edit connector control horizontal offset.
+     * 
      */
     public com.anychart.core.ui.Timeline editStartConnectorMarkerHorizontalOffset(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStartConnectorMarkerHorizontalOffset(%s);", value));
@@ -2015,13 +1921,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the start edit connector control size.
+     * 
      */
     public void editStartConnectorMarkerSize() {
         APIlib.getInstance().addJSLine(jsBase + ".editStartConnectorMarkerSize();");
     }
     /**
-     * Setter for the start edit connector control size.
+     * 
      */
     public com.anychart.core.ui.Timeline editStartConnectorMarkerSize(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStartConnectorMarkerSize(%s);", value));
@@ -2029,13 +1935,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the start edit connector control type.
+     * 
      */
     public void editStartConnectorMarkerType() {
         APIlib.getInstance().addJSLine(jsBase + ".editStartConnectorMarkerType();");
     }
     /**
-     * Setter for the start edit connector control type.
+     * 
      */
     public com.anychart.core.ui.Timeline editStartConnectorMarkerType(com.anychart.enums.MarkerType value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", (value != null) ? value.getJsBase() : null));
@@ -2043,7 +1949,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the start edit connector control type.
+     * 
      */
     public com.anychart.core.ui.Timeline editStartConnectorMarkerType(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s);", wrapQuotes(value)));
@@ -2051,13 +1957,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the start edit connector control vertical offset.
+     * 
      */
     public void editStartConnectorMarkerVerticalOffset() {
         APIlib.getInstance().addJSLine(jsBase + ".editStartConnectorMarkerVerticalOffset();");
     }
     /**
-     * Setter for the start edit connector control vertical offset.
+     * 
      */
     public com.anychart.core.ui.Timeline editStartConnectorMarkerVerticalOffset(Number value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStartConnectorMarkerVerticalOffset(%s);", value));
@@ -2065,14 +1971,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the preview dash stroke when editing structure.
+     * 
      */
     public void editStructurePreviewDashStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".editStructurePreviewDashStroke();");
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -2080,8 +1985,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2089,8 +1993,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -2098,8 +2001,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2107,8 +2009,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -2116,8 +2017,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2125,8 +2025,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -2134,8 +2033,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2143,8 +2041,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -2152,8 +2049,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2161,8 +2057,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -2170,8 +2065,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview dash stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewDashStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2179,14 +2073,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the preview fill when editing structure.
+     * 
      */
     public void editStructurePreviewFill() {
         APIlib.getInstance().addJSLine(jsBase + ".editStructurePreviewFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s);", (value != null) ? value.getJsBase() : null));
@@ -2194,7 +2087,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Fill color with opacity. Fill as a string or an object.
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(String color, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s);", wrapQuotes(color), opacity));
@@ -2202,8 +2095,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
@@ -2211,8 +2103,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -2220,8 +2111,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
@@ -2229,8 +2119,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(String[] keys, Number angle, Boolean mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, mode, opacity));
@@ -2238,8 +2127,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
@@ -2247,8 +2135,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Linear gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(String[] keys, Number angle, String mode, Number opacity) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
@@ -2256,8 +2143,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -2265,8 +2151,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Radial gradient fill.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
@@ -2274,14 +2159,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Getter for the preview stroke when editing structure.
+     * 
      */
     public void editStructurePreviewStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".editStructurePreviewStroke();");
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -2289,8 +2173,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2298,8 +2181,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -2307,8 +2189,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2316,8 +2197,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -2325,8 +2205,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2334,8 +2213,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -2343,8 +2221,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2352,8 +2229,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
@@ -2361,8 +2237,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2370,8 +2245,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
@@ -2379,8 +2253,7 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Setter for the preview stroke when editing structure.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * 
      */
     public com.anychart.core.ui.Timeline editStructurePreviewStroke(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
@@ -2388,13 +2261,13 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * Gets the live edit mode.
+     * 
      */
     public void editing() {
         APIlib.getInstance().addJSLine(jsBase + ".editing();");
     }
     /**
-     * Enables or disables live edit mode.
+     * 
      */
     public com.anychart.core.ui.Timeline editing(Boolean value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".editing(%s);", value));
@@ -2410,8 +2283,8 @@ public class Timeline extends JsObject {
     /**
      * Setter for elements.
      */
-    public com.anychart.core.ui.Timeline elements(String setting) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".elements(%s);", wrapQuotes(setting)));
+    public com.anychart.core.ui.Timeline elements(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".elements(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -2424,8 +2297,8 @@ public class Timeline extends JsObject {
     /**
      * Setter for grouping tasks.
      */
-    public com.anychart.core.ui.Timeline groupingTasks(String setting) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".groupingTasks(%s);", wrapQuotes(setting)));
+    public com.anychart.core.ui.Timeline groupingTasks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".groupingTasks(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -2578,14 +2451,6 @@ public class Timeline extends JsObject {
      */
     public com.anychart.core.ui.Timeline milestoneFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestoneFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline milestoneFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestoneFill(%s);", wrapQuotes(fillFunction)));
 
         return this;
     }
@@ -2852,14 +2717,6 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline milestoneStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestoneStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
      * Getter for milestones.
      */
     public com.anychart.core.gantt.elements.MilestonesElement milestones() {
@@ -2868,8 +2725,8 @@ public class Timeline extends JsObject {
     /**
      * Setter for milestones.
      */
-    public com.anychart.core.ui.Timeline milestones(String setting) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestones(%s);", wrapQuotes(setting)));
+    public com.anychart.core.ui.Timeline milestones(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".milestones(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -2986,14 +2843,6 @@ public class Timeline extends JsObject {
      */
     public com.anychart.core.ui.Timeline parentFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline parentFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentFill(%s);", wrapQuotes(fillFunction)));
 
         return this;
     }
@@ -3194,14 +3043,6 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline parentStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
      * Getter for periods.
      */
     public com.anychart.core.gantt.elements.PeriodsElement periods() {
@@ -3210,8 +3051,8 @@ public class Timeline extends JsObject {
     /**
      * Setter for periods.
      */
-    public com.anychart.core.ui.Timeline periods(String setting) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".periods(%s);", wrapQuotes(setting)));
+    public com.anychart.core.ui.Timeline periods(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".periods(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -3314,14 +3155,6 @@ public class Timeline extends JsObject {
      */
     public com.anychart.core.ui.Timeline progressFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".progressFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline progressFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".progressFill(%s);", wrapQuotes(fillFunction)));
 
         return this;
     }
@@ -3522,14 +3355,6 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline progressStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".progressStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
      * Getter for the range marker.
      */
     public com.anychart.core.axismarkers.GanttRange rangeMarker(Number index) {
@@ -3582,11 +3407,29 @@ public class Timeline extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".rowEvenFill();");
     }
     /**
-     * Setter for row even fill settings using an object or a string.
+     * Setter for row even fill settings using an object, an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Timeline rowEvenFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Timeline rowEvenFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row even fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowEvenFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row even fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowEvenFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -3677,11 +3520,29 @@ public class Timeline extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".rowFill();");
     }
     /**
-     * Setter for row fill settings using an array or a string. Resets odd fill and even fill.
+     * Setter for row fill settings using an array, an object or a string. Resets odd fill and even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
     public com.anychart.core.ui.Timeline rowFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row fill settings using an array, an object or a string. Resets odd fill and even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowFill(com.anychart.graphics.vector.GradientKey value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row fill settings using an array, an object or a string. Resets odd fill and even fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowFill(String[] value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowFill(%s);", arrayToStringWrapQuotes(value)));
 
         return this;
     }
@@ -3772,11 +3633,29 @@ public class Timeline extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".rowHoverFill();");
     }
     /**
-     * Setter for row hover fill settings using an array or a string.
+     * Setter for row hover fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
     public com.anychart.core.ui.Timeline rowHoverFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowHoverFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row hover fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowHoverFill(com.anychart.graphics.vector.GradientKey value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowHoverFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row hover fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowHoverFill(String[] value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowHoverFill(%s);", arrayToStringWrapQuotes(value)));
 
         return this;
     }
@@ -3867,11 +3746,29 @@ public class Timeline extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".rowOddFill();");
     }
     /**
-     * Setter for row odd fill settings using an object or a string.
+     * Setter for row odd fill settings using an object, an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
     public com.anychart.core.ui.Timeline rowOddFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row odd fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowOddFill(com.anychart.graphics.vector.GradientKey value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row odd fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowOddFill(String[] value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowOddFill(%s);", arrayToStringWrapQuotes(value)));
 
         return this;
     }
@@ -3962,11 +3859,29 @@ public class Timeline extends JsObject {
         APIlib.getInstance().addJSLine(jsBase + ".rowSelectedFill();");
     }
     /**
-     * Setter for row fill settings in selected mode using an array or a string.
+     * Setter for row fill settings in selected mode using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.ui.Timeline rowSelectedFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowSelectedFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.ui.Timeline rowSelectedFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowSelectedFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row fill settings in selected mode using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowSelectedFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowSelectedFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for row fill settings in selected mode using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.ui.Timeline rowSelectedFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rowSelectedFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -4169,14 +4084,6 @@ public class Timeline extends JsObject {
     /**
      * 
      */
-    public com.anychart.core.ui.Timeline selectedConnectorStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
-     * 
-     */
     public void selectedElementFill() {
         APIlib.getInstance().addJSLine(jsBase + ".selectedElementFill();");
     }
@@ -4185,14 +4092,6 @@ public class Timeline extends JsObject {
      */
     public com.anychart.core.ui.Timeline selectedElementFill(com.anychart.graphics.vector.Fill value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedElementFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline selectedElementFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedElementFill(%s);", wrapQuotes(fillFunction)));
 
         return this;
     }
@@ -4371,14 +4270,6 @@ public class Timeline extends JsObject {
         return this;
     }
     /**
-     * 
-     */
-    public com.anychart.core.ui.Timeline selectedElementStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectedElementStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
      * Getter for tasks.
      */
     public com.anychart.core.gantt.elements.TasksElement tasks() {
@@ -4387,8 +4278,8 @@ public class Timeline extends JsObject {
     /**
      * Setter for tasks.
      */
-    public com.anychart.core.ui.Timeline tasks(String setting) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tasks(%s);", wrapQuotes(setting)));
+    public com.anychart.core.ui.Timeline tasks(String settingss) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tasks(%s);", wrapQuotes(settingss)));
 
         return this;
     }

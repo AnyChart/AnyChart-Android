@@ -48,8 +48,8 @@ public class RangeColors extends Base {
      * Setter for color palette's colors counts.<br/>
 <b>Note:</b> Defines how many steps we need in gradient.
      */
-    public com.anychart.palettes.RangeColors count(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", value));
+    public com.anychart.palettes.RangeColors count(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", count));
 
         return this;
     }
@@ -76,96 +76,96 @@ public class RangeColors extends Base {
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(String[] value, com.anychart.graphics.vector.SolidFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(value), (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.RangeColors items(String[] color, com.anychart.graphics.vector.SolidFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(color), (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(String[] value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(value), wrapQuotes(var_args)));
+    public com.anychart.palettes.RangeColors items(String[] color, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToStringWrapQuotes(color), wrapQuotes(var_args)));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.LinearGradientFill value, com.anychart.graphics.vector.SolidFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.LinearGradientFill color, com.anychart.graphics.vector.SolidFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.LinearGradientFill value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, wrapQuotes(var_args)));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.LinearGradientFill color, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, wrapQuotes(var_args)));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.RadialGradientFill value, com.anychart.graphics.vector.SolidFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.RadialGradientFill color, com.anychart.graphics.vector.SolidFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.RadialGradientFill value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, wrapQuotes(var_args)));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.RadialGradientFill color, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, wrapQuotes(var_args)));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.GradientKey[] value, com.anychart.graphics.vector.SolidFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(value), (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.GradientKey[] color, com.anychart.graphics.vector.SolidFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(color), (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.GradientKey[] value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(value), wrapQuotes(var_args)));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.GradientKey[] color, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(color), wrapQuotes(var_args)));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.SolidFill value, com.anychart.graphics.vector.SolidFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.SolidFill color, com.anychart.graphics.vector.SolidFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.SolidFill value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, wrapQuotes(var_args)));
+    public com.anychart.palettes.RangeColors items(com.anychart.graphics.vector.SolidFill color, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, wrapQuotes(var_args)));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(String value, com.anychart.graphics.vector.SolidFill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(value), (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.RangeColors items(String color, com.anychart.graphics.vector.SolidFill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(color), (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.RangeColors items(String value, String var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(value), wrapQuotes(var_args)));
+    public com.anychart.palettes.RangeColors items(String color, String var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", wrapQuotes(color), wrapQuotes(var_args)));
 
         return this;
     }

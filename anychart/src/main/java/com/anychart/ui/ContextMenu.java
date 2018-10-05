@@ -60,8 +60,8 @@ public class ContextMenu extends JsObject {
     /**
      * Setter for the context menu enabled state.
      */
-    public com.anychart.ui.ContextMenu enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.ui.ContextMenu enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -80,8 +80,8 @@ public class ContextMenu extends JsObject {
     /**
      * Setter for the context menu items.
      */
-    public com.anychart.ui.ContextMenu items(com.anychart.ui.contextmenu.Item[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(value)));
+    public com.anychart.ui.ContextMenu items(com.anychart.ui.contextmenu.Item[] itemsList) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(itemsList)));
 
         return this;
     }
@@ -97,20 +97,6 @@ public class ContextMenu extends JsObject {
      */
     public void itemsProvider() {
         APIlib.getInstance().addJSLine(jsBase + ".itemsProvider();");
-    }
-    /**
-     * Setter for the items provider.
-     */
-    public com.anychart.ui.ContextMenu itemsProvider(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".itemsProvider(%s);", wrapQuotes(value)));
-
-        return this;
-    }
-    /**
-     * Adds an event listener for an event to a context menu.
-     */
-    public void listen(String type, String listener, Boolean useCapture, String listenerScope) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".listen(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(listener), useCapture, wrapQuotes(listenerScope)));
     }
     /**
      * Removes the class name.

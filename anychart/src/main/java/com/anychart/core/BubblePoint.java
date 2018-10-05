@@ -109,8 +109,8 @@ public class BubblePoint extends SeriesPoint {
     /**
      * Setter for the hover point state.
      */
-    public com.anychart.core.BubblePoint hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.BubblePoint hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }
@@ -123,8 +123,8 @@ public class BubblePoint extends SeriesPoint {
     /**
      * Setter for the select series point state.
      */
-    public com.anychart.core.BubblePoint selected(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", value));
+    public com.anychart.core.BubblePoint selected(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", enabled));
 
         return this;
     }

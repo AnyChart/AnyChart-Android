@@ -77,8 +77,8 @@ public class Ordinal extends Base {
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.Ordinal inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.Ordinal inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -91,16 +91,16 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for scale ticks names.
      */
-    public com.anychart.scales.Ordinal names(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Ordinal names(String[] names) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(names)));
 
         return this;
     }
     /**
      * Setter for scale ticks names.
      */
-    public com.anychart.scales.Ordinal names(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Ordinal names(String names) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(names)));
 
         return this;
     }
@@ -128,16 +128,16 @@ call of this method if needed.
     /**
      * Setter for set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.Ordinal ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.scales.Ordinal ticks(String ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
 
         return this;
     }
     /**
      * Setter for set of scale ticks in terms of data values.
      */
-    public com.anychart.scales.Ordinal ticks(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.scales.Ordinal ticks(String[] ticks) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks)));
 
         return this;
     }
@@ -194,8 +194,8 @@ call of this method if needed.
     /**
      * Setter for scale weights.
      */
-    public com.anychart.scales.Ordinal weights(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".weights(%s);", Arrays.toString(value)));
+    public com.anychart.scales.Ordinal weights(Number[] weights) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".weights(%s);", Arrays.toString(weights)));
 
         return this;
     }

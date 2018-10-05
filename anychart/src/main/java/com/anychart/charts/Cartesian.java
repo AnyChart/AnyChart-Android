@@ -50,6 +50,28 @@ public class Cartesian extends SeparateChart {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.ChartA11y a11y() {
+        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.Cartesian a11y(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.charts.Cartesian a11y(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Adds series to the chart.
      */
     public void addSeries(com.anychart.data.View var_args) {
@@ -68,7 +90,7 @@ public class Cartesian extends SeparateChart {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".addSeries(%s);", arrayToStringWrapQuotes(var_args)));
     }
     /**
-     * Getter for the current animation settings.
+     * Getter for the animation settings.
      */
     public com.anychart.core.utils.Animation animation() {
         return new com.anychart.core.utils.Animation(jsBase + ".animation()");
@@ -76,16 +98,16 @@ public class Cartesian extends SeparateChart {
     /**
      * Setter for the animation settings by one value.
      */
-    public com.anychart.charts.Cartesian animation(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", value));
+    public com.anychart.charts.Cartesian animation(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the animation settings by one value.
      */
-    public com.anychart.charts.Cartesian animation(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian animation(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".animation(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -128,13 +150,13 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the autoRedraw flag.<br/>
 Flag whether to automatically call chart.draw() on any changes or not.
      */
-    public com.anychart.charts.Cartesian autoRedraw(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", value));
+    public com.anychart.charts.Cartesian autoRedraw(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".autoRedraw(%s);", enabled));
 
         return this;
     }
     /**
-     * Getter for the current chart background.
+     * Getter for the chart background.
      */
     public com.anychart.core.ui.Background background() {
         return new com.anychart.core.ui.Background(jsBase + ".background()");
@@ -142,16 +164,16 @@ Flag whether to automatically call chart.draw() on any changes or not.
     /**
      * Setter for the chart background settings.
      */
-    public com.anychart.charts.Cartesian background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart background settings.
      */
-    public com.anychart.charts.Cartesian background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.charts.Cartesian background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
@@ -162,7 +184,7 @@ Flag whether to automatically call chart.draw() on any changes or not.
         return new com.anychart.core.cartesian.series.Bar(String.format(Locale.US, jsBase + ".bar(%s)", arrayToString(data)));
     }
     /**
-     * Getter for the current space between bar groups on the ordinal scale by ratio of bars width.
+     * Getter for the space between bar groups on the ordinal scale by ratio of bars width.
      */
     public void barGroupsPadding() {
         APIlib.getInstance().addJSLine(jsBase + ".barGroupsPadding();");
@@ -171,8 +193,8 @@ Flag whether to automatically call chart.draw() on any changes or not.
      * Setter for the space between bar groups on the ordinal scale by ratio of bars width.<br/>
 See illustration at {@link anychart.charts.Cartesian#barsPadding}.
      */
-    public com.anychart.charts.Cartesian barGroupsPadding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".barGroupsPadding(%s);", value));
+    public com.anychart.charts.Cartesian barGroupsPadding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".barGroupsPadding(%s);", padding));
 
         return this;
     }
@@ -184,15 +206,30 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     /**
      * Setter for the space between bars on the ordinal scale by ratio of bars width.</br>
-<img src='/si/8.2.1/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
+<img src='/si/8.4.0/anychart.charts.Cartesian.barsPadding.png' width='396' height='294'/>
      */
-    public com.anychart.charts.Cartesian barsPadding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".barsPadding(%s);", value));
+    public com.anychart.charts.Cartesian barsPadding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".barsPadding(%s);", padding));
 
         return this;
     }
     /**
-     * Getter for the current chart's bottom bound setting.
+     * Getter for the chart baseline.
+     */
+    public void baseline() {
+        APIlib.getInstance().addJSLine(jsBase + ".baseline();");
+    }
+    /**
+     * Setter for the chart baseline.<br/>
+The baseline is the line relative to which the series with the negative or positive value is drawn and painted over.
+     */
+    public com.anychart.charts.Cartesian baseline(Number value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".baseline(%s);", value));
+
+        return this;
+    }
+    /**
+     * Getter for the chart's bottom bound setting.
      */
     public void bottom() {
         APIlib.getInstance().addJSLine(jsBase + ".bottom();");
@@ -214,7 +251,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return this;
     }
     /**
-     * Getter for the current chart bounds settings.
+     * Getter for the chart bounds settings.
      */
     public com.anychart.core.utils.Bounds bounds() {
         return new com.anychart.core.utils.Bounds(jsBase + ".bounds()");
@@ -222,24 +259,24 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the chart bounds using one parameter.
      */
-    public com.anychart.charts.Cartesian bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart bounds using one parameter.
      */
-    public com.anychart.charts.Cartesian bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart bounds using one parameter.
      */
-    public com.anychart.charts.Cartesian bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -478,24 +515,24 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the chart container.
      */
-    public com.anychart.charts.Cartesian container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart container.
      */
-    public com.anychart.charts.Cartesian container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart container.
      */
-    public com.anychart.charts.Cartesian container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -508,45 +545,45 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.Cartesian contextMenu(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian contextMenu(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the context menu.
      */
-    public com.anychart.charts.Cartesian contextMenu(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", value));
+    public com.anychart.charts.Cartesian contextMenu(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".contextMenu(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current credits.
+     * Getter for chart credits.
      */
     public com.anychart.core.ui.ChartCredits credits() {
         return new com.anychart.core.ui.ChartCredits(jsBase + ".credits()");
     }
     /**
-     * Setter for the chart credits.
+     * Setter for chart credits.
 {docs:Quick_Start/Credits}Learn more about credits settings.{docs}
      */
-    public com.anychart.charts.Cartesian credits(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian credits(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Setter for the chart credits.
+     * Setter for chart credits.
 {docs:Quick_Start/Credits}Learn more about credits settings.{docs}
      */
-    public com.anychart.charts.Cartesian credits(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", value));
+    public com.anychart.charts.Cartesian credits(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".credits(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current crosshair settings.
+     * Getter for the crosshair settings.
      */
     public com.anychart.core.ui.Crosshair crosshair() {
         return new com.anychart.core.ui.Crosshair(jsBase + ".crosshair()");
@@ -554,16 +591,16 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the crosshair settings.
      */
-    public com.anychart.charts.Cartesian crosshair(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian crosshair(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the crosshair settings.
      */
-    public com.anychart.charts.Cartesian crosshair(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", value));
+    public com.anychart.charts.Cartesian crosshair(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".crosshair(%s);", settings));
 
         return this;
     }
@@ -574,7 +611,31 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return new com.anychart.data.View(String.format(Locale.US, jsBase + ".data(%s)", arrayToString(data)));
     }
     /**
-     * Getter for the current default series type.
+     * Getter for the data area settings.
+     */
+    public com.anychart.core.ui.DataArea dataArea() {
+        return new com.anychart.core.ui.DataArea(jsBase + ".dataArea()");
+    }
+    /**
+     * Setter for the data area settings.<br/>
+The data area is drawn along the data bounds.
+     */
+    public com.anychart.charts.Cartesian dataArea(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dataArea(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the data area settings.<br/>
+The data area is drawn along the data bounds.
+     */
+    public com.anychart.charts.Cartesian dataArea(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dataArea(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Getter for the default series type.
      */
     public void defaultSeriesType() {
         APIlib.getInstance().addJSLine(jsBase + ".defaultSeriesType();");
@@ -582,16 +643,16 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the default series type.
      */
-    public com.anychart.charts.Cartesian defaultSeriesType(com.anychart.enums.CartesianSeriesType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian defaultSeriesType(com.anychart.enums.CartesianSeriesType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the default series type.
      */
-    public com.anychart.charts.Cartesian defaultSeriesType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian defaultSeriesType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -618,8 +679,8 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.charts.Cartesian enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.charts.Cartesian enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -632,8 +693,22 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     /**
      * Setter for the export charts.
      */
-    public com.anychart.charts.Cartesian exports(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian exports(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".exports(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for the fullscreen mode.
+     */
+    public void fullScreen() {
+        APIlib.getInstance().addJSLine(jsBase + ".fullScreen();");
+    }
+    /**
+     * Setter for the fullscreen mode.
+     */
+    public com.anychart.charts.Cartesian fullScreen(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fullScreen(%s);", enabled));
 
         return this;
     }
@@ -645,7 +720,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.math.Rect(jsBase + ".getPixelBounds()");
     }
     /**
-     * Getter for the current data bounds of the chart.<br/>
+     * Gets data bounds of the chart.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} is called.
      */
     public com.anychart.math.Rect getPlotBounds() {
@@ -731,7 +806,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".globalToLocal(%s, %s);", xCoord, yCoord));
     }
     /**
-     * Getter for the current hatch fill palette settings.
+     * Getter for the hatch fill palette settings.
      */
     public com.anychart.palettes.HatchFills hatchFillPalette() {
         return new com.anychart.palettes.HatchFills(jsBase + ".hatchFillPalette()");
@@ -739,29 +814,29 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for hatch fill palette settings.
      */
-    public com.anychart.charts.Cartesian hatchFillPalette(com.anychart.graphics.vector.hatchfill.HatchFillType[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(value)));
+    public com.anychart.charts.Cartesian hatchFillPalette(com.anychart.graphics.vector.hatchfill.HatchFillType[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(settings)));
 
         return this;
     }
     /**
      * Setter for hatch fill palette settings.
      */
-    public com.anychart.charts.Cartesian hatchFillPalette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian hatchFillPalette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for hatch fill palette settings.
      */
-    public com.anychart.charts.Cartesian hatchFillPalette(com.anychart.palettes.HatchFills value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian hatchFillPalette(com.anychart.palettes.HatchFills settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the current chart's height setting.
+     * Getter for the chart's height setting.
      */
     public void height() {
         APIlib.getInstance().addJSLine(jsBase + ".height();");
@@ -797,8 +872,22 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.charts.Cartesian hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for chart id.
+     */
+    public void id() {
+        APIlib.getInstance().addJSLine(jsBase + ".id();");
+    }
+    /**
+     * Setter for chart id.
+     */
+    public com.anychart.charts.Cartesian id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
@@ -809,7 +898,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         APIlib.getInstance().addJSLine(jsBase + ".inMarquee();");
     }
     /**
-     * Getter for the current interactivity settings.
+     * Getter for the interactivity settings.
      */
     public com.anychart.core.utils.Interactivity interactivity() {
         return new com.anychart.core.utils.Interactivity(jsBase + ".interactivity()");
@@ -817,18 +906,24 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the interactivity settings.
      */
-    public com.anychart.charts.Cartesian interactivity(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian interactivity(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the interactivity settings.
      */
-    public com.anychart.charts.Cartesian interactivity(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian interactivity(com.anychart.enums.HoverMode settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
+    }
+    /**
+     * Whether the fullscreen mode available in the browser or not.
+     */
+    public void isFullScreenAvailable() {
+        APIlib.getInstance().addJSLine(jsBase + ".isFullScreenAvailable();");
     }
     /**
      * Getter for the layout direction.
@@ -839,8 +934,8 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the layout direction.
      */
-    public com.anychart.charts.Cartesian isVertical(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isVertical(%s);", value));
+    public com.anychart.charts.Cartesian isVertical(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isVertical(%s);", enabled));
 
         return this;
     }
@@ -851,13 +946,13 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.core.cartesian.series.JumpLine(String.format(Locale.US, jsBase + ".jumpLine(%s)", arrayToString(data)));
     }
     /**
-     * Getter for the current chart label.
+     * Getter for the chart label.
      */
     public com.anychart.core.ui.Label label(String index) {
         return new com.anychart.core.ui.Label(String.format(Locale.US, jsBase + ".label(%s)", wrapQuotes(index)));
     }
     /**
-     * Getter for the current chart label.
+     * Getter for the chart label.
      */
     public com.anychart.core.ui.Label label(Number index) {
         return new com.anychart.core.ui.Label(String.format(Locale.US, jsBase + ".label(%s)", index));
@@ -865,40 +960,40 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart label.
      */
-    public com.anychart.charts.Cartesian label(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", value));
+    public com.anychart.charts.Cartesian label(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s);", settings));
 
         return this;
     }
     /**
      * Setter for chart label using index.
      */
-    public com.anychart.charts.Cartesian label(String index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), value));
+    public com.anychart.charts.Cartesian label(String index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), settings));
 
         return this;
     }
     /**
      * Setter for chart label using index.
      */
-    public com.anychart.charts.Cartesian label(String index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(value)));
+    public com.anychart.charts.Cartesian label(String index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart label using index.
      */
-    public com.anychart.charts.Cartesian label(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian label(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, settings));
 
         return this;
     }
     /**
      * Setter for chart label using index.
      */
-    public com.anychart.charts.Cartesian label(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian label(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".label(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
@@ -911,21 +1006,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for series data labels.
      */
-    public com.anychart.charts.Cartesian labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series data labels.
      */
-    public com.anychart.charts.Cartesian labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.charts.Cartesian labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current chart's left bound setting.
+     * Getter for the chart's left bound setting.
      */
     public void left() {
         APIlib.getInstance().addJSLine(jsBase + ".left();");
@@ -947,7 +1042,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return this;
     }
     /**
-     * Getter for the current chart legend.
+     * Getter for the chart legend.
      */
     public com.anychart.core.ui.Legend legend() {
         return new com.anychart.core.ui.Legend(jsBase + ".legend()");
@@ -955,16 +1050,16 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart legend setting.
      */
-    public com.anychart.charts.Cartesian legend(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian legend(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart legend setting.
      */
-    public com.anychart.charts.Cartesian legend(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", value));
+    public com.anychart.charts.Cartesian legend(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".legend(%s);", settings));
 
         return this;
     }
@@ -975,7 +1070,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.core.cartesian.series.Line(String.format(Locale.US, jsBase + ".line(%s)", arrayToString(data)));
     }
     /**
-     * Getter for the current line marker.
+     * Getter for the line marker.
      */
     public com.anychart.core.axismarkers.Line lineMarker(Number index) {
         return new com.anychart.core.axismarkers.Line(String.format(Locale.US, jsBase + ".lineMarker(%s)", index));
@@ -983,32 +1078,32 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the line marker settings.
      */
-    public com.anychart.charts.Cartesian lineMarker(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian lineMarker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the line marker settings.
      */
-    public com.anychart.charts.Cartesian lineMarker(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s);", value));
+    public com.anychart.charts.Cartesian lineMarker(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the line marker settings by index.
      */
-    public com.anychart.charts.Cartesian lineMarker(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian lineMarker(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the line marker settings by index.
      */
-    public com.anychart.charts.Cartesian lineMarker(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian lineMarker(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, settings));
 
         return this;
     }
@@ -1021,7 +1116,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     }
     /**
      * Getter for the chart margin.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Margin margin() {
         return new com.anychart.core.utils.Margin(jsBase + ".margin()");
@@ -1029,24 +1124,24 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.Cartesian margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.charts.Cartesian margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.Cartesian margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Cartesian margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public com.anychart.charts.Cartesian margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }
@@ -1185,7 +1280,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.core.cartesian.series.Marker(String.format(Locale.US, jsBase + ".marker(%s)", arrayToString(data)));
     }
     /**
-     * Getter for the current chart markers palette settings.
+     * Getter for the chart markers palette settings.
      */
     public com.anychart.palettes.Markers markerPalette() {
         return new com.anychart.palettes.Markers(jsBase + ".markerPalette()");
@@ -1193,37 +1288,37 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart markers palette settings.
      */
-    public com.anychart.charts.Cartesian markerPalette(com.anychart.palettes.Markers value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian markerPalette(com.anychart.palettes.Markers settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart markers palette settings.
      */
-    public com.anychart.charts.Cartesian markerPalette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian markerPalette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart markers palette settings.
      */
-    public com.anychart.charts.Cartesian markerPalette(com.anychart.enums.MarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian markerPalette(com.anychart.enums.MarkerType settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart markers palette settings.
      */
-    public com.anychart.charts.Cartesian markerPalette(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Cartesian markerPalette(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current maximum size for all bubbles on the charts.
+     * Getter for the maximum size for all bubbles on the charts.
      */
     public void maxBubbleSize() {
         APIlib.getInstance().addJSLine(jsBase + ".maxBubbleSize();");
@@ -1231,21 +1326,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the maximum size for all bubbles on the charts.<br/>
      */
-    public com.anychart.charts.Cartesian maxBubbleSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxBubbleSize(%s);", value));
+    public com.anychart.charts.Cartesian maxBubbleSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxBubbleSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for the maximum size for all bubbles on the charts.<br/>
      */
-    public com.anychart.charts.Cartesian maxBubbleSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxBubbleSize(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian maxBubbleSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxBubbleSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
-     * Getter for the current chart's maximum height.
+     * Getter for the chart's maximum height.
      */
     public void maxHeight() {
         APIlib.getInstance().addJSLine(jsBase + ".maxHeight();");
@@ -1297,21 +1392,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the maximum point width.
      */
-    public com.anychart.charts.Cartesian maxPointWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", value));
+    public com.anychart.charts.Cartesian maxPointWidth(Number maxWidth) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", maxWidth));
 
         return this;
     }
     /**
      * Setter for the maximum point width.
      */
-    public com.anychart.charts.Cartesian maxPointWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian maxPointWidth(String maxWidth) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(maxWidth)));
 
         return this;
     }
     /**
-     * Getter for the current chart's maximum width.
+     * Getter for the chart's maximum width.
      */
     public void maxWidth() {
         APIlib.getInstance().addJSLine(jsBase + ".maxWidth();");
@@ -1333,7 +1428,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return this;
     }
     /**
-     * Getter for the current minimum size for all bubbles on the charts.
+     * Getter for the minimum size for all bubbles on the charts.
      */
     public void minBubbleSize() {
         APIlib.getInstance().addJSLine(jsBase + ".minBubbleSize();");
@@ -1341,21 +1436,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the minimum size for all bubbles on the charts.
      */
-    public com.anychart.charts.Cartesian minBubbleSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minBubbleSize(%s);", value));
+    public com.anychart.charts.Cartesian minBubbleSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minBubbleSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for the minimum size for all bubbles on the charts.
      */
-    public com.anychart.charts.Cartesian minBubbleSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minBubbleSize(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian minBubbleSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minBubbleSize(%s);", wrapQuotes(size)));
 
         return this;
     }
     /**
-     * Getter for the current chart's minimum height.
+     * Getter for the chart's minimum height.
      */
     public void minHeight() {
         APIlib.getInstance().addJSLine(jsBase + ".minHeight();");
@@ -1407,21 +1502,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the minimum point length.
      */
-    public com.anychart.charts.Cartesian minPointLength(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", value));
+    public com.anychart.charts.Cartesian minPointLength(Number length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", length));
 
         return this;
     }
     /**
      * Setter for the minimum point length.
      */
-    public com.anychart.charts.Cartesian minPointLength(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian minPointLength(String length) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPointLength(%s);", wrapQuotes(length)));
 
         return this;
     }
     /**
-     * Getter for the current chart's minimum width.
+     * Getter for the chart's minimum width.
      */
     public void minWidth() {
         APIlib.getInstance().addJSLine(jsBase + ".minWidth();");
@@ -1452,8 +1547,8 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
      * Setter for noData settings.<br/>
 {docs:Working_with_Data/No_Data_Label} Learn more about "No data" feature {docs}
      */
-    public com.anychart.charts.Cartesian noData(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian noData(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1466,8 +1561,8 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.charts.Cartesian normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1479,7 +1574,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     }
     /**
      * Getter for the chart padding.<br/>
-<img src='/si/8.2.1/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='/si/8.4.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public com.anychart.core.utils.Padding padding() {
         return new com.anychart.core.utils.Padding(jsBase + ".padding()");
@@ -1487,24 +1582,24 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.Cartesian padding(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(value)));
+    public com.anychart.charts.Cartesian padding(Number[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.Cartesian padding(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Cartesian padding(String[] padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding)));
 
         return this;
     }
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public com.anychart.charts.Cartesian padding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian padding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -1637,40 +1732,40 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return this;
     }
     /**
-     * Getter for the current series colors palette.
+     * Getter for the chart colors palette.
      */
     public com.anychart.palettes.RangeColors palette() {
         return new com.anychart.palettes.RangeColors(jsBase + ".palette()");
     }
     /**
-     * Setter for the current series colors palette.
+     * Setter for the chart colors palette.
      */
-    public com.anychart.charts.Cartesian palette(com.anychart.palettes.RangeColors value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian palette(com.anychart.palettes.RangeColors settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the current series colors palette.
+     * Setter for the chart colors palette.
      */
-    public com.anychart.charts.Cartesian palette(com.anychart.palettes.DistinctColors value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian palette(com.anychart.palettes.DistinctColors settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the current series colors palette.
+     * Setter for the chart colors palette.
      */
-    public com.anychart.charts.Cartesian palette(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian palette(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Setter for the current series colors palette.
+     * Setter for the chart colors palette.
      */
-    public com.anychart.charts.Cartesian palette(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.charts.Cartesian palette(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
@@ -1683,16 +1778,16 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the point width settings.
      */
-    public com.anychart.charts.Cartesian pointWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", value));
+    public com.anychart.charts.Cartesian pointWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the point width settings.
      */
-    public com.anychart.charts.Cartesian pointWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian pointWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1853,7 +1948,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.core.cartesian.series.RangeColumn(String.format(Locale.US, jsBase + ".rangeColumn(%s)", arrayToString(data)));
     }
     /**
-     * Getter for the current range marker.
+     * Getter for the range marker.
      */
     public com.anychart.core.axismarkers.Range rangeMarker(Number index) {
         return new com.anychart.core.axismarkers.Range(String.format(Locale.US, jsBase + ".rangeMarker(%s)", index));
@@ -1861,32 +1956,32 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the range marker.
      */
-    public com.anychart.charts.Cartesian rangeMarker(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian rangeMarker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the range marker.
      */
-    public com.anychart.charts.Cartesian rangeMarker(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s);", value));
+    public com.anychart.charts.Cartesian rangeMarker(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the range marker by index.
      */
-    public com.anychart.charts.Cartesian rangeMarker(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian rangeMarker(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the range marker by index.
      */
-    public com.anychart.charts.Cartesian rangeMarker(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian rangeMarker(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index, settings));
 
         return this;
     }
@@ -2073,7 +2168,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return this;
     }
     /**
-     * Getter for the current chart's right bound setting.
+     * Getter for the chart's right bound setting.
      */
     public void right() {
         APIlib.getInstance().addJSLine(jsBase + ".right();");
@@ -2155,11 +2250,29 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         APIlib.getInstance().addJSLine(jsBase + ".selectMarqueeFill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.charts.Cartesian selectMarqueeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian selectMarqueeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.Cartesian selectMarqueeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.charts.Cartesian selectMarqueeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -2366,10 +2479,34 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.charts.Cartesian selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
+    }
+    /**
+     * Opens Facebook sharing dialog.
+     */
+    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
+    }
+    /**
+     * Opens LinkedIn sharing dialog.
+     */
+    public void shareWithLinkedIn(String captionOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Pinterest sharing dialog.
+     */
+    public void shareWithPinterest(String linkOrOptions, String description) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
+    }
+    /**
+     * Opens Twitter sharing dialog.
+     */
+    public void shareWithTwitter() {
+        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
     }
     /**
      * Adds Spline series.
@@ -2741,7 +2878,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.core.cartesian.series.Stick(String.format(Locale.US, jsBase + ".stick(%s, %s)", wrapQuotes(data), (csvSettings != null) ? csvSettings.getJsBase() : null));
     }
     /**
-     * Getter for the current text marker.
+     * Getter for the text marker.
      */
     public com.anychart.core.axismarkers.Text textMarker(Number index) {
         return new com.anychart.core.axismarkers.Text(String.format(Locale.US, jsBase + ".textMarker(%s)", index));
@@ -2749,37 +2886,37 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the text marker.
      */
-    public com.anychart.charts.Cartesian textMarker(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian textMarker(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text marker.
      */
-    public com.anychart.charts.Cartesian textMarker(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s);", value));
+    public com.anychart.charts.Cartesian textMarker(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the text marker by index.
      */
-    public com.anychart.charts.Cartesian textMarker(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian textMarker(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the text marker by index.
      */
-    public com.anychart.charts.Cartesian textMarker(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian textMarker(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index, settings));
 
         return this;
     }
     /**
-     * Getter for the current chart title.
+     * Getter for the chart title.
      */
     public com.anychart.core.ui.Title title() {
         return new com.anychart.core.ui.Title(jsBase + ".title()");
@@ -2787,16 +2924,16 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.Cartesian title(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", value));
+    public com.anychart.charts.Cartesian title(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart title.
      */
-    public com.anychart.charts.Cartesian title(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian title(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -2825,7 +2962,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toXml(%s);", asXmlNode));
     }
     /**
-     * Getter for the current chart tooltip.
+     * Getter for the chart tooltip.
      */
     public com.anychart.core.ui.Tooltip tooltip() {
         return new com.anychart.core.ui.Tooltip(jsBase + ".tooltip()");
@@ -2833,21 +2970,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.Cartesian tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart tooltip.
      */
-    public com.anychart.charts.Cartesian tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.charts.Cartesian tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current chart's top bound setting.
+     * Getter for the chart's top bound setting.
      */
     public void top() {
         APIlib.getInstance().addJSLine(jsBase + ".top();");
@@ -2898,7 +3035,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
     }
     /**
-     * Getter for the current chart's width setting.
+     * Getter for the chart's width setting.
      */
     public void width() {
         APIlib.getInstance().addJSLine(jsBase + ".width();");
@@ -2920,7 +3057,7 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return this;
     }
     /**
-     * Getter for the current chart X-axis.
+     * Getter for the chart X-axis.
      */
     public com.anychart.core.axes.Linear xAxis(Number index) {
         return new com.anychart.core.axes.Linear(String.format(Locale.US, jsBase + ".xAxis(%s)", index));
@@ -2928,32 +3065,32 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart X-axis.
      */
-    public com.anychart.charts.Cartesian xAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart X-axis.
      */
-    public com.anychart.charts.Cartesian xAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", value));
+    public com.anychart.charts.Cartesian xAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart X-axis by index.
      */
-    public com.anychart.charts.Cartesian xAxis(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xAxis(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart X-axis by index.
      */
-    public com.anychart.charts.Cartesian xAxis(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian xAxis(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xAxis(%s, %s);", index, settings));
 
         return this;
     }
@@ -2966,32 +3103,32 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart grid by X-scale.
      */
-    public com.anychart.charts.Cartesian xGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart grid by X-scale.
      */
-    public com.anychart.charts.Cartesian xGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", value));
+    public com.anychart.charts.Cartesian xGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for chart grid by index.
      */
-    public com.anychart.charts.Cartesian xGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for chart grid by index.
      */
-    public com.anychart.charts.Cartesian xGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian xGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xGrid(%s, %s);", index, settings));
 
         return this;
     }
@@ -3004,37 +3141,37 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart minor grid by X-scale.
      */
-    public com.anychart.charts.Cartesian xMinorGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xMinorGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart minor grid by X-scale.
      */
-    public com.anychart.charts.Cartesian xMinorGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", value));
+    public com.anychart.charts.Cartesian xMinorGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart minor grid by index.
      */
-    public com.anychart.charts.Cartesian xMinorGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xMinorGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart minor grid by index.
      */
-    public com.anychart.charts.Cartesian xMinorGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian xMinorGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMinorGrid(%s, %s);", index, settings));
 
         return this;
     }
     /**
-     * Getter for the current chart X-scale.
+     * Getter for the chart X-scale.
      */
     public com.anychart.scales.Base xScale() {
         return new com.anychart.scales.Base(jsBase + ".xScale()");
@@ -3042,29 +3179,29 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart X-scale.
      */
-    public com.anychart.charts.Cartesian xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart X-scale.
      */
-    public com.anychart.charts.Cartesian xScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian xScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart X-scale.
      */
-    public com.anychart.charts.Cartesian xScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian xScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the current scroller.
+     * Getter for the scroller.
      */
     public com.anychart.core.ui.ChartScroller xScroller() {
         return new com.anychart.core.ui.ChartScroller(jsBase + ".xScroller()");
@@ -3072,21 +3209,21 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the scroller.
      */
-    public com.anychart.charts.Cartesian xScroller(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xScroller(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the scroller.
      */
-    public com.anychart.charts.Cartesian xScroller(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", value));
+    public com.anychart.charts.Cartesian xScroller(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScroller(%s);", settings));
 
         return this;
     }
     /**
-     * Getter for the current zoom settings.
+     * Getter for the zoom settings.
      */
     public com.anychart.core.utils.OrdinalZoom xZoom() {
         return new com.anychart.core.utils.OrdinalZoom(jsBase + ".xZoom()");
@@ -3094,29 +3231,29 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the zoom settings.
      */
-    public com.anychart.charts.Cartesian xZoom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", value));
+    public com.anychart.charts.Cartesian xZoom(Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the zoom settings.
      */
-    public com.anychart.charts.Cartesian xZoom(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", value));
+    public com.anychart.charts.Cartesian xZoom(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the zoom settings.
      */
-    public com.anychart.charts.Cartesian xZoom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian xZoom(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xZoom(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Getter for the current chart Y-axis.
+     * Getter for the chart Y-axis.
      */
     public com.anychart.core.axes.Linear yAxis(Number index) {
         return new com.anychart.core.axes.Linear(String.format(Locale.US, jsBase + ".yAxis(%s)", index));
@@ -3124,32 +3261,32 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart Y-axis.
      */
-    public com.anychart.charts.Cartesian yAxis(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yAxis(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart Y-axis.
      */
-    public com.anychart.charts.Cartesian yAxis(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", value));
+    public com.anychart.charts.Cartesian yAxis(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart Y-axis by index.
      */
-    public com.anychart.charts.Cartesian yAxis(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yAxis(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart Y-axis by index.
      */
-    public com.anychart.charts.Cartesian yAxis(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian yAxis(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yAxis(%s, %s);", index, settings));
 
         return this;
     }
@@ -3162,32 +3299,32 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart grid by Y-scale.
      */
-    public com.anychart.charts.Cartesian yGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart grid by Y-scale.
      */
-    public com.anychart.charts.Cartesian yGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", value));
+    public com.anychart.charts.Cartesian yGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s);", settings));
 
         return this;
     }
     /**
-     * Setter for chart grid by index.
+     * Setter for chart Y-grid by index.
      */
-    public com.anychart.charts.Cartesian yGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
-     * Setter for chart grid by index.
+     * Setter for chart Y-grid by index.
      */
-    public com.anychart.charts.Cartesian yGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian yGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yGrid(%s, %s);", index, settings));
 
         return this;
     }
@@ -3200,37 +3337,37 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart minor grid by Y-scale.
      */
-    public com.anychart.charts.Cartesian yMinorGrid(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yMinorGrid(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart minor grid by Y-scale.
      */
-    public com.anychart.charts.Cartesian yMinorGrid(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", value));
+    public com.anychart.charts.Cartesian yMinorGrid(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the chart minor grid by index.
      */
-    public com.anychart.charts.Cartesian yMinorGrid(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yMinorGrid(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart minor grid by index.
      */
-    public com.anychart.charts.Cartesian yMinorGrid(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", index, value));
+    public com.anychart.charts.Cartesian yMinorGrid(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yMinorGrid(%s, %s);", index, settings));
 
         return this;
     }
     /**
-     * Getter for the current chart Y-scale.
+     * Getter for the chart Y-scale.
      */
     public com.anychart.scales.Linear yScale() {
         return new com.anychart.scales.Linear(jsBase + ".yScale()");
@@ -3238,29 +3375,29 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the chart Y-scale.
      */
-    public com.anychart.charts.Cartesian yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.charts.Cartesian yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the chart Y-scale.
      */
-    public com.anychart.charts.Cartesian yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the chart Y-scale.
      */
-    public com.anychart.charts.Cartesian yScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.charts.Cartesian yScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the current Z-index of the chart.
+     * Getter for the Z-index of the chart.
      */
     public void zIndex() {
         APIlib.getInstance().addJSLine(jsBase + ".zIndex();");
@@ -3268,176 +3405,10 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
     /**
      * Setter for the Z-index of the chart.
      */
-    public com.anychart.charts.Cartesian zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.charts.Cartesian zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
-    }
-    /**
-     * Getter for the accessibility setting.
-     */
-    public com.anychart.core.utils.ChartA11y a11y() {
-        return new com.anychart.core.utils.ChartA11y(jsBase + ".a11y()");
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.Cartesian a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
-
-        return this;
-    }
-    /**
-     * Setter for the accessibility setting.
-     */
-    public com.anychart.charts.Cartesian a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
-
-        return this;
-    }
-    /**
-     * Returns JPG as base64 string.
-     */
-    public void getJpgBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality, forceTransparentWhite));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PDF as base64 string.
-     */
-    public void getPdfBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y));
-    }
-    /**
-     * Returns PNG as base64 string.
-     */
-    public void getPngBase64String(String onSuccessOrOptions, String onError, Number width, Number height, Number quality) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), width, height, quality));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, String paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, Boolean landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, landscapeOrHeight));
-    }
-    /**
-     * Returns SVG as base64 string.
-     */
-    public void getSvgBase64String(String onSuccessOrOptions, String onError, Number paperSizeOrWidth, String landscapeOrHeight) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), paperSizeOrWidth, wrapQuotes(landscapeOrHeight)));
-    }
-    /**
-     * Shares a chart as a JPG file and returns a link to the shared image.
-     */
-    public void shareAsJpg(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, Boolean forceTransparentWhite, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, forceTransparentWhite, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Number landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PDF file and returns a link to the shared image.
-     */
-    public void shareAsPdf(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrWidth, Number x, Number y, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrWidth, x, y, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a PNG file and returns a link to the shared image.
-     */
-    public void shareAsPng(String onSuccessOrOptions, String onError, Boolean asBase64, Number width, Number height, Number quality, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsPng(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, width, height, quality, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, String paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, wrapQuotes(paperSizeOrWidth), wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, Boolean landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, landscapeOrHeight, wrapQuotes(filename)));
-    }
-    /**
-     * Shares a chart as a SVG file and returns a link to the shared image.
-     */
-    public void shareAsSvg(String onSuccessOrOptions, String onError, Boolean asBase64, Number paperSizeOrWidth, String landscapeOrHeight, String filename) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions), wrapQuotes(onError), asBase64, paperSizeOrWidth, wrapQuotes(landscapeOrHeight), wrapQuotes(filename)));
-    }
-    /**
-     * Opens Facebook sharing dialog.
-     */
-    public void shareWithFacebook(String captionOrOptions, String link, String name, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
-    }
-    /**
-     * Opens LinkedIn sharing dialog.
-     */
-    public void shareWithLinkedIn(String captionOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Pinterest sharing dialog.
-     */
-    public void shareWithPinterest(String linkOrOptions, String description) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description)));
-    }
-    /**
-     * Opens Twitter sharing dialog.
-     */
-    public void shareWithTwitter() {
-        APIlib.getInstance().addJSLine(jsBase + ".shareWithTwitter();");
     }
     /**
      * Creates and returns the chart represented as an invisible HTML table.
@@ -3450,6 +3421,49 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
      */
     public void toHtmlTable(String title, Boolean asString) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %s);", wrapQuotes(title), asString));
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Cartesian parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Cartesian parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Cartesian parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.charts.Cartesian parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 

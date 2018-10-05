@@ -68,6 +68,7 @@ public enum StringToken {
     RANGE_START("%RangeStart"),
     RELATIVE_FREQUENCY("%RF"),
     RESOURCE_INDEX("%resourceIndex"),
+    SELECTED_POINTS_SUM("%selectedPointsSum"),
     SERIES_BUBBLE_MAX_SIZE("%SeriesBubbleMaxSize"),
     SERIES_BUBBLE_MIN_SIZE("%SeriesBubbleMinSize"),
     SERIES_BUBBLE_SIZE_AVERAGE("%SeriesBubbleSizeAverage"),

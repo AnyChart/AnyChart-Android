@@ -47,19 +47,19 @@ public class Error extends Base {
     }
     /**
      * Setter for error mode.<br/>
-Error mode defines the rule to parse values for series with error.
+Error mode defines the rule to parse values for series with an error.
      */
-    public com.anychart.core.utils.Error mode(com.anychart.enums.ErrorMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Error mode(com.anychart.enums.ErrorMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for error mode.<br/>
-Error mode defines the rule to parse values for series with error.
+Error mode defines the rule to parse values for series with an error.
      */
-    public com.anychart.core.utils.Error mode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error mode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -107,16 +107,16 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value error.
      */
-    public com.anychart.core.utils.Error valueError(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueError(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error valueError(String valueError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueError(%s);", wrapQuotes(valueError)));
 
         return this;
     }
     /**
      * Setter for value error.
      */
-    public com.anychart.core.utils.Error valueError(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueError(%s);", value));
+    public com.anychart.core.utils.Error valueError(Number valueError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueError(%s);", valueError));
 
         return this;
     }
@@ -125,14 +125,6 @@ Error mode defines the rule to parse values for series with error.
      */
     public void valueErrorStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".valueErrorStroke();");
-    }
-    /**
-     * Setter for value error stroke settings.
-     */
-    public com.anychart.core.utils.Error valueErrorStroke(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueErrorStroke(%s);", wrapQuotes(fillFunction)));
-
-        return this;
     }
     /**
      * Setter for value error stroke settings.
@@ -239,8 +231,8 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value error width settings. Length pins for value axis in pixels.
      */
-    public com.anychart.core.utils.Error valueErrorWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueErrorWidth(%s);", value));
+    public com.anychart.core.utils.Error valueErrorWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueErrorWidth(%s);", width));
 
         return this;
     }
@@ -253,16 +245,16 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value lower error.
      */
-    public com.anychart.core.utils.Error valueLowerError(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueLowerError(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error valueLowerError(String valueLowerError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueLowerError(%s);", wrapQuotes(valueLowerError)));
 
         return this;
     }
     /**
      * Setter for value lower error.
      */
-    public com.anychart.core.utils.Error valueLowerError(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueLowerError(%s);", value));
+    public com.anychart.core.utils.Error valueLowerError(Number valueLowerError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueLowerError(%s);", valueLowerError));
 
         return this;
     }
@@ -275,16 +267,16 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value upper error.
      */
-    public com.anychart.core.utils.Error valueUpperError(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueUpperError(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error valueUpperError(String valueUpperError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueUpperError(%s);", wrapQuotes(valueUpperError)));
 
         return this;
     }
     /**
      * Setter for value upper error.
      */
-    public com.anychart.core.utils.Error valueUpperError(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueUpperError(%s);", value));
+    public com.anychart.core.utils.Error valueUpperError(Number valueUpperError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".valueUpperError(%s);", valueUpperError));
 
         return this;
     }
@@ -297,16 +289,16 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X error.
      */
-    public com.anychart.core.utils.Error xError(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xError(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error xError(String xError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xError(%s);", wrapQuotes(xError)));
 
         return this;
     }
     /**
      * Setter for X error.
      */
-    public com.anychart.core.utils.Error xError(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xError(%s);", value));
+    public com.anychart.core.utils.Error xError(Number xError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xError(%s);", xError));
 
         return this;
     }
@@ -317,10 +309,11 @@ Error mode defines the rule to parse values for series with error.
         APIlib.getInstance().addJSLine(jsBase + ".xErrorStroke();");
     }
     /**
-     * Setter for the X error stroke by function.
+     * Setter for X error stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -328,8 +321,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -337,8 +330,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -346,8 +339,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -355,8 +348,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.Stroke strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -364,8 +357,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -373,8 +366,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -382,8 +375,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -391,8 +384,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(com.anychart.graphics.vector.ColoredFill strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", (strokeOrFill != null) ? strokeOrFill.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Error xErrorStroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -400,8 +393,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(String strokeOrFill, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.utils.Error xErrorStroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -409,8 +402,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(String strokeOrFill, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Error xErrorStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -418,17 +411,8 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.utils.Error xErrorStroke(String strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
-
-        return this;
-    }
-    /**
-     * Setter for X error stroke settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.utils.Error xErrorStroke(String strokeOrFill, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.utils.Error xErrorStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -441,8 +425,8 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X error width settings. Length pins for X axis in pixels.
      */
-    public com.anychart.core.utils.Error xErrorWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorWidth(%s);", value));
+    public com.anychart.core.utils.Error xErrorWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xErrorWidth(%s);", width));
 
         return this;
     }
@@ -455,16 +439,16 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X lower error.
      */
-    public com.anychart.core.utils.Error xLowerError(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xLowerError(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error xLowerError(String xLowerError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xLowerError(%s);", wrapQuotes(xLowerError)));
 
         return this;
     }
     /**
      * Setter for X lower error.
      */
-    public com.anychart.core.utils.Error xLowerError(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xLowerError(%s);", value));
+    public com.anychart.core.utils.Error xLowerError(Number xLowerError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xLowerError(%s);", xLowerError));
 
         return this;
     }
@@ -477,16 +461,16 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X upper error.
      */
-    public com.anychart.core.utils.Error xUpperError(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xUpperError(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Error xUpperError(String xUpperError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xUpperError(%s);", wrapQuotes(xUpperError)));
 
         return this;
     }
     /**
      * Setter for X upper error.
      */
-    public com.anychart.core.utils.Error xUpperError(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xUpperError(%s);", value));
+    public com.anychart.core.utils.Error xUpperError(Number xUpperError) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xUpperError(%s);", xUpperError));
 
         return this;
     }

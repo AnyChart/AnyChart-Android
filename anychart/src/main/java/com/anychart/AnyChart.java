@@ -154,6 +154,10 @@ public class AnyChart {
         return new com.anychart.charts.Resource("anychart.resource()");
     }
 
+    public static com.anychart.charts.Sankey sankey() {
+        return new com.anychart.charts.Sankey("anychart.sankey()");
+    }
+
     public static com.anychart.charts.Scatter scatter() {
         return new com.anychart.charts.Scatter("anychart.scatter()");
     }

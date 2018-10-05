@@ -46,24 +46,24 @@ public class SettingsWithMargin extends JsObject {
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.SettingsWithMargin margin(Number[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(value)));
+    public com.anychart.core.resource.resourcelist.SettingsWithMargin margin(Number[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
 
         return this;
     }
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.SettingsWithMargin margin(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.SettingsWithMargin margin(String[] margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin)));
 
         return this;
     }
     /**
      * Setter for the margin using a single value.
      */
-    public com.anychart.core.resource.resourcelist.SettingsWithMargin margin(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.resourcelist.SettingsWithMargin margin(String margin) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin)));
 
         return this;
     }

@@ -61,16 +61,16 @@ public class DistinctColors extends Base {
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.DistinctColors items(com.anychart.graphics.vector.Fill[] value, com.anychart.graphics.vector.Fill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(value), (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.DistinctColors items(com.anychart.graphics.vector.Fill[] color, com.anychart.graphics.vector.Fill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", arrayToString(color), (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for color palette colors list.
      */
-    public com.anychart.palettes.DistinctColors items(com.anychart.graphics.vector.Fill value, com.anychart.graphics.vector.Fill var_args) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (value != null) ? value.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
+    public com.anychart.palettes.DistinctColors items(com.anychart.graphics.vector.Fill color, com.anychart.graphics.vector.Fill var_args) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".items(%s, %s);", (color != null) ? color.getJsBase() : null, (var_args != null) ? var_args.getJsBase() : null));
 
         return this;
     }

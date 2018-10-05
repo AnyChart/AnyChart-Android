@@ -95,8 +95,8 @@ public class MapPoint extends Point {
     /**
      * Setter for hover point state.
      */
-    public com.anychart.core.MapPoint hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.MapPoint hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }
@@ -109,8 +109,8 @@ public class MapPoint extends Point {
     /**
      * Setter for select point state.
      */
-    public com.anychart.core.MapPoint selected(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", value));
+    public com.anychart.core.MapPoint selected(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", enabled));
 
         return this;
     }

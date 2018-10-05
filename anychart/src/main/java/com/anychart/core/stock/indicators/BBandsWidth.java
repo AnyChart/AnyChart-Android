@@ -46,8 +46,8 @@ public class BBandsWidth extends JsObject {
     /**
      * Setter for the deviation.
      */
-    public com.anychart.core.stock.indicators.BBandsWidth deviation(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".deviation(%s);", value));
+    public com.anychart.core.stock.indicators.BBandsWidth deviation(Number deviation) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".deviation(%s);", deviation));
 
         return this;
     }
@@ -60,19 +60,19 @@ public class BBandsWidth extends JsObject {
     /**
      * Setter for the period.
      */
-    public com.anychart.core.stock.indicators.BBandsWidth period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.BBandsWidth period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator series.
+     * Getter for the indicator series instance.
      */
     public com.anychart.core.stock.series.Base series() {
         return new com.anychart.core.stock.series.Base(jsBase + ".series()");
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.BBandsWidth series(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.getJsBase() : null));
@@ -80,7 +80,7 @@ public class BBandsWidth extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.BBandsWidth series(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", wrapQuotes(type)));

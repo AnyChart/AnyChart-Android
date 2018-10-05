@@ -47,8 +47,8 @@ public class Grouping extends Base {
     /**
      * Setter for the grouping enabled state.
      */
-    public com.anychart.core.stock.Grouping enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.stock.Grouping enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class Grouping extends Base {
     /**
      * Setter for the forced grouping settings.
      */
-    public com.anychart.core.stock.Grouping forced(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".forced(%s);", value));
+    public com.anychart.core.stock.Grouping forced(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".forced(%s);", enabled));
 
         return this;
     }
@@ -79,7 +79,7 @@ public class Grouping extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".isGrouped();");
     }
     /**
-     * Getter for the current data grouping levels.
+     * Getter for the data grouping levels.
      */
     public void levels() {
         APIlib.getInstance().addJSLine(jsBase + ".levels();");
@@ -87,21 +87,21 @@ public class Grouping extends Base {
     /**
      * Setter for the data grouping levels.
      */
-    public com.anychart.core.stock.Grouping levels(com.anychart.core.stock.grouping.Level value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".levels(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.Grouping levels(com.anychart.core.stock.grouping.Level levelsList) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".levels(%s);", (levelsList != null) ? levelsList.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the data grouping levels.
      */
-    public com.anychart.core.stock.Grouping levels(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".levels(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.stock.Grouping levels(String[] levelsList) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".levels(%s);", arrayToStringWrapQuotes(levelsList)));
 
         return this;
     }
     /**
-     * Getter for the current maximum visible points count.
+     * Getter for the maximum visible points count.
      */
     public void maxVisiblePoints() {
         APIlib.getInstance().addJSLine(jsBase + ".maxVisiblePoints();");
@@ -109,13 +109,13 @@ public class Grouping extends Base {
     /**
      * Setter for the maximum visible points count.
      */
-    public com.anychart.core.stock.Grouping maxVisiblePoints(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxVisiblePoints(%s);", value));
+    public com.anychart.core.stock.Grouping maxVisiblePoints(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxVisiblePoints(%s);", count));
 
         return this;
     }
     /**
-     * Getter for the current minimum pixels per point count.
+     * Getter for the minimum pixels per point count.
      */
     public void minPixPerPoint() {
         APIlib.getInstance().addJSLine(jsBase + ".minPixPerPoint();");
@@ -123,8 +123,8 @@ public class Grouping extends Base {
     /**
      * Setter for minimum pixels per point count.
      */
-    public com.anychart.core.stock.Grouping minPixPerPoint(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPixPerPoint(%s);", value));
+    public com.anychart.core.stock.Grouping minPixPerPoint(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minPixPerPoint(%s);", count));
 
         return this;
     }

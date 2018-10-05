@@ -82,8 +82,8 @@ public class Point extends JsObject {
     /**
      * Setter for hover point state.
      */
-    public com.anychart.core.Point hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.Point hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }
@@ -96,8 +96,8 @@ public class Point extends JsObject {
     /**
      * Setter for select point state.
      */
-    public com.anychart.core.Point selected(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", value));
+    public com.anychart.core.Point selected(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", enabled));
 
         return this;
     }

@@ -16,7 +16,7 @@ import android.text.TextUtils;
 /**
  * The StateSettings class contains methods for configuring the states of different charts and their parts.<br/>
 States are used for {api:anychart.core.SeriesBase}series{api}, {api:anychart.charts}charts{api},
-{api:anychart.core.annotations}annotations{api}, {api:anychart.core.venn.Intersections}intersections{api} in
+{api:anychart.core.annotations}annotations{api}, {api:anychart.core.gantt.DataGridButton}buttons{api}, {api:anychart.core.venn.Intersections}intersections{api} in
 {api:anychart.charts.Venn}Venn Diagram{api}, {api:anychart.core.linearGauge.pointers}pointers{api} in
 {api:anychart.charts.LinearGauge}Linear Gauge{api}, {api:anychart.core.pert.Tasks}tasks{api},
 and {api:anychart.core.pert.Milestones}milestones{api} in {api:anychart.charts.Pert}PERT Chart{api},
@@ -76,16 +76,74 @@ public class StateSettings extends Base {
         return this;
     }
     /**
+     * Getter for the background.
+     */
+    public com.anychart.core.ui.Background background() {
+        return new com.anychart.core.ui.Background(jsBase + ".background()");
+    }
+    /**
+     * Setter for the background settings.
+     */
+    public com.anychart.core.StateSettings background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the background settings.
+     */
+    public com.anychart.core.StateSettings background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
+
+        return this;
+    }
+    /**
      * Getter for connector settings (for stock event markers).
      */
     public com.anychart.core.utils.Connector connector() {
         return new com.anychart.core.utils.Connector(jsBase + ".connector()");
     }
     /**
-     * Setter for the connector length (for stock event markers).
+     * Setter for the connector settings (for stock event markers).
      */
-    public com.anychart.core.StateSettings connector(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings connector(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for buttons content settings.
+     */
+    public void content() {
+        APIlib.getInstance().addJSLine(jsBase + ".content();");
+    }
+    /**
+     * Setter for buttons content settings.
+     */
+    public com.anychart.core.StateSettings content(String content) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".content(%s);", wrapQuotes(content)));
+
+        return this;
+    }
+    /**
+     * Setter for buttons content settings.
+     */
+    public com.anychart.core.StateSettings content(Number content) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".content(%s);", content));
+
+        return this;
+    }
+    /**
+     * Getter for the state of disablePointerEvents option.
+     */
+    public void disablePointerEvents() {
+        APIlib.getInstance().addJSLine(jsBase + ".disablePointerEvents();");
+    }
+    /**
+     * Setter for the text disablePointerEvents option.
+     */
+    public com.anychart.core.StateSettings disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -96,20 +154,11 @@ public class StateSettings extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".dummyFill();");
     }
     /**
-     * Setter for the dummy fill using function.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public com.anychart.core.StateSettings dummyFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyFill(%s);", wrapQuotes(fillFunction)));
-
-        return this;
-    }
-    /**
      * Setter for dummy fill settings using a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings dummyFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.StateSettings dummyFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyFill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -198,14 +247,6 @@ public class StateSettings extends Base {
      */
     public void dummyStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".dummyStroke();");
-    }
-    /**
-     * Setter for tasks dummy stroke by function.
-     */
-    public com.anychart.core.StateSettings dummyStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for tasks dummy stroke.
@@ -316,26 +357,25 @@ public class StateSettings extends Base {
         return this;
     }
     /**
+     * Setter for tasks dummy stroke using an object.
+     */
+    public com.anychart.core.StateSettings dummyStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".dummyStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the state fill color for the empty part of a tank.
      */
     public void emptyFill() {
         APIlib.getInstance().addJSLine(jsBase + ".emptyFill();");
     }
     /**
-     * Setter for state fill settings for the empty part of a tank using a string or an object.
+     * Setter for state fill settings for the empty part of a tank using an object and a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings emptyFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyFill(%s);", (value != null) ? value.getJsBase() : null));
-
-        return this;
-    }
-    /**
-     * Setter for state fill settings for the empty part of a tank using a string or an object.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
-     */
-    public com.anychart.core.StateSettings emptyFill(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyFill(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings emptyFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyFill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
@@ -357,8 +397,8 @@ public class StateSettings extends Base {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings emptyHatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings emptyHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -366,35 +406,44 @@ public class StateSettings extends Base {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings emptyHatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings emptyHatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings emptyHatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings emptyHatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings emptyHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings emptyHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings emptyHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings emptyHatchFill(Boolean patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s, %s, %s, %s);", patternFillOrType, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings emptyHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".emptyHatchFill(%s);", enabled));
 
         return this;
     }
@@ -407,16 +456,16 @@ public class StateSettings extends Base {
     /**
      * Setter for the explode radius (for Pie chart).
      */
-    public com.anychart.core.StateSettings explode(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".explode(%s);", value));
+    public com.anychart.core.StateSettings explode(Number explode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".explode(%s);", explode));
 
         return this;
     }
     /**
      * Setter for the explode radius (for Pie chart).
      */
-    public com.anychart.core.StateSettings explode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".explode(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings explode(String explode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".explode(%s);", wrapQuotes(explode)));
 
         return this;
     }
@@ -430,16 +479,22 @@ public class StateSettings extends Base {
      * Setter for falling fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.cartesian.series.Base fallingFill(com.anychart.graphics.vector.Fill value) {
-        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingFill(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.Base fallingFill(com.anychart.graphics.vector.Fill color) {
+        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingFill(%s)", (color != null) ? color.getJsBase() : null));
     }
     /**
-     * Setter for falling fill settings using function.
+     * Setter for falling fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings fallingFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingFill(%s);", wrapQuotes(fillFunction)));
-
-        return this;
+    public com.anychart.core.cartesian.series.Base fallingFill(com.anychart.graphics.vector.GradientKey color) {
+        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingFill(%s)", (color != null) ? color.getJsBase() : null));
+    }
+    /**
+     * Setter for falling fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.cartesian.series.Base fallingFill(String[] color) {
+        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingFill(%s)", arrayToStringWrapQuotes(color)));
     }
     /**
      * Falling fill color with opacity.
@@ -513,50 +568,57 @@ public class StateSettings extends Base {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.cartesian.series.Base fallingHatchFill(com.anychart.graphics.vector.PatternFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.cartesian.series.Base fallingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
     }
     /**
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.cartesian.series.Base fallingHatchFill(com.anychart.graphics.vector.HatchFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.cartesian.series.Base fallingHatchFill(String type, String color, Number thickness, Number size) {
+        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", wrapQuotes(type), wrapQuotes(color), thickness, size));
     }
     /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for falling hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.cartesian.series.Base fallingHatchFill(String patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrTypeOrState), wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings fallingHatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", wrapQuotes(hatchFillFunction)));
+
+        return this;
     }
     /**
-     * Setter for falling hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for falling hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.cartesian.series.Base fallingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings fallingHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
     }
     /**
-     * Setter for falling hatch fill settings.
+     * Setter for falling hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings fallingHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for falling hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.cartesian.series.Base fallingHatchFill(Boolean patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.cartesian.series.Base(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %s, %s)", patternFillOrTypeOrState, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings fallingHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingHatchFill(%s);", enabled));
+
+        return this;
     }
     /**
      * Getter for falling stroke settings.
      */
     public void fallingStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".fallingStroke();");
-    }
-    /**
-     * Setter for falling stroke by function.
-     */
-    public com.anychart.core.StateSettings fallingStroke(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingStroke(%s);", wrapQuotes(fillFunction)));
-
-        return this;
     }
     /**
      * Setter for falling stroke settings.
@@ -667,26 +729,43 @@ public class StateSettings extends Base {
         return this;
     }
     /**
+     * Setter for falling stroke using an object.
+     */
+    public com.anychart.core.StateSettings fallingStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fallingStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the fill.
      */
     public void fill() {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for the fill.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.StateSettings fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.StateSettings fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -779,8 +858,8 @@ public class StateSettings extends Base {
     /**
      * Setter for font color settings.
      */
-    public com.anychart.core.StateSettings fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -815,8 +894,8 @@ public class StateSettings extends Base {
     /**
      * Setter for the font family of text.
      */
-    public com.anychart.core.StateSettings fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -830,8 +909,8 @@ public class StateSettings extends Base {
      * Setter for the text font opacity.<br/>
 Double value from 0 to 1.
      */
-    public com.anychart.core.StateSettings fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.StateSettings fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -844,16 +923,16 @@ Double value from 0 to 1.
     /**
      * Setter for the font padding.
      */
-    public com.anychart.core.StateSettings fontPadding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", value));
+    public com.anychart.core.StateSettings fontPadding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", padding));
 
         return this;
     }
     /**
      * Setter for the font padding.
      */
-    public com.anychart.core.StateSettings fontPadding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings fontPadding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -866,16 +945,16 @@ Double value from 0 to 1.
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.StateSettings fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.StateSettings fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.StateSettings fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -888,16 +967,16 @@ Double value from 0 to 1.
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.StateSettings fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.StateSettings fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the text font style.
      */
-    public com.anychart.core.StateSettings fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
@@ -932,16 +1011,16 @@ Double value from 0 to 1.
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.StateSettings fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public com.anychart.core.StateSettings fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.StateSettings fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -952,10 +1031,11 @@ Double value from 0 to 1.
         APIlib.getInstance().addJSLine(jsBase + ".grid();");
     }
     /**
-     * Setter for the annotation grid by function.
+     * Setter for annotation grid settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(String gridFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s);", wrapQuotes(gridFunction)));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -963,8 +1043,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -972,8 +1052,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -981,8 +1061,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -990,8 +1070,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -999,8 +1079,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -1008,8 +1088,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -1017,8 +1097,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -1026,8 +1106,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings grid(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -1035,8 +1115,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings grid(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -1044,8 +1124,8 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings grid(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -1053,17 +1133,30 @@ Double value from 0 to 1.
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings grid(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings grid(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for annotation grid settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     * Getter for the button text horizontal align.
      */
-    public com.anychart.core.StateSettings grid(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".grid(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public void hAlign() {
+        APIlib.getInstance().addJSLine(jsBase + ".hAlign();");
+    }
+    /**
+     * Setter for the button text horizontal align.
+     */
+    public com.anychart.core.StateSettings hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the button text horizontal align.
+     */
+    public com.anychart.core.StateSettings hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -1077,8 +1170,8 @@ Double value from 0 to 1.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -1086,26 +1179,44 @@ Double value from 0 to 1.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings hatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -1118,16 +1229,16 @@ Double value from 0 to 1.
     /**
      * Setter for the header labels (TreeMap).
      */
-    public com.anychart.core.StateSettings headers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings headers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the header labels (TreeMap).
      */
-    public com.anychart.core.StateSettings headers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", value));
+    public com.anychart.core.StateSettings headers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".headers(%s);", settings));
 
         return this;
     }
@@ -1154,18 +1265,163 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Getter for the high fill color (for the range series and Hilo series).
+     */
+    public void highFill() {
+        APIlib.getInstance().addJSLine(jsBase + ".highFill();");
+    }
+    /**
+     * Setter for the high fill settings using an array, an object or a string (for the range series and Hilo series).
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(com.anychart.graphics.vector.Fill color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s)", (color != null) ? color.getJsBase() : null));
+    }
+    /**
+     * Setter for the high fill settings using an array, an object or a string (for the range series and Hilo series).
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(com.anychart.graphics.vector.GradientKey color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s)", (color != null) ? color.getJsBase() : null));
+    }
+    /**
+     * Setter for the high fill settings using an array, an object or a string (for the range series and Hilo series).
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(String[] color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s)", arrayToStringWrapQuotes(color)));
+    }
+    /**
+     * High fill color with opacity (for the range series and Hilo series).
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(String color, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s)", wrapQuotes(color), opacity));
+    }
+    /**
+     * Linear gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s)", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
+    }
+    /**
+     * Linear gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s)", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
+    }
+    /**
+     * Linear gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s)", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
+    }
+    /**
+     * Linear gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(String[] keys, Number angle, Boolean mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys), angle, mode, opacity));
+    }
+    /**
+     * Linear gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
+    }
+    /**
+     * Linear gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base highFill(String[] keys, Number angle, String mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
+    }
+    /**
+     * Radial gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
+
+        return this;
+    }
+    /**
+     * Radial gradient high fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
+
+        return this;
+    }
+    /**
+     * Getter for high hatch fill settings (for the range series and Hilo series).
+     */
+    public com.anychart.graphics.vector.PatternFill highHatchFill() {
+        return new com.anychart.graphics.vector.PatternFill(jsBase + ".highHatchFill()");
+    }
+    /**
+     * Setter for high hatch fill settings (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highHatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
+
+        return this;
+    }
+    /**
+     * Setter for high hatch fill settings (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highHatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highHatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
+
+        return this;
+    }
+    /**
+     * Setter for high hatch fill settings using function (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highHatchFill(String function) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highHatchFill(%s);", wrapQuotes(function)));
+
+        return this;
+    }
+    /**
+     * Setter for high hatch fill settings using pattern fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for high hatch fill settings using an instance (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings highHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for high hatch fill using boolean.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.StateSettings highHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highHatchFill(%s);", enabled));
+
+        return this;
+    }
+    /**
      * Getter for high stroke settings.
      */
     public void highStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".highStroke();");
-    }
-    /**
-     * Setter for high stroke by function.
-     */
-    public com.anychart.core.StateSettings highStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for high stroke settings.
@@ -1286,8 +1542,8 @@ Double value from 0 to 1.
     /**
      * Setter for the hovered state.
      */
-    public void hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public void hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
     }
     /**
      * Getter for labels.
@@ -1298,16 +1554,215 @@ Double value from 0 to 1.
     /**
      * Setter for labels.
      */
-    public com.anychart.core.StateSettings labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for labels.
      */
-    public com.anychart.core.StateSettings labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.StateSettings labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Getter for the button text letter spacing.
+     */
+    public void letterSpacing() {
+        APIlib.getInstance().addJSLine(jsBase + ".letterSpacing();");
+    }
+    /**
+     * Setter for the button text letter spacing.
+{@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
+    public com.anychart.core.StateSettings letterSpacing(String spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(spacing)));
+
+        return this;
+    }
+    /**
+     * Setter for the button text letter spacing.
+{@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
+    public com.anychart.core.StateSettings letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
+
+        return this;
+    }
+    /**
+     * Getter for the button text line height.
+     */
+    public void lineHeight() {
+        APIlib.getInstance().addJSLine(jsBase + ".lineHeight();");
+    }
+    /**
+     * Setter for the button text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
+    public com.anychart.core.StateSettings lineHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(height)));
+
+        return this;
+    }
+    /**
+     * Setter for the button text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
+     */
+    public com.anychart.core.StateSettings lineHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lineHeight(%s);", height));
+
+        return this;
+    }
+    /**
+     * Getter for the series low fill color (for the range series and Hilo series).
+     */
+    public void lowFill() {
+        APIlib.getInstance().addJSLine(jsBase + ".lowFill();");
+    }
+    /**
+     * Setter for the low fill settings using an array, an object or a string (for the range series and Hilo series).
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(com.anychart.graphics.vector.Fill color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s)", (color != null) ? color.getJsBase() : null));
+    }
+    /**
+     * Setter for the low fill settings using an array, an object or a string (for the range series and Hilo series).
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(com.anychart.graphics.vector.GradientKey color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s)", (color != null) ? color.getJsBase() : null));
+    }
+    /**
+     * Setter for the low fill settings using an array, an object or a string (for the range series and Hilo series).
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(String[] color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s)", arrayToStringWrapQuotes(color)));
+    }
+    /**
+     * Low fill color with opacity (for the range series and Hilo series).
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(String color, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s)", wrapQuotes(color), opacity));
+    }
+    /**
+     * Linear gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(com.anychart.graphics.vector.GradientKey keys, Number angle, Boolean mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s)", (keys != null) ? keys.getJsBase() : null, angle, mode, opacity));
+    }
+    /**
+     * Linear gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(com.anychart.graphics.vector.GradientKey keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s)", (keys != null) ? keys.getJsBase() : null, angle, (mode != null) ? mode.getJsBase() : null, opacity));
+    }
+    /**
+     * Linear gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(com.anychart.graphics.vector.GradientKey keys, Number angle, String mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s)", (keys != null) ? keys.getJsBase() : null, angle, wrapQuotes(mode), opacity));
+    }
+    /**
+     * Linear gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(String[] keys, Number angle, Boolean mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys), angle, mode, opacity));
+    }
+    /**
+     * Linear gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(String[] keys, Number angle, com.anychart.graphics.vector.Rect mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys), angle, (mode != null) ? mode.getJsBase() : null, opacity));
+    }
+    /**
+     * Linear gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base lowFill(String[] keys, Number angle, String mode, Number opacity) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys), angle, wrapQuotes(mode), opacity));
+    }
+    /**
+     * Radial gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowFill(com.anychart.graphics.vector.GradientKey keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s, %s, %s, %s);", (keys != null) ? keys.getJsBase() : null, cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
+
+        return this;
+    }
+    /**
+     * Radial gradient low fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowFill(String[] keys, Number cx, Number cy, com.anychart.graphics.math.Rect mode, Number opacity, Number fx, Number fy) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys), cx, cy, (mode != null) ? mode.getJsBase() : null, opacity, fx, fy));
+
+        return this;
+    }
+    /**
+     * Getter for low hatch fill settings (for the range series and Hilo series).
+     */
+    public com.anychart.graphics.vector.PatternFill lowHatchFill() {
+        return new com.anychart.graphics.vector.PatternFill(jsBase + ".lowHatchFill()");
+    }
+    /**
+     * Setter for low hatch fill settings (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowHatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
+
+        return this;
+    }
+    /**
+     * Setter for low hatch fill settings (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowHatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowHatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
+
+        return this;
+    }
+    /**
+     * Setter for low hatch fill settings using function (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowHatchFill(String function) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowHatchFill(%s);", wrapQuotes(function)));
+
+        return this;
+    }
+    /**
+     * Setter for low hatch fill settings using pattern fill (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for low hatch fill settings using an instance (for the range series and Hilo series).
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings lowHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for low hatch fill using boolean.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.StateSettings lowHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowHatchFill(%s);", enabled));
 
         return this;
     }
@@ -1316,14 +1771,6 @@ Double value from 0 to 1.
      */
     public void lowStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".lowStroke();");
-    }
-    /**
-     * Setter for low stroke by function.
-     */
-    public com.anychart.core.StateSettings lowStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for low stroke settings.
@@ -1434,6 +1881,14 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Setter for low stroke using an object.
+     */
+    public com.anychart.core.StateSettings lowStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for lower labels (for pert tasks).
      */
     public com.anychart.core.ui.LabelsFactory lowerLabels() {
@@ -1442,16 +1897,16 @@ Double value from 0 to 1.
     /**
      * Setter for lower labels (for pert tasks).
      */
-    public com.anychart.core.StateSettings lowerLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings lowerLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for lower labels (for pert tasks).
      */
-    public com.anychart.core.StateSettings lowerLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", value));
+    public com.anychart.core.StateSettings lowerLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowerLabels(%s);", settings));
 
         return this;
     }
@@ -1464,16 +1919,16 @@ Double value from 0 to 1.
     /**
      * Setter for data markers.
      */
-    public com.anychart.core.StateSettings markers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings markers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for data markers.
      */
-    public com.anychart.core.StateSettings markers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", value));
+    public com.anychart.core.StateSettings markers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", settings));
 
         return this;
     }
@@ -1504,14 +1959,6 @@ Double value from 0 to 1.
      */
     public void medianStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".medianStroke();");
-    }
-    /**
-     * Setter for the median stroke by function.
-     */
-    public com.anychart.core.StateSettings medianStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".medianStroke(%s);", wrapQuotes(value)));
-
-        return this;
     }
     /**
      * Setter for median stroke settings.
@@ -1622,6 +2069,14 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Setter for median stroke using an object.
+     */
+    public com.anychart.core.StateSettings medianStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".medianStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for minimum labels.
      */
     public com.anychart.core.ui.LabelsFactory minLabels() {
@@ -1650,20 +2105,29 @@ Double value from 0 to 1.
         APIlib.getInstance().addJSLine(jsBase + ".negativeFill();");
     }
     /**
-     * Setter for negative fill settings using an array or a string.
+     * Setter for negative fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings negativeFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.StateSettings negativeFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeFill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for negative fill settings using function.
+     * Setter for negative fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings negativeFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeFill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.StateSettings negativeFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for negative fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings negativeFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -1757,8 +2221,8 @@ Double value from 0 to 1.
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings negativeHatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings negativeHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -1766,45 +2230,55 @@ Double value from 0 to 1.
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings negativeHatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings negativeHatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for negative hatch fill settings.
+     * Setter for negative hatch fill settings using function.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings negativeHatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings negativeHatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for negative hatch fill settings.
+     * Setter for negative hatch fill settings using pattern fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.StateSettings negativeHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings negativeHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for stroke settings.
+     * Setter for negative hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings negativeHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for negative hatch fill using boolean.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.StateSettings negativeHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeHatchFill(%s);", enabled));
+
+        return this;
+    }
+    /**
+     * Getter for negative stroke settings.
      */
     public void negativeStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".negativeStroke();");
     }
     /**
-     * Setter for series stroke by function.
-     */
-    public com.anychart.core.StateSettings negativeStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
-    }
-    /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
@@ -1813,7 +2287,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -1822,7 +2296,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
@@ -1831,7 +2305,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -1840,7 +2314,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
@@ -1849,7 +2323,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -1858,7 +2332,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
@@ -1867,7 +2341,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -1876,7 +2350,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
@@ -1885,7 +2359,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
@@ -1894,7 +2368,7 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
@@ -1903,11 +2377,19 @@ Double value from 0 to 1.
         return this;
     }
     /**
-     * Setter for stroke settings.
+     * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
     public com.anychart.core.StateSettings negativeStroke(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeStroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for negative stroke using an object.
+     */
+    public com.anychart.core.StateSettings negativeStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".negativeStroke(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1922,8 +2404,8 @@ Double value from 0 to 1.
     /**
      * Setter for the normal state.
      */
-    public void normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public void normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
     }
     /**
      * Getter for series outlier markers.
@@ -1934,16 +2416,16 @@ Double value from 0 to 1.
     /**
      * Setter for series outlier markers.
      */
-    public com.anychart.core.StateSettings outlierMarkers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlierMarkers(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings outlierMarkers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlierMarkers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series outlier markers.
      */
-    public com.anychart.core.StateSettings outlierMarkers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlierMarkers(%s);", value));
+    public com.anychart.core.StateSettings outlierMarkers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outlierMarkers(%s);", settings));
 
         return this;
     }
@@ -1956,8 +2438,8 @@ Double value from 0 to 1.
     /**
      * Setter for pie outline settings.
      */
-    public com.anychart.core.StateSettings outline(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outline(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings outline(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".outline(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1974,19 +2456,25 @@ Double value from 0 to 1.
         APIlib.getInstance().addJSLine(jsBase + ".risingFill();");
     }
     /**
-     * Setter for the rising fill settings using an array or a string.
+     * Setter for the rising fill settings using an array, an object or a string.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Base risingFill(com.anychart.graphics.vector.Fill value) {
-        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingFill(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.scrollerseries.Base risingFill(com.anychart.graphics.vector.Fill color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingFill(%s)", (color != null) ? color.getJsBase() : null));
     }
     /**
-     * Setter for the rising fill settings using function.
+     * Setter for the rising fill settings using an array, an object or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.StateSettings risingFill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingFill(%s);", wrapQuotes(fillFunction)));
-
-        return this;
+    public com.anychart.core.stock.scrollerseries.Base risingFill(String color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingFill(%s)", wrapQuotes(color)));
+    }
+    /**
+     * Setter for the rising fill settings using an array, an object or a string.
+{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     */
+    public com.anychart.core.stock.scrollerseries.Base risingFill(String[] color) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingFill(%s)", arrayToStringWrapQuotes(color)));
     }
     /**
      * Rising fill color with opacity.
@@ -2064,50 +2552,57 @@ Double value from 0 to 1.
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(com.anychart.graphics.vector.PatternFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
     }
     /**
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(com.anychart.graphics.vector.HatchFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(String type, String color, Number thickness, Number size) {
+        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", wrapQuotes(type), wrapQuotes(color), thickness, size));
     }
     /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for rising hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(String patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrTypeOrState), wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings risingHatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", wrapQuotes(hatchFillFunction)));
+
+        return this;
     }
     /**
-     * Setter for rising hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for rising hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", (patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings risingHatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
     }
     /**
-     * Setter for rising hatch fill settings.
+     * Setter for rising hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.StateSettings risingHatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for rising hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.stock.scrollerseries.Base risingHatchFill(Boolean patternFillOrTypeOrState, String color, Number thickness, Number size) {
-        return new com.anychart.core.stock.scrollerseries.Base(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %s, %s)", patternFillOrTypeOrState, wrapQuotes(color), thickness, size));
+    public com.anychart.core.StateSettings risingHatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingHatchFill(%s);", enabled));
+
+        return this;
     }
     /**
      * Getter for rising stroke settings.
      */
     public void risingStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".risingStroke();");
-    }
-    /**
-     * Setter for series rising stroke by function.
-     */
-    public com.anychart.core.StateSettings risingStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for rising stroke settings.
@@ -2218,6 +2713,28 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Setter for rising stroke using an object.
+     */
+    public com.anychart.core.StateSettings risingStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".risingStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for the text selectable option.
+     */
+    public void selectable() {
+        APIlib.getInstance().addJSLine(jsBase + ".selectable();");
+    }
+    /**
+     * Setter for the text selectable.
+     */
+    public com.anychart.core.StateSettings selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
+
+        return this;
+    }
+    /**
      * Getter for the selected state.
      */
     public com.anychart.core.StateSettings selected() {
@@ -2228,8 +2745,8 @@ Double value from 0 to 1.
     /**
      * Setter for the selected state.
      */
-    public void selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public void selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
     }
     /**
      * Getter for the marker size.
@@ -2240,8 +2757,8 @@ Double value from 0 to 1.
     /**
      * Setter for the marker size.
      */
-    public com.anychart.core.StateSettings size(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", value));
+    public com.anychart.core.StateSettings size(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".size(%s);", size));
 
         return this;
     }
@@ -2250,14 +2767,6 @@ Double value from 0 to 1.
      */
     public void stemStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stemStroke();");
-    }
-    /**
-     * Setter for the stem stroke by function.
-     */
-    public com.anychart.core.StateSettings stemStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stemStroke(%s);", wrapQuotes(value)));
-
-        return this;
     }
     /**
      * Setter for stem stroke settings.
@@ -2368,18 +2877,18 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Setter for stem stroke using an object.
+     */
+    public com.anychart.core.StateSettings stemStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stemStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for stroke settings.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for stroke by function.
-     */
-    public com.anychart.core.StateSettings stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for stroke settings.
@@ -2490,16 +2999,83 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Setter for stroke settings using an object.
+     */
+    public com.anychart.core.StateSettings stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Getter for the button text direction.
+     */
+    public void textDirection() {
+        APIlib.getInstance().addJSLine(jsBase + ".textDirection();");
+    }
+    /**
+     * Setter for the button text direction.
+     */
+    public com.anychart.core.StateSettings textDirection(com.anychart.graphics.vector.text.Direction direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", (direction != null) ? direction.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the button text direction.
+     */
+    public com.anychart.core.StateSettings textDirection(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(direction)));
+
+        return this;
+    }
+    /**
+     * Getter for the button text indent.
+     */
+    public void textIndent() {
+        APIlib.getInstance().addJSLine(jsBase + ".textIndent();");
+    }
+    /**
+     * Setter for the button text indent.
+     */
+    public com.anychart.core.StateSettings textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
+
+        return this;
+    }
+    /**
+     * Getter for the text overflow settings.
+     */
+    public void textOverflow() {
+        APIlib.getInstance().addJSLine(jsBase + ".textOverflow();");
+    }
+    /**
+     * Setter for the text overflow settings.
+     */
+    public com.anychart.core.StateSettings textOverflow(com.anychart.graphics.vector.text.TextOverflow value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textOverflow(%s);", (value != null) ? value.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the text overflow settings.
+     */
+    public com.anychart.core.StateSettings textOverflow(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textOverflow(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
      * Getter for annotation trend settings.
      */
     public void trend() {
         APIlib.getInstance().addJSLine(jsBase + ".trend();");
     }
     /**
-     * Setter for the annotation trend by function.
+     * Setter for annotation trend settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(String trendFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s);", wrapQuotes(trendFunction)));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -2507,8 +3083,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -2516,8 +3092,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -2525,8 +3101,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -2534,8 +3110,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.Stroke value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -2543,8 +3119,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -2552,8 +3128,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -2561,8 +3137,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (color != null) ? color.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -2570,8 +3146,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(com.anychart.graphics.vector.ColoredFill value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", (value != null) ? value.getJsBase() : null, thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings trend(String color, Number thickness, String dashpattern, String lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
 
         return this;
     }
@@ -2579,8 +3155,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(String value, Number thickness, String dashpattern, String lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), wrapQuotes(lineCap)));
+    public com.anychart.core.StateSettings trend(String color, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -2588,8 +3164,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(String value, Number thickness, String dashpattern, String lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), wrapQuotes(lineJoin), (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings trend(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
 
         return this;
     }
@@ -2597,17 +3173,8 @@ Double value from 0 to 1.
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public com.anychart.core.StateSettings trend(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, String lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, wrapQuotes(lineCap)));
-
-        return this;
-    }
-    /**
-     * Setter for annotation trend settings.
-{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
-     */
-    public com.anychart.core.StateSettings trend(String value, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(value), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
+    public com.anychart.core.StateSettings trend(String color, Number thickness, String dashpattern, com.anychart.graphics.vector.StrokeLineJoin lineJoin, com.anychart.graphics.vector.StrokeLineCap lineCap) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".trend(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
 
         return this;
     }
@@ -2620,16 +3187,16 @@ Double value from 0 to 1.
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.StateSettings type(com.anychart.enums.MarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.StateSettings type(com.anychart.enums.MarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.StateSettings type(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings type(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -2671,16 +3238,52 @@ Double value from 0 to 1.
     /**
      * Setter for upper labels (for pert tasks).
      */
-    public com.anychart.core.StateSettings upperLabels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings upperLabels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for upper labels (for pert tasks).
      */
-    public com.anychart.core.StateSettings upperLabels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", value));
+    public com.anychart.core.StateSettings upperLabels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".upperLabels(%s);", settings));
+
+        return this;
+    }
+    /**
+     * Getter for the useHtml flag.
+     */
+    public void useHtml() {
+        APIlib.getInstance().addJSLine(jsBase + ".useHtml();");
+    }
+    /**
+     * Setter for flag useHtml.
+     */
+    public com.anychart.core.StateSettings useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
+
+        return this;
+    }
+    /**
+     * Getter for the button text vertical align.
+     */
+    public void vAlign() {
+        APIlib.getInstance().addJSLine(jsBase + ".vAlign();");
+    }
+    /**
+     * Setter for the button text vertical align.
+     */
+    public com.anychart.core.StateSettings vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the button text vertical align.
+     */
+    public com.anychart.core.StateSettings vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
@@ -2689,14 +3292,6 @@ Double value from 0 to 1.
      */
     public void whiskerStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".whiskerStroke();");
-    }
-    /**
-     * Setter for the whisker stroke by function.
-     */
-    public com.anychart.core.StateSettings whiskerStroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".whiskerStroke(%s);", wrapQuotes(value)));
-
-        return this;
     }
     /**
      * Setter for whisker stroke settings.
@@ -2807,6 +3402,14 @@ Double value from 0 to 1.
         return this;
     }
     /**
+     * Setter for whisker stroke using an object.
+     */
+    public com.anychart.core.StateSettings whiskerStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".whiskerStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the whisker width.
      */
     public void whiskerWidth() {
@@ -2815,16 +3418,16 @@ Double value from 0 to 1.
     /**
      * Setter for the whisker width.
      */
-    public com.anychart.core.StateSettings whiskerWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".whiskerWidth(%s);", value));
+    public com.anychart.core.StateSettings whiskerWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".whiskerWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the whisker width.
      */
-    public com.anychart.core.StateSettings whiskerWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".whiskerWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.StateSettings whiskerWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".whiskerWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -2847,6 +3450,58 @@ Double value from 0 to 1.
      */
     public com.anychart.core.StateSettings width(Number width) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
+
+        return this;
+    }
+    /**
+     * Getter for the word-break mode.
+     */
+    public void wordBreak() {
+        APIlib.getInstance().addJSLine(jsBase + ".wordBreak();");
+    }
+    /**
+     * Setter for the word-break mode.
+     */
+    public com.anychart.core.StateSettings wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the word-break mode.
+     */
+    public com.anychart.core.StateSettings wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
+
+        return this;
+    }
+    /**
+     * Getter for the word-wrap mode.
+     */
+    public void wordWrap() {
+        APIlib.getInstance().addJSLine(jsBase + ".wordWrap();");
+    }
+    /**
+     * Setter for the word-wrap mode.
+     */
+    public com.anychart.core.StateSettings wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the word-wrap mode.
+     */
+    public com.anychart.core.StateSettings wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.StateSettings fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

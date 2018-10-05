@@ -59,8 +59,8 @@ public class OrdinalTicks extends Base {
      * Setter for ticks interval value.<br/>
 Passed value is rounded and defaults to 1 in case of incorrect settings.
      */
-    public com.anychart.scales.OrdinalTicks interval(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interval(%s);", value));
+    public com.anychart.scales.OrdinalTicks interval(Number interval) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interval(%s);", interval));
 
         return this;
     }
@@ -73,8 +73,8 @@ Passed value is rounded and defaults to 1 in case of incorrect settings.
     /**
      * Setter for maximum ticks count.
      */
-    public com.anychart.scales.OrdinalTicks maxCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxCount(%s);", value));
+    public com.anychart.scales.OrdinalTicks maxCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxCount(%s);", count));
 
         return this;
     }
@@ -87,8 +87,8 @@ Passed value is rounded and defaults to 1 in case of incorrect settings.
     /**
      * Setter for the tick names.
      */
-    public com.anychart.scales.OrdinalTicks names(String[] values) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(values)));
+    public com.anychart.scales.OrdinalTicks names(String[] names) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(names)));
 
         return this;
     }

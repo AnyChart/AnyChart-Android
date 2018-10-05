@@ -47,16 +47,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the background.
      */
-    public com.anychart.core.resource.ResourceList background(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList background(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the background.
      */
-    public com.anychart.core.resource.ResourceList background(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", value));
+    public com.anychart.core.resource.ResourceList background(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".background(%s);", settings));
 
         return this;
     }
@@ -69,16 +69,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.resource.ResourceList bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.resource.ResourceList bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.resource.ResourceList bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -91,24 +91,24 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.resource.ResourceList bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.ResourceList bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.resource.ResourceList bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.ResourceList bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.resource.ResourceList bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.ResourceList bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -249,8 +249,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for descriptions.
      */
-    public com.anychart.core.resource.ResourceList descriptions(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".descriptions(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList descriptions(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".descriptions(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -263,8 +263,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the bottom line drawing flag.
      */
-    public com.anychart.core.resource.ResourceList drawBottomLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawBottomLine(%s);", value));
+    public com.anychart.core.resource.ResourceList drawBottomLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawBottomLine(%s);", enabled));
 
         return this;
     }
@@ -277,8 +277,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the left line drawing flag.
      */
-    public com.anychart.core.resource.ResourceList drawLeftLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLeftLine(%s);", value));
+    public com.anychart.core.resource.ResourceList drawLeftLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLeftLine(%s);", enabled));
 
         return this;
     }
@@ -291,8 +291,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the right line drawing flag.
      */
-    public com.anychart.core.resource.ResourceList drawRightLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawRightLine(%s);", value));
+    public com.anychart.core.resource.ResourceList drawRightLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawRightLine(%s);", enabled));
 
         return this;
     }
@@ -305,8 +305,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the top line drawing flag.
      */
-    public com.anychart.core.resource.ResourceList drawTopLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawTopLine(%s);", value));
+    public com.anychart.core.resource.ResourceList drawTopLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawTopLine(%s);", enabled));
 
         return this;
     }
@@ -319,8 +319,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.resource.ResourceList enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.resource.ResourceList enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -331,11 +331,29 @@ public class ResourceList extends VisualBaseWithBounds {
         APIlib.getInstance().addJSLine(jsBase + ".evenFill();");
     }
     /**
-     * Setter for even fill settings using an array or a string.
+     * Setter for even fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.resource.ResourceList evenFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".evenFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.ResourceList evenFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".evenFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for even fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.resource.ResourceList evenFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".evenFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for even fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.resource.ResourceList evenFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".evenFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -434,16 +452,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.resource.ResourceList height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.resource.ResourceList height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.resource.ResourceList height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -456,8 +474,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for images.
      */
-    public com.anychart.core.resource.ResourceList images(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".images(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList images(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".images(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -470,16 +488,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.resource.ResourceList left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.resource.ResourceList left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.resource.ResourceList left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -492,16 +510,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.resource.ResourceList maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.resource.ResourceList maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.resource.ResourceList maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -514,16 +532,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.resource.ResourceList maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.resource.ResourceList maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.resource.ResourceList maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -536,16 +554,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.resource.ResourceList minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.resource.ResourceList minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.resource.ResourceList minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -558,16 +576,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.resource.ResourceList minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.resource.ResourceList minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.resource.ResourceList minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -580,8 +598,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for names.
      */
-    public com.anychart.core.resource.ResourceList names(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList names(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -592,11 +610,29 @@ public class ResourceList extends VisualBaseWithBounds {
         APIlib.getInstance().addJSLine(jsBase + ".oddFill();");
     }
     /**
-     * Setter for odd fill settings using an array or a string.
+     * Setter for odd fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.resource.ResourceList oddFill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".oddFill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.resource.ResourceList oddFill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".oddFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for odd fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.resource.ResourceList oddFill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".oddFill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for odd fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.resource.ResourceList oddFill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".oddFill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -689,16 +725,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the overlay element.
      */
-    public com.anychart.core.resource.ResourceList overlay(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList overlay(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the overlay element.
      */
-    public com.anychart.core.resource.ResourceList overlay(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", value));
+    public com.anychart.core.resource.ResourceList overlay(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".overlay(%s);", settings));
 
         return this;
     }
@@ -729,16 +765,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.resource.ResourceList right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.resource.ResourceList right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.resource.ResourceList right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -857,6 +893,14 @@ public class ResourceList extends VisualBaseWithBounds {
         return this;
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.resource.ResourceList stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for tags.
      */
     public com.anychart.core.resource.resourcelist.TagsSettings tags() {
@@ -865,8 +909,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for tags.
      */
-    public com.anychart.core.resource.ResourceList tags(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tags(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList tags(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tags(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -879,16 +923,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.resource.ResourceList top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.resource.ResourceList top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.resource.ResourceList top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -901,8 +945,8 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for types.
      */
-    public com.anychart.core.resource.ResourceList types(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".types(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList types(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".types(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -944,16 +988,16 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.resource.ResourceList width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.resource.ResourceList width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.resource.ResourceList width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.resource.ResourceList width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -966,16 +1010,81 @@ public class ResourceList extends VisualBaseWithBounds {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.resource.ResourceList zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.resource.ResourceList zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
-     * 
+     * Getter for the container.
      */
-    public com.anychart.core.resource.ResourceList stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.resource.ResourceList container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.resource.ResourceList container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.resource.ResourceList container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.ResourceList parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.ResourceList parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.ResourceList parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.resource.ResourceList parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }

@@ -47,19 +47,19 @@ public class DMI extends JsObject {
     /**
      * Setter for the ADX period.
      */
-    public com.anychart.core.stock.indicators.DMI adxPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".adxPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.DMI adxPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".adxPeriod(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator ADX series.
+     * Getter for the indicator ADX series instance.
      */
     public com.anychart.core.stock.series.Base adxSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".adxSeries()");
     }
     /**
-     * Setter for the indicator ADX series.
+     * Setter for the indicator ADX series type.
      */
     public com.anychart.core.stock.indicators.DMI adxSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".adxSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -67,7 +67,7 @@ public class DMI extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator ADX series.
+     * Setter for the indicator ADX series type.
      */
     public com.anychart.core.stock.indicators.DMI adxSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".adxSeries(%s);", wrapQuotes(type)));
@@ -75,13 +75,13 @@ public class DMI extends JsObject {
         return this;
     }
     /**
-     * Getter for the indicator -DI series.
+     * Getter for the indicator -DI series instance.
      */
     public com.anychart.core.stock.series.Base ndiSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".ndiSeries()");
     }
     /**
-     * Setter for the indicator -DI series.
+     * Setter for the indicator -DI series type.
      */
     public com.anychart.core.stock.indicators.DMI ndiSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ndiSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -89,7 +89,7 @@ public class DMI extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator -DI series.
+     * Setter for the indicator -DI series type.
      */
     public com.anychart.core.stock.indicators.DMI ndiSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ndiSeries(%s);", wrapQuotes(type)));
@@ -97,13 +97,13 @@ public class DMI extends JsObject {
         return this;
     }
     /**
-     * Getter for the indicator +DI series.
+     * Getter for the indicator +DI series instance.
      */
     public com.anychart.core.stock.series.Base pdiSeries() {
         return new com.anychart.core.stock.series.Base(jsBase + ".pdiSeries()");
     }
     /**
-     * Setter for the indicator +DI series.
+     * Setter for the indicator +DI series type.
      */
     public com.anychart.core.stock.indicators.DMI pdiSeries(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pdiSeries(%s);", (type != null) ? type.getJsBase() : null));
@@ -111,7 +111,7 @@ public class DMI extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator +DI series.
+     * Setter for the indicator +DI series type.
      */
     public com.anychart.core.stock.indicators.DMI pdiSeries(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".pdiSeries(%s);", wrapQuotes(type)));
@@ -127,8 +127,8 @@ public class DMI extends JsObject {
     /**
      * Setter for the period.
      */
-    public com.anychart.core.stock.indicators.DMI period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.DMI period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
@@ -141,8 +141,8 @@ public class DMI extends JsObject {
     /**
      * Getter and setter for the Wilders smoothing.
      */
-    public com.anychart.core.stock.indicators.DMI useWildersSmoothing(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useWildersSmoothing(%s);", value));
+    public com.anychart.core.stock.indicators.DMI useWildersSmoothing(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useWildersSmoothing(%s);", enabled));
 
         return this;
     }

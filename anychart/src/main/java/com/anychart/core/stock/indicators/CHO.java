@@ -47,8 +47,8 @@ public class CHO extends JsObject {
     /**
      * Setter for the fast period.
      */
-    public com.anychart.core.stock.indicators.CHO fastPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fastPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.CHO fastPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fastPeriod(%s);", period));
 
         return this;
     }
@@ -61,27 +61,27 @@ public class CHO extends JsObject {
     /**
      * Setter for the indicator smoothing type.
      */
-    public com.anychart.core.stock.indicators.CHO maType(com.anychart.enums.MovingAverageType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maType(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.indicators.CHO maType(com.anychart.enums.MovingAverageType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maType(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the indicator smoothing type.
      */
-    public com.anychart.core.stock.indicators.CHO maType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maType(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.indicators.CHO maType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maType(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
-     * Getter for the indicator series.
+     * Getter for the indicator series instance.
      */
     public com.anychart.core.stock.series.Base series() {
         return new com.anychart.core.stock.series.Base(jsBase + ".series()");
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.CHO series(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.getJsBase() : null));
@@ -89,7 +89,7 @@ public class CHO extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.CHO series(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", wrapQuotes(type)));
@@ -105,8 +105,8 @@ public class CHO extends JsObject {
     /**
      * Setter for the slow period.
      */
-    public com.anychart.core.stock.indicators.CHO slowPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".slowPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.CHO slowPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".slowPeriod(%s);", period));
 
         return this;
     }

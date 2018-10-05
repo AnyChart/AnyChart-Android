@@ -76,10 +76,10 @@ public class Controller extends Base {
         return new com.anychart.core.utils.Connector(jsBase + ".connector()");
     }
     /**
-     * Setter for the connector length.
+     * Setter for the connector settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller connector(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller connector(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -98,16 +98,16 @@ public class Controller extends Base {
     /**
      * Setter for the direction.
      */
-    public com.anychart.core.stock.eventmarkers.Controller direction(com.anychart.enums.EventMarkerDirection value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller direction(com.anychart.enums.EventMarkerDirection direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", (direction != null) ? direction.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the direction.
      */
-    public com.anychart.core.stock.eventmarkers.Controller direction(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller direction(String direction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(direction)));
 
         return this;
     }
@@ -120,8 +120,8 @@ public class Controller extends Base {
     /**
      * Setter for the pointer events setting.
      */
-    public com.anychart.core.stock.eventmarkers.Controller disablePointerEvents(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller disablePointerEvents(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".disablePointerEvents(%s);", enabled));
 
         return this;
     }
@@ -135,8 +135,8 @@ public class Controller extends Base {
      * Setter for the fieldName.<br/>
 <b>Note</b>: Sets a series field name for all {@link anychart.core.stock.eventMarkers.Controller#position} values with exception of "axis" value.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fieldName(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fieldName(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fieldName(String name) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fieldName(%s);", wrapQuotes(name)));
 
         return this;
     }
@@ -147,19 +147,29 @@ public class Controller extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.eventmarkers.Controller fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.stock.eventmarkers.Controller fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.stock.eventmarkers.Controller fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.stock.eventmarkers.Controller fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -252,8 +262,8 @@ public class Controller extends Base {
     /**
      * Setter for font color settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontColor(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontColor(String color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(color)));
 
         return this;
     }
@@ -266,16 +276,16 @@ public class Controller extends Base {
     /**
      * Setter for font decoration settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontDecoration(com.anychart.graphics.vector.text.Decoration value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller fontDecoration(com.anychart.graphics.vector.text.Decoration type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for font decoration settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontDecoration(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontDecoration(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(type)));
 
         return this;
     }
@@ -288,8 +298,8 @@ public class Controller extends Base {
     /**
      * Setter for font family settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontFamily(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontFamily(String family) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(family)));
 
         return this;
     }
@@ -302,8 +312,8 @@ public class Controller extends Base {
     /**
      * Setter for font opacity settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontOpacity(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller fontOpacity(Number opacity) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontOpacity(%s);", opacity));
 
         return this;
     }
@@ -316,16 +326,16 @@ public class Controller extends Base {
     /**
      * Setter for the font padding.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontPadding(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller fontPadding(Number padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", padding));
 
         return this;
     }
     /**
      * Setter for the font padding.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontPadding(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontPadding(String padding) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(padding)));
 
         return this;
     }
@@ -338,16 +348,16 @@ public class Controller extends Base {
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller fontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for font size settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -360,16 +370,16 @@ public class Controller extends Base {
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontStyle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontStyle(String style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(style)));
 
         return this;
     }
     /**
      * Setter for font style settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontStyle(com.anychart.graphics.vector.text.FontStyle value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller fontStyle(com.anychart.graphics.vector.text.FontStyle style) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontStyle(%s);", (style != null) ? style.getJsBase() : null));
 
         return this;
     }
@@ -404,16 +414,16 @@ public class Controller extends Base {
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontWeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller fontWeight(String weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(weight)));
 
         return this;
     }
     /**
      * Setter for font weight settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller fontWeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller fontWeight(Number weight) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fontWeight(%s);", weight));
 
         return this;
     }
@@ -426,8 +436,8 @@ public class Controller extends Base {
     /**
      * Setter for function content text for the tooltip.<br/>
      */
-    public com.anychart.core.stock.eventmarkers.Controller format(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller format(String format) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".format(%s);", wrapQuotes(format)));
 
         return this;
     }
@@ -440,48 +450,48 @@ public class Controller extends Base {
     /**
      * Setter for the group.
      */
-    public com.anychart.core.stock.eventmarkers.Controller group(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller group(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the group.
      */
-    public com.anychart.core.stock.eventmarkers.Controller group(String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s);", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller group(String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s);", arrayToStringWrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the group.
      */
-    public com.anychart.core.stock.eventmarkers.Controller group(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller group(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the group by index.
      */
-    public com.anychart.core.stock.eventmarkers.Controller group(Number index, String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s, %s);", index, wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller group(Number index, String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s, %s);", index, wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the group by index.
      */
-    public com.anychart.core.stock.eventmarkers.Controller group(Number index, String[] value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s, %s);", index, arrayToStringWrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller group(Number index, String[] settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s, %s);", index, arrayToStringWrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the group by index.
      */
-    public com.anychart.core.stock.eventmarkers.Controller group(Number index, Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s, %s);", index, value));
+    public com.anychart.core.stock.eventmarkers.Controller group(Number index, Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".group(%s, %s);", index, settings));
 
         return this;
     }
@@ -494,16 +504,16 @@ public class Controller extends Base {
     /**
      * Setter for the horizontal align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller hAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller hAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for the horizontal align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller hAlign(com.anychart.graphics.vector.text.HAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller hAlign(com.anychart.graphics.vector.text.HAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -516,16 +526,16 @@ public class Controller extends Base {
     /**
      * Setter for the markers height.
      */
-    public com.anychart.core.stock.eventmarkers.Controller height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
      * Setter for the markers height.
      */
-    public com.anychart.core.stock.eventmarkers.Controller height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
@@ -538,8 +548,8 @@ public class Controller extends Base {
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -552,8 +562,8 @@ public class Controller extends Base {
     /**
      * Setter for text letter spacing settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller letterSpacing(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller letterSpacing(Number spacing) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".letterSpacing(%s);", spacing));
 
         return this;
     }
@@ -588,16 +598,16 @@ public class Controller extends Base {
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Controller maxFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller maxFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Controller maxFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller maxFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -610,16 +620,16 @@ public class Controller extends Base {
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Controller minFontSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller minFontSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public com.anychart.core.stock.eventmarkers.Controller minFontSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller minFontSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -632,8 +642,8 @@ public class Controller extends Base {
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -646,16 +656,16 @@ public class Controller extends Base {
     /**
      * Setter for the position.
      */
-    public com.anychart.core.stock.eventmarkers.Controller position(com.anychart.enums.EventMarkerPosition value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller position(com.anychart.enums.EventMarkerPosition position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", (position != null) ? position.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the position.
      */
-    public com.anychart.core.stock.eventmarkers.Controller position(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller position(String position) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position)));
 
         return this;
     }
@@ -674,8 +684,8 @@ public class Controller extends Base {
     /**
      * Setter for the text selectable option.
      */
-    public com.anychart.core.stock.eventmarkers.Controller selectable(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller selectable(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectable(%s);", enabled));
 
         return this;
     }
@@ -688,8 +698,8 @@ public class Controller extends Base {
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -703,8 +713,22 @@ public class Controller extends Base {
      * Setter for the seriesId.<br/>
 <b>Note</b>: Sets a series by id for all {@link anychart.core.stock.eventMarkers.Controller#position} values with exception of "axis" value.
      */
-    public com.anychart.core.stock.eventmarkers.Controller seriesId(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesId(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller seriesId(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesId(%s);", wrapQuotes(id)));
+
+        return this;
+    }
+    /**
+     * Getter for sticking event markers to left value.
+     */
+    public void stickToLeft() {
+        APIlib.getInstance().addJSLine(jsBase + ".stickToLeft();");
+    }
+    /**
+     * Setter for sticking event markers to left value.
+     */
+    public com.anychart.core.stock.eventmarkers.Controller stickToLeft(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stickToLeft(%s);", enabled));
 
         return this;
     }
@@ -713,12 +737,6 @@ public class Controller extends Base {
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for series stroke by function.
-     */
-    public com.anychart.core.map.series.Base stroke(String strokeFunction) {
-        return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s)", wrapQuotes(strokeFunction)));
     }
     /**
      * Setter for series stroke settings.
@@ -777,6 +795,14 @@ public class Controller extends Base {
         return new com.anychart.core.map.series.Base(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), (lineJoin != null) ? lineJoin.getJsBase() : null, (lineCap != null) ? lineCap.getJsBase() : null));
     }
     /**
+     * Setter for stroke using an object.
+     */
+    public com.anychart.core.stock.eventmarkers.Controller stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the text direction settings.
      */
     public void textDirection() {
@@ -807,8 +833,8 @@ public class Controller extends Base {
     /**
      * Setter for text-indent settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller textIndent(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller textIndent(Number indent) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".textIndent(%s);", indent));
 
         return this;
     }
@@ -843,16 +869,16 @@ public class Controller extends Base {
     /**
      * Setter for tooltip settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller tooltip(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller tooltip(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for tooltip settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller tooltip(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller tooltip(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".tooltip(%s);", settings));
 
         return this;
     }
@@ -865,16 +891,16 @@ public class Controller extends Base {
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.stock.eventmarkers.Controller type(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller type(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
      * Setter for the marker type.
      */
-    public com.anychart.core.stock.eventmarkers.Controller type(com.anychart.enums.EventMarkerType value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller type(com.anychart.enums.EventMarkerType type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".type(%s);", (type != null) ? type.getJsBase() : null));
 
         return this;
     }
@@ -916,8 +942,8 @@ public class Controller extends Base {
     /**
      * Setter for the useHTML flag.
      */
-    public com.anychart.core.stock.eventmarkers.Controller useHtml(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller useHtml(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".useHtml(%s);", enabled));
 
         return this;
     }
@@ -930,16 +956,16 @@ public class Controller extends Base {
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller vAlign(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller vAlign(String align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(align)));
 
         return this;
     }
     /**
      * Setter for text vertical align settings.
      */
-    public com.anychart.core.stock.eventmarkers.Controller vAlign(com.anychart.graphics.vector.text.VAlign value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller vAlign(com.anychart.graphics.vector.text.VAlign align) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vAlign(%s);", (align != null) ? align.getJsBase() : null));
 
         return this;
     }
@@ -952,16 +978,16 @@ public class Controller extends Base {
     /**
      * Setter for the markers width.
      */
-    public com.anychart.core.stock.eventmarkers.Controller width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
     /**
      * Setter for the markers width.
      */
-    public com.anychart.core.stock.eventmarkers.Controller width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.stock.eventmarkers.Controller width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
@@ -974,16 +1000,16 @@ public class Controller extends Base {
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.stock.eventmarkers.Controller wordBreak(com.anychart.enums.WordBreak value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller wordBreak(com.anychart.enums.WordBreak mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-break mode.
      */
-    public com.anychart.core.stock.eventmarkers.Controller wordBreak(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller wordBreak(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -996,16 +1022,16 @@ public class Controller extends Base {
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.stock.eventmarkers.Controller wordWrap(com.anychart.enums.WordWrap value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.stock.eventmarkers.Controller wordWrap(com.anychart.enums.WordWrap mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the word-wrap mode.
      */
-    public com.anychart.core.stock.eventmarkers.Controller wordWrap(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(value)));
+    public com.anychart.core.stock.eventmarkers.Controller wordWrap(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -1026,6 +1052,14 @@ public class Controller extends Base {
      */
     public com.anychart.data.TableMapping data(List<DataEntry> data, String fillMethod) {
         return new com.anychart.data.TableMapping(String.format(Locale.US, jsBase + ".data(%s, %s)", arrayToString(data), wrapQuotes(fillMethod)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.stock.eventmarkers.Controller fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

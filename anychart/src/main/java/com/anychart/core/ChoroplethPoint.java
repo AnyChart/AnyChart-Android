@@ -132,8 +132,8 @@ public class ChoroplethPoint extends SeriesPoint {
     /**
      * Setter for the hover point state.
      */
-    public com.anychart.core.ChoroplethPoint hovered(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", value));
+    public com.anychart.core.ChoroplethPoint hovered(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", enabled));
 
         return this;
     }
@@ -147,8 +147,8 @@ public class ChoroplethPoint extends SeriesPoint {
      * Setter for the X center of the point label.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public com.anychart.core.ChoroplethPoint middleX(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleX(%s);", value));
+    public com.anychart.core.ChoroplethPoint middleX(Number xCoord) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleX(%s);", xCoord));
 
         return this;
     }
@@ -162,8 +162,8 @@ public class ChoroplethPoint extends SeriesPoint {
      * Setter for the Y center of the point label.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public com.anychart.core.ChoroplethPoint middleY(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleY(%s);", value));
+    public com.anychart.core.ChoroplethPoint middleY(Number yCoord) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleY(%s);", yCoord));
 
         return this;
     }
@@ -177,8 +177,8 @@ public class ChoroplethPoint extends SeriesPoint {
      * Scales point.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public com.anychart.core.ChoroplethPoint scaleFactor(Number scale) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleFactor(%s);", scale));
+    public com.anychart.core.ChoroplethPoint scaleFactor(Number scaleFactor) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scaleFactor(%s);", scaleFactor));
 
         return this;
     }
@@ -191,8 +191,8 @@ public class ChoroplethPoint extends SeriesPoint {
     /**
      * Setter for the select series point state.
      */
-    public com.anychart.core.ChoroplethPoint selected(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", value));
+    public com.anychart.core.ChoroplethPoint selected(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", enabled));
 
         return this;
     }

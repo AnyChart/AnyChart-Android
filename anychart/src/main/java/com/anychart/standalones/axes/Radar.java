@@ -47,24 +47,24 @@ public class Radar extends JsObject {
     /**
      * Setter for the axis container.
      */
-    public com.anychart.standalones.axes.Radar container(com.anychart.graphics.vector.Layer value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Radar container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis container.
      */
-    public com.anychart.standalones.axes.Radar container(com.anychart.graphics.vector.Stage value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Radar container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis container.
      */
-    public com.anychart.standalones.axes.Radar container(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
 
         return this;
     }
@@ -85,8 +85,8 @@ public class Radar extends JsObject {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.standalones.axes.Radar enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.standalones.axes.Radar enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -105,16 +105,16 @@ public class Radar extends JsObject {
     /**
      * Setter for axis labels.
      */
-    public com.anychart.standalones.axes.Radar labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis labels.
      */
-    public com.anychart.standalones.axes.Radar labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.standalones.axes.Radar labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -127,16 +127,16 @@ public class Radar extends JsObject {
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.axes.Radar parentBounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Radar parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds using single value.
      */
-    public com.anychart.standalones.axes.Radar parentBounds(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
 
         return this;
     }
@@ -175,24 +175,24 @@ public class Radar extends JsObject {
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.axes.Radar scale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Radar scale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.axes.Radar scale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.standalones.axes.Radar scale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the axis scale.
      */
-    public com.anychart.standalones.axes.Radar scale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar scale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -205,16 +205,16 @@ public class Radar extends JsObject {
     /**
      * Setter for a start angle.
      */
-    public com.anychart.standalones.axes.Radar startAngle(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startAngle(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar startAngle(String angle) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startAngle(%s);", wrapQuotes(angle)));
 
         return this;
     }
     /**
      * Setter for a start angle.
      */
-    public com.anychart.standalones.axes.Radar startAngle(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startAngle(%s);", value));
+    public com.anychart.standalones.axes.Radar startAngle(Number angle) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startAngle(%s);", angle));
 
         return this;
     }
@@ -333,24 +333,32 @@ public class Radar extends JsObject {
         return this;
     }
     /**
+     * Setter for axis stroke settings using an object.
+     */
+    public com.anychart.standalones.axes.Radar stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for axis ticks.
      */
-    public com.anychart.core.axes.RadialTicks ticks() {
-        return new com.anychart.core.axes.RadialTicks(jsBase + ".ticks()");
+    public com.anychart.core.axes.Ticks ticks() {
+        return new com.anychart.core.axes.Ticks(jsBase + ".ticks()");
     }
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.standalones.axes.Radar ticks(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar ticks(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for axis ticks.
      */
-    public com.anychart.standalones.axes.Radar ticks(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", value));
+    public com.anychart.standalones.axes.Radar ticks(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".ticks(%s);", settings));
 
         return this;
     }
@@ -392,16 +400,8 @@ public class Radar extends JsObject {
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.standalones.axes.Radar zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
-
-        return this;
-    }
-    /**
-     * 
-     */
-    public com.anychart.standalones.axes.Radar stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.standalones.axes.Radar zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }

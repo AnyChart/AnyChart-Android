@@ -47,8 +47,8 @@ public class AMA extends JsObject {
     /**
      * Setter for the fast indicator period.
      */
-    public com.anychart.core.stock.indicators.AMA fastPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fastPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.AMA fastPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fastPeriod(%s);", period));
 
         return this;
     }
@@ -61,19 +61,19 @@ public class AMA extends JsObject {
     /**
      * Setter for the indicator period.
      */
-    public com.anychart.core.stock.indicators.AMA period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.AMA period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator series.
+     * Getter for the indicator series instance.
      */
     public com.anychart.core.stock.series.Base series() {
         return new com.anychart.core.stock.series.Base(jsBase + ".series()");
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.AMA series(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.getJsBase() : null));
@@ -81,7 +81,7 @@ public class AMA extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.AMA series(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", wrapQuotes(type)));
@@ -97,8 +97,8 @@ public class AMA extends JsObject {
     /**
      * Setter for the slow indicator period.
      */
-    public com.anychart.core.stock.indicators.AMA slowPeriod(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".slowPeriod(%s);", value));
+    public com.anychart.core.stock.indicators.AMA slowPeriod(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".slowPeriod(%s);", period));
 
         return this;
     }

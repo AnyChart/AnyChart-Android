@@ -39,7 +39,7 @@ public class RSI extends JsObject {
 
     
     /**
-     * Getter for the current period.
+     * Getter for the period.
      */
     public void period() {
         APIlib.getInstance().addJSLine(jsBase + ".period();");
@@ -47,19 +47,19 @@ public class RSI extends JsObject {
     /**
      * Setter for the period.
      */
-    public com.anychart.core.stock.indicators.RSI period(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", value));
+    public com.anychart.core.stock.indicators.RSI period(Number period) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".period(%s);", period));
 
         return this;
     }
     /**
-     * Getter for the indicator series.
+     * Getter for the indicator RSI series instance.
      */
     public com.anychart.core.stock.series.Base series() {
         return new com.anychart.core.stock.series.Base(jsBase + ".series()");
     }
     /**
-     * Setter for the indicator RSI series.
+     * Setter for the indicator RSI series type.
      */
     public com.anychart.core.stock.indicators.RSI series(com.anychart.enums.StockSeriesType type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", (type != null) ? type.getJsBase() : null));
@@ -67,7 +67,7 @@ public class RSI extends JsObject {
         return this;
     }
     /**
-     * Setter for the indicator RSI series.
+     * Setter for the indicator RSI series type.
      */
     public com.anychart.core.stock.indicators.RSI series(String type) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".series(%s);", wrapQuotes(type)));

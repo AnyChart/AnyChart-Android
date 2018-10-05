@@ -49,8 +49,8 @@ public class ChartCredits extends Base {
     /**
      * Setter for credits alt.
      */
-    public com.anychart.core.ui.ChartCredits alt(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".alt(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.ChartCredits alt(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".alt(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -63,8 +63,8 @@ public class ChartCredits extends Base {
     /**
      * Setter for the credits state.
      */
-    public com.anychart.core.ui.ChartCredits enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.ui.ChartCredits enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -77,8 +77,8 @@ public class ChartCredits extends Base {
     /**
      * Setter for the image alternative text.
      */
-    public com.anychart.core.ui.ChartCredits imgAlt(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".imgAlt(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.ChartCredits imgAlt(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".imgAlt(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -92,8 +92,8 @@ public class ChartCredits extends Base {
      * Setter for credits logo source value.<br/>
 <b>Note:</b> You can't customize credits without <u>a license key</u>. See <a href="https://www.anychart.com/buy/">AnyChart Licensing</a> to learn more.
      */
-    public com.anychart.core.ui.ChartCredits logoSrc(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logoSrc(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.ChartCredits logoSrc(String logoSrc) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".logoSrc(%s);", wrapQuotes(logoSrc)));
 
         return this;
     }
@@ -112,8 +112,8 @@ public class ChartCredits extends Base {
     /**
      * Setter for credits text value.
      */
-    public com.anychart.core.ui.ChartCredits text(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.ChartCredits text(String text) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
 
         return this;
     }
@@ -147,16 +147,16 @@ public class ChartCredits extends Base {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
     }
     /**
-     * Getter for credits url.
+     * Getter for the credits URL.
      */
     public void url() {
         APIlib.getInstance().addJSLine(jsBase + ".url();");
     }
     /**
-     * Setter for credits url.
+     * Setter for the credits URL.
      */
-    public com.anychart.core.ui.ChartCredits url(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".url(%s);", wrapQuotes(value)));
+    public com.anychart.core.ui.ChartCredits url(String url) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".url(%s);", wrapQuotes(url)));
 
         return this;
     }

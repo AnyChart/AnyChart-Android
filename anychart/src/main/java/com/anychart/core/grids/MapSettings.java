@@ -47,8 +47,8 @@ public class MapSettings extends Base {
     /**
      * Setter for the first line drawing.
      */
-    public com.anychart.core.grids.MapSettings drawFirstLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLine(%s);", value));
+    public com.anychart.core.grids.MapSettings drawFirstLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawFirstLine(%s);", enabled));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class MapSettings extends Base {
     /**
      * Setter for the last line drawing.
      */
-    public com.anychart.core.grids.MapSettings drawLastLine(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLine(%s);", value));
+    public com.anychart.core.grids.MapSettings drawLastLine(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".drawLastLine(%s);", enabled));
 
         return this;
     }
@@ -75,8 +75,8 @@ public class MapSettings extends Base {
     /**
      * Setter for the grid enabled state.
      */
-    public com.anychart.core.grids.MapSettings enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.grids.MapSettings enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -87,19 +87,31 @@ public class MapSettings extends Base {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an array or a string.
+     * Setter for fill settings using an array, an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.grids.MapSettings fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.MapSettings fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.grids.Map fill(String fillFunction) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".fill(%s)", wrapQuotes(fillFunction)));
+    public com.anychart.core.grids.MapSettings fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an array, an object or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.grids.MapSettings fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
+
+        return this;
     }
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -190,16 +202,16 @@ public class MapSettings extends Base {
     /**
      * Setter for the horizontal grid.
      */
-    public com.anychart.core.grids.MapSettings horizontal(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontal(%s);", value));
+    public com.anychart.core.grids.MapSettings horizontal(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontal(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the horizontal grid.
      */
-    public com.anychart.core.grids.MapSettings horizontal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontal(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.MapSettings horizontal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".horizontal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -318,6 +330,14 @@ public class MapSettings extends Base {
         return this;
     }
     /**
+     * Setter for grid stroke using an object.
+     */
+    public com.anychart.core.grids.MapSettings minorStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minorStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for the colors palette.
      */
     public com.anychart.palettes.RangeColors palette() {
@@ -326,26 +346,26 @@ public class MapSettings extends Base {
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(com.anychart.palettes.RangeColors value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map palette(com.anychart.palettes.RangeColors settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(com.anychart.palettes.DistinctColors value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.grids.Map palette(com.anychart.palettes.DistinctColors settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", (settings != null) ? settings.getJsBase() : null));
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(String value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(value)));
+    public com.anychart.core.grids.Map palette(String settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(settings)));
     }
     /**
      * Setter for the grid colors palette.
      */
-    public com.anychart.core.grids.Map palette(String[] value) {
-        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(value)));
+    public com.anychart.core.grids.Map palette(String[] settings) {
+        return new com.anychart.core.grids.Map(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(settings)));
     }
     /**
      * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
@@ -467,6 +487,14 @@ public class MapSettings extends Base {
 
         return this;
     }
+    /**
+     * Setter for the grid stroke using an object.
+     */
+    public com.anychart.core.grids.MapSettings stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
@@ -505,16 +533,16 @@ public class MapSettings extends Base {
     /**
      * Setter for the vertical grid.
      */
-    public com.anychart.core.grids.MapSettings vertical(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vertical(%s);", value));
+    public com.anychart.core.grids.MapSettings vertical(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vertical(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the vertical grid.
      */
-    public com.anychart.core.grids.MapSettings vertical(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vertical(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.MapSettings vertical(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".vertical(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -527,24 +555,24 @@ public class MapSettings extends Base {
     /**
      * Setter for the grid zIndex.
      */
-    public com.anychart.core.grids.MapSettings zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.grids.MapSettings zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
     }
     /**
      * Setter for the grid zIndex.
      */
-    public com.anychart.core.grids.MapSettings zIndex(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.MapSettings zIndex(String zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", wrapQuotes(zIndex)));
 
         return this;
     }
     /**
      * 
      */
-    public com.anychart.core.grids.MapSettings stroke(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(value)));
+    public com.anychart.core.grids.MapSettings fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
 
         return this;
     }

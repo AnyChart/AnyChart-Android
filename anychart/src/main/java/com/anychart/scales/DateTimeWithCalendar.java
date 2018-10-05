@@ -47,8 +47,8 @@ public class DateTimeWithCalendar extends ScatterBase {
     /**
      * 
      */
-    public com.anychart.scales.DateTimeWithCalendar calendar(com.anychart.scales.Calendar value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".calendar(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.DateTimeWithCalendar calendar(com.anychart.scales.Calendar calendar) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".calendar(%s);", (calendar != null) ? calendar.getJsBase() : null));
 
         return this;
     }
@@ -61,8 +61,8 @@ public class DateTimeWithCalendar extends ScatterBase {
     /**
      * Setter for the unit count.
      */
-    public com.anychart.scales.DateTimeWithCalendar count(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar count(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".count(%s);", count));
 
         return this;
     }
@@ -124,8 +124,8 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
      * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
-    public com.anychart.scales.DateTimeWithCalendar inverted(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar inverted(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".inverted(%s);", enabled));
 
         return this;
     }
@@ -138,8 +138,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum.
      */
-    public com.anychart.scales.DateTimeWithCalendar maximum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar maximum(Number maximum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
 
         return this;
     }
@@ -152,8 +152,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale maximum gap.
      */
-    public com.anychart.scales.DateTime maximumGap(Number value) {
-        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".maximumGap(%s)", value));
+    public com.anychart.scales.DateTime maximumGap(Number gap) {
+        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".maximumGap(%s)", gap));
     }
     /**
      * Getter for the scale minimum.
@@ -164,8 +164,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum.
      */
-    public com.anychart.scales.DateTimeWithCalendar minimum(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar minimum(Number minimum) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
 
         return this;
     }
@@ -178,8 +178,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the scale minimum gap.
      */
-    public com.anychart.scales.DateTime minimumGap(Number value) {
-        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".minimumGap(%s)", value));
+    public com.anychart.scales.DateTime minimumGap(Number gap) {
+        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".minimumGap(%s)", gap));
     }
     /**
      * Transforms pixels to date.
@@ -202,8 +202,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for skipping of holidays.
      */
-    public com.anychart.scales.DateTimeWithCalendar skipHolidays(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".skipHolidays(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar skipHolidays(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".skipHolidays(%s);", enabled));
 
         return this;
     }
@@ -216,8 +216,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the soft maximum.
      */
-    public com.anychart.scales.DateTime softMaximum(Number value) {
-        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".softMaximum(%s)", value));
+    public com.anychart.scales.DateTime softMaximum(Number maximum) {
+        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".softMaximum(%s)", maximum));
     }
     /**
      * Getter for the soft minimum.
@@ -228,8 +228,8 @@ instead of bottom-to-top and left-to-right.
     /**
      * Setter for the soft minimum.
      */
-    public com.anychart.scales.DateTime softMinimum(Number value) {
-        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".softMinimum(%s)", value));
+    public com.anychart.scales.DateTime softMinimum(Number minimum) {
+        return new com.anychart.scales.DateTime(String.format(Locale.US, jsBase + ".softMinimum(%s)", minimum));
     }
     /**
      * Informs scale that an auto-range calculation started for the chart, so it should reset its data range on the first
@@ -249,8 +249,8 @@ call of this method if needed.
     /**
      * 
      */
-    public com.anychart.scales.DateTimeWithCalendar startDate(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startDate(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar startDate(Number date) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startDate(%s);", date));
 
         return this;
     }
@@ -270,16 +270,16 @@ call of this method if needed.
     /**
      * Setter for the unit interval.
      */
-    public com.anychart.scales.DateTimeWithCalendar unit(com.anychart.enums.Interval value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unit(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.scales.DateTimeWithCalendar unit(com.anychart.enums.Interval interval) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unit(%s);", (interval != null) ? interval.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the unit interval.
      */
-    public com.anychart.scales.DateTimeWithCalendar unit(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unit(%s);", wrapQuotes(value)));
+    public com.anychart.scales.DateTimeWithCalendar unit(String interval) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unit(%s);", wrapQuotes(interval)));
 
         return this;
     }
@@ -292,16 +292,16 @@ call of this method if needed.
     /**
      * Setter for the unit size.
      */
-    public com.anychart.scales.DateTimeWithCalendar unitPixSize(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unitPixSize(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar unitPixSize(Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unitPixSize(%s);", size));
 
         return this;
     }
     /**
      * Setter for the unit size.
      */
-    public com.anychart.scales.DateTimeWithCalendar unitPixSize(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unitPixSize(%s);", wrapQuotes(value)));
+    public com.anychart.scales.DateTimeWithCalendar unitPixSize(String size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unitPixSize(%s);", wrapQuotes(size)));
 
         return this;
     }
@@ -371,8 +371,8 @@ call of this method if needed.
     /**
      * Setter for the maximum ticks count.<br/>
      */
-    public com.anychart.scales.DateTimeWithCalendar maxTicksCount(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", value));
+    public com.anychart.scales.DateTimeWithCalendar maxTicksCount(Number count) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", count));
 
         return this;
     }

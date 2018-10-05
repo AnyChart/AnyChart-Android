@@ -56,16 +56,16 @@ public class Interactivity extends Base {
     /**
      * Setter for the hover mode.
      */
-    public com.anychart.core.utils.Interactivity hoverMode(com.anychart.enums.HoverMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Interactivity hoverMode(com.anychart.enums.HoverMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the hover mode.
      */
-    public com.anychart.core.utils.Interactivity hoverMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Interactivity hoverMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -78,8 +78,8 @@ public class Interactivity extends Base {
     /**
      * Setter for the multi-select on click.
      */
-    public com.anychart.core.utils.Interactivity multiSelectOnClick(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".multiSelectOnClick(%s);", value));
+    public com.anychart.core.utils.Interactivity multiSelectOnClick(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".multiSelectOnClick(%s);", enabled));
 
         return this;
     }
@@ -98,16 +98,16 @@ public class Interactivity extends Base {
     /**
      * Setter for the selection mode.
      */
-    public com.anychart.core.utils.Interactivity selectionMode(com.anychart.enums.SelectionMode value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.utils.Interactivity selectionMode(com.anychart.enums.SelectionMode mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (mode != null) ? mode.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the selection mode.
      */
-    public com.anychart.core.utils.Interactivity selectionMode(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
+    public com.anychart.core.utils.Interactivity selectionMode(String mode) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(mode)));
 
         return this;
     }
@@ -122,8 +122,8 @@ public class Interactivity extends Base {
 Size of the area under cursor in pixels for radius hovering.
 <b>Note:</b> Works only with "by-spot" value in the {@link anychart.core.utils.Interactivity#hoverMode} method.
      */
-    public com.anychart.core.utils.Interactivity spotRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".spotRadius(%s);", value));
+    public com.anychart.core.utils.Interactivity spotRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".spotRadius(%s);", radius));
 
         return this;
     }
@@ -166,8 +166,8 @@ Size of the area under cursor in pixels for radius hovering.
      * Setter for the unselectOnClickOutOfPoint.<br/>
 If the value is <b>true<b/>, disables select all points when clicking outside the chart point.
      */
-    public com.anychart.core.utils.Interactivity unselectOnClickOutOfPoint(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%s);", value));
+    public com.anychart.core.utils.Interactivity unselectOnClickOutOfPoint(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%s);", enabled));
 
         return this;
     }

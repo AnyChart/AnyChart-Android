@@ -75,13 +75,20 @@ public class Mapping extends View {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".get(%s, %s);", rowIndex, wrapQuotes(fieldName)));
     }
     /**
+     * Returns parent data sets.
+     */
+    public void getDataSets() {
+        APIlib.getInstance().addJSLine(jsBase + ".getDataSets();");
+    }
+    /**
      * Returns a new iterator for the current view.
      */
     public com.anychart.data.Iterator getIterator() {
         return new com.anychart.data.Iterator(jsBase + ".getIterator()");
     }
     /**
-     * Returns mapping.
+     * Gets the mapping.<br/>
+Returns the set mapping (from the {@link anychart.data.Set#mapAs method}) or the default mapping.
      */
     public void getMapping() {
         APIlib.getInstance().addJSLine(jsBase + ".getMapping();");
@@ -136,16 +143,16 @@ Learn how it works at {@link anychart.data.Iterator#meta}.
     /**
      * Creates a derived view that ensures sorting by a passed field.
      */
-    public com.anychart.data.Mapping sort(String fieldName, String comparator) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), wrapQuotes(comparator)));
+    public com.anychart.data.Mapping sort(String fieldName, com.anychart.enums.Sort order) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), (order != null) ? order.getJsBase() : null));
 
         return this;
     }
     /**
      * Creates a derived view that ensures sorting by a passed field.
      */
-    public com.anychart.data.Mapping sort(String fieldName, com.anychart.enums.Sort order) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), (order != null) ? order.getJsBase() : null));
+    public com.anychart.data.Mapping sort(String fieldName, String order) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName), wrapQuotes(order)));
 
         return this;
     }
@@ -177,12 +184,6 @@ Learn how it works at {@link anychart.data.Iterator#meta}.
      */
     public void unlistenByKey(String key) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
-    }
-    /**
-     * Returns parent data set.
-     */
-    public void getDataSets() {
-        APIlib.getInstance().addJSLine(jsBase + ".getDataSets();");
     }
 
 }

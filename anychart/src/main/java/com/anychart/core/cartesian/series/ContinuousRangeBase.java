@@ -39,6 +39,28 @@ public class ContinuousRangeBase extends ContinuousBase {
 
     
     /**
+     * Getter for the accessibility setting.
+     */
+    public com.anychart.core.utils.SeriesA11y a11y() {
+        return new com.anychart.core.utils.SeriesA11y(jsBase + ".a11y()");
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase a11y(Boolean value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
+
+        return this;
+    }
+    /**
+     * Setter for the accessibility setting.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase a11y(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
      * Getter for element bottom bound settings.
      */
     public void bottom() {
@@ -47,16 +69,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase bottom(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase bottom(Number bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
 
         return this;
     }
     /**
      * Setter for element bottom bound settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase bottom(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase bottom(String bottom) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom)));
 
         return this;
     }
@@ -69,24 +91,24 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase bounds(com.anychart.utils.RectObj value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase bounds(com.anychart.utils.RectObj bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase bounds(com.anychart.math.Rect value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase bounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for bounds of the element using one parameter.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase bounds(com.anychart.core.utils.Bounds value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase bounds(com.anychart.core.utils.Bounds bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".bounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
 
         return this;
     }
@@ -263,8 +285,8 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for connect missing points settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase connectMissingPoints(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectMissingPoints(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase connectMissingPoints(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".connectMissingPoints(%s);", enabled));
 
         return this;
     }
@@ -283,8 +305,8 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -297,24 +319,24 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the series error.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase error(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase error(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series error.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase error(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase error(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", settings));
 
         return this;
     }
     /**
      * Setter for the series error.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase error(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase error(Number settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".error(%s);", settings));
 
         return this;
     }
@@ -331,25 +353,35 @@ public class ContinuousRangeBase extends ContinuousBase {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes)));
     }
     /**
-     * Getter for current series fill color.
+     * Getter for series fill color.
      */
     public void fill() {
         APIlib.getInstance().addJSLine(jsBase + ".fill();");
     }
     /**
-     * Setter for fill settings using an object or a string.
+     * Setter for fill settings using an object, an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for fill settings using function.
+     * Setter for fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase fill(String fillFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fillFunction)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for fill settings using an object, an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -459,7 +491,7 @@ public class ContinuousRangeBase extends ContinuousBase {
         return new com.anychart.core.SeriesPoint(String.format(Locale.US, jsBase + ".getPoint(%s)", index));
     }
     /**
-     * Getter for current hatch fill settings.
+     * Getter for hatch fill settings.
      */
     public com.anychart.graphics.vector.PatternFill hatchFill() {
         return new com.anychart.graphics.vector.PatternFill(jsBase + ".hatchFill()");
@@ -468,8 +500,8 @@ public class ContinuousRangeBase extends ContinuousBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -477,26 +509,44 @@ public class ContinuousRangeBase extends ContinuousBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using function.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(String hatchFillFunction) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", wrapQuotes(hatchFillFunction)));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -509,32 +559,24 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase height(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase height(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", height));
 
         return this;
     }
     /**
      * Setter for element height setting.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase height(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase height(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height)));
 
         return this;
     }
     /**
-     * Getter for current high stroke settings.
+     * Getter for high stroke settings.
      */
     public void highStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".highStroke();");
-    }
-    /**
-     * Setter for series high stroke by function.
-     */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase highStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for high stroke settings.
@@ -645,6 +687,14 @@ public class ContinuousRangeBase extends ContinuousBase {
         return this;
     }
     /**
+     * Setter for high stroke using an object.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase highStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".highStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Hovers points.
      */
     public com.anychart.core.cartesian.series.ContinuousRangeBase hover() {
@@ -677,8 +727,8 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for hovered state settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase hovered(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase hovered(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -691,16 +741,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase id(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase id(String id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
 
         return this;
     }
     /**
      * Setter for the series id.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase id(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase id(Number id) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".id(%s);", id));
 
         return this;
     }
@@ -735,7 +785,7 @@ public class ContinuousRangeBase extends ContinuousBase {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes)));
     }
     /**
-     * Getter for current series data labels.
+     * Getter for series data labels.
      */
     public com.anychart.core.ui.LabelsFactory labels() {
         return new com.anychart.core.ui.LabelsFactory(jsBase + ".labels()");
@@ -743,16 +793,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for series data labels.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase labels(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase labels(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series data labels.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase labels(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase labels(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".labels(%s);", settings));
 
         return this;
     }
@@ -765,16 +815,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase left(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase left(Number left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", left));
 
         return this;
     }
     /**
      * Setter for element left bound settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase left(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase left(String left) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left)));
 
         return this;
     }
@@ -793,18 +843,10 @@ public class ContinuousRangeBase extends ContinuousBase {
         return this;
     }
     /**
-     * Getter for current low stroke settings.
+     * Getter for low stroke settings.
      */
     public void lowStroke() {
         APIlib.getInstance().addJSLine(jsBase + ".lowStroke();");
-    }
-    /**
-     * Setter for series low stroke by function.
-     */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase lowStroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowStroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for low stroke settings.
@@ -915,6 +957,14 @@ public class ContinuousRangeBase extends ContinuousBase {
         return this;
     }
     /**
+     * Setter for low stroke using an object.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase lowStroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".lowStroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
      * Getter for series data markers.
      */
     public com.anychart.core.ui.MarkersFactory markers() {
@@ -923,16 +973,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for series data markers.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase markers(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase markers(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for series data markers.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase markers(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase markers(Boolean settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".markers(%s);", settings));
 
         return this;
     }
@@ -945,16 +995,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase maxHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase maxHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the maximum height.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase maxHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase maxHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -989,16 +1039,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase maxWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase maxWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the maximum width.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase maxWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase maxWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1025,16 +1075,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase minHeight(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase minHeight(Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", height));
 
         return this;
     }
     /**
      * Setter for the minimum height.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase minHeight(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase minHeight(String height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(height)));
 
         return this;
     }
@@ -1069,16 +1119,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase minWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase minWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the minimum width.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase minWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase minWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1105,8 +1155,8 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for normal state settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase normal(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase normal(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1137,16 +1187,16 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase right(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase right(Number right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", right));
 
         return this;
     }
     /**
      * Setter for element right bound setting.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase right(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase right(String right) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right)));
 
         return this;
     }
@@ -1175,8 +1225,8 @@ public class ContinuousRangeBase extends ContinuousBase {
     /**
      * Setter for selected state settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase selected(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase selected(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selected(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1188,7 +1238,7 @@ public class ContinuousRangeBase extends ContinuousBase {
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.cartesian.series.ContinuousRangeBase selectionMode(com.anychart.enums.SelectionMode value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", (value != null) ? value.getJsBase() : null));
@@ -1197,7 +1247,7 @@ To select multiple points, press "ctrl" and click on them.
     }
     /**
      * Allows to select points of the series.
-To select multiple points, press "ctrl" and click on them.
+To select multiple points, press 'ctrl' and click on them.
      */
     public com.anychart.core.cartesian.series.ContinuousRangeBase selectionMode(String value) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(value)));
@@ -1235,16 +1285,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase top(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase top(Number top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", top));
 
         return this;
     }
     /**
      * Setter for element top bound settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase top(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase top(String top) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top)));
 
         return this;
     }
@@ -1332,16 +1382,16 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase width(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase width(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", width));
 
         return this;
     }
     /**
      * Setter for element width setting.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase width(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase width(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -1368,24 +1418,24 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase xScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase xScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase xScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase xScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series X scale.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase xScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase xScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1398,24 +1448,24 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase yScale(com.anychart.scales.Base value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase yScale(com.anychart.scales.Base settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase yScale(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase yScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(settings)));
 
         return this;
     }
     /**
      * Setter for the series Y scale.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase yScale(com.anychart.enums.ScaleTypes value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase yScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".yScale(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -1428,10 +1478,60 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
 
         return this;
+    }
+    /**
+     * Getter for the color scale.
+     */
+    public com.anychart.scales.LinearColor colorScale() {
+        return new com.anychart.scales.LinearColor(jsBase + ".colorScale()");
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase colorScale(com.anychart.scales.LinearColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase colorScale(com.anychart.scales.OrdinalColor settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase colorScale(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
+    /**
+     * Setter for the color scale.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase colorScale(com.anychart.enums.ScaleTypes settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".colorScale(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Gets the statistics value by key.
+     */
+    public void getStat(com.anychart.enums.Statistics key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
+    }
+    /**
+     * Gets the statistics value by key.
+     */
+    public void getStat(String key) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
     }
     /**
      * Getter for the series layout direction.
@@ -1443,8 +1543,8 @@ To select multiple points, press "ctrl" and click on them.
      * Setter for the series layout direction.
 Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Learn more about Vertical chart.{docs}
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase isVertical(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isVertical(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase isVertical(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".isVertical(%s);", enabled));
 
         return this;
     }
@@ -1457,8 +1557,8 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for the series rendering settings.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase rendering(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase rendering(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(settings)));
 
         return this;
     }
@@ -1471,44 +1571,83 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Setter for switching of the series type.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase seriesType(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase seriesType(String type) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(type)));
 
         return this;
     }
     /**
-     * Getter for the accessibility setting.
+     * Getter for the container.
      */
-    public com.anychart.core.utils.SeriesA11y a11y() {
-        return new com.anychart.core.utils.SeriesA11y(jsBase + ".a11y()");
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
     }
     /**
-     * Setter for the accessibility setting.
+     * Setter for the container.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase a11y(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", value));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for the accessibility setting.
+     * Setter for the container.
      */
-    public com.anychart.core.cartesian.series.ContinuousRangeBase a11y(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".a11y(%s);", wrapQuotes(value)));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
 
         return this;
     }
     /**
-     * Getter for the statistics value by key.
+     * Setter for the container.
      */
-    public void getStat(com.anychart.enums.Statistics key) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", (key != null) ? key.getJsBase() : null));
+    public com.anychart.core.cartesian.series.ContinuousRangeBase container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
     }
     /**
-     * Getter for the statistics value by key.
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
      */
-    public void getStat(String key) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
+
+        return this;
     }
     /**
      * 
@@ -1563,6 +1702,14 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
             e.printStackTrace();
         }
         return instance;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.cartesian.series.ContinuousRangeBase fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

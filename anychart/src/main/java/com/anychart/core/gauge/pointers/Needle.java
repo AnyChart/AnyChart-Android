@@ -81,8 +81,8 @@ public class Needle extends Base {
     /**
      * Setter for the element enabled state.
      */
-    public com.anychart.core.gauge.pointers.Needle enabled(Boolean value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle enabled(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".enabled(%s);", enabled));
 
         return this;
     }
@@ -95,16 +95,16 @@ public class Needle extends Base {
     /**
      * Setter for the end radius.
      */
-    public com.anychart.core.gauge.pointers.Needle endRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endRadius(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle endRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endRadius(%s);", radius));
 
         return this;
     }
     /**
      * Setter for the end radius.
      */
-    public com.anychart.core.gauge.pointers.Needle endRadius(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endRadius(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Needle endRadius(String radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endRadius(%s);", wrapQuotes(radius)));
 
         return this;
     }
@@ -117,16 +117,16 @@ public class Needle extends Base {
     /**
      * Setter for the end width.
      */
-    public com.anychart.core.gauge.pointers.Needle endWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endWidth(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle endWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endWidth(%s);", width));
 
         return this;
     }
     /**
      * Setter for the end width.
      */
-    public com.anychart.core.gauge.pointers.Needle endWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Needle endWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".endWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -140,8 +140,26 @@ public class Needle extends Base {
      * Sets pointer fill settings using an array or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gauge.pointers.Needle fill(com.anychart.graphics.vector.Fill value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (value != null) ? value.getJsBase() : null));
+    public com.anychart.core.gauge.pointers.Needle fill(com.anychart.graphics.vector.Fill color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Sets pointer fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gauge.pointers.Needle fill(com.anychart.graphics.vector.GradientKey color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", (color != null) ? color.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Sets pointer fill settings using an array or a string.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public com.anychart.core.gauge.pointers.Needle fill(String[] color) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", arrayToStringWrapQuotes(color)));
 
         return this;
     }
@@ -236,8 +254,8 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.gauge.pointers.Needle hatchFill(com.anychart.graphics.vector.PatternFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Needle hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (type != null) ? type.getJsBase() : null, wrapQuotes(color), thickness, size));
 
         return this;
     }
@@ -245,35 +263,35 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.gauge.pointers.Needle hatchFill(com.anychart.graphics.vector.HatchFill patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Needle hatchFill(String type, String color, Number thickness, Number size) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(type), wrapQuotes(color), thickness, size));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using pattern fill.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gauge.pointers.Needle hatchFill(com.anychart.graphics.vector.hatchfill.HatchFillType patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", (patternFillOrType != null) ? patternFillOrType.getJsBase() : null, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Needle hatchFill(com.anychart.graphics.vector.PatternFill patternFill) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (patternFill != null) ? patternFill.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
-{docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
+     * Setter for hatch fill settings using an instance.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public com.anychart.core.gauge.pointers.Needle hatchFill(String patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType), wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Needle hatchFill(com.anychart.graphics.vector.HatchFill settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
     /**
-     * Setter for hatch fill settings.
+     * Setter for hatch fill using boolean.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public com.anychart.core.gauge.pointers.Needle hatchFill(Boolean patternFillOrType, String color, Number thickness, Number size) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %s, %s);", patternFillOrType, wrapQuotes(color), thickness, size));
+    public com.anychart.core.gauge.pointers.Needle hatchFill(Boolean enabled) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".hatchFill(%s);", enabled));
 
         return this;
     }
@@ -310,16 +328,16 @@ Fill as a string or an object.
     /**
      * Setter for the middle radius.
      */
-    public com.anychart.core.gauge.pointers.Needle middleRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleRadius(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle middleRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleRadius(%s);", radius));
 
         return this;
     }
     /**
      * Setter for the middle radius.
      */
-    public com.anychart.core.gauge.pointers.Needle middleRadius(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleRadius(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Needle middleRadius(String radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleRadius(%s);", wrapQuotes(radius)));
 
         return this;
     }
@@ -330,18 +348,18 @@ Fill as a string or an object.
         APIlib.getInstance().addJSLine(jsBase + ".middleWidth();");
     }
     /**
-     * Setter for the middle width
+     * Setter for the middle width.
      */
-    public com.anychart.core.gauge.pointers.Needle middleWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleWidth(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle middleWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleWidth(%s);", width));
 
         return this;
     }
     /**
-     * Setter for the middle width
+     * Setter for the middle width.
      */
-    public com.anychart.core.gauge.pointers.Needle middleWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Needle middleWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".middleWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -372,16 +390,16 @@ Fill as a string or an object.
     /**
      * Setter for the start radius.
      */
-    public com.anychart.core.gauge.pointers.Needle startRadius(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startRadius(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle startRadius(Number radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startRadius(%s);", radius));
 
         return this;
     }
     /**
      * Setter for the start radius.
      */
-    public com.anychart.core.gauge.pointers.Needle startRadius(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startRadius(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Needle startRadius(String radius) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startRadius(%s);", wrapQuotes(radius)));
 
         return this;
     }
@@ -392,18 +410,18 @@ Fill as a string or an object.
         APIlib.getInstance().addJSLine(jsBase + ".startWidth();");
     }
     /**
-     * Setter for the start width
+     * Setter for the start width.
      */
-    public com.anychart.core.gauge.pointers.Needle startWidth(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startWidth(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle startWidth(Number width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startWidth(%s);", width));
 
         return this;
     }
     /**
-     * Setter for the start width
+     * Setter for the start width.
      */
-    public com.anychart.core.gauge.pointers.Needle startWidth(String value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startWidth(%s);", wrapQuotes(value)));
+    public com.anychart.core.gauge.pointers.Needle startWidth(String width) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".startWidth(%s);", wrapQuotes(width)));
 
         return this;
     }
@@ -412,14 +430,6 @@ Fill as a string or an object.
      */
     public void stroke() {
         APIlib.getInstance().addJSLine(jsBase + ".stroke();");
-    }
-    /**
-     * Setter for the pointer stroke by function.
-     */
-    public com.anychart.core.gauge.pointers.Needle stroke(String strokeFunction) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(strokeFunction)));
-
-        return this;
     }
     /**
      * Setter for stroke settings.
@@ -529,6 +539,14 @@ Fill as a string or an object.
 
         return this;
     }
+    /**
+     * Setter for the stroke using an object.
+     */
+    public com.anychart.core.gauge.pointers.Needle stroke(String settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(settings)));
+
+        return this;
+    }
     public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener) {
         StringBuilder js = new StringBuilder();
 
@@ -567,8 +585,81 @@ Fill as a string or an object.
     /**
      * Setter for the Z-index of the element.
      */
-    public com.anychart.core.gauge.pointers.Needle zIndex(Number value) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", value));
+    public com.anychart.core.gauge.pointers.Needle zIndex(Number zIndex) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
+
+        return this;
+    }
+    /**
+     * Getter for the container.
+     */
+    public com.anychart.graphics.vector.Layer container() {
+        return new com.anychart.graphics.vector.Layer(jsBase + ".container()");
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gauge.pointers.Needle container(com.anychart.graphics.vector.Layer element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gauge.pointers.Needle container(com.anychart.graphics.vector.Stage element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", (element != null) ? element.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the container.
+     */
+    public com.anychart.core.gauge.pointers.Needle container(String element) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
+
+        return this;
+    }
+    /**
+     * Getter for the parent bounds.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.math.Rect parentBounds() {
+        return new com.anychart.math.Rect(jsBase + ".parentBounds()");
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Needle parentBounds(com.anychart.math.Rect bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", (bounds != null) ? bounds.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Needle parentBounds(String bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(bounds)));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using single value.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Needle parentBounds(Number bounds) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s);", bounds));
+
+        return this;
+    }
+    /**
+     * Setter for the parent bounds using several values.<br>
+Bounds that would be used in case of percent size calculations. Expects pixel values only.
+     */
+    public com.anychart.core.gauge.pointers.Needle parentBounds(Number left, Number top, Number width, Number height) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
 
         return this;
     }
@@ -589,6 +680,14 @@ Fill as a string or an object.
      */
     public com.anychart.data.View data(List<DataEntry> data, String fillMethod) {
         return new com.anychart.data.View(String.format(Locale.US, jsBase + ".data(%s, %s)", arrayToString(data), wrapQuotes(fillMethod)));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.gauge.pointers.Needle fill(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(value)));
+
+        return this;
     }
 
 }

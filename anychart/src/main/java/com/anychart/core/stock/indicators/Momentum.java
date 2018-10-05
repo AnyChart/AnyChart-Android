@@ -46,23 +46,23 @@ public class Momentum extends JsObject {
     /**
      * Setter for the indicator period.
      */
-    public com.anychart.core.stock.indicators.MFI period(Number value) {
-        return new com.anychart.core.stock.indicators.MFI(String.format(Locale.US, jsBase + ".period(%s)", value));
+    public com.anychart.core.stock.indicators.MFI period(Number period) {
+        return new com.anychart.core.stock.indicators.MFI(String.format(Locale.US, jsBase + ".period(%s)", period));
     }
     /**
-     * Getter for the indicator series.
+     * Getter for the indicator series instance.
      */
     public com.anychart.core.stock.series.Base series() {
         return new com.anychart.core.stock.series.Base(jsBase + ".series()");
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.MFI series(com.anychart.enums.StockSeriesType type) {
         return new com.anychart.core.stock.indicators.MFI(String.format(Locale.US, jsBase + ".series(%s)", (type != null) ? type.getJsBase() : null));
     }
     /**
-     * Setter for the indicator series.
+     * Setter for the indicator series type.
      */
     public com.anychart.core.stock.indicators.MFI series(String type) {
         return new com.anychart.core.stock.indicators.MFI(String.format(Locale.US, jsBase + ".series(%s)", wrapQuotes(type)));
