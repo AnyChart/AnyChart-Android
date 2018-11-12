@@ -920,24 +920,10 @@ Returns path of drill down from the root map to the current level.
         APIlib.getInstance().addJSLine(jsBase + ".inMarquee();");
     }
     /**
-     * Getter for interactivity settings for the chart.
-     */
-    public com.anychart.core.utils.Interactivity interactivity() {
-        return new com.anychart.core.utils.Interactivity(jsBase + ".interactivity()");
-    }
-    /**
-     * Setter for interactivity settings for the chart.
+     * 
      */
     public com.anychart.charts.Map interactivity(String settings) {
         APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(settings)));
-
-        return this;
-    }
-    /**
-     * Setter for interactivity settings for the chart.
-     */
-    public com.anychart.charts.Map interactivity(com.anychart.enums.HoverMode settings) {
-        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
 
         return this;
     }
@@ -2435,6 +2421,20 @@ Bounds that would be used in case of percent size calculations. Expects pixel va
      */
     public com.anychart.core.map.series.Marker marker(com.anychart.data.View data) {
         return new com.anychart.core.map.series.Marker(String.format(Locale.US, jsBase + ".marker(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
+     * 
+     */
+    public com.anychart.charts.Map interactivity(com.anychart.enums.HoverMode settings) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".interactivity(%s);", (settings != null) ? settings.getJsBase() : null));
+
+        return this;
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.utils.MapInteractivity interactivity() {
+        return new com.anychart.core.utils.MapInteractivity(jsBase + ".interactivity()");
     }
 
 }
