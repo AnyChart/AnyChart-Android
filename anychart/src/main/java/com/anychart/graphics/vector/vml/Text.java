@@ -794,6 +794,31 @@ The text-indent property specifies the indentation of the first line in a text-b
 
         APIlib.getInstance().addJSLine(js.toString());
     }
+
+    public void setOnClickListener(com.anychart.chart.common.listener.ListenersInterface.OnClickListener listener, String type, String ePath) {
+        StringBuilder js = new StringBuilder();
+
+        js.append(jsBase).append(String.format(Locale.US, ".listen('%1$s', function(e) {", type));
+
+        if (listener.getFields() != null) {
+            ePath = (ePath != null) ? ePath + "." : "";
+            js.append("var result = ");
+            for (String field : listener.getFields()) {
+                js.append(String.format(Locale.US, "'%1$s' + ':' + e.%2$s%1$s + ',' +", field, ePath));
+            }
+            js.setLength(js.length() - 8);
+            js.append(";");
+
+            js.append("android.onClick(result);");
+        } else {
+            js.append("android.onClick(null);");
+        }
+        js.append("});");
+
+        com.anychart.chart.common.listener.ListenersInterface.getInstance().setOnClickListener(listener);
+
+        APIlib.getInstance().addJSLine(js.toString());
+    }
     /**
      * Getter for the vertical align of text.
      */
