@@ -1635,6 +1635,14 @@ Bounds that would be used in case of percent size calculations. Expects pixel va
     /**
      * 
      */
+    public com.anychart.core.cartesian.series.RangeBar xMode(String value) {
+        APIlib.getInstance().addJSLine(String.format(Locale.US, jsBase + ".xMode(%s);", wrapQuotes(value)));
+
+        return this;
+    }
+    /**
+     * 
+     */
     public Object xScale(Class scaleClass) {
         Object instance = null;
         try {
