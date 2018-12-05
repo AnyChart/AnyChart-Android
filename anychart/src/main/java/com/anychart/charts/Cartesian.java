@@ -1870,76 +1870,10 @@ Returns pixel bounds of the chart due to parent bounds and self bounds settings.
         return new com.anychart.core.cartesian.series.RangeArea(String.format(Locale.US, jsBase + ".rangeArea(%s, %s)", wrapQuotes(data), (csvSettings != null) ? csvSettings.getJsBase() : null));
     }
     /**
-     * Adds Range Bar series.
+     * 
      */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.View data, com.anychart.enums.TextParsingMode csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data != null) ? data.getJsBase() : null, (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.View data, String csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data != null) ? data.getJsBase() : null, wrapQuotes(csvSettings)));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.View data, com.anychart.data.TextParsingSettings csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data != null) ? data.getJsBase() : null, (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.Set data, com.anychart.enums.TextParsingMode csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data != null) ? data.getJsBase() : null, (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.Set data, String csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data != null) ? data.getJsBase() : null, wrapQuotes(csvSettings)));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.Set data, com.anychart.data.TextParsingSettings csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", (data != null) ? data.getJsBase() : null, (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(String[] data, com.anychart.enums.TextParsingMode csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", arrayToStringWrapQuotes(data), (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(String[] data, String csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(csvSettings)));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(String[] data, com.anychart.data.TextParsingSettings csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", arrayToStringWrapQuotes(data), (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(String data, com.anychart.enums.TextParsingMode csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", wrapQuotes(data), (csvSettings != null) ? csvSettings.getJsBase() : null));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(String data, String csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", wrapQuotes(data), wrapQuotes(csvSettings)));
-    }
-    /**
-     * Adds Range Bar series.
-     */
-    public com.anychart.core.cartesian.series.RangeBar rangeBar(String data, com.anychart.data.TextParsingSettings csvSettings) {
-        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s, %s)", wrapQuotes(data), (csvSettings != null) ? csvSettings.getJsBase() : null));
+    public com.anychart.core.cartesian.series.RangeBar rangeBar(List<DataEntry> data) {
+        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s)", arrayToString(data)));
     }
     /**
      * 
@@ -3549,6 +3483,12 @@ Bounds that would be used in case of percent size calculations. Expects pixel va
      */
     public com.anychart.core.cartesian.series.RangeColumn rangeColumn(com.anychart.data.View data) {
         return new com.anychart.core.cartesian.series.RangeColumn(String.format(Locale.US, jsBase + ".rangeColumn(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.cartesian.series.RangeBar rangeBar(com.anychart.data.View data) {
+        return new com.anychart.core.cartesian.series.RangeBar(String.format(Locale.US, jsBase + ".rangeBar(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**
      * 
