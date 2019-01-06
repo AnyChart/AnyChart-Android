@@ -41,6 +41,7 @@ public final class AnyChartView extends FrameLayout {
 
     private boolean isRestored;
     private boolean isRendered;
+    private boolean isDebug;
 
     private StringBuilder scripts = new StringBuilder();
     private StringBuilder fonts = new StringBuilder();
@@ -113,6 +114,7 @@ public final class AnyChartView extends FrameLayout {
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                if (isDebug) Log.e("AnyChart", consoleMessage.message());
                 webView.setEnabled(false);
                 return true;
             }
@@ -288,5 +290,9 @@ public final class AnyChartView extends FrameLayout {
 
     public void setOnRenderedListener(OnRenderedListener onRenderedListener) {
         this.onRenderedListener = onRenderedListener;
+    }
+
+    public void setDebug(boolean value) {
+        this.isDebug = value;
     }
 }
