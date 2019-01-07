@@ -71,7 +71,7 @@ public final class AnyChartView extends FrameLayout {
     public Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable("superState", super.onSaveInstanceState());
-        bundle.putString("js", this.js.toString());
+        bundle.putString("js", js.toString());
 
         return bundle;
     }
@@ -80,7 +80,7 @@ public final class AnyChartView extends FrameLayout {
     public void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
-            this.js.append(bundle.getString("js"));
+            js.append(bundle.getString("js"));
             state = bundle.getParcelable("superState");
         }
         isRestored = true;
@@ -128,6 +128,9 @@ public final class AnyChartView extends FrameLayout {
                 webView.post(new Runnable() {
                     @Override
                     public void run() {
+                        if (isRestored) {
+                            return;
+                        }
                         if (isRendered) {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                                 webView.evaluateJavascript(jsLine, null);
@@ -149,14 +152,6 @@ public final class AnyChartView extends FrameLayout {
             }
 
             public void onPageFinished(WebView view, String url) {
-                if (chart != null) {
-                    if (!isRestored) { //!isRendered &&
-//                        js.append(chart.generateJs());
-                    }
-                } else {
-                    throw new NullPointerException();
-                }
-
                 String resultJs = (isRestored)
                         ? js.toString()
                         : js.append(chart.getJsBase()).append(".container(\"container\");")
@@ -178,20 +173,8 @@ public final class AnyChartView extends FrameLayout {
                             }
                         });
 
+                isRestored = false;
                 isRendered = true;
-
-//                chart.setOnChangeListener(new Chart.OnChange() {
-//                    @Override
-//                    public void onChange(final String jsChange) {
-//                        js.append(jsChange);
-//                        webView.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                webView.evaluateJavascript(jsChange, null);
-//                            }
-//                        });
-//                    }
-//                });
             }
         });
         webView.addJavascriptInterface(ListenersInterface.getInstance(), "android");
@@ -260,7 +243,6 @@ public final class AnyChartView extends FrameLayout {
     }
 
     public void setChart(Chart chart) {
-        js.setLength(0);
         isRestored = false;
         this.chart = chart;
         loadHtml();
