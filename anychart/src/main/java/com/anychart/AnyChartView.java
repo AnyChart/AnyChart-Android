@@ -80,6 +80,7 @@ public final class AnyChartView extends FrameLayout {
     public void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
+            this.js.setLength(0);
             this.js.append(bundle.getString("js"));
             state = bundle.getParcelable("superState");
         }
