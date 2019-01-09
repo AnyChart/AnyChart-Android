@@ -28,7 +28,7 @@ public class DataEntry {
     }
 
     public void setValue(String key, Boolean value) {
-        hashMap.put(key, (value != null) ? value.toString() : null);
+        hashMap.put(key, value);
     }
 
     public void setValue(String key, DataEntry value) {
