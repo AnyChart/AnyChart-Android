@@ -121,10 +121,10 @@ public class ChoroplethMapActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("US.SD", "South Dakota", 5));
         data.add(new CustomDataEntry("US.LA", "Louisiana", 5.7));
         data.add(new CustomDataEntry("US.TX", "Texas", 5));
-        data.add(new CustomDataEntry("US.CT", "Connecticut", 14.4, false));
-        data.add(new CustomDataEntry("US.MA", "Massachusetts", 16.9, false));
+        data.add(new CustomDataEntry("US.CT", "Connecticut", 14.4, new LabelDataEntry(false)));
+        data.add(new CustomDataEntry("US.MA", "Massachusetts", 16.9, new LabelDataEntry(false)));
         data.add(new CustomDataEntry("US.NH", "New Hampshire", 19.6));
-        data.add(new CustomDataEntry("US.RI", "Rhode Island", 14, false));
+        data.add(new CustomDataEntry("US.RI", "Rhode Island", 14, new LabelDataEntry(false)));
         data.add(new CustomDataEntry("US.VT", "Vermont", 17.5));
         data.add(new CustomDataEntry("US.AL", "Alabama", 6));
         data.add(new CustomDataEntry("US.FL", "Florida", 12.4));
@@ -139,12 +139,12 @@ public class ChoroplethMapActivity extends AppCompatActivity {
         data.add(new CustomDataEntry("US.TN", "Tennessee", 5.4));
         data.add(new CustomDataEntry("US.VA", "Virginia", 10.7));
         data.add(new CustomDataEntry("US.WI", "Wisconsin", 9.1));
-        data.add(new CustomDataEntry("US.WY", "Wyoming", 5.2, false));
+        data.add(new CustomDataEntry("US.WY", "Wyoming", 5.2, new LabelDataEntry(false)));
         data.add(new CustomDataEntry("US.WV", "West Virginia", 2.4));
-        data.add(new CustomDataEntry("US.DE", "Delaware", 13.5, false));
-        data.add(new CustomDataEntry("US.DC", "District of Columbia", 25.7, false));
-        data.add(new CustomDataEntry("US.MD", "Maryland", 8.9, false));
-        data.add(new CustomDataEntry("US.NJ", "New Jersey", 14.9, false));
+        data.add(new CustomDataEntry("US.DE", "Delaware", 13.5, new LabelDataEntry(false)));
+        data.add(new CustomDataEntry("US.DC", "District of Columbia", 25.7, new LabelDataEntry(false)));
+        data.add(new CustomDataEntry("US.MD", "Maryland", 8.9, new LabelDataEntry(false)));
+        data.add(new CustomDataEntry("US.NJ", "New Jersey", 14.9, new LabelDataEntry(false)));
         data.add(new CustomDataEntry("US.NY", "New York", 11.9));
         data.add(new CustomDataEntry("US.PA", "Pennsylvania", 5.6));
         data.add(new CustomDataEntry("US.ME", "Maine", 10.4));
@@ -161,11 +161,17 @@ public class ChoroplethMapActivity extends AppCompatActivity {
             setValue("name", name);
             setValue("value", value);
         }
-        public CustomDataEntry(String id, String name, Number value, Boolean labels) {
+        public CustomDataEntry(String id, String name, Number value, LabelDataEntry label) {
             setValue("id", id);
             setValue("name", name);
             setValue("value", value);
-            setValue("labels", labels);
+            setValue("label", label);
+        }
+    }
+
+    class LabelDataEntry extends DataEntry {
+        LabelDataEntry(Boolean enabled) {
+            setValue("enabled", enabled);
         }
     }
 }
