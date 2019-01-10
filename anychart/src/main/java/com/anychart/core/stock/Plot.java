@@ -2298,6 +2298,18 @@ Bounds that would be used in case of percent size calculations. Expects pixel va
     /**
      * 
      */
+    public com.anychart.core.stock.series.Line line(com.anychart.data.Table data) {
+        return new com.anychart.core.stock.series.Line(String.format(Locale.US, jsBase + ".line(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.stock.series.Line line(com.anychart.data.TableMapping data) {
+        return new com.anychart.core.stock.series.Line(String.format(Locale.US, jsBase + ".line(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
+     * 
+     */
     public com.anychart.core.stock.series.Hilo hilo(com.anychart.data.TableMapping data) {
         return new com.anychart.core.stock.series.Hilo(String.format(Locale.US, jsBase + ".hilo(%s)", (data != null) ? data.getJsBase() : null));
     }

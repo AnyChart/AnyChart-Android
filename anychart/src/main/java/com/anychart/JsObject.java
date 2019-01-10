@@ -187,7 +187,7 @@ public abstract class JsObject {
         StringBuilder resultData = new StringBuilder();
         resultData.append("[");
         for (DataEntry dataEntry : data) {
-            resultData.append(dataEntry.generateJs()).append(",");
+            resultData.append(dataEntry.generateJs()).append(", ");
         }
         resultData.setLength(resultData.length() - 1);
         resultData.append("]");
