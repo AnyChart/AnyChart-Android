@@ -807,6 +807,12 @@ public class Scroller extends JsObject {
         return new com.anychart.core.stock.indicators.KeltnerChannels(String.format(Locale.US, jsBase + ".keltnerChannels(%s, %s, %s, %s, %s, %s)", (mapping != null) ? mapping.getJsBase() : null, maPeriod, atrPeriod, wrapQuotes(maType), multiplier, wrapQuotes(maSeries)));
     }
     /**
+     * 
+     */
+    public com.anychart.core.stock.scrollerseries.Line line(com.anychart.data.Table data) {
+        return new com.anychart.core.stock.scrollerseries.Line(String.format(Locale.US, jsBase + ".line(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
     public com.anychart.core.stock.indicators.MACD macd(com.anychart.data.TableMapping mapping, Number fastPeriod, Number slowPeriod, Number signalPeriod, com.anychart.enums.StockSeriesType macdSeriesType, com.anychart.enums.StockSeriesType signalSeriesType, com.anychart.enums.StockSeriesType histogramSeriesType) {
@@ -1841,6 +1847,12 @@ Bounds that would be used in case of percent size calculations. Expects pixel va
      */
     public com.anychart.core.stock.scrollerseries.Area area(com.anychart.data.TableMapping data) {
         return new com.anychart.core.stock.scrollerseries.Area(String.format(Locale.US, jsBase + ".area(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
+     * 
+     */
+    public com.anychart.core.stock.scrollerseries.Line line(com.anychart.data.TableMapping data) {
+        return new com.anychart.core.stock.scrollerseries.Line(String.format(Locale.US, jsBase + ".line(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**
      * 

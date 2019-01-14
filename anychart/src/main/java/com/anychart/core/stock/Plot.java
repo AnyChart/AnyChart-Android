@@ -1018,6 +1018,12 @@ The data area is drawn along the data bounds.
         return this;
     }
     /**
+     * 
+     */
+    public com.anychart.core.stock.series.Line line(com.anychart.data.Table data) {
+        return new com.anychart.core.stock.series.Line(String.format(Locale.US, jsBase + ".line(%s)", (data != null) ? data.getJsBase() : null));
+    }
+    /**
      * Getter for the plot line marker.
      */
     public com.anychart.core.axismarkers.Line lineMarker(Number index) {
@@ -2294,12 +2300,6 @@ Bounds that would be used in case of percent size calculations. Expects pixel va
      */
     public com.anychart.core.stock.series.Area area(com.anychart.data.TableMapping data) {
         return new com.anychart.core.stock.series.Area(String.format(Locale.US, jsBase + ".area(%s)", (data != null) ? data.getJsBase() : null));
-    }
-    /**
-     * 
-     */
-    public com.anychart.core.stock.series.Line line(com.anychart.data.Table data) {
-        return new com.anychart.core.stock.series.Line(String.format(Locale.US, jsBase + ".line(%s)", (data != null) ? data.getJsBase() : null));
     }
     /**
      * 
