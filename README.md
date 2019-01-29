@@ -23,7 +23,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Groovy
 dependencies {
-        implementation 'com.github.AnyChart:AnyChart-Android:1.0.8'
+        implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 }
 ```
 
