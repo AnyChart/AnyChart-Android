@@ -166,7 +166,7 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/verticalchart.png" alt="Vertical Chart - AnyChart">
             <sup>
               <a href="https://play.google.com/store/apps/details?id=com.anychart.anychart">Sample app</a> /
-              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/RadarChartActivity.java">Code Snippet</a>
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/VerticalChartActivity.java">Code Snippet</a>
             </sup>            
         </td>
         <td width="33%">
