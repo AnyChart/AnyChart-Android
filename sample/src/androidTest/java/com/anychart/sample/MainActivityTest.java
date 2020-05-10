@@ -7,6 +7,7 @@ import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,12 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(
             MainActivity.class, false, true);
 
+
+    @After
+    public void onEndTest() {
+        pressBack();
+    }
+
     @Test
     public void pieChartTest() {
         onView(withId(R.id.recycler_view))
@@ -41,8 +48,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1s")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1t")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -61,8 +66,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_16")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_17")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -75,8 +78,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_20")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1m")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -88,8 +89,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_23")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_24")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -120,8 +119,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_3q")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_3r")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -137,8 +134,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_a")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_x")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -173,8 +168,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_rect_1i")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_rect_1j")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -187,8 +180,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_simple-text_s")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_simple-text_2a")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -212,8 +203,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1s")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1t")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -237,8 +226,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_rect_12")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_rect_13")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -253,8 +240,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_e")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_f")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -264,8 +249,6 @@ public class MainActivityTest {
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -275,8 +258,6 @@ public class MainActivityTest {
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -287,8 +268,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1l")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -299,8 +278,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_y")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -312,8 +289,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_13")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_6a")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -326,8 +301,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_7")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_9")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -340,8 +313,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_2k")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_22")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -354,8 +325,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_2a")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2d")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -376,8 +345,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_31")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_30")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -404,8 +371,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1l")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1m")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -420,8 +385,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_k")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_l")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -447,8 +410,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1h")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1a")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -460,8 +421,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1u")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1x")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -478,8 +437,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_circle_2r")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_circle_3u")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -491,8 +448,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_2k")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_2l")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -506,8 +461,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_r")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_i")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -526,8 +479,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1p")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1t")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -540,8 +491,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1o")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1p")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -557,8 +506,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_1b")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_1a")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -580,8 +527,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_3n")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_4b")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -602,8 +547,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_2w")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_6r")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -615,8 +558,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_2j")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_23")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -628,8 +569,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_2b")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_3b")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -639,8 +578,6 @@ public class MainActivityTest {
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -659,8 +596,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_d")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_f")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -677,8 +612,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_5")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_5")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -700,8 +633,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_circle_11")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_circle_x")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -717,8 +648,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_10")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_s")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -735,8 +664,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_25")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_26")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
     @Test
@@ -751,8 +678,6 @@ public class MainActivityTest {
         onWebView().withElement(findElement(Locator.ID, "ac_path_7l")).perform(webClick());
         onWebView().withElement(findElement(Locator.ID, "ac_path_7m")).perform(webClick());
         onView(withId(R.id.web_view)).check(matches(isEnabled()));
-
-        pressBack();
     }
 
 }
