@@ -20,6 +20,8 @@ jobs:
         with:
           api-level: 28
           disable-animations: true
+          arch: x86_64
+          profile: Nexus 6
           script: ./gradlew cAT
       - uses: actions/upload-artifact@v1
         if: failure()
