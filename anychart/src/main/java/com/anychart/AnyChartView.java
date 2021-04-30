@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +22,9 @@ import android.widget.FrameLayout;
 
 import com.anychart.chart.common.listener.ListenersInterface;
 import com.anychart.core.Chart;
+
+import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
 
 public final class AnyChartView extends FrameLayout {
 
@@ -100,6 +103,7 @@ public final class AnyChartView extends FrameLayout {
 
         webView = view.findViewById(R.id.web_view);
         WebSettings webSettings = webView.getSettings();
+        webSettings.setDomStorageEnabled(true);
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadWithOverviewMode(true);
@@ -154,12 +158,20 @@ public final class AnyChartView extends FrameLayout {
             public void onPageFinished(WebView view, String url) {
                 String resultJs = (isRestored)
                         ? js.toString()
-                        : js.append(chart.getJsBase()).append(".container(\"container\");")
-                        .append(chart.getJsBase()).append(".draw();")
+                        : js
+                        .append(androidCheck(licenceKey))
+                        .append(chart.getJsBase()).append(".container(\"container\");")
                         .toString();
 
                 webView.evaluateJavascript(
-                        "anychart.licenseKey(\"" + licenceKey + "\");" +
+                        "anychart.theme({\n" +
+                                "     chart: {\n" +
+                                "       credits: {\n" +
+                                "         logoSrc: 'https://static.anychart.com/logo-for-android.png',\n" +
+                                "         text: 'AnyChart Trial Version'\n" +
+                                "       }\n" +
+                                "     }\n" +
+                                "   });" +
                                 "anychart.onDocumentReady(function () {\n" +
                                 resultJs +
                                 "});",
@@ -196,14 +208,14 @@ public final class AnyChartView extends FrameLayout {
                 "    </style>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<script src=\"file:///android_asset/anychart-bundle.min.js\"></script>" +
+                "<script src=\"file:///android_asset/anychart-android.min.js\"></script>" +
                 scripts.toString() +
                 "<link rel=\"stylesheet\" href=\"file:///android_asset/anychart-ui.min.css\"/>\n" +
                 "<div id=\"container\"></div>\n" +
                 "</body>\n" +
                 "</html>";
-
-        webView.loadDataWithBaseURL("", htmlData, "text/html", "UTF-8", null);
+        
+        webView.loadDataWithBaseURL("https://www.google.com", htmlData, "text/html", "UTF-8", null);
     }
 
     public void addScript(String url) {
@@ -276,5 +288,33 @@ public final class AnyChartView extends FrameLayout {
 
     public void setDebug(boolean value) {
         this.isDebug = value;
+    }
+    
+    private String md5(String s) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(s.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < array.length; ++i) {
+                sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+        }
+        return "";
+    }
+    
+    private String androidCheck(String l) {
+        if (l == null || l.isEmpty() || md5(l) == "0df80e76aeca7dc40e01e876dca3542b") {
+            return "var btoa = window.btoa(JSON.stringify({\n" +
+                    "    chartType: '" + chart.getJsBase() + "',\n" +
+                    "    apkName: \"" + getContext().getPackageName() + "\"\n" +
+                    "}));" +
+                    chart.getJsBase() + ".credits({\n" +
+                    "         logoSrc: 'https://static.anychart.com/logo-for-android.png?data=' + btoa,\n" +
+                    "         text: 'AnyChart Trial Version'\n" +
+                    "       });\n";
+        }
+        return "";
     }
 }
