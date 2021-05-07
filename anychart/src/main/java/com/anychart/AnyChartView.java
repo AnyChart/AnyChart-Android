@@ -103,7 +103,6 @@ public final class AnyChartView extends FrameLayout {
 
         webView = view.findViewById(R.id.web_view);
         WebSettings webSettings = webView.getSettings();
-        webSettings.setDomStorageEnabled(true);
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadWithOverviewMode(true);
@@ -159,7 +158,7 @@ public final class AnyChartView extends FrameLayout {
                 String resultJs = (isRestored)
                         ? js.toString()
                         : js
-                        .append(androidCheck(licenceKey))
+                        .append((getContext().getPackageName() != "com.anychart.anychart") ? androidCheck(licenceKey) : "")
                         .append(chart.getJsBase()).append(".container(\"container\");")
                         .toString();
 
@@ -307,7 +306,7 @@ public final class AnyChartView extends FrameLayout {
     private String androidCheck(String l) {
         if (l == null || l.isEmpty() || md5(l) == "0df80e76aeca7dc40e01e876dca3542b") {
             return "var btoa = window.btoa(JSON.stringify({\n" +
-                    "    chartType: '" + chart.getJsBase() + "',\n" +
+                    "    chartType: '" + chart.getJsBase().replaceAll("\\d","") + "',\n" +
                     "    apkName: \"" + getContext().getPackageName() + "\"\n" +
                     "}));" +
                     chart.getJsBase() + ".credits({\n" +
