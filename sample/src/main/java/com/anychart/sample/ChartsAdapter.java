@@ -40,16 +40,10 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
 
     private List<Chart> chartList;
     private List<Chart> copyChartList;
-    private Context context;
 
-    ChartsAdapter(Context context, List<Chart> chartList) {
+    ChartsAdapter(List<Chart> chartList) {
         this.chartList = chartList;
         copyChartList = new ArrayList<>(chartList);
-        this.context = context;
-    }
-
-    private Context getContext() {
-        return context;
     }
 
     @Override
