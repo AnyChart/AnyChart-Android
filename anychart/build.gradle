@@ -41,3 +41,16 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     testImplementation 'junit:junit:4.13.2'
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.anychart'
+                artifactId = 'AnyChart-Android'
+                version = '1.5'
+            }
+        }
+    }
+}
