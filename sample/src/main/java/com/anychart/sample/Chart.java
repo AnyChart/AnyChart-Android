@@ -49,7 +49,7 @@ import java.util.ArrayList;
 
 public class Chart {
 
-    private String name;
+    private final String name;
     private Class activityClass;
 
     private Chart(String name, Class activityClass) {

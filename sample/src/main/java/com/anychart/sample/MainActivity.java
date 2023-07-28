@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         List<Chart> chartList = Chart.createChartList(getResources());
-        final ChartsAdapter adapter = new ChartsAdapter(this, chartList);
+        final ChartsAdapter adapter = new ChartsAdapter(chartList);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -40,12 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        searchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchView.setIconified(false);
-            }
-        });
+        searchView.setOnClickListener(v -> searchView.setIconified(false));
     }
 
 }

@@ -3,7 +3,6 @@ package com.anychart;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.ConsoleMessage;
-import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -107,12 +105,7 @@ public final class AnyChartView extends FrameLayout {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadWithOverviewMode(true);
         webView.setLongClickable(true);
-        webView.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return true;
-            }
-        });
+        webView.setOnLongClickListener(v -> true);
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -125,28 +118,16 @@ public final class AnyChartView extends FrameLayout {
 
         isRendered = false;
         JsObject.variableIndex = 0;
-        setJsListener(new JsListener() {
-            @Override
-            public void onJsLineAdd(final String jsLine) {
-                webView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isRestored) {
-                            return;
-                        }
-                        if (isRendered) {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                webView.evaluateJavascript(jsLine, null);
-                            } else {
-                                webView.loadUrl("javascript:" + jsLine);
-                            }
-                        } else {
-                            js.append(jsLine);
-                        }
-                    }
-                });
+        setJsListener(jsLine -> webView.post(() -> {
+            if (isRestored) {
+                return;
             }
-        });
+            if (isRendered) {
+                webView.evaluateJavascript(jsLine, null);
+            } else {
+                js.append(jsLine);
+            }
+        }));
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -160,6 +141,7 @@ public final class AnyChartView extends FrameLayout {
                         : js
                         .append((getContext().getPackageName() != "com.anychart.anychart") ? androidCheck(licenceKey) : "")
                         .append(chart.getJsBase()).append(".container(\"container\");")
+                        .append(chart.getJsBase()).append(".draw();")
                         .toString();
 
                 webView.evaluateJavascript(
@@ -174,14 +156,11 @@ public final class AnyChartView extends FrameLayout {
                                 "anychart.onDocumentReady(function () {\n" +
                                 resultJs +
                                 "});",
-                        new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String value) {
-                                if (onRenderedListener != null)
-                                    onRenderedListener.onRendered();
-                                if (progressBar != null)
-                                    progressBar.setVisibility(GONE);
-                            }
+                        value -> {
+                            if (onRenderedListener != null)
+                                onRenderedListener.onRendered();
+                            if (progressBar != null)
+                                progressBar.setVisibility(GONE);
                         });
 
                 isRestored = false;
@@ -299,6 +278,7 @@ public final class AnyChartView extends FrameLayout {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
         return "";
     }

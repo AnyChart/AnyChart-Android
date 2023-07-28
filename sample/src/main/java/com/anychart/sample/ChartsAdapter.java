@@ -2,6 +2,8 @@ package com.anychart.sample;
 
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,7 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName;
-        private Context context;
+        private final Context context;
 
         ViewHolder(Context context, View itemView) {
             super(itemView);
@@ -28,7 +30,7 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
 
         @Override
         public void onClick(View view) {
-            int position = getAdapterPosition();
+            int position = getAbsoluteAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
                 Chart chart = chartList.get(position);
 
@@ -38,20 +40,15 @@ public class ChartsAdapter extends RecyclerView.Adapter<ChartsAdapter.ViewHolder
         }
     }
 
-    private List<Chart> chartList;
-    private List<Chart> copyChartList;
-    private Context context;
+    private final List<Chart> chartList;
+    private final List<Chart> copyChartList;
 
-    ChartsAdapter(Context context, List<Chart> chartList) {
+    ChartsAdapter(List<Chart> chartList) {
         this.chartList = chartList;
         copyChartList = new ArrayList<>(chartList);
-        this.context = context;
     }
 
-    private Context getContext() {
-        return context;
-    }
-
+    @NonNull
     @Override
     public ChartsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
