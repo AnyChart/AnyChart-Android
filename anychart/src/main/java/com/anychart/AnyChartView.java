@@ -170,6 +170,12 @@ public final class AnyChartView extends FrameLayout {
         webView.addJavascriptInterface(ListenersInterface.getInstance(), "android");
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        APIlib.getInstance().setActiveAnyChartView(null);
+    }
+
     private void loadHtml() {
         String htmlData = "<html>\n" +
                 "<head>\n" +
