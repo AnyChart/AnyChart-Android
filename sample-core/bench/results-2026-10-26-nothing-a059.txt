@@ -58,3 +58,89 @@ scenario=fragments_pager_3_pages_alive
   com.anychart.samplecore pss_kB=169062
   ps rss_kB 304348 com.anychart.samplecore
 # done
+
+# ===== 2026-10-26, second series: 2.0 modes + 1.x screen (bench-results-4) =====
+# cold starts, 7 per mode
+mode file: M0
+M0 run=1 amTotalTime=720 mode=M0 appToCreate=18 viewCtor=143 createToReady=611 createToRendered=719 appToRendered=737 pageDraw=107 secondLoadPageDraw=133 | 
+M0 run=2 amTotalTime=733 mode=M0 appToCreate=19 viewCtor=149 createToReady=554 createToRendered=655 appToRendered=674 pageDraw=99 secondLoadPageDraw=126 | 
+M0 run=3 amTotalTime=673 mode=M0 appToCreate=18 viewCtor=137 createToReady=568 createToRendered=672 appToRendered=690 pageDraw=100 secondLoadPageDraw=130 | 
+M0 run=4 amTotalTime=670 mode=M0 appToCreate=19 viewCtor=137 createToReady=570 createToRendered=672 appToRendered=691 pageDraw=100 secondLoadPageDraw=144 | 
+M0 run=5 amTotalTime=663 mode=M0 appToCreate=18 viewCtor=137 createToReady=579 createToRendered=684 appToRendered=702 pageDraw=103 secondLoadPageDraw=127 | 
+M0 run=6 amTotalTime=651 mode=M0 appToCreate=20 viewCtor=140 createToReady=573 createToRendered=676 appToRendered=696 pageDraw=101 secondLoadPageDraw=126 | 
+M0 run=7 amTotalTime=672 mode=M0 appToCreate=18 viewCtor=140 createToReady=511 createToRendered=613 appToRendered=631 pageDraw=101 secondLoadPageDraw=126 | 
+mode file: M1
+M1 run=1 amTotalTime=673 mode=M1 appToCreate=135 viewCtor=44 createToReady=423 createToRendered=524 appToRendered=659 pageDraw=100 secondLoadPageDraw=126 | M1 warmUpRendererProcess called at 111 ms
+M1 run=2 amTotalTime=682 mode=M1 appToCreate=133 viewCtor=44 createToReady=468 createToRendered=571 appToRendered=704 pageDraw=102 secondLoadPageDraw=116 | M1 warmUpRendererProcess called at 111 ms
+M1 run=3 amTotalTime=665 mode=M1 appToCreate=140 viewCtor=41 createToReady=408 createToRendered=512 appToRendered=652 pageDraw=101 secondLoadPageDraw=126 | M1 warmUpRendererProcess called at 112 ms
+M1 run=4 amTotalTime=678 mode=M1 appToCreate=139 viewCtor=45 createToReady=421 createToRendered=523 appToRendered=662 pageDraw=101 secondLoadPageDraw=124 | M1 warmUpRendererProcess called at 111 ms
+M1 run=5 amTotalTime=667 mode=M1 appToCreate=136 viewCtor=41 createToReady=409 createToRendered=514 appToRendered=650 pageDraw=103 secondLoadPageDraw=124 | M1 warmUpRendererProcess called at 111 ms
+M1 run=6 amTotalTime=667 mode=M1 appToCreate=132 viewCtor=39 createToReady=431 createToRendered=535 appToRendered=667 pageDraw=102 secondLoadPageDraw=126 | M1 warmUpRendererProcess called at 112 ms
+M1 run=7 amTotalTime=673 mode=M1 appToCreate=137 viewCtor=43 createToReady=430 createToRendered=532 appToRendered=669 pageDraw=100 secondLoadPageDraw=125 | M1 warmUpRendererProcess called at 112 ms
+mode file: M2
+M2 run=1 amTotalTime=667 mode=M2 appToCreate=149 viewCtor=21 createToReady=428 createToRendered=524 appToRendered=673 pageDraw=94 secondLoadPageDraw=123 | M2 throwaway WebView built in 129 ms
+M2 run=2 amTotalTime=752 mode=M2 appToCreate=165 viewCtor=23 createToReady=524 createToRendered=634 appToRendered=799 pageDraw=108 secondLoadPageDraw=147 | M2 throwaway WebView built in 134 ms
+M2 run=3 amTotalTime=694 mode=M2 appToCreate=153 viewCtor=22 createToReady=444 createToRendered=547 appToRendered=700 pageDraw=101 secondLoadPageDraw=130 | M2 throwaway WebView built in 132 ms
+M2 run=4 amTotalTime=696 mode=M2 appToCreate=156 viewCtor=19 createToReady=444 createToRendered=549 appToRendered=705 pageDraw=102 secondLoadPageDraw=133 | M2 throwaway WebView built in 134 ms
+M2 run=5 amTotalTime=685 mode=M2 appToCreate=153 viewCtor=21 createToReady=431 createToRendered=533 appToRendered=686 pageDraw=100 secondLoadPageDraw=124 | M2 throwaway WebView built in 131 ms
+M2 run=6 amTotalTime=694 mode=M2 appToCreate=155 viewCtor=21 createToReady=448 createToRendered=553 appToRendered=708 pageDraw=103 secondLoadPageDraw=126 | M2 throwaway WebView built in 135 ms
+M2 run=7 amTotalTime=688 mode=M2 appToCreate=152 viewCtor=21 createToReady=456 createToRendered=558 appToRendered=710 pageDraw=100 secondLoadPageDraw=140 | M2 throwaway WebView built in 133 ms
+mode file: M3
+M3 run=1 amTotalTime=694 mode=M3 appToCreate=183 viewCtor=2 createToReady=316 createToRendered=420 appToRendered=603 pageDraw=103 secondLoadPageDraw=121 | M3 view warmed up in 155 ms
+M3 run=2 amTotalTime=681 mode=M3 appToCreate=174 viewCtor=2 createToReady=387 createToRendered=493 appToRendered=667 pageDraw=103 secondLoadPageDraw=123 | M3 view warmed up in 150 ms
+M3 run=3 amTotalTime=702 mode=M3 appToCreate=182 viewCtor=2 createToReady=326 createToRendered=431 appToRendered=613 pageDraw=103 secondLoadPageDraw=130 | M3 view warmed up in 156 ms
+M3 run=4 amTotalTime=694 mode=M3 appToCreate=198 viewCtor=3 createToReady=362 createToRendered=464 appToRendered=662 pageDraw=100 secondLoadPageDraw=131 | M3 view warmed up in 153 ms
+M3 run=5 amTotalTime=697 mode=M3 appToCreate=188 viewCtor=2 createToReady=388 createToRendered=492 appToRendered=680 pageDraw=102 secondLoadPageDraw=123 | M3 view warmed up in 160 ms
+M3 run=6 amTotalTime=699 mode=M3 appToCreate=176 viewCtor=2 createToReady=389 createToRendered=494 appToRendered=670 pageDraw=104 secondLoadPageDraw=124 | M3 view warmed up in 152 ms
+M3 run=7 amTotalTime=683 mode=M3 appToCreate=176 viewCtor=2 createToReady=318 createToRendered=421 appToRendered=597 pageDraw=101 secondLoadPageDraw=125 | M3 view warmed up in 153 ms
+# 1.x library, same app, same pie, 7 cold starts
+LEGACY run=1 amTotalTime=672 mode=LEGACY appToCreate=21 viewCtor=140 createToReady=-1 createToRendered=512 appToRendered=533 pageDraw=-1 |
+LEGACY run=2 amTotalTime=677 mode=LEGACY appToCreate=20 viewCtor=138 createToReady=-1 createToRendered=530 appToRendered=550 pageDraw=-1 |
+LEGACY run=3 amTotalTime=695 mode=LEGACY appToCreate=21 viewCtor=134 createToReady=-1 createToRendered=509 appToRendered=530 pageDraw=-1 |
+LEGACY run=4 amTotalTime=667 mode=LEGACY appToCreate=19 viewCtor=142 createToReady=-1 createToRendered=517 appToRendered=536 pageDraw=-1 |
+LEGACY run=5 amTotalTime=678 mode=LEGACY appToCreate=22 viewCtor=139 createToReady=-1 createToRendered=526 appToRendered=548 pageDraw=-1 |
+LEGACY run=6 amTotalTime=672 mode=LEGACY appToCreate=21 viewCtor=136 createToReady=-1 createToRendered=487 appToRendered=508 pageDraw=-1 |
+LEGACY run=7 amTotalTime=694 mode=LEGACY appToCreate=24 viewCtor=147 createToReady=-1 createToRendered=504 appToRendered=528 pageDraw=-1 |
+# memory: PSS of every process of the package, kB
+scenario=menu_no_webview
+  com.anychart.samplecore pss_kB=106722
+  ps rss_kB 194516 com.anychart.samplecore
+scenario=gallery_1_webview
+  renderer pid=11464 pss_kB=63418
+  com.anychart.samplecore pss_kB=169282
+  ps rss_kB 290864 com.anychart.samplecore
+scenario=multi_3_webviews
+  renderer pid=11464 pss_kB=106131
+  com.anychart.samplecore pss_kB=171755
+  ps rss_kB 298416 com.anychart.samplecore
+scenario=recycler_9_webviews_scrolled
+  renderer pid=11464 pss_kB=238677
+  com.anychart.samplecore pss_kB=185622
+  ps rss_kB 310676 com.anychart.samplecore
+scenario=fragments_pager_3_pages_alive
+  renderer pid=11464 pss_kB=166108
+  com.anychart.samplecore pss_kB=185246
+  ps rss_kB 314392 com.anychart.samplecore
+scenario=legacy_1x_1_webview
+  renderer pid=12063 pss_kB=63955
+  com.anychart.samplecore pss_kB=164209
+  ps rss_kB 276812 com.anychart.samplecore
+# done
+
+# ===== Control: 2.0 runtime with the 1.x bundle (8.9.0, 2.3 MB) swapped in, M0, 7 cold starts =====
+OLDBUNDLE run=1 amTotalTime=716 mode=M0 appToCreate=19 viewCtor=142 createToReady=596 createToRendered=700 appToRendered=719 pageDraw=102 |
+OLDBUNDLE run=2 amTotalTime=697 mode=M0 appToCreate=19 viewCtor=155 createToReady=587 createToRendered=691 appToRendered=710 pageDraw=103 |
+OLDBUNDLE run=3 amTotalTime=679 mode=M0 appToCreate=19 viewCtor=139 createToReady=570 createToRendered=679 appToRendered=698 pageDraw=107 |
+OLDBUNDLE run=4 amTotalTime=693 mode=M0 appToCreate=20 viewCtor=143 createToReady=512 createToRendered=615 appToRendered=635 pageDraw=102 |
+OLDBUNDLE run=5 amTotalTime=669 mode=M0 appToCreate=18 viewCtor=137 createToReady=542 createToRendered=647 appToRendered=665 pageDraw=102 |
+OLDBUNDLE run=6 amTotalTime=667 mode=M0 appToCreate=19 viewCtor=140 createToReady=479 createToRendered=587 appToRendered=606 pageDraw=105 |
+OLDBUNDLE run=7 amTotalTime=688 mode=M0 appToCreate=24 viewCtor=137 createToReady=564 createToRendered=668 appToRendered=692 pageDraw=102 |
+
+# ===== 1.x: when the SVG actually exists vs when its rendered callback fires (5 cold starts) =====
+createToRendered=533 svgPaths=34 at createToSvg=647 (callback was at 533) 
+createToRendered=497 svgPaths=34 at createToSvg=607 (callback was at 497) 
+createToRendered=525 svgPaths=34 at createToSvg=633 (callback was at 525) 
+createToRendered=530 svgPaths=34 at createToSvg=641 (callback was at 530) 
+createToRendered=501 svgPaths=34 at createToSvg=615 (callback was at 501) 
+# 1.x onDocumentReady defers the draw with setTimeout when readyState is complete, so its callback precedes the draw by ~110 ms.
+# file:// experiment (2.0 runtime loaded via file:///android_asset instead of the asset loader, 5 cold starts): createToRendered 632-679, readySent 364-414. No gain; reverted.

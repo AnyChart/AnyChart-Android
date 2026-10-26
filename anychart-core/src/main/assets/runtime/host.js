@@ -211,10 +211,25 @@
     if (window.ANYCHART_LICENSE_KEY) {
       try { anychart.licenseKey(window.ANYCHART_LICENSE_KEY); } catch (err) { fail(null, err); }
     }
+    // Where the boot time went, for the host's benchmarks: ms since navigation start, plus
+    // the fetch duration of each resource the page loaded.
+    var timing = {};
+    try {
+      var nav = performance.getEntriesByType('navigation')[0];
+      if (nav) {
+        timing.responseEnd = Math.round(nav.responseEnd);
+        timing.domContentLoaded = Math.round(nav.domContentLoadedEventEnd);
+        timing.readySent = Math.round(performance.now());
+      }
+      performance.getEntriesByType('resource').forEach(function (r) {
+        timing[r.name.split('/').pop()] = Math.round(r.duration);
+      });
+    } catch (err) { /* timing is optional */ }
     send({
       type: 'ready',
       jsVersion: (typeof anychart.VERSION === 'string') ? anychart.VERSION : 'unknown',
-      runtimeVersion: RUNTIME_VERSION
+      runtimeVersion: RUNTIME_VERSION,
+      timing: timing
     });
   });
 })();

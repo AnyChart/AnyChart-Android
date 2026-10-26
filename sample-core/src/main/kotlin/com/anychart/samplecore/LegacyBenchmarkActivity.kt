@@ -32,6 +32,23 @@ class LegacyBenchmarkActivity : Activity() {
             val line = "mode=LEGACY appToCreate=${tCreate - app} viewCtor=${tView - tCreate} createToReady=-1 createToRendered=${now - tCreate} appToRendered=${now - app} pageDraw=-1"
             Log.i(PocApplication.TAG, line)
             status.text = line
+            // 1.x reports "rendered" from the evaluateJavascript callback. Check when the SVG actually
+            // exists in the DOM, polling the WebView the 1.x view keeps as its only child.
+            val webView = runCatching {
+                com.anychart.AnyChartView::class.java.getDeclaredField("webView").apply { isAccessible = true }.get(view) as android.webkit.WebView
+            }.getOrNull()
+            if (webView == null) Log.i(PocApplication.TAG, "mode=LEGACY svgPaths=? no WebView handle (children=${view.childCount}, first=${view.getChildAt(0)?.javaClass?.name})")
+            fun poll(attempt: Int) {
+                webView?.evaluateJavascript("document.querySelectorAll('svg path').length") { v ->
+                    val n = v?.trim()?.toIntOrNull() ?: 0
+                    if (n >= 5 || attempt > 200) {
+                        Log.i(PocApplication.TAG, "mode=LEGACY svgPaths=$n at createToSvg=${SystemClock.uptimeMillis() - tCreate} (callback was at ${now - tCreate})")
+                    } else {
+                        webView.postDelayed({ poll(attempt + 1) }, 8)
+                    }
+                }
+            }
+            poll(0)
         }
 
         val pie = AnyChart.pie()

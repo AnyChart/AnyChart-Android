@@ -54,6 +54,10 @@ public class AnyChartView @JvmOverloads constructor(
     public var jsVersion: String? = null
         private set
 
+    /** Page-side boot timings reported with `ready`: ms since navigation start and per-resource fetch durations. */
+    public var pageTiming: JSONObject = JSONObject()
+        private set
+
     init {
         addView(webView)
     }
@@ -106,7 +110,7 @@ public class AnyChartView @JvmOverloads constructor(
 
     private fun dispatch(raw: String) {
         when (val m = Messages.parse(raw)) {
-            is Messages.Incoming.Ready -> { jsVersion = m.jsVersion; listener?.onReady(m.jsVersion) }
+            is Messages.Incoming.Ready -> { jsVersion = m.jsVersion; pageTiming = m.timing; listener?.onReady(m.jsVersion) }
             is Messages.Incoming.Rendered -> listener?.onRendered(m.chartId, m.millis)
             is Messages.Incoming.Event -> listener?.onEvent(AnyChartEvent(m.chartId, m.name, m.data))
             is Messages.Incoming.Answer -> pendingQueries.remove(m.requestId)?.invoke(m.result)
