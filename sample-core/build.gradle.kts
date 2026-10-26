@@ -17,6 +17,11 @@ android {
 
     buildFeatures { compose = true }
 
+    sourceSets {
+        // The conformance configs are the sample's gallery; one source of truth for every host.
+        getByName("main").assets.srcDir("../conformance/configs")
+    }
+
     buildTypes {
         release { isMinifyEnabled = false }
     }
