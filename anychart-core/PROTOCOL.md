@@ -1,4 +1,4 @@
-# Host protocol, runtime 0.1.0
+# Host protocol, runtime 0.1.1
 
 The runtime page (`src/main/assets/runtime/`) is plain HTML and JavaScript: the AnyChart JS
 bundle, its CSS and `host.js`. A host embeds it in a WebView and exchanges JSON messages with it.
@@ -34,6 +34,16 @@ The host never evaluates JavaScript strings; the page never parses HTML from the
 `map`, with the engine's registered `type` string inside. Note that the engine uses kebab-case
 names for some types (`heat-map`, `tree-map`, `circular-gauge`) where the published JSON schema
 for 9.0.0 lists camel-case ones; the engine wins.
+
+Two engine gaps in 9.0.0 the page works around, both reported on A9-970:
+
+- The data sheet (`type: "data-sheet"`) ignores `data` in its JSON config and its `toJson()` omits
+  the rows, so `fromJson(toJson())` loses the data. The page hands `config.chart.data` to the chart
+  through `chart.data()` for this type.
+- The data sheet does not descend from `anychart.core.Chart` and never fires `chartDraw`. The page
+  reports `rendered` two animation frames after `draw()` when no `chartDraw` came.
+
+The data sheet renders as HTML, not SVG, and needs `data-sheet.min.css`, which the page links.
 
 ## Licence
 

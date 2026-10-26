@@ -1,0 +1,509 @@
+{
+  "chart": {
+    "zIndex": 0,
+    "enabled": true,
+    "type": "org-chart",
+    "title": {
+      "zIndex": 80,
+      "enabled": true,
+      "maxLength": null,
+      "fontSize": 16,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "top",
+      "hAlign": "center",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "width": null,
+      "height": null,
+      "align": "center",
+      "text": "Org chart",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "bottom": 10,
+        "right": 0
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": false
+      }
+    },
+    "background": {
+      "zIndex": 0.5,
+      "enabled": true
+    },
+    "tooltip": {
+      "enabled": true,
+      "title": {
+        "zIndex": 1,
+        "enabled": true,
+        "maxLength": null,
+        "fontSize": 14,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#ffffff",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "left",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "left",
+        "orientation": "top",
+        "rotation": 0,
+        "text": "",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "separator": {
+        "zIndex": 1,
+        "enabled": true,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": true
+      }
+    },
+    "margin": {
+      "left": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "padding": {
+      "left": 10,
+      "top": 10,
+      "bottom": 15,
+      "right": 20
+    },
+    "a11y": {
+      "enabled": true,
+      "pointDescriptionThreshold": 9007199254740991,
+      "mode": "chart-elements",
+      "keyboardNavigation": true
+    },
+    "autoRedraw": true,
+    "bounds": {},
+    "animation": {
+      "enabled": false,
+      "duration": 1000
+    },
+    "credits": {
+      "chartType": "org-chart"
+    },
+    "selectRectangleMarqueeFill": {
+      "color": "#d3d3d3",
+      "opacity": 0.4
+    },
+    "selectRectangleMarqueeStroke": "#d3d3d3",
+    "legend": {
+      "zIndex": 200,
+      "enabled": false,
+      "fontSize": 12,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "bottom",
+      "hAlign": "start",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "...",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "inverted": false,
+      "itemsLayout": "horizontal",
+      "iconSize": 15,
+      "width": null,
+      "height": null,
+      "maxWidth": null,
+      "maxHeight": null,
+      "position": "top",
+      "positionMode": "outside",
+      "drag": false,
+      "itemsFormat": null,
+      "titleFormat": null,
+      "itemsHAlign": "left",
+      "itemsSpacing": 15,
+      "itemsSourceMode": "default",
+      "hoverCursor": "pointer",
+      "iconTextSpacing": 5,
+      "align": "center",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 10,
+        "top": 0,
+        "bottom": 10,
+        "right": 10
+      },
+      "background": {
+        "enabled": false
+      },
+      "title": {
+        "enabled": false,
+        "maxLength": null,
+        "fontSize": 15,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#7c868e",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "center",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "center",
+        "text": "Title text",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "titleSeparator": {
+        "zIndex": 1,
+        "enabled": false,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "paginator": {
+        "zIndex": 30,
+        "enabled": true,
+        "fontSize": 12,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#545f69",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "start",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "orientation": "right",
+        "layout": "horizontal",
+        "background": {
+          "enabled": false
+        },
+        "padding": {
+          "left": 5,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        }
+      },
+      "tooltip": {
+        "enabled": false,
+        "title": {
+          "zIndex": 1,
+          "enabled": false,
+          "maxLength": null,
+          "fontSize": 14,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#ffffff",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": "normal",
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "left",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": false,
+          "useHtml": false,
+          "width": null,
+          "height": null,
+          "align": "left",
+          "orientation": "top",
+          "rotation": 0,
+          "text": "",
+          "margin": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "padding": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "background": {
+            "enabled": false
+          }
+        },
+        "separator": {
+          "zIndex": 1,
+          "enabled": false,
+          "fill": {
+            "color": "#CECECE",
+            "opacity": 0.3
+          },
+          "stroke": "none",
+          "width": "100%",
+          "height": 1,
+          "orientation": "top",
+          "margin": {
+            "left": 0,
+            "top": 5,
+            "bottom": 5,
+            "right": 0
+          }
+        },
+        "background": {
+          "zIndex": 0,
+          "enabled": true
+        }
+      }
+    },
+    "interactivity": {},
+    "treeData": {
+      "rootMapping": {},
+      "children": [
+        {
+          "treeDataItemData": {
+            "id": "ceo",
+            "name": "Sarah Johnson",
+            "title": "CEO"
+          },
+          "children": [
+            {
+              "treeDataItemData": {
+                "id": "cto",
+                "name": "Michael Chen",
+                "title": "CTO"
+              },
+              "children": [
+                {
+                  "treeDataItemData": {
+                    "id": "eng",
+                    "name": "David Kim",
+                    "title": "Head of Engineering"
+                  }
+                },
+                {
+                  "treeDataItemData": {
+                    "id": "prod",
+                    "name": "Lisa Zhang",
+                    "title": "Head of Product"
+                  }
+                }
+              ]
+            },
+            {
+              "treeDataItemData": {
+                "id": "cfo",
+                "name": "Emily Davis",
+                "title": "CFO"
+              },
+              "children": [
+                {
+                  "treeDataItemData": {
+                    "id": "acct",
+                    "name": "Diana Ross",
+                    "title": "Head of Accounting"
+                  }
+                }
+              ]
+            },
+            {
+              "treeDataItemData": {
+                "id": "coo",
+                "name": "Robert Wilson",
+                "title": "COO"
+              },
+              "children": [
+                {
+                  "treeDataItemData": {
+                    "id": "ops",
+                    "name": "Peter Jackson",
+                    "title": "Head of Operations"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "index": [
+        "id"
+      ]
+    },
+    "normal": {
+      "fill": "#f5f9ff",
+      "stroke": {
+        "color": "#607d8b",
+        "thickness": 1.5
+      },
+      "cornerRadius": 4,
+      "labels": {
+        "enabled": true
+      }
+    },
+    "hovered": {
+      "fill": "#e3f2fd",
+      "stroke": {
+        "color": "#1976d2",
+        "thickness": 2
+      },
+      "labels": {}
+    },
+    "selected": {
+      "fill": "#bbdefb",
+      "stroke": {
+        "color": "#212121",
+        "thickness": 3
+      },
+      "labels": {}
+    },
+    "nodeWidth": 150,
+    "nodeHeight": 80,
+    "nodePadding": 10,
+    "levelSpacing": 80,
+    "siblingSpacing": 30,
+    "orientation": "top-to-bottom",
+    "connectorStroke": {
+      "color": "#607d8b",
+      "thickness": 1.5
+    },
+    "connectorType": "orthogonal",
+    "titleFontColor": "#666",
+    "labelsDisplayMode": "drop",
+    "nameMaxLines": 2
+  }
+}

@@ -1,0 +1,1255 @@
+{
+  "chart": {
+    "zIndex": 0,
+    "enabled": true,
+    "type": "dumbbell",
+    "title": {
+      "zIndex": 80,
+      "enabled": true,
+      "maxLength": null,
+      "fontSize": 16,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "top",
+      "hAlign": "center",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "width": null,
+      "height": null,
+      "align": "center",
+      "text": "Dumbbell: salary ranges",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "bottom": 10,
+        "right": 0
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": false
+      }
+    },
+    "background": {
+      "zIndex": 0.5,
+      "enabled": true
+    },
+    "tooltip": {
+      "enabled": true,
+      "title": {
+        "zIndex": 1,
+        "enabled": true,
+        "maxLength": null,
+        "fontSize": 14,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#ffffff",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "left",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "left",
+        "orientation": "top",
+        "rotation": 0,
+        "text": "",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "separator": {
+        "zIndex": 1,
+        "enabled": true,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": true
+      }
+    },
+    "margin": {
+      "left": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "padding": {
+      "left": 10,
+      "top": 10,
+      "bottom": 15,
+      "right": 20
+    },
+    "a11y": {
+      "enabled": true,
+      "pointDescriptionThreshold": 30,
+      "mode": "chart-elements",
+      "keyboardNavigation": true
+    },
+    "autoRedraw": true,
+    "bounds": {},
+    "credits": {
+      "chartType": "dumbbell"
+    },
+    "selectRectangleMarqueeFill": {
+      "color": "#d3d3d3",
+      "opacity": 0.4
+    },
+    "selectRectangleMarqueeStroke": "#d3d3d3",
+    "legend": {
+      "zIndex": 200,
+      "enabled": false,
+      "fontSize": 12,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "bottom",
+      "hAlign": "start",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "...",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "inverted": false,
+      "itemsLayout": "horizontal",
+      "iconSize": 15,
+      "width": null,
+      "height": null,
+      "maxWidth": null,
+      "maxHeight": null,
+      "position": "top",
+      "positionMode": "outside",
+      "drag": false,
+      "itemsFormat": null,
+      "titleFormat": null,
+      "itemsHAlign": "left",
+      "itemsSpacing": 15,
+      "itemsSourceMode": "default",
+      "hoverCursor": "pointer",
+      "iconTextSpacing": 5,
+      "align": "center",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 10,
+        "top": 0,
+        "bottom": 10,
+        "right": 10
+      },
+      "background": {
+        "enabled": false
+      },
+      "title": {
+        "enabled": false,
+        "maxLength": null,
+        "fontSize": 15,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#7c868e",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "center",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "center",
+        "text": "Title text",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "titleSeparator": {
+        "zIndex": 1,
+        "enabled": false,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "paginator": {
+        "zIndex": 30,
+        "enabled": true,
+        "fontSize": 12,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#545f69",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "start",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "orientation": "right",
+        "layout": "horizontal",
+        "background": {
+          "enabled": false
+        },
+        "padding": {
+          "left": 5,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        }
+      },
+      "tooltip": {
+        "enabled": false,
+        "title": {
+          "zIndex": 1,
+          "enabled": false,
+          "maxLength": null,
+          "fontSize": 14,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#ffffff",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": "normal",
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "left",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": false,
+          "useHtml": false,
+          "width": null,
+          "height": null,
+          "align": "left",
+          "orientation": "top",
+          "rotation": 0,
+          "text": "",
+          "margin": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "padding": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "background": {
+            "enabled": false
+          }
+        },
+        "separator": {
+          "zIndex": 1,
+          "enabled": false,
+          "fill": {
+            "color": "#CECECE",
+            "opacity": 0.3
+          },
+          "stroke": "none",
+          "width": "100%",
+          "height": 1,
+          "orientation": "top",
+          "margin": {
+            "left": 0,
+            "top": 5,
+            "bottom": 5,
+            "right": 0
+          }
+        },
+        "background": {
+          "zIndex": 0,
+          "enabled": true
+        }
+      }
+    },
+    "interactivity": {},
+    "defaultSeriesType": "dumbbell",
+    "maxBubbleSize": "20%",
+    "minBubbleSize": "5%",
+    "maxPointWidth": "100%",
+    "minPointLength": 0,
+    "baseline": 0,
+    "palette": {
+      "type": "distinct",
+      "items": [
+        "#64b5f6",
+        "#1976d2",
+        "#ef6c00",
+        "#ffd54f",
+        "#455a64",
+        "#96a6a6",
+        "#dd2c00",
+        "#00838f",
+        "#00bfa5",
+        "#ffa000"
+      ]
+    },
+    "markerPalette": {
+      "items": [
+        "circle",
+        "diamond",
+        "square",
+        "triangle-down",
+        "triangle-up",
+        "diagonal-cross",
+        "pentagon",
+        "cross",
+        "v-line",
+        "star5",
+        "star4",
+        "trapezium",
+        "star7",
+        "star6",
+        "star10"
+      ]
+    },
+    "hatchFillPalette": {
+      "items": [
+        {
+          "type": "backward-diagonal",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "forward-diagonal",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "horizontal",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "vertical",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "dashed-backward-diagonal",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "grid",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "dashed-forward-diagonal",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "dashed-horizontal",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "dashed-vertical",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "diagonal-cross",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "diagonal-brick",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "divot",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "horizontal-brick",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "vertical-brick",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "checker-board",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "confetti",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "plaid",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "solid-diamond",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "zig-zag",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "weave",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-05",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-10",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-20",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-25",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-30",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-40",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-50",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-60",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-70",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-75",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-80",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        },
+        {
+          "type": "percent-90",
+          "color": "black 0.5",
+          "thickness": 1,
+          "size": 10
+        }
+      ]
+    },
+    "normal": {
+      "labels": {
+        "enabled": false
+      },
+      "minLabels": {
+        "enabled": null
+      },
+      "maxLabels": {
+        "enabled": null
+      }
+    },
+    "hovered": {
+      "labels": {
+        "enabled": null
+      },
+      "minLabels": {
+        "enabled": null
+      },
+      "maxLabels": {
+        "enabled": null
+      }
+    },
+    "selected": {
+      "labels": {
+        "enabled": null
+      },
+      "minLabels": {
+        "enabled": null
+      },
+      "maxLabels": {
+        "enabled": null
+      }
+    },
+    "barGroupsPadding": 0.8,
+    "barsPadding": 0.4,
+    "maxPointsRendered": 1500,
+    "decimationAlgorithm": "auto",
+    "boostThreshold": 5000,
+    "boostEnabled": null,
+    "xScale": 0,
+    "yScale": 1,
+    "series": [
+      {
+        "enabled": true,
+        "seriesType": "dumbbell",
+        "clip": true,
+        "name": "Salary range",
+        "legendItem": {
+          "enabled": true,
+          "iconType": "square"
+        },
+        "color": null,
+        "isVertical": null,
+        "normal": {
+          "hatchFill": "none",
+          "risingHatchFill": "none",
+          "fallingHatchFill": "none",
+          "highHatchFill": "none",
+          "lowHatchFill": "none",
+          "labels": {
+            "enabled": null
+          },
+          "minLabels": {
+            "enabled": null
+          },
+          "maxLabels": {
+            "enabled": null
+          },
+          "highLabels": {
+            "enabled": null
+          },
+          "lowLabels": {
+            "enabled": null
+          },
+          "markers": {
+            "enabled": true,
+            "disablePointerEvents": false,
+            "position": "rangeMode",
+            "anchor": "center",
+            "offsetX": 0,
+            "offsetY": 0,
+            "rotation": 0,
+            "size": 4
+          },
+          "outlierMarkers": {
+            "enabled": null,
+            "anchor": "center",
+            "offsetX": 0,
+            "offsetY": 0,
+            "rotation": 0,
+            "size": 6
+          }
+        },
+        "hovered": {
+          "hatchFill": "none",
+          "risingHatchFill": "none",
+          "fallingHatchFill": "none",
+          "highHatchFill": "none",
+          "lowHatchFill": "none",
+          "labels": {
+            "enabled": null
+          },
+          "minLabels": {
+            "enabled": null
+          },
+          "maxLabels": {
+            "enabled": null
+          },
+          "highLabels": {
+            "enabled": null
+          },
+          "lowLabels": {
+            "enabled": null
+          },
+          "markers": {
+            "enabled": true,
+            "size": 6
+          },
+          "outlierMarkers": {
+            "enabled": null,
+            "anchor": "center",
+            "offsetX": 0,
+            "offsetY": 0,
+            "rotation": 0,
+            "size": 6
+          }
+        },
+        "selected": {
+          "fill": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "negativeFill": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "risingFill": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "fallingFill": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "stroke": {
+            "color": "#333",
+            "opacity": 0.85,
+            "thickness": 3
+          },
+          "lowStroke": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "highStroke": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "lowFill": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "highFill": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "negativeStroke": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "risingStroke": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "fallingStroke": {
+            "color": "#333",
+            "opacity": 0.85
+          },
+          "hatchFill": "none",
+          "risingHatchFill": "none",
+          "fallingHatchFill": "none",
+          "highHatchFill": "none",
+          "lowHatchFill": "none",
+          "labels": {
+            "enabled": null
+          },
+          "minLabels": {
+            "enabled": null
+          },
+          "maxLabels": {
+            "enabled": null
+          },
+          "highLabels": {
+            "enabled": null
+          },
+          "lowLabels": {
+            "enabled": null
+          },
+          "markers": {
+            "enabled": true,
+            "size": 6
+          },
+          "outlierMarkers": {
+            "enabled": null,
+            "anchor": "center",
+            "offsetX": 0,
+            "offsetY": 0,
+            "rotation": 0,
+            "size": 6
+          }
+        },
+        "a11y": {
+          "enabled": true,
+          "titleFormat": "Series named {%SeriesName} with {%SeriesPointsCount} points. Min value is {%SeriesYMin}, max value is {%SeriesYMax}"
+        },
+        "xMode": "ordinal",
+        "data": [
+          {
+            "x": "Job A",
+            "low": 40000,
+            "high": 60000
+          },
+          {
+            "x": "Job B",
+            "low": 50000,
+            "high": 80000
+          },
+          {
+            "x": "Job C",
+            "low": 35000,
+            "high": 55000
+          },
+          {
+            "x": "Job D",
+            "low": 42000,
+            "high": 71000
+          }
+        ],
+        "xScale": 0,
+        "yScale": 1
+      }
+    ],
+    "isVertical": false,
+    "xAxes": [
+      {
+        "enabled": true,
+        "width": null,
+        "drawFirstLabel": true,
+        "drawLastLabel": true,
+        "overlapMode": "no-overlap",
+        "stroke": "#CECECE",
+        "staggerMode": false,
+        "staggerMaxLines": 2,
+        "staggerLines": null,
+        "orientation": "bottom",
+        "value": null,
+        "title": {
+          "zIndex": 35,
+          "enabled": false,
+          "maxLength": null,
+          "fontSize": 13,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#545f69",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": "normal",
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "center",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": false,
+          "useHtml": false,
+          "width": null,
+          "height": null,
+          "align": "center",
+          "text": "X-Axis",
+          "margin": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "padding": {
+            "left": 0,
+            "top": 5,
+            "bottom": 0,
+            "right": 0
+          },
+          "background": {
+            "enabled": false
+          }
+        },
+        "labels": {
+          "zIndex": 35,
+          "enabled": true
+        },
+        "minorLabels": {
+          "zIndex": 35,
+          "enabled": false
+        },
+        "ticks": {
+          "zIndex": 35,
+          "enabled": true,
+          "stroke": "#CECECE",
+          "length": 6,
+          "position": "outside"
+        },
+        "minorTicks": {
+          "zIndex": 35,
+          "enabled": false,
+          "stroke": "#EAEAEA",
+          "length": 4,
+          "position": "outside"
+        }
+      }
+    ],
+    "yAxes": [
+      {
+        "enabled": true,
+        "width": null,
+        "drawFirstLabel": true,
+        "drawLastLabel": true,
+        "overlapMode": "no-overlap",
+        "stroke": "#CECECE",
+        "staggerMode": false,
+        "staggerMaxLines": 2,
+        "staggerLines": null,
+        "orientation": "left",
+        "value": null,
+        "title": {
+          "zIndex": 35,
+          "enabled": false,
+          "maxLength": null,
+          "fontSize": 13,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#545f69",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": "normal",
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "center",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": false,
+          "useHtml": false,
+          "width": null,
+          "height": null,
+          "align": "center",
+          "text": "Y-Axis",
+          "margin": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "padding": {
+            "left": 0,
+            "top": 0,
+            "bottom": 5,
+            "right": 0
+          },
+          "background": {
+            "enabled": false
+          }
+        },
+        "labels": {
+          "zIndex": 35,
+          "enabled": true
+        },
+        "minorLabels": {
+          "zIndex": 35,
+          "enabled": false
+        },
+        "ticks": {
+          "zIndex": 35,
+          "enabled": true,
+          "stroke": "#CECECE",
+          "length": 6,
+          "position": "outside"
+        },
+        "minorTicks": {
+          "zIndex": 35,
+          "enabled": false,
+          "stroke": "#EAEAEA",
+          "length": 4,
+          "position": "outside"
+        }
+      }
+    ],
+    "crosshair": {
+      "zIndex": 41,
+      "enabled": false,
+      "xStroke": "#969EA5",
+      "yStroke": "#969EA5",
+      "displayMode": "float",
+      "xLabels": [
+        {
+          "enabled": true,
+          "fontSize": 12,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#ffffff",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": 400,
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "start",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": true,
+          "useHtml": false,
+          "text": "Label text",
+          "width": null,
+          "height": null,
+          "anchor": null,
+          "offsetX": 0,
+          "offsetY": 0,
+          "rotation": 0,
+          "adjustFontSize": {
+            "width": false,
+            "height": false
+          },
+          "minFontSize": 8,
+          "maxFontSize": 16,
+          "background": {
+            "zIndex": 0,
+            "enabled": true
+          },
+          "padding": {
+            "left": 10,
+            "top": 5,
+            "bottom": 5,
+            "right": 10
+          },
+          "axisIndex": 0
+        }
+      ],
+      "yLabels": [
+        {
+          "enabled": true,
+          "fontSize": 12,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#ffffff",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": 400,
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "start",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": true,
+          "useHtml": false,
+          "text": "Label text",
+          "width": null,
+          "height": null,
+          "anchor": null,
+          "offsetX": 0,
+          "offsetY": 0,
+          "rotation": 0,
+          "adjustFontSize": {
+            "width": false,
+            "height": false
+          },
+          "minFontSize": 8,
+          "maxFontSize": 16,
+          "background": {
+            "zIndex": 0,
+            "enabled": true
+          },
+          "padding": {
+            "left": 10,
+            "top": 5,
+            "bottom": 5,
+            "right": 10
+          },
+          "axisIndex": 0
+        }
+      ]
+    },
+    "scales": [
+      {
+        "type": "ordinal",
+        "inverted": false,
+        "ticks": {
+          "maxCount": 100
+        },
+        "mode": "discrete"
+      },
+      {
+        "type": "linear",
+        "inverted": false,
+        "maximum": null,
+        "minimum": null,
+        "minimumGap": 0.1,
+        "maximumGap": 0.1,
+        "softMinimum": 0,
+        "softMaximum": null,
+        "alignMinimum": true,
+        "alignMaximum": true,
+        "maxTicksCount": 1000,
+        "ticks": {
+          "mode": "linear",
+          "base": 0,
+          "allowFractional": true,
+          "minCount": 4,
+          "maxCount": 6
+        },
+        "minorTicks": {
+          "mode": "linear",
+          "base": 0,
+          "allowFractional": true,
+          "count": 5
+        },
+        "stackMode": "none",
+        "stackDirection": "direct",
+        "stickToZero": true,
+        "comparisonMode": "none"
+      }
+    ],
+    "crossing": {
+      "stroke": "none"
+    },
+    "quarters": {},
+    "yCrossAxes": [
+      0
+    ],
+    "xCrossAxes": [
+      0
+    ],
+    "xScroller": {
+      "zIndex": 35,
+      "enabled": false,
+      "height": 16,
+      "minHeight": null,
+      "maxHeight": null,
+      "orientation": "bottom",
+      "inverted": false,
+      "autoHide": false,
+      "fill": "#f7f7f7",
+      "selectedFill": "#ddd",
+      "outlineStroke": "none",
+      "allowRangeChange": true,
+      "thumbs": {
+        "normal": {
+          "fill": "#E9E9E9",
+          "stroke": "#7c868e"
+        },
+        "hovered": {
+          "fill": "#ffffff",
+          "stroke": "#757575"
+        },
+        "enabled": true,
+        "autoHide": false
+      },
+      "position": "after-axes"
+    },
+    "yScroller": {
+      "zIndex": 35,
+      "enabled": false,
+      "height": 16,
+      "minHeight": null,
+      "maxHeight": null,
+      "orientation": "left",
+      "inverted": false,
+      "autoHide": false,
+      "fill": "#f7f7f7",
+      "selectedFill": "#ddd",
+      "outlineStroke": "none",
+      "allowRangeChange": true,
+      "thumbs": {
+        "normal": {
+          "fill": "#E9E9E9",
+          "stroke": "#7c868e"
+        },
+        "hovered": {
+          "fill": "#ffffff",
+          "stroke": "#757575"
+        },
+        "enabled": true,
+        "autoHide": false
+      },
+      "position": "after-axes"
+    },
+    "xZoom": {
+      "startRatio": 0,
+      "endRatio": 1,
+      "continuous": true
+    },
+    "yZoom": {
+      "startRatio": 0,
+      "endRatio": 1,
+      "continuous": true
+    }
+  }
+}

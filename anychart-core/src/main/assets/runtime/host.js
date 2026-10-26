@@ -26,8 +26,9 @@
 (function () {
   'use strict';
 
-  var RUNTIME_VERSION = '0.1.0';
+  var RUNTIME_VERSION = '0.1.1';
   var charts = {}; // id -> { chart, el }
+  var DATA_BY_API = { 'data-sheet': true };
 
   function send(message) {
     var host = window.AnyChartHost;
@@ -90,16 +91,29 @@
     try {
       var chart = anychart.fromJson(m.config);
       if (!chart) return fail(m.id, 'fromJson produced no chart');
+      // The data sheet ignores `data` in its JSON config and its toJson() omits the rows
+      // (engine gap, AnyChart 9.0.0), so the rows are handed over through the API instead.
+      var root = m.config.chart || m.config.gauge || m.config.map || m.config.gantt || {};
+      if (DATA_BY_API[root.type] && root.data !== undefined && typeof chart.data === 'function') {
+        chart.data(root.data);
+      }
       (m.events || []).forEach(function (type) {
         chart.listen(type, function (e) {
           send({ type: 'event', id: m.id, event: type, data: describe(e) });
         });
       });
-      chart.listenOnce('chartDraw', function () {
+      var renderedSent = false;
+      function rendered() {
+        if (renderedSent) return;
+        renderedSent = true;
         send({ type: 'rendered', id: m.id, ms: Math.round(performance.now() - t0) });
-      });
+      }
+      chart.listenOnce('chartDraw', rendered);
       chart.container(el.id);
       chart.draw();
+      // Charts that do not descend from anychart.core.Chart (the data sheet) never fire
+      // chartDraw. Two frames after draw() the DOM is painted; report then if nothing did.
+      requestAnimationFrame(function () { requestAnimationFrame(rendered); });
       charts[m.id] = { chart: chart, el: el };
     } catch (err) {
       if (el.parentNode) el.parentNode.removeChild(el);

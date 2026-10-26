@@ -1,0 +1,406 @@
+{
+  "chart": {
+    "zIndex": 0,
+    "enabled": true,
+    "type": "waffle",
+    "title": {
+      "zIndex": 80,
+      "enabled": true,
+      "maxLength": null,
+      "fontSize": 16,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "top",
+      "hAlign": "center",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "width": null,
+      "height": null,
+      "align": "center",
+      "text": "Waffle: sales channels",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "bottom": 10,
+        "right": 0
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": false
+      }
+    },
+    "background": {
+      "zIndex": 0.5,
+      "enabled": true
+    },
+    "tooltip": {
+      "enabled": true,
+      "title": {
+        "zIndex": 1,
+        "enabled": true,
+        "maxLength": null,
+        "fontSize": 14,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#ffffff",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "left",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "left",
+        "orientation": "top",
+        "rotation": 0,
+        "text": "",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "separator": {
+        "zIndex": 1,
+        "enabled": true,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": true
+      }
+    },
+    "margin": {
+      "left": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "padding": {
+      "left": 10,
+      "top": 10,
+      "bottom": 15,
+      "right": 20
+    },
+    "a11y": {
+      "enabled": true,
+      "titleFormat": "Waffle Chart",
+      "pointDescriptionThreshold": 30,
+      "mode": "chart-elements",
+      "keyboardNavigation": true
+    },
+    "autoRedraw": true,
+    "bounds": {},
+    "credits": {
+      "chartType": "waffle"
+    },
+    "legend": {
+      "zIndex": 200,
+      "enabled": true,
+      "fontSize": 12,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "bottom",
+      "hAlign": "start",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "...",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "inverted": false,
+      "itemsLayout": "horizontal",
+      "iconSize": 15,
+      "width": null,
+      "height": null,
+      "maxWidth": null,
+      "maxHeight": null,
+      "position": "bottom",
+      "positionMode": "outside",
+      "drag": false,
+      "itemsFormat": null,
+      "titleFormat": null,
+      "itemsHAlign": "left",
+      "itemsSpacing": 15,
+      "itemsSourceMode": "default",
+      "hoverCursor": "pointer",
+      "iconTextSpacing": 5,
+      "align": "center",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 10,
+        "top": 10,
+        "bottom": 0,
+        "right": 10
+      },
+      "background": {
+        "enabled": false
+      },
+      "title": {
+        "enabled": false,
+        "maxLength": null,
+        "fontSize": 15,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#7c868e",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "center",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "center",
+        "text": "Title text",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "titleSeparator": {
+        "zIndex": 1,
+        "enabled": false,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "paginator": {
+        "zIndex": 30,
+        "enabled": true,
+        "fontSize": 12,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#545f69",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "start",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "orientation": "right",
+        "layout": "horizontal",
+        "background": {
+          "enabled": false
+        },
+        "padding": {
+          "left": 5,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        }
+      },
+      "tooltip": {
+        "enabled": false,
+        "title": {
+          "zIndex": 1,
+          "enabled": false,
+          "maxLength": null,
+          "fontSize": 14,
+          "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+          "fontColor": "#ffffff",
+          "fontOpacity": 1,
+          "fontDecoration": "none",
+          "fontStyle": "normal",
+          "fontVariant": "normal",
+          "fontWeight": "normal",
+          "letterSpacing": "normal",
+          "textDirection": "ltr",
+          "textShadow": "none",
+          "lineHeight": "normal",
+          "textIndent": 0,
+          "vAlign": "top",
+          "hAlign": "left",
+          "wordWrap": "normal",
+          "wordBreak": "normal",
+          "textOverflow": "",
+          "selectable": false,
+          "disablePointerEvents": false,
+          "useHtml": false,
+          "width": null,
+          "height": null,
+          "align": "left",
+          "orientation": "top",
+          "rotation": 0,
+          "text": "",
+          "margin": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "padding": {
+            "left": 0,
+            "top": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "background": {
+            "enabled": false
+          }
+        },
+        "separator": {
+          "zIndex": 1,
+          "enabled": false,
+          "fill": {
+            "color": "#CECECE",
+            "opacity": 0.3
+          },
+          "stroke": "none",
+          "width": "100%",
+          "height": 1,
+          "orientation": "top",
+          "margin": {
+            "left": 0,
+            "top": 5,
+            "bottom": 5,
+            "right": 0
+          }
+        },
+        "background": {
+          "zIndex": 0,
+          "enabled": true
+        }
+      }
+    },
+    "interactivity": {},
+    "data": [
+      {
+        "name": "In-store",
+        "value": 43
+      },
+      {
+        "name": "Online",
+        "value": 31
+      },
+      {
+        "name": "Wholesale",
+        "value": 17
+      },
+      {
+        "name": "Other",
+        "value": 9
+      }
+    ]
+  }
+}

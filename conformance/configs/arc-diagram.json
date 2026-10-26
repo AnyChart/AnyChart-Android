@@ -1,0 +1,263 @@
+{
+  "chart": {
+    "zIndex": 0,
+    "enabled": true,
+    "type": "arc-diagram",
+    "title": {
+      "zIndex": 80,
+      "enabled": true,
+      "maxLength": null,
+      "fontSize": 16,
+      "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+      "fontColor": "#7c868e",
+      "fontOpacity": 1,
+      "fontDecoration": "none",
+      "fontStyle": "normal",
+      "fontVariant": "normal",
+      "fontWeight": "normal",
+      "letterSpacing": "normal",
+      "textDirection": "ltr",
+      "textShadow": "none",
+      "lineHeight": "normal",
+      "textIndent": 0,
+      "vAlign": "top",
+      "hAlign": "center",
+      "wordWrap": "normal",
+      "wordBreak": "normal",
+      "textOverflow": "",
+      "selectable": false,
+      "disablePointerEvents": false,
+      "useHtml": false,
+      "width": null,
+      "height": null,
+      "align": "center",
+      "text": "Arc diagram: department traffic",
+      "margin": {
+        "left": 0,
+        "top": 0,
+        "bottom": 0,
+        "right": 0
+      },
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "bottom": 10,
+        "right": 0
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": false
+      }
+    },
+    "background": {
+      "zIndex": 0.5,
+      "enabled": true
+    },
+    "tooltip": {
+      "enabled": true,
+      "title": {
+        "zIndex": 1,
+        "enabled": true,
+        "maxLength": null,
+        "fontSize": 14,
+        "fontFamily": "Verdana, Helvetica, Arial, sans-serif",
+        "fontColor": "#ffffff",
+        "fontOpacity": 1,
+        "fontDecoration": "none",
+        "fontStyle": "normal",
+        "fontVariant": "normal",
+        "fontWeight": "normal",
+        "letterSpacing": "normal",
+        "textDirection": "ltr",
+        "textShadow": "none",
+        "lineHeight": "normal",
+        "textIndent": 0,
+        "vAlign": "top",
+        "hAlign": "left",
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "textOverflow": "",
+        "selectable": false,
+        "disablePointerEvents": false,
+        "useHtml": false,
+        "width": null,
+        "height": null,
+        "align": "left",
+        "orientation": "top",
+        "rotation": 0,
+        "text": "",
+        "margin": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "padding": {
+          "left": 0,
+          "top": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "background": {
+          "enabled": false
+        }
+      },
+      "separator": {
+        "zIndex": 1,
+        "enabled": true,
+        "fill": {
+          "color": "#CECECE",
+          "opacity": 0.3
+        },
+        "stroke": "none",
+        "width": "100%",
+        "height": 1,
+        "orientation": "top",
+        "margin": {
+          "left": 0,
+          "top": 5,
+          "bottom": 5,
+          "right": 0
+        }
+      },
+      "background": {
+        "zIndex": 0,
+        "enabled": true
+      }
+    },
+    "margin": {
+      "left": 0,
+      "top": 0,
+      "bottom": 0,
+      "right": 0
+    },
+    "padding": {
+      "left": 10,
+      "top": 10,
+      "bottom": 15,
+      "right": 20
+    },
+    "a11y": {
+      "enabled": true,
+      "pointDescriptionThreshold": 30,
+      "mode": "chart-elements",
+      "keyboardNavigation": true
+    },
+    "autoRedraw": true,
+    "bounds": {},
+    "credits": {
+      "chartType": "arc-diagram"
+    },
+    "selectRectangleMarqueeFill": {
+      "color": "#d3d3d3",
+      "opacity": 0.4
+    },
+    "selectRectangleMarqueeStroke": "#d3d3d3",
+    "data": [
+      {
+        "from": "Sales",
+        "to": "Marketing",
+        "weight": 9
+      },
+      {
+        "from": "Sales",
+        "to": "Finance",
+        "weight": 16
+      },
+      {
+        "from": "Finance",
+        "to": "HR",
+        "weight": 5
+      },
+      {
+        "from": "Support",
+        "to": "Sales",
+        "weight": 14
+      },
+      {
+        "from": "Support",
+        "to": "Marketing",
+        "weight": 6
+      },
+      {
+        "from": "Marketing",
+        "to": "HR",
+        "weight": 3
+      }
+    ],
+    "palette": {
+      "type": "distinct",
+      "items": [
+        "#64b5f6",
+        "#1976d2",
+        "#ef6c00",
+        "#ffd54f",
+        "#455a64",
+        "#96a6a6",
+        "#dd2c00",
+        "#00838f",
+        "#00bfa5",
+        "#ffa000"
+      ]
+    },
+    "node": {
+      "tooltip": {},
+      "normal": {
+        "stroke": "none",
+        "labels": {
+          "enabled": true,
+          "overflow": "hide",
+          "maxCount": null,
+          "connectorMaxLength": "50%"
+        }
+      },
+      "hovered": {
+        "labels": {
+          "overflow": "hide",
+          "maxCount": null,
+          "connectorMaxLength": "50%"
+        }
+      },
+      "selected": {
+        "stroke": {
+          "color": "#212121",
+          "thickness": 1.5
+        },
+        "labels": {
+          "overflow": "hide",
+          "maxCount": null,
+          "connectorMaxLength": "50%"
+        }
+      }
+    },
+    "link": {
+      "tooltip": {},
+      "normal": {
+        "stroke": "none",
+        "labels": {
+          "enabled": false
+        }
+      },
+      "hovered": {
+        "labels": {
+          "enabled": true
+        }
+      },
+      "selected": {
+        "labels": {}
+      }
+    },
+    "nodeSpacing": 30,
+    "nodesSpan": "85%",
+    "curvature": 1,
+    "sortOrder": "name",
+    "layout": "horizontal",
+    "colorMode": "source",
+    "reverseArcs": false,
+    "reverseGradient": false,
+    "maxLinksRendered": 1000,
+    "weightedNodes": true,
+    "minNodeSize": null,
+    "maxNodeSize": null
+  }
+}

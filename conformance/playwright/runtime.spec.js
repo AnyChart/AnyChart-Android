@@ -26,7 +26,8 @@ const messages = page => page.evaluate(() => window.__acMessages);
 const waitFor = (page, pred) => page.waitForFunction(src => (new Function('m', 'return ' + src))(window.__acMessages), pred);
 const rendered = (page, id) => waitFor(page, `m.some(x => x.type === 'rendered' && x.id === '${id}')`);
 const errorsOf = async page => (await messages(page)).filter(m => m.type === 'error');
-const countShapes = (page, id) => page.locator(`#ac-${id} svg :is(path, rect, circle, ellipse, polygon)`).count();
+// svg marks, plus DOM cells for charts that render as HTML (the data sheet)
+const countShapes = (page, id) => page.locator(`#ac-${id} svg :is(path, rect, circle, ellipse, polygon), #ac-${id} [role="gridcell"], #ac-${id} [role="columnheader"]`).count();
 const stripData = cfg => { const c = JSON.parse(JSON.stringify(cfg)); const root = c.chart || c.gauge || c.map || c.gantt; delete root.data; delete root.series; delete root.treeData; return c; };
 
 test.describe('runtime page', () => {
@@ -43,7 +44,8 @@ test.describe('runtime page', () => {
       await send(page, { type: 'load', id, config: readConfig(file) });
       await rendered(page, id);
       expect(await errorsOf(page)).toEqual([]);
-      await expect(page.locator(`#ac-${id} svg`).first()).toBeVisible();
+      // svg for drawn charts, a grid for the data sheet, which renders as HTML
+      await expect(page.locator(`#ac-${id} svg, #ac-${id} [role="grid"]`).locator('visible=true').first()).toBeVisible();
       const r = (await messages(page)).find(m => m.type === 'rendered' && m.id === id);
       expect(r.ms).toBeGreaterThanOrEqual(0);
       // An empty chart still fires chartDraw and still has an svg (title, credits, axes). Real data
