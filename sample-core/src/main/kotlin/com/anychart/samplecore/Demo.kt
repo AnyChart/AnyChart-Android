@@ -48,10 +48,11 @@ object Demo {
             "Vegetables" to listOf("Carrots", "Tomatoes", "Onions", "Peppers"),
             "Dairy" to listOf("Milk", "Cheese"),
         )
-        var k = 3
-        for ((cat, prods) in products) for (p in prods) for (m in months) {
-            k = (k * 31 + 7) % 97
-            add(Sale(cat, p, m, 10 + k))
+        for ((cat, prods) in products) for ((pi, p) in prods.withIndex()) for ((mi, m) in months.withIndex()) {
+            // varied but deterministic: each product has its own level and its own monthly shape
+            val level = 20 + (p.length * 7 + pi * 13) % 40
+            val season = ((mi + pi + cat.length) * 5) % 23
+            add(Sale(cat, p, m, level + season))
         }
     }
 
