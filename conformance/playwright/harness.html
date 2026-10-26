@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AnyChart runtime harness</title>
+<style>
+  body { margin: 0; font: 14px/1.4 system-ui, sans-serif; display: grid; grid-template-columns: 240px 412px 1fr; height: 100vh; color: #1d2129; background: #f4f4f1; }
+  aside { padding: 12px; border-right: 1px solid #d6d9df; overflow: auto; }
+  h1 { font-size: 14px; margin: 0 0 8px; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #5d6572; margin: 16px 0 6px; }
+  button { display: block; width: 100%; text-align: left; margin: 0 0 4px; padding: 6px 8px; border: 1px solid #c9ccd3; border-radius: 4px; background: #fff; cursor: pointer; font: inherit; }
+  button:hover { border-color: #0f766e; }
+  button:disabled { opacity: .5; cursor: default; }
+  .phone { width: 412px; height: 732px; margin: 12px; border: 1px solid #c9ccd3; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  iframe { border: 0; width: 412px; height: 732px; display: block; }
+  #log { font: 12px/1.45 ui-monospace, monospace; padding: 12px; overflow: auto; white-space: pre-wrap; border-left: 1px solid #d6d9df; background: #fbfbf9; }
+  .out { color: #0f766e; } .in { color: #5d6572; } .err { color: #b42318; }
+  small { color: #5d6572; }
+  @media (max-width: 1100px) {
+    body { grid-template-columns: 1fr; height: auto; }
+    aside { border-right: 0; border-bottom: 1px solid #d6d9df; }
+    .phone { margin: 12px auto; }
+    #log { border-left: 0; border-top: 1px solid #d6d9df; min-height: 240px; }
+  }
+</style>
+</head>
+<body>
+<aside>
+  <h1>Runtime harness</h1>
+  <small>This page is the host. The phone frame is the runtime page, same file the AAR ships. Green lines are messages to the page, grey lines come back from it.</small>
+  <h2>Load a config</h2>
+  <div id="configs"></div>
+  <h2>Scenarios</h2>
+  <button data-s="two">Two charts in one page</button>
+  <button data-s="update">Update data in place</button>
+  <button data-s="selected">Query selected points</button>
+  <button data-s="resize">Resize to half height</button>
+  <button data-s="dispose">Dispose current chart</button>
+  <button data-s="bad">Send a bad config</button>
+  <h2>Hint</h2>
+  <small>Tap a column or a slice in the frame: the <code>pointClick</code> event appears in the log with the point's data.</small>
+</aside>
+<div class="phone"><iframe id="rt" src="/anychart-core/src/main/assets/runtime/index.html"></iframe></div>
+<div id="log"></div>
+<script>
+  const rt = document.getElementById('rt');
+  const log = document.getElementById('log');
+  const configsEl = document.getElementById('configs');
+  let current = null;
+  let seq = 0;
+
+  function line(cls, obj) {
+    const d = document.createElement('div'); d.className = cls;
+    d.textContent = (cls === 'out' ? '→ ' : '← ') + JSON.stringify(obj);
+    log.appendChild(d); log.scrollTop = log.scrollHeight;
+  }
+  function send(m) { line('out', m); rt.contentWindow.AnyChartRuntime.receive(JSON.stringify(m)); }
+  const getConfig = name => fetch('/conformance/configs/' + name).then(r => r.json());
+
+  rt.addEventListener('load', async () => {
+    // Become the host: everything the page posts from now on lands in the log.
+    rt.contentWindow.AnyChartHost = { postMessage: s => { const m = JSON.parse(s); line(m.type === 'error' ? 'err' : 'in', m); } };
+    line('in', { note: 'runtime loaded, harness attached as host', jsVersion: rt.contentWindow.anychart && rt.contentWindow.anychart.VERSION });
+    const names = await fetch('/conformance/configs/index.json').then(r => r.json());
+    configsEl.innerHTML = '';
+    for (const n of names) {
+      const b = document.createElement('button'); b.textContent = n.replace(/\.json$/, '');
+      b.onclick = async () => { if (current) send({ type: 'dispose', id: current }); current = n.replace(/\.json$/, ''); send({ type: 'load', id: current, config: await getConfig(n), events: ['pointClick', 'legendItemClick'] }); };
+      configsEl.appendChild(b);
+    }
+  });
+
+  document.querySelectorAll('button[data-s]').forEach(b => b.onclick = async () => {
+    switch (b.dataset.s) {
+      case 'two':
+        if (current) send({ type: 'dispose', id: current }); current = null;
+        send({ type: 'dispose', id: 'top' }); send({ type: 'dispose', id: 'bottom' });
+        send({ type: 'load', id: 'top', config: await getConfig('pie.json'), rect: { x: 0, y: 0, width: 412, height: 366 }, events: ['pointClick'] });
+        send({ type: 'load', id: 'bottom', config: await getConfig('column.json'), rect: { x: 0, y: 366, width: 412, height: 366 }, events: ['pointClick'] });
+        current = 'top';
+        break;
+      case 'update':
+        if (!current) return line('err', { note: 'load a chart first' });
+        send({ type: 'update', id: current, data: [{ x: 'Updated A', value: 3 + seq++ }, { x: 'Updated B', value: 5 }, { x: 'Updated C', value: 2 }] });
+        break;
+      case 'selected':
+        if (!current) return line('err', { note: 'load a chart first' });
+        send({ type: 'query', id: current, requestId: 'q' + (++seq), what: 'selectedPoints' });
+        break;
+      case 'resize':
+        if (!current) return line('err', { note: 'load a chart first' });
+        send({ type: 'resize', id: current, rect: { x: 0, y: 0, width: 412, height: 366 } });
+        break;
+      case 'dispose':
+        if (!current) return line('err', { note: 'nothing loaded' });
+        send({ type: 'dispose', id: current }); current = null;
+        break;
+      case 'bad':
+        send({ type: 'load', id: 'bad', config: { chart: { type: 'no-such-chart' } } });
+        break;
+    }
+  });
+</script>
+</body>
+</html>

@@ -13,6 +13,11 @@ const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '
 
 http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
+  if (url === '/conformance/configs/index.json') {
+    const names = fs.readdirSync(path.join(root, 'conformance', 'configs')).filter(f => f.endsWith('.json')).sort();
+    res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+    return res.end(JSON.stringify(names));
+  }
   const file = path.normalize(path.join(root, url));
   if (!file.startsWith(root)) { res.writeHead(403); return res.end(); }
   fs.readFile(file, (err, data) => {
