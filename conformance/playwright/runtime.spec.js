@@ -26,6 +26,8 @@ const messages = page => page.evaluate(() => window.__acMessages);
 const waitFor = (page, pred) => page.waitForFunction(src => (new Function('m', 'return ' + src))(window.__acMessages), pred);
 const rendered = (page, id) => waitFor(page, `m.some(x => x.type === 'rendered' && x.id === '${id}')`);
 const errorsOf = async page => (await messages(page)).filter(m => m.type === 'error');
+const countShapes = (page, id) => page.locator(`#ac-${id} svg :is(path, rect, circle, ellipse, polygon)`).count();
+const stripData = cfg => { const c = JSON.parse(JSON.stringify(cfg)); const root = c.chart || c.gauge || c.map || c.gantt; delete root.data; delete root.series; delete root.treeData; return c; };
 
 test.describe('runtime page', () => {
   test('announces itself with the bundled JS version', async ({ page }) => {
@@ -44,6 +46,15 @@ test.describe('runtime page', () => {
       await expect(page.locator(`#ac-${id} svg`).first()).toBeVisible();
       const r = (await messages(page)).find(m => m.type === 'rendered' && m.id === id);
       expect(r.ms).toBeGreaterThanOrEqual(0);
+      // An empty chart still fires chartDraw and still has an svg (title, credits, axes). Real data
+      // leaves marks. Compare against the same config with its data stripped: the real one must
+      // draw strictly more shapes. This is what caught the first tree map config rendering blank.
+      const shapes = await countShapes(page, id);
+      await send(page, { type: 'load', id: `${id}-empty`, config: stripData(readConfig(file)), rect: { x: 0, y: 0, width: 10, height: 10 } });
+      await rendered(page, `${id}-empty`);
+      const emptyShapes = await countShapes(page, `${id}-empty`);
+      await send(page, { type: 'dispose', id: `${id}-empty` });
+      expect(shapes, `${id} drew ${shapes} shapes, the same config without data draws ${emptyShapes}`).toBeGreaterThan(emptyShapes);
       await page.waitForTimeout(200); // let the last animation frame settle before the picture
       await expect(page).toHaveScreenshot(`${id}.png`);
     });

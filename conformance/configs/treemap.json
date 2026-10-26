@@ -1,13 +1,28 @@
 {
   "chart": {
     "type": "tree-map",
-    "title": "Tree map: population by region",
+    "title": "Tree map: population by region (millions)",
     "treeData": {
       "children": [
-        {"name": "Europe", "children": [{"name": "Germany", "value": 83}, {"name": "France", "value": 65}, {"name": "Italy", "value": 59}]},
-        {"name": "Asia", "children": [{"name": "Japan", "value": 125}, {"name": "Vietnam", "value": 98}, {"name": "Thailand", "value": 72}]},
-        {"name": "Americas", "children": [{"name": "Brazil", "value": 216}, {"name": "Mexico", "value": 128}]}
+        {"treeDataItemData": {"name": "World"}, "children": [
+          {"treeDataItemData": {"name": "Europe"}, "children": [
+            {"treeDataItemData": {"name": "Germany", "value": 83}},
+            {"treeDataItemData": {"name": "France", "value": 65}},
+            {"treeDataItemData": {"name": "Italy", "value": 59}}
+          ]},
+          {"treeDataItemData": {"name": "Asia"}, "children": [
+            {"treeDataItemData": {"name": "Japan", "value": 125}},
+            {"treeDataItemData": {"name": "Vietnam", "value": 98}},
+            {"treeDataItemData": {"name": "Thailand", "value": 72}}
+          ]},
+          {"treeDataItemData": {"name": "Americas"}, "children": [
+            {"treeDataItemData": {"name": "Brazil", "value": 216}},
+            {"treeDataItemData": {"name": "Mexico", "value": 128}}
+          ]}
+        ]}
       ]
-    }
+    },
+    "maxDepth": 2,
+    "hintDepth": 1
   }
 }
