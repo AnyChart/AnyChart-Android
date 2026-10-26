@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
+        android:name=".PocApplication"
         android:label="AnyChart PoC"
         android:allowBackup="false"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
@@ -15,5 +16,6 @@
         <activity android:name=".FragmentsActivity" android:label="Charts in Fragments" />
         <activity android:name=".RecyclerActivity" android:label="Charts in a RecyclerView" />
         <activity android:name=".CoordinationActivity" android:label="Coordination" />
+        <activity android:name=".BenchmarkActivity" android:label="Benchmark" android:exported="true" />
     </application>
 </manifest>

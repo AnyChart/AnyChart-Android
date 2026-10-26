@@ -1,0 +1,60 @@
+# AnyChart-Android PoC, step 4 measurements
+# Device: Nothing Phone (3a) A059, Android 16 (API 36), WebView com.google.android.webview 155.0.8059.43
+# Date: 2026-10-26. Script: sample-core/bench/bench.sh. Cold start = process force-stopped before each run.
+# Columns: amTotalTime = am start -W, ms to first frame; appToCreate = Application.onCreate to Activity.onCreate;
+#   viewCtor = AnyChartView construction; createToReady = Activity create to page ready; createToRendered = to first chartDraw;
+#   appToRendered = Application start to first chartDraw; pageDraw = page-side ms from load to chartDraw (pie); secondLoadPageDraw = column into the warm page.
+# cold starts, 7 per mode
+mode file: M0
+M0 run=1 amTotalTime=677 mode=M0 appToCreate=20 viewCtor=145 createToReady=582 createToRendered=683 appToRendered=703 pageDraw=99 secondLoadPageDraw=121 | 
+M0 run=2 amTotalTime=607 mode=M0 appToCreate=18 viewCtor=133 createToReady=551 createToRendered=651 appToRendered=669 pageDraw=99 secondLoadPageDraw=123 | 
+M0 run=3 amTotalTime=619 mode=M0 appToCreate=29 viewCtor=141 createToReady=550 createToRendered=651 appToRendered=680 pageDraw=99 secondLoadPageDraw=123 | 
+M0 run=4 amTotalTime=618 mode=M0 appToCreate=25 viewCtor=140 createToReady=555 createToRendered=653 appToRendered=678 pageDraw=97 secondLoadPageDraw=119 | 
+M0 run=5 amTotalTime=613 mode=M0 appToCreate=19 viewCtor=139 createToReady=559 createToRendered=660 appToRendered=679 pageDraw=100 secondLoadPageDraw=130 | 
+M0 run=6 amTotalTime=625 mode=M0 appToCreate=23 viewCtor=142 createToReady=589 createToRendered=692 appToRendered=715 pageDraw=102 secondLoadPageDraw=123 | 
+M0 run=7 amTotalTime=630 mode=M0 appToCreate=19 viewCtor=138 createToReady=542 createToRendered=643 appToRendered=662 pageDraw=99 secondLoadPageDraw=123 | 
+mode file: M1
+M1 run=1 amTotalTime=638 mode=M1 appToCreate=147 viewCtor=46 createToReady=430 createToRendered=524 appToRendered=671 pageDraw=92 secondLoadPageDraw=127 | M1 warmUpRendererProcess called at 117 ms
+M1 run=2 amTotalTime=631 mode=M1 appToCreate=144 viewCtor=42 createToReady=390 createToRendered=493 appToRendered=637 pageDraw=97 secondLoadPageDraw=122 | M1 warmUpRendererProcess called at 123 ms
+M1 run=3 amTotalTime=624 mode=M1 appToCreate=142 viewCtor=43 createToReady=409 createToRendered=509 appToRendered=651 pageDraw=98 secondLoadPageDraw=113 | M1 warmUpRendererProcess called at 120 ms
+M1 run=4 amTotalTime=629 mode=M1 appToCreate=140 viewCtor=45 createToReady=410 createToRendered=511 appToRendered=651 pageDraw=100 secondLoadPageDraw=125 | M1 warmUpRendererProcess called at 113 ms
+M1 run=5 amTotalTime=616 mode=M1 appToCreate=141 viewCtor=41 createToReady=406 createToRendered=510 appToRendered=651 pageDraw=103 secondLoadPageDraw=126 | M1 warmUpRendererProcess called at 116 ms
+M1 run=6 amTotalTime=654 mode=M1 appToCreate=153 viewCtor=42 createToReady=431 createToRendered=529 appToRendered=682 pageDraw=96 secondLoadPageDraw=114 | M1 warmUpRendererProcess called at 123 ms
+M1 run=7 amTotalTime=650 mode=M1 appToCreate=146 viewCtor=52 createToReady=412 createToRendered=511 appToRendered=657 pageDraw=98 secondLoadPageDraw=121 | M1 warmUpRendererProcess called at 123 ms
+mode file: M2
+M2 run=1 amTotalTime=647 mode=M2 appToCreate=164 viewCtor=23 createToReady=411 createToRendered=511 appToRendered=675 pageDraw=99 secondLoadPageDraw=123 | M2 throwaway WebView built in 137 ms
+M2 run=2 amTotalTime=651 mode=M2 appToCreate=159 viewCtor=19 createToReady=430 createToRendered=531 appToRendered=690 pageDraw=100 secondLoadPageDraw=123 | M2 throwaway WebView built in 140 ms
+M2 run=3 amTotalTime=643 mode=M2 appToCreate=157 viewCtor=22 createToReady=398 createToRendered=500 appToRendered=657 pageDraw=100 secondLoadPageDraw=113 | M2 throwaway WebView built in 138 ms
+M2 run=4 amTotalTime=623 mode=M2 appToCreate=156 viewCtor=21 createToReady=419 createToRendered=517 appToRendered=673 pageDraw=97 secondLoadPageDraw=128 | M2 throwaway WebView built in 134 ms
+M2 run=5 amTotalTime=638 mode=M2 appToCreate=155 viewCtor=23 createToReady=433 createToRendered=534 appToRendered=689 pageDraw=100 secondLoadPageDraw=122 | M2 throwaway WebView built in 136 ms
+M2 run=6 amTotalTime=635 mode=M2 appToCreate=157 viewCtor=21 createToReady=429 createToRendered=533 appToRendered=690 pageDraw=101 secondLoadPageDraw=118 | M2 throwaway WebView built in 135 ms
+M2 run=7 amTotalTime=635 mode=M2 appToCreate=156 viewCtor=20 createToReady=437 createToRendered=539 appToRendered=695 pageDraw=99 secondLoadPageDraw=121 | M2 throwaway WebView built in 136 ms
+mode file: M3
+M3 run=1 amTotalTime=641 mode=M3 appToCreate=188 viewCtor=2 createToReady=405 createToRendered=505 appToRendered=693 pageDraw=98 secondLoadPageDraw=123 | M3 view warmed up in 163 ms
+M3 run=2 amTotalTime=629 mode=M3 appToCreate=185 viewCtor=2 createToReady=405 createToRendered=504 appToRendered=689 pageDraw=97 secondLoadPageDraw=112 | M3 view warmed up in 162 ms
+M3 run=3 amTotalTime=630 mode=M3 appToCreate=193 viewCtor=2 createToReady=414 createToRendered=518 appToRendered=711 pageDraw=102 secondLoadPageDraw=119 | M3 view warmed up in 165 ms
+M3 run=4 amTotalTime=625 mode=M3 appToCreate=180 viewCtor=2 createToReady=405 createToRendered=509 appToRendered=689 pageDraw=101 secondLoadPageDraw=128 | M3 view warmed up in 156 ms
+M3 run=5 amTotalTime=632 mode=M3 appToCreate=184 viewCtor=2 createToReady=321 createToRendered=421 appToRendered=605 pageDraw=98 secondLoadPageDraw=118 | M3 view warmed up in 160 ms
+M3 run=6 amTotalTime=636 mode=M3 appToCreate=181 viewCtor=3 createToReady=379 createToRendered=479 appToRendered=660 pageDraw=98 secondLoadPageDraw=125 | M3 view warmed up in 159 ms
+M3 run=7 amTotalTime=644 mode=M3 appToCreate=190 viewCtor=2 createToReady=411 createToRendered=513 appToRendered=703 pageDraw=100 secondLoadPageDraw=125 | M3 view warmed up in 160 ms
+# memory: PSS of every process of the package, kB
+scenario=menu_no_webview
+  com.anychart.samplecore pss_kB=96618
+  ps rss_kB 181544 com.anychart.samplecore
+scenario=gallery_1_webview
+  renderer pid=22925 pss_kB=62263
+  com.anychart.samplecore pss_kB=152703
+  ps rss_kB 278548 com.anychart.samplecore
+scenario=multi_3_webviews
+  renderer pid=22925 pss_kB=105008
+  com.anychart.samplecore pss_kB=155818
+  ps rss_kB 287796 com.anychart.samplecore
+scenario=recycler_9_webviews_scrolled
+  renderer pid=22925 pss_kB=236818
+  com.anychart.samplecore pss_kB=169325
+  ps rss_kB 300272 com.anychart.samplecore
+scenario=fragments_pager_3_pages_alive
+  renderer pid=22925 pss_kB=163432
+  com.anychart.samplecore pss_kB=169062
+  ps rss_kB 304348 com.anychart.samplecore
+# done
