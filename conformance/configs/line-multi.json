@@ -1,0 +1,13 @@
+{
+  "chart": {
+    "type": "line",
+    "title": "Trend of Sales of the Most Popular Products of ACME Corp.",
+    "series": [
+      {"seriesType": "line", "name": "Brandy", "data": [{"x": "1986", "value": 3.6}, {"x": "1987", "value": 7.1}, {"x": "1988", "value": 8.5}, {"x": "1989", "value": 9.2}, {"x": "1990", "value": 10.1}, {"x": "1991", "value": 11.6}, {"x": "1992", "value": 16.4}, {"x": "1993", "value": 18}]},
+      {"seriesType": "line", "name": "Whiskey", "data": [{"x": "1986", "value": 2.3}, {"x": "1987", "value": 4}, {"x": "1988", "value": 6.2}, {"x": "1989", "value": 11.8}, {"x": "1990", "value": 13}, {"x": "1991", "value": 13.9}, {"x": "1992", "value": 17.1}, {"x": "1993", "value": 22.3}]}
+    ],
+    "legend": {"enabled": true, "fontSize": 13, "padding": [0, 0, 10, 0]},
+    "crosshair": {"enabled": true, "yLabel": {"enabled": false}, "yStroke": null},
+    "yAxes": [{"title": "Number of Bottles Sold (fictional data)"}]
+  }
+}

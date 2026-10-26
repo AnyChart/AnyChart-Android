@@ -31,3 +31,7 @@ google-services.json
 
 # Android Profiling
 *.hprof
+# conformance (Playwright)
+conformance/playwright/node_modules/
+conformance/playwright/test-results/
+conformance/playwright/playwright-report/

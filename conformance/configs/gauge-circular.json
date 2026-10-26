@@ -1,0 +1,11 @@
+{
+  "gauge": {
+    "type": "circular-gauge",
+    "title": "Circular gauge: speed",
+    "data": [65],
+    "startAngle": 270,
+    "sweepAngle": 180,
+    "axes": [{"scale": {"minimum": 0, "maximum": 100, "ticks": {"interval": 10}}, "labels": {"position": "outside"}}],
+    "needles": [{"enabled": true}]
+  }
+}

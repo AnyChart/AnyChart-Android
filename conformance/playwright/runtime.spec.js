@@ -1,0 +1,136 @@
+// @ts-check
+// The runtime page under the host protocol, driven exactly as an Android host would
+// drive it: messages in through AnyChartRuntime.receive, messages out through
+// AnyChartHost.postMessage. Every conformance config must render; the scenarios
+// below cover what broke for 1.x users (several charts, data update, events,
+// reading state back, quotes in labels).
+const { test, expect } = require('@playwright/test');
+const fs = require('fs');
+const path = require('path');
+
+const RUNTIME = '/anychart-core/src/main/assets/runtime/index.html';
+const CONFIGS = path.resolve(__dirname, '..', 'configs');
+const configFiles = fs.readdirSync(CONFIGS).filter(f => f.endsWith('.json')).sort();
+const readConfig = f => JSON.parse(fs.readFileSync(path.join(CONFIGS, f), 'utf8'));
+
+/** @param {import('@playwright/test').Page} page */
+async function openRuntime(page) {
+  await page.addInitScript({ path: path.join(__dirname, 'fake-host.js') });
+  await page.goto(RUNTIME);
+  await page.waitForFunction(() => window.__acMessages.some(m => m.type === 'ready'));
+  return page.evaluate(() => window.__acMessages.find(m => m.type === 'ready'));
+}
+
+const send = (page, m) => page.evaluate(m => window.AnyChartRuntime.receive(JSON.stringify(m)), m);
+const messages = page => page.evaluate(() => window.__acMessages);
+const waitFor = (page, pred) => page.waitForFunction(src => (new Function('m', 'return ' + src))(window.__acMessages), pred);
+const rendered = (page, id) => waitFor(page, `m.some(x => x.type === 'rendered' && x.id === '${id}')`);
+const errorsOf = async page => (await messages(page)).filter(m => m.type === 'error');
+
+test.describe('runtime page', () => {
+  test('announces itself with the bundled JS version', async ({ page }) => {
+    const ready = await openRuntime(page);
+    expect(ready.jsVersion).toMatch(/^9\.0\.0/);
+    expect(ready.runtimeVersion).toBeTruthy();
+  });
+
+  for (const file of configFiles) {
+    const id = file.replace(/\.json$/, '');
+    test(`renders ${id}`, async ({ page }) => {
+      await openRuntime(page);
+      await send(page, { type: 'load', id, config: readConfig(file) });
+      await rendered(page, id);
+      expect(await errorsOf(page)).toEqual([]);
+      await expect(page.locator(`#ac-${id} svg`).first()).toBeVisible();
+      const r = (await messages(page)).find(m => m.type === 'rendered' && m.id === id);
+      expect(r.ms).toBeGreaterThanOrEqual(0);
+      await page.waitForTimeout(200); // let the last animation frame settle before the picture
+      await expect(page).toHaveScreenshot(`${id}.png`);
+    });
+  }
+
+  test('two charts in one page render independently', async ({ page }) => {
+    await openRuntime(page);
+    await send(page, { type: 'load', id: 'top', config: readConfig('pie.json'), rect: { x: 0, y: 0, width: 412, height: 366 } });
+    await send(page, { type: 'load', id: 'bottom', config: readConfig('column.json'), rect: { x: 0, y: 366, width: 412, height: 366 } });
+    await rendered(page, 'top');
+    await rendered(page, 'bottom');
+    expect(await errorsOf(page)).toEqual([]);
+    await expect(page.locator('#ac-top svg').first()).toBeVisible();
+    await expect(page.locator('#ac-bottom svg').first()).toBeVisible();
+    await page.waitForTimeout(200);
+    await expect(page).toHaveScreenshot('scenario-two-charts.png');
+  });
+
+  test('update replaces data without a reload', async ({ page }) => {
+    await openRuntime(page);
+    await send(page, { type: 'load', id: 'u', config: readConfig('pie.json') });
+    await rendered(page, 'u');
+    const before = await page.locator('#ac-u svg').count();
+    await send(page, { type: 'update', id: 'u', data: [{ x: 'Only one', value: 1 }] });
+    await page.waitForTimeout(300);
+    expect(await errorsOf(page)).toEqual([]);
+    // Same stage, same svg element count: the chart was not torn down.
+    expect(await page.locator('#ac-u svg').count()).toBe(before);
+    const json = await (async () => {
+      await send(page, { type: 'query', id: 'u', requestId: 'q1', what: 'json' });
+      await waitFor(page, `m.some(x => x.type === 'answer' && x.requestId === 'q1')`);
+      return (await messages(page)).find(m => m.type === 'answer' && m.requestId === 'q1').result;
+    })();
+    expect(JSON.stringify(json)).toContain('Only one');
+    expect(JSON.stringify(json)).not.toContain('Apples');
+  });
+
+  test('a tap on a point comes back as a typed event, and the selection can be queried', async ({ page }) => {
+    await openRuntime(page);
+    await send(page, { type: 'load', id: 'ev', config: readConfig('column.json'), events: ['pointClick'] });
+    await rendered(page, 'ev');
+    // Click the tallest column: last point, near the top of the plot.
+    const box = await page.locator('#ac-ev').boundingBox();
+    await page.mouse.click(box.x + box.width * 0.9, box.y + box.height * 0.55);
+    await waitFor(page, `m.some(x => x.type === 'event' && x.id === 'ev' && x.event === 'pointClick')`);
+    const ev = (await messages(page)).find(m => m.type === 'event' && m.id === 'ev');
+    expect(ev.data.x).toBe('Eyeliner');
+    expect(ev.data.value).toBe(213210);
+    expect(ev.data.series).toBe('Revenue');
+    await send(page, { type: 'query', id: 'ev', requestId: 'q2', what: 'selectedPoints' });
+    await waitFor(page, `m.some(x => x.type === 'answer' && x.requestId === 'q2')`);
+    const ans = (await messages(page)).find(m => m.type === 'answer' && m.requestId === 'q2');
+    expect(ans.result.map(p => p.x)).toEqual(['Eyeliner']);
+  });
+
+  test('resize re-lays out the chart into the new rect', async ({ page }) => {
+    await openRuntime(page);
+    await send(page, { type: 'load', id: 'rs', config: readConfig('area.json'), rect: { x: 0, y: 0, width: 412, height: 300 } });
+    await rendered(page, 'rs');
+    await send(page, { type: 'resize', id: 'rs', rect: { x: 0, y: 0, width: 300, height: 500 } });
+    await page.waitForTimeout(300);
+    expect(await errorsOf(page)).toEqual([]);
+    const svgBox = await page.locator('#ac-rs svg').first().boundingBox();
+    expect(Math.round(svgBox.width)).toBe(300);
+    expect(Math.round(svgBox.height)).toBe(500);
+  });
+
+  test('dispose removes the chart and its container', async ({ page }) => {
+    await openRuntime(page);
+    await send(page, { type: 'load', id: 'd', config: readConfig('bar.json') });
+    await rendered(page, 'd');
+    await send(page, { type: 'dispose', id: 'd' });
+    await expect(page.locator('#ac-d')).toHaveCount(0);
+    expect(await errorsOf(page)).toEqual([]);
+  });
+
+  test('bad input is reported, never swallowed', async ({ page }) => {
+    await openRuntime(page);
+    await send(page, { type: 'load', id: 'bad', config: { chart: { type: 'no-such-chart' } } });
+    await waitFor(page, `m.some(x => x.type === 'error')`);
+    await page.evaluate(() => window.AnyChartRuntime.receive('{not json'));
+    await send(page, { type: 'nonsense', id: 'x' });
+    await send(page, { type: 'update', id: 'ghost', data: [] });
+    const errs = await errorsOf(page);
+    expect(errs.length).toBeGreaterThanOrEqual(4);
+    expect(errs.map(e => e.message).join('\n')).toMatch(/malformed message/);
+    expect(errs.map(e => e.message).join('\n')).toMatch(/unknown message type nonsense/);
+    expect(errs.map(e => e.message).join('\n')).toMatch(/no chart with id ghost/);
+  });
+});

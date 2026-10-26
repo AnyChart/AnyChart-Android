@@ -1,0 +1,13 @@
+{
+  "name": "anychart-android-conformance",
+  "private": true,
+  "description": "Playwright gate for the AnyChart runtime page and host protocol",
+  "scripts": {
+    "test": "playwright test",
+    "update": "playwright test --update-snapshots",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2"
+  }
+}

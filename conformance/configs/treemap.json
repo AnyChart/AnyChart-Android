@@ -1,0 +1,13 @@
+{
+  "chart": {
+    "type": "tree-map",
+    "title": "Tree map: population by region",
+    "treeData": {
+      "children": [
+        {"name": "Europe", "children": [{"name": "Germany", "value": 83}, {"name": "France", "value": 65}, {"name": "Italy", "value": 59}]},
+        {"name": "Asia", "children": [{"name": "Japan", "value": 125}, {"name": "Vietnam", "value": 98}, {"name": "Thailand", "value": 72}]},
+        {"name": "Americas", "children": [{"name": "Brazil", "value": 216}, {"name": "Mexico", "value": 128}]}
+      ]
+    }
+  }
+}

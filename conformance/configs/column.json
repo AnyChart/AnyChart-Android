@@ -1,0 +1,24 @@
+{
+  "chart": {
+    "type": "column",
+    "title": "Top 8 Cosmetic Products by Revenue",
+    "series": [{
+      "seriesType": "column",
+      "name": "Revenue",
+      "data": [
+        {"x": "Rouge", "value": 80540},
+        {"x": "Foundation", "value": 94190},
+        {"x": "Mascara", "value": 102610},
+        {"x": "Lip gloss", "value": 110430},
+        {"x": "Lipstick", "value": 128000},
+        {"x": "Nail polish", "value": 143760},
+        {"x": "Eyebrow pencil", "value": 170670},
+        {"x": "Eyeliner", "value": 213210}
+      ]
+    }],
+    "xAxes": [{"title": "Product"}],
+    "yAxes": [{"title": "Revenue"}],
+    "yScale": {"minimum": 0},
+    "tooltip": {"positionMode": "point", "format": "{%Value}{groupsSeparator: }"}
+  }
+}
