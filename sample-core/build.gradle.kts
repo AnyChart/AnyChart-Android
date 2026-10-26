@@ -38,6 +38,7 @@ kotlin {
 
 dependencies {
     implementation(project(":anychart-core"))
+    implementation(project(":anychart")) // 1.x, for the side-by-side benchmark only
     implementation(project(":anychart-compose"))
     val bom = platform(libs.compose.bom)
     implementation(bom)
