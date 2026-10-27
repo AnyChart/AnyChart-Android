@@ -1,0 +1,10 @@
+AnyChartController  public class AnyChartController internal constructor()
+AnyChartController  public fun AnyChart(
+AnyChartController  public fun chartJson(callback: (JSONObject) -> Unit): Unit
+AnyChartController  public fun query(what: String, callback: (Any?) -> Unit): Unit
+AnyChartController  public fun rememberAnyChartController(): AnyChartController
+AnyChartController  public fun renderReport(): RenderReport?
+AnyChartController  public fun selectedPoints(callback: (List<SelectedPoint>) -> Unit): Unit
+AnyChartController  public fun update(dataJson: String, series: Int?
+AnyChartController  public fun update(rows: List<Map<String, Any?>>, series: Int?
+AnyChartController  public val isAttached: Boolean get()

@@ -96,6 +96,10 @@ public class AnyChartView @JvmOverloads constructor(
     public var jsVersion: String? = null
         private set
 
+    /** True after [destroy]; the view is inert from then on. */
+    public var destroyed: Boolean = false
+        private set
+
     /** Page-side boot timings reported with `ready`: ms since navigation start and per-resource fetch durations. */
     public var pageTiming: JSONObject = JSONObject()
         private set
@@ -223,6 +227,8 @@ public class AnyChartView @JvmOverloads constructor(
     /** Tears the WebView down. The view cannot be used afterwards. */
     public fun destroy() {
         mainThread("destroy")
+        if (destroyed) return
+        destroyed = true
         bridge.destroy()
         pendingQueries.clear()
         callbacks.clear()

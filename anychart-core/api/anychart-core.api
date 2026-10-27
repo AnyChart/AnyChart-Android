@@ -44,6 +44,7 @@ AnyChartEvent  public val pointIndex: Int? get()
 AnyChartEvent  public val series: String? get()
 AnyChartEvent  public val value: Any? get()
 AnyChartEvent  public val x: Any? get()
+AnyChartEvent  public var destroyed: Boolean
 AnyChartEvent  public var expectedJsVersion: String?
 AnyChartEvent  public var jsVersion: String?
 AnyChartEvent  public var licenseKey: String?
