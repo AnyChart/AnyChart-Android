@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -149,17 +150,17 @@ public open class FibonacciRetracement : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): FibonacciRetracement = apply { put("secondXAnchor", null) }
     /** Getter for annotation stroke settings. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
-    public var stroke: Any?
-        get() = get("stroke") as Any?
+    public var stroke: Callback?
+        get() = get("stroke") as Callback?
         set(value) { put("stroke", value) }
-    public fun stroke(value: Any): FibonacciRetracement = apply { put("stroke", value) }
+    public fun stroke(value: Callback): FibonacciRetracement = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): FibonacciRetracement = apply { put("stroke", null) }
     /** Getter for annotation trend settings. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
-    public var trend: Any?
-        get() = get("trend") as Any?
+    public var trend: Callback?
+        get() = get("trend") as Callback?
         set(value) { put("trend", value) }
-    public fun trend(value: Any): FibonacciRetracement = apply { put("trend", value) }
+    public fun trend(value: Callback): FibonacciRetracement = apply { put("trend", value) }
     public fun trend(value: Nothing?): FibonacciRetracement = apply { put("trend", null) }
     /** Getter for the value anchor. */
 

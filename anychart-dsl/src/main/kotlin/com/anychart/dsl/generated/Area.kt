@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -234,6 +235,7 @@ public open class Area : ConfigNode() {
 
     public fun fill(value: Any): Area = apply { put("fill", value) }
     public fun fill(value: List<*>): Area = apply { put("fill", value) }
+    public fun fill(value: Callback): Area = apply { put("fill", value) }
     public fun fill(value: String): Area = apply { put("fill", value) }
     public fun fill(value: Nothing?): Area = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Area = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -245,6 +247,7 @@ public open class Area : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): Area = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Area = apply { put("stroke", value) }
     public fun stroke(value: Any): Area = apply { put("stroke", value) }
     public fun stroke(value: String): Area = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Area = apply { put("stroke", null) }

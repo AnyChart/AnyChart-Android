@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -126,6 +127,7 @@ public open class Ellipse : ConfigNode() {
 
     public fun fill(value: Any): Ellipse = apply { put("fill", value) }
     public fun fill(value: List<*>): Ellipse = apply { put("fill", value) }
+    public fun fill(value: Callback): Ellipse = apply { put("fill", value) }
     public fun fill(value: String): Ellipse = apply { put("fill", value) }
     public fun fill(value: Nothing?): Ellipse = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Ellipse = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -151,6 +153,7 @@ public open class Ellipse : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): Ellipse = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Ellipse = apply { put("stroke", value) }
     public fun stroke(value: Any): Ellipse = apply { put("stroke", value) }
     public fun stroke(value: String): Ellipse = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Ellipse = apply { put("stroke", null) }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -149,12 +150,14 @@ public open class FibonacciFan : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): FibonacciFan = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): FibonacciFan = apply { put("stroke", value) }
     public fun stroke(value: Any): FibonacciFan = apply { put("stroke", value) }
     public fun stroke(value: String): FibonacciFan = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): FibonacciFan = apply { put("stroke", null) }
     public fun stroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): FibonacciFan = apply { put("stroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the annotation trend by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun trend(value: Callback): FibonacciFan = apply { put("trend", value) }
     public fun trend(value: Any): FibonacciFan = apply { put("trend", value) }
     public fun trend(value: String): FibonacciFan = apply { put("trend", value) }
     public fun trend(value: Nothing?): FibonacciFan = apply { put("trend", null) }
@@ -175,6 +178,7 @@ public open class FibonacciFan : ConfigNode() {
     public fun xAnchor(value: Nothing?): FibonacciFan = apply { put("xAnchor", null) }
     /** Setter for the annotation grid by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun grid(value: Callback): FibonacciFan = apply { put("grid", value) }
     public fun grid(value: Any): FibonacciFan = apply { put("grid", value) }
     public fun grid(value: String): FibonacciFan = apply { put("grid", value) }
     public fun grid(value: Nothing?): FibonacciFan = apply { put("grid", null) }

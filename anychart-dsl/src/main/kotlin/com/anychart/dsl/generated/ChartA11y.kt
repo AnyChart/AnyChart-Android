@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -39,6 +40,7 @@ public open class ChartA11y : ConfigNode() {
     public var titleFormat: String?
         get() = get("titleFormat") as String?
         set(value) { put("titleFormat", value) }
+    public fun titleFormat(value: Callback): ChartA11y = apply { put("titleFormat", value) }
     public fun titleFormat(value: String): ChartA11y = apply { put("titleFormat", value) }
     public fun titleFormat(value: Nothing?): ChartA11y = apply { put("titleFormat", null) }
 }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -215,12 +216,14 @@ public open class OHLC : ConfigNode() {
     public fun pointWidth(value: Nothing?): OHLC = apply { put("pointWidth", null) }
     /** Setter for series falling stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun fallingStroke(value: Callback): OHLC = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: Any): OHLC = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: String): OHLC = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: Nothing?): OHLC = apply { put("fallingStroke", null) }
     public fun fallingStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): OHLC = apply { put("fallingStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for series rising stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun risingStroke(value: Callback): OHLC = apply { put("risingStroke", value) }
     public fun risingStroke(value: Any): OHLC = apply { put("risingStroke", value) }
     public fun risingStroke(value: String): OHLC = apply { put("risingStroke", value) }
     public fun risingStroke(value: Nothing?): OHLC = apply { put("risingStroke", null) }

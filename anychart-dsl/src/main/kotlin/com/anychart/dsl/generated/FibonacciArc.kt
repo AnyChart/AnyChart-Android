@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -149,12 +150,14 @@ public open class FibonacciArc : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): FibonacciArc = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): FibonacciArc = apply { put("stroke", value) }
     public fun stroke(value: Any): FibonacciArc = apply { put("stroke", value) }
     public fun stroke(value: String): FibonacciArc = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): FibonacciArc = apply { put("stroke", null) }
     public fun stroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): FibonacciArc = apply { put("stroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the annotation trend by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun trend(value: Callback): FibonacciArc = apply { put("trend", value) }
     public fun trend(value: Any): FibonacciArc = apply { put("trend", value) }
     public fun trend(value: String): FibonacciArc = apply { put("trend", value) }
     public fun trend(value: Nothing?): FibonacciArc = apply { put("trend", null) }

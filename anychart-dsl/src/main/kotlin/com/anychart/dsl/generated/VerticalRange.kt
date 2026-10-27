@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -126,6 +127,7 @@ public open class VerticalRange : ConfigNode() {
 
     public fun fill(value: Any): VerticalRange = apply { put("fill", value) }
     public fun fill(value: List<*>): VerticalRange = apply { put("fill", value) }
+    public fun fill(value: Callback): VerticalRange = apply { put("fill", value) }
     public fun fill(value: String): VerticalRange = apply { put("fill", value) }
     public fun fill(value: Nothing?): VerticalRange = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): VerticalRange = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -144,6 +146,7 @@ public open class VerticalRange : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): VerticalRange = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): VerticalRange = apply { put("stroke", value) }
     public fun stroke(value: Any): VerticalRange = apply { put("stroke", value) }
     public fun stroke(value: String): VerticalRange = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): VerticalRange = apply { put("stroke", null) }

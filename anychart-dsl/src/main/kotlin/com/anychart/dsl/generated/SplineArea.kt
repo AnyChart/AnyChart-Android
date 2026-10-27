@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -219,6 +220,7 @@ public open class SplineArea : ConfigNode() {
 
     public fun fill(value: Any): SplineArea = apply { put("fill", value) }
     public fun fill(value: List<*>): SplineArea = apply { put("fill", value) }
+    public fun fill(value: Callback): SplineArea = apply { put("fill", value) }
     public fun fill(value: String): SplineArea = apply { put("fill", value) }
     public fun fill(value: Nothing?): SplineArea = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): SplineArea = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -232,17 +234,20 @@ public open class SplineArea : ConfigNode() {
 
     public fun negativeFill(value: Any): SplineArea = apply { put("negativeFill", value) }
     public fun negativeFill(value: List<*>): SplineArea = apply { put("negativeFill", value) }
+    public fun negativeFill(value: Callback): SplineArea = apply { put("negativeFill", value) }
     public fun negativeFill(value: String): SplineArea = apply { put("negativeFill", value) }
     public fun negativeFill(value: Nothing?): SplineArea = apply { put("negativeFill", null) }
     public fun negativeFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): SplineArea = apply { put("negativeFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
     /** Setter for negative stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun negativeStroke(value: Callback): SplineArea = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: Any): SplineArea = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: String): SplineArea = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: Nothing?): SplineArea = apply { put("negativeStroke", null) }
     public fun negativeStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): SplineArea = apply { put("negativeStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): SplineArea = apply { put("stroke", value) }
     public fun stroke(value: Any): SplineArea = apply { put("stroke", value) }
     public fun stroke(value: String): SplineArea = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): SplineArea = apply { put("stroke", null) }

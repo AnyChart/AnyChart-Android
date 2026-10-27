@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -208,6 +209,7 @@ public open class Hilo : ConfigNode() {
     public fun yScale(value: String): Hilo = apply { put("yScale", value) }
     /** Setter for the series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Hilo = apply { put("stroke", value) }
     public fun stroke(value: Any): Hilo = apply { put("stroke", value) }
     public fun stroke(value: String): Hilo = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Hilo = apply { put("stroke", null) }

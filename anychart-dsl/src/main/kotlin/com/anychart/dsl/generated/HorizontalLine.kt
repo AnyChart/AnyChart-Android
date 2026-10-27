@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -124,6 +125,7 @@ public open class HorizontalLine : ConfigNode() {
     public fun yScale(value: String): HorizontalLine = apply { put("yScale", value) }
     /** Setter for annotations stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): HorizontalLine = apply { put("stroke", value) }
     public fun stroke(value: Any): HorizontalLine = apply { put("stroke", value) }
     public fun stroke(value: String): HorizontalLine = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): HorizontalLine = apply { put("stroke", null) }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -38,6 +39,7 @@ public open class StateSettings : ConfigNode() {
     public fun disablePointerEvents(value: Nothing?): StateSettings = apply { put("disablePointerEvents", null) }
     /** Setter for the dummy fill using function. Learn more about coloring. Default: // return the fill from the default palette. function() { return this.sourceColor; };. */
 
+    public fun dummyFill(value: Callback): StateSettings = apply { put("dummyFill", value) }
     public fun dummyFill(value: Any): StateSettings = apply { put("dummyFill", value) }
     public fun dummyFill(value: String): StateSettings = apply { put("dummyFill", value) }
     public fun dummyFill(value: List<*>): StateSettings = apply { put("dummyFill", value) }
@@ -45,6 +47,7 @@ public open class StateSettings : ConfigNode() {
     public fun dummyFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): StateSettings = apply { put("dummyFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
     /** Setter for tasks dummy stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun dummyStroke(value: Callback): StateSettings = apply { put("dummyStroke", value) }
     public fun dummyStroke(value: Any): StateSettings = apply { put("dummyStroke", value) }
     public fun dummyStroke(value: String): StateSettings = apply { put("dummyStroke", value) }
     public fun dummyStroke(value: Nothing?): StateSettings = apply { put("dummyStroke", null) }
@@ -52,6 +55,7 @@ public open class StateSettings : ConfigNode() {
     /** Setter for state fill settings for the empty part of a tank using an object and a string. Learn more about coloring. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
     public fun emptyFill(value: Any): StateSettings = apply { put("emptyFill", value) }
+    public fun emptyFill(value: Callback): StateSettings = apply { put("emptyFill", value) }
     public fun emptyFill(value: String): StateSettings = apply { put("emptyFill", value) }
     public fun emptyFill(value: Nothing?): StateSettings = apply { put("emptyFill", null) }
     public fun emptyFill(color: Any, opacity: Number): StateSettings = apply { put("emptyFill", listOf(color, opacity)) }
@@ -79,12 +83,14 @@ public open class StateSettings : ConfigNode() {
     public fun fallingHatchFill(type: Any, color: Any, thickness: Number, size: Number): StateSettings = apply { put("fallingHatchFill", listOf(type, color, thickness, size)) }
     /** Setter for falling stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun fallingStroke(value: Callback): StateSettings = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: Any): StateSettings = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: String): StateSettings = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: Nothing?): StateSettings = apply { put("fallingStroke", null) }
     public fun fallingStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): StateSettings = apply { put("fallingStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the fill. Learn more about coloring. Default: // return the fill from the default palette. function() { return this.sourceColor; };. */
 
+    public fun fill(value: Callback): StateSettings = apply { put("fill", value) }
     public fun fill(value: Any): StateSettings = apply { put("fill", value) }
     public fun fill(value: List<*>): StateSettings = apply { put("fill", value) }
     public fun fill(value: String): StateSettings = apply { put("fill", value) }
@@ -143,6 +149,7 @@ public open class StateSettings : ConfigNode() {
     public fun fontWeight(value: Nothing?): StateSettings = apply { put("fontWeight", null) }
     /** Setter for the annotation grid by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun grid(value: Callback): StateSettings = apply { put("grid", value) }
     public fun grid(value: Any): StateSettings = apply { put("grid", value) }
     public fun grid(value: String): StateSettings = apply { put("grid", value) }
     public fun grid(value: Nothing?): StateSettings = apply { put("grid", null) }
@@ -184,6 +191,7 @@ public open class StateSettings : ConfigNode() {
     public fun highLabels(value: Boolean): StateSettings = apply { put("highLabels", value) }
     /** Setter for high stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun highStroke(value: Callback): StateSettings = apply { put("highStroke", value) }
     public fun highStroke(value: Any): StateSettings = apply { put("highStroke", value) }
     public fun highStroke(value: String): StateSettings = apply { put("highStroke", value) }
     public fun highStroke(value: Nothing?): StateSettings = apply { put("highStroke", null) }
@@ -230,6 +238,7 @@ public open class StateSettings : ConfigNode() {
     public fun lowLabels(value: Boolean): StateSettings = apply { put("lowLabels", value) }
     /** Setter for low stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun lowStroke(value: Callback): StateSettings = apply { put("lowStroke", value) }
     public fun lowStroke(value: Any): StateSettings = apply { put("lowStroke", value) }
     public fun lowStroke(value: String): StateSettings = apply { put("lowStroke", value) }
     public fun lowStroke(value: Nothing?): StateSettings = apply { put("lowStroke", null) }
@@ -245,6 +254,7 @@ public open class StateSettings : ConfigNode() {
     public fun maxLabels(value: Boolean): StateSettings = apply { put("maxLabels", value) }
     /** Setter for the median stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun medianStroke(value: Callback): StateSettings = apply { put("medianStroke", value) }
     public fun medianStroke(value: Any): StateSettings = apply { put("medianStroke", value) }
     public fun medianStroke(value: String): StateSettings = apply { put("medianStroke", value) }
     public fun medianStroke(value: Nothing?): StateSettings = apply { put("medianStroke", null) }
@@ -257,6 +267,7 @@ public open class StateSettings : ConfigNode() {
 
     public fun negativeFill(value: Any): StateSettings = apply { put("negativeFill", value) }
     public fun negativeFill(value: List<*>): StateSettings = apply { put("negativeFill", value) }
+    public fun negativeFill(value: Callback): StateSettings = apply { put("negativeFill", value) }
     public fun negativeFill(value: String): StateSettings = apply { put("negativeFill", value) }
     public fun negativeFill(value: Nothing?): StateSettings = apply { put("negativeFill", null) }
     public fun negativeFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): StateSettings = apply { put("negativeFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -268,6 +279,7 @@ public open class StateSettings : ConfigNode() {
     public fun negativeHatchFill(type: Any, color: Any, thickness: Number, size: Number): StateSettings = apply { put("negativeHatchFill", listOf(type, color, thickness, size)) }
     /** Setter for negative stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun negativeStroke(value: Callback): StateSettings = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: Any): StateSettings = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: String): StateSettings = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: Nothing?): StateSettings = apply { put("negativeStroke", null) }
@@ -292,6 +304,7 @@ public open class StateSettings : ConfigNode() {
     public fun risingFill(value: Any): StateSettings = apply { put("risingFill", value) }
     public fun risingFill(value: String): StateSettings = apply { put("risingFill", value) }
     public fun risingFill(value: List<*>): StateSettings = apply { put("risingFill", value) }
+    public fun risingFill(value: Callback): StateSettings = apply { put("risingFill", value) }
     public fun risingFill(value: Nothing?): StateSettings = apply { put("risingFill", null) }
     public fun risingFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): StateSettings = apply { put("risingFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
     /** Setter for rising hatch fill settings. Learn more about hatch fill settings. Default: null. */
@@ -302,6 +315,7 @@ public open class StateSettings : ConfigNode() {
     public fun risingHatchFill(type: Any, color: Any, thickness: Number, size: Number): StateSettings = apply { put("risingHatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series rising stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun risingStroke(value: Callback): StateSettings = apply { put("risingStroke", value) }
     public fun risingStroke(value: Any): StateSettings = apply { put("risingStroke", value) }
     public fun risingStroke(value: String): StateSettings = apply { put("risingStroke", value) }
     public fun risingStroke(value: Nothing?): StateSettings = apply { put("risingStroke", null) }
@@ -329,12 +343,14 @@ public open class StateSettings : ConfigNode() {
     public fun size(value: Nothing?): StateSettings = apply { put("size", null) }
     /** Setter for the stem stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stemStroke(value: Callback): StateSettings = apply { put("stemStroke", value) }
     public fun stemStroke(value: Any): StateSettings = apply { put("stemStroke", value) }
     public fun stemStroke(value: String): StateSettings = apply { put("stemStroke", value) }
     public fun stemStroke(value: Nothing?): StateSettings = apply { put("stemStroke", null) }
     public fun stemStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): StateSettings = apply { put("stemStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): StateSettings = apply { put("stroke", value) }
     public fun stroke(value: Any): StateSettings = apply { put("stroke", value) }
     public fun stroke(value: String): StateSettings = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): StateSettings = apply { put("stroke", null) }
@@ -363,6 +379,7 @@ public open class StateSettings : ConfigNode() {
     public fun textShadow(value: Nothing?): StateSettings = apply { put("textShadow", null) }
     /** Setter for the annotation trend by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun trend(value: Callback): StateSettings = apply { put("trend", value) }
     public fun trend(value: Any): StateSettings = apply { put("trend", value) }
     public fun trend(value: String): StateSettings = apply { put("trend", value) }
     public fun trend(value: Nothing?): StateSettings = apply { put("trend", null) }
@@ -371,6 +388,7 @@ public open class StateSettings : ConfigNode() {
 
     public fun type(value: MarkerType): StateSettings = apply { put("type", value) }
     public fun type(value: String): StateSettings = apply { put("type", value) }
+    public fun type(value: Callback): StateSettings = apply { put("type", value) }
     public fun type(value: Nothing?): StateSettings = apply { put("type", null) }
     /** Setter for upper labels (for pert tasks). */
 
@@ -390,6 +408,7 @@ public open class StateSettings : ConfigNode() {
     public fun vAlign(value: Nothing?): StateSettings = apply { put("vAlign", null) }
     /** Setter for the whisker stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun whiskerStroke(value: Callback): StateSettings = apply { put("whiskerStroke", value) }
     public fun whiskerStroke(value: Any): StateSettings = apply { put("whiskerStroke", value) }
     public fun whiskerStroke(value: String): StateSettings = apply { put("whiskerStroke", value) }
     public fun whiskerStroke(value: Nothing?): StateSettings = apply { put("whiskerStroke", null) }

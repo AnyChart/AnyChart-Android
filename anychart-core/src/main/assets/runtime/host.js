@@ -5,13 +5,14 @@
  * page with JSON messages. Nothing here evaluates strings from the host.
  *
  *   host -> page   load { id, config, rect?, events? }
+ *                    config may carry function placeholders, see "Callbacks" below
  *                  update { id, data, series? }
  *                  resize { id, rect }
  *                  dispose { id }
- *                  query { id, requestId, what: "selectedPoints" | "json" }
+ *                  query { id, requestId, what: "selectedPoints" | "json" | "callbackStats" | "tooltipText" }
  *
  *   page -> host   ready { jsVersion, runtimeVersion }
- *                  rendered { id, ms }
+ *                  rendered { id, ms, callbacks: { calls, ms } }
  *                  event { id, event, data }
  *                  error { id, message }
  *                  answer { id, requestId, result }
@@ -21,13 +22,23 @@
  * host arrive through window.AnyChartRuntime.receive(message), or, where the
  * host object supports it, through AnyChartHost.onmessage.
  *
+ * Callbacks: a config value of the form {"$fn": "<name>"} becomes a function
+ * that calls the host synchronously through window.AnyChartCallbacks.invoke(json)
+ * (on Android: a @JavascriptInterface object) with { id, fn, context }, where
+ * context is the function's `this` with the engine's internals dropped. The host
+ * replies with the JSON text {"v": <return value>} or {"error": "<message>"}. A
+ * value of the form {"$js": "<function body>"} becomes a JavaScript function with
+ * that body: the one place this page evaluates text from the host, and only
+ * because the host asked for it by that key.
+ *
  * ponytail: ES2015 only, no build step. This file ships inside the AAR as is.
  */
 (function () {
   'use strict';
 
-  var RUNTIME_VERSION = '0.1.1';
+  var RUNTIME_VERSION = '0.2.0';
   var charts = {}; // id -> { chart, el }
+  var callbackStats = {}; // id -> { calls, ms }
   var DATA_BY_API = { 'data-sheet': true };
 
   function send(message) {
@@ -82,6 +93,71 @@
     return out;
   }
 
+  // ---- Callbacks -----------------------------------------------------------------------------
+
+  // The engine's format contexts carry their public fields as own properties next to minified
+  // internals (two-letter keys such as "bb", "A1"). ponytail: a key shape heuristic, not a schema;
+  // id/x/y/to are real two-letter fields. Functions and unserialisable values are dropped.
+  var MINIFIED_KEY = /^[A-Za-z]{1,2}\d*$/;
+  var KEEP_SHORT = { id: true, x: true, y: true, to: true };
+  function dropFunctions(k, v) { return typeof v === 'function' ? undefined : v; }
+  function context(self) {
+    var out = {};
+    if (!self || typeof self !== 'object') return out;
+    Object.keys(self).forEach(function (k) {
+      var v = self[k];
+      if (typeof v === 'function' || (MINIFIED_KEY.test(k) && !KEEP_SHORT[k])) return;
+      try { out[k] = v === undefined ? null : JSON.parse(JSON.stringify(v, dropFunctions)); } catch (err) { /* cyclic or host object: skipped */ }
+    });
+    return out;
+  }
+
+  function statsFor(id) {
+    return callbackStats[id] || (callbackStats[id] = { calls: 0, ms: 0 });
+  }
+
+  function hostCallback(chartId, name) {
+    var warned = false;
+    return function () {
+      var channel = window.AnyChartCallbacks;
+      if (!channel || typeof channel.invoke !== 'function') {
+        if (!warned) { warned = true; fail(chartId, 'callback ' + name + ': the host has no AnyChartCallbacks channel'); }
+        return undefined;
+      }
+      var st = statsFor(chartId);
+      var t0 = performance.now();
+      var raw = channel.invoke(JSON.stringify({ id: chartId, fn: name, context: context(this) }));
+      st.calls++;
+      st.ms += performance.now() - t0;
+      if (raw === undefined || raw === null || raw === '') return undefined;
+      var reply;
+      try { reply = JSON.parse(raw); } catch (err) { fail(chartId, 'callback ' + name + ': unreadable reply ' + raw); return undefined; }
+      if (reply && reply.error !== undefined) { fail(chartId, 'callback ' + name + ': ' + reply.error); return undefined; }
+      return reply ? reply.v : undefined;
+    };
+  }
+
+  // Replaces {"$fn": name} and {"$js": body} placeholders with functions, in place.
+  function resolveCallbacks(node, chartId) {
+    if (Array.isArray(node)) {
+      for (var i = 0; i < node.length; i++) node[i] = resolveCallbacks(node[i], chartId);
+      return node;
+    }
+    if (node && typeof node === 'object') {
+      var keys = Object.keys(node);
+      if (keys.length === 1 && keys[0] === '$fn' && typeof node.$fn === 'string') return hostCallback(chartId, node.$fn);
+      if (keys.length === 1 && keys[0] === '$js' && typeof node.$js === 'string') return new Function(node.$js); // eslint-disable-line no-new-func
+      keys.forEach(function (k) { node[k] = resolveCallbacks(node[k], chartId); });
+    }
+    return node;
+  }
+
+  function roundStats(st) {
+    return { calls: st.calls, ms: Math.round(st.ms * 100) / 100 };
+  }
+
+  // ---- Messages ------------------------------------------------------------------------------
+
   function load(m) {
     if (!m.id) return fail(null, 'load: id is required');
     if (!m.config) return fail(m.id, 'load: config is required');
@@ -89,6 +165,7 @@
     var el = containerFor(m.id, m.rect);
     var t0 = performance.now();
     try {
+      resolveCallbacks(m.config, m.id);
       var chart = anychart.fromJson(m.config);
       if (!chart) return fail(m.id, 'fromJson produced no chart');
       // The data sheet ignores `data` in its JSON config and its toJson() omits the rows
@@ -106,7 +183,7 @@
       function rendered() {
         if (renderedSent) return;
         renderedSent = true;
-        send({ type: 'rendered', id: m.id, ms: Math.round(performance.now() - t0) });
+        send({ type: 'rendered', id: m.id, ms: Math.round(performance.now() - t0), callbacks: roundStats(statsFor(m.id)) });
       }
       chart.listenOnce('chartDraw', rendered);
       chart.container(el.id);
@@ -154,6 +231,7 @@
     try { c.chart.dispose(); } catch (err) { /* already gone */ }
     if (c.el.parentNode) c.el.parentNode.removeChild(c.el);
     delete charts[m.id];
+    delete callbackStats[m.id];
   }
 
   function query(m) {
@@ -169,6 +247,12 @@
         });
       } else if (m.what === 'json') {
         result = c.chart.toJson();
+      } else if (m.what === 'callbackStats') {
+        result = roundStats(statsFor(m.id));
+      } else if (m.what === 'tooltipText') {
+        // The text of the tooltip currently shown, or null. Tooltips are page-level DOM, not per chart.
+        var tips = Array.prototype.filter.call(document.querySelectorAll('.anychart-tooltip'), function (t) { return t.offsetParent !== null && t.textContent; });
+        result = tips.length ? tips[tips.length - 1].textContent : null;
       } else {
         return fail(m.id, 'unknown query ' + m.what);
       }

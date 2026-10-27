@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -40,6 +41,7 @@ public open class Map : ConfigNode() {
 
     public fun fill(value: Any): Map = apply { put("fill", value) }
     public fun fill(value: List<*>): Map = apply { put("fill", value) }
+    public fun fill(value: Callback): Map = apply { put("fill", value) }
     public fun fill(value: String): Map = apply { put("fill", value) }
     public fun fill(value: Nothing?): Map = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Map = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -127,6 +128,7 @@ public open class TrendChannel : ConfigNode() {
     public fun fill(value: Any): TrendChannel = apply { put("fill", value) }
     public fun fill(value: String): TrendChannel = apply { put("fill", value) }
     public fun fill(value: List<*>): TrendChannel = apply { put("fill", value) }
+    public fun fill(value: Callback): TrendChannel = apply { put("fill", value) }
     public fun fill(value: Nothing?): TrendChannel = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): TrendChannel = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
     /** Setter for hatch fill settings. Default: false. */
@@ -151,6 +153,7 @@ public open class TrendChannel : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): TrendChannel = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): TrendChannel = apply { put("stroke", value) }
     public fun stroke(value: Any): TrendChannel = apply { put("stroke", value) }
     public fun stroke(value: String): TrendChannel = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): TrendChannel = apply { put("stroke", null) }

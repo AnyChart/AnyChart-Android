@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -149,12 +150,14 @@ public open class FibonacciTimezones : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): FibonacciTimezones = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): FibonacciTimezones = apply { put("stroke", value) }
     public fun stroke(value: Any): FibonacciTimezones = apply { put("stroke", value) }
     public fun stroke(value: String): FibonacciTimezones = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): FibonacciTimezones = apply { put("stroke", null) }
     public fun stroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): FibonacciTimezones = apply { put("stroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the annotation trend by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun trend(value: Callback): FibonacciTimezones = apply { put("trend", value) }
     public fun trend(value: Any): FibonacciTimezones = apply { put("trend", value) }
     public fun trend(value: String): FibonacciTimezones = apply { put("trend", value) }
     public fun trend(value: Nothing?): FibonacciTimezones = apply { put("trend", null) }

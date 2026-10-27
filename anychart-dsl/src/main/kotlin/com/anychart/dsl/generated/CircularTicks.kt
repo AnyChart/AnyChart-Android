@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -47,6 +48,7 @@ public open class CircularTicks : ConfigNode() {
     public fun position(value: Nothing?): CircularTicks = apply { put("position", null) }
     /** Setter for ticks stroke by function. Default: 'none'. */
 
+    public fun stroke(value: Callback): CircularTicks = apply { put("stroke", value) }
     public fun stroke(value: Any): CircularTicks = apply { put("stroke", value) }
     public fun stroke(value: String): CircularTicks = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): CircularTicks = apply { put("stroke", null) }

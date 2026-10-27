@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -131,6 +132,7 @@ public open class AnnotationsMarker : ConfigNode() {
 
     public fun fill(value: Any): AnnotationsMarker = apply { put("fill", value) }
     public fun fill(value: List<*>): AnnotationsMarker = apply { put("fill", value) }
+    public fun fill(value: Callback): AnnotationsMarker = apply { put("fill", value) }
     public fun fill(value: String): AnnotationsMarker = apply { put("fill", value) }
     public fun fill(value: Nothing?): AnnotationsMarker = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): AnnotationsMarker = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -164,6 +166,7 @@ public open class AnnotationsMarker : ConfigNode() {
     public fun size(value: Nothing?): AnnotationsMarker = apply { put("size", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): AnnotationsMarker = apply { put("stroke", value) }
     public fun stroke(value: Any): AnnotationsMarker = apply { put("stroke", value) }
     public fun stroke(value: String): AnnotationsMarker = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): AnnotationsMarker = apply { put("stroke", null) }

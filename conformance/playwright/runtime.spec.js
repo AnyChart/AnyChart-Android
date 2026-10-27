@@ -112,6 +112,96 @@ test.describe('runtime page', () => {
     expect(ans.result.map(p => p.x)).toEqual(['Eyeliner']);
   });
 
+  test.describe('callbacks', () => {
+    // The three carriers of a function-valued setting: an engine token string, a host callback
+    // ({"$fn": name}, answered by the fake host's AnyChartCallbacks.invoke) and verbatim JavaScript
+    // ({"$js": body}). The sankey sample from the playground (energy flows) is the subject.
+    const withCallbacks = () => {
+      const cfg = readConfig('sankey.json');
+      cfg.chart.node.normal.labels.format = { $fn: 'nodeLabel' };
+      cfg.chart.node.tooltip.format = { $fn: 'nodeTip' };
+      cfg.chart.flow.normal = { fill: { $js: "return '#ff0000'" } };
+      return cfg;
+    };
+    const install = page => page.evaluate(() => {
+      window.__acCallbackImpl.nodeLabel = ctx => ctx.name.toUpperCase();
+      window.__acCallbackImpl.nodeTip = ctx => 'Node ' + ctx.name + ': ' + ctx.income.length + ' in, ' + ctx.outcome.length + ' out, dropoff ' + ctx.dropoff;
+    });
+    const answer = async (page, id, what, requestId) => {
+      await send(page, { type: 'query', id, requestId, what });
+      await waitFor(page, `m.some(x => x.type === 'answer' && x.requestId === '${requestId}')`);
+      return (await messages(page)).find(m => m.type === 'answer' && m.requestId === requestId).result;
+    };
+
+    test('a token string is applied by the engine', async ({ page }) => {
+      await openRuntime(page);
+      const cfg = readConfig('sankey.json');
+      cfg.chart.node.normal.labels.format = '{%name}: {%value}';
+      await send(page, { type: 'load', id: 'tok', config: cfg });
+      await rendered(page, 'tok');
+      expect(await errorsOf(page)).toEqual([]);
+      await expect(page.locator('#ac-tok').getByText('Coal: 95', { exact: true })).toBeVisible();
+      const r = (await messages(page)).find(m => m.type === 'rendered' && m.id === 'tok');
+      expect(r.callbacks).toEqual({ calls: 0, ms: 0 });
+    });
+
+    test('a host callback formats labels and tooltips with the context serialised', async ({ page }) => {
+      await openRuntime(page);
+      await install(page);
+      await send(page, { type: 'load', id: 'cb', config: withCallbacks() });
+      await rendered(page, 'cb');
+      expect(await errorsOf(page)).toEqual([]);
+      // labels: the lambda's return value is what the engine drew
+      await expect(page.locator('#ac-cb').getByText('COAL', { exact: true })).toBeVisible();
+      await expect(page.locator('#ac-cb').getByText('ELECTRICITY GRID', { exact: true })).toBeVisible();
+      // context: the public fields, none of the engine's minified internals
+      const calls = await page.evaluate(() => window.__acCallbacks);
+      const coal = calls.find(c => c.fn === 'nodeLabel' && c.context.name === 'Coal');
+      expect(coal.id).toBe('cb');
+      expect(coal.context).toMatchObject({ name: 'Coal', value: 95, type: 'node', dropoff: 0, isConflict: false });
+      expect(coal.context.income.map(i => i.name).sort()).toEqual(['Coal imports', 'Coal reserves']);
+      expect(coal.context.outcome.map(i => i.name)).toEqual(['Solid']);
+      for (const c of calls) for (const k of Object.keys(c.context)) expect(k, `minified key ${k} leaked`).toMatch(/^(id|x|y|to|[A-Za-z]{3,})$/);
+      // cost: one synchronous round trip per label at first draw
+      const r = (await messages(page)).find(m => m.type === 'rendered' && m.id === 'cb');
+      expect(r.callbacks.calls).toBeGreaterThanOrEqual(calls.filter(c => c.fn === 'nodeLabel').length);
+      expect(r.callbacks.ms).toBeGreaterThan(0);
+      console.log(`callback round trip (Chromium, fake host): ${r.callbacks.calls} calls in ${r.callbacks.ms} ms = ${(r.callbacks.ms / r.callbacks.calls * 1000).toFixed(1)} us per call`);
+      // tooltip: hover the Coal node (its label sits just above it) and read the tooltip text back
+      const label = await page.locator('#ac-cb').getByText('COAL', { exact: true }).boundingBox();
+      await page.mouse.move(label.x + label.width / 2, label.y + label.height + 12);
+      await page.waitForTimeout(300);
+      expect(await answer(page, 'cb', 'tooltipText', 'tt1')).toContain('Node Coal: 2 in, 1 out, dropoff 0');
+      const stats = await answer(page, 'cb', 'callbackStats', 'cs1');
+      expect(stats.calls).toBeGreaterThan(r.callbacks.calls);
+    });
+
+    test('verbatim JavaScript runs in the page', async ({ page }) => {
+      await openRuntime(page);
+      await install(page);
+      await send(page, { type: 'load', id: 'js', config: withCallbacks() });
+      await rendered(page, 'js');
+      expect(await errorsOf(page)).toEqual([]);
+      expect(await page.locator('#ac-js svg path[fill="#ff0000"]').count()).toBeGreaterThan(10);
+    });
+
+    test('a callback the host does not know, and a host without the channel, are reported', async ({ page }) => {
+      await openRuntime(page);
+      const cfg = readConfig('sankey.json');
+      cfg.chart.node.normal.labels.format = { $fn: 'ghost' };
+      await send(page, { type: 'load', id: 'g1', config: cfg });
+      await rendered(page, 'g1');
+      await page.evaluate(() => { delete window.AnyChartCallbacks; });
+      await send(page, { type: 'load', id: 'g2', config: cfg });
+      await rendered(page, 'g2');
+      const errs = (await errorsOf(page)).map(e => `${e.id}: ${e.message}`);
+      expect(errs.some(e => e.startsWith('g1: callback ghost: no callback ghost'))).toBe(true);
+      expect(errs.some(e => e.startsWith('g2: callback ghost: the host has no AnyChartCallbacks channel'))).toBe(true);
+      // one report per chart, not one per label
+      expect(errs.filter(e => e.startsWith('g2:')).length).toBe(1);
+    });
+  });
+
   test('resize re-lays out the chart into the new rect', async ({ page }) => {
     await openRuntime(page);
     await send(page, { type: 'load', id: 'rs', config: readConfig('area.json'), rect: { x: 0, y: 0, width: 412, height: 300 } });

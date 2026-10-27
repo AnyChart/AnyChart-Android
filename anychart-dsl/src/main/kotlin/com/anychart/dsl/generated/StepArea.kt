@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -215,6 +216,7 @@ public open class StepArea : ConfigNode() {
 
     public fun fill(value: Any): StepArea = apply { put("fill", value) }
     public fun fill(value: List<*>): StepArea = apply { put("fill", value) }
+    public fun fill(value: Callback): StepArea = apply { put("fill", value) }
     public fun fill(value: String): StepArea = apply { put("fill", value) }
     public fun fill(value: Nothing?): StepArea = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): StepArea = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -231,6 +233,7 @@ public open class StepArea : ConfigNode() {
     public fun stepDirection(value: Nothing?): StepArea = apply { put("stepDirection", null) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): StepArea = apply { put("stroke", value) }
     public fun stroke(value: Any): StepArea = apply { put("stroke", value) }
     public fun stroke(value: String): StepArea = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): StepArea = apply { put("stroke", null) }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -156,6 +157,7 @@ public open class LegendItemSettings : ConfigNode() {
         get() = get("format") as String?
         set(value) { put("format", value) }
     public fun format(value: String): LegendItemSettings = apply { put("format", value) }
+    public fun format(value: Callback): LegendItemSettings = apply { put("format", value) }
     public fun format(value: Nothing?): LegendItemSettings = apply { put("format", null) }
     /** Setter for settings showing icons. */
 
@@ -193,6 +195,7 @@ public open class LegendItemSettings : ConfigNode() {
 
     public fun iconMarkerType(value: MarkerType): LegendItemSettings = apply { put("iconMarkerType", value) }
     public fun iconMarkerType(value: String): LegendItemSettings = apply { put("iconMarkerType", value) }
+    public fun iconMarkerType(value: Callback): LegendItemSettings = apply { put("iconMarkerType", value) }
     public fun iconMarkerType(value: Nothing?): LegendItemSettings = apply { put("iconMarkerType", null) }
     /** Setter for the icon size of legend item. */
 
@@ -201,6 +204,7 @@ public open class LegendItemSettings : ConfigNode() {
     public fun iconSize(value: Nothing?): LegendItemSettings = apply { put("iconSize", null) }
     /** Setter for legend item icon stroke using a function. Learn more about stroke settings. Default: null. */
 
+    public fun iconStroke(value: Callback): LegendItemSettings = apply { put("iconStroke", value) }
     public fun iconStroke(value: Any): LegendItemSettings = apply { put("iconStroke", value) }
     public fun iconStroke(value: String): LegendItemSettings = apply { put("iconStroke", value) }
     public fun iconStroke(value: Nothing?): LegendItemSettings = apply { put("iconStroke", null) }
@@ -224,5 +228,6 @@ public open class LegendItemSettings : ConfigNode() {
         get() = get("text") as String?
         set(value) { put("text", value) }
     public fun text(value: String): LegendItemSettings = apply { put("text", value) }
+    public fun text(value: Callback): LegendItemSettings = apply { put("text", value) }
     public fun text(value: Nothing?): LegendItemSettings = apply { put("text", null) }
 }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -43,6 +44,7 @@ public open class GridsLinear : ConfigNode() {
 
     public fun fill(value: Any): GridsLinear = apply { put("fill", value) }
     public fun fill(value: List<*>): GridsLinear = apply { put("fill", value) }
+    public fun fill(value: Callback): GridsLinear = apply { put("fill", value) }
     public fun fill(value: String): GridsLinear = apply { put("fill", value) }
     public fun fill(value: Nothing?): GridsLinear = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): GridsLinear = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }

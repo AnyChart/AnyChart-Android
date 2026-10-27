@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -212,6 +213,7 @@ public open class SeriesMarker : ConfigNode() {
     public fun size(value: Nothing?): SeriesMarker = apply { put("size", null) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): SeriesMarker = apply { put("stroke", value) }
     public fun stroke(value: Any): SeriesMarker = apply { put("stroke", value) }
     public fun stroke(value: String): SeriesMarker = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): SeriesMarker = apply { put("stroke", null) }
@@ -220,5 +222,6 @@ public open class SeriesMarker : ConfigNode() {
 
     public fun type(value: MarkerType): SeriesMarker = apply { put("type", value) }
     public fun type(value: String): SeriesMarker = apply { put("type", value) }
+    public fun type(value: Callback): SeriesMarker = apply { put("type", value) }
     public fun type(value: Nothing?): SeriesMarker = apply { put("type", null) }
 }

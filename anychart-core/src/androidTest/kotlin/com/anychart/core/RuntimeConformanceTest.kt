@@ -1,5 +1,8 @@
 package com.anychart.core
 
+import android.os.SystemClock
+import android.util.Log
+import android.view.MotionEvent
 import android.widget.FrameLayout
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -11,6 +14,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 
 /**
@@ -51,6 +55,13 @@ class RuntimeConformanceTest {
     }
 
     private fun onMain(block: () -> Unit) = InstrumentationRegistry.getInstrumentation().runOnMainSync(block)
+    private fun <T> onMainGet(block: () -> T): T = AtomicReference<T>().also { r -> onMain { r.set(block()) } }.get()
+
+    private fun tap(view: AnyChartView, x: Float, y: Float) {
+        val t = SystemClock.uptimeMillis()
+        view.dispatchTouchEvent(MotionEvent.obtain(t, t, MotionEvent.ACTION_DOWN, x, y, 0).also { it.source = android.view.InputDevice.SOURCE_TOUCHSCREEN })
+        view.dispatchTouchEvent(MotionEvent.obtain(t, t + 50, MotionEvent.ACTION_UP, x, y, 0).also { it.source = android.view.InputDevice.SOURCE_TOUCHSCREEN })
+    }
 
     @Test
     fun pageAnnouncesTheBundledJsVersion() = withView { view, rec ->
@@ -85,6 +96,40 @@ class RuntimeConformanceTest {
         assertTrue("top: ${rec.errors}", top.await(20, TimeUnit.SECONDS))
         assertTrue("bottom: ${rec.errors}", bottom.await(20, TimeUnit.SECONDS))
         assertEquals(emptyList<String>(), rec.errors)
+    }
+
+    /**
+     * INTEG-5: a Kotlin lambda answers the engine's format functions over the synchronous channel.
+     * Two-node sankey so the left node spans the view's height and a tap in the left column hits it.
+     */
+    @Test
+    fun aKotlinLambdaFormatsSankeyLabelsAndTooltip() = withView { view, rec ->
+        val labelCalls = AtomicInteger()
+        val config = """{"chart":{"type":"sankey","data":[["Coal","Power",10]],"padding":[20,40,20,40],"nodeWidth":60,
+            "node":{"normal":{"labels":{"format":{"${'$'}fn":"label"}}},"tooltip":{"format":{"${'$'}fn":"tip"}}}}}"""
+        val done = rec.expectRendered("cb")
+        onMain {
+            view.load(config, chartId = "cb", callbacks = mapOf(
+                "label" to { ctx -> labelCalls.incrementAndGet(); ctx.optString("name").uppercase() },
+                "tip" to { ctx -> "Tooltip for ${ctx.optString("name")} (${ctx.optInt("value")})" },
+            ))
+        }
+        assertTrue("sankey did not render; errors: ${rec.errors}", done.await(20, TimeUnit.SECONDS))
+        assertEquals(emptyList<String>(), rec.errors)
+        assertEquals("one label per node", 2, labelCalls.get())
+        val report = onMainGet { view.renderReport("cb") }!!
+        assertTrue(report.toString(), report.callbackCalls >= 2)
+        Log.i("INTEG-5", "bridge round trip on device: $report")
+
+        // tap the left node: padding 40 + nodeWidth / 2 CSS px, mid height
+        val density = view.resources.displayMetrics.density
+        onMain { tap(view, 70 * density, view.height / 2f) }
+        Thread.sleep(600)
+        val answer = CountDownLatch(1)
+        val text = AtomicReference<Any?>()
+        onMain { view.query("tooltipText", chartId = "cb") { text.set(it); answer.countDown() } }
+        assertTrue("no answer: ${rec.errors}", answer.await(20, TimeUnit.SECONDS))
+        assertEquals("Tooltip for Coal (10)", text.get())
     }
 
     @Test

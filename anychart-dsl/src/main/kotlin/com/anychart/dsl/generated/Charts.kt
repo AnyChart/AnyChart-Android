@@ -3,6 +3,7 @@
 @file:JvmName("Charts")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -33,3 +34,7 @@ public fun scatter(init: Scatter.() -> Unit = {}): Scatter = Scatter().also { it
 /** anychart.circularGauge(): a circular-gauge chart document. */
 @JvmOverloads
 public fun circularGauge(init: CircularGauge.() -> Unit = {}): CircularGauge = CircularGauge().also { it.preset("type", "circular-gauge") }.apply(init)
+
+/** anychart.sankey(): a sankey chart document. */
+@JvmOverloads
+public fun sankey(init: Sankey.() -> Unit = {}): Sankey = Sankey().also { it.preset("type", "sankey") }.apply(init)

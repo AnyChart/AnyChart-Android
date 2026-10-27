@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.webkit.WebView
 import android.widget.FrameLayout
 import org.json.JSONObject
+import java.util.concurrent.ConcurrentHashMap
 
 /** A chart event forwarded from the page: which chart, which event, and the point data it carried. */
 public class AnyChartEvent internal constructor(
@@ -18,6 +19,16 @@ public class AnyChartEvent internal constructor(
     public val value: Any? get() = data.opt("value")
     public val series: String? get() = data.optString("series").takeIf { it.isNotEmpty() }
     override fun toString(): String = "AnyChartEvent($chartId, $name, $data)"
+}
+
+/** What the page reported with `rendered`: first-draw time and the host callbacks it took. */
+public class RenderReport internal constructor(
+    public val chartId: String,
+    public val millis: Long,
+    public val callbackCalls: Int,
+    public val callbackMillis: Double,
+) {
+    override fun toString(): String = "RenderReport($chartId, ${millis}ms, $callbackCalls callbacks in ${callbackMillis}ms)"
 }
 
 /**
@@ -44,8 +55,11 @@ public class AnyChartView @JvmOverloads constructor(
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         setBackgroundColor(Color.TRANSPARENT)
     }
-    private val bridge = HostBridge(webView, ::dispatch)
+    private val bridge = HostBridge(webView, ::dispatch) { chartId, fn -> callbacks[chartId]?.get(fn) }
     private val pendingQueries = HashMap<String, (Any?) -> Unit>()
+    // Read from the WebView's bridge thread while the main thread writes on load/dispose.
+    private val callbacks = ConcurrentHashMap<String, Map<String, (JSONObject) -> Any?>>()
+    private val reports = HashMap<String, RenderReport>()
     private var querySeq = 0
     private var started = false
 
@@ -71,15 +85,26 @@ public class AnyChartView @JvmOverloads constructor(
     /** Starts the page without loading a chart, so the first [load] finds it warm. */
     public fun warmUp(): Unit = start()
 
+    /**
+     * Loads a chart. [callbacks] answers the config's `{"$fn": name}` placeholders (a DSL document's
+     * `callbacks()`): each lambda gets the engine's context as JSON and returns the value the engine
+     * expects, on the WebView's bridge thread, with the page waiting. Keep them quick and pure.
+     */
     public fun load(
         configJson: String,
         chartId: String = DEFAULT_CHART_ID,
         events: List<String> = listOf("pointClick"),
         rect: ChartRect? = null,
+        callbacks: Map<String, (JSONObject) -> Any?> = emptyMap(),
     ) {
         start()
+        if (callbacks.isEmpty()) this.callbacks.remove(chartId) else this.callbacks[chartId] = callbacks
+        reports.remove(chartId)
         bridge.post(Messages.load(chartId, configJson, events, rect))
     }
+
+    /** The page's report for the last `rendered` of [chartId], or null before the first draw. */
+    public fun renderReport(chartId: String = DEFAULT_CHART_ID): RenderReport? = reports[chartId]
 
     public fun update(dataJson: String, chartId: String = DEFAULT_CHART_ID, series: Int? = null) {
         bridge.post(Messages.update(chartId, dataJson, series))
@@ -90,10 +115,12 @@ public class AnyChartView @JvmOverloads constructor(
     }
 
     public fun dispose(chartId: String = DEFAULT_CHART_ID) {
+        callbacks.remove(chartId)
+        reports.remove(chartId)
         bridge.post(Messages.dispose(chartId))
     }
 
-    /** Asks the page for state. `what` is `selectedPoints` or `json`; the result is org.json data. */
+    /** Asks the page for state. `what` is `selectedPoints`, `json`, `callbackStats` or `tooltipText`; the result is org.json data. */
     public fun query(what: String, chartId: String = DEFAULT_CHART_ID, callback: (Any?) -> Unit) {
         val requestId = "q${++querySeq}"
         pendingQueries[requestId] = callback
@@ -104,6 +131,8 @@ public class AnyChartView @JvmOverloads constructor(
     public fun destroy() {
         bridge.destroy()
         pendingQueries.clear()
+        callbacks.clear()
+        reports.clear()
         removeView(webView)
         webView.destroy()
     }
@@ -111,7 +140,10 @@ public class AnyChartView @JvmOverloads constructor(
     private fun dispatch(raw: String) {
         when (val m = Messages.parse(raw)) {
             is Messages.Incoming.Ready -> { jsVersion = m.jsVersion; pageTiming = m.timing; listener?.onReady(m.jsVersion) }
-            is Messages.Incoming.Rendered -> listener?.onRendered(m.chartId, m.millis)
+            is Messages.Incoming.Rendered -> {
+                reports[m.chartId] = RenderReport(m.chartId, m.millis, m.callbackCalls, m.callbackMillis)
+                listener?.onRendered(m.chartId, m.millis)
+            }
             is Messages.Incoming.Event -> listener?.onEvent(AnyChartEvent(m.chartId, m.name, m.data))
             is Messages.Incoming.Answer -> pendingQueries.remove(m.requestId)?.invoke(m.result)
             is Messages.Incoming.Error -> listener?.onError(m.chartId, m.message)

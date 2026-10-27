@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -242,6 +243,7 @@ public open class Lollipop : ConfigNode() {
 
     public fun fill(value: Any): Lollipop = apply { put("fill", value) }
     public fun fill(value: List<*>): Lollipop = apply { put("fill", value) }
+    public fun fill(value: Callback): Lollipop = apply { put("fill", value) }
     public fun fill(value: String): Lollipop = apply { put("fill", value) }
     public fun fill(value: Nothing?): Lollipop = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Lollipop = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -253,6 +255,7 @@ public open class Lollipop : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): Lollipop = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for the series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Lollipop = apply { put("stroke", value) }
     public fun stroke(value: Any): Lollipop = apply { put("stroke", value) }
     public fun stroke(value: String): Lollipop = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Lollipop = apply { put("stroke", null) }

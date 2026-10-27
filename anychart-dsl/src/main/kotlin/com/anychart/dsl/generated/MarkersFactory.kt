@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -87,5 +88,6 @@ public open class MarkersFactory : ConfigNode() {
 
     public fun type(value: MarkerType): MarkersFactory = apply { put("type", value) }
     public fun type(value: String): MarkersFactory = apply { put("type", value) }
+    public fun type(value: Callback): MarkersFactory = apply { put("type", value) }
     public fun type(value: Nothing?): MarkersFactory = apply { put("type", null) }
 }

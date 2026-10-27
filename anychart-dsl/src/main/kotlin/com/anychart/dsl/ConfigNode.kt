@@ -25,6 +25,8 @@ public open class ConfigNode {
 
     protected fun get(key: String): Any? = settings[key]
 
+    internal val values: Collection<Any?> get() = settings.values
+
     /** A fixed setting a factory stamps on its product (`seriesType`). Module-internal: generated code only. */
     internal fun preset(key: String, value: Any?) {
         settings[key] = value
@@ -72,15 +74,18 @@ public open class ConfigNode {
         return out
     }
 
-    private fun encode(v: Any?): Any? = when (v) {
-        null -> JSONObject.NULL
-        is ConfigNode -> v.toJson()
-        is JsonValue -> v.json
-        is Map<*, *> -> JSONObject().also { o -> v.forEach { (mk, mv) -> o.put(mk.toString(), encode(mv)) } }
-        is Iterable<*> -> JSONArray().also { a -> v.forEach { a.put(encode(it)) } }
-        is Array<*> -> JSONArray().also { a -> v.forEach { a.put(encode(it)) } }
-        is Pair<*, *> -> JSONArray().put(encode(v.first)).put(encode(v.second))
-        else -> v
+    internal companion object {
+        /** A Kotlin value as org.json takes it. Also applied to what a [Callback.Fn] returns. */
+        fun encode(v: Any?): Any? = when (v) {
+            null -> JSONObject.NULL
+            is ConfigNode -> v.toJson()
+            is JsonValue -> encode(v.json)
+            is Map<*, *> -> JSONObject().also { o -> v.forEach { (mk, mv) -> o.put(mk.toString(), encode(mv)) } }
+            is Iterable<*> -> JSONArray().also { a -> v.forEach { a.put(encode(it)) } }
+            is Array<*> -> JSONArray().also { a -> v.forEach { a.put(encode(it)) } }
+            is Pair<*, *> -> JSONArray().put(encode(v.first)).put(encode(v.second))
+            else -> v
+        }
     }
 }
 
@@ -91,4 +96,26 @@ public abstract class ChartRoot(private val rootKey: String, typeName: String) :
     /** The full document, as the runtime's `load` takes it. */
     public fun toDocument(): JSONObject = JSONObject().put(rootKey, toJson())
     public fun toDocumentString(): String = toDocument().toString()
+
+    /**
+     * The host lambdas this document refers to by `{"$fn": id}`, ready for the host's callback
+     * channel: each takes the page's context JSON and returns an org.json-ready value. Hand it to
+     * the view together with [toDocumentString].
+     */
+    public fun callbacks(): Map<String, (JSONObject) -> Any?> {
+        val out = LinkedHashMap<String, (JSONObject) -> Any?>()
+        fun walk(v: Any?) {
+            when (v) {
+                is Callback.Fn -> out[v.id] = { ctx -> encode(v.fn(CallbackContext(ctx))) }
+                is ConfigNode -> v.values.forEach(::walk)
+                is Map<*, *> -> v.values.forEach(::walk)
+                is Iterable<*> -> v.forEach(::walk)
+                is Array<*> -> v.forEach(::walk)
+                is Pair<*, *> -> { walk(v.first); walk(v.second) }
+                else -> {}
+            }
+        }
+        walk(this)
+        return out
+    }
 }

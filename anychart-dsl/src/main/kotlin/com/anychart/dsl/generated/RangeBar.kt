@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -222,6 +223,7 @@ public open class RangeBar : ConfigNode() {
 
     public fun fill(value: Any): RangeBar = apply { put("fill", value) }
     public fun fill(value: List<*>): RangeBar = apply { put("fill", value) }
+    public fun fill(value: Callback): RangeBar = apply { put("fill", value) }
     public fun fill(value: String): RangeBar = apply { put("fill", value) }
     public fun fill(value: Nothing?): RangeBar = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeBar = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -233,6 +235,7 @@ public open class RangeBar : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): RangeBar = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): RangeBar = apply { put("stroke", value) }
     public fun stroke(value: Any): RangeBar = apply { put("stroke", value) }
     public fun stroke(value: String): RangeBar = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): RangeBar = apply { put("stroke", null) }

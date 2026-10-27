@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -220,6 +221,7 @@ public open class StepLine : ConfigNode() {
     public fun stepDirection(value: Nothing?): StepLine = apply { put("stepDirection", null) }
     /** Setter for the series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): StepLine = apply { put("stroke", value) }
     public fun stroke(value: Any): StepLine = apply { put("stroke", value) }
     public fun stroke(value: String): StepLine = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): StepLine = apply { put("stroke", null) }

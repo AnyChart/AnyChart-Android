@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -173,6 +174,7 @@ public open class CrosshairLabel : ConfigNode() {
         get() = get("format") as String?
         set(value) { put("format", value) }
     public fun format(value: String): CrosshairLabel = apply { put("format", value) }
+    public fun format(value: Callback): CrosshairLabel = apply { put("format", value) }
     public fun format(value: Nothing?): CrosshairLabel = apply { put("format", null) }
     /** Setter for the crosshair label height. Default: null. */
 

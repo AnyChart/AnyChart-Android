@@ -9,6 +9,7 @@ import com.anychart.dsl.generated.circularGauge
 import com.anychart.dsl.generated.column
 import com.anychart.dsl.generated.line
 import com.anychart.dsl.generated.pie
+import com.anychart.dsl.generated.sankey
 import com.anychart.dsl.generated.scatter
 import org.json.JSONArray
 import org.json.JSONObject
@@ -115,4 +116,75 @@ class TwinsTest {
         }
         needle(0) { enabled = true }
     })
+
+    // The playground's energy flows sample (INTEG-5): rows are [from, to, weight], a null `to` is a dropoff.
+    private val energyFlows: List<List<Any?>> = listOf(
+        listOf("Hydro", "Electricity grid", 5), listOf("Coal reserves", "Coal", 64), listOf("Coal imports", "Coal", 31),
+        listOf("Gas reserves", "Natural Gas", 82), listOf("Gas imports", "Natural Gas", 2034), listOf("Oil reserves", "Oil", 108),
+        listOf("Oil imports", "Oil", 772), listOf("Land based bioenergy", "Bio-conversion", 18), listOf("Agricultural \"waste\"", "Bio-conversion", 37),
+        listOf("Other waste", "Bio-conversion", 40), listOf("Coal", "Solid", 95), listOf("Other waste", "Solid", 14),
+        listOf("Bio-conversion", "Solid", 30), listOf("Natural Gas", "Gas", 2117), listOf("Bio-conversion", "Gas", 40),
+        listOf("Oil", "Liquid", 880), listOf("Bio-conversion", "Liquid", 8), listOf("Bio-conversion", null, 18),
+        listOf("Solid", "Thermal generation", 33), listOf("Solid", "Industry", 106), listOf("Gas", "Thermal generation", 1153),
+        listOf("Gas", "Heating and cooling (homes)", 518), listOf("Gas", "Heating and cooling (commercial)", 141),
+        listOf("Gas", "Lighting & appliances (homes)", 8), listOf("Gas", "Lighting & appliances (commercial)", 9),
+        listOf("Gas", "Industry", 301), listOf("Gas", "Agriculture", 2), listOf("Gas", null, 24), listOf("Liquid", "Industry", 199),
+        listOf("Liquid", "Road transport", 322), listOf("Liquid", "Rail transport", 7), listOf("Liquid", "Domestic aviation", 15),
+        listOf("Liquid", "International aviation", 189), listOf("Liquid", "National navigation", 22),
+        listOf("Liquid", "International shipping", 130), listOf("Liquid", "Agriculture", 4),
+        listOf("Thermal generation", "Electricity grid", 576), listOf("Thermal generation", "District heating", 16),
+        listOf("Thermal generation", null, 593), listOf("Electricity grid", "Heating and cooling (homes)", 61),
+        listOf("Electricity grid", "Heating and cooling (commercial)", 31), listOf("Electricity grid", "Lighting & appliances (homes)", 103),
+        listOf("Electricity grid", "Lighting & appliances (commercial)", 92), listOf("Electricity grid", "Industry", 228),
+        listOf("Electricity grid", "Road transport", 14), listOf("Electricity grid", "Rail transport", 7),
+        listOf("Electricity grid", "Agriculture", 4), listOf("Electricity grid", null, 41), listOf("District heating", "Industry", 16),
+    )
+
+    @Test fun sankey() = assertTwin("sankey.json", sankey {
+        title("Energy Flows (TWh/y)")
+        data(energyFlows)
+        padding(20, 80, 20, 40)
+        curveFactor = 0.2
+        nodeWidth(50)
+        nodePadding(30)
+        node {
+            normal { labels { anchor("center-bottom"); position("center-top"); useHtml = true } }
+            tooltip { anchor("center-bottom"); useHtml = true }
+        }
+        flow { tooltip { enabled = false } }
+        dropoff { tooltip { enabled = false } }
+    })
+
+    /** The three carriers of a function-valued setting serialise as the runtime expects, and the lambdas are collectable. */
+    @Test fun callbacksSerialiseAsPlaceholdersAndCollect() {
+        val chart = sankey {
+            node {
+                tooltip { format(callback { "Node ${it.name}: ${it.list("income").size} in" }) }
+                normal {
+                    labels { format(callback { it.name?.uppercase() }) }
+                    fill(callback { mapOf("color" to it.sourceColor, "opacity" to 0.5) })
+                }
+            }
+            flow {
+                normal { fill(js("return anychart.color.lighten(this.sourceColor, 0.5) + ' 0.3'")) }
+                tooltip { format("{%from} to {%to}") }
+            }
+        }
+        val root = chart.toDocument().getJSONObject("chart")
+        val node = root.getJSONObject("node")
+        val tipFn = node.getJSONObject("tooltip").getJSONObject("format").getString("\$fn")
+        val labelFn = node.getJSONObject("normal").getJSONObject("labels").getJSONObject("format").getString("\$fn")
+        val fillFn = node.getJSONObject("normal").getJSONObject("fill").getString("\$fn")
+        assertEquals("return anychart.color.lighten(this.sourceColor, 0.5) + ' 0.3'", root.getJSONObject("flow").getJSONObject("normal").getJSONObject("fill").getString("\$js"))
+        assertEquals("{%from} to {%to}", root.getJSONObject("flow").getJSONObject("tooltip").getString("format"))
+
+        val callbacks = chart.callbacks()
+        assertEquals(setOf(tipFn, labelFn, fillFn), callbacks.keys)
+        val ctx = JSONObject().put("name", "Coal").put("sourceColor", "#f00")
+            .put("income", JSONArray().put(JSONObject().put("name", "Coal reserves").put("value", 64)))
+        assertEquals("Node Coal: 1 in", callbacks.getValue(tipFn)(ctx))
+        assertEquals("COAL", callbacks.getValue(labelFn)(ctx))
+        assertEquals(canonical(JSONObject("""{"color":"#f00","opacity":0.5}""")).toString(), canonical(callbacks.getValue(fillFn)(ctx)).toString())
+        assertEquals(JSONObject.NULL, callbacks.getValue(labelFn)(JSONObject()))
+    }
 }

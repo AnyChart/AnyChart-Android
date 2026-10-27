@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -215,6 +216,7 @@ public open class ContinuousRangeBase : ConfigNode() {
 
     public fun fill(value: Any): ContinuousRangeBase = apply { put("fill", value) }
     public fun fill(value: List<*>): ContinuousRangeBase = apply { put("fill", value) }
+    public fun fill(value: Callback): ContinuousRangeBase = apply { put("fill", value) }
     public fun fill(value: String): ContinuousRangeBase = apply { put("fill", value) }
     public fun fill(value: Nothing?): ContinuousRangeBase = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): ContinuousRangeBase = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -226,12 +228,14 @@ public open class ContinuousRangeBase : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): ContinuousRangeBase = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series high stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun highStroke(value: Callback): ContinuousRangeBase = apply { put("highStroke", value) }
     public fun highStroke(value: Any): ContinuousRangeBase = apply { put("highStroke", value) }
     public fun highStroke(value: String): ContinuousRangeBase = apply { put("highStroke", value) }
     public fun highStroke(value: Nothing?): ContinuousRangeBase = apply { put("highStroke", null) }
     public fun highStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): ContinuousRangeBase = apply { put("highStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for series low stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun lowStroke(value: Callback): ContinuousRangeBase = apply { put("lowStroke", value) }
     public fun lowStroke(value: Any): ContinuousRangeBase = apply { put("lowStroke", value) }
     public fun lowStroke(value: String): ContinuousRangeBase = apply { put("lowStroke", value) }
     public fun lowStroke(value: Nothing?): ContinuousRangeBase = apply { put("lowStroke", null) }

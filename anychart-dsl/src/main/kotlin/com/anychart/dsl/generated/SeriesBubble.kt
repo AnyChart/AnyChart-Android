@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -221,12 +222,14 @@ public open class SeriesBubble : ConfigNode() {
     public fun negativeHatchFill(type: Any, color: Any, thickness: Number, size: Number): SeriesBubble = apply { put("negativeHatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun negativeStroke(value: Callback): SeriesBubble = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: Any): SeriesBubble = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: String): SeriesBubble = apply { put("negativeStroke", value) }
     public fun negativeStroke(value: Nothing?): SeriesBubble = apply { put("negativeStroke", null) }
     public fun negativeStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): SeriesBubble = apply { put("negativeStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): SeriesBubble = apply { put("stroke", value) }
     public fun stroke(value: Any): SeriesBubble = apply { put("stroke", value) }
     public fun stroke(value: String): SeriesBubble = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): SeriesBubble = apply { put("stroke", null) }

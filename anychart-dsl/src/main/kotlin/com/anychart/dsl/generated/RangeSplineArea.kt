@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -209,6 +210,7 @@ public open class RangeSplineArea : ConfigNode() {
 
     public fun fill(value: Any): RangeSplineArea = apply { put("fill", value) }
     public fun fill(value: List<*>): RangeSplineArea = apply { put("fill", value) }
+    public fun fill(value: Callback): RangeSplineArea = apply { put("fill", value) }
     public fun fill(value: String): RangeSplineArea = apply { put("fill", value) }
     public fun fill(value: Nothing?): RangeSplineArea = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeSplineArea = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -220,12 +222,14 @@ public open class RangeSplineArea : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): RangeSplineArea = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for the series high stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun highStroke(value: Callback): RangeSplineArea = apply { put("highStroke", value) }
     public fun highStroke(value: Any): RangeSplineArea = apply { put("highStroke", value) }
     public fun highStroke(value: String): RangeSplineArea = apply { put("highStroke", value) }
     public fun highStroke(value: Nothing?): RangeSplineArea = apply { put("highStroke", null) }
     public fun highStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): RangeSplineArea = apply { put("highStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for series low stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun lowStroke(value: Callback): RangeSplineArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: Any): RangeSplineArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: String): RangeSplineArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: Nothing?): RangeSplineArea = apply { put("lowStroke", null) }
@@ -234,6 +238,7 @@ public open class RangeSplineArea : ConfigNode() {
 
     public fun highFill(value: Any): RangeSplineArea = apply { put("highFill", value) }
     public fun highFill(value: List<*>): RangeSplineArea = apply { put("highFill", value) }
+    public fun highFill(value: Callback): RangeSplineArea = apply { put("highFill", value) }
     public fun highFill(value: String): RangeSplineArea = apply { put("highFill", value) }
     public fun highFill(value: Nothing?): RangeSplineArea = apply { put("highFill", null) }
     public fun highFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeSplineArea = apply { put("highFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -241,6 +246,7 @@ public open class RangeSplineArea : ConfigNode() {
 
     public fun lowFill(value: Any): RangeSplineArea = apply { put("lowFill", value) }
     public fun lowFill(value: List<*>): RangeSplineArea = apply { put("lowFill", value) }
+    public fun lowFill(value: Callback): RangeSplineArea = apply { put("lowFill", value) }
     public fun lowFill(value: String): RangeSplineArea = apply { put("lowFill", value) }
     public fun lowFill(value: Nothing?): RangeSplineArea = apply { put("lowFill", null) }
     public fun lowFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeSplineArea = apply { put("lowFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }

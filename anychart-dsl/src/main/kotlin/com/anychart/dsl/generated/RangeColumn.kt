@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -222,6 +223,7 @@ public open class RangeColumn : ConfigNode() {
 
     public fun fill(value: Any): RangeColumn = apply { put("fill", value) }
     public fun fill(value: List<*>): RangeColumn = apply { put("fill", value) }
+    public fun fill(value: Callback): RangeColumn = apply { put("fill", value) }
     public fun fill(value: String): RangeColumn = apply { put("fill", value) }
     public fun fill(value: Nothing?): RangeColumn = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeColumn = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -233,6 +235,7 @@ public open class RangeColumn : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): RangeColumn = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): RangeColumn = apply { put("stroke", value) }
     public fun stroke(value: Any): RangeColumn = apply { put("stroke", value) }
     public fun stroke(value: String): RangeColumn = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): RangeColumn = apply { put("stroke", null) }

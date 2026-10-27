@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -279,6 +280,7 @@ public open class Legend : ConfigNode() {
         get() = get("titleFormat") as String?
         set(value) { put("titleFormat", value) }
     public fun titleFormat(value: String): Legend = apply { put("titleFormat", value) }
+    public fun titleFormat(value: Callback): Legend = apply { put("titleFormat", value) }
     public fun titleFormat(value: Nothing?): Legend = apply { put("titleFormat", null) }
     /** Setter for title separator settings. Default: false. */
 

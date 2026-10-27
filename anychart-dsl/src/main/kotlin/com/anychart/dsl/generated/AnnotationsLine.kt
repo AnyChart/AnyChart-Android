@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -138,6 +139,7 @@ public open class AnnotationsLine : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): AnnotationsLine = apply { put("secondXAnchor", null) }
     /** Setter for annotations stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): AnnotationsLine = apply { put("stroke", value) }
     public fun stroke(value: Any): AnnotationsLine = apply { put("stroke", value) }
     public fun stroke(value: String): AnnotationsLine = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): AnnotationsLine = apply { put("stroke", null) }

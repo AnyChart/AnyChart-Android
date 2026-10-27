@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -18,6 +19,7 @@ public open class Outline : ConfigNode() {
     /** Setter for the fill using a function. Learn more about coloring. Default: // return the fill from the default palette. function() { return this.sourceColor; };. */
 
     public fun fill(value: Any): Outline = apply { put("fill", value) }
+    public fun fill(value: Callback): Outline = apply { put("fill", value) }
     public fun fill(value: List<*>): Outline = apply { put("fill", value) }
     public fun fill(value: String): Outline = apply { put("fill", value) }
     public fun fill(value: Nothing?): Outline = apply { put("fill", null) }

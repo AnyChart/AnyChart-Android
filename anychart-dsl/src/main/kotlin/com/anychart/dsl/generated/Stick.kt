@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -226,6 +227,7 @@ public open class Stick : ConfigNode() {
     public fun pointWidth(value: Nothing?): Stick = apply { put("pointWidth", null) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Stick = apply { put("stroke", value) }
     public fun stroke(value: Any): Stick = apply { put("stroke", value) }
     public fun stroke(value: String): Stick = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Stick = apply { put("stroke", null) }

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -61,10 +62,10 @@ public open class Knob : ConfigNode() {
     public fun id(value: Nothing?): Knob = apply { put("id", null) }
     /** Getter for the pointer stroke. */
 
-    public var stroke: Any?
-        get() = get("stroke") as Any?
+    public var stroke: Callback?
+        get() = get("stroke") as Callback?
         set(value) { put("stroke", value) }
-    public fun stroke(value: Any): Knob = apply { put("stroke", value) }
+    public fun stroke(value: Callback): Knob = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Knob = apply { put("stroke", null) }
     /** Setter for the bottom radius. Default: undefined. */
 

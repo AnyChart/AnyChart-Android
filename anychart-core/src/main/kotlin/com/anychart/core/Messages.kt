@@ -45,7 +45,7 @@ internal object Messages {
     /** What the page posts back, decoded. Unknown shapes become [Incoming.Error] rather than exceptions. */
     sealed class Incoming {
         data class Ready(val jsVersion: String, val runtimeVersion: String, val timing: JSONObject = JSONObject()) : Incoming()
-        data class Rendered(val chartId: String, val millis: Long) : Incoming()
+        data class Rendered(val chartId: String, val millis: Long, val callbackCalls: Int = 0, val callbackMillis: Double = 0.0) : Incoming()
         data class Event(val chartId: String, val name: String, val data: JSONObject) : Incoming()
         data class Answer(val chartId: String, val requestId: String, val result: Any?) : Incoming()
         data class Error(val chartId: String?, val message: String) : Incoming()
@@ -58,7 +58,7 @@ internal object Messages {
         val id = m.optString("id", "")
         return when (m.optString("type")) {
             "ready" -> Incoming.Ready(m.optString("jsVersion", "unknown"), m.optString("runtimeVersion", "unknown"), m.optJSONObject("timing") ?: JSONObject())
-            "rendered" -> Incoming.Rendered(id, m.optLong("ms", -1))
+            "rendered" -> m.optJSONObject("callbacks").let { cb -> Incoming.Rendered(id, m.optLong("ms", -1), cb?.optInt("calls") ?: 0, cb?.optDouble("ms", 0.0) ?: 0.0) }
             "event" -> Incoming.Event(id, m.optString("event"), m.optJSONObject("data") ?: JSONObject())
             "answer" -> Incoming.Answer(id, m.optString("requestId"), m.opt("result"))
             "error" -> Incoming.Error(if (m.isNull("id")) null else id, m.optString("message", "unknown error"))

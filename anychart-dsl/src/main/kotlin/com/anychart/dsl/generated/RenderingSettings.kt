@@ -2,12 +2,20 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
 /** Custom drawing series settings. RenderingSettings class is a set of methods for overriding series drawing method. The class allows overriding standard drawing functions. To get a rendering object, use the rendering() method of the series which drawing you want to override. (anychart.core.series.RenderingSettings) */
 
 public open class RenderingSettings : ConfigNode() {
+    /** Setter for the finish. */
+
+    public var finish: Callback?
+        get() = get("finish") as Callback?
+        set(value) { put("finish", value) }
+    public fun finish(value: Callback): RenderingSettings = apply { put("finish", value) }
+    public fun finish(value: Nothing?): RenderingSettings = apply { put("finish", null) }
     /** Setter for points width. */
 
     public var needsWidth: Boolean?
@@ -22,6 +30,13 @@ public open class RenderingSettings : ConfigNode() {
         set(value) { put("needsZero", value) }
     public fun needsZero(value: Boolean): RenderingSettings = apply { put("needsZero", value) }
     public fun needsZero(value: Nothing?): RenderingSettings = apply { put("needsZero", null) }
+    /** Setter for the point. */
+
+    public var point: Callback?
+        get() = get("point") as Callback?
+        set(value) { put("point", value) }
+    public fun point(value: Callback): RenderingSettings = apply { put("point", value) }
+    public fun point(value: Nothing?): RenderingSettings = apply { put("point", null) }
     /** Setter for the shapes settings. */
 
     public var shapes: List<*>?
@@ -29,6 +44,13 @@ public open class RenderingSettings : ConfigNode() {
         set(value) { put("shapes", value) }
     public fun shapes(value: List<*>): RenderingSettings = apply { put("shapes", value) }
     public fun shapes(value: Nothing?): RenderingSettings = apply { put("shapes", null) }
+    /** Setter for the update of a point. Change the point shape when the state changes. */
+
+    public var updatePoint: Callback?
+        get() = get("updatePoint") as Callback?
+        set(value) { put("updatePoint", value) }
+    public fun updatePoint(value: Callback): RenderingSettings = apply { put("updatePoint", value) }
+    public fun updatePoint(value: Nothing?): RenderingSettings = apply { put("updatePoint", null) }
     /** Setter for YScale values. */
 
     public var yValues: List<*>?

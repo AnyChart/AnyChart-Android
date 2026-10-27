@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -209,6 +210,7 @@ public open class RangeArea : ConfigNode() {
 
     public fun fill(value: Any): RangeArea = apply { put("fill", value) }
     public fun fill(value: List<*>): RangeArea = apply { put("fill", value) }
+    public fun fill(value: Callback): RangeArea = apply { put("fill", value) }
     public fun fill(value: String): RangeArea = apply { put("fill", value) }
     public fun fill(value: Nothing?): RangeArea = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeArea = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -220,12 +222,14 @@ public open class RangeArea : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): RangeArea = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series high stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun highStroke(value: Callback): RangeArea = apply { put("highStroke", value) }
     public fun highStroke(value: Any): RangeArea = apply { put("highStroke", value) }
     public fun highStroke(value: String): RangeArea = apply { put("highStroke", value) }
     public fun highStroke(value: Nothing?): RangeArea = apply { put("highStroke", null) }
     public fun highStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): RangeArea = apply { put("highStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for series low stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun lowStroke(value: Callback): RangeArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: Any): RangeArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: String): RangeArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: Nothing?): RangeArea = apply { put("lowStroke", null) }

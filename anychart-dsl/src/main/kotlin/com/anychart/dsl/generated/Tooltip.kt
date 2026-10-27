@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -123,6 +124,7 @@ public open class Tooltip : ConfigNode() {
     public var format: String?
         get() = get("format") as String?
         set(value) { put("format", value) }
+    public fun format(value: Callback): Tooltip = apply { put("format", value) }
     public fun format(value: String): Tooltip = apply { put("format", value) }
     public fun format(value: Nothing?): Tooltip = apply { put("format", null) }
     /** Setter for the text horizontal align settings. */
@@ -249,6 +251,7 @@ public open class Tooltip : ConfigNode() {
     public var titleFormat: String?
         get() = get("titleFormat") as String?
         set(value) { put("titleFormat", value) }
+    public fun titleFormat(value: Callback): Tooltip = apply { put("titleFormat", value) }
     public fun titleFormat(value: String): Tooltip = apply { put("titleFormat", value) }
     public fun titleFormat(value: Nothing?): Tooltip = apply { put("titleFormat", null) }
     /** Setter for the function content text for union tooltip. Learn more about using unionFormat() method. */

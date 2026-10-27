@@ -39,10 +39,15 @@ class MessagesTest {
 
     @Test
     fun `incoming messages decode by type`() {
-        assertEquals(Messages.Incoming.Ready("9.0.0.3072", "0.1.0"),
-            Messages.parse("""{"type":"ready","jsVersion":"9.0.0.3072","runtimeVersion":"0.1.0"}"""))
+        // Ready carries a JSONObject (timing), which compares by identity: check the fields.
+        val ready = Messages.parse("""{"type":"ready","jsVersion":"9.0.0.3072","runtimeVersion":"0.1.0"}""") as Messages.Incoming.Ready
+        assertEquals("9.0.0.3072", ready.jsVersion)
+        assertEquals("0.1.0", ready.runtimeVersion)
+        assertEquals(0, ready.timing.length())
         assertEquals(Messages.Incoming.Rendered("c1", 36),
             Messages.parse("""{"type":"rendered","id":"c1","ms":36}"""))
+        assertEquals(Messages.Incoming.Rendered("c1", 36, 32, 2.6),
+            Messages.parse("""{"type":"rendered","id":"c1","ms":36,"callbacks":{"calls":32,"ms":2.6}}"""))
         val ev = Messages.parse("""{"type":"event","id":"c1","event":"pointClick","data":{"pointIndex":7,"x":"Eyeliner","value":213210,"series":"Revenue"}}""")
         assertTrue(ev is Messages.Incoming.Event)
         assertEquals("Eyeliner", (ev as Messages.Incoming.Event).data.getString("x"))

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -63,6 +64,7 @@ public open class PointersMarker : ConfigNode() {
     public fun id(value: Nothing?): PointersMarker = apply { put("id", null) }
     /** Setter for the pointer stroke by function. Default: '#f22922'. */
 
+    public fun stroke(value: Callback): PointersMarker = apply { put("stroke", value) }
     public fun stroke(value: Any): PointersMarker = apply { put("stroke", value) }
     public fun stroke(value: String): PointersMarker = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): PointersMarker = apply { put("stroke", null) }
@@ -86,5 +88,6 @@ public open class PointersMarker : ConfigNode() {
 
     public fun type(value: MarkerType): PointersMarker = apply { put("type", value) }
     public fun type(value: String): PointersMarker = apply { put("type", value) }
+    public fun type(value: Callback): PointersMarker = apply { put("type", value) }
     public fun type(value: Nothing?): PointersMarker = apply { put("type", null) }
 }

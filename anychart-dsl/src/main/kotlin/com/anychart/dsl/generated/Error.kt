@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -20,6 +21,7 @@ public open class Error : ConfigNode() {
     public fun valueError(value: Nothing?): Error = apply { put("valueError", null) }
     /** Setter for value error stroke using a function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun valueErrorStroke(value: Callback): Error = apply { put("valueErrorStroke", value) }
     public fun valueErrorStroke(value: Any): Error = apply { put("valueErrorStroke", value) }
     public fun valueErrorStroke(value: String): Error = apply { put("valueErrorStroke", value) }
     public fun valueErrorStroke(value: Nothing?): Error = apply { put("valueErrorStroke", null) }
@@ -48,6 +50,7 @@ public open class Error : ConfigNode() {
     public fun xError(value: Nothing?): Error = apply { put("xError", null) }
     /** Setter for the X error stroke using a function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun xErrorStroke(value: Callback): Error = apply { put("xErrorStroke", value) }
     public fun xErrorStroke(value: Any): Error = apply { put("xErrorStroke", value) }
     public fun xErrorStroke(value: String): Error = apply { put("xErrorStroke", value) }
     public fun xErrorStroke(value: Nothing?): Error = apply { put("xErrorStroke", null) }

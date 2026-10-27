@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -126,6 +127,7 @@ public open class Rectangle : ConfigNode() {
 
     public fun fill(value: Any): Rectangle = apply { put("fill", value) }
     public fun fill(value: List<*>): Rectangle = apply { put("fill", value) }
+    public fun fill(value: Callback): Rectangle = apply { put("fill", value) }
     public fun fill(value: String): Rectangle = apply { put("fill", value) }
     public fun fill(value: Nothing?): Rectangle = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Rectangle = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -151,6 +153,7 @@ public open class Rectangle : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): Rectangle = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Rectangle = apply { put("stroke", value) }
     public fun stroke(value: Any): Rectangle = apply { put("stroke", value) }
     public fun stroke(value: String): Rectangle = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Rectangle = apply { put("stroke", null) }

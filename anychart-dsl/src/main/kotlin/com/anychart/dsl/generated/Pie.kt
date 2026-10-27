@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -183,6 +184,7 @@ public open class Pie : ChartRoot("chart", "pie") {
 
     public fun fill(value: Any): Pie = apply { put("fill", value) }
     public fun fill(value: List<*>): Pie = apply { put("fill", value) }
+    public fun fill(value: Callback): Pie = apply { put("fill", value) }
     public fun fill(value: String): Pie = apply { put("fill", value) }
     public fun fill(value: Nothing?): Pie = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Pie = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -274,6 +276,7 @@ public open class Pie : ChartRoot("chart", "pie") {
     public fun startAngle(value: Nothing?): Pie = apply { put("startAngle", null) }
     /** Setter for the pie slices stroke using function. Learn more about stroke settings. Default: // return stroke from the default palette. function() { return anychart.color.darken(this.sourceColor); };. */
 
+    public fun stroke(value: Callback): Pie = apply { put("stroke", value) }
     public fun stroke(value: Any): Pie = apply { put("stroke", value) }
     public fun stroke(value: String): Pie = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Pie = apply { put("stroke", null) }

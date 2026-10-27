@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -134,6 +135,7 @@ public open class FiniteTrendChannel : ConfigNode() {
     public fun fill(value: Any): FiniteTrendChannel = apply { put("fill", value) }
     public fun fill(value: String): FiniteTrendChannel = apply { put("fill", value) }
     public fun fill(value: List<*>): FiniteTrendChannel = apply { put("fill", value) }
+    public fun fill(value: Callback): FiniteTrendChannel = apply { put("fill", value) }
     public fun fill(value: Nothing?): FiniteTrendChannel = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): FiniteTrendChannel = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
     /** Setter for hatch fill settings. Default: false. */
@@ -158,6 +160,7 @@ public open class FiniteTrendChannel : ConfigNode() {
     public fun secondXAnchor(value: Nothing?): FiniteTrendChannel = apply { put("secondXAnchor", null) }
     /** Setter for the annotation stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): FiniteTrendChannel = apply { put("stroke", value) }
     public fun stroke(value: Any): FiniteTrendChannel = apply { put("stroke", value) }
     public fun stroke(value: String): FiniteTrendChannel = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): FiniteTrendChannel = apply { put("stroke", null) }

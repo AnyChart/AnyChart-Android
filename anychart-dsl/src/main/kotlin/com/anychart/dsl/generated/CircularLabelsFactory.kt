@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -206,6 +207,13 @@ public open class CircularLabelsFactory : ConfigNode() {
         set(value) { put("position", value) }
     public fun position(value: String): CircularLabelsFactory = apply { put("position", value) }
     public fun position(value: Nothing?): CircularLabelsFactory = apply { put("position", null) }
+    /** Getter for the labels position formatter function. Default: function() {return this['value'. */
+
+    public var positionFormatter: Callback?
+        get() = get("positionFormatter") as Callback?
+        set(value) { put("positionFormatter", value) }
+    public fun positionFormatter(value: Callback): CircularLabelsFactory = apply { put("positionFormatter", value) }
+    public fun positionFormatter(value: Nothing?): CircularLabelsFactory = apply { put("positionFormatter", null) }
     /** Getter for the rotation angle around an anchor. Default: 0. */
 
     public var rotation: Number?

@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -217,6 +218,7 @@ public open class Box : ConfigNode() {
 
     public fun fill(value: Any): Box = apply { put("fill", value) }
     public fun fill(value: List<*>): Box = apply { put("fill", value) }
+    public fun fill(value: Callback): Box = apply { put("fill", value) }
     public fun fill(value: String): Box = apply { put("fill", value) }
     public fun fill(value: Nothing?): Box = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Box = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -228,6 +230,7 @@ public open class Box : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): Box = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for the median stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun medianStroke(value: Callback): Box = apply { put("medianStroke", value) }
     public fun medianStroke(value: Any): Box = apply { put("medianStroke", value) }
     public fun medianStroke(value: String): Box = apply { put("medianStroke", value) }
     public fun medianStroke(value: Nothing?): Box = apply { put("medianStroke", null) }
@@ -239,18 +242,21 @@ public open class Box : ConfigNode() {
     public fun outlierMarkers(value: String): Box = apply { put("outlierMarkers", value) }
     /** Setter for the stem stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stemStroke(value: Callback): Box = apply { put("stemStroke", value) }
     public fun stemStroke(value: Any): Box = apply { put("stemStroke", value) }
     public fun stemStroke(value: String): Box = apply { put("stemStroke", value) }
     public fun stemStroke(value: Nothing?): Box = apply { put("stemStroke", null) }
     public fun stemStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): Box = apply { put("stemStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): Box = apply { put("stroke", value) }
     public fun stroke(value: Any): Box = apply { put("stroke", value) }
     public fun stroke(value: String): Box = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Box = apply { put("stroke", null) }
     public fun stroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): Box = apply { put("stroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the whisker stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun whiskerStroke(value: Callback): Box = apply { put("whiskerStroke", value) }
     public fun whiskerStroke(value: Any): Box = apply { put("whiskerStroke", value) }
     public fun whiskerStroke(value: String): Box = apply { put("whiskerStroke", value) }
     public fun whiskerStroke(value: Nothing?): Box = apply { put("whiskerStroke", null) }

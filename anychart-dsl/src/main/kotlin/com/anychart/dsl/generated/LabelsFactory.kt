@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -174,6 +175,7 @@ public open class LabelsFactory : ConfigNode() {
         get() = get("format") as String?
         set(value) { put("format", value) }
     public fun format(value: String): LabelsFactory = apply { put("format", value) }
+    public fun format(value: Callback): LabelsFactory = apply { put("format", value) }
     public fun format(value: Nothing?): LabelsFactory = apply { put("format", null) }
     /** Setter for labels height settings. Default: null. */
 
@@ -220,6 +222,13 @@ public open class LabelsFactory : ConfigNode() {
         set(value) { put("position", value) }
     public fun position(value: String): LabelsFactory = apply { put("position", value) }
     public fun position(value: Nothing?): LabelsFactory = apply { put("position", null) }
+    /** Setter for the labels position formatter function. Default: function() {return this['value'. */
+
+    public var positionFormatter: Callback?
+        get() = get("positionFormatter") as Callback?
+        set(value) { put("positionFormatter", value) }
+    public fun positionFormatter(value: Callback): LabelsFactory = apply { put("positionFormatter", value) }
+    public fun positionFormatter(value: Nothing?): LabelsFactory = apply { put("positionFormatter", null) }
     /** Setter for the rotation angle around an anchor. Default: 0. */
 
     public var rotation: Number?

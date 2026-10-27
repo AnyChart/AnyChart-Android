@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -63,6 +64,7 @@ public open class Needle : ConfigNode() {
     public fun id(value: Nothing?): Needle = apply { put("id", null) }
     /** Setter for the pointer stroke by function. Default: '#f22922'. */
 
+    public fun stroke(value: Callback): Needle = apply { put("stroke", value) }
     public fun stroke(value: Any): Needle = apply { put("stroke", value) }
     public fun stroke(value: String): Needle = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): Needle = apply { put("stroke", null) }

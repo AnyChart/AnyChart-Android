@@ -19,6 +19,7 @@ import org.json.JSONObject
 internal class HostBridge(
     private val webView: WebView,
     private val onMessage: (String) -> Unit,
+    private val callbackLookup: (chartId: String, fn: String) -> ((JSONObject) -> Any?)?,
 ) {
     private var reply: JavaScriptReplyProxy? = null
     private val queue = ArrayDeque<String>()
@@ -47,6 +48,8 @@ internal class HostBridge(
             // The runtime page never navigates. Anything that tries is dropped.
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean = true
         }
+        // Only @JavascriptInterface methods are reachable (API 17+), the page is ours and never navigates.
+        webView.addJavascriptInterface(CallbackChannel(callbackLookup), CallbackChannel.JS_OBJECT)
         WebViewCompat.addWebMessageListener(webView, HOST_OBJECT, setOf(ORIGIN)) { _, message, _, _, replyProxy ->
             reply = replyProxy
             flush()

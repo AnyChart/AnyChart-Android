@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -209,6 +210,7 @@ public open class RangeStepArea : ConfigNode() {
 
     public fun fill(value: Any): RangeStepArea = apply { put("fill", value) }
     public fun fill(value: List<*>): RangeStepArea = apply { put("fill", value) }
+    public fun fill(value: Callback): RangeStepArea = apply { put("fill", value) }
     public fun fill(value: String): RangeStepArea = apply { put("fill", value) }
     public fun fill(value: Nothing?): RangeStepArea = apply { put("fill", null) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): RangeStepArea = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -220,12 +222,14 @@ public open class RangeStepArea : ConfigNode() {
     public fun hatchFill(type: Any, color: Any, thickness: Number, size: Number): RangeStepArea = apply { put("hatchFill", listOf(type, color, thickness, size)) }
     /** Setter for series high stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun highStroke(value: Callback): RangeStepArea = apply { put("highStroke", value) }
     public fun highStroke(value: Any): RangeStepArea = apply { put("highStroke", value) }
     public fun highStroke(value: String): RangeStepArea = apply { put("highStroke", value) }
     public fun highStroke(value: Nothing?): RangeStepArea = apply { put("highStroke", null) }
     public fun highStroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): RangeStepArea = apply { put("highStroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the series low stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun lowStroke(value: Callback): RangeStepArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: Any): RangeStepArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: String): RangeStepArea = apply { put("lowStroke", value) }
     public fun lowStroke(value: Nothing?): RangeStepArea = apply { put("lowStroke", null) }

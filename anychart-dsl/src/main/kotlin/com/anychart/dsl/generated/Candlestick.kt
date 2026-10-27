@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -215,22 +216,23 @@ public open class Candlestick : ConfigNode() {
     public fun pointWidth(value: Nothing?): Candlestick = apply { put("pointWidth", null) }
     /** Getter for falling stroke settings. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
-    public var fallingStroke: Any?
-        get() = get("fallingStroke") as Any?
+    public var fallingStroke: Callback?
+        get() = get("fallingStroke") as Callback?
         set(value) { put("fallingStroke", value) }
-    public fun fallingStroke(value: Any): Candlestick = apply { put("fallingStroke", value) }
+    public fun fallingStroke(value: Callback): Candlestick = apply { put("fallingStroke", value) }
     public fun fallingStroke(value: Nothing?): Candlestick = apply { put("fallingStroke", null) }
     /** Getter for rising stroke settings. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
-    public var risingStroke: Any?
-        get() = get("risingStroke") as Any?
+    public var risingStroke: Callback?
+        get() = get("risingStroke") as Callback?
         set(value) { put("risingStroke", value) }
-    public fun risingStroke(value: Any): Candlestick = apply { put("risingStroke", value) }
+    public fun risingStroke(value: Callback): Candlestick = apply { put("risingStroke", value) }
     public fun risingStroke(value: Nothing?): Candlestick = apply { put("risingStroke", null) }
     /** Setter for falling fill settings using an array or a string. Learn more about coloring. Default: null. */
 
     public fun fallingFill(value: Any): Candlestick = apply { put("fallingFill", value) }
     public fun fallingFill(value: List<*>): Candlestick = apply { put("fallingFill", value) }
+    public fun fallingFill(value: Callback): Candlestick = apply { put("fallingFill", value) }
     public fun fallingFill(value: String): Candlestick = apply { put("fallingFill", value) }
     public fun fallingFill(value: Nothing?): Candlestick = apply { put("fallingFill", null) }
     public fun fallingFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Candlestick = apply { put("fallingFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
@@ -244,6 +246,7 @@ public open class Candlestick : ConfigNode() {
 
     public fun risingFill(value: Any): Candlestick = apply { put("risingFill", value) }
     public fun risingFill(value: List<*>): Candlestick = apply { put("risingFill", value) }
+    public fun risingFill(value: Callback): Candlestick = apply { put("risingFill", value) }
     public fun risingFill(value: String): Candlestick = apply { put("risingFill", value) }
     public fun risingFill(value: Nothing?): Candlestick = apply { put("risingFill", null) }
     public fun risingFill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): Candlestick = apply { put("risingFill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }

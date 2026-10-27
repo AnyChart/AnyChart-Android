@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -87,6 +88,7 @@ public open class AxesLinear : ConfigNode() {
 
     public fun stroke(value: Any): AxesLinear = apply { put("stroke", value) }
     public fun stroke(value: String): AxesLinear = apply { put("stroke", value) }
+    public fun stroke(value: Callback): AxesLinear = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): AxesLinear = apply { put("stroke", null) }
     public fun stroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): AxesLinear = apply { put("stroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for axis ticks. Default: true. */

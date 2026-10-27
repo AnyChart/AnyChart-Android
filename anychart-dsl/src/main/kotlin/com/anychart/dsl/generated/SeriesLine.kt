@@ -2,6 +2,7 @@
 @file:Suppress("unused", "RedundantVisibilityModifier", "UNCHECKED_CAST")
 package com.anychart.dsl.generated
 
+import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
@@ -201,6 +202,7 @@ public open class SeriesLine : ConfigNode() {
     public fun connectMissingPoints(value: Nothing?): SeriesLine = apply { put("connectMissingPoints", null) }
     /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
 
+    public fun stroke(value: Callback): SeriesLine = apply { put("stroke", value) }
     public fun stroke(value: Any): SeriesLine = apply { put("stroke", value) }
     public fun stroke(value: String): SeriesLine = apply { put("stroke", value) }
     public fun stroke(value: Nothing?): SeriesLine = apply { put("stroke", null) }
