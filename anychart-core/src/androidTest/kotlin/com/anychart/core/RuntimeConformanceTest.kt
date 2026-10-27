@@ -68,6 +68,7 @@ class RuntimeConformanceTest {
         onMain { view.warmUp() }
         assertTrue("ready never arrived; errors: ${rec.errors}", rec.ready.await(20, TimeUnit.SECONDS))
         assertTrue("jsVersion ${rec.jsVersion.get()}", rec.jsVersion.get().startsWith("9.0.0"))
+        assertEquals("1.0.0", onMainGet { view.runtimeVersion })
         assertEquals(emptyList<String>(), rec.errors)
     }
 

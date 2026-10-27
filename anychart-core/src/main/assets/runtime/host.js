@@ -1,5 +1,5 @@
 /*
- * AnyChart runtime page: the host protocol.
+ * AnyChart runtime page: the host protocol, version 1.0 (anychart-core/PROTOCOL.md is the contract).
  *
  * The host (an Android view, a test harness, later a Swift view) talks to this
  * page with JSON messages. Nothing here evaluates strings from the host.
@@ -37,7 +37,7 @@
 (function () {
   'use strict';
 
-  var RUNTIME_VERSION = '0.3.0';
+  var RUNTIME_VERSION = '1.0.0'; // major = protocol major; the host refuses another major
   var charts = {}; // id -> { chart, el }
   var callbackStats = {}; // id -> { calls, ms }
   var DATA_BY_API = { 'data-sheet': true };

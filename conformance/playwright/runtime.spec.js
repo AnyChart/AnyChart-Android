@@ -40,7 +40,8 @@ test.describe('runtime page', () => {
   test('announces itself with the bundled JS version', async ({ page }) => {
     const ready = await openRuntime(page);
     expect(ready.jsVersion).toMatch(/^9\.0\.0/);
-    expect(ready.runtimeVersion).toBeTruthy();
+    expect(ready.runtimeVersion).toBe('1.0.0');   // protocol 1.0, anychart-core/PROTOCOL.md
+    expect(ready.timing).toEqual(expect.objectContaining({ readySent: expect.any(Number) }));
   });
 
   for (const file of configFiles) {

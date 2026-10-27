@@ -96,6 +96,10 @@ public class AnyChartView @JvmOverloads constructor(
     public var jsVersion: String? = null
         private set
 
+    /** The runtime page's version from `ready` (protocol major.minor.patch). */
+    public var runtimeVersion: String? = null
+        private set
+
     /** True after [destroy]; the view is inert from then on. */
     public var destroyed: Boolean = false
         private set
@@ -286,8 +290,9 @@ public class AnyChartView @JvmOverloads constructor(
     private fun dispatch(raw: String) {
         when (val m = Messages.parse(raw)) {
             is Messages.Incoming.Ready -> {
-                jsVersion = m.jsVersion; pageTiming = m.timing
+                jsVersion = m.jsVersion; runtimeVersion = m.runtimeVersion; pageTiming = m.timing
                 listener?.onReady(m.jsVersion)
+                Protocol.mismatch(m.runtimeVersion)?.let { listener?.onError(AnyChartError.UnsupportedRuntime(m.runtimeVersion, it)) }
                 EngineVersion.mismatch(expectedJsVersion, m.jsVersion)?.let { listener?.onError(AnyChartError.EngineMismatch(expectedJsVersion!!, m.jsVersion, it)) }
             }
             is Messages.Incoming.Rendered -> {

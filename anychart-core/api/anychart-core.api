@@ -6,6 +6,7 @@ AnyChartError  public class EngineMismatch(public val expected: String, public v
 AnyChartError  public class License(message: String) : AnyChartError(null, message)
 AnyChartError  public class Page(message: String) : AnyChartError(null, message)
 AnyChartError  public class UnknownChart(chartId: String?, message: String) : AnyChartError(chartId, message)
+AnyChartError  public class UnsupportedRuntime(public val announced: String, message: String) : AnyChartError(null, message)
 AnyChartError  public class UnsupportedWebView(message: String) : AnyChartError(null, message)
 AnyChartError  public companion object
 AnyChartError  public fun fromPage(chartId: String?, code: String, message: String): AnyChartError
@@ -50,6 +51,7 @@ AnyChartEvent  public var jsVersion: String?
 AnyChartEvent  public var licenseKey: String?
 AnyChartEvent  public var listener: Listener?
 AnyChartEvent  public var pageTiming: JSONObject
+AnyChartEvent  public var runtimeVersion: String?
 AnyChartEvent  public var savesState: Boolean
 ChartDocument  public fun callbacks(): Map<String, (JSONObject) -> Any?>
 ChartDocument  public fun toDocumentString(): String
@@ -59,3 +61,7 @@ EngineVersion  public fun mismatch(expected: String?, announced: String): String
 EngineVersion  public object EngineVersion
 License  public fun isUsable(key: String?): Boolean
 License  public object License
+Protocol  public const val MAJOR: Int
+Protocol  public const val VERSION: String
+Protocol  public fun mismatch(runtimeVersion: String): String?
+Protocol  public object Protocol

@@ -24,6 +24,8 @@ public sealed class AnyChartError(public val chartId: String?, public val messag
     public class UnsupportedWebView(message: String) : AnyChartError(null, message)
     /** The page bundles another engine than the configs were generated for. */
     public class EngineMismatch(public val expected: String, public val announced: String, message: String) : AnyChartError(null, message)
+    /** The page speaks another protocol major than this host (runtime version in `ready`). */
+    public class UnsupportedRuntime(public val announced: String, message: String) : AnyChartError(null, message)
 
     override fun toString(): String = "${javaClass.simpleName}(${chartId ?: "-"}: $message)"
 
