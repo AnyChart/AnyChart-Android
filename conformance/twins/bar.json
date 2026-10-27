@@ -1,0 +1,31 @@
+{"chart": {
+  "series": [{
+    "data": [
+      {
+        "x": "India",
+        "value": 1428
+      },
+      {
+        "x": "China",
+        "value": 1425
+      },
+      {
+        "x": "USA",
+        "value": 340
+      },
+      {
+        "x": "Indonesia",
+        "value": 277
+      },
+      {
+        "x": "Pakistan",
+        "value": 240
+      }
+    ],
+    "seriesType": "bar",
+    "name": "Population"
+  }],
+  "yScale": {"minimum": 0},
+  "type": "bar",
+  "title": "Bar chart: top countries by population (millions)"
+}}

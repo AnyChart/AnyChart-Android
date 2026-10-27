@@ -174,12 +174,12 @@ public open class AnnotationsLabel : ConfigNode() {
     /** Setter for font style settings. */
 
     public fun fontStyle(value: String): AnnotationsLabel = apply { put("fontStyle", value) }
-    public fun fontStyle(value: FontStyle): AnnotationsLabel = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): AnnotationsLabel = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): AnnotationsLabel = apply { put("fontStyle", null) }
     /** Setter for font variant settings. */
 
     public fun fontVariant(value: String): AnnotationsLabel = apply { put("fontVariant", value) }
-    public fun fontVariant(value: FontVariant): AnnotationsLabel = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): AnnotationsLabel = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): AnnotationsLabel = apply { put("fontVariant", null) }
     /** Setter for font weight settings. */
 
@@ -189,7 +189,7 @@ public open class AnnotationsLabel : ConfigNode() {
     /** Setter for the text horizontal align settings. */
 
     public fun hAlign(value: String): AnnotationsLabel = apply { put("hAlign", value) }
-    public fun hAlign(value: HAlign): AnnotationsLabel = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): AnnotationsLabel = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): AnnotationsLabel = apply { put("hAlign", null) }
     /** Setter for letter spacing settings. */
 
@@ -223,7 +223,7 @@ public open class AnnotationsLabel : ConfigNode() {
     public fun offsetY(value: Nothing?): AnnotationsLabel = apply { put("offsetY", null) }
     /** Setter for paddings in pixels using a single value. Default: 5. */
 
-    public fun padding(init: Padding.() -> Unit): AnnotationsLabel = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): AnnotationsLabel = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): AnnotationsLabel = apply { put("padding", value) }
     public fun padding(value: Number): AnnotationsLabel = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): AnnotationsLabel = apply { put("padding", listOf(value1, value2, value3, value4)) }
@@ -243,7 +243,7 @@ public open class AnnotationsLabel : ConfigNode() {
     public fun text(value: Nothing?): AnnotationsLabel = apply { put("text", null) }
     /** Setter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): AnnotationsLabel = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): AnnotationsLabel = apply { put("textDirection", value) }
     public fun textDirection(value: String): AnnotationsLabel = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): AnnotationsLabel = apply { put("textDirection", null) }
     /** Setter for the text indent. */
@@ -272,7 +272,7 @@ public open class AnnotationsLabel : ConfigNode() {
     public fun useHtml(value: Nothing?): AnnotationsLabel = apply { put("useHtml", null) }
     /** Setter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): AnnotationsLabel = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): AnnotationsLabel = apply { put("vAlign", value) }
     public fun vAlign(value: String): AnnotationsLabel = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): AnnotationsLabel = apply { put("vAlign", null) }
     /** Setter for the value anchor. */

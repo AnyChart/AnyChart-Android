@@ -1,0 +1,273 @@
+{"chart": {
+  "padding": [
+    20,
+    80,
+    20,
+    40
+  ],
+  "node": {
+    "normal": {"labels": {
+      "anchor": "center-bottom",
+      "useHtml": true,
+      "position": "center-top"
+    }},
+    "tooltip": {
+      "anchor": "center-bottom",
+      "useHtml": true
+    }
+  },
+  "data": [
+    [
+      "Hydro",
+      "Electricity grid",
+      5
+    ],
+    [
+      "Coal reserves",
+      "Coal",
+      64
+    ],
+    [
+      "Coal imports",
+      "Coal",
+      31
+    ],
+    [
+      "Gas reserves",
+      "Natural Gas",
+      82
+    ],
+    [
+      "Gas imports",
+      "Natural Gas",
+      2034
+    ],
+    [
+      "Oil reserves",
+      "Oil",
+      108
+    ],
+    [
+      "Oil imports",
+      "Oil",
+      772
+    ],
+    [
+      "Land based bioenergy",
+      "Bio-conversion",
+      18
+    ],
+    [
+      "Agricultural \"waste\"",
+      "Bio-conversion",
+      37
+    ],
+    [
+      "Other waste",
+      "Bio-conversion",
+      40
+    ],
+    [
+      "Coal",
+      "Solid",
+      95
+    ],
+    [
+      "Other waste",
+      "Solid",
+      14
+    ],
+    [
+      "Bio-conversion",
+      "Solid",
+      30
+    ],
+    [
+      "Natural Gas",
+      "Gas",
+      2117
+    ],
+    [
+      "Bio-conversion",
+      "Gas",
+      40
+    ],
+    [
+      "Oil",
+      "Liquid",
+      880
+    ],
+    [
+      "Bio-conversion",
+      "Liquid",
+      8
+    ],
+    [
+      "Bio-conversion",
+      null,
+      18
+    ],
+    [
+      "Solid",
+      "Thermal generation",
+      33
+    ],
+    [
+      "Solid",
+      "Industry",
+      106
+    ],
+    [
+      "Gas",
+      "Thermal generation",
+      1153
+    ],
+    [
+      "Gas",
+      "Heating and cooling (homes)",
+      518
+    ],
+    [
+      "Gas",
+      "Heating and cooling (commercial)",
+      141
+    ],
+    [
+      "Gas",
+      "Lighting & appliances (homes)",
+      8
+    ],
+    [
+      "Gas",
+      "Lighting & appliances (commercial)",
+      9
+    ],
+    [
+      "Gas",
+      "Industry",
+      301
+    ],
+    [
+      "Gas",
+      "Agriculture",
+      2
+    ],
+    [
+      "Gas",
+      null,
+      24
+    ],
+    [
+      "Liquid",
+      "Industry",
+      199
+    ],
+    [
+      "Liquid",
+      "Road transport",
+      322
+    ],
+    [
+      "Liquid",
+      "Rail transport",
+      7
+    ],
+    [
+      "Liquid",
+      "Domestic aviation",
+      15
+    ],
+    [
+      "Liquid",
+      "International aviation",
+      189
+    ],
+    [
+      "Liquid",
+      "National navigation",
+      22
+    ],
+    [
+      "Liquid",
+      "International shipping",
+      130
+    ],
+    [
+      "Liquid",
+      "Agriculture",
+      4
+    ],
+    [
+      "Thermal generation",
+      "Electricity grid",
+      576
+    ],
+    [
+      "Thermal generation",
+      "District heating",
+      16
+    ],
+    [
+      "Thermal generation",
+      null,
+      593
+    ],
+    [
+      "Electricity grid",
+      "Heating and cooling (homes)",
+      61
+    ],
+    [
+      "Electricity grid",
+      "Heating and cooling (commercial)",
+      31
+    ],
+    [
+      "Electricity grid",
+      "Lighting & appliances (homes)",
+      103
+    ],
+    [
+      "Electricity grid",
+      "Lighting & appliances (commercial)",
+      92
+    ],
+    [
+      "Electricity grid",
+      "Industry",
+      228
+    ],
+    [
+      "Electricity grid",
+      "Road transport",
+      14
+    ],
+    [
+      "Electricity grid",
+      "Rail transport",
+      7
+    ],
+    [
+      "Electricity grid",
+      "Agriculture",
+      4
+    ],
+    [
+      "Electricity grid",
+      null,
+      41
+    ],
+    [
+      "District heating",
+      "Industry",
+      16
+    ]
+  ],
+  "nodePadding": 30,
+  "dropoff": {"tooltip": {"enabled": false}},
+  "curveFactor": 0.2,
+  "nodeWidth": 50,
+  "type": "sankey",
+  "title": "Energy Flows (TWh/y)",
+  "flow": {"tooltip": {"enabled": false}}
+}}

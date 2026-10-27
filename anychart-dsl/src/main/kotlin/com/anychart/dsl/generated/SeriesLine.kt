@@ -6,7 +6,7 @@ import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
-/** Define Line series type. Get instance by methods {@link anychart.charts.Scatter#line}. (anychart.core.scatter.series.Line) */
+/** Line Series Class. Learn more about Line series (anychart.core.stock.series.Line) */
 
 public open class SeriesLine : ConfigNode() {
     /** Getter for the element state (enabled or disabled). Default: true. */
@@ -80,47 +80,48 @@ public open class SeriesLine : ConfigNode() {
     public fun width(value: Number): SeriesLine = apply { put("width", value) }
     public fun width(value: String): SeriesLine = apply { put("width", value) }
     public fun width(value: Nothing?): SeriesLine = apply { put("width", null) }
-    /** Getter for the accessibility setting. */
+    /** Getter for the allowPointSettings flag. Default: false. */
 
-    public fun a11y(init: SeriesA11y.() -> Unit): SeriesLine = apply { nested("a11y", ::SeriesA11y, init) }
-    public fun a11y(value: Boolean): SeriesLine = apply { put("a11y", value) }
-    public var color: String?
-        get() = get("color") as String?
-        set(value) { put("color", value) }
-    public fun color(value: String): SeriesLine = apply { put("color", value) }
-    public fun color(value: Nothing?): SeriesLine = apply { put("color", null) }
+    public var allowPointSettings: Boolean?
+        get() = get("allowPointSettings") as Boolean?
+        set(value) { put("allowPointSettings", value) }
+    public fun allowPointSettings(value: Boolean): SeriesLine = apply { put("allowPointSettings", value) }
+    public fun allowPointSettings(value: Nothing?): SeriesLine = apply { put("allowPointSettings", null) }
     /** Getter for the color scale. */
 
     public fun colorScale(init: LinearColor.() -> Unit): SeriesLine = apply { nested("colorScale", ::LinearColor, init) }
+    public fun colorScale(value: String): SeriesLine = apply { put("colorScale", value) }
+    /** Getter for data for the series. */
+
     public fun data(value: Any): SeriesLine = apply { put("data", value) }
     public fun data(value: List<*>): SeriesLine = apply { put("data", value) }
     public fun data(value: String): SeriesLine = apply { put("data", value) }
     public fun data(value: Nothing?): SeriesLine = apply { put("data", null) }
-    public fun data(value: Any, csvSettings: Any): SeriesLine = apply { put("data", listOf(value, csvSettings)) }
+    public fun data(data: Any, mappingSettings: Any, csvSettings: Any): SeriesLine = apply { put("data", listOf(data, mappingSettings, csvSettings)) }
     /** Getter for hovered state settings. */
 
     public fun hovered(init: StateSettings.() -> Unit): SeriesLine = apply { nested("hovered", ::StateSettings, init) }
-    /** Getter for the series id. */
-
-    public fun id(value: String): SeriesLine = apply { put("id", value) }
-    public fun id(value: Number): SeriesLine = apply { put("id", value) }
-    public fun id(value: Nothing?): SeriesLine = apply { put("id", null) }
-    /** Default: false. */
+    /** Getter for series labels. Default: true. */
 
     public fun labels(init: LabelsFactory.() -> Unit): SeriesLine = apply { nested("labels", ::LabelsFactory, init) }
     public fun labels(value: Boolean): SeriesLine = apply { put("labels", value) }
+    /** Getter for the legend item setting for series. */
+
     public fun legendItem(init: LegendItemSettings.() -> Unit): SeriesLine = apply { nested("legendItem", ::LegendItemSettings, init) }
-    /** Getter for series data markers. Default: false. */
+    /** Getter for the data markers. Default: false. */
 
     public fun markers(init: MarkersFactory.() -> Unit): SeriesLine = apply { nested("markers", ::MarkersFactory, init) }
     public fun markers(value: Boolean): SeriesLine = apply { put("markers", value) }
     public fun markers(value: String): SeriesLine = apply { put("markers", value) }
-    public var meta: Any?
-        get() = get("meta") as Any?
-        set(value) { put("meta", value) }
-    public fun meta(value: Any): SeriesLine = apply { put("meta", value) }
-    public fun meta(value: Nothing?): SeriesLine = apply { put("meta", null) }
-    /** Default: undefined. */
+    /** Getter for maximum labels. */
+
+    public fun maxLabels(init: LabelsFactory.() -> Unit): SeriesLine = apply { nested("maxLabels", ::LabelsFactory, init) }
+    public fun maxLabels(value: Boolean): SeriesLine = apply { put("maxLabels", value) }
+    /** Getter for minimum labels. */
+
+    public fun minLabels(init: LabelsFactory.() -> Unit): SeriesLine = apply { nested("minLabels", ::LabelsFactory, init) }
+    public fun minLabels(value: Boolean): SeriesLine = apply { put("minLabels", value) }
+    /** Getter for the series name. */
 
     public var name: String?
         get() = get("name") as String?
@@ -130,77 +131,25 @@ public open class SeriesLine : ConfigNode() {
     /** Getter for normal state settings. */
 
     public fun normal(init: StateSettings.() -> Unit): SeriesLine = apply { nested("normal", ::StateSettings, init) }
-    /** Getter for selected state settings. */
+    /** Getter for the series rendering. */
 
-    public fun selected(init: StateSettings.() -> Unit): SeriesLine = apply { nested("selected", ::StateSettings, init) }
-    /** Gets the state of the series for selection mode. Default: 'multiSelect'. */
+    public fun rendering(init: RenderingSettings.() -> Unit): SeriesLine = apply { nested("rendering", ::RenderingSettings, init) }
+    /** Getter for switching of the series type. */
 
-    public fun selectionMode(value: SelectionMode): SeriesLine = apply { put("selectionMode", value) }
-    public fun selectionMode(value: String): SeriesLine = apply { put("selectionMode", value) }
-    public fun selectionMode(value: Nothing?): SeriesLine = apply { put("selectionMode", null) }
-    /** Default: true. */
+    public var seriesType: String?
+        get() = get("seriesType") as String?
+        set(value) { put("seriesType", value) }
+    public fun seriesType(value: String): SeriesLine = apply { put("seriesType", value) }
+    public fun seriesType(value: Nothing?): SeriesLine = apply { put("seriesType", null) }
+    /** Getter for the tooltip. Default: true. */
 
     public fun tooltip(init: Tooltip.() -> Unit): SeriesLine = apply { nested("tooltip", ::Tooltip, init) }
     public fun tooltip(value: Boolean): SeriesLine = apply { put("tooltip", value) }
-    /** Getter for series clip settings. Default: False, if series is created manually.True, if created via chart. */
-
-    public fun clip(value: Boolean): SeriesLine = apply { put("clip", value) }
-    public fun clip(value: Any): SeriesLine = apply { put("clip", value) }
-    public fun clip(value: Nothing?): SeriesLine = apply { put("clip", null) }
-    /** Getter for series error. */
-
-    public fun error(init: Error.() -> Unit): SeriesLine = apply { nested("error", ::Error, init) }
-    public fun error(value: Boolean): SeriesLine = apply { put("error", value) }
-    public fun error(value: String): SeriesLine = apply { put("error", value) }
-    public fun error(value: Number): SeriesLine = apply { put("error", value) }
-    /** Excludes points at the specified index. */
-
-    public fun excludePoint(value: Number): SeriesLine = apply { put("excludePoint", value) }
-    public fun excludePoint(value: List<*>): SeriesLine = apply { put("excludePoint", value) }
-    public fun excludePoint(value: Nothing?): SeriesLine = apply { put("excludePoint", null) }
-    /** Includes excluded points with the specified indexes. */
-
-    public fun includePoint(value: Number): SeriesLine = apply { put("includePoint", value) }
-    public fun includePoint(value: List<*>): SeriesLine = apply { put("includePoint", value) }
-    public fun includePoint(value: Nothing?): SeriesLine = apply { put("includePoint", null) }
-    /** Keep only the specified points. */
-
-    public fun keepOnlyPoints(value: Number): SeriesLine = apply { put("keepOnlyPoints", value) }
-    public fun keepOnlyPoints(value: List<*>): SeriesLine = apply { put("keepOnlyPoints", value) }
-    public fun keepOnlyPoints(value: Nothing?): SeriesLine = apply { put("keepOnlyPoints", null) }
-    /** Transforms X value to pixel coordinates. Note: Works only after {@link anychart.charts.Scatter#draw} is called. */
-
-    public var transformX: Any?
-        get() = get("transformX") as Any?
-        set(value) { put("transformX", value) }
-    public fun transformX(value: Any): SeriesLine = apply { put("transformX", value) }
-    public fun transformX(value: Nothing?): SeriesLine = apply { put("transformX", null) }
-    /** Transforms Y value to pixel coordinates. Note: Works only after {@link anychart.charts.Scatter#draw} is called. */
-
-    public var transformY: Any?
-        get() = get("transformY") as Any?
-        set(value) { put("transformY", value) }
-    public fun transformY(value: Any): SeriesLine = apply { put("transformY", value) }
-    public fun transformY(value: Nothing?): SeriesLine = apply { put("transformY", null) }
-    /** Getter for the series X-scale. Default: {api:anychart.scales.Linear}anychart.scales.Linear{api}. */
-
-    public var xScale: Any?
-        get() = get("xScale") as Any?
-        set(value) { put("xScale", value) }
-    public fun xScale(value: Any): SeriesLine = apply { put("xScale", value) }
-    public fun xScale(value: Nothing?): SeriesLine = apply { put("xScale", null) }
-    /** Getter for the series Y-scale. Default: {api:anychart.scales.Linear}anychart.scales.Linear{api}. */
+    /** Getter for the Y-scale. Default: {api:anychart.scales.Linear}anychart.scales.Linear{api}. */
 
     public fun yScale(init: ScatterBase.() -> Unit): SeriesLine = apply { nested("yScale", ::ScatterBase, init) }
     public fun yScale(value: String): SeriesLine = apply { put("yScale", value) }
-    /** Setter for connectMissingPoints mode. Default: false. */
-
-    public var connectMissingPoints: Boolean?
-        get() = get("connectMissingPoints") as Boolean?
-        set(value) { put("connectMissingPoints", value) }
-    public fun connectMissingPoints(value: Boolean): SeriesLine = apply { put("connectMissingPoints", value) }
-    public fun connectMissingPoints(value: Nothing?): SeriesLine = apply { put("connectMissingPoints", null) }
-    /** Setter for series stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */
+    /** Setter for series stroke by function. Default: function() { return this.sourceColor; }. */
 
     public fun stroke(value: Callback): SeriesLine = apply { put("stroke", value) }
     public fun stroke(value: Any): SeriesLine = apply { put("stroke", value) }

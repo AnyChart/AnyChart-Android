@@ -93,7 +93,7 @@ public open class SeparateChart : ConfigNode() {
     public fun background(init: Background.() -> Unit): SeparateChart = apply { nested("background", ::Background, init) }
     /** Getter for the context menu. */
 
-    public fun contextMenu(init: ContextMenu.() -> Unit): SeparateChart = apply { nested("contextMenu", ::ContextMenu, init) }
+    public fun contextMenu(init: UiContextMenu.() -> Unit): SeparateChart = apply { nested("contextMenu", ::UiContextMenu, init) }
     public fun contextMenu(value: Boolean): SeparateChart = apply { put("contextMenu", value) }
     /** Getter for the credits. Default: true. */
 
@@ -120,7 +120,7 @@ public open class SeparateChart : ConfigNode() {
     public fun noData(init: NoDataSettings.() -> Unit): SeparateChart = apply { nested("noData", ::NoDataSettings, init) }
     /** Getter for the chart padding. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): SeparateChart = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): SeparateChart = apply { nested("padding", ::UtilsPadding, init) }
     /** Getter for the select marquee fill. */
 
     public fun selectRectangleMarqueeFill(value: Any): SeparateChart = apply { put("selectRectangleMarqueeFill", value) }
@@ -143,7 +143,7 @@ public open class SeparateChart : ConfigNode() {
     public fun tooltip(value: Boolean): SeparateChart = apply { put("tooltip", value) }
     /** Setter for interactivity settings for the chart. */
 
-    public fun interactivity(init: Interactivity.() -> Unit): SeparateChart = apply { nested("interactivity", ::Interactivity, init) }
+    public fun interactivity(init: UtilsInteractivity.() -> Unit): SeparateChart = apply { nested("interactivity", ::UtilsInteractivity, init) }
     public fun interactivity(value: String): SeparateChart = apply { put("interactivity", value) }
     public fun interactivity(value: Boolean): SeparateChart = apply { put("interactivity", value) }
     /** Setter for chart legend settings. Default: false. */

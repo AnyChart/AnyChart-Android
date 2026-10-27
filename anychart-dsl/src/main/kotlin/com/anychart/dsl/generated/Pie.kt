@@ -95,7 +95,7 @@ public open class Pie : ChartRoot("chart", "pie") {
     public fun background(value: Boolean): Pie = apply { put("background", value) }
     /** Setter for the context menu. */
 
-    public fun contextMenu(init: ContextMenu.() -> Unit): Pie = apply { nested("contextMenu", ::ContextMenu, init) }
+    public fun contextMenu(init: UiContextMenu.() -> Unit): Pie = apply { nested("contextMenu", ::UiContextMenu, init) }
     public fun contextMenu(value: Boolean): Pie = apply { put("contextMenu", value) }
     /** Setter for chart credits. Learn more about credits settings. Default: true. */
 
@@ -127,7 +127,7 @@ public open class Pie : ChartRoot("chart", "pie") {
     public fun noData(init: NoDataSettings.() -> Unit): Pie = apply { nested("noData", ::NoDataSettings, init) }
     /** Setter for the chart paddings in pixels using a single value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): Pie = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Pie = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Pie = apply { put("padding", value) }
     public fun padding(value: Number): Pie = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Pie = apply { put("padding", listOf(value1, value2, value3, value4)) }
@@ -155,7 +155,7 @@ public open class Pie : ChartRoot("chart", "pie") {
     public fun tooltip(value: Boolean): Pie = apply { put("tooltip", value) }
     /** Getter for interactivity settings for the chart. */
 
-    public fun interactivity(init: Interactivity.() -> Unit): Pie = apply { nested("interactivity", ::Interactivity, init) }
+    public fun interactivity(init: UtilsInteractivity.() -> Unit): Pie = apply { nested("interactivity", ::UtilsInteractivity, init) }
     /** Setter for the chart legend settings. Default: false. */
 
     public fun legend(init: Legend.() -> Unit): Pie = apply { nested("legend", ::Legend, init) }

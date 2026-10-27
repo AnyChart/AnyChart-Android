@@ -1,0 +1,96 @@
+{"chart": {
+  "series": [
+    {
+      "data": [
+        {
+          "x": "2019",
+          "value": 12
+        },
+        {
+          "x": "2020",
+          "value": 15
+        },
+        {
+          "x": "2021",
+          "value": 11
+        },
+        {
+          "x": "2022",
+          "value": 18
+        },
+        {
+          "x": "2023",
+          "value": 16
+        },
+        {
+          "x": "2024",
+          "value": 21
+        }
+      ],
+      "seriesType": "area",
+      "name": "Rock"
+    },
+    {
+      "data": [
+        {
+          "x": "2019",
+          "value": 7
+        },
+        {
+          "x": "2020",
+          "value": 9
+        },
+        {
+          "x": "2021",
+          "value": 14
+        },
+        {
+          "x": "2022",
+          "value": 12
+        },
+        {
+          "x": "2023",
+          "value": 15
+        },
+        {
+          "x": "2024",
+          "value": 13
+        }
+      ],
+      "seriesType": "area",
+      "name": "Jazz"
+    },
+    {
+      "data": [
+        {
+          "x": "2019",
+          "value": 4
+        },
+        {
+          "x": "2020",
+          "value": 6
+        },
+        {
+          "x": "2021",
+          "value": 8
+        },
+        {
+          "x": "2022",
+          "value": 10
+        },
+        {
+          "x": "2023",
+          "value": 13
+        },
+        {
+          "x": "2024",
+          "value": 12
+        }
+      ],
+      "seriesType": "area",
+      "name": "Pop"
+    }
+  ],
+  "type": "stream-graph",
+  "title": "Stream graph: genres"
+}}

@@ -63,12 +63,12 @@ public open class UiLabel : ConfigNode() {
     public fun fontSize(value: Nothing?): UiLabel = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): UiLabel = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): UiLabel = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): UiLabel = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): UiLabel = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): UiLabel = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): UiLabel = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): UiLabel = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): UiLabel = apply { put("fontVariant", null) }
     /** Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp} Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class UiLabel : ConfigNode() {
     public fun fontWeight(value: Nothing?): UiLabel = apply { put("fontWeight", null) }
     /** Setter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): UiLabel = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): UiLabel = apply { put("hAlign", value) }
     public fun hAlign(value: String): UiLabel = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): UiLabel = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class UiLabel : ConfigNode() {
     public fun selectable(value: Nothing?): UiLabel = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): UiLabel = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): UiLabel = apply { put("textDirection", value) }
     public fun textDirection(value: String): UiLabel = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): UiLabel = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -136,7 +136,7 @@ public open class UiLabel : ConfigNode() {
     public fun useHtml(value: Nothing?): UiLabel = apply { put("useHtml", null) }
     /** Setter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): UiLabel = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): UiLabel = apply { put("vAlign", value) }
     public fun vAlign(value: String): UiLabel = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): UiLabel = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -193,7 +193,7 @@ public open class UiLabel : ConfigNode() {
     public fun offsetY(value: Nothing?): UiLabel = apply { put("offsetY", null) }
     /** Setter for the label padding in pixels by one value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): UiLabel = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): UiLabel = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): UiLabel = apply { put("padding", value) }
     public fun padding(value: Number): UiLabel = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): UiLabel = apply { put("padding", listOf(value1, value2, value3, value4)) }

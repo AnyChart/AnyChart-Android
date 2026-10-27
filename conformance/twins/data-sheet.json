@@ -1,0 +1,112 @@
+{"chart": {
+  "rowSelectedFill": "#d2e3fc",
+  "data": [
+    {
+      "children": [
+        {
+          "name": "Laptop",
+          "units": 34,
+          "value": 40800
+        },
+        {
+          "name": "Monitor",
+          "units": 58,
+          "value": 17400
+        },
+        {
+          "name": "Keyboard",
+          "units": 240,
+          "value": 19200
+        },
+        {
+          "name": "Headset",
+          "units": 76,
+          "value": 16720
+        }
+      ],
+      "name": "Tech",
+      "units": 408,
+      "value": 94120
+    },
+    {
+      "children": [
+        {
+          "name": "Chair",
+          "units": 120,
+          "value": 18000
+        },
+        {
+          "name": "Desk",
+          "units": 12,
+          "value": 5400
+        },
+        {
+          "name": "Lamp",
+          "units": 0,
+          "value": 0
+        },
+        {
+          "name": "Cabinet",
+          "units": 8,
+          "value": 5120
+        }
+      ],
+      "name": "Office",
+      "units": 140,
+      "value": 28520
+    }
+  ],
+  "columns": [
+    {
+      "field": "name",
+      "dataType": "string",
+      "width": 160,
+      "minWidth": 50,
+      "title": "Product"
+    },
+    {
+      "field": "units",
+      "dataType": "number",
+      "width": 100,
+      "minWidth": 50,
+      "title": "Units"
+    },
+    {
+      "field": "value",
+      "dataType": "number",
+      "width": 120,
+      "minWidth": 50,
+      "title": "Value"
+    }
+  ],
+  "rowOddFill": "#f8f8f8",
+  "headerFill": "#f5f5f5",
+  "groupHeaderFill": "#e8eef7",
+  "type": "data-sheet",
+  "clipboard": {
+    "includeHeaders": false,
+    "enabled": true
+  },
+  "rowHoverFill": "#e8f0fe",
+  "rowEvenFill": "#ffffff",
+  "filter": {"enabled": true},
+  "search": {"enabled": true},
+  "selection": {
+    "mode": "single",
+    "enabled": true
+  },
+  "sorting": {"enabled": true},
+  "cellEditor": {"enabled": true},
+  "cellBorder": "1px #e0e0e0",
+  "header": {
+    "enabled": true,
+    "height": 40
+  },
+  "indentSize": 20,
+  "virtualScroll": {
+    "enabled": true,
+    "bufferSize": 10
+  },
+  "cellPadding": 8,
+  "rowHeight": 32
+}}

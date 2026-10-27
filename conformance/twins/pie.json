@@ -1,0 +1,42 @@
+{"chart": {
+  "data": [
+    {
+      "x": "Apples",
+      "value": 6371664
+    },
+    {
+      "x": "Pears",
+      "value": 789622
+    },
+    {
+      "x": "Bananas",
+      "value": 7216301
+    },
+    {
+      "x": "Grapes",
+      "value": 1486621
+    },
+    {
+      "x": "Oranges",
+      "value": 1200000
+    }
+  ],
+  "legend": {
+    "itemsLayout": "horizontal",
+    "position": "center-bottom",
+    "align": "center",
+    "title": {
+      "padding": [
+        0,
+        0,
+        10,
+        0
+      ],
+      "text": "Retail channels",
+      "enabled": true
+    }
+  },
+  "type": "pie",
+  "title": "Fruits imported in 2015 (in kg)",
+  "labels": {"position": "outside"}
+}}

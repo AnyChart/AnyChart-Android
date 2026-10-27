@@ -94,7 +94,7 @@ public open class CircularGauge : ChartRoot("gauge", "circular-gauge") {
     public fun background(value: Boolean): CircularGauge = apply { put("background", value) }
     /** Setter for the context menu. */
 
-    public fun contextMenu(init: ContextMenu.() -> Unit): CircularGauge = apply { nested("contextMenu", ::ContextMenu, init) }
+    public fun contextMenu(init: UiContextMenu.() -> Unit): CircularGauge = apply { nested("contextMenu", ::UiContextMenu, init) }
     public fun contextMenu(value: Boolean): CircularGauge = apply { put("contextMenu", value) }
     /** Setter for chart credits. Learn more about credits settings. Default: true. */
 
@@ -126,7 +126,7 @@ public open class CircularGauge : ChartRoot("gauge", "circular-gauge") {
     public fun noData(init: NoDataSettings.() -> Unit): CircularGauge = apply { nested("noData", ::NoDataSettings, init) }
     /** Setter for the chart paddings in pixels using a single value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): CircularGauge = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): CircularGauge = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): CircularGauge = apply { put("padding", value) }
     public fun padding(value: Number): CircularGauge = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): CircularGauge = apply { put("padding", listOf(value1, value2, value3, value4)) }

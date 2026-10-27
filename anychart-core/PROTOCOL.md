@@ -86,6 +86,9 @@ shows its own trial credits.
 
 `conformance/configs/*.json` are the configs every host must render. `conformance/playwright`
 runs them against this page in Chromium with the fake host and compares screenshots; the
-`callbacks` scenarios there cover the three carriers over `sankey.json`:
+`callbacks` scenarios there cover the three carriers over `sankey.json`. `conformance/twins/*.json`
+are the same charts written in the Kotlin DSL (anychart-dsl's TwinsTest writes them with
+`WRITE_TWINS=1` and fails when they are stale); the gate renders each twin against its config's
+reference picture, which is the oracle where the config is an engine state dump:
 
     cd conformance/playwright && npm install && npm test

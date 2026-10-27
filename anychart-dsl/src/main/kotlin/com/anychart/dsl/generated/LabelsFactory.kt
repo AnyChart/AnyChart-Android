@@ -63,12 +63,12 @@ public open class LabelsFactory : ConfigNode() {
     public fun fontSize(value: Nothing?): LabelsFactory = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): LabelsFactory = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): LabelsFactory = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): LabelsFactory = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): LabelsFactory = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): LabelsFactory = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): LabelsFactory = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): LabelsFactory = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): LabelsFactory = apply { put("fontVariant", null) }
     /** Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp} Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class LabelsFactory : ConfigNode() {
     public fun fontWeight(value: Nothing?): LabelsFactory = apply { put("fontWeight", null) }
     /** Setter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): LabelsFactory = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): LabelsFactory = apply { put("hAlign", value) }
     public fun hAlign(value: String): LabelsFactory = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): LabelsFactory = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class LabelsFactory : ConfigNode() {
     public fun selectable(value: Nothing?): LabelsFactory = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): LabelsFactory = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): LabelsFactory = apply { put("textDirection", value) }
     public fun textDirection(value: String): LabelsFactory = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): LabelsFactory = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -129,7 +129,7 @@ public open class LabelsFactory : ConfigNode() {
     public fun useHtml(value: Nothing?): LabelsFactory = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): LabelsFactory = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): LabelsFactory = apply { put("vAlign", value) }
     public fun vAlign(value: String): LabelsFactory = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): LabelsFactory = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -211,7 +211,7 @@ public open class LabelsFactory : ConfigNode() {
     public fun offsetY(value: Nothing?): LabelsFactory = apply { put("offsetY", null) }
     /** Setter for labels padding in pixels using a single value. Default: {top: 2, right: 4, bottom: 2, left: 4}. */
 
-    public fun padding(init: Padding.() -> Unit): LabelsFactory = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): LabelsFactory = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: Number): LabelsFactory = apply { put("padding", value) }
     public fun padding(value: String): LabelsFactory = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): LabelsFactory = apply { put("padding", listOf(value1, value2, value3, value4)) }

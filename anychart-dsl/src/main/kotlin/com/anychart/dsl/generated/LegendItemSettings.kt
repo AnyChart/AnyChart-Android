@@ -63,12 +63,12 @@ public open class LegendItemSettings : ConfigNode() {
     public fun fontSize(value: Nothing?): LegendItemSettings = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): LegendItemSettings = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): LegendItemSettings = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): LegendItemSettings = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): LegendItemSettings = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): LegendItemSettings = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): LegendItemSettings = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): LegendItemSettings = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): LegendItemSettings = apply { put("fontVariant", null) }
     /** Getter for the text font weight. Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class LegendItemSettings : ConfigNode() {
     public fun fontWeight(value: Nothing?): LegendItemSettings = apply { put("fontWeight", null) }
     /** Getter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): LegendItemSettings = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): LegendItemSettings = apply { put("hAlign", value) }
     public fun hAlign(value: String): LegendItemSettings = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): LegendItemSettings = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class LegendItemSettings : ConfigNode() {
     public fun selectable(value: Nothing?): LegendItemSettings = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): LegendItemSettings = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): LegendItemSettings = apply { put("textDirection", value) }
     public fun textDirection(value: String): LegendItemSettings = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): LegendItemSettings = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -131,7 +131,7 @@ public open class LegendItemSettings : ConfigNode() {
     public fun useHtml(value: Nothing?): LegendItemSettings = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): LegendItemSettings = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): LegendItemSettings = apply { put("vAlign", value) }
     public fun vAlign(value: String): LegendItemSettings = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): LegendItemSettings = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */

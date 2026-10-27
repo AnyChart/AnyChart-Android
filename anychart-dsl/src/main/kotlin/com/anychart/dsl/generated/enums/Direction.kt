@@ -6,11 +6,15 @@ import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
-/** Text direction. (anychart.graphics.vector.Text.Direction) */
+/** Direction list. (anychart.enums.Direction) */
 
 public enum class Direction(override val json: Any) : ConfigNode.JsonValue {
-        /** Left to right. */
-    LTR("ltr"),
-        /** Right to left. */
-    RTL("rtl");
+        /** Up marker direction. */
+    UP("up"),
+        /** Down marker direction. */
+    DOWN("down"),
+        /** Default marker direction. */
+    AUTO("auto"),
+        /** Direction based on the order. */
+    ODD_EVEN("odd-even");
 }

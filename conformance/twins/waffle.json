@@ -1,0 +1,22 @@
+{"chart": {
+  "data": [
+    {
+      "name": "In-store",
+      "value": 43
+    },
+    {
+      "name": "Online",
+      "value": 31
+    },
+    {
+      "name": "Wholesale",
+      "value": 17
+    },
+    {
+      "name": "Other",
+      "value": 9
+    }
+  ],
+  "type": "waffle",
+  "title": "Waffle: sales channels"
+}}

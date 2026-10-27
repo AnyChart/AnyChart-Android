@@ -1,0 +1,41 @@
+{"chart": {
+  "data": [
+    {
+      "weight": 18,
+      "from": "Paris",
+      "to": "Tokyo"
+    },
+    {
+      "weight": 14,
+      "from": "Paris",
+      "to": "NYC"
+    },
+    {
+      "weight": 8,
+      "from": "Paris",
+      "to": "Dubai"
+    },
+    {
+      "weight": 10,
+      "from": "Tokyo",
+      "to": "NYC"
+    },
+    {
+      "weight": 5,
+      "from": "Tokyo",
+      "to": "Dubai"
+    },
+    {
+      "weight": 6,
+      "from": "NYC",
+      "to": "Cairo"
+    },
+    {
+      "weight": 4,
+      "from": "Dubai",
+      "to": "Cairo"
+    }
+  ],
+  "type": "dependency-wheel",
+  "title": "Dependency wheel: flights"
+}}

@@ -63,12 +63,12 @@ public open class Title : ConfigNode() {
     public fun fontSize(value: Nothing?): Title = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): Title = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): Title = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): Title = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): Title = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): Title = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): Title = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): Title = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): Title = apply { put("fontVariant", null) }
     /** Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp} Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class Title : ConfigNode() {
     public fun fontWeight(value: Nothing?): Title = apply { put("fontWeight", null) }
     /** Setter for the title horizontal align. Default: 'center'. */
 
-    public fun hAlign(value: HAlign): Title = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): Title = apply { put("hAlign", value) }
     public fun hAlign(value: String): Title = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): Title = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class Title : ConfigNode() {
     public fun selectable(value: Nothing?): Title = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): Title = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): Title = apply { put("textDirection", value) }
     public fun textDirection(value: String): Title = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): Title = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -136,7 +136,7 @@ public open class Title : ConfigNode() {
     public fun useHtml(value: Nothing?): Title = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): Title = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): Title = apply { put("vAlign", value) }
     public fun vAlign(value: String): Title = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): Title = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -201,7 +201,7 @@ public open class Title : ConfigNode() {
     public fun orientation(value: Nothing?): Title = apply { put("orientation", null) }
     /** Setter for the title padding in pixels using single value. Default: {top: 0, right: 0, bottom: 2, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): Title = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Title = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Title = apply { put("padding", value) }
     public fun padding(value: Number): Title = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Title = apply { put("padding", listOf(value1, value2, value3, value4)) }

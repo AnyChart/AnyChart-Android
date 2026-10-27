@@ -141,7 +141,7 @@ public open class Quarter : ConfigNode() {
     public fun margin(value1: Any, value2: Any, value3: Any, value4: Any): Quarter = apply { put("margin", listOf(value1, value2, value3, value4)) }
     /** Setter for the quarter paddings in pixels using a single value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): Quarter = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Quarter = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Quarter = apply { put("padding", value) }
     public fun padding(value: Number): Quarter = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Quarter = apply { put("padding", listOf(value1, value2, value3, value4)) }

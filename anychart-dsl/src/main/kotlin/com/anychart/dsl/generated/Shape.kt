@@ -28,10 +28,10 @@ public open class Shape : ConfigNode() {
     public fun clip(value: Nothing?): Shape = apply { put("clip", null) }
     /** Getter for the cursor type. Default: null. */
 
-    public var cursor: Cursor?
-        get() = get("cursor") as Cursor?
+    public var cursor: VectorCursor?
+        get() = get("cursor") as VectorCursor?
         set(value) { put("cursor", value) }
-    public fun cursor(value: Cursor): Shape = apply { put("cursor", value) }
+    public fun cursor(value: VectorCursor): Shape = apply { put("cursor", value) }
     public fun cursor(value: Nothing?): Shape = apply { put("cursor", null) }
     public fun cursor(value: String): Shape = apply { put("cursor", value) }
     /** Getter for the element description value. */

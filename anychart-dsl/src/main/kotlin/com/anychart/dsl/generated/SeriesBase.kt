@@ -6,7 +6,7 @@ import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
-/** Base class for all stock series. (anychart.core.stock.series.Base) */
+/** Timeline base series. (anychart.core.timeline.series.Base) */
 
 public open class SeriesBase : ConfigNode() {
     /** Getter for the element state (enabled or disabled). Default: true. */
@@ -80,88 +80,113 @@ public open class SeriesBase : ConfigNode() {
     public fun width(value: Number): SeriesBase = apply { put("width", value) }
     public fun width(value: String): SeriesBase = apply { put("width", value) }
     public fun width(value: Nothing?): SeriesBase = apply { put("width", null) }
-    /** Setter for the allowPointSettings flag. Default: false. */
+    /** Getter for the accessibility setting. */
 
-    public var allowPointSettings: Boolean?
-        get() = get("allowPointSettings") as Boolean?
-        set(value) { put("allowPointSettings", value) }
-    public fun allowPointSettings(value: Boolean): SeriesBase = apply { put("allowPointSettings", value) }
-    public fun allowPointSettings(value: Nothing?): SeriesBase = apply { put("allowPointSettings", null) }
-    /** Setter for the color scale. */
+    public fun a11y(init: SeriesA11y.() -> Unit): SeriesBase = apply { nested("a11y", ::SeriesA11y, init) }
+    public fun a11y(value: Boolean): SeriesBase = apply { put("a11y", value) }
+    /** Getter for the color scale. */
 
     public fun colorScale(init: LinearColor.() -> Unit): SeriesBase = apply { nested("colorScale", ::LinearColor, init) }
     public fun colorScale(value: String): SeriesBase = apply { put("colorScale", value) }
-    /** Setter for data for the series. */
-
     public fun data(value: Any): SeriesBase = apply { put("data", value) }
     public fun data(value: List<*>): SeriesBase = apply { put("data", value) }
     public fun data(value: String): SeriesBase = apply { put("data", value) }
     public fun data(value: Nothing?): SeriesBase = apply { put("data", null) }
-    public fun data(data: Any, mappingSettings: Any, csvSettings: Any): SeriesBase = apply { put("data", listOf(data, mappingSettings, csvSettings)) }
-    /** Setter for hovered state settings. */
+    public fun data(value: Any, csvSettings: Any): SeriesBase = apply { put("data", listOf(value, csvSettings)) }
+    /** Getter for hovered state settings. */
 
     public fun hovered(init: StateSettings.() -> Unit): SeriesBase = apply { nested("hovered", ::StateSettings, init) }
-    /** Setter for series labels. Default: true. */
+    /** Getter for the series id. */
+
+    public fun id(value: String): SeriesBase = apply { put("id", value) }
+    public fun id(value: Number): SeriesBase = apply { put("id", value) }
+    public fun id(value: Nothing?): SeriesBase = apply { put("id", null) }
+    /** Getter for series data labels. Default: false. */
 
     public fun labels(init: LabelsFactory.() -> Unit): SeriesBase = apply { nested("labels", ::LabelsFactory, init) }
     public fun labels(value: Boolean): SeriesBase = apply { put("labels", value) }
-    /** Setter for the legend item setting for series. */
-
     public fun legendItem(init: LegendItemSettings.() -> Unit): SeriesBase = apply { nested("legendItem", ::LegendItemSettings, init) }
-    /** Setter for the data markers. Default: false. */
+    /** Getter for series data markers. Default: false. */
 
     public fun markers(init: MarkersFactory.() -> Unit): SeriesBase = apply { nested("markers", ::MarkersFactory, init) }
     public fun markers(value: Boolean): SeriesBase = apply { put("markers", value) }
     public fun markers(value: String): SeriesBase = apply { put("markers", value) }
-    /** Setter for maximum labels. */
-
-    public fun maxLabels(init: LabelsFactory.() -> Unit): SeriesBase = apply { nested("maxLabels", ::LabelsFactory, init) }
-    public fun maxLabels(value: Boolean): SeriesBase = apply { put("maxLabels", value) }
-    /** Setter for the maximum point width. */
-
-    public fun maxPointWidth(value: Number): SeriesBase = apply { put("maxPointWidth", value) }
-    public fun maxPointWidth(value: String): SeriesBase = apply { put("maxPointWidth", value) }
-    public fun maxPointWidth(value: Nothing?): SeriesBase = apply { put("maxPointWidth", null) }
-    /** Setter for minimum labels. */
-
-    public fun minLabels(init: LabelsFactory.() -> Unit): SeriesBase = apply { nested("minLabels", ::LabelsFactory, init) }
-    public fun minLabels(value: Boolean): SeriesBase = apply { put("minLabels", value) }
-    /** Setter for the minimum point length. */
-
-    public fun minPointLength(value: Number): SeriesBase = apply { put("minPointLength", value) }
-    public fun minPointLength(value: String): SeriesBase = apply { put("minPointLength", value) }
-    public fun minPointLength(value: Nothing?): SeriesBase = apply { put("minPointLength", null) }
-    /** Setter for the series name. */
+    public var meta: Any?
+        get() = get("meta") as Any?
+        set(value) { put("meta", value) }
+    public fun meta(value: Any): SeriesBase = apply { put("meta", value) }
+    public fun meta(value: Nothing?): SeriesBase = apply { put("meta", null) }
+    /** Getter for the series name. */
 
     public var name: String?
         get() = get("name") as String?
         set(value) { put("name", value) }
     public fun name(value: String): SeriesBase = apply { put("name", value) }
     public fun name(value: Nothing?): SeriesBase = apply { put("name", null) }
-    /** Setter for normal state settings. */
+    /** Getter for normal state settings. */
 
     public fun normal(init: StateSettings.() -> Unit): SeriesBase = apply { nested("normal", ::StateSettings, init) }
-    /** Setter for the point width settings. */
+    /** Getter for selected state settings. */
 
-    public fun pointWidth(value: Number): SeriesBase = apply { put("pointWidth", value) }
-    public fun pointWidth(value: String): SeriesBase = apply { put("pointWidth", value) }
-    public fun pointWidth(value: Nothing?): SeriesBase = apply { put("pointWidth", null) }
-    /** Setter for the series rendering settings. */
+    public fun selected(init: StateSettings.() -> Unit): SeriesBase = apply { nested("selected", ::StateSettings, init) }
+    /** Gets the state of the series for selection mode. Default: 'multiSelect'. */
+
+    public fun selectionMode(value: SelectionMode): SeriesBase = apply { put("selectionMode", value) }
+    public fun selectionMode(value: String): SeriesBase = apply { put("selectionMode", value) }
+    public fun selectionMode(value: Nothing?): SeriesBase = apply { put("selectionMode", null) }
+    public fun tooltip(init: Tooltip.() -> Unit): SeriesBase = apply { nested("tooltip", ::Tooltip, init) }
+    /** Getter for series clip settings. */
+
+    public fun clip(init: MathRect.() -> Unit): SeriesBase = apply { nested("clip", ::MathRect, init) }
+    /** Getter for the series error. */
+
+    public fun error(init: Error.() -> Unit): SeriesBase = apply { nested("error", ::Error, init) }
+    /** Excludes points at the specified index. */
+
+    public fun excludePoint(value: Number): SeriesBase = apply { put("excludePoint", value) }
+    public fun excludePoint(value: List<*>): SeriesBase = apply { put("excludePoint", value) }
+    public fun excludePoint(value: Nothing?): SeriesBase = apply { put("excludePoint", null) }
+    /** Includes excluded points with the specified indexes. */
+
+    public fun includePoint(value: Number): SeriesBase = apply { put("includePoint", value) }
+    public fun includePoint(value: List<*>): SeriesBase = apply { put("includePoint", value) }
+    public fun includePoint(value: Nothing?): SeriesBase = apply { put("includePoint", null) }
+    /** Keep only the specified points. */
+
+    public fun keepOnlyPoints(value: Number): SeriesBase = apply { put("keepOnlyPoints", value) }
+    public fun keepOnlyPoints(value: List<*>): SeriesBase = apply { put("keepOnlyPoints", value) }
+    public fun keepOnlyPoints(value: Nothing?): SeriesBase = apply { put("keepOnlyPoints", null) }
+    /** Getter for maximum labels. */
+
+    public fun maxLabels(init: LabelsFactory.() -> Unit): SeriesBase = apply { nested("maxLabels", ::LabelsFactory, init) }
+    /** Getter for minimum labels. */
+
+    public fun minLabels(init: LabelsFactory.() -> Unit): SeriesBase = apply { nested("minLabels", ::LabelsFactory, init) }
+    /** Getter for the series rendering. */
 
     public fun rendering(init: RenderingSettings.() -> Unit): SeriesBase = apply { nested("rendering", ::RenderingSettings, init) }
-    /** Setter for switching of the series type. */
+    /** Transforms X value to pixel coordinates. Note: Works only after {@link anychart.charts.Cartesian#draw} is called. */
 
-    public var seriesType: String?
-        get() = get("seriesType") as String?
-        set(value) { put("seriesType", value) }
-    public fun seriesType(value: String): SeriesBase = apply { put("seriesType", value) }
-    public fun seriesType(value: Nothing?): SeriesBase = apply { put("seriesType", null) }
-    /** Setter for the tooltip. Default: true. */
+    public fun transformX(value: Any): SeriesBase = apply { put("transformX", value) }
+    public fun transformX(value: Nothing?): SeriesBase = apply { put("transformX", null) }
+    public fun transformX(value: Any, subRangeRatio: Number): SeriesBase = apply { put("transformX", listOf(value, subRangeRatio)) }
+    /** Transforms Y value to pixel coordinates. Note: Works only after {@link anychart.charts.Cartesian#draw} is called. */
 
-    public fun tooltip(init: Tooltip.() -> Unit): SeriesBase = apply { nested("tooltip", ::Tooltip, init) }
-    public fun tooltip(value: Boolean): SeriesBase = apply { put("tooltip", value) }
-    /** Setter for the Y-scale. Default: {api:anychart.scales.Linear}anychart.scales.Linear{api}. */
+    public fun transformY(value: Any): SeriesBase = apply { put("transformY", value) }
+    public fun transformY(value: Nothing?): SeriesBase = apply { put("transformY", null) }
+    public fun transformY(value: Any, subRangeRatio: Number): SeriesBase = apply { put("transformY", listOf(value, subRangeRatio)) }
+    /** Getter for the series X scale. */
 
-    public fun yScale(init: ScatterBase.() -> Unit): SeriesBase = apply { nested("yScale", ::ScatterBase, init) }
-    public fun yScale(value: String): SeriesBase = apply { put("yScale", value) }
+    public fun xScale(init: Ordinal.() -> Unit): SeriesBase = apply { nested("xScale", ::Ordinal, init) }
+    /** Getter for the series Y scale. */
+
+    public fun yScale(init: ScalesBase.() -> Unit): SeriesBase = apply { nested("yScale", ::ScalesBase, init) }
+    /** Series direction setter. */
+
+    public var direction: Direction?
+        get() = get("direction") as Direction?
+        set(value) { put("direction", value) }
+    public fun direction(value: Direction): SeriesBase = apply { put("direction", value) }
+    public fun direction(value: Nothing?): SeriesBase = apply { put("direction", null) }
+    public fun direction(value: String): SeriesBase = apply { put("direction", value) }
 }

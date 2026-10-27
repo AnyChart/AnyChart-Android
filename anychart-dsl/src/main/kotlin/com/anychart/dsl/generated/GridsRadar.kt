@@ -35,7 +35,7 @@ public open class GridsRadar : ConfigNode() {
     public fun drawLastLine(value: Nothing?): GridsRadar = apply { put("drawLastLine", null) }
     /** Setter for the fill settings using an array, an object or a string. Learn more about coloring. Default: function() { return this["palette". */
 
-    public fun fill(init: Map.() -> Unit): GridsRadar = apply { nested("fill", ::Map, init) }
+    public fun fill(init: GridsMap.() -> Unit): GridsRadar = apply { nested("fill", ::GridsMap, init) }
     public fun fill(value: String): GridsRadar = apply { put("fill", value) }
     public fun fill(keys: Any, cx: Number, cy: Number, mode: Any, opacity: Number, fx: Number, fy: Number): GridsRadar = apply { put("fill", listOf(keys, cx, cy, mode, opacity, fx, fy)) }
     /** Setter for the minor grid state flag. Default: false. */

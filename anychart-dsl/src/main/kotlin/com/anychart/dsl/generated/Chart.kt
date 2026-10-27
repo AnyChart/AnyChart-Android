@@ -94,7 +94,7 @@ public open class Chart : ConfigNode() {
     public fun background(init: Background.() -> Unit): Chart = apply { nested("background", ::Background, init) }
     /** Setter for the context menu. */
 
-    public fun contextMenu(init: ContextMenu.() -> Unit): Chart = apply { nested("contextMenu", ::ContextMenu, init) }
+    public fun contextMenu(init: UiContextMenu.() -> Unit): Chart = apply { nested("contextMenu", ::UiContextMenu, init) }
     public fun contextMenu(value: Boolean): Chart = apply { put("contextMenu", value) }
     /** Setter for the chart credits. Learn more about credits settings. Default: true. */
 
@@ -126,7 +126,7 @@ public open class Chart : ConfigNode() {
     public fun noData(init: NoDataSettings.() -> Unit): Chart = apply { nested("noData", ::NoDataSettings, init) }
     /** Setter for the chart paddings in pixels using a single value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): Chart = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Chart = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Chart = apply { put("padding", value) }
     public fun padding(value: Number): Chart = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Chart = apply { put("padding", listOf(value1, value2, value3, value4)) }

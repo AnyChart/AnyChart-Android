@@ -28,6 +28,12 @@ const rendered = (page, id) => waitFor(page, `m.some(x => x.type === 'rendered' 
 const errorsOf = async page => (await messages(page)).filter(m => m.type === 'error');
 // svg marks, plus DOM cells for charts that render as HTML (the data sheet)
 const countShapes = (page, id) => page.locator(`#ac-${id} svg :is(path, rect, circle, ellipse, polygon), #ac-${id} [role="gridcell"], #ac-${id} [role="columnheader"]`).count();
+// DSL twins: the documents anychart-dsl's TwinsTest writes from Kotlin for each conformance config
+// (committed under conformance/twins, kept in step by that test). Each must render exactly like its
+// config, i.e. match the config's reference picture. Where the config is an engine state dump
+// (arc diagram, waffle...) this is the twin's only oracle.
+const TWINS = path.resolve(__dirname, '..', 'twins');
+const twinFiles = fs.existsSync(TWINS) ? fs.readdirSync(TWINS).filter(f => f.endsWith('.json')).sort() : [];
 const stripData = cfg => { const c = JSON.parse(JSON.stringify(cfg)); const root = c.chart || c.gauge || c.map || c.gantt; delete root.data; delete root.series; delete root.treeData; return c; };
 
 test.describe('runtime page', () => {
@@ -58,6 +64,22 @@ test.describe('runtime page', () => {
       await send(page, { type: 'dispose', id: `${id}-empty` });
       expect(shapes, `${id} drew ${shapes} shapes, the same config without data draws ${emptyShapes}`).toBeGreaterThan(emptyShapes);
       await page.waitForTimeout(200); // let the last animation frame settle before the picture
+      await expect(page).toHaveScreenshot(`${id}.png`);
+    });
+  }
+
+  test('every conformance config has a DSL twin', async () => {
+    expect(twinFiles).toEqual(configFiles);
+  });
+
+  for (const file of twinFiles) {
+    const id = file.replace(/\.json$/, '');
+    test(`DSL twin of ${id} renders like its config`, async ({ page }) => {
+      await openRuntime(page);
+      await send(page, { type: 'load', id, config: JSON.parse(fs.readFileSync(path.join(TWINS, file), 'utf8')) });
+      await rendered(page, id);
+      expect(await errorsOf(page)).toEqual([]);
+      await page.waitForTimeout(200);
       await expect(page).toHaveScreenshot(`${id}.png`);
     });
   }

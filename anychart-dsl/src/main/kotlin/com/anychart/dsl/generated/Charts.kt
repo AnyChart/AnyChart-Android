@@ -7,34 +7,282 @@ import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
-/** anychart.pie(): a pie chart document. */
+/** anychart.arcDiagram(): a arc-diagram chart document. */
 @JvmOverloads
-public fun pie(init: Pie.() -> Unit = {}): Pie = Pie().also { it.preset("type", "pie") }.apply(init)
-
-/** anychart.column(): a column chart document. */
-@JvmOverloads
-public fun column(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "column") }.apply(init)
-
-/** anychart.line(): a line chart document. */
-@JvmOverloads
-public fun line(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "line") }.apply(init)
+public fun arcDiagram(init: ArcDiagram.() -> Unit = {}): ArcDiagram = ArcDiagram().also { it.preset("type", "arc-diagram") }.apply(init)
 
 /** anychart.area(): a area chart document. */
 @JvmOverloads
 public fun area(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "area") }.apply(init)
 
+/** anychart.area3d(): a area3d chart document. */
+@JvmOverloads
+public fun area3d(init: Cartesian3d.() -> Unit = {}): Cartesian3d = Cartesian3d().also { it.preset("type", "area3d") }.apply(init)
+
 /** anychart.bar(): a bar chart document. */
 @JvmOverloads
 public fun bar(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "bar") }.apply(init)
 
-/** anychart.scatter(): a scatter chart document. */
+/** anychart.bar3d(): a bar3d chart document. */
 @JvmOverloads
-public fun scatter(init: Scatter.() -> Unit = {}): Scatter = Scatter().also { it.preset("type", "scatter") }.apply(init)
+public fun bar3d(init: Cartesian3d.() -> Unit = {}): Cartesian3d = Cartesian3d().also { it.preset("type", "bar3d") }.apply(init)
+
+/** anychart.barmekko(): a barmekko chart document. */
+@JvmOverloads
+public fun barmekko(init: ChartsMekko.() -> Unit = {}): ChartsMekko = ChartsMekko().also { it.preset("type", "barmekko") }.apply(init)
+
+/** anychart.box(): a box chart document. */
+@JvmOverloads
+public fun box(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "box") }.apply(init)
+
+/** anychart.bubble(): a bubble chart document. */
+@JvmOverloads
+public fun bubble(init: Scatter.() -> Unit = {}): Scatter = Scatter().also { it.preset("type", "bubble") }.apply(init)
+
+/** anychart.bubbleMap(): a bubble-map chart document. */
+@JvmOverloads
+public fun bubbleMap(init: ChartsMap.() -> Unit = {}): ChartsMap = ChartsMap().also { it.preset("type", "bubble-map") }.apply(init)
+
+/** anychart.bullet(): a bullet chart document. */
+@JvmOverloads
+public fun bullet(init: Bullet.() -> Unit = {}): Bullet = Bullet().also { it.preset("type", "bullet") }.apply(init)
+
+/** anychart.calendar(): a calendar chart document. */
+@JvmOverloads
+public fun calendar(init: ChartsCalendar.() -> Unit = {}): ChartsCalendar = ChartsCalendar().also { it.preset("type", "calendar") }.apply(init)
+
+/** anychart.candlestick(): a candlestick chart document. */
+@JvmOverloads
+public fun candlestick(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "candlestick") }.apply(init)
+
+/** anychart.cartesian(): a cartesian chart document. */
+@JvmOverloads
+public fun cartesian(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "cartesian") }.apply(init)
+
+/** anychart.cartesian3d(): a cartesian3d chart document. */
+@JvmOverloads
+public fun cartesian3d(init: Cartesian3d.() -> Unit = {}): Cartesian3d = Cartesian3d().also { it.preset("type", "cartesian3d") }.apply(init)
+
+/** anychart.choropleth(): a choropleth chart document. */
+@JvmOverloads
+public fun choropleth(init: ChartsMap.() -> Unit = {}): ChartsMap = ChartsMap().also { it.preset("type", "choropleth") }.apply(init)
+
+/** anychart.circlePacking(): a circle-packing chart document. */
+@JvmOverloads
+public fun circlePacking(init: CirclePacking.() -> Unit = {}): CirclePacking = CirclePacking().also { it.preset("type", "circle-packing") }.apply(init)
 
 /** anychart.circularGauge(): a circular-gauge chart document. */
 @JvmOverloads
 public fun circularGauge(init: CircularGauge.() -> Unit = {}): CircularGauge = CircularGauge().also { it.preset("type", "circular-gauge") }.apply(init)
 
+/** anychart.column(): a column chart document. */
+@JvmOverloads
+public fun column(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "column") }.apply(init)
+
+/** anychart.column3d(): a column3d chart document. */
+@JvmOverloads
+public fun column3d(init: Cartesian3d.() -> Unit = {}): Cartesian3d = Cartesian3d().also { it.preset("type", "column3d") }.apply(init)
+
+/** anychart.connector(): a connector chart document. */
+@JvmOverloads
+public fun connector(init: ChartsMap.() -> Unit = {}): ChartsMap = ChartsMap().also { it.preset("type", "connector") }.apply(init)
+
+/** anychart.dataSheet(): a data-sheet chart document. */
+@JvmOverloads
+public fun dataSheet(init: DataSheet.() -> Unit = {}): DataSheet = DataSheet().also { it.preset("type", "data-sheet") }.apply(init)
+
+/** anychart.dependencyWheel(): a dependency-wheel chart document. */
+@JvmOverloads
+public fun dependencyWheel(init: DependencyWheel.() -> Unit = {}): DependencyWheel = DependencyWheel().also { it.preset("type", "dependency-wheel") }.apply(init)
+
+/** anychart.dumbbell(): a dumbbell chart document. */
+@JvmOverloads
+public fun dumbbell(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "dumbbell") }.apply(init)
+
+/** anychart.financial(): a financial chart document. */
+@JvmOverloads
+public fun financial(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "financial") }.apply(init)
+
+/** anychart.funnel(): a funnel chart document. */
+@JvmOverloads
+public fun funnel(init: Funnel.() -> Unit = {}): Funnel = Funnel().also { it.preset("type", "funnel") }.apply(init)
+
+/** anychart.ganttProject(): a gantt-project chart document. */
+@JvmOverloads
+public fun ganttProject(init: Gantt.() -> Unit = {}): Gantt = Gantt().also { it.preset("type", "gantt-project") }.apply(init)
+
+/** anychart.ganttResource(): a gantt-resource chart document. */
+@JvmOverloads
+public fun ganttResource(init: Gantt.() -> Unit = {}): Gantt = Gantt().also { it.preset("type", "gantt-resource") }.apply(init)
+
+/** anychart.graph(): a graph chart document. */
+@JvmOverloads
+public fun graph(init: Graph.() -> Unit = {}): Graph = Graph().also { it.preset("type", "graph") }.apply(init)
+
+/** anychart.heatMap(): a heat-map chart document. */
+@JvmOverloads
+public fun heatMap(init: HeatMap.() -> Unit = {}): HeatMap = HeatMap().also { it.preset("type", "heat-map") }.apply(init)
+
+/** anychart.hilo(): a hilo chart document. */
+@JvmOverloads
+public fun hilo(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "hilo") }.apply(init)
+
+/** anychart.jumpLine(): a jump-line chart document. */
+@JvmOverloads
+public fun jumpLine(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "jump-line") }.apply(init)
+
+/** anychart.line(): a line chart document. */
+@JvmOverloads
+public fun line(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "line") }.apply(init)
+
+/** anychart.line3d(): a line3d chart document. */
+@JvmOverloads
+public fun line3d(init: Cartesian3d.() -> Unit = {}): Cartesian3d = Cartesian3d().also { it.preset("type", "line3d") }.apply(init)
+
+/** anychart.lollipop(): a lollipop chart document. */
+@JvmOverloads
+public fun lollipop(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "lollipop") }.apply(init)
+
+/** anychart.map(): a map chart document. */
+@JvmOverloads
+public fun map(init: ChartsMap.() -> Unit = {}): ChartsMap = ChartsMap().also { it.preset("type", "map") }.apply(init)
+
+/** anychart.marker(): a marker chart document. */
+@JvmOverloads
+public fun marker(init: Scatter.() -> Unit = {}): Scatter = Scatter().also { it.preset("type", "marker") }.apply(init)
+
+/** anychart.markerMap(): a marker-map chart document. */
+@JvmOverloads
+public fun markerMap(init: ChartsMap.() -> Unit = {}): ChartsMap = ChartsMap().also { it.preset("type", "marker-map") }.apply(init)
+
+/** anychart.mekko(): a mekko chart document. */
+@JvmOverloads
+public fun mekko(init: ChartsMekko.() -> Unit = {}): ChartsMekko = ChartsMekko().also { it.preset("type", "mekko") }.apply(init)
+
+/** anychart.mosaic(): a mosaic chart document. */
+@JvmOverloads
+public fun mosaic(init: ChartsMekko.() -> Unit = {}): ChartsMekko = ChartsMekko().also { it.preset("type", "mosaic") }.apply(init)
+
+/** anychart.ohlc(): a ohlc chart document. */
+@JvmOverloads
+public fun ohlc(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "ohlc") }.apply(init)
+
+/** anychart.orgChart(): a org-chart chart document. */
+@JvmOverloads
+public fun orgChart(init: OrgChart.() -> Unit = {}): OrgChart = OrgChart().also { it.preset("type", "org-chart") }.apply(init)
+
+/** anychart.pareto(): a pareto chart document. */
+@JvmOverloads
+public fun pareto(init: Pareto.() -> Unit = {}): Pareto = Pareto().also { it.preset("type", "pareto") }.apply(init)
+
+/** anychart.pert(): a pert chart document. */
+@JvmOverloads
+public fun pert(init: Pert.() -> Unit = {}): Pert = Pert().also { it.preset("type", "pert") }.apply(init)
+
+/** anychart.pie(): a pie chart document. */
+@JvmOverloads
+public fun pie(init: Pie.() -> Unit = {}): Pie = Pie().also { it.preset("type", "pie") }.apply(init)
+
+/** anychart.pie3d(): a pie3d chart document. */
+@JvmOverloads
+public fun pie3d(init: Pie.() -> Unit = {}): Pie = Pie().also { it.preset("type", "pie3d") }.apply(init)
+
+/** anychart.polar(): a polar chart document. */
+@JvmOverloads
+public fun polar(init: ChartsPolar.() -> Unit = {}): ChartsPolar = ChartsPolar().also { it.preset("type", "polar") }.apply(init)
+
+/** anychart.pyramid(): a pyramid chart document. */
+@JvmOverloads
+public fun pyramid(init: Pyramid.() -> Unit = {}): Pyramid = Pyramid().also { it.preset("type", "pyramid") }.apply(init)
+
+/** anychart.quadrant(): a quadrant chart document. */
+@JvmOverloads
+public fun quadrant(init: Scatter.() -> Unit = {}): Scatter = Scatter().also { it.preset("type", "quadrant") }.apply(init)
+
+/** anychart.radar(): a radar chart document. */
+@JvmOverloads
+public fun radar(init: ChartsRadar.() -> Unit = {}): ChartsRadar = ChartsRadar().also { it.preset("type", "radar") }.apply(init)
+
+/** anychart.resource(): a resource chart document. */
+@JvmOverloads
+public fun resource(init: Resource.() -> Unit = {}): Resource = Resource().also { it.preset("type", "resource") }.apply(init)
+
 /** anychart.sankey(): a sankey chart document. */
 @JvmOverloads
 public fun sankey(init: Sankey.() -> Unit = {}): Sankey = Sankey().also { it.preset("type", "sankey") }.apply(init)
+
+/** anychart.scatter(): a scatter chart document. */
+@JvmOverloads
+public fun scatter(init: Scatter.() -> Unit = {}): Scatter = Scatter().also { it.preset("type", "scatter") }.apply(init)
+
+/** anychart.seatMap(): a seat-map chart document. */
+@JvmOverloads
+public fun seatMap(init: ChartsMap.() -> Unit = {}): ChartsMap = ChartsMap().also { it.preset("type", "seat-map") }.apply(init)
+
+/** anychart.sparkline(): a sparkline chart document. */
+@JvmOverloads
+public fun sparkline(init: Sparkline.() -> Unit = {}): Sparkline = Sparkline().also { it.preset("type", "sparkline") }.apply(init)
+
+/** anychart.stepLine(): a step-line chart document. */
+@JvmOverloads
+public fun stepLine(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "step-line") }.apply(init)
+
+/** anychart.stick(): a stick chart document. */
+@JvmOverloads
+public fun stick(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "stick") }.apply(init)
+
+/** anychart.stock(): a stock chart document. */
+@JvmOverloads
+public fun stock(init: ChartsStock.() -> Unit = {}): ChartsStock = ChartsStock().also { it.preset("type", "stock") }.apply(init)
+
+/** anychart.streamGraph(): a stream-graph chart document. */
+@JvmOverloads
+public fun streamGraph(init: StreamGraph.() -> Unit = {}): StreamGraph = StreamGraph().also { it.preset("type", "stream-graph") }.apply(init)
+
+/** anychart.sunburst(): a sunburst chart document. */
+@JvmOverloads
+public fun sunburst(init: Sunburst.() -> Unit = {}): Sunburst = Sunburst().also { it.preset("type", "sunburst") }.apply(init)
+
+/** anychart.surface(): a surface chart document. */
+@JvmOverloads
+public fun surface(init: ChartsSurface.() -> Unit = {}): ChartsSurface = ChartsSurface().also { it.preset("type", "surface") }.apply(init)
+
+/** anychart.tagCloud(): a tag-cloud chart document. */
+@JvmOverloads
+public fun tagCloud(init: TagCloud.() -> Unit = {}): TagCloud = TagCloud().also { it.preset("type", "tag-cloud") }.apply(init)
+
+/** anychart.timeline(): a timeline chart document. */
+@JvmOverloads
+public fun timeline(init: ChartsTimeline.() -> Unit = {}): ChartsTimeline = ChartsTimeline().also { it.preset("type", "timeline") }.apply(init)
+
+/** anychart.treeMap(): a tree-map chart document. */
+@JvmOverloads
+public fun treeMap(init: TreeMap.() -> Unit = {}): TreeMap = TreeMap().also { it.preset("type", "tree-map") }.apply(init)
+
+/** anychart.venn(): a venn chart document. */
+@JvmOverloads
+public fun venn(init: Venn.() -> Unit = {}): Venn = Venn().also { it.preset("type", "venn") }.apply(init)
+
+/** anychart.vertical(): a vertical chart document. */
+@JvmOverloads
+public fun vertical(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "vertical") }.apply(init)
+
+/** anychart.verticalArea(): a vertical-area chart document. */
+@JvmOverloads
+public fun verticalArea(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "vertical-area") }.apply(init)
+
+/** anychart.verticalLine(): a vertical-line chart document. */
+@JvmOverloads
+public fun verticalLine(init: Cartesian.() -> Unit = {}): Cartesian = Cartesian().also { it.preset("type", "vertical-line") }.apply(init)
+
+/** anychart.waffle(): a waffle chart document. */
+@JvmOverloads
+public fun waffle(init: Waffle.() -> Unit = {}): Waffle = Waffle().also { it.preset("type", "waffle") }.apply(init)
+
+/** anychart.waterfall(): a waterfall chart document. */
+@JvmOverloads
+public fun waterfall(init: ChartsWaterfall.() -> Unit = {}): ChartsWaterfall = ChartsWaterfall().also { it.preset("type", "waterfall") }.apply(init)
+
+/** anychart.wordtree(): a wordtree chart document. */
+@JvmOverloads
+public fun wordtree(init: Wordtree.() -> Unit = {}): Wordtree = Wordtree().also { it.preset("type", "wordtree") }.apply(init)

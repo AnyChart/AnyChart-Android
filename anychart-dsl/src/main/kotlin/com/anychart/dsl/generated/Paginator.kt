@@ -63,12 +63,12 @@ public open class Paginator : ConfigNode() {
     public fun fontSize(value: Nothing?): Paginator = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): Paginator = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): Paginator = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): Paginator = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): Paginator = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): Paginator = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): Paginator = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): Paginator = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): Paginator = apply { put("fontVariant", null) }
     /** Getter for the text font weight. Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class Paginator : ConfigNode() {
     public fun fontWeight(value: Nothing?): Paginator = apply { put("fontWeight", null) }
     /** Getter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): Paginator = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): Paginator = apply { put("hAlign", value) }
     public fun hAlign(value: String): Paginator = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): Paginator = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class Paginator : ConfigNode() {
     public fun selectable(value: Nothing?): Paginator = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): Paginator = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): Paginator = apply { put("textDirection", value) }
     public fun textDirection(value: String): Paginator = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): Paginator = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -131,7 +131,7 @@ public open class Paginator : ConfigNode() {
     public fun useHtml(value: Nothing?): Paginator = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): Paginator = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): Paginator = apply { put("vAlign", value) }
     public fun vAlign(value: String): Paginator = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): Paginator = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -172,7 +172,7 @@ public open class Paginator : ConfigNode() {
     public fun orientation(value: Nothing?): Paginator = apply { put("orientation", null) }
     /** Setter for the paginator padding in pixels using a single value. Default: {top: 7, right: 7, bottom: 7, left: 7}. */
 
-    public fun padding(init: Padding.() -> Unit): Paginator = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Paginator = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: Number): Paginator = apply { put("padding", value) }
     public fun padding(value: String): Paginator = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Paginator = apply { put("padding", listOf(value1, value2, value3, value4)) }

@@ -1,0 +1,55 @@
+{"chart": {
+  "data": [
+    {
+      "heat": 12,
+      "x": "Mon",
+      "y": "Morning"
+    },
+    {
+      "heat": 30,
+      "x": "Mon",
+      "y": "Day"
+    },
+    {
+      "heat": 22,
+      "x": "Mon",
+      "y": "Evening"
+    },
+    {
+      "heat": 15,
+      "x": "Tue",
+      "y": "Morning"
+    },
+    {
+      "heat": 28,
+      "x": "Tue",
+      "y": "Day"
+    },
+    {
+      "heat": 25,
+      "x": "Tue",
+      "y": "Evening"
+    },
+    {
+      "heat": 9,
+      "x": "Wed",
+      "y": "Morning"
+    },
+    {
+      "heat": 35,
+      "x": "Wed",
+      "y": "Day"
+    },
+    {
+      "heat": 19,
+      "x": "Wed",
+      "y": "Evening"
+    }
+  ],
+  "type": "heat-map",
+  "title": "Heat map: visits by weekday and time",
+  "labels": {
+    "format": "{%heat}",
+    "enabled": true
+  }
+}}

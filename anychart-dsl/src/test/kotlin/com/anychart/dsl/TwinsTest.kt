@@ -3,17 +3,29 @@ package com.anychart.dsl
 import com.anychart.dsl.generated.Align
 import com.anychart.dsl.generated.LegendLayout
 import com.anychart.dsl.generated.TooltipPositionMode
+import com.anychart.dsl.generated.arcDiagram
 import com.anychart.dsl.generated.area
 import com.anychart.dsl.generated.bar
 import com.anychart.dsl.generated.circularGauge
 import com.anychart.dsl.generated.column
+import com.anychart.dsl.generated.dataSheet
+import com.anychart.dsl.generated.dependencyWheel
+import com.anychart.dsl.generated.dumbbell
+import com.anychart.dsl.generated.heatMap
 import com.anychart.dsl.generated.line
+import com.anychart.dsl.generated.lollipop
+import com.anychart.dsl.generated.orgChart
 import com.anychart.dsl.generated.pie
 import com.anychart.dsl.generated.sankey
 import com.anychart.dsl.generated.scatter
+import com.anychart.dsl.generated.streamGraph
+import com.anychart.dsl.generated.treeMap
+import com.anychart.dsl.generated.waffle
+import java.io.File
 import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
@@ -33,6 +45,23 @@ class TwinsTest {
     private fun assertTwin(resource: String, root: ChartRoot) {
         val expected = JSONObject(javaClass.classLoader!!.getResourceAsStream(resource)!!.readBytes().decodeToString())
         assertEquals(resource, canonical(expected).toString(), canonical(root.toDocument()).toString())
+        recordTwin(resource, root)
+    }
+
+    /**
+     * The twin's document as a file under conformance/twins, which the Playwright gate renders against the
+     * config's reference picture. `WRITE_TWINS=1` rewrites the files; otherwise a stale file fails here.
+     */
+    private fun recordTwin(resource: String, root: ChartRoot) {
+        val file = File("../conformance/twins", resource)
+        val text = root.toDocument().toString(2) + "\n"
+        if (System.getenv("WRITE_TWINS") == "1") {
+            file.parentFile.mkdirs()
+            file.writeText(text)
+        } else {
+            assertTrue("missing ${'$'}file: run the DSL tests with WRITE_TWINS=1", file.isFile)
+            assertEquals("${'$'}file is out of date: run the DSL tests with WRITE_TWINS=1", canonical(JSONObject(file.readText())).toString(), canonical(JSONObject(text)).toString())
+        }
     }
 
     @Test fun pie() = assertTwin("pie.json", pie {
@@ -187,4 +216,101 @@ class TwinsTest {
         assertEquals(canonical(JSONObject("""{"color":"#f00","opacity":0.5}""")).toString(), canonical(callbacks.getValue(fillFn)(ctx)).toString())
         assertEquals(JSONObject.NULL, callbacks.getValue(labelFn)(JSONObject()))
     }
+
+    // ---- INTEG-6: the remaining conformance configs. The hand-written ones compare as JSON; the engine
+    // state dumps (arc diagram, dependency wheel, dumbbell, lollipop, stream graph, org chart, waffle) and
+    // the data sheet have no compact JSON to match, so their twins are recorded for the Playwright gate,
+    // which renders every twin and compares it with the config's reference picture.
+
+    @Test fun apostropheLabels() = assertTwin("apostrophe-labels.json", pie {
+        title("Labels that broke 1.x: quotes, backslash, unicode")
+        data(listOf(point("Cote d'Ivoire", 30), point("O'Reilly \"Media\"", 25), point("Back\\slash", 20), point("Ñandú 日本 😀", 15), point("<script>alert(1)</script>", 10)))
+        labels { position = "outside"; format = "{%x}" }
+    })
+
+    @Test fun heatmap() = assertTwin("heatmap.json", heatMap {
+        title("Heat map: visits by weekday and time")
+        data(listOf(cell("Mon", "Morning", 12), cell("Mon", "Day", 30), cell("Mon", "Evening", 22), cell("Tue", "Morning", 15), cell("Tue", "Day", 28),
+            cell("Tue", "Evening", 25), cell("Wed", "Morning", 9), cell("Wed", "Day", 35), cell("Wed", "Evening", 19)))
+        labels { enabled = true; format = "{%heat}" }
+    })
+
+    @Test fun treemap() = assertTwin("treemap.json", treeMap {
+        title("Tree map: population by region (millions)")
+        maxDepth(2)
+        hintDepth(1)
+        data(tree(node("World", children = listOf(
+            node("Europe", children = listOf(node("Germany", 83), node("France", 65), node("Italy", 59))),
+            node("Asia", children = listOf(node("Japan", 125), node("Vietnam", 98), node("Thailand", 72))),
+            node("Americas", children = listOf(node("Brazil", 216), node("Mexico", 128))),
+        ))))
+    })
+
+    @Test fun dataSheet() = recordTwin("data-sheet.json", dataSheet {
+        rowHeight(32); rowEvenFill("#ffffff"); rowOddFill("#f8f8f8"); rowHoverFill("#e8f0fe"); cellBorder("1px #e0e0e0"); cellPadding(8)
+        headerFill("#f5f5f5"); rowSelectedFill("#d2e3fc"); groupHeaderFill("#e8eef7"); indentSize(20)
+        column(0) { field("name"); title("Product"); width(160); minWidth(50); dataType("string") }
+        column(1) { field("units"); title("Units"); width(100); minWidth(50); dataType("number") }
+        column(2) { field("value"); title("Value"); width(120); minWidth(50); dataType("number") }
+        sorting { enabled = true }
+        header { enabled = true; height(40) }
+        virtualScroll { enabled = true; bufferSize(10) }
+        selection { enabled = true; mode("single") }
+        filter { enabled = true }
+        cellEditor { enabled = true }
+        clipboard { enabled = true; includeHeaders(false) }
+        search { enabled = true }
+        data(listOf(
+            row("name" to "Tech", "units" to 408, "value" to 94120, "children" to listOf(
+                row("name" to "Laptop", "units" to 34, "value" to 40800), row("name" to "Monitor", "units" to 58, "value" to 17400),
+                row("name" to "Keyboard", "units" to 240, "value" to 19200), row("name" to "Headset", "units" to 76, "value" to 16720))),
+            row("name" to "Office", "units" to 140, "value" to 28520, "children" to listOf(
+                row("name" to "Chair", "units" to 120, "value" to 18000), row("name" to "Desk", "units" to 12, "value" to 5400),
+                row("name" to "Lamp", "units" to 0, "value" to 0), row("name" to "Cabinet", "units" to 8, "value" to 5120))),
+        ))
+    })
+
+    @Test fun arcDiagram() = recordTwin("arc-diagram.json", arcDiagram {
+        title("Arc diagram: department traffic")
+        data(listOf(flow("Sales", "Marketing", 9), flow("Sales", "Finance", 16), flow("Finance", "HR", 5), flow("Support", "Sales", 14), flow("Support", "Marketing", 6), flow("Marketing", "HR", 3)))
+    })
+
+    @Test fun dependencyWheel() = recordTwin("dependency-wheel.json", dependencyWheel {
+        title("Dependency wheel: flights")
+        data(listOf(flow("Paris", "Tokyo", 18), flow("Paris", "NYC", 14), flow("Paris", "Dubai", 8), flow("Tokyo", "NYC", 10), flow("Tokyo", "Dubai", 5), flow("NYC", "Cairo", 6), flow("Dubai", "Cairo", 4)))
+    })
+
+    @Test fun dumbbell() = recordTwin("dumbbell.json", dumbbell {
+        title("Dumbbell: salary ranges")
+        dumbbell { name = "Salary range"; data(listOf(range("Job A", 40000, 60000), range("Job B", 50000, 80000), range("Job C", 35000, 55000), range("Job D", 42000, 71000))) }
+    })
+
+    @Test fun lollipop() = recordTwin("lollipop.json", lollipop {
+        title("Lollipop: monthly sales")
+        lollipop { name = "Sales"; data(listOf(point("January", 10000), point("February", 12000), point("March", 18000), point("April", 11000), point("May", 9000))) }
+    })
+
+    @Test fun streamGraph() = recordTwin("stream-graph.json", streamGraph {
+        title("Stream graph: genres")
+        val years = listOf("2019", "2020", "2021", "2022", "2023", "2024")
+        area { name = "Rock"; data(years.zip(listOf(12, 15, 11, 18, 16, 21)).map { (x, v) -> point(x, v) }) }
+        area { name = "Jazz"; data(years.zip(listOf(7, 9, 14, 12, 15, 13)).map { (x, v) -> point(x, v) }) }
+        area { name = "Pop"; data(years.zip(listOf(4, 6, 8, 10, 13, 12)).map { (x, v) -> point(x, v) }) }
+    })
+
+    @Test fun orgChart() = recordTwin("org-chart.json", orgChart {
+        title("Org chart")
+        data(tree(node("Sarah Johnson", null, "id" to "ceo", "title" to "CEO", children = listOf(
+            node("Michael Chen", null, "id" to "cto", "title" to "CTO", children = listOf(
+                node("David Kim", null, "id" to "eng", "title" to "Head of Engineering"),
+                node("Lisa Zhang", null, "id" to "prod", "title" to "Head of Product"))),
+            node("Emily Davis", null, "id" to "cfo", "title" to "CFO", children = listOf(node("Diana Ross", null, "id" to "acct", "title" to "Head of Accounting"))),
+            node("Robert Wilson", null, "id" to "coo", "title" to "COO", children = listOf(node("Peter Jackson", null, "id" to "ops", "title" to "Head of Operations"))),
+        ))))
+    })
+
+    @Test fun waffle() = recordTwin("waffle.json", waffle {
+        title("Waffle: sales channels")
+        data(listOf(named("In-store", 43), named("Online", 31), named("Wholesale", 17), named("Other", 9)))
+    })
 }

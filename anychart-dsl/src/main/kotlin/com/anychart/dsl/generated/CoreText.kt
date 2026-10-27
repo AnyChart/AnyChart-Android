@@ -63,12 +63,12 @@ public open class CoreText : ConfigNode() {
     public fun fontSize(value: Nothing?): CoreText = apply { put("fontSize", null) }
     /** Setter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): CoreText = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): CoreText = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): CoreText = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): CoreText = apply { put("fontStyle", null) }
     /** Setter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): CoreText = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): CoreText = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): CoreText = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): CoreText = apply { put("fontVariant", null) }
     /** Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp} Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class CoreText : ConfigNode() {
     public fun fontWeight(value: Nothing?): CoreText = apply { put("fontWeight", null) }
     /** Setter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): CoreText = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): CoreText = apply { put("hAlign", value) }
     public fun hAlign(value: String): CoreText = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): CoreText = apply { put("hAlign", null) }
     /** Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp} Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class CoreText : ConfigNode() {
     public fun selectable(value: Nothing?): CoreText = apply { put("selectable", null) }
     /** Setter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): CoreText = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): CoreText = apply { put("textDirection", value) }
     public fun textDirection(value: String): CoreText = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): CoreText = apply { put("textDirection", null) }
     /** Setter for the text indent. Default: 0. */
@@ -135,7 +135,7 @@ public open class CoreText : ConfigNode() {
     public fun useHtml(value: Nothing?): CoreText = apply { put("useHtml", null) }
     /** Setter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): CoreText = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): CoreText = apply { put("vAlign", value) }
     public fun vAlign(value: String): CoreText = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): CoreText = apply { put("vAlign", null) }
     /** Setter for the word-break mode. Default: "normal". */

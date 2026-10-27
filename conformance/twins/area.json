@@ -1,0 +1,39 @@
+{"chart": {
+  "series": [{
+    "data": [
+      {
+        "x": "Mon",
+        "value": 120
+      },
+      {
+        "x": "Tue",
+        "value": 180
+      },
+      {
+        "x": "Wed",
+        "value": 90
+      },
+      {
+        "x": "Thu",
+        "value": 240
+      },
+      {
+        "x": "Fri",
+        "value": 210
+      },
+      {
+        "x": "Sat",
+        "value": 60
+      },
+      {
+        "x": "Sun",
+        "value": 45
+      }
+    ],
+    "seriesType": "area",
+    "name": "Visits"
+  }],
+  "yScale": {"minimum": 0},
+  "type": "area",
+  "title": "Area chart: site visits per day"
+}}

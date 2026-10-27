@@ -1,0 +1,56 @@
+{"chart": {
+  "type": "org-chart",
+  "title": "Org chart",
+  "treeData": {"children": [{
+    "children": [
+      {
+        "children": [
+          {"treeDataItemData": {
+            "name": "David Kim",
+            "id": "eng",
+            "title": "Head of Engineering"
+          }},
+          {"treeDataItemData": {
+            "name": "Lisa Zhang",
+            "id": "prod",
+            "title": "Head of Product"
+          }}
+        ],
+        "treeDataItemData": {
+          "name": "Michael Chen",
+          "id": "cto",
+          "title": "CTO"
+        }
+      },
+      {
+        "children": [{"treeDataItemData": {
+          "name": "Diana Ross",
+          "id": "acct",
+          "title": "Head of Accounting"
+        }}],
+        "treeDataItemData": {
+          "name": "Emily Davis",
+          "id": "cfo",
+          "title": "CFO"
+        }
+      },
+      {
+        "children": [{"treeDataItemData": {
+          "name": "Peter Jackson",
+          "id": "ops",
+          "title": "Head of Operations"
+        }}],
+        "treeDataItemData": {
+          "name": "Robert Wilson",
+          "id": "coo",
+          "title": "COO"
+        }
+      }
+    ],
+    "treeDataItemData": {
+      "name": "Sarah Johnson",
+      "id": "ceo",
+      "title": "CEO"
+    }
+  }]}
+}}

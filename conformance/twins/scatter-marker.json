@@ -1,0 +1,40 @@
+{"chart": {
+  "series": [{
+    "data": [
+      {
+        "x": 160,
+        "value": 55
+      },
+      {
+        "x": 165,
+        "value": 61
+      },
+      {
+        "x": 170,
+        "value": 66
+      },
+      {
+        "x": 175,
+        "value": 72
+      },
+      {
+        "x": 180,
+        "value": 80
+      },
+      {
+        "x": 185,
+        "value": 84
+      },
+      {
+        "x": 190,
+        "value": 95
+      }
+    ],
+    "seriesType": "marker",
+    "name": "People"
+  }],
+  "yAxes": [{"title": "Weight, kg"}],
+  "xAxes": [{"title": "Height, cm"}],
+  "type": "scatter",
+  "title": "Scatter: height vs weight"
+}}

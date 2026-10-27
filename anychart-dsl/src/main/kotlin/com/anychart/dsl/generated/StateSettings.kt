@@ -23,7 +23,7 @@ public open class StateSettings : ConfigNode() {
     public fun background(value: Boolean): StateSettings = apply { put("background", value) }
     /** Setter for the connector settings (for stock event markers). */
 
-    public fun connector(init: Connector.() -> Unit): StateSettings = apply { nested("connector", ::Connector, init) }
+    public fun connector(init: UtilsConnector.() -> Unit): StateSettings = apply { nested("connector", ::UtilsConnector, init) }
     /** Setter for buttons content settings. */
 
     public fun content(value: String): StateSettings = apply { put("content", value) }
@@ -134,12 +134,12 @@ public open class StateSettings : ConfigNode() {
     public fun fontSize(value: Nothing?): StateSettings = apply { put("fontSize", null) }
     /** Setter for the text font style. */
 
-    public fun fontStyle(value: FontStyle): StateSettings = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): StateSettings = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): StateSettings = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): StateSettings = apply { put("fontStyle", null) }
     /** Setter for the text font variant. */
 
-    public fun fontVariant(value: FontVariant): StateSettings = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): StateSettings = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): StateSettings = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): StateSettings = apply { put("fontVariant", null) }
     /** Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp} */
@@ -156,7 +156,7 @@ public open class StateSettings : ConfigNode() {
     public fun grid(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): StateSettings = apply { put("grid", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the button text horizontal align. Default: {@link anychart.graphics.vector.Text.HAlign#START}. */
 
-    public fun hAlign(value: HAlign): StateSettings = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): StateSettings = apply { put("hAlign", value) }
     public fun hAlign(value: String): StateSettings = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): StateSettings = apply { put("hAlign", null) }
     /** Setter for hatch fill settings. Learn more about hatch fill settings. Default: false. */
@@ -357,7 +357,7 @@ public open class StateSettings : ConfigNode() {
     public fun stroke(color: Any, thickness: Number, dashpattern: Any, lineJoin: Any, lineCap: Any): StateSettings = apply { put("stroke", listOf(color, thickness, dashpattern, lineJoin, lineCap)) }
     /** Setter for the button text direction. Default: {@link anychart.graphics.vector.Text.Direction#LTR}. */
 
-    public fun textDirection(value: Direction): StateSettings = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): StateSettings = apply { put("textDirection", value) }
     public fun textDirection(value: String): StateSettings = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): StateSettings = apply { put("textDirection", null) }
     /** Setter for the button text indent. */
@@ -403,7 +403,7 @@ public open class StateSettings : ConfigNode() {
     public fun useHtml(value: Nothing?): StateSettings = apply { put("useHtml", null) }
     /** Setter for the button text vertical align. Default: {@link anychart.graphics.vector.Text.VAlign#TOP}. */
 
-    public fun vAlign(value: VAlign): StateSettings = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): StateSettings = apply { put("vAlign", value) }
     public fun vAlign(value: String): StateSettings = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): StateSettings = apply { put("vAlign", null) }
     /** Setter for the whisker stroke by function. Default: function() { return anychart.color.darken(this.sourceColor); }. */

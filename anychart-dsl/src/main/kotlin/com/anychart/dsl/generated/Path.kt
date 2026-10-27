@@ -28,10 +28,10 @@ public open class Path : ConfigNode() {
     public fun clip(value: Nothing?): Path = apply { put("clip", null) }
     /** Getter for the cursor type. Default: null. */
 
-    public var cursor: Cursor?
-        get() = get("cursor") as Cursor?
+    public var cursor: VectorCursor?
+        get() = get("cursor") as VectorCursor?
         set(value) { put("cursor", value) }
-    public fun cursor(value: Cursor): Path = apply { put("cursor", value) }
+    public fun cursor(value: VectorCursor): Path = apply { put("cursor", value) }
     public fun cursor(value: Nothing?): Path = apply { put("cursor", null) }
     public fun cursor(value: String): Path = apply { put("cursor", value) }
     /** Getter for the element description value. */

@@ -1,0 +1,30 @@
+{"chart": {
+  "series": [{
+    "data": [
+      {
+        "high": 60000,
+        "low": 40000,
+        "x": "Job A"
+      },
+      {
+        "high": 80000,
+        "low": 50000,
+        "x": "Job B"
+      },
+      {
+        "high": 55000,
+        "low": 35000,
+        "x": "Job C"
+      },
+      {
+        "high": 71000,
+        "low": 42000,
+        "x": "Job D"
+      }
+    ],
+    "seriesType": "dumbbell",
+    "name": "Salary range"
+  }],
+  "type": "dumbbell",
+  "title": "Dumbbell: salary ranges"
+}}

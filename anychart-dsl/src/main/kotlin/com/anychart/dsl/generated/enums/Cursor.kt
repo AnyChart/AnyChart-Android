@@ -6,7 +6,7 @@ import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
-/** Defines the type of the cursor. To view the example, point the cursor at the description of the type. (anychart.graphics.vector.Cursor) */
+/** Cursor enum. Defines 19 items. (anychart.enums.Cursor) */
 
 public enum class Cursor(override val json: Any) : ConfigNode.JsonValue {
         /** Default type */

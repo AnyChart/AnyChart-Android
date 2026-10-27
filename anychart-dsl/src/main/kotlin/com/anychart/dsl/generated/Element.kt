@@ -25,10 +25,10 @@ public open class Element : ConfigNode() {
     public fun clip(value: String): Element = apply { put("clip", value) }
     /** Setter for the cursor type. Default: null. */
 
-    public var cursor: Cursor?
-        get() = get("cursor") as Cursor?
+    public var cursor: VectorCursor?
+        get() = get("cursor") as VectorCursor?
         set(value) { put("cursor", value) }
-    public fun cursor(value: Cursor): Element = apply { put("cursor", value) }
+    public fun cursor(value: VectorCursor): Element = apply { put("cursor", value) }
     public fun cursor(value: Nothing?): Element = apply { put("cursor", null) }
     public fun cursor(value: String): Element = apply { put("cursor", value) }
     /** Setter for the element description value. */

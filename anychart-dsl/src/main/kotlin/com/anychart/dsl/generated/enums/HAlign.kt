@@ -6,7 +6,7 @@ import com.anychart.dsl.Callback
 import com.anychart.dsl.ChartRoot
 import com.anychart.dsl.ConfigNode
 
-/** Text horizontal align. (anychart.graphics.vector.Text.HAlign) */
+/** Horizontal align enum. (anychart.enums.HAlign) */
 
 public enum class HAlign(override val json: Any) : ConfigNode.JsonValue {
         /** Aligns the text to the left. */

@@ -1,0 +1,58 @@
+{"chart": {
+  "maxDepth": 2,
+  "hintDepth": 1,
+  "type": "tree-map",
+  "title": "Tree map: population by region (millions)",
+  "treeData": {"children": [{
+    "children": [
+      {
+        "children": [
+          {"treeDataItemData": {
+            "name": "Germany",
+            "value": 83
+          }},
+          {"treeDataItemData": {
+            "name": "France",
+            "value": 65
+          }},
+          {"treeDataItemData": {
+            "name": "Italy",
+            "value": 59
+          }}
+        ],
+        "treeDataItemData": {"name": "Europe"}
+      },
+      {
+        "children": [
+          {"treeDataItemData": {
+            "name": "Japan",
+            "value": 125
+          }},
+          {"treeDataItemData": {
+            "name": "Vietnam",
+            "value": 98
+          }},
+          {"treeDataItemData": {
+            "name": "Thailand",
+            "value": 72
+          }}
+        ],
+        "treeDataItemData": {"name": "Asia"}
+      },
+      {
+        "children": [
+          {"treeDataItemData": {
+            "name": "Brazil",
+            "value": 216
+          }},
+          {"treeDataItemData": {
+            "name": "Mexico",
+            "value": 128
+          }}
+        ],
+        "treeDataItemData": {"name": "Americas"}
+      }
+    ],
+    "treeDataItemData": {"name": "World"}
+  }]}
+}}

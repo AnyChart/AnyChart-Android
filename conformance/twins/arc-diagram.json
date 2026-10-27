@@ -1,0 +1,36 @@
+{"chart": {
+  "data": [
+    {
+      "weight": 9,
+      "from": "Sales",
+      "to": "Marketing"
+    },
+    {
+      "weight": 16,
+      "from": "Sales",
+      "to": "Finance"
+    },
+    {
+      "weight": 5,
+      "from": "Finance",
+      "to": "HR"
+    },
+    {
+      "weight": 14,
+      "from": "Support",
+      "to": "Sales"
+    },
+    {
+      "weight": 6,
+      "from": "Support",
+      "to": "Marketing"
+    },
+    {
+      "weight": 3,
+      "from": "Marketing",
+      "to": "HR"
+    }
+  ],
+  "type": "arc-diagram",
+  "title": "Arc diagram: department traffic"
+}}

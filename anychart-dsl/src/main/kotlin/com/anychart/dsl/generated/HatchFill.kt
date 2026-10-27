@@ -28,10 +28,10 @@ public open class HatchFill : ConfigNode() {
     public fun clip(value: Nothing?): HatchFill = apply { put("clip", null) }
     /** Getter for the cursor type. Default: null. */
 
-    public var cursor: Cursor?
-        get() = get("cursor") as Cursor?
+    public var cursor: VectorCursor?
+        get() = get("cursor") as VectorCursor?
         set(value) { put("cursor", value) }
-    public fun cursor(value: Cursor): HatchFill = apply { put("cursor", value) }
+    public fun cursor(value: VectorCursor): HatchFill = apply { put("cursor", value) }
     public fun cursor(value: Nothing?): HatchFill = apply { put("cursor", null) }
     public fun cursor(value: String): HatchFill = apply { put("cursor", value) }
     /** Getter for the element description value. */

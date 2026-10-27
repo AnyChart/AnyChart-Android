@@ -8,7 +8,7 @@ import com.anychart.dsl.ConfigNode
 
 /** Scatter chart class. Learn more about Scatter Chart (anychart.charts.Scatter) */
 
-public open class Scatter : ChartRoot("chart", "scatter") {
+public open class Scatter : ChartRoot("chart", "bubble") {
     /** Getter for the element state (enabled or disabled). Default: true. */
 
     public var enabled: Boolean?
@@ -95,7 +95,7 @@ public open class Scatter : ChartRoot("chart", "scatter") {
     public fun background(value: Boolean): Scatter = apply { put("background", value) }
     /** Setter for the context menu. */
 
-    public fun contextMenu(init: ContextMenu.() -> Unit): Scatter = apply { nested("contextMenu", ::ContextMenu, init) }
+    public fun contextMenu(init: UiContextMenu.() -> Unit): Scatter = apply { nested("contextMenu", ::UiContextMenu, init) }
     public fun contextMenu(value: Boolean): Scatter = apply { put("contextMenu", value) }
     /** Setter for chart credits. Learn more about credits settings. Default: true. */
 
@@ -127,7 +127,7 @@ public open class Scatter : ChartRoot("chart", "scatter") {
     public fun noData(init: NoDataSettings.() -> Unit): Scatter = apply { nested("noData", ::NoDataSettings, init) }
     /** Setter for the chart paddings in pixels using a single value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): Scatter = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Scatter = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Scatter = apply { put("padding", value) }
     public fun padding(value: Number): Scatter = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Scatter = apply { put("padding", listOf(value1, value2, value3, value4)) }
@@ -155,7 +155,7 @@ public open class Scatter : ChartRoot("chart", "scatter") {
     public fun tooltip(value: Boolean): Scatter = apply { put("tooltip", value) }
     /** Setter for the interactivity settings. */
 
-    public fun interactivity(init: Interactivity.() -> Unit): Scatter = apply { nested("interactivity", ::Interactivity, init) }
+    public fun interactivity(init: UtilsInteractivity.() -> Unit): Scatter = apply { nested("interactivity", ::UtilsInteractivity, init) }
     public fun interactivity(value: String): Scatter = apply { put("interactivity", value) }
     /** Setter for the chart legend settings. Default: false. */
 
@@ -284,7 +284,7 @@ public open class Scatter : ChartRoot("chart", "scatter") {
     public fun quarters(init: QuarterSettings.() -> Unit): Scatter = apply { nested("quarters", ::QuarterSettings, init) }
     /** Getter for the chart range marker. Default: 0. */
 
-    public fun rangeMarker(index: Int = 0, init: Range.() -> Unit = {}): Scatter = apply { indexed("rangeAxesMarkers", index, ::Range, init) }
+    public fun rangeMarker(index: Int = 0, init: AxisMarkersRange.() -> Unit = {}): Scatter = apply { indexed("rangeAxesMarkers", index, ::AxisMarkersRange, init) }
     public fun rangeMarker(index: Int, value: Boolean): Scatter = apply { indexedValue("rangeAxesMarkers", index, value) }
     /** Setter for selected state settings. */
 

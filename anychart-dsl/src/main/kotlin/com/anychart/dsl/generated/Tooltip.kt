@@ -107,12 +107,12 @@ public open class Tooltip : ConfigNode() {
     /** Setter for font style settings. */
 
     public fun fontStyle(value: String): Tooltip = apply { put("fontStyle", value) }
-    public fun fontStyle(value: FontStyle): Tooltip = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): Tooltip = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): Tooltip = apply { put("fontStyle", null) }
     /** Setter for font variant settings. */
 
     public fun fontVariant(value: String): Tooltip = apply { put("fontVariant", value) }
-    public fun fontVariant(value: FontVariant): Tooltip = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): Tooltip = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): Tooltip = apply { put("fontVariant", null) }
     /** Setter for font weight settings. */
 
@@ -130,7 +130,7 @@ public open class Tooltip : ConfigNode() {
     /** Setter for the text horizontal align settings. */
 
     public fun hAlign(value: String): Tooltip = apply { put("hAlign", value) }
-    public fun hAlign(value: HAlign): Tooltip = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): Tooltip = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): Tooltip = apply { put("hAlign", null) }
     /** Setter for the tooltip height. */
 
@@ -189,7 +189,7 @@ public open class Tooltip : ConfigNode() {
     public fun offsetY(value: Nothing?): Tooltip = apply { put("offsetY", null) }
     /** Setter for the tooltip padding in pixels by one value. Default: {top: 5, right: 10, bottom: 5, left: 10}. */
 
-    public fun padding(init: Padding.() -> Unit): Tooltip = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Tooltip = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Tooltip = apply { put("padding", value) }
     public fun padding(value: Number): Tooltip = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Tooltip = apply { put("padding", listOf(value1, value2, value3, value4)) }
@@ -217,7 +217,7 @@ public open class Tooltip : ConfigNode() {
     /** Setter for text direction settings. */
 
     public fun textDirection(value: String): Tooltip = apply { put("textDirection", value) }
-    public fun textDirection(value: Direction): Tooltip = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): Tooltip = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): Tooltip = apply { put("textDirection", null) }
     /** Setter for text-indent settings. */
 
@@ -269,7 +269,7 @@ public open class Tooltip : ConfigNode() {
     /** Setter for text vertical align settings. */
 
     public fun vAlign(value: String): Tooltip = apply { put("vAlign", value) }
-    public fun vAlign(value: VAlign): Tooltip = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): Tooltip = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): Tooltip = apply { put("vAlign", null) }
     /** Setter for tooltip postfix value. Default: ''. */
 

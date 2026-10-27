@@ -1,0 +1,30 @@
+{"chart": {
+  "data": [
+    {
+      "x": "Cote d'Ivoire",
+      "value": 30
+    },
+    {
+      "x": "O'Reilly \"Media\"",
+      "value": 25
+    },
+    {
+      "x": "Back\\slash",
+      "value": 20
+    },
+    {
+      "x": "Ñandú 日本 😀",
+      "value": 15
+    },
+    {
+      "x": "<script>alert(1)<\/script>",
+      "value": 10
+    }
+  ],
+  "type": "pie",
+  "title": "Labels that broke 1.x: quotes, backslash, unicode",
+  "labels": {
+    "format": "{%x}",
+    "position": "outside"
+  }
+}}

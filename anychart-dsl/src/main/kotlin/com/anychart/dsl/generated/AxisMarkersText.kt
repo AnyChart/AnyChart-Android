@@ -63,12 +63,12 @@ public open class AxisMarkersText : ConfigNode() {
     public fun fontSize(value: Nothing?): AxisMarkersText = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): AxisMarkersText = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): AxisMarkersText = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): AxisMarkersText = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): AxisMarkersText = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): AxisMarkersText = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): AxisMarkersText = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): AxisMarkersText = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): AxisMarkersText = apply { put("fontVariant", null) }
     /** Getter for the text font weight. Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class AxisMarkersText : ConfigNode() {
     public fun fontWeight(value: Nothing?): AxisMarkersText = apply { put("fontWeight", null) }
     /** Setter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): AxisMarkersText = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): AxisMarkersText = apply { put("hAlign", value) }
     public fun hAlign(value: String): AxisMarkersText = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): AxisMarkersText = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class AxisMarkersText : ConfigNode() {
     public fun selectable(value: Nothing?): AxisMarkersText = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): AxisMarkersText = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): AxisMarkersText = apply { put("textDirection", value) }
     public fun textDirection(value: String): AxisMarkersText = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): AxisMarkersText = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -136,7 +136,7 @@ public open class AxisMarkersText : ConfigNode() {
     public fun useHtml(value: Nothing?): AxisMarkersText = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): AxisMarkersText = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): AxisMarkersText = apply { put("vAlign", value) }
     public fun vAlign(value: String): AxisMarkersText = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): AxisMarkersText = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -204,7 +204,7 @@ public open class AxisMarkersText : ConfigNode() {
     public fun offsetY(value: Nothing?): AxisMarkersText = apply { put("offsetY", null) }
     /** Setter for the text marker padding in pixels by one value. Default: 5. */
 
-    public fun padding(init: Padding.() -> Unit): AxisMarkersText = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): AxisMarkersText = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): AxisMarkersText = apply { put("padding", value) }
     public fun padding(value: Number): AxisMarkersText = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): AxisMarkersText = apply { put("padding", listOf(value1, value2, value3, value4)) }

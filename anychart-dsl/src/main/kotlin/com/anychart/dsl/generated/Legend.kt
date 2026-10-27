@@ -63,12 +63,12 @@ public open class Legend : ConfigNode() {
     public fun fontSize(value: Nothing?): Legend = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): Legend = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): Legend = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): Legend = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): Legend = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): Legend = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): Legend = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): Legend = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): Legend = apply { put("fontVariant", null) }
     /** Getter for the text font weight. Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class Legend : ConfigNode() {
     public fun fontWeight(value: Nothing?): Legend = apply { put("fontWeight", null) }
     /** Getter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): Legend = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): Legend = apply { put("hAlign", value) }
     public fun hAlign(value: String): Legend = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): Legend = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class Legend : ConfigNode() {
     public fun selectable(value: Nothing?): Legend = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): Legend = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): Legend = apply { put("textDirection", value) }
     public fun textDirection(value: String): Legend = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): Legend = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -136,7 +136,7 @@ public open class Legend : ConfigNode() {
     public fun useHtml(value: Nothing?): Legend = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): Legend = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): Legend = apply { put("vAlign", value) }
     public fun vAlign(value: String): Legend = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): Legend = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -250,7 +250,7 @@ public open class Legend : ConfigNode() {
     public fun maxWidth(value: Nothing?): Legend = apply { put("maxWidth", null) }
     /** Setter for the legend padding in pixels using a single value. Default: {top: 7, right: 7, bottom: 7, left: 7}. */
 
-    public fun padding(init: Padding.() -> Unit): Legend = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Legend = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: Number): Legend = apply { put("padding", value) }
     public fun padding(value: String): Legend = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Legend = apply { put("padding", listOf(value1, value2, value3, value4)) }

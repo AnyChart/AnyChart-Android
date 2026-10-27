@@ -65,6 +65,9 @@ public class AnyChartView @JvmOverloads constructor(
 
     public var licenseKey: String? = null
     public var listener: Listener? = null
+
+    /** Engine version the configs were written for (`Generated.ENGINE_VERSION`); a mismatch with the page's is reported through [Listener.onError] with a null chart id. */
+    public var expectedJsVersion: String? = null
     public var jsVersion: String? = null
         private set
 
@@ -139,7 +142,11 @@ public class AnyChartView @JvmOverloads constructor(
 
     private fun dispatch(raw: String) {
         when (val m = Messages.parse(raw)) {
-            is Messages.Incoming.Ready -> { jsVersion = m.jsVersion; pageTiming = m.timing; listener?.onReady(m.jsVersion) }
+            is Messages.Incoming.Ready -> {
+                jsVersion = m.jsVersion; pageTiming = m.timing
+                listener?.onReady(m.jsVersion)
+                EngineVersion.mismatch(expectedJsVersion, m.jsVersion)?.let { listener?.onError(null, it) }
+            }
             is Messages.Incoming.Rendered -> {
                 reports[m.chartId] = RenderReport(m.chartId, m.millis, m.callbackCalls, m.callbackMillis)
                 listener?.onRendered(m.chartId, m.millis)

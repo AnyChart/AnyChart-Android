@@ -63,12 +63,12 @@ public open class CircularLabelsFactory : ConfigNode() {
     public fun fontSize(value: Nothing?): CircularLabelsFactory = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): CircularLabelsFactory = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): CircularLabelsFactory = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): CircularLabelsFactory = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): CircularLabelsFactory = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): CircularLabelsFactory = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): CircularLabelsFactory = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): CircularLabelsFactory = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): CircularLabelsFactory = apply { put("fontVariant", null) }
     /** Getter for the text font weight. Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class CircularLabelsFactory : ConfigNode() {
     public fun fontWeight(value: Nothing?): CircularLabelsFactory = apply { put("fontWeight", null) }
     /** Getter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): CircularLabelsFactory = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): CircularLabelsFactory = apply { put("hAlign", value) }
     public fun hAlign(value: String): CircularLabelsFactory = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): CircularLabelsFactory = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class CircularLabelsFactory : ConfigNode() {
     public fun selectable(value: Nothing?): CircularLabelsFactory = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): CircularLabelsFactory = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): CircularLabelsFactory = apply { put("textDirection", value) }
     public fun textDirection(value: String): CircularLabelsFactory = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): CircularLabelsFactory = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -124,7 +124,7 @@ public open class CircularLabelsFactory : ConfigNode() {
     public fun useHtml(value: Nothing?): CircularLabelsFactory = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): CircularLabelsFactory = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): CircularLabelsFactory = apply { put("vAlign", value) }
     public fun vAlign(value: String): CircularLabelsFactory = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): CircularLabelsFactory = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -197,7 +197,7 @@ public open class CircularLabelsFactory : ConfigNode() {
     public fun offsetY(value: Nothing?): CircularLabelsFactory = apply { put("offsetY", null) }
     /** Getter for labels padding settings. Default: {top: 2, right: 4, bottom: 2, left: 4}. */
 
-    public fun padding(init: Padding.() -> Unit): CircularLabelsFactory = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): CircularLabelsFactory = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: Number): CircularLabelsFactory = apply { put("padding", value) }
     public fun padding(value: String): CircularLabelsFactory = apply { put("padding", value) }
     /** Getter for the labels position settings. Default: N/A. */

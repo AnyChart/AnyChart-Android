@@ -63,12 +63,12 @@ public open class CrosshairLabel : ConfigNode() {
     public fun fontSize(value: Nothing?): CrosshairLabel = apply { put("fontSize", null) }
     /** Getter for the text font style. Default: 'normal'. */
 
-    public fun fontStyle(value: FontStyle): CrosshairLabel = apply { put("fontStyle", value) }
+    public fun fontStyle(value: TextFontStyle): CrosshairLabel = apply { put("fontStyle", value) }
     public fun fontStyle(value: String): CrosshairLabel = apply { put("fontStyle", value) }
     public fun fontStyle(value: Nothing?): CrosshairLabel = apply { put("fontStyle", null) }
     /** Getter for the text font variant. Default: 'normal'. */
 
-    public fun fontVariant(value: FontVariant): CrosshairLabel = apply { put("fontVariant", value) }
+    public fun fontVariant(value: TextFontVariant): CrosshairLabel = apply { put("fontVariant", value) }
     public fun fontVariant(value: String): CrosshairLabel = apply { put("fontVariant", value) }
     public fun fontVariant(value: Nothing?): CrosshairLabel = apply { put("fontVariant", null) }
     /** Getter for the text font weight. Default: 'normal'. */
@@ -78,7 +78,7 @@ public open class CrosshairLabel : ConfigNode() {
     public fun fontWeight(value: Nothing?): CrosshairLabel = apply { put("fontWeight", null) }
     /** Getter for the text horizontal align. Default: 'start'. */
 
-    public fun hAlign(value: HAlign): CrosshairLabel = apply { put("hAlign", value) }
+    public fun hAlign(value: TextHAlign): CrosshairLabel = apply { put("hAlign", value) }
     public fun hAlign(value: String): CrosshairLabel = apply { put("hAlign", value) }
     public fun hAlign(value: Nothing?): CrosshairLabel = apply { put("hAlign", null) }
     /** Getter for the text letter spacing. Default: 'normal'. */
@@ -100,7 +100,7 @@ public open class CrosshairLabel : ConfigNode() {
     public fun selectable(value: Nothing?): CrosshairLabel = apply { put("selectable", null) }
     /** Getter for the text direction. Default: 'ltr'. */
 
-    public fun textDirection(value: Direction): CrosshairLabel = apply { put("textDirection", value) }
+    public fun textDirection(value: TextDirection): CrosshairLabel = apply { put("textDirection", value) }
     public fun textDirection(value: String): CrosshairLabel = apply { put("textDirection", value) }
     public fun textDirection(value: Nothing?): CrosshairLabel = apply { put("textDirection", null) }
     /** Getter for the text indent. Default: 0. */
@@ -131,7 +131,7 @@ public open class CrosshairLabel : ConfigNode() {
     public fun useHtml(value: Nothing?): CrosshairLabel = apply { put("useHtml", null) }
     /** Getter for the text vertical align. Default: 'top'. */
 
-    public fun vAlign(value: VAlign): CrosshairLabel = apply { put("vAlign", value) }
+    public fun vAlign(value: TextVAlign): CrosshairLabel = apply { put("vAlign", value) }
     public fun vAlign(value: String): CrosshairLabel = apply { put("vAlign", value) }
     public fun vAlign(value: Nothing?): CrosshairLabel = apply { put("vAlign", null) }
     /** Getter for the word-break mode. Default: "normal". */
@@ -203,7 +203,7 @@ public open class CrosshairLabel : ConfigNode() {
     public fun offsetY(value: Nothing?): CrosshairLabel = apply { put("offsetY", null) }
     /** Setter for crosshair label padding in pixels by one value. Default: {top: 5, right: 10, bottom: 5, left: 10}. */
 
-    public fun padding(init: Padding.() -> Unit): CrosshairLabel = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): CrosshairLabel = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): CrosshairLabel = apply { put("padding", value) }
     public fun padding(value: Number): CrosshairLabel = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): CrosshairLabel = apply { put("padding", listOf(value1, value2, value3, value4)) }

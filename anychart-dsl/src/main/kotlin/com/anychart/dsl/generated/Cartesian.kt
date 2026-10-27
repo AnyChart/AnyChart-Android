@@ -8,7 +8,7 @@ import com.anychart.dsl.ConfigNode
 
 /** Cartesian chart class. To get the chart use any of these methods: {@link anychart#cartesian} {@link anychart#area} {@link anychart#bar} {@link anychart#column} {@link anychart#stick} {@link anychart#jumpLine} {@link anychart#stepLine} {@link anychart#ohlc} {@link anychart#candlestick} {@link anychart#line} Chart can contain any number of series. Each series is interactive, you can customize click and hover behavior and other parameters. (anychart.charts.Cartesian) */
 
-public open class Cartesian : ChartRoot("chart", "column") {
+public open class Cartesian : ChartRoot("chart", "area") {
     /** Getter for the element state (enabled or disabled). Default: true. */
 
     public var enabled: Boolean?
@@ -95,7 +95,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun background(value: Boolean): Cartesian = apply { put("background", value) }
     /** Setter for the context menu. */
 
-    public fun contextMenu(init: ContextMenu.() -> Unit): Cartesian = apply { nested("contextMenu", ::ContextMenu, init) }
+    public fun contextMenu(init: UiContextMenu.() -> Unit): Cartesian = apply { nested("contextMenu", ::UiContextMenu, init) }
     public fun contextMenu(value: Boolean): Cartesian = apply { put("contextMenu", value) }
     /** Setter for chart credits. Learn more about credits settings. Default: true. */
 
@@ -127,7 +127,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun noData(init: NoDataSettings.() -> Unit): Cartesian = apply { nested("noData", ::NoDataSettings, init) }
     /** Setter for the chart paddings in pixels using a single value. Default: {top: 0, right: 0, bottom: 0, left: 0}. */
 
-    public fun padding(init: Padding.() -> Unit): Cartesian = apply { nested("padding", ::Padding, init) }
+    public fun padding(init: UtilsPadding.() -> Unit): Cartesian = apply { nested("padding", ::UtilsPadding, init) }
     public fun padding(value: String): Cartesian = apply { put("padding", value) }
     public fun padding(value: Number): Cartesian = apply { put("padding", value) }
     public fun padding(value1: Any, value2: Any, value3: Any, value4: Any): Cartesian = apply { put("padding", listOf(value1, value2, value3, value4)) }
@@ -155,7 +155,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun tooltip(value: Boolean): Cartesian = apply { put("tooltip", value) }
     /** Setter for the interactivity settings. */
 
-    public fun interactivity(init: Interactivity.() -> Unit): Cartesian = apply { nested("interactivity", ::Interactivity, init) }
+    public fun interactivity(init: UtilsInteractivity.() -> Unit): Cartesian = apply { nested("interactivity", ::UtilsInteractivity, init) }
     public fun interactivity(value: String): Cartesian = apply { put("interactivity", value) }
     /** Setter for the chart legend setting. Default: false. */
 
@@ -166,7 +166,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun annotations(init: PlotController.() -> Unit): Cartesian = apply { nested("annotations", ::PlotController, init) }
     /** Adds Area series. */
 
-    public fun area(init: Area.() -> Unit = {}): Area = appended("series", { Area().also { it.preset("seriesType", "area") } }, init)
+    public fun area(init: SeriesArea.() -> Unit = {}): SeriesArea = appended("series", { SeriesArea().also { it.preset("seriesType", "area") } }, init)
     public fun area(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Bar series. */
 
@@ -220,7 +220,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun bubble(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Candlestick series. */
 
-    public fun candlestick(init: Candlestick.() -> Unit = {}): Candlestick = appended("series", { Candlestick().also { it.preset("seriesType", "candlestick") } }, init)
+    public fun candlestick(init: SeriesCandlestick.() -> Unit = {}): SeriesCandlestick = appended("series", { SeriesCandlestick().also { it.preset("seriesType", "candlestick") } }, init)
     public fun candlestick(value: String): Cartesian = apply { put("series", value) }
     public fun candlestick(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Setter for the way series are categorized on the axis with the ordinal scale Default: false. */
@@ -232,7 +232,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun categorizedBySeries(value: Nothing?): Cartesian = apply { put("categorizedBySeries", null) }
     /** Adds Column series. */
 
-    public fun column(init: Column.() -> Unit = {}): Column = appended("series", { Column().also { it.preset("seriesType", "column") } }, init)
+    public fun column(init: SeriesColumn.() -> Unit = {}): SeriesColumn = appended("series", { SeriesColumn().also { it.preset("seriesType", "column") } }, init)
     public fun column(value: String): Cartesian = apply { put("series", value) }
     public fun column(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Setter for the crosshair settings. Default: false. */
@@ -268,7 +268,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun hatchFillPalette(init: HatchFills.() -> Unit): Cartesian = apply { nested("hatchFillPalette", ::HatchFills, init) }
     /** Adds HiLo series. */
 
-    public fun hilo(init: Hilo.() -> Unit = {}): Hilo = appended("series", { Hilo().also { it.preset("seriesType", "hilo") } }, init)
+    public fun hilo(init: SeriesHilo.() -> Unit = {}): SeriesHilo = appended("series", { SeriesHilo().also { it.preset("seriesType", "hilo") } }, init)
     public fun hilo(value: String): Cartesian = apply { put("series", value) }
     public fun hilo(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Setter for hovered state settings. */
@@ -283,7 +283,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun isVertical(value: Nothing?): Cartesian = apply { put("isVertical", null) }
     /** Adds Jump Line series. */
 
-    public fun jumpLine(init: JumpLine.() -> Unit = {}): JumpLine = appended("series", { JumpLine().also { it.preset("seriesType", "jump-line") } }, init)
+    public fun jumpLine(init: SeriesJumpLine.() -> Unit = {}): SeriesJumpLine = appended("series", { SeriesJumpLine().also { it.preset("seriesType", "jump-line") } }, init)
     public fun jumpLine(value: String): Cartesian = apply { put("series", value) }
     public fun jumpLine(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Setter for series data labels. */
@@ -352,7 +352,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun normal(init: StateSettings.() -> Unit): Cartesian = apply { nested("normal", ::StateSettings, init) }
     /** Adds OHLC series. */
 
-    public fun ohlc(init: OHLC.() -> Unit = {}): OHLC = appended("series", { OHLC().also { it.preset("seriesType", "ohlc") } }, init)
+    public fun ohlc(init: SeriesOHLC.() -> Unit = {}): SeriesOHLC = appended("series", { SeriesOHLC().also { it.preset("seriesType", "ohlc") } }, init)
     public fun ohlc(value: String): Cartesian = apply { put("series", value) }
     public fun ohlc(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Setter for the chart colors palette. */
@@ -366,7 +366,7 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun pointWidth(value: Nothing?): Cartesian = apply { put("pointWidth", null) }
     /** Adds Range Area series. */
 
-    public fun rangeArea(init: RangeArea.() -> Unit = {}): RangeArea = appended("series", { RangeArea().also { it.preset("seriesType", "range-area") } }, init)
+    public fun rangeArea(init: SeriesRangeArea.() -> Unit = {}): SeriesRangeArea = appended("series", { SeriesRangeArea().also { it.preset("seriesType", "range-area") } }, init)
     public fun rangeArea(value: String): Cartesian = apply { put("series", value) }
     public fun rangeArea(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Range Bar series. */
@@ -376,21 +376,21 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun rangeBar(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Range Column series. */
 
-    public fun rangeColumn(init: RangeColumn.() -> Unit = {}): RangeColumn = appended("series", { RangeColumn().also { it.preset("seriesType", "range-column") } }, init)
+    public fun rangeColumn(init: SeriesRangeColumn.() -> Unit = {}): SeriesRangeColumn = appended("series", { SeriesRangeColumn().also { it.preset("seriesType", "range-column") } }, init)
     public fun rangeColumn(value: String): Cartesian = apply { put("series", value) }
     public fun rangeColumn(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Getter for the range marker. Default: 0. */
 
-    public fun rangeMarker(index: Int = 0, init: Range.() -> Unit = {}): Cartesian = apply { indexed("rangeAxesMarkers", index, ::Range, init) }
+    public fun rangeMarker(index: Int = 0, init: AxisMarkersRange.() -> Unit = {}): Cartesian = apply { indexed("rangeAxesMarkers", index, ::AxisMarkersRange, init) }
     public fun rangeMarker(index: Int, value: Boolean): Cartesian = apply { indexedValue("rangeAxesMarkers", index, value) }
     /** Adds Range Spline Area series. */
 
-    public fun rangeSplineArea(init: RangeSplineArea.() -> Unit = {}): RangeSplineArea = appended("series", { RangeSplineArea().also { it.preset("seriesType", "range-spline-area") } }, init)
+    public fun rangeSplineArea(init: SeriesRangeSplineArea.() -> Unit = {}): SeriesRangeSplineArea = appended("series", { SeriesRangeSplineArea().also { it.preset("seriesType", "range-spline-area") } }, init)
     public fun rangeSplineArea(value: String): Cartesian = apply { put("series", value) }
     public fun rangeSplineArea(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Range Step Area series. */
 
-    public fun rangeStepArea(init: RangeStepArea.() -> Unit = {}): RangeStepArea = appended("series", { RangeStepArea().also { it.preset("seriesType", "range-step-area") } }, init)
+    public fun rangeStepArea(init: SeriesRangeStepArea.() -> Unit = {}): SeriesRangeStepArea = appended("series", { SeriesRangeStepArea().also { it.preset("seriesType", "range-step-area") } }, init)
     public fun rangeStepArea(value: String): Cartesian = apply { put("series", value) }
     public fun rangeStepArea(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Setter for selected state settings. */
@@ -398,27 +398,27 @@ public open class Cartesian : ChartRoot("chart", "column") {
     public fun selected(init: StateSettings.() -> Unit): Cartesian = apply { nested("selected", ::StateSettings, init) }
     /** Adds Spline series. */
 
-    public fun spline(init: Spline.() -> Unit = {}): Spline = appended("series", { Spline().also { it.preset("seriesType", "spline") } }, init)
+    public fun spline(init: SeriesSpline.() -> Unit = {}): SeriesSpline = appended("series", { SeriesSpline().also { it.preset("seriesType", "spline") } }, init)
     public fun spline(value: String): Cartesian = apply { put("series", value) }
     public fun spline(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Spline Area series. */
 
-    public fun splineArea(init: SplineArea.() -> Unit = {}): SplineArea = appended("series", { SplineArea().also { it.preset("seriesType", "spline-area") } }, init)
+    public fun splineArea(init: SeriesSplineArea.() -> Unit = {}): SeriesSplineArea = appended("series", { SeriesSplineArea().also { it.preset("seriesType", "spline-area") } }, init)
     public fun splineArea(value: String): Cartesian = apply { put("series", value) }
     public fun splineArea(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Step Area series. */
 
-    public fun stepArea(init: StepArea.() -> Unit = {}): StepArea = appended("series", { StepArea().also { it.preset("seriesType", "step-area") } }, init)
+    public fun stepArea(init: SeriesStepArea.() -> Unit = {}): SeriesStepArea = appended("series", { SeriesStepArea().also { it.preset("seriesType", "step-area") } }, init)
     public fun stepArea(value: String): Cartesian = apply { put("series", value) }
     public fun stepArea(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Step Line series. */
 
-    public fun stepLine(init: StepLine.() -> Unit = {}): StepLine = appended("series", { StepLine().also { it.preset("seriesType", "step-line") } }, init)
+    public fun stepLine(init: SeriesStepLine.() -> Unit = {}): SeriesStepLine = appended("series", { SeriesStepLine().also { it.preset("seriesType", "step-line") } }, init)
     public fun stepLine(value: String): Cartesian = apply { put("series", value) }
     public fun stepLine(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Adds Stick series. */
 
-    public fun stick(init: Stick.() -> Unit = {}): Stick = appended("series", { Stick().also { it.preset("seriesType", "stick") } }, init)
+    public fun stick(init: SeriesStick.() -> Unit = {}): SeriesStick = appended("series", { SeriesStick().also { it.preset("seriesType", "stick") } }, init)
     public fun stick(value: String): Cartesian = apply { put("series", value) }
     public fun stick(data: Any, csvSettings: Any): Cartesian = apply { put("series", listOf(data, csvSettings)) }
     /** Getter for the text marker. Default: 0. */
