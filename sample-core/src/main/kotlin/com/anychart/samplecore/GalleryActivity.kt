@@ -34,7 +34,8 @@ class GalleryActivity : ComponentActivity() {
 
         setContent {
             MaterialTheme {
-                var selected by remember { mutableStateOf(names.first()) }
+                // `--es chart <name>` preselects a chart, so a device walk-through can be scripted (device-checks.sh)
+                var selected by remember { mutableStateOf(intent.getStringExtra("chart")?.takeIf { it in names } ?: names.first()) }
                 var status by remember { mutableStateOf("loading…") }
                 Column(Modifier.fillMaxSize().safeDrawingPadding().padding(horizontal = 12.dp)) {
                     Text("Gallery · every conformance chart, as DSL code", style = MaterialTheme.typography.titleMedium)

@@ -35,3 +35,6 @@ google-services.json
 conformance/playwright/node_modules/
 conformance/playwright/test-results/
 conformance/playwright/playwright-report/
+
+# device check results (device-checks.sh)
+conformance/device/
