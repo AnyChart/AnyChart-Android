@@ -20,4 +20,4 @@ rootProject.name = "AnyChart-Android"
 include(":anychart", ":sample")
 
 // A9-970 proof of concept.
-include(":anychart-core", ":anychart-compose", ":sample-core")
+include(":anychart-core", ":anychart-compose", ":anychart-dsl", ":sample-core")
