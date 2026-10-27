@@ -130,7 +130,8 @@ class RuntimeConformanceTest {
         val text = AtomicReference<Any?>()
         onMain { view.query("tooltipText", chartId = "cb") { text.set(it); answer.countDown() } }
         assertTrue("no answer: ${rec.errors}", answer.await(20, TimeUnit.SECONDS))
-        assertEquals("Tooltip for Coal (10)", text.get())
+        // the SVG tooltip's text runs title and body together: "Coal (10)Tooltip for Coal (10)"
+        assertTrue("tooltip text: ${text.get()}", text.get().toString().contains("Tooltip for Coal (10)"))
     }
 
     @Test

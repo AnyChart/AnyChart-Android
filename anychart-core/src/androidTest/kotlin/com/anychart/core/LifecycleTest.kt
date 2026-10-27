@@ -155,7 +155,8 @@ class LifecycleTest {
             scenario.onActivity {
                 it.chart.load("""{"chart":{"type":"no-such-chart"}}""", chartId = "bad")
                 it.chart.update("[]", chartId = "ghost")
-                it.chart.load("""{"chart":{"type":"pie","data":[{"x":"a","value":1}],"labels":{"format":{"${'$'}fn":"missing"}}}}""", chartId = "ok")
+                // a sankey node label: the one callback carrier both gates exercise (a pie's chart-level labels.format is never called)
+                it.chart.load("""{"chart":{"type":"sankey","data":[["Coal","Power",10]],"node":{"normal":{"labels":{"format":{"${'$'}fn":"missing"}}}}}}""", chartId = "ok")
             }
             await(ok, "chart with a missing callback still renders", rec)
             Thread.sleep(500)

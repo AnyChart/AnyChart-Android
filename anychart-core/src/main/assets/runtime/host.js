@@ -252,8 +252,14 @@
       } else if (m.what === 'callbackStats') {
         result = roundStats(statsFor(m.id));
       } else if (m.what === 'tooltipText') {
-        // The text of the tooltip currently shown, or null. Tooltips are page-level DOM, not per chart.
-        var tips = Array.prototype.filter.call(document.querySelectorAll('.anychart-tooltip'), function (t) { return t.offsetParent !== null && t.textContent; });
+        // The text of the tooltip currently shown (title and body run together), or null. An HTML
+        // tooltip is a .anychart-tooltip div; an SVG one (the default) is drawn on its own click-through
+        // stage, an <svg> with pointer-events: none that the engine empties when the tooltip hides.
+        var tips = Array.prototype.filter.call(document.querySelectorAll('.anychart-tooltip, svg'), function (t) {
+          var cs = getComputedStyle(t);
+          return (t.classList.contains('anychart-tooltip') || cs.pointerEvents === 'none') &&
+            t.getClientRects().length && cs.display !== 'none' && cs.visibility !== 'hidden' && t.textContent.trim();
+        });
         result = tips.length ? tips[tips.length - 1].textContent : null;
       } else {
         return fail(m.id, 'unknown query ' + m.what, 'bad-message');

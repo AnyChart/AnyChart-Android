@@ -47,7 +47,7 @@ Query kinds and their `result`:
 | `selectedPoints` | array of `{pointIndex, x, value, series?}` (series name) for the chart's selected points |
 | `json` | the chart's `toJson()` document |
 | `callbackStats` | `{calls, ms}`: host callbacks made by this chart so far and the time spent waiting for them |
-| `tooltipText` | text of the tooltip currently shown, or `null` |
+| `tooltipText` | text of the tooltip currently shown (title and body run together, HTML or SVG tooltip), or `null` |
 
 ## Page to host
 

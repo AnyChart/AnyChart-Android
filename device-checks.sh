@@ -35,19 +35,17 @@ if [[ $what == all || $what == tests ]]; then
     for x in "$out/$m-results"/*/*.xml "$out/$m-results"/*.xml; do
       [[ -f $x ]] || continue
       python3 -I - "$x" <<'PY'
-import re, sys
-t = open(sys.argv[1]).read()
-suite = re.search(r'<testsuite name="([^"]+)"[^>]*tests="(\d+)"[^>]*failures="(\d+)"[^>]*errors="(\d+)"', t)
-if suite: print(f"   {suite.group(1)}: {suite.group(2)} tests, {suite.group(3)} failures, {suite.group(4)} errors")
-for m in re.finditer(r'<testcase name="([^"]+)"[^>]*time="([^"]+)"[^>]*>(.*?)</testcase>|<testcase name="([^"]+)"[^>]*time="([^"]+)"[^>]*/>', t, re.S):
-    name = m.group(1) or m.group(4); body = m.group(3) or ""
-    mark = "FAIL" if "<failure" in body or "<error" in body else "ok"
-    print(f"     {mark:4} {name} ({m.group(2) or m.group(5)}s)")
-    if mark == "FAIL": print("          " + re.sub(r"\s+", " ", re.search(r'message="([^"]*)"', body).group(1))[:300])
+import sys, xml.etree.ElementTree as ET
+for s in ET.parse(sys.argv[1]).getroot().iter('testsuite'):
+    print(f"   {s.get('name')}: {s.get('tests')} tests, {s.get('failures')} failures, {s.get('errors')} errors")
+    for c in s.iter('testcase'):
+        f = c.find('failure') if c.find('failure') is not None else c.find('error')
+        print(f"     {'FAIL' if f is not None else 'ok  '} {c.get('name')} ({c.get('time')}s)")
+        if f is not None: print("          " + " ".join((f.get('message') or f.text or '').split())[:300])
 PY
     done
+    "$ADB" logcat -d -s INTEG-5 >> "$out/integ5-logcat.txt"   # per module: the buffer rolls over before the loop ends
   done
-  "$ADB" logcat -d -s INTEG-5 > "$out/integ5-logcat.txt"
   echo "== callback round trip on device (logcat INTEG-5):"; grep -h "RenderReport" "$out/integ5-logcat.txt" || echo "   (no INTEG-5 line: the sankey callback test did not log)"
 fi
 

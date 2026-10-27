@@ -11,12 +11,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GalleryActivity" android:label="Gallery" />
-        <activity android:name=".MultiChartActivity" android:label="Several charts, one Activity" />
-        <activity android:name=".FragmentsActivity" android:label="Charts in Fragments" />
-        <activity android:name=".RecyclerActivity" android:label="Charts in a RecyclerView" />
-        <activity android:name=".CoordinationActivity" android:label="Coordination" />
-        <activity android:name=".SideBySideActivity" android:label="Compose and View side by side" />
+        <activity android:name=".GalleryActivity" android:label="Gallery" android:exported="true" />
+        <activity android:name=".MultiChartActivity" android:label="Several charts, one Activity" android:exported="true" />
+        <activity android:name=".FragmentsActivity" android:label="Charts in Fragments" android:exported="true" />
+        <activity android:name=".RecyclerActivity" android:label="Charts in a RecyclerView" android:exported="true" />
+        <activity android:name=".CoordinationActivity" android:label="Coordination" android:exported="true" />
+        <activity android:name=".SideBySideActivity" android:label="Compose and View side by side" android:exported="true" />
         <activity android:name=".BenchmarkActivity" android:label="Benchmark" android:exported="true" />
         <activity android:name=".LegacyBenchmarkActivity" android:label="Benchmark 1.x" android:exported="true" />
     </application>
