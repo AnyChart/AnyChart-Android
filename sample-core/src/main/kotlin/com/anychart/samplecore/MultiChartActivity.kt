@@ -20,8 +20,7 @@ class MultiChartActivity : Activity() {
         val column = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; fitsSystemWindows = true }
         val status = TextView(this).apply { text = "three views, three WebViews, no shared state"; setPadding(dp(12), dp(40), dp(12), dp(4)) }
         column.addView(status)
-        val configs = listOf("pie.json", "column.json", "line-multi.json")
-        for (name in configs) {
+        for (name in listOf("pie", "column", "line-multi")) {
             val view = AnyChartView(this)
             view.listener = object : AnyChartView.Listener {
                 override fun onRendered(chartId: String, millis: Long) { status.text = "$name rendered in $millis ms" }
@@ -29,7 +28,7 @@ class MultiChartActivity : Activity() {
                 override fun onError(error: AnyChartError) { val message = error.message; status.text = "$name error: $message" }
             }
             column.addView(view, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp(300)))
-            view.load(Demo.config(this, name))
+            view.load(Gallery.chart(name))
         }
         setContentView(ScrollView(this).apply { addView(column) })
     }

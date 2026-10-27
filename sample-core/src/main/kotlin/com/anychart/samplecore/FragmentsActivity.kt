@@ -34,7 +34,7 @@ class FragmentsActivity : FragmentActivity() {
     }
 
     companion object {
-        val PAGES = listOf("pie.json", "column.json", "heatmap.json", "treemap.json", "gauge-circular.json", "org-chart.json")
+        val PAGES = listOf("pie", "column", "heatmap", "treemap", "gauge-circular", "org-chart")
     }
 }
 
@@ -50,7 +50,7 @@ class ChartFragment : Fragment() {
             override fun onEvent(event: AnyChartEvent) { status.text = "$name: ${event.name} ${event.x ?: ""} ${event.value ?: ""}" }
             override fun onError(error: AnyChartError) { val message = error.message; status.text = "$name error: $message" }
         }
-        chart.load(Demo.config(ctx, name))
+        chart.load(Gallery.chart(name))
         return LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             addView(status)

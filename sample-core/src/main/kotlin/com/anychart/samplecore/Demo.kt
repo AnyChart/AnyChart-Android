@@ -1,36 +1,32 @@
 package com.anychart.samplecore
 
-import android.content.Context
-import org.json.JSONArray
-import org.json.JSONObject
+import com.anychart.dsl.ChartRoot
+import com.anychart.dsl.generated.column
+import com.anychart.dsl.generated.line
+import com.anychart.dsl.generated.pie
+import com.anychart.dsl.point
 
-/** Shared helpers for the demo screens: conformance configs from assets and small generated charts. */
+/** Shared helpers for the demo screens: small generated charts in the DSL and the coordination data. */
 object Demo {
-    fun config(context: Context, name: String): String =
-        context.assets.open(name).bufferedReader().use { it.readText() }
+    fun rows(pairs: List<Pair<Any, Number>>): List<Map<String, Any?>> = pairs.map { (x, v) -> point(x, v) }
 
-    /** A minimal cartesian chart config as the engine accepts it. */
-    fun cartesian(type: String, seriesType: String, title: String, name: String, rows: List<Pair<Any, Number>>): String =
-        JSONObject().put("chart", JSONObject()
-            .put("type", type)
-            .put("title", title)
-            .put("series", JSONArray().put(JSONObject()
-                .put("seriesType", seriesType)
-                .put("name", name)
-                .put("data", rowsJson(rows))))
-            .put("yScale", JSONObject().put("minimum", 0))
-        ).toString()
+    fun column(title: String, name: String, pairs: List<Pair<Any, Number>>): ChartRoot = column {
+        title(title)
+        column { this.name = name; data(rows(pairs)) }
+        yScale { minimum = 0 }
+    }
 
-    fun pie(title: String, rows: List<Pair<Any, Number>>): String =
-        JSONObject().put("chart", JSONObject()
-            .put("type", "pie")
-            .put("title", title)
-            .put("data", rowsJson(rows))
-            .put("labels", JSONObject().put("format", "{%x}"))
-        ).toString()
+    fun line(title: String, name: String, pairs: List<Pair<Any, Number>>): ChartRoot = line {
+        title(title)
+        line { this.name = name; data(rows(pairs)) }
+        yScale { minimum = 0 }
+    }
 
-    fun rowsJson(rows: List<Pair<Any, Number>>): JSONArray =
-        JSONArray().also { arr -> rows.forEach { (x, v) -> arr.put(JSONObject().put("x", x).put("value", v)) } }
+    fun pie(title: String, pairs: List<Pair<Any, Number>>): ChartRoot = pie {
+        title(title)
+        data(rows(pairs))
+        labels { format = "{%x}" }
+    }
 
     /** Deterministic pseudo-random series for list rows. */
     fun sparkRows(seed: Int, n: Int = 12): List<Pair<Any, Number>> {

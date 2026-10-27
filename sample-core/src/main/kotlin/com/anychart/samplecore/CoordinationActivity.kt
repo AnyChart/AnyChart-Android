@@ -26,8 +26,8 @@ class CoordinationActivity : Activity() {
 
         var selected: String? = null
         fun apply() {
-            products.update(Demo.rowsJson(Demo.productsIn(selected)).toString(), series = 0)
-            monthly.update(Demo.rowsJson(Demo.monthlyFor(selected)).toString(), series = 0)
+            products.update(Demo.rows(Demo.productsIn(selected)), series = 0)
+            monthly.update(Demo.rows(Demo.monthlyFor(selected)), series = 0)
             status.text = if (selected == null) "Tap a category slice. All categories shown." else "$selected: products and months updated in place. Tap again to clear."
         }
         pie.listener = object : AnyChartView.Listener {
@@ -40,8 +40,8 @@ class CoordinationActivity : Activity() {
         }
 
         pie.load(Demo.pie("Sales by category", Demo.byCategory()))
-        products.load(Demo.cartesian("column", "column", "Products", "Sales", Demo.productsIn(null)), events = emptyList())
-        monthly.load(Demo.cartesian("line", "line", "By month", "Sales", Demo.monthlyFor(null)), events = emptyList())
+        products.load(Demo.column("Products", "Sales", Demo.productsIn(null)), events = emptyList())
+        monthly.load(Demo.line("By month", "Sales", Demo.monthlyFor(null)), events = emptyList())
 
         setContentView(LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; fitsSystemWindows = true

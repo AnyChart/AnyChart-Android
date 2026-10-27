@@ -28,12 +28,13 @@ class MainActivity : ComponentActivity() {
             "Charts in Fragments (ViewPager)" to FragmentsActivity::class.java,
             "Charts in a RecyclerView" to RecyclerActivity::class.java,
             "Coordination: one tap, three charts" to CoordinationActivity::class.java,
+            "Compose and View, side by side" to SideBySideActivity::class.java,
         )
         setContent {
             MaterialTheme {
                 Column(Modifier.fillMaxSize().safeDrawingPadding().padding(16.dp)) {
-                    Text("AnyChart-Android PoC · step 3", style = MaterialTheme.typography.titleLarge)
-                    Text("Kotlin host over the shared runtime page, AnyChart JS 9.0.0", style = MaterialTheme.typography.bodyMedium)
+                    Text("AnyChart-Android 2.0 sample", style = MaterialTheme.typography.titleLarge)
+                    Text("Kotlin DSL over the shared runtime page, AnyChart JS 9.0.0", style = MaterialTheme.typography.bodyMedium)
                     for ((label, activity) in screens) {
                         Button(onClick = { startActivity(Intent(this@MainActivity, activity)) }, modifier = Modifier.fillMaxWidth().padding(top = 12.dp)) {
                             Text(label)

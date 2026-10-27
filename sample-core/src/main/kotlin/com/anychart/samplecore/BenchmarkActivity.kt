@@ -36,7 +36,7 @@ class BenchmarkActivity : Activity() {
                     val line = "mode=${PocApplication.mode} appToCreate=${tCreate - app} viewCtor=${tView - tCreate} createToReady=${if (tReady > 0) tReady - tCreate else -1} createToRendered=${now - tCreate} appToRendered=${now - app} pageDraw=$millis"
                     Log.i(PocApplication.TAG, line); status.text = line
                     Log.i(PocApplication.TAG, "mode=${PocApplication.mode} pageTiming=${view.pageTiming}")
-                    view.load(Demo.config(this@BenchmarkActivity, "column.json"), chartId = "second", events = emptyList())
+                    view.load(Gallery.chart("column"), chartId = "second", events = emptyList())
                 } else {
                     val line = "mode=${PocApplication.mode} secondLoadPageDraw=$millis"
                     Log.i(PocApplication.TAG, line); status.append("\n$line")
@@ -49,6 +49,6 @@ class BenchmarkActivity : Activity() {
             addView(status)
             addView(view, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f))
         })
-        view.load(Demo.config(this, "pie.json"))
+        view.load(Gallery.chart("pie"))
     }
 }

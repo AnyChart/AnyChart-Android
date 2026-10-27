@@ -45,8 +45,8 @@ class RecyclerActivity : Activity() {
                 }
                 override fun onBindViewHolder(holder: Holder, position: Int) {
                     holder.label.text = "Row ${position + 1}"
-                    val type = if (position % 2 == 0) "line" else "column"
-                    holder.chart.load(Demo.cartesian(type, type, "", "row ${position + 1}", Demo.sparkRows(position)), events = emptyList())
+                    val rows = Demo.sparkRows(position)
+                    holder.chart.load(if (position % 2 == 0) Demo.line("", "row ${position + 1}", rows) else Demo.column("", "row ${position + 1}", rows), events = emptyList())
                 }
             }
         }

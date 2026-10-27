@@ -16,6 +16,7 @@
         <activity android:name=".FragmentsActivity" android:label="Charts in Fragments" />
         <activity android:name=".RecyclerActivity" android:label="Charts in a RecyclerView" />
         <activity android:name=".CoordinationActivity" android:label="Coordination" />
+        <activity android:name=".SideBySideActivity" android:label="Compose and View side by side" />
         <activity android:name=".BenchmarkActivity" android:label="Benchmark" android:exported="true" />
         <activity android:name=".LegacyBenchmarkActivity" android:label="Benchmark 1.x" android:exported="true" />
     </application>

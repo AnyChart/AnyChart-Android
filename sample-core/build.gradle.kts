@@ -17,11 +17,6 @@ android {
 
     buildFeatures { compose = true }
 
-    sourceSets {
-        // The conformance configs are the sample's gallery; one source of truth for every host.
-        getByName("main").assets.srcDir("../conformance/configs")
-    }
-
     buildTypes {
         release { isMinifyEnabled = false }
     }
@@ -38,6 +33,7 @@ kotlin {
 
 dependencies {
     implementation(project(":anychart-core"))
+    implementation(project(":anychart-dsl"))
     implementation(project(":anychart")) // 1.x, for the side-by-side benchmark only
     implementation(project(":anychart-compose"))
     val bom = platform(libs.compose.bom)
@@ -52,3 +48,17 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     debugImplementation(libs.compose.ui.tooling)
 }
+
+// INTEG-9 rule: the sample is DSL code only. No JSON config literal, no config file read, no org.json.
+val noJsonConfigs by tasks.registering {
+    val sources = layout.projectDirectory.dir("src/main/kotlin")
+    inputs.dir(sources)
+    doLast {
+        val rule = Regex("""\{\s*\\?"(chart|gauge|map|gantt)\\?"|\.json"|import org\.json""")
+        val hits = sources.asFileTree.matching { include("**/*.kt") }.files.sorted().flatMap { f ->
+            f.readLines().mapIndexedNotNull { i, line -> if (rule.containsMatchIn(line)) "${f.name}:${i + 1}: ${line.trim()}" else null }
+        }
+        if (hits.isNotEmpty()) throw GradleException("JSON config in sample-core; write it in the DSL:\n" + hits.joinToString("\n"))
+    }
+}
+tasks.named("preBuild") { dependsOn(noJsonConfigs) }

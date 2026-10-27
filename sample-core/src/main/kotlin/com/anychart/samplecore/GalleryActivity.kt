@@ -23,38 +23,37 @@ import androidx.compose.ui.unit.dp
 import com.anychart.compose.AnyChart
 
 /**
- * Gallery: the conformance configs in a real Android app through the Compose entry point.
- * Pick a config, it loads into the same chart surface; tap a point, the event shows in the status line.
+ * Gallery: the conformance set as DSL code (Gallery.kt) in a real Android app through the Compose
+ * entry point. Pick a chart, it loads into the same chart surface; tap a point, the event shows in
+ * the status line.
  */
 class GalleryActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // The conformance configs are bundled as assets; the pie comes first, as in step 2.
-        val names = assets.list("")!!.filter { it.endsWith(".json") }.sortedBy { if (it == "pie.json") "" else it }
-        fun config(name: String) = assets.open(name).bufferedReader().use { it.readText() }
+        val names = Gallery.names
 
         setContent {
             MaterialTheme {
                 var selected by remember { mutableStateOf(names.first()) }
                 var status by remember { mutableStateOf("loading…") }
                 Column(Modifier.fillMaxSize().safeDrawingPadding().padding(horizontal = 12.dp)) {
-                    Text("Gallery · every conformance config", style = MaterialTheme.typography.titleMedium)
+                    Text("Gallery · every conformance chart, as DSL code", style = MaterialTheme.typography.titleMedium)
                     LazyRow(Modifier.fillMaxWidth()) {
                         items(names) { name ->
                             Row(Modifier.padding(end = 6.dp)) {
                                 FilterChip(
                                     selected = name == selected,
                                     onClick = { status = "loading…"; selected = name },
-                                    label = { Text(name.removeSuffix(".json")) },
+                                    label = { Text(name) },
                                 )
                             }
                         }
                     }
                     Text(status, style = MaterialTheme.typography.bodySmall)
                     AnyChart(
-                        config = config(selected),
+                        chart = remember(selected) { Gallery.chart(selected) },
                         modifier = Modifier.weight(1f).fillMaxWidth(),
-                        onRendered = { ms -> status = "${selected.removeSuffix(".json")} rendered in $ms ms. Tap a point." },
+                        onRendered = { ms -> status = "$selected rendered in $ms ms. Tap a point." },
                         onEvent = { e -> status = "${e.name}: ${e.x} = ${e.value}" },
                         onError = { error -> status = "error: ${error.message}" },
                     )
