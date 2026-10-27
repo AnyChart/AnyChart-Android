@@ -6,6 +6,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import com.anychart.core.AnyChartEvent
+import com.anychart.core.AnyChartError
 import com.anychart.core.AnyChartView
 
 /**
@@ -21,7 +22,7 @@ public fun AnyChart(
     events: List<String> = listOf("pointClick"),
     onEvent: (AnyChartEvent) -> Unit = {},
     onRendered: (millis: Long) -> Unit = {},
-    onError: (chartId: String?, message: String) -> Unit = { _, _ -> },
+    onError: (AnyChartError) -> Unit = {},
 ) {
     val currentOnEvent by rememberUpdatedState(onEvent)
     val currentOnRendered by rememberUpdatedState(onRendered)
@@ -35,7 +36,7 @@ public fun AnyChart(
                 listener = object : AnyChartView.Listener {
                     override fun onEvent(event: AnyChartEvent) = currentOnEvent(event)
                     override fun onRendered(chartId: String, millis: Long) = currentOnRendered(millis)
-                    override fun onError(chartId: String?, message: String) = currentOnError(chartId, message)
+                    override fun onError(error: AnyChartError) = currentOnError(error)
                 }
                 tag = config
                 load(config, chartId, events)

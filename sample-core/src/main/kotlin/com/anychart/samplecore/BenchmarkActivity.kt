@@ -7,6 +7,7 @@ import android.util.Log
 import android.util.TypedValue
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.anychart.core.AnyChartError
 import com.anychart.core.AnyChartView
 
 /**
@@ -41,7 +42,7 @@ class BenchmarkActivity : Activity() {
                     Log.i(PocApplication.TAG, line); status.append("\n$line")
                 }
             }
-            override fun onError(chartId: String?, message: String) { Log.e(PocApplication.TAG, "error $message"); status.text = "error: $message" }
+            override fun onError(error: AnyChartError) { val message = error.message; Log.e(PocApplication.TAG, "error $message"); status.text = "error: $message" }
         }
         setContentView(LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; fitsSystemWindows = true

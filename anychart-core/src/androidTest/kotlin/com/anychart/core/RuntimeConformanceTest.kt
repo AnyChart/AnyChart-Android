@@ -37,7 +37,7 @@ class RuntimeConformanceTest {
         fun expectRendered(id: String) = CountDownLatch(1).also { rendered[id] = it }
         override fun onReady(jsVersion: String) { this.jsVersion.set(jsVersion); ready.countDown() }
         override fun onRendered(chartId: String, millis: Long) { rendered[chartId]?.countDown() }
-        override fun onError(chartId: String?, message: String) { errors.add("$chartId: $message") }
+        override fun onError(error: AnyChartError) { errors.add(error.toString()) }
     }
 
     private fun withView(block: (AnyChartView, Recorder) -> Unit) {

@@ -30,6 +30,16 @@ class MessagesTest {
     }
 
     @Test
+    fun `rows from the data helpers become the data array`() {
+        val arr = Messages.rows(listOf(mapOf("x" to "a", "value" to 1), mapOf("from" to "A", "to" to null, "weight" to 2.5, "tags" to listOf("p", "q"))))
+        assertEquals(2, arr.length())
+        assertEquals("a", arr.getJSONObject(0).getString("x"))
+        assertEquals(JSONObject.NULL, arr.getJSONObject(1).get("to"))   // a null row field survives (sankey dropoff)
+        assertEquals(2.5, arr.getJSONObject(1).getDouble("weight"), 0.0)
+        assertEquals("q", arr.getJSONObject(1).getJSONArray("tags").getString(1))
+    }
+
+    @Test
     fun `update takes a data array and an optional series`() {
         val m = Messages.update("c1", """[{"x":"a","value":1}]""", 2)
         assertEquals(1, m.getJSONArray("data").length())
@@ -52,7 +62,9 @@ class MessagesTest {
         assertTrue(ev is Messages.Incoming.Event)
         assertEquals("Eyeliner", (ev as Messages.Incoming.Event).data.getString("x"))
         val err = Messages.parse("""{"type":"error","id":null,"message":"boom"}""")
-        assertEquals(Messages.Incoming.Error(null, "boom"), err)
+        assertEquals(Messages.Incoming.Error(null, "script", "boom"), err)
+        assertEquals(Messages.Incoming.Error("c1", "unknown-chart", "no chart with id c1"),
+            Messages.parse("""{"type":"error","id":"c1","code":"unknown-chart","message":"no chart with id c1"}"""))
     }
 
     @Test

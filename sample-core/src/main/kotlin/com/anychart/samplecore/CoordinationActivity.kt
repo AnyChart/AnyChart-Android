@@ -6,6 +6,7 @@ import android.util.TypedValue
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.anychart.core.AnyChartEvent
+import com.anychart.core.AnyChartError
 import com.anychart.core.AnyChartView
 
 /**
@@ -35,7 +36,7 @@ class CoordinationActivity : Activity() {
                 selected = if (selected == event.x?.toString()) null else event.x?.toString()
                 apply()
             }
-            override fun onError(chartId: String?, message: String) { status.text = "error: $message" }
+            override fun onError(error: AnyChartError) { val message = error.message; status.text = "error: $message" }
         }
 
         pie.load(Demo.pie("Sales by category", Demo.byCategory()))

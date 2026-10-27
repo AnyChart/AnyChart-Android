@@ -1,4 +1,4 @@
-# Host protocol, runtime 0.2.0
+# Host protocol, runtime 0.3.0
 
 The runtime page (`src/main/assets/runtime/`) is plain HTML and JavaScript: the AnyChart JS
 bundle, its CSS and `host.js`. A host embeds it in a WebView and exchanges JSON messages with it.
@@ -29,7 +29,7 @@ The host never evaluates JavaScript strings; the page never parses HTML from the
 | page → host | `rendered` | `id`, `ms`, `callbacks` | First draw of chart `id`, milliseconds since `load` was received; `callbacks` `{calls, ms}` is the number of host callbacks the first draw took and the time spent waiting for them. |
 | page → host | `event` | `id`, `event`, `data` | A forwarded chart event. `data` carries `pointIndex`, `x`, `value`, `series`, `item`, `itemIndex` where the event has them. |
 | page → host | `answer` | `id`, `requestId`, `result` | Reply to a `query`. |
-| page → host | `error` | `id` (nullable), `message` | A rejected config, a bad message, a script error. Nothing fails silently. |
+| page → host | `error` | `id` (nullable), `code`, `message` | A rejected config, a bad message, a script error. Nothing fails silently. `code` is one of `bad-config` (load rejected), `bad-data` (update rejected), `unknown-chart` (no chart with that `id`), `callback` (a `$fn` callback failed or has no channel), `bad-message` (malformed or unknown message, unknown query, resize failure), `script` (an uncaught page error, or the licence key rejected). |
 
 ## Config
 

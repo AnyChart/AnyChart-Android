@@ -14,7 +14,8 @@
  *   page -> host   ready { jsVersion, runtimeVersion }
  *                  rendered { id, ms, callbacks: { calls, ms } }
  *                  event { id, event, data }
- *                  error { id, message }
+ *                  error { id, code, message }
+ *                    code: bad-config | bad-data | unknown-chart | callback | bad-message | script
  *                  answer { id, requestId, result }
  *
  * Transport: the host exposes window.AnyChartHost with a postMessage(string)
@@ -36,7 +37,7 @@
 (function () {
   'use strict';
 
-  var RUNTIME_VERSION = '0.2.0';
+  var RUNTIME_VERSION = '0.3.0';
   var charts = {}; // id -> { chart, el }
   var callbackStats = {}; // id -> { calls, ms }
   var DATA_BY_API = { 'data-sheet': true };
@@ -48,9 +49,10 @@
     }
   }
 
-  function fail(id, err) {
+  // code names the class of failure so a host can type it without reading the message.
+  function fail(id, err, code) {
     var message = (err && err.message) ? err.message : String(err);
-    send({ type: 'error', id: id === undefined ? null : id, message: message });
+    send({ type: 'error', id: id === undefined ? null : id, code: code || 'script', message: message });
   }
 
   function applyRect(el, rect) {
@@ -121,7 +123,7 @@
     return function () {
       var channel = window.AnyChartCallbacks;
       if (!channel || typeof channel.invoke !== 'function') {
-        if (!warned) { warned = true; fail(chartId, 'callback ' + name + ': the host has no AnyChartCallbacks channel'); }
+        if (!warned) { warned = true; fail(chartId, 'callback ' + name + ': the host has no AnyChartCallbacks channel', 'callback'); }
         return undefined;
       }
       var st = statsFor(chartId);
@@ -131,8 +133,8 @@
       st.ms += performance.now() - t0;
       if (raw === undefined || raw === null || raw === '') return undefined;
       var reply;
-      try { reply = JSON.parse(raw); } catch (err) { fail(chartId, 'callback ' + name + ': unreadable reply ' + raw); return undefined; }
-      if (reply && reply.error !== undefined) { fail(chartId, 'callback ' + name + ': ' + reply.error); return undefined; }
+      try { reply = JSON.parse(raw); } catch (err) { fail(chartId, 'callback ' + name + ': unreadable reply ' + raw, 'callback'); return undefined; }
+      if (reply && reply.error !== undefined) { fail(chartId, 'callback ' + name + ': ' + reply.error, 'callback'); return undefined; }
       return reply ? reply.v : undefined;
     };
   }
@@ -159,15 +161,15 @@
   // ---- Messages ------------------------------------------------------------------------------
 
   function load(m) {
-    if (!m.id) return fail(null, 'load: id is required');
-    if (!m.config) return fail(m.id, 'load: config is required');
+    if (!m.id) return fail(null, 'load: id is required', 'bad-message');
+    if (!m.config) return fail(m.id, 'load: config is required', 'bad-config');
     if (charts[m.id]) dispose({ id: m.id });
     var el = containerFor(m.id, m.rect);
     var t0 = performance.now();
     try {
       resolveCallbacks(m.config, m.id);
       var chart = anychart.fromJson(m.config);
-      if (!chart) return fail(m.id, 'fromJson produced no chart');
+      if (!chart) return fail(m.id, 'fromJson produced no chart', 'bad-config');
       // The data sheet ignores `data` in its JSON config and its toJson() omits the rows
       // (engine gap, AnyChart 9.0.0), so the rows are handed over through the API instead.
       var root = m.config.chart || m.config.gauge || m.config.map || m.config.gantt || {};
@@ -194,13 +196,13 @@
       charts[m.id] = { chart: chart, el: el };
     } catch (err) {
       if (el.parentNode) el.parentNode.removeChild(el);
-      fail(m.id, err);
+      fail(m.id, err, 'bad-config');
     }
   }
 
   function entry(m) {
     var c = charts[m.id];
-    if (!c) { fail(m.id, 'no chart with id ' + m.id); return null; }
+    if (!c) { fail(m.id, 'no chart with id ' + m.id, 'unknown-chart'); return null; }
     return c;
   }
 
@@ -209,12 +211,12 @@
     try {
       if (m.series !== undefined && c.chart.getSeries) {
         var s = c.chart.getSeries(m.series);
-        if (!s) return fail(m.id, 'no series ' + m.series);
+        if (!s) return fail(m.id, 'no series ' + m.series, 'bad-data');
         s.data(m.data);
       } else {
         c.chart.data(m.data);
       }
-    } catch (err) { fail(m.id, err); }
+    } catch (err) { fail(m.id, err, 'bad-data'); }
   }
 
   function resize(m) {
@@ -222,7 +224,7 @@
     try {
       applyRect(c.el, m.rect);
       c.chart.container().getStage().resize(c.el.clientWidth, c.el.clientHeight);
-    } catch (err) { fail(m.id, err); }
+    } catch (err) { fail(m.id, err, 'bad-message'); }
   }
 
   function dispose(m) {
@@ -254,10 +256,10 @@
         var tips = Array.prototype.filter.call(document.querySelectorAll('.anychart-tooltip'), function (t) { return t.offsetParent !== null && t.textContent; });
         result = tips.length ? tips[tips.length - 1].textContent : null;
       } else {
-        return fail(m.id, 'unknown query ' + m.what);
+        return fail(m.id, 'unknown query ' + m.what, 'bad-message');
       }
       send({ type: 'answer', id: m.id, requestId: m.requestId, result: result });
-    } catch (err) { fail(m.id, err); }
+    } catch (err) { fail(m.id, err, 'bad-message'); }
   }
 
   var handlers = { load: load, update: update, resize: resize, dispose: dispose, query: query };
@@ -267,18 +269,18 @@
     try {
       m = (typeof raw === 'string') ? JSON.parse(raw) : raw;
     } catch (err) {
-      return fail(null, 'malformed message: ' + err.message);
+      return fail(null, 'malformed message: ' + err.message, 'bad-message');
     }
-    if (!m || typeof m !== 'object') return fail(null, 'message is not an object');
+    if (!m || typeof m !== 'object') return fail(null, 'message is not an object', 'bad-message');
     var h = handlers[m.type];
-    if (!h) return fail(m.id === undefined ? null : m.id, 'unknown message type ' + m.type);
+    if (!h) return fail(m.id === undefined ? null : m.id, 'unknown message type ' + m.type, 'bad-message');
     h(m);
   }
 
   window.AnyChartRuntime = { receive: receive, version: RUNTIME_VERSION };
 
   window.addEventListener('error', function (e) {
-    fail(null, e.message || 'script error');
+    fail(null, e.message || 'script error', 'script');
   });
 
   function attachHost() {
@@ -293,7 +295,7 @@
   anychart.onDocumentReady(function () {
     attachHost();
     if (window.ANYCHART_LICENSE_KEY) {
-      try { anychart.licenseKey(window.ANYCHART_LICENSE_KEY); } catch (err) { fail(null, err); }
+      try { anychart.licenseKey(window.ANYCHART_LICENSE_KEY); } catch (err) { fail(null, err, 'script'); }
     }
     // Where the boot time went, for the host's benchmarks: ms since navigation start, plus
     // the fetch duration of each resource the page loaded.

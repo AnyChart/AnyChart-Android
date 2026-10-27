@@ -24,12 +24,12 @@ internal class HostBridge(
     private var reply: JavaScriptReplyProxy? = null
     private val queue = ArrayDeque<String>()
 
-    /** Configures the WebView and starts loading the page. Returns a human-readable reason on failure. */
-    fun start(documentStartScript: String?): String? {
+    /** Configures the WebView and starts loading the page. Returns the typed reason on failure. */
+    fun start(documentStartScript: String?): AnyChartError? {
         if (!WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
             // ponytail: no addJavascriptInterface fallback. Chromium 83 (2020) is the floor; an
             // older System WebView is told so instead of getting a half-working bridge.
-            return "This device's WebView has no WebMessageListener support. Update Android System WebView."
+            return AnyChartError.UnsupportedWebView("This device's WebView has no WebMessageListener support. Update Android System WebView.")
         }
         with(webView.settings) {
             javaScriptEnabled = true
@@ -59,7 +59,7 @@ internal class HostBridge(
             if (WebViewFeature.isFeatureSupported(WebViewFeature.DOCUMENT_START_SCRIPT)) {
                 WebViewCompat.addDocumentStartJavaScript(webView, documentStartScript, setOf(ORIGIN))
             } else {
-                return "This device's WebView cannot run document-start scripts; the licence key was not applied."
+                return AnyChartError.License("This device's WebView cannot run document-start scripts; the licence key was not applied.")
             }
         }
         webView.loadUrl(RUNTIME_URL)

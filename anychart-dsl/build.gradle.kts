@@ -11,6 +11,7 @@ android {
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         aarMetadata { minCompileSdk = 35 }
     }
 
@@ -42,7 +43,12 @@ kotlin {
 }
 
 dependencies {
-    // No runtime dependency: the DSL builds plain JSON with the platform's org.json.
+    // The chart roots implement anychart-core's ChartDocument, so a view loads them directly.
+    api(project(":anychart-core"))
     testImplementation(libs.junit)
     testImplementation(libs.org.json)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.ext.junit)
 }
+

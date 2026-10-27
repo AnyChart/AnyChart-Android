@@ -4538,10 +4538,8 @@ Column3d  public var meta: Any?
 Column3d  public var name: String?
 Column3d  public var xPointPosition: Number?
 Column3d  public var zIndex: Number?
-ConfigNode  public abstract class ChartRoot(private val rootKey: String, typeName: String) : ConfigNode()
-ConfigNode  public fun callbacks(): Map<String, (JSONObject) -> Any?>
+ConfigNode  public abstract class ChartRoot(private val rootKey: String, typeName: String) : ConfigNode(), ChartDocument
 ConfigNode  public fun toDocument(): JSONObject
-ConfigNode  public fun toDocumentString(): String
 ConfigNode  public fun toJson(): JSONObject
 ConfigNode  public interface JsonValue
 ConfigNode  public open class ConfigNode

@@ -1,0 +1,60 @@
+AnyChartError  public class BadConfig(chartId: String?, message: String) : AnyChartError(chartId, message)
+AnyChartError  public class BadData(chartId: String?, message: String) : AnyChartError(chartId, message)
+AnyChartError  public class BadMessage(chartId: String?, message: String) : AnyChartError(chartId, message)
+AnyChartError  public class Callback(chartId: String?, message: String) : AnyChartError(chartId, message)
+AnyChartError  public class EngineMismatch(public val expected: String, public val announced: String, message: String) : AnyChartError(null, message)
+AnyChartError  public class License(message: String) : AnyChartError(null, message)
+AnyChartError  public class Page(message: String) : AnyChartError(null, message)
+AnyChartError  public class UnknownChart(chartId: String?, message: String) : AnyChartError(chartId, message)
+AnyChartError  public class UnsupportedWebView(message: String) : AnyChartError(null, message)
+AnyChartError  public companion object
+AnyChartError  public fun fromPage(chartId: String?, code: String, message: String): AnyChartError
+AnyChartError  public sealed class AnyChartError(public val chartId: String?, public val message: String)
+AnyChartEvent  public class AnyChartEvent internal constructor(
+AnyChartEvent  public class AnyChartView @JvmOverloads constructor(
+AnyChartEvent  public class RenderReport internal constructor(
+AnyChartEvent  public class SelectedPoint internal constructor(public val pointIndex: Int, public val x: Any?, public val value: Any?, public val series: String?)
+AnyChartEvent  public companion object
+AnyChartEvent  public const val DEFAULT_CHART_ID: String
+AnyChartEvent  public fun callbacks(callbacks: Map<String, (JSONObject) -> Any?>, chartId: String
+AnyChartEvent  public fun chartJson(chartId: String
+AnyChartEvent  public fun destroy()
+AnyChartEvent  public fun dispose(chartId: String
+AnyChartEvent  public fun load(
+AnyChartEvent  public fun onError(error: AnyChartError) {}
+AnyChartEvent  public fun onEvent(event: AnyChartEvent) {}
+AnyChartEvent  public fun onReady(jsVersion: String) {}
+AnyChartEvent  public fun onRendered(chartId: String, millis: Long) {}
+AnyChartEvent  public fun onRestoreCallbacks(chartId: String): Map<String, (JSONObject) -> Any?>
+AnyChartEvent  public fun query(what: String, chartId: String
+AnyChartEvent  public fun renderReport(chartId: String
+AnyChartEvent  public fun resize(rect: ChartRect, chartId: String
+AnyChartEvent  public fun selectedPoints(chartId: String
+AnyChartEvent  public fun update(dataJson: String, chartId: String
+AnyChartEvent  public fun update(rows: List<Map<String, Any?>>, chartId: String
+AnyChartEvent  public fun warmUp()
+AnyChartEvent  public interface Listener
+AnyChartEvent  public val callbackCalls: Int,
+AnyChartEvent  public val callbackMillis: Double,
+AnyChartEvent  public val chartId: String,
+AnyChartEvent  public val data: JSONObject,
+AnyChartEvent  public val millis: Long,
+AnyChartEvent  public val name: String,
+AnyChartEvent  public val pointIndex: Int? get()
+AnyChartEvent  public val series: String? get()
+AnyChartEvent  public val value: Any? get()
+AnyChartEvent  public val x: Any? get()
+AnyChartEvent  public var expectedJsVersion: String?
+AnyChartEvent  public var jsVersion: String?
+AnyChartEvent  public var licenseKey: String?
+AnyChartEvent  public var listener: Listener?
+AnyChartEvent  public var pageTiming: JSONObject
+AnyChartEvent  public var savesState: Boolean
+ChartDocument  public fun callbacks(): Map<String, (JSONObject) -> Any?>
+ChartDocument  public fun toDocumentString(): String
+ChartDocument  public interface ChartDocument
+ChartDocument  public val engineVersion: String? get()
+EngineVersion  public fun mismatch(expected: String?, announced: String): String?
+EngineVersion  public object EngineVersion
+License  public fun isUsable(key: String?): Boolean
+License  public object License

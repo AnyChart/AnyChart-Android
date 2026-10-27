@@ -1,5 +1,6 @@
 package com.anychart.dsl
 
+import com.anychart.core.ChartDocument
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -89,20 +90,24 @@ public open class ConfigNode {
     }
 }
 
-/** The document root: `{"chart": {...}}` or `{"gauge": {...}}` with the engine's `type` set. */
-public abstract class ChartRoot(private val rootKey: String, typeName: String) : ConfigNode() {
+/**
+ * The document root: `{"chart": {...}}` or `{"gauge": {...}}` with the engine's `type` set. A
+ * [ChartDocument], so `AnyChartView.load(chart)` takes it with its callbacks and engine version.
+ */
+public abstract class ChartRoot(private val rootKey: String, typeName: String) : ConfigNode(), ChartDocument {
     init { put("type", typeName) }
 
     /** The full document, as the runtime's `load` takes it. */
     public fun toDocument(): JSONObject = JSONObject().put(rootKey, toJson())
-    public fun toDocumentString(): String = toDocument().toString()
+    override fun toDocumentString(): String = toDocument().toString()
+    override val engineVersion: String get() = com.anychart.dsl.generated.Generated.ENGINE_VERSION
 
     /**
      * The host lambdas this document refers to by `{"$fn": id}`, ready for the host's callback
      * channel: each takes the page's context JSON and returns an org.json-ready value. Hand it to
      * the view together with [toDocumentString].
      */
-    public fun callbacks(): Map<String, (JSONObject) -> Any?> {
+    override fun callbacks(): Map<String, (JSONObject) -> Any?> {
         val out = LinkedHashMap<String, (JSONObject) -> Any?>()
         fun walk(v: Any?) {
             when (v) {

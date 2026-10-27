@@ -56,7 +56,7 @@ class GalleryActivity : ComponentActivity() {
                         modifier = Modifier.weight(1f).fillMaxWidth(),
                         onRendered = { ms -> status = "${selected.removeSuffix(".json")} rendered in $ms ms. Tap a point." },
                         onEvent = { e -> status = "${e.name}: ${e.x} = ${e.value}" },
-                        onError = { _, message -> status = "error: $message" },
+                        onError = { error -> status = "error: ${error.message}" },
                     )
                 }
             }

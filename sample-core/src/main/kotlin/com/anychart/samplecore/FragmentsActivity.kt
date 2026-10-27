@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.anychart.core.AnyChartEvent
+import com.anychart.core.AnyChartError
 import com.anychart.core.AnyChartView
 
 /**
@@ -47,7 +48,7 @@ class ChartFragment : Fragment() {
         chart.listener = object : AnyChartView.Listener {
             override fun onRendered(chartId: String, millis: Long) { status.text = "$name rendered in $millis ms (fragment ${this@ChartFragment.hashCode() % 1000})" }
             override fun onEvent(event: AnyChartEvent) { status.text = "$name: ${event.name} ${event.x ?: ""} ${event.value ?: ""}" }
-            override fun onError(chartId: String?, message: String) { status.text = "$name error: $message" }
+            override fun onError(error: AnyChartError) { val message = error.message; status.text = "$name error: $message" }
         }
         chart.load(Demo.config(ctx, name))
         return LinearLayout(ctx).apply {

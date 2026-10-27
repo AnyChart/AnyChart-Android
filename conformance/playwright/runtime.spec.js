@@ -218,6 +218,7 @@ test.describe('runtime page', () => {
       await rendered(page, 'g2');
       const errs = (await errorsOf(page)).map(e => `${e.id}: ${e.message}`);
       expect(errs.some(e => e.startsWith('g1: callback ghost: no callback ghost'))).toBe(true);
+      expect((await errorsOf(page)).every(e => e.code === 'callback')).toBe(true);
       expect(errs.some(e => e.startsWith('g2: callback ghost: the host has no AnyChartCallbacks channel'))).toBe(true);
       // one report per chart, not one per label
       expect(errs.filter(e => e.startsWith('g2:')).length).toBe(1);
@@ -257,5 +258,10 @@ test.describe('runtime page', () => {
     expect(errs.map(e => e.message).join('\n')).toMatch(/malformed message/);
     expect(errs.map(e => e.message).join('\n')).toMatch(/unknown message type nonsense/);
     expect(errs.map(e => e.message).join('\n')).toMatch(/no chart with id ghost/);
+    // every error names its class, so a host can type it without reading the message
+    expect(errs.find(e => e.id === 'bad').code).toBe('bad-config');
+    expect(errs.find(e => /malformed message/.test(e.message)).code).toBe('bad-message');
+    expect(errs.find(e => /unknown message type/.test(e.message)).code).toBe('bad-message');
+    expect(errs.find(e => e.id === 'ghost').code).toBe('unknown-chart');
   });
 });

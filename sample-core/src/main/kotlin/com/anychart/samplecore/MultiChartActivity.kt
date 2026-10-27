@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import com.anychart.core.AnyChartEvent
+import com.anychart.core.AnyChartError
 import com.anychart.core.AnyChartView
 
 /**
@@ -25,7 +26,7 @@ class MultiChartActivity : Activity() {
             view.listener = object : AnyChartView.Listener {
                 override fun onRendered(chartId: String, millis: Long) { status.text = "$name rendered in $millis ms" }
                 override fun onEvent(event: AnyChartEvent) { status.text = "$name: ${event.name} ${event.x} = ${event.value}" }
-                override fun onError(chartId: String?, message: String) { status.text = "$name error: $message" }
+                override fun onError(error: AnyChartError) { val message = error.message; status.text = "$name error: $message" }
             }
             column.addView(view, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp(300)))
             view.load(Demo.config(this, name))
